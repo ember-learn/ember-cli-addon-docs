@@ -1,8 +1,26 @@
 import Ember from 'ember';
 import layout from './template';
 
+/**
+ This has to exist to satisfy an assumption the doc viewer makes that at least one namespace exists in a project.
+
+ @class MyNamespace
+ @static
+ */
+
+
+/**
+  Pretty cool component, right?
+
+  ```handlebars
+  {{sample-component foo='bar'}}
+  ```
+
+  @class SampleComponent
+  @public
+*/
 export default Ember.Component.extend({
-  
+
   layout,
 
   /**
