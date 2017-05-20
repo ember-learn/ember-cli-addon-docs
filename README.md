@@ -1,6 +1,12 @@
 # ember-cli-addon-docs
 
-This README outlines the details of collaborating on this Ember addon.
+This addon has the goal of providing tools for addon developers to easily document and market their addons.
+
+Features planned:
+
+* [ ] Marketing homepage
+* [ ] Versioned API documentation
+* [ ] Versioned guides
 
 ## Installation
 
