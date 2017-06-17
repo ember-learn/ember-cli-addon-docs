@@ -12,6 +12,8 @@ import layout from './template';
 /**
   Pretty cool component, right?
 
+  Here's how you'd use it:
+
   ```handlebars
   {{sample-component foo='bar'}}
   ```

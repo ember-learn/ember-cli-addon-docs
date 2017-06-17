@@ -1,0 +1,12 @@
+@import 'tachyons';
+
+body {
+  @extend .helvetica;
+  @extend .dark-gray;
+}
+
+html,
+body,
+body > .ember-view {
+  height: 100%;
+}

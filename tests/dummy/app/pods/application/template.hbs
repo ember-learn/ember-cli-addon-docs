@@ -1,7 +1,15 @@
-<h1>Hello worldd</h1>
-
-{{sample-component}}
-
-<p>hum</p>
-
-{{outlet}}
+<div class='h-100 flex'>
+  <nav class='w5 bg-near-white br b--black-10'>
+    {{#link-to 'index' class='db pa3 link dark-gray b' activeClass='bg-black-30'}}
+      Home
+    {{/link-to}}
+    {{#link-to 'api' class='db pa3 link dark-gray b'}}
+      API
+    {{/link-to}}
+  </nav>
+  <main class='flex-auto'>
+    <div class='measure center pt3'>
+      {{outlet}}
+    </div>
+  </main>
+</div>
