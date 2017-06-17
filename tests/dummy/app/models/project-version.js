@@ -4,7 +4,7 @@ const { attr, hasMany, belongsTo } = DS;
 
 export default DS.Model.extend({
 
-  classes: hasMany('class', { async: true }),
+  classes: hasMany('class', { async: false }),
   modules: hasMany('module', { async: true }),
   namespaces: hasMany('namespace', { async: true }),
   'public-classes': hasMany('class', { async: true }),

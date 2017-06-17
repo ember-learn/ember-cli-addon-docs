@@ -1,19 +1,22 @@
-<div class='h-100 flex'>
+<div class='docs-viewer'>
 
-  <nav class='bg-docs-off-white w5 br b--black-10 f6'>
-    {{#link-to 'docs.index' class='db pa3 link hover-bg-black-05 dark-gray' activeClass='active bg-black-05'}}
-      Docs home
+  <nav class='docs-viewer__nav'>
+    {{#link-to 'docs.index' class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
+      Getting started
     {{/link-to}}
-    {{#link-to 'docs.guides' class='db pa3 link hover-bg-black-05 dark-gray' activeClass='active bg-black-05'}}
-      Guides
+    {{#link-to 'docs.guides' class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
+      Basics
     {{/link-to}}
-    {{#link-to 'docs.api' class='db pa3 link hover-bg-black-05 dark-gray' activeClass='active bg-black-05'}}
-      API
+    {{#link-to 'docs.to-do' class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
+      To Do
+    {{/link-to}}
+    {{#link-to 'docs.api' class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
+      API Reference
     {{/link-to}}
   </nav>
 
-  <main class='flex-auto overflow-scroll'>
-    <div class="docs-container">
+  <main class='docs-viewer__main'>
+    <div class="docs-container docs__center">
       {{outlet}}
     </div>
   </main>

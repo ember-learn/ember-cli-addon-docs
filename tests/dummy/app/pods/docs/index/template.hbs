@@ -1,34 +1,8 @@
-<div class="pv3">
-  <hr>
-</div>
-
 <section class='mt4 docs-md'>
-  <h2>Philosophy</h2>
-  <p>We have READMEs and people make their own sites. We also have things like GitBook and ReadTheDocs. But Ember Addons are unique enough that they warrant their own solution to this problem:</p>
+  <h2>To document:</h2>
   <ul>
-    <li><strong>They need often need interactive demos in the context of an Ember app.</strong> For example, Liquid Fire wants to show off its APIs in the context of an Ember app.</li>
-    <li><strong>They need need tests.</strong> A "best practice" has emerged around testing acceptance testing addons - use the included dummy app! If the dummy app doubles as your documentation, you (a) make sure you add use cases to your docs in order to test them, and (b) now your docs are tested and up to date! No more documentation falling out of sync with your source code.</li>
-  </ul>
-  <p>Looking at a survey of several popular addon sites, we've seen some common needs:</p>
-  <ul>
-    <li>Guides (versioned)</li>
-    <li>API documentation, versioned, and ideally generated automatically from YUIDOC comments in the source code.</li>
-  </ul>
-  <p>We want addon authors to (a) be encouraged to document their addons, (b) fall into success around several common problems (things like how to write & deploy versioned guides). These things are nontrivial and we want to take our collective wisdom and provide good solutions here.</p>
-  <p>We want to strike a good balance between providing a productive starting point, and giving addon authors useful primitives so they can still inject their unique personality and needs into their addon doc sites.</p>
-  <p>We put thought into the nav layout. It works on mobile and desktop, its flexible enough to support a variety of addon authors' needs. The tree view accommodates an arbitrary number of sections. The search allows for quick reference.</p>
-</section>
-
-<section class='mt5'>
-  <h2>Features</h2>
-  <p>Current features:</p>
-  <ul>
-    <li>App scaffold</li>
-    <li>Navigation primtiives</li>
-    <li>Autogenerate API docs from YUIDOC comments, along with container components for this</li>
-  </ul>
-  <p>Upcoming features:</p>
-  <ul>
-    <li>Interactive component widget</li>
+    <li>How it supports older versions of sites. Want to be able to migrate Mirage's docs, Liquid Fire's docs etc.</li>
+    <li>CSS convnetion. All our css classes are prefixed with <code>docs</code>. Components look like this: <code>docs-hero</code>, utilities like this <code>docs__center</code>. Pick and choose what you'd like. We want addon authors to be able to make their own unique sites.</li>
+    <li>Explain the reasoning around docs layout: left-hand nav, etc.</li>
   </ul>
 </section>

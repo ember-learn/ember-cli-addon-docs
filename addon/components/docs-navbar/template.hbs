@@ -1,4 +1,4 @@
-<div class='docs-navbar__inner docs-container'>
+<div class='docs-navbar__inner docs-container {{if isViewingDocs 'docs-container--fluid'}}'>
   {{#if isHome}}
     {{#link-to 'docs' class='docs-navbar__link'}}
       Documentation

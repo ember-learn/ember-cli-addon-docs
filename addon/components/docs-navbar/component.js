@@ -7,6 +7,7 @@ export default Ember.Component.extend({
   router: Ember.inject.service('-routing'),
 
   isHome: Ember.computed.equal('router.currentPath', 'index'),
+  isViewingDocs: Ember.computed.match('router.currentPath', /docs/),
 
   tagName: 'nav',
   classNames: 'docs-navbar'
