@@ -1,0 +1,21 @@
+<div class='h-100 flex'>
+
+  <nav class='bg-docs-off-white w5 br b--black-10 f6'>
+    {{#link-to 'docs.index' class='db pa3 link hover-bg-black-05 dark-gray' activeClass='active bg-black-05'}}
+      Docs home
+    {{/link-to}}
+    {{#link-to 'docs.guides' class='db pa3 link hover-bg-black-05 dark-gray' activeClass='active bg-black-05'}}
+      Guides
+    {{/link-to}}
+    {{#link-to 'docs.api' class='db pa3 link hover-bg-black-05 dark-gray' activeClass='active bg-black-05'}}
+      API
+    {{/link-to}}
+  </nav>
+
+  <main class='flex-auto overflow-scroll'>
+    <div class='mw7 center pt5'>
+      {{outlet}}
+    </div>
+  </main>
+
+</div>

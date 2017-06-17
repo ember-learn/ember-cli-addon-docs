@@ -1,0 +1,29 @@
+@import 'normalize';
+@import 'pod-styles';
+
+body {
+  font-family: 'helvetica neue', helvetica, sans-serif;
+  color: #333;
+  line-height: 1.7;
+}
+
+html,
+body,
+body > .ember-view {
+  height: 100%;
+}
+
+.docs-container {
+  max-width: 1000px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.docs__fr {
+  float: right;
+}
+.docs__dn {
+  display: none;
+}

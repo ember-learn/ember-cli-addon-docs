@@ -6,6 +6,14 @@ const path = require('path');
 module.exports = {
   name: 'ember-cli-addon-docs',
 
+  config(env, baseConfig) {
+    return {
+      'ember-component-css': {
+        namespacing: false
+      }
+    };
+  },
+
   treeForPublic() {
     let parentAddon = this.parent.findAddonByName(this.parent.name());
     if (!parentAddon) { return; }

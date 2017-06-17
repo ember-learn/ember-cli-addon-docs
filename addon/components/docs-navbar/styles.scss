@@ -1,0 +1,32 @@
+.docs-navbar {
+  background-color: #222;
+  color: white;
+
+  &__inner {
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+
+  &__link {
+    color: white;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: all .05s ease-in;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  &__logo {
+    line-height: 1;
+    font-size: 23px;
+    font-weight: 400;
+  }
+  &__logo-trademark {
+    display: block;
+    width: 60px;
+    opacity: 0.7;
+  }
+}

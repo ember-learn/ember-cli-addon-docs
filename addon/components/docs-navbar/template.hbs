@@ -1,0 +1,17 @@
+<div class='docs-navbar__inner docs-container'>
+  {{#if isHome}}
+    {{#link-to 'docs' class='docs-navbar__link'}}
+      Documentation
+    {{/link-to}}
+  {{else}}
+    {{#link-to 'index' class='docs-navbar__link'}}
+      <span class='docs-navbar__logo'>
+        <span class='docs-navbar__logo-trademark'>
+          {{docs-logo logo='ember-cli'}}
+        </span>
+        {{name}}
+      </span>
+    {{/link-to}}
+  {{/if}}
+  <a href={{githubUrl}} class='docs-navbar__link docs__fr'>GitHub</a>
+</div>
