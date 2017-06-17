@@ -20,7 +20,41 @@ body > .ember-view {
   margin-left: auto;
   margin-right: auto;
 }
+.docs-section {
+  margin-top: 50px;
+  width: 720px;
+  position: relative;
+}
+.docs-md {
+  h2 {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 0.015em
+  }
+  p {
+    font-size: 17px;
+    letter-spacing: -0.021em;
+  }
+  li {
+    font-size: 17px;
+    letter-spacing: -0.021em;
+  }
+  aside {
+    font-size: small;
+    width: 180px;
+    position: absolute;
+    left: 780px;
+    line-height: 1.4;
+  }
+  a {
+    text-decoration: none;
+    color: #2196f3;
 
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
+  }
+}
 .docs__fr {
   float: right;
 }

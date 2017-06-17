@@ -6,12 +6,14 @@
   {{else}}
     {{#link-to 'index' class='docs-navbar__link'}}
       <span class='docs-navbar__logo'>
-        <span class='docs-navbar__logo-trademark'>
-          {{docs-logo logo='ember-cli'}}
-        </span>
+        {{#if logo}}
+          <span class='docs-navbar__logo-trademark'>
+            {{docs-logo logo=logo}}
+          </span>
+        {{/if}}
         {{name}}
       </span>
     {{/link-to}}
   {{/if}}
-  <a href={{githubUrl}} class='docs-navbar__link docs__fr'>GitHub</a>
+  <a href={{githubUrl}} class='docs-navbar__link docs-navbar__link--right'>GitHub</a>
 </div>

@@ -2,16 +2,23 @@
   logo='ember-cli'
   slim-heading='Addon'
   strong-heading='Docs'
-  byline='Powerful primitives to help you document your addon'}}
+  byline='Primitives and patterns to help you document your addon'}}
 
-<div class="docs-container">
-  <section class='mt4'>
+<div class='docs-container docs-md'>
+  <section class='docs-section'>
     <h2>Philosophy</h2>
-    <p>We have READMEs and people make their own sites. We also have things like GitBook and ReadTheDocs. But Ember Addons are unique enough that they warrant their own solution to this problem:</p>
+    <aside>Looking for the quickstart? <a href='#'>Click here.</a></aside>
+    <p>Documenting software libraries has been getting easier. We have nicely-formatted README.md files, the ability to host custom sites for free on GitHub Pages, and even dedicated tools like <a href="#">GitBook</a> and <a href="#">ReadTheDocs</a>. But while these tools have come a long way, so have developer expectations, and library authors can quickly find themselves juggling more tasks than can manage.</p>
+    <p>Ember addons occupy a unique space here. Besides everything that's expected of any modern JavaScript library, there's even more that goes into authoring a library that plays nicely with an ecosystem as mature as Ember's. And too often addon authors with limited time must choose between being a better community citizen, or focusing on the core problem their library was created to solve in the first place.</p>
+    <p>These days, a well-maintained Ember addon should</p>
     <ul>
-      <li><strong>They need often need interactive demos in the context of an Ember app.</strong> For example, Liquid Fire wants to show off its APIs in the context of an Ember app.</li>
-      <li><strong>They need need tests.</strong> A "best practice" has emerged around testing acceptance testing addons - use the included dummy app! If the dummy app doubles as your documentation, you (a) make sure you add use cases to your docs in order to test them, and (b) now your docs are tested and up to date! No more documentation falling out of sync with your source code.</li>
+      <li><strong>Provide interactive demos of their components</strong> in the context of an Ember app</li>
+      <li><strong>Show current and versioned guides,</strong> ideally whose content is verified by automated tests</li>
+      <li><strong>Show current and versioned API documentation</strong> derived from structured comments in source code</li>
+      <li><strong>Have excellent test coverage</strong> across a matrix of Ember and Ember CLI versions</li>
+      <li><strong>Make it easy for contributors to correct documentation errors</strong> in addition to submitting code fixes</li>
     </ul>
+    <p>Looking at the available tools for authoring docs, none proved satisfactory for all these needs. This is why addons deserve their own solution.</p>
     <p>Looking at a survey of several popular addon sites, we've seen some common needs:</p>
     <ul>
       <li>Guides (versioned)</li>
@@ -23,7 +30,7 @@
     <p>Don't want everyone to recreate layout, nav, organization. Where do guides go? Addons? Community? Version selectors? Too many questions.</p>
   </section>
 
-  <section class='mt5'>
+  <section class='docs-section'>
     <h2>Features</h2>
     <p>Current features:</p>
     <ul>
@@ -35,5 +42,15 @@
     <ul>
       <li>Interactive component widget</li>
     </ul>
+  </section>
+
+  <section class='docs-section'>
+    <h2>Boilerplate</h2>
+    <p>The site you're viewing right now is an example of an Ember app made using Ember CLI Addon Docs. Be sure to <a href="">check out the repo</a> for all the details.</p>
+    <p>We also provide a generator to get you started. If you've just installed Ember CLI Addon Docs, you can run</p>
+    <pre>
+      ember g ember-cli-addon-docs
+    </pre>
+    <p>and you'll have a boilerplate site ready to start filling out.</p>
   </section>
 </div>
