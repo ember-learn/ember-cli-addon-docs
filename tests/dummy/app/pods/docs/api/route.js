@@ -13,14 +13,18 @@ export default Ember.Route.extend({
         this.set('projectVersion.version', version);
 
         return this.store.findRecord('project-version', projectVersion);
-      })
-      .then(projectVersion => {
-        let classIds = projectVersion.hasMany('classes').ids();
-        
-        return this.store.findRecord('class', classIds[0]);
-      })
-      ;
-
+      });
   }
+
+  // afterModel(projectVersion) {
+  //   return Ember.RSVP.all([
+  //     projectVersion.hasMany('classes')
+  //       .ids()
+  //       .map(id => {
+  //         return this.store.findRecord('class', id);
+  //       })
+  //   ])
+  // }
+
 
 });

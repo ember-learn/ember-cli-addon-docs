@@ -5,6 +5,11 @@ body {
   font-family: 'helvetica neue', helvetica, sans-serif;
   color: #333;
   line-height: 1.7;
+  letter-spacing: 0.2px;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
 }
 
 html,
@@ -30,19 +35,26 @@ body > .ember-view {
   position: relative;
 }
 .docs-md {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+
   h2 {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 500;
-    letter-spacing: 0.015em
   }
   p {
-    font-size: 17px;
-    letter-spacing: -0.021em;
   }
   li {
-    font-size: 17px;
-    letter-spacing: -0.021em;
   }
+
+  blockquote {
+    margin: 0;
+    margin-bottom: .85em;
+    padding: 0 15px;
+    color: #858585;
+    border-left: 4px solid #e5e5e5
+  }
+
   aside {
     font-size: small;
     width: 180px;
@@ -50,13 +62,23 @@ body > .ember-view {
     left: 780px;
     line-height: 1.4;
   }
+
   a {
     text-decoration: none;
-    color: #2196f3;
+    color: #5ab6ff;
 
     &:hover, &:focus {
       text-decoration: underline;
     }
+  }
+
+  hr {
+    height: 4px;
+    padding: 0;
+    margin: 1.7em 0;
+    overflow: hidden;
+    background-color: #e7e7e7;
+    border: none
   }
 }
 .docs__fr {
@@ -77,11 +99,12 @@ body > .ember-view {
     background-color: #fafafa;
     width: 300px;
     border-right: 1px solid #eee;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 400;
   }
   &__nav-link {
     display: block;
-    padding: 15px;
+    padding: 10px 15px;
     text-decoration: none;
     color: #364149;
 

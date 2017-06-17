@@ -19,16 +19,18 @@
   },
   "dependencies": {
     "broccoli-caching-writer": "^3.0.3",
+    "ember-cli-autoprefixer": "^0.7.0",
     "ember-cli-babel": "^6.0.0",
     "ember-cli-htmlbars": "^1.1.1",
     "ember-cli-sass": "6.x",
     "ember-component-css": "0.3.x",
+    "ember-data": "2.x",
     "ember-jsonapi-docs-generator": "git+ssh://git@github.com:ember-learn/ember-jsonapi-docs.git#0.2",
     "fs-extra": "^2.1.2",
     "git-repo-version": "^0.4.1",
     "inflected": "^1.1.7",
     "yuidocjs": "^0.10.2",
-    "ember-cli-autoprefixer": "^0.7.0"
+    "ember-cli-markdown-templates": "^0.0.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -42,7 +44,6 @@
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
-    "ember-data": "^2.13.1",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",

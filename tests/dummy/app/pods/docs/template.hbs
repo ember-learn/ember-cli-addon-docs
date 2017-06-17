@@ -2,13 +2,10 @@
 
   <nav class='docs-viewer__nav'>
     {{#link-to 'docs.index' class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
-      Getting started
-    {{/link-to}}
-    {{#link-to 'docs.guides' class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
-      Basics
+      Home
     {{/link-to}}
     {{#link-to 'docs.to-do' class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
-      To Do
+      To do
     {{/link-to}}
     {{#link-to 'docs.api' class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
       API Reference
@@ -16,8 +13,10 @@
   </nav>
 
   <main class='docs-viewer__main'>
-    <div class="docs-container docs__center">
-      {{outlet}}
+    <div class="docs-container docs__center docs-md">
+      <div class="docs-section">
+        {{outlet}}
+      </div>
     </div>
   </main>
 
