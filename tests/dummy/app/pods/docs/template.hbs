@@ -1,23 +1,27 @@
-<div class='docs-viewer'>
+{{#docs-viewer as |viewer|}}
 
-  <nav class='docs-viewer__nav'>
-    {{#link-to 'docs.index' class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
-      Home
-    {{/link-to}}
-    {{#link-to 'docs.to-do' class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
-      To do
-    {{/link-to}}
-    {{#link-to 'docs.api' class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
-      API Reference
-    {{/link-to}}
-  </nav>
+  {{#viewer.nav as |nav|}}
+    {{nav.item 'Home' 'docs.index'}}
+    {{nav.item 'Quickstart' 'docs.quickstart'}}
+    {{nav.item 'Patterns' 'docs.patterns'}}
+    {{nav.item 'Components' 'docs.components.index'}}
+    {{#nav.subnav as |nav|}}
+      {{nav.item 'Docs Hero' 'docs.components.docs-hero'}}
+      {{nav.item 'Docs Logo' 'docs.components.docs-logo'}}
+      {{nav.item 'Docs NavBar' 'docs.components.docs-navbar'}}
+      {{nav.item 'Docs Viewer' 'docs.components.docs-viewer'}}
+    {{/nav.subnav}}
 
-  <main class='docs-viewer__main'>
+    {{nav.item 'TODO' 'docs.to-do'}}
+    {{nav.item 'API Reference' 'docs.api'}}
+  {{/viewer.nav}}
+
+  {{#viewer.main}}
     <div class="docs-container docs__center docs-md">
       <div class="docs-section">
         {{outlet}}
       </div>
     </div>
-  </main>
+  {{/viewer.main}}
 
-</div>
+{{/docs-viewer}}

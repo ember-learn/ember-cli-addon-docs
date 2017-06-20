@@ -1,0 +1,27 @@
+.docs-viewer__nav {
+  background-color: #fafafa;
+  width: 300px;
+  border-right: 1px solid #eee;
+  font-size: 15px;
+  font-weight: 400;
+
+  &-search {
+    padding: 6px;
+    background: 0 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+
+    input {
+      width: 100%;
+      border: 1px solid transparent;
+      box-shadow: none;
+      outline: 0;
+      padding: 10px 10px 10px 20px;
+
+      &::placeholder {
+        color: #8d98a0;
+      }
+    }
+  }
+}

@@ -10,12 +10,17 @@ body {
 
 * {
   -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
 }
 
-html,
-body,
-body > .ember-view {
+html, body {
   height: 100%;
+}
+
+body > .ember-view {
+  // display: flex;
+  // flex-direction: column;
+  // height: 100%;
 }
 
 .docs-container {
@@ -31,7 +36,7 @@ body > .ember-view {
 }
 .docs-section {
   margin-top: 50px;
-  width: 720px;
+  max-width: 720px;
   position: relative;
 }
 .docs-md {
@@ -39,12 +44,20 @@ body > .ember-view {
   -webkit-font-smoothing: antialiased;
 
   h2 {
-    font-size: 28px;
-    font-weight: 500;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 1.5em;
   }
+
   p {
   }
+
   li {
+  }
+
+  code {
+    background: #f5f2f0;
+    padding: 2px 3px;
   }
 
   blockquote {
@@ -63,12 +76,20 @@ body > .ember-view {
     line-height: 1.4;
   }
 
+  pre {
+    background: #f5f2f0;
+    padding: 20px;
+    overflow-x: scroll;
+    font-size: 14px;
+  }
+
   a {
     text-decoration: none;
-    color: #5ab6ff;
+    border-bottom: 1px solid #666;
+    color: inherit;
 
     &:hover, &:focus {
-      text-decoration: underline;
+      border-bottom: 1px solid #666;
     }
   }
 
@@ -90,35 +111,4 @@ body > .ember-view {
 .docs__center {
   margin-left: auto;
   margin-right: auto;
-}
-.docs-viewer {
-  display: flex;
-  height: 100%;
-
-  &__nav {
-    background-color: #fafafa;
-    width: 300px;
-    border-right: 1px solid #eee;
-    font-size: 15px;
-    font-weight: 400;
-  }
-  &__nav-link {
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-    color: #364149;
-
-    &:hover,
-    &--active {
-      background-color: #e3e6e8;
-    }
-
-    &--active {
-      border-right: 6px solid #5ab6ff;
-    }
-  }
-  &__main {
-    flex: 1;
-    overflow: scroll;
-  }
 }

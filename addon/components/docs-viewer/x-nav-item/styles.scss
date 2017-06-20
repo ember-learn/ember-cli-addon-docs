@@ -1,0 +1,27 @@
+.docs-viewer__nav-link {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #364149;
+  border-left: 2px solid transparent;
+  transition: all 0.15s;
+  opacity: 0.5;
+
+  &:before {
+    content: '▸';
+    opacity: 0;
+    transition: all 0.15s;
+  }
+
+  &:hover,
+  &--active {
+    opacity: 1;
+  }
+
+  &--active {
+    border-left: 6px solid transparent;
+    &:before {
+      opacity: 1;
+    }
+  }
+}

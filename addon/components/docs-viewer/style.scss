@@ -1,0 +1,19 @@
+body.docs-viewer--showing {
+  overflow: hidden;
+}
+
+body.docs-viewer--showing > .ember-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.docs-viewer {
+  display: flex;
+  height: 100%;
+
+  &__main {
+    flex: 1;
+    overflow: scroll;
+  }
+}

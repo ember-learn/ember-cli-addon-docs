@@ -7,7 +7,7 @@
   &__logo {
     display: block;
     width: 130px;
-    opacity: 0.20;
+    opacity: 0.2;
   }
 
   &__heading {
@@ -30,8 +30,7 @@
 
   &__byline {
     margin-top: 0;
-    color: rgba(255,255,255,0.9);
-    font-size: 24px;
-    font-weight: 200;
+    font-size: 22px;
+    opacity: 0.65;
   }
 }

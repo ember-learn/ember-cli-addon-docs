@@ -1,0 +1,10 @@
+<div class="docs-viewer__nav-search">
+  <input type="text" placeholder="Type to search">
+</div>
+
+{{#docs-viewer/x-nav-list}}
+  {{yield (hash
+    item=(component 'docs-viewer/x-nav-item')
+    subnav=(component 'docs-viewer/x-nav-list')
+  )}}
+{{/docs-viewer/x-nav-list}}

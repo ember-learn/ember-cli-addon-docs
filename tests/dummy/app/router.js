@@ -9,8 +9,19 @@ const Router = Ember.Router.extend({
 Router.map(function() {
 
   this.route('docs', function() {
-    this.route('guides');
+    this.route('quickstart');
+
+    this.route('patterns');
+
+    this.route('components', function() {
+      this.route('docs-hero');
+      this.route('docs-logo');
+      this.route('docs-navbar');
+      this.route('docs-viewer');
+    });
+
     this.route('to-do');
+
     this.route('api');
   });
 
