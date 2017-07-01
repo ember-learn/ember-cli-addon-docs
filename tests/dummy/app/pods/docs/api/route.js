@@ -16,15 +16,5 @@ export default Ember.Route.extend({
       });
   }
 
-  // afterModel(projectVersion) {
-  //   return Ember.RSVP.all([
-  //     projectVersion.hasMany('classes')
-  //       .ids()
-  //       .map(id => {
-  //         return this.store.findRecord('class', id);
-  //       })
-  //   ])
-  // }
-
 
 });

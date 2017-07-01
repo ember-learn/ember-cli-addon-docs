@@ -22,6 +22,7 @@
     "ember-cli-autoprefixer": "^0.7.0",
     "ember-cli-babel": "^6.0.0",
     "ember-cli-htmlbars": "^1.1.1",
+    "ember-cli-markdown-templates": "^0.0.1",
     "ember-cli-sass": "6.x",
     "ember-component-css": "0.3.x",
     "ember-data": "2.x",
@@ -29,8 +30,7 @@
     "fs-extra": "^2.1.2",
     "git-repo-version": "^0.4.1",
     "inflected": "^1.1.7",
-    "yuidocjs": "^0.10.2",
-    "ember-cli-markdown-templates": "^0.0.1"
+    "yuidocjs": "^0.10.2"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -48,6 +48,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.0.0",
+    "ember-router-scroll": "^0.2.0",
     "ember-source": "~2.13.0",
     "loader.js": "^4.2.3"
   },
