@@ -1,1 +1,0 @@
-ember deploy production
