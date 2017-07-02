@@ -74,6 +74,8 @@ Once you get the first build working, let's set up Travis to deploy everytime yo
 
 First, go to Travis and enable.
 
+hm.
+
 [ Explain how to get this behavior automatic on master push ].
 
 ## Miscellaneous
