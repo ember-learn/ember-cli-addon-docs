@@ -70,6 +70,10 @@ Write this...
 
 We suggest using [ember-cli-deploy-git](https://github.com/ef4/ember-cli-deploy-git) to deploy your dummy app to GitHub Pages. After following the installation instructions, you'll run `ember deploy production` to deploy your docs application to github pages.
 
+Once you get the first build working, let's set up Travis to deploy everytime you commit to master.
+
+First, go to Travis and enable.
+
 [ Explain how to get this behavior automatic on master push ].
 
 ## Miscellaneous
