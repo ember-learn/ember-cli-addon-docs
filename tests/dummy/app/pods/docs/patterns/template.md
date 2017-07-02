@@ -68,7 +68,9 @@ Write this...
 
 ## Deploy your dummy app to GitHub Pages
 
-We suggest using [ember-cli-deploy-git](https://github.com/ef4/ember-cli-deploy-git) to deploy your dummy app to GitHub Pages. After falling the installation instructions
+We suggest using [ember-cli-deploy-git](https://github.com/ef4/ember-cli-deploy-git) to deploy your dummy app to GitHub Pages. After following the installation instructions, you'll run `ember deploy production` to deploy your docs application to github pages.
+
+[ Explain how to get this behavior automatic on master push ].
 
 ## Miscellaneous
 
