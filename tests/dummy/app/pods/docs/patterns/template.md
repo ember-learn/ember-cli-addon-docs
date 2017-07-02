@@ -68,7 +68,7 @@ Write this...
 
 ## Deploy your dummy app to GitHub Pages
 
-Write this...
+We suggest using [ember-cli-deploy-git](https://github.com/ef4/ember-cli-deploy-git) to deploy your dummy app to GitHub Pages. After falling the installation instructions
 
 ## Miscellaneous
 
