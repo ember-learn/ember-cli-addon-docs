@@ -26,7 +26,7 @@
     "ember-cli-sass": "6.x",
     "ember-component-css": "0.3.x",
     "ember-data": "2.x",
-    "ember-jsonapi-docs-generator": "git+ssh://git@github.com:ember-learn/ember-jsonapi-docs.git#0.2",
+    "ember-jsonapi-docs-generator": "ember-learn/ember-jsonapi-docs#0.2",
     "fs-extra": "^2.1.2",
     "git-repo-version": "^0.4.1",
     "inflected": "^1.1.7",

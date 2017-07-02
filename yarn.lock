@@ -2598,9 +2598,9 @@ ember-inflector@^2.0.0:
   dependencies:
     ember-cli-babel "^6.0.0"
 
-"ember-jsonapi-docs-generator@git+ssh://git@github.com:ember-learn/ember-jsonapi-docs.git#0.2":
+ember-jsonapi-docs-generator@ember-learn/ember-jsonapi-docs#0.2:
   version "0.2.0"
-  resolved "git+ssh://git@github.com/ember-learn/ember-jsonapi-docs.git#4a22b390fa4e8f0f9ab113124309faca0dcbd92f"
+  resolved "https://codeload.github.com/ember-learn/ember-jsonapi-docs/tar.gz/4a22b390fa4e8f0f9ab113124309faca0dcbd92f"
   dependencies:
     cheerio "^0.22.0"
     fs-extra "^2.1.0"
