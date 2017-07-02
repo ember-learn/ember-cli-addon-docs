@@ -40,6 +40,6 @@ script:
 
 deploy:
   provider: script
-  script: "ember deploy production"
+  script: ./deploy.sh
   on:
     branch: master
