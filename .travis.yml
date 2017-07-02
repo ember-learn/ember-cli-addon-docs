@@ -11,13 +11,13 @@ cache:
     - $HOME/.cache # includes bowers cache
 
 env:
-  # we recommend testing LTS's and latest stable release (bonus points to beta/canary)
-  - EMBER_TRY_SCENARIO=ember-lts-2.4
-  - EMBER_TRY_SCENARIO=ember-lts-2.8
-  - EMBER_TRY_SCENARIO=ember-release
-  - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
-  - EMBER_TRY_SCENARIO=ember-default
+  matrix:
+    - EMBER_TRY_SCENARIO=ember-lts-2.4
+    - EMBER_TRY_SCENARIO=ember-lts-2.8
+    - EMBER_TRY_SCENARIO=ember-release
+    - EMBER_TRY_SCENARIO=ember-beta
+    - EMBER_TRY_SCENARIO=ember-canary
+    - EMBER_TRY_SCENARIO=ember-default
 
 matrix:
   fast_finish: true
@@ -39,6 +39,8 @@ script:
 
 deploy:
   provider: script
-  script: ./deploy.sh
+  skip_cleanup: true
+  script: node_modules/.bin/ember deploy production
   on:
     branch: master
+    condition: "$EMBER_TRY_SCENARIO = ember-release"
