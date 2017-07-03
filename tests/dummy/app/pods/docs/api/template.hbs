@@ -3,5 +3,6 @@
 {{#each model.classes as |class|}}
   <h2>{{class.name}}</h2>
 
-  {{ class.description }}
+  {{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
+  <div>{{{class.description}}}</div>
 {{/each}}
