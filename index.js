@@ -2,6 +2,8 @@
 'use strict';
 
 const path = require('path');
+const MergeTrees = require('broccoli-merge-trees');
+const Funnel = require('broccoli-funnel');
 
 module.exports = {
   name: 'ember-cli-addon-docs',
@@ -12,6 +14,21 @@ module.exports = {
         namespacing: false
       }
     };
+  },
+
+  included() {
+    this._super.included.apply(this, arguments);
+    this.import('vendor/highlightjs-styles/default.css');
+  },
+
+  treeForVendor(vendor) {
+    return new MergeTrees([
+      vendor,
+      new Funnel(path.dirname(require.resolve('highlightjs/package.json')), {
+        srcDir: 'styles',
+        destDir: 'highlightjs-styles'
+      })
+    ]);
   },
 
   treeForPublic() {

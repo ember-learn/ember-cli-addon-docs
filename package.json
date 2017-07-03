@@ -26,10 +26,12 @@
     "ember-cli-sass": "6.x",
     "ember-component-css": "0.3.x",
     "ember-data": "2.x",
-    "ember-jsonapi-docs-generator": "ember-learn/ember-jsonapi-docs#0.2",
     "fs-extra": "^2.1.2",
     "git-repo-version": "^0.4.1",
+    "highlightjs": "^9.10.0",
     "inflected": "^1.1.7",
+    "marked": "^0.3.6",
+    "yuidoc-to-jsonapi": "^0.4.1",
     "yuidocjs": "^0.10.2"
   },
   "devDependencies": {
