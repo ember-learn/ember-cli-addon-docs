@@ -1,6 +1,6 @@
 # Ember CLI Addon Docs
 
-**WORK IN PROGRESS**
+**NOTE: This is a work in progress but we are quicly moving to a minimal usable set of tools.**
 
 This addon has the goal of providing tools for addon developers to easily document and market their addons.
 
