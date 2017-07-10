@@ -2,12 +2,13 @@
 
 Here's a summary of the patterns we encourage addon authors to follow when documenting their work.
 
-- [Document your addon using its dummy app](#documentyouraddonusingitsdummyapp)
-- [Author in Markdown when possible](#authorinmarkdownwhenpossible)
-- [Design for your audience](#designforyouraudience)
-- [Write versioned guides](#writeversionedguides)
-- [Write versioned API references](#writeversionedapireferences)
-- [Deploy your dummy app to GitHub Pages](#deployyourdummyapptogithubpages)
+{{! FIXME these links don't work  with the 'hash' locationType}}
+- [Document your addon using its dummy app](#document-your-addon-using-its-dummy-app)
+- [Author in Markdown when possible](#author-in-markdown-when-possible)
+- [Design for your audience](#design-for-your-audience)
+- [Write versioned guides](#write-versioned-guides)
+- [Write versioned API references](#write-versioned-api-references)
+- [Deploy your dummy app to GitHub Pages](#deploy-your-dummy-app-to-github-pages)
 - [Miscellaneous](#miscellaneous)
 
 ## Document your addon using its dummy app
@@ -28,7 +29,7 @@ Every addon comes with a fully bootstrapped Ember application that can be found 
 
 In general it is good to author your docs pages as Markdown documents. This helps you focus on content and makes it easy for contributors to make edits and improvements to your docs. For functionality-rich docs pages you can always fall back to `template.hbs` files.
 
-We include the [Ember CLI Markdown Templates](#) addon so that you can opt-in to authoring any page you'd like as a Markdown file — just create a `template.md` file wherever you'd normally create a `template.hbs` file. [The file you're reading](#) is an example.
+We automatically set up a template preprocessor so that you can opt-in to authoring any page you'd like as a Markdown file — just create a `template.md` file wherever you'd normally create a `template.hbs` file. [The file you're reading](#) is an example.
 
 Whenever you author a template as a Markdown file, we wrap it in a div with the class `.docs-md`. You can view our [predefined styles here](#) — feel free to overwrite these in your own app if you'd like.
 

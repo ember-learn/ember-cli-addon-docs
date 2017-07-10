@@ -18,7 +18,16 @@ module.exports = {
 
   included() {
     this._super.included.apply(this, arguments);
+
+    // TODO make theme configurable?
     this.import('vendor/highlightjs-styles/default.css');
+  },
+
+  setupPreprocessorRegistry(type, registry) {
+    if (type === 'parent') {
+      let TemplateCompiler = require('./lib/preprocessors/markdown-template-compiler');
+      registry.add('template', new TemplateCompiler());
+    }
   },
 
   treeForVendor(vendor) {
