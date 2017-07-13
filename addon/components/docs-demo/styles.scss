@@ -1,0 +1,47 @@
+.docs-demo {
+  margin-bottom: 40px;
+  border: 1px solid #E4E4E4;
+  border-radius: 6px;
+  // padding: 17px;
+
+  &__snippets {
+    padding: -17px;
+  }
+
+  &__snippets-nav {
+    background: #E3E3E3;
+    padding: 12px 16px;
+    font-weight: bold;
+  }
+
+  &__snippets-nav-item {
+    color: #AAA;
+    padding-right: 20px;
+    font-size: 14px;
+
+    &:focus {
+      color: #AAA;
+    }
+
+    &:hover,
+    &--active,
+    &--active:focus {
+      color: #444;
+    }
+  }
+
+  &__snippet-wrapper {
+    font-size: 14px;
+    background: #f8f8f8;
+    padding: 15px 6px;
+  }
+
+  &__live-editor {
+    &, &:focus {
+      font-size: 16px;
+      border: none;
+      box-shadow: 0px 0px 3px 3px rgba(0,0,0,.1) inset;
+      padding: 12px;
+    }
+  }
+}

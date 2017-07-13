@@ -19,6 +19,7 @@ Router.map(function() {
       this.route('docs-logo');
       this.route('docs-navbar');
       this.route('docs-viewer');
+      this.route('docs-demo');
     });
 
     this.route('api');

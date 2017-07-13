@@ -1,0 +1,32 @@
+{{yield (hash
+  example=(component 'docs-demo/x-example')
+  snippet=(component 'docs-demo/x-snippet' did-init=(action 'registerSnippet') activeSnippet=activeSnippet)
+  live-example=(component 'docs-demo/x-live-example')
+)}}
+
+{{#if snippets}}
+  <nav class="docs-demo__snippets-nav">
+    {{#each snippets as |snippet|}}
+      <a href='#'
+         class='
+           docs-demo__snippets-nav-item
+           {{if snippet.isActive 'docs-demo__snippets-nav-item--active'}}
+         '
+         {{action 'selectSnippet' snippet.name}}>
+        {{#if snippet.isJavascript}}
+          controller.js
+        {{else}}
+          template.hbs
+        {{/if}}
+      </a>
+    {{/each}}
+  </nav>
+{{/if}}
+
+{{#each snippets as |snippet|}}
+  {{#if snippet.isActive}}
+    <div class="docs-demo__snippet-wrapper">
+      {{code-snippet name=snippet.name unindent=true}}
+    </div>
+  {{/if}}
+{{/each}}

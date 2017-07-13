@@ -1,0 +1,14 @@
+<div class="docs-demo-example">
+  {{#if error}}
+    <p>{{error}}</p>
+  {{else if compiledTemplateA}}
+    {{docs-demo/x-live-example-demo compiledTemplate=compiledTemplateA}}
+  {{else if compiledTemplateB}}
+    {{docs-demo/x-live-example-demo compiledTemplate=compiledTemplateB}}
+  {{/if}}
+</div>
+
+{{textarea value=rawTemplate
+  class='docs-demo__live-editor'
+  key-up=(action 'recompile')
+  rows=5}}

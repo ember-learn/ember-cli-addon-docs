@@ -1,0 +1,20 @@
+<h1>Docs Hero</h1>
+
+<p>
+  The hero on the home page is an example of the `docs-hero` component.
+</p>
+
+{{#docs-demo as |demo|}}
+  {{#demo.example data-test-id='page-header'}}
+  {{!-- BEGIN-SNIPPET page-header --}}
+    {{docs-hero
+      logo='ember'
+      slim-heading='Super'
+      strong-heading='Addon'
+      byline='The best addon ever. Now playing in theaters.'}}
+
+  {{!-- END-SNIPPET --}}
+  {{/demo.example}}
+
+  {{demo.snippet 'page-header.hbs'}}
+{{/docs-demo}}
