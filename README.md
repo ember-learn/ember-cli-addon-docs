@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/ember-learn/ember-cli-addon-docs.svg)](https://travis-ci.org/ember-learn/ember-cli-addon-docs.svg)
+
 # Ember CLI Addon Docs
 
 **NOTE: This is a work in progress but we are quickly moving to a minimal usable set of tools.**
