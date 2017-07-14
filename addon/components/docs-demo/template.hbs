@@ -7,17 +7,13 @@
 {{#if snippets}}
   <nav class="docs-demo__snippets-nav">
     {{#each snippets as |snippet|}}
-      <a href='#'
-         class='
-           docs-demo__snippets-nav-item
-           {{if snippet.isActive 'docs-demo__snippets-nav-item--active'}}
-         '
-         {{action 'selectSnippet' snippet.name}}>
-        {{#if snippet.isJavascript}}
-          controller.js
-        {{else}}
-          template.hbs
-        {{/if}}
+      <a href='#' {{action 'selectSnippet' snippet.name}}
+        class='
+          docs-demo__snippets-nav-item
+          {{if snippet.isActive 'docs-demo__snippets-nav-item--active'}}
+        '
+      >
+        {{snippet.label}}
       </a>
     {{/each}}
   </nav>

@@ -15,13 +15,35 @@ export default Ember.Component.extend({
   isJavascript: Ember.computed.match('name', /.js$/),
   snippets: Ember.computed('activeSnippet', 'snippetNames.[]', function() {
     let activeSnippet = this.get('activeSnippet');
+    function labelFromName(name) {
+      let label;
+      switch (name.split('.').pop()) {
+        case 'js':
+          label = 'controller.js';
+          break;
+        case 'css':
+          label = 'style.css';
+          break;
+        case 'scss':
+          label = 'style.scss';
+          break;
+        case 'hbs':
+          label = 'template.hbs';
+          break;
+        default:
+          label = 'script.js';
+          break;
+      }
+
+      return label;
+    }
 
     return this.get('snippetNames')
       .map(name => {
         return {
           name,
           isActive: activeSnippet === name,
-          isJavascript: /.js/.test(name)
+          label: labelFromName(name)
         };
       })
   }),

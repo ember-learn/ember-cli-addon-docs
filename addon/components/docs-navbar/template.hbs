@@ -6,7 +6,9 @@
   {{else}}
     {{#link-to 'index' class='docs-navbar__link'}}
       <span class='docs-navbar__logo'>
-        {{#if logo}}
+        {{#if hasBlock}}
+          {{yield}}
+        {{else if logo}}
           <span class='docs-navbar__logo-trademark'>
             {{docs-logo logo=logo}}
           </span>
