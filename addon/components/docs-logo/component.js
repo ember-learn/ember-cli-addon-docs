@@ -20,10 +20,7 @@ export default Ember.Component.extend({
     @property logo
     @public
   */
-  logo: '',
-  'slim-heading': '',
-  'strong-heading': '',
-  'byline': '',
+  logo: 'ember',
 
   showEmber: Ember.computed.equal('logo', 'ember'),
   showEmberCli: Ember.computed.equal('logo', 'ember-cli')

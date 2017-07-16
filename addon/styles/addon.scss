@@ -23,6 +23,18 @@ body > .ember-view {
   // height: 100%;
 }
 
+button {
+  background: #ddd;
+  padding: 10px 15px;
+  border: none;
+  border-bottom: 2px solid #999;
+  cursor: pointer;
+
+  &:hover {
+    background: #ccc;
+  }
+}
+
 .docs-container {
   max-width: 1000px;
   padding-left: 15px;
@@ -40,6 +52,14 @@ body > .ember-view {
   margin-top: 50px;
   // margin-left: auto;
   // margin-right: auto;
+}
+.docs-snippet {
+  font-size: 14px;
+  background: #f8f8f8;
+
+  &__inner {
+    padding: 15px 6px;
+  }
 }
 .docs-md {
   font-size: 16px;

@@ -2,11 +2,13 @@
 
 <p>A white SVG logo that fills its container.</p>
 
+<p>By default it renders the Ember logo:</p>
+
 {{#docs-demo as |demo|}}
   {{#demo.example data-test-id='docs-logo'}}
   {{!-- BEGIN-SNIPPET docs-logo-ember --}}
     <div class='my-ember-addon-logo'>
-      {{docs-logo logo='ember'}}
+      {{docs-logo}}
     </div>
   {{!-- END-SNIPPET --}}
   {{/demo.example}}
@@ -15,7 +17,7 @@
   {{demo.snippet 'docs-logo-ember-styles.scss'}}
 {{/docs-demo}}
 
-<p>The Ember CLI logo is also available.</p>
+<p>Pass <code>logo='ember-cli'</code> for the Ember CLI logo:</p>
 
 {{#docs-demo as |demo|}}
   {{#demo.example data-test-id='docs-logo'}}

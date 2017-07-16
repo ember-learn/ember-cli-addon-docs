@@ -1,0 +1,141 @@
+<h1>Docs Demo</h1>
+
+<p>
+  This component provides you with a way to show example code. It also renders the actual template used to generate the example, so you don't have to worry about keeping the code snippet and the live example in sync.
+</p>
+
+<p>
+  It's also an important part of your addon's testing story. If you write demos for most of your addon's functionality in your documentation app using this helper component, and then write acceptance tests against those demos, your acceptance tests will accomplish two things:
+</p>
+
+<ul>
+  <li>They verify your addon's behavior</li>
+  <li>They ensure all of that behavior is working in your docs site, and up-to-date with your addon's actual APIs</li>
+</ul>
+
+<p>
+  This saves you from ever having to remember that second step of "updating the docs" every time you change your libary.
+</p>
+
+<p>
+  Of course, if your addon's components have some edge cases that would muddle up your documentation site too much, you can fall back to using integration tests. But try to keep most of the behavior in the docs pages — that way your users will know about it.
+</p>
+
+<h2>Basic usage</h2>
+
+<p>Let's look at a basic example:</p>
+
+{{#docs-demo as |demo|}}
+  {{#demo.example data-test-id='docs-demo-basic'}}
+  {{!-- BEGIN-SNIPPET docs-demo-basic --}}
+    <p>I am a <strong>handlebars</strong> template!</p>
+    <p>The value is: {{val}}</p>
+    <div>
+      {{input value=val}}
+    </div>
+  {{!-- END-SNIPPET --}}
+  {{/demo.example}}
+
+  {{demo.snippet 'docs-demo-basic.hbs'}}
+{{/docs-demo}}
+
+<p>
+  Here's the code that rendered the above demo (you can copy-paste this block to get going in your own app):
+</p>
+
+<div class="docs-snippet">
+  <pre>
+    \{{#docs-demo as |demo|}}
+      \{{#demo.example data-test-id='docs-demo-basic'}}
+        &#123;&#123;!-- BEGIN&#45;SNIPPET docs-demo-basic --&#125;&#125;
+        &lt;p&gt;I am a &lt;strong&gt;handlebars&lt;/strong&gt; template!&lt;/p&gt;
+        &lt;p&gt;The value is: \{{val}}&lt;/p&gt;
+        &lt;div&gt;
+          \{{input value=val}}
+        &lt;/div&gt;
+        &#123;&#123;!-- END&#45;SNIPPET --&#125;&#125;
+      \{{/demo.example}}
+
+      \{{demo.snippet 'docs-demo-basic.hbs'}}
+    \{{/docs-demo}}
+  </pre>
+</div>
+
+<p>To explain,</p>
+
+<ul>
+  <li><code>\{{docs-demo}}</code> is the wrapping component</li>
+  <li>The contextual component <code>\{{#demo.example}}\{{/demo.example}}</code> provides a wrapper to display your example. You'll pass a block to this component with the actual code you're demoing - for example, showing off how to use your button.</li>
+  <li>Note the <code>&#123;&#123;!-- BEGIN&#45;SNIPPET your-snippet-name --}}</code> and <code>&#123;&#123;!-- END&#45;SNIPPET --}}</code> comments that surround your example. This is used by the ember-code-snippet addon to provide you with a way to render the actual template used to generate the live code. The name that follows BEGIN&#45;SNIPPET is how you identify your snippets.</li>
+  <li>Finally, the <code>\{{demo.snippet}}</code> component lets you render different named snippets that you've identified via the comment blocks.</li>
+</ul>
+
+<h2>Multiple snippets</h2>
+
+<p>You can render multiple snippets to support your example. This can be useful when part of your example relies on code defined elsewhere, for example in a controller or stylesheet.</p>
+
+<p>Use a file extension to help code-snippet identify and properly syntax highlight your snippet. Templates end in `.hbs`, JavaScript snippets end in `.js`, stylesheets in `.css` or `.scss`.</p>
+
+{{#docs-demo as |demo|}}
+  {{#demo.example data-test-id='docs-demo-multiple'}}
+    {{!-- BEGIN-SNIPPET docs-demo-multiple --}}
+    <button onclick={{action 'toggleIsShowing'}}>
+      Press me!
+    </button>
+
+    {{#if isShowing}}
+      <p>Yep</p>
+    {{else}}
+      <p>Nope</p>
+    {{/if}}
+    {{!-- END-SNIPPET --}}
+  {{/demo.example}}
+
+  {{demo.snippet 'docs-demo-multiple.hbs'}}
+  {{demo.snippet 'docs-demo-multiple.js'}}
+{{/docs-demo}}
+
+<h2>Live examples</h2>
+
+<p>You can also make a live example, so your users can edit your demos and try out your components for themselves.</p>
+
+{{#docs-demo as |demo|}}
+  {{#demo.live-example name='live-example.hbs'}}
+{{!-- BEGIN-SNIPPET live-example --}}
+<button>
+  I am a button
+</button>
+
+<p>The air up here is {{foo}}</p>
+
+{{input value=foo}}
+{{!-- END-SNIPPET --}}
+  {{/demo.live-example}}
+{{/docs-demo}}
+
+<p>Here's the code for this:</p>
+
+<div class="docs-snippet">
+<div class="docs-snippet__inner">
+  <pre>\{{#docs-demo as |demo|}}
+
+    \{{#demo.live-example name='live-example.hbs'}}
+
+      \{{!-- BEGIN&#45;SNIPPET live-example --}}
+      &lt;button&gt;
+        I am a button
+      &lt;/button&gt;
+
+      &lt;p&gt;The air up here is \{{foo}}&lt;/p&gt;
+      \{{input value=foo}}
+      \{{!-- END&#45;SNIPPET --}}
+
+    \{{/demo.live-example}}
+
+  \{{/docs-demo}}</pre>
+</div>
+</div>
+
+<p>Note that we're using the <code>demo.live-example</code> contextual component now. This component takes a block as a starting template for the user to see. It then puts that template into the <code>textarea</code>, and everytime its value changes the template is recompiled and rerendered.</p>
+
+<p>If there is a template compilation error it should show instead of the rendered output.</p>
