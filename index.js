@@ -19,25 +19,10 @@ module.exports = {
   included() {
     this._super.included.apply(this, arguments);
 
-    var app;
+    let importer = findImporter(this);
 
-    // If the addon has the _findHost() method (in ember-cli >= 2.7.0), we'll just
-    // use that.
-    if (typeof this._findHost === 'function') {
-      app = this._findHost();
-    } else {
-      // Otherwise, we'll use this implementation borrowed from the _findHost()
-      // method in ember-cli.
-      var current = this;
-      do {
-        app = current.app || app;
-      } while (current.parent.parent && (current = current.parent));
-    }
-
-    app.import(path.join(require.resolve('ember-source'), '../dist', 'ember-template-compiler.js'));
-
-    // TODO make theme configurable?
-    app.import('vendor/highlightjs-styles/default.css');
+    importer.import(`${this._hasEmberSource() ? 'vendor' : 'bower_components'}/ember/ember-template-compiler.js`);
+    importer.import('vendor/highlightjs-styles/default.css');
   },
 
   setupPreprocessorRegistry(type, registry) {
@@ -50,11 +35,9 @@ module.exports = {
   treeForVendor(vendor) {
     return new MergeTrees([
       vendor,
-      new Funnel(path.dirname(require.resolve('highlightjs/package.json')), {
-        srcDir: 'styles',
-        destDir: 'highlightjs-styles'
-      })
-    ]);
+      this._highlightJSTree(),
+      this._templateCompilerTree()
+    ].filter(Boolean));
   },
 
   treeForPublic() {
@@ -67,5 +50,40 @@ module.exports = {
       project: this.project,
       destDir: 'docs'
     });
+  },
+
+  _highlightJSTree() {
+    return new Funnel(path.dirname(require.resolve('highlightjs/package.json')), {
+      srcDir: 'styles',
+      destDir: 'highlightjs-styles'
+    });
+  },
+
+  _templateCompilerTree() {
+    if (this._hasEmberSource()) {
+      return new Funnel(path.dirname(require.resolve('ember-source/package.json')), {
+        srcDir: 'dist',
+        destDir: 'ember'
+      });
+    }
+  },
+
+  _hasEmberSource() {
+    return 'ember-source' in this.project.pkg.devDependencies;
   }
 };
+
+function findImporter(addon) {
+  if (typeof addon.import === 'function') {
+    // If addon.import() is present (CLI 2.7+) use that
+    return addon;
+  } else {
+    // Otherwise, reuse the _findHost implementation that would power addon.import()
+    let current = addon;
+    let app;
+    do {
+      app = current.app || app;
+    } while (current.parent.parent && (current = current.parent));
+    return app;
+  }
+}
