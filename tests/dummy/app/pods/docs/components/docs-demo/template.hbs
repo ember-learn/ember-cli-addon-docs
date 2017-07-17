@@ -102,10 +102,6 @@
 {{#docs-demo as |demo|}}
   {{#demo.live-example name='live-example.hbs'}}
 {{!-- BEGIN-SNIPPET live-example --}}
-<button>
-  I am a button
-</button>
-
 <p>The air up here is {{foo}}</p>
 
 {{input value=foo}}
@@ -136,6 +132,6 @@
 </div>
 </div>
 
-<p>Note that we're using the <code>demo.live-example</code> contextual component now. This component takes a block as a starting template for the user to see. It then puts that template into the <code>textarea</code>, and everytime its value changes the template is recompiled and rerendered.</p>
+<p>Note that we're using the <code>demo.live-example</code> contextual component now. This component takes a block as a starting template for the user to see. It then puts that template into the <code>textarea</code>, and every time its value changes the template is recompiled and rerendered.</p>
 
 <p>If there is a template compilation error it should show instead of the rendered output.</p>
