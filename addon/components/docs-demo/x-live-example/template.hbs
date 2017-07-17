@@ -8,7 +8,12 @@
   {{/if}}
 </div>
 
-{{textarea value=rawTemplate
+{{ember-ace value=rawTemplate
   class='docs-demo__live-editor'
-  key-up=(action 'recompile')
-  rows=5}}
+  mode='ace/mode/handlebars'
+  showPrintMargin=false
+  showGutter=false
+  highlightActiveLine=false
+  minLines=5
+  maxLines=20
+  update=(action 'recompile')}}

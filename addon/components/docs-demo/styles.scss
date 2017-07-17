@@ -2,6 +2,7 @@
   margin-bottom: 40px;
   border: 1px solid #E4E4E4;
   border-radius: 6px;
+  overflow: hidden;
   // padding: 17px;
 
   &__snippets {
@@ -38,13 +39,10 @@
   }
 
   &__live-editor {
-    &, &:focus {
-      font-size: 16px;
-      border: none;
+    &, &:focus pre {
+      background-color: transparent;
       box-shadow: 0px 0px 3px 3px rgba(0,0,0,.1) inset;
       padding: 12px;
-      width: 100%;
-      margin-bottom: -10px;
     }
   }
 }

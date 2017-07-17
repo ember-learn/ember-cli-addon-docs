@@ -38,7 +38,8 @@ export default Ember.Component.extend({
   },
 
   actions: {
-    recompile() {
+    recompile(newValue) {
+      this.set('rawTemplate', newValue);
       this.compileTemplate();
     }
   }

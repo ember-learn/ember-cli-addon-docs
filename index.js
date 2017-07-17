@@ -8,6 +8,12 @@ const Funnel = require('broccoli-funnel');
 module.exports = {
   name: 'ember-cli-addon-docs',
 
+  options: {
+    ace: {
+      modes: ['handlebars']
+    }
+  },
+
   config(env, baseConfig) {
     return {
       'ember-component-css': {
