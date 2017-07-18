@@ -1,0 +1,14 @@
+<div class='docs-snippet' data-test-id={{name}}>
+  {{#copy-button
+    clipboardText=snippetText
+    title='copy to clipboard'
+  }}
+    Copy
+  {{/copy-button}}
+
+  {{#if hasBlock}}
+    {{code-snippet name=(concat name '.hbs')}}
+  {{else}}
+    {{code-snippet name=name}}
+  {{/if}}
+</div>

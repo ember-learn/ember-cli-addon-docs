@@ -11,6 +11,16 @@ module.exports = {
   options: {
     ace: {
       modes: ['handlebars']
+    },
+    nodeAssets: {
+      'highlight.js': {
+        public: {
+          include: [ 'styles/monokai.css' ]
+        },
+        vendor: {
+          include: [ 'styles/monokai.css' ]
+        }
+      }
     }
   },
 
@@ -18,7 +28,12 @@ module.exports = {
     return {
       'ember-component-css': {
         namespacing: false
-      }
+      },
+      snippetSearchPaths: ['tests/dummy/app'],
+      snippetRegexes: {
+        begin: /{{#docs-snippet\sname=\"(\S+)\"/,
+        end: /{{\/docs-snippet}}/,
+      },
     };
   },
 
@@ -28,7 +43,10 @@ module.exports = {
     let importer = findImporter(this);
 
     importer.import(`${this._hasEmberSource() ? 'vendor' : 'bower_components'}/ember/ember-template-compiler.js`);
-    importer.import('vendor/highlightjs-styles/default.css');
+    // importer.import('vendor/highlightjs-styles/default.css');
+    // importer.import('vendor/styles/highlightjs-styles/default.css');
+    // importer.import('vendor/highlight.js/styles/monokai.css');
+    // importer.import('vendor/highlightjs-styles/github.css');
   },
 
   setupPreprocessorRegistry(type, registry) {

@@ -7,6 +7,10 @@ module.exports = function(defaults) {
       prepend: '/ember-cli-addon-docs/',
     },
     snippetSearchPaths: ['tests/dummy/app'],
+    snippetRegexes: {
+      begin: /{{#(?:docs-snippet|demo.example|demo.live-example)\sname=(?:\"|\')(\S+)(?:\"|\')/,
+      end: /{{\/(?:docs-snippet|demo.example|demo.live-example)}}/,
+    },
     svgJar: {
       sourceDirs: ['tests/dummy/public']
     }

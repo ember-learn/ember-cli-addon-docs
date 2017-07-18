@@ -1,0 +1,17 @@
+.docs-snippet {
+  padding: 8px 15px;
+  position: relative;
+
+  .copy-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: 0;
+    border: 0;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

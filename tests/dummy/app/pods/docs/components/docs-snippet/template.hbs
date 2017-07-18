@@ -1,0 +1,49 @@
+<h1>Docs Snippet</h1>
+
+{{!-- BEGIN-SNIPPET docs-snippet-other --}}
+<p>
+  Easily render a code snippet with syntax highlighting and a copy-to-clipboard button.
+</p>
+{{!-- END-SNIPPET --}}
+
+<h2>Handlebars</h2>
+
+<p>To render a Handlebars snippet from one of your templates, wrap it in <code>&lbrace;&lbrace;#docs-snippet name="your-snippet-name"&rbrace;&rbrace;</code>.</p>
+
+{{#docs-snippet name="docs-snippet"}}
+  <div id='foo'>
+    {{#my-awesome-thing
+      some=true
+      options=false}}
+      <p>Something old, something new</p>
+    {{/my-awesome-thing}}
+  </div>
+{{/docs-snippet}}
+
+<p>All snippets must have a globally unique name.</p>
+
+<p>Note that the block-form of <code>docs-snippet</code> won't actually execute your template code, it will just capture the static code and render the snippet. Think of it like Markdown code fences that you can use in your Handlebars templates.</p>
+
+<p>If you want the code to render and also show the snippet, check out the {{link-to 'Docs Demo component' 'docs.components.docs-demo'}}.</p>
+
+<h2>JavaScript and CSS</h2>
+
+<p>You can also render snippets from other files in your app, like JavaScript and CSS files.</p>
+
+<p>To do this, first mark up the source you want to display using comments that start with BEGIN—SNIPPET and END—SNIPPET. BEGIN—SNIPPET should be followed by a name, which you can use to identify the snippet.</p>
+
+{{#docs-snippet name="my-snippet-src"}}
+  // BEGIN-SNIPPET my-snippet
+  App = Ember.Application.extend({
+    modulePrefix: config.modulePrefix,
+    podModulePrefix: config.podModulePrefix,
+    Resolver
+  });
+  // END-SNIPPET
+{{/docs-snippet}}
+
+<p>Then in any of you templates, you can use the non-block form of <code>docs-snippet</code> to render your named snippet:</p>
+
+{{#docs-snippet name="my-snippet-src2"}}
+  {{docs-snippet name='my-snippet'}}
+{{/docs-snippet}}

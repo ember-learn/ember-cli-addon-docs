@@ -18,6 +18,7 @@ Router.map(function() {
       this.route('docs-hero');
       this.route('docs-logo');
       this.route('docs-navbar');
+      this.route('docs-snippet');
       this.route('docs-viewer');
       this.route('docs-demo');
     });

@@ -26,14 +26,12 @@
 <p>Let's look at a basic example:</p>
 
 {{#docs-demo as |demo|}}
-  {{#demo.example data-test-id='docs-demo-basic'}}
-  {{!-- BEGIN-SNIPPET docs-demo-basic --}}
-    <p>I am a <strong>handlebars</strong> template!</p>
-    <p>The value is: {{val}}</p>
-    <div>
-      {{input value=val}}
-    </div>
-  {{!-- END-SNIPPET --}}
+  {{#demo.example name='docs-demo-basic'}}
+      <p>I am a <strong>handlebars</strong> template!</p>
+      <p>The value is: {{val}}</p>
+      <div>
+        {{input value=val}}
+      </div>
   {{/demo.example}}
 
   {{demo.snippet 'docs-demo-basic.hbs'}}
@@ -43,31 +41,27 @@
   Here's the code that rendered the above demo (you can copy-paste this block to get going in your own app):
 </p>
 
-<div class="docs-snippet">
-  <pre>
-    \{{#docs-demo as |demo|}}
-      \{{#demo.example data-test-id='docs-demo-basic'}}
-        &#123;&#123;!-- BEGIN&#45;SNIPPET docs-demo-basic --&#125;&#125;
-        &lt;p&gt;I am a &lt;strong&gt;handlebars&lt;/strong&gt; template!&lt;/p&gt;
-        &lt;p&gt;The value is: \{{val}}&lt;/p&gt;
-        &lt;div&gt;
-          \{{input value=val}}
-        &lt;/div&gt;
-        &#123;&#123;!-- END&#45;SNIPPET --&#125;&#125;
-      \{{/demo.example}}
+{{#docs-snippet name="docs-demo-basic-src"}}
+  {{#docs-demo as |demo|}}
+    {{#demo.example nam='docs-demo-basic'}}
+        <p>I am a <strong>handlebars</strong> template!</p>
+        <p>The value is: {{val}}</p>
+        <div>
+          {{input value=val}}
+        </div>
+    {{/demo.example }}
 
-      \{{demo.snippet 'docs-demo-basic.hbs'}}
-    \{{/docs-demo}}
-  </pre>
-</div>
+    {{demo.snippet 'docs-demo-basic.hbs'}}
+  {{/docs-demo}}
+{{/docs-snippet}}
 
 <p>To explain,</p>
 
 <ul>
   <li><code>\{{docs-demo}}</code> is the wrapping component</li>
   <li>The contextual component <code>\{{#demo.example}}\{{/demo.example}}</code> provides a wrapper to display your example. You'll pass a block to this component with the actual code you're demoing - for example, showing off how to use your button.</li>
-  <li>Note the <code>&#123;&#123;!-- BEGIN&#45;SNIPPET your-snippet-name --}}</code> and <code>&#123;&#123;!-- END&#45;SNIPPET --}}</code> comments that surround your example. This is used by the ember-code-snippet addon to provide you with a way to render the actual template used to generate the live code. The name that follows BEGIN&#45;SNIPPET is how you identify your snippets.</li>
-  <li>Finally, the <code>\{{demo.snippet}}</code> component lets you render different named snippets that you've identified via the comment blocks.</li>
+  <li>You also need to pass a <code>name=</code> to demo.example in order to identify your snippet.</li>
+  <li>Finally, the <code>\{{demo.snippet}}</code> component lets you render different named snippets that you've identified via demo.example wrappers or other code comment blocks in your source.</li>
 </ul>
 
 <h2>Multiple snippets</h2>
@@ -100,37 +94,24 @@
 <p>You can also make a live example, so your users can edit your demos and try out your components for themselves.</p>
 
 {{#docs-demo as |demo|}}
-  {{#demo.live-example name='live-example.hbs'}}
-{{!-- BEGIN-SNIPPET live-example --}}
-<p>The air up here is {{foo}}</p>
+  {{#demo.live-example name='live-example'}}
+    <p>The air up here is {{foo}}</p>
 
-{{input value=foo}}
-{{!-- END-SNIPPET --}}
+    {{input value=foo}}
   {{/demo.live-example}}
 {{/docs-demo}}
 
 <p>Here's the code for this:</p>
 
-<div class="docs-snippet">
-<div class="docs-snippet__inner">
-  <pre>\{{#docs-demo as |demo|}}
+{{#docs-snippet name='live-example-src'}}
+  {{#docs-demo as |demo|}}
+    {{#demo.live-example name='my-live-example'}}
+      <p>The air up here is {{foo}}</p>
 
-    \{{#demo.live-example name='live-example.hbs'}}
-
-      \{{!-- BEGIN&#45;SNIPPET live-example --}}
-      &lt;button&gt;
-        I am a button
-      &lt;/button&gt;
-
-      &lt;p&gt;The air up here is \{{foo}}&lt;/p&gt;
-      \{{input value=foo}}
-      \{{!-- END&#45;SNIPPET --}}
-
-    \{{/demo.live-example}}
-
-  \{{/docs-demo}}</pre>
-</div>
-</div>
+      {{input value=foo}}
+    {{/demo.live-example }}
+  {{/docs-demo}}
+{{/docs-snippet}}
 
 <p>Note that we're using the <code>demo.live-example</code> contextual component now. This component takes a block as a starting template for the user to see. It then puts that template into the <code>textarea</code>, and every time its value changes the template is recompiled and rerendered.</p>
 

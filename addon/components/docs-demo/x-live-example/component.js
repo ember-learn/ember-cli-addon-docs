@@ -10,7 +10,8 @@ export default Ember.Component.extend({
 
     // Set initial template from snippet
     let name = this.get('name');
-    this.set('rawTemplate', snippets[name]);
+    let rawTemplate = snippets[`${name}.hbs`];
+    this.set('rawTemplate', this._unindent(rawTemplate));
 
     this.compileTemplate();
   },
@@ -42,7 +43,21 @@ export default Ember.Component.extend({
       this.set('rawTemplate', newValue);
       this.compileTemplate();
     }
-  }
+  },
+
+  _unindent: function(src) {
+    var match, min, lines = src.split("\n").filter(l => l !== '');
+    for (var i = 0; i < lines.length; i++) {
+      match = /^[ \t]*/.exec(lines[i]);
+      if (match && (typeof min === 'undefined' || min > match[0].length)) {
+        min = match[0].length;
+      }
+    }
+    if (typeof min !== 'undefined' && min > 0) {
+      src = src.replace(new RegExp("^[ \t]{" + min + "}", 'gm'), "");
+    }
+    return src;
+  },
 
 
 });

@@ -5,11 +5,13 @@ import config from './config/environment';
 
 let App;
 
+// BEGIN-SNIPPET sample-snippet
 App = Ember.Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
   Resolver
 });
+// END-SNIPPET
 
 loadInitializers(App, config.modulePrefix);
 
