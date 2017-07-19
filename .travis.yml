@@ -38,14 +38,5 @@ script:
   # We need to cleanup, since our deploy depends on the git repo's status
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO test
 
-before_deploy:
-  - node_modules/.bin/ember deploy production
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GH_TOKEN
-  local_dir: tmp/deploy-dist
-  on:
-    branch: master
-    condition: "$EMBER_TRY_SCENARIO = ember-release"
+after_success:
+  - test "$EMBER_TRY_SCENARIO" == "ember-release" && node_modules/.bin/ember deploy production

@@ -2,8 +2,10 @@
 
 module.exports = function(deployTarget) {
   var ENV = {
-    build: {}
-    // include other plugin configuration that applies to all deploy targets here
+    build: {},
+    git: {
+      repo: 'git@github.com:ember-learn/ember-cli-addon-docs.git'
+    }
   };
 
   if (deployTarget === 'development') {
