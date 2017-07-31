@@ -61,6 +61,7 @@
     "ember-router-scroll": "^0.2.0",
     "ember-source": "~2.13.3",
     "ember-svg-jar": "^0.10.3",
+    "eslint-plugin-node": "^5.1.1",
     "loader.js": "^4.2.3"
   },
   "engines": {
