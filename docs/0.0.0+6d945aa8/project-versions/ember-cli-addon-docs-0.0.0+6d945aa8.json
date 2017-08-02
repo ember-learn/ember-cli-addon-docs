@@ -1,27 +1,27 @@
 {
   "data": {
     "type": "project-version",
-    "id": "ember-cli-addon-docs-0.0.0+c89ba740",
+    "id": "ember-cli-addon-docs-0.0.0+6d945aa8",
     "relationships": {
       "classes": {
         "data": [
           {
-            "id": "DocsHero-0.0.0+c89ba740",
+            "id": "DocsHero-0.0.0+6d945aa8",
             "type": "class"
           },
           {
-            "id": "DocsLogo-0.0.0+c89ba740",
+            "id": "DocsLogo-0.0.0+6d945aa8",
             "type": "class"
           },
           {
-            "id": "SampleComponent-0.0.0+c89ba740",
+            "id": "SampleComponent-0.0.0+6d945aa8",
             "type": "class"
           }
         ]
       }
     },
     "attributes": {
-      "version": "0.0.0+c89ba740"
+      "version": "0.0.0+6d945aa8"
     }
   }
 }
