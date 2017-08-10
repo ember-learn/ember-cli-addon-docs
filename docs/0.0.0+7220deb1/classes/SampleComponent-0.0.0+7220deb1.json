@@ -1,6 +1,6 @@
 {
   "data": {
-    "id": "SampleComponent-0.0.0+6d945aa8",
+    "id": "SampleComponent-0.0.0+7220deb1",
     "type": "class",
     "attributes": {
       "name": "SampleComponent",
@@ -10,14 +10,14 @@
       "extensions": [],
       "plugin_for": [],
       "extension_for": [],
-      "file": "/home/travis/build/ember-learn/ember-cli-addon-docs/tmp/docs_generator-input_base_path-GMPKLPrH.tmp/components/sample-component/component.js",
+      "file": "/home/travis/build/ember-learn/ember-cli-addon-docs/tmp/docs_generator-input_base_path-R3j0HKPH.tmp/components/sample-component/component.js",
       "line": 4,
       "description": "<div class=\"docs-md\"><p>Pretty cool component, right?</p>\n<p>Here&#39;s how you&#39;d use it:</p>\n<pre><code class=\"lang-handlebars\"><span class=\"xml\"></span><span class=\"hljs-template-variable\">{{sample-component foo='bar'}}</span><span class=\"xml\"></span>\n</code></pre>\n</div>",
       "access": "public",
       "tagname": "",
       "methods": [
         {
-          "file": "/home/travis/build/ember-learn/ember-cli-addon-docs/tmp/docs_generator-input_base_path-GMPKLPrH.tmp/components/sample-component/component.js",
+          "file": "/home/travis/build/ember-learn/ember-cli-addon-docs/tmp/docs_generator-input_base_path-R3j0HKPH.tmp/components/sample-component/component.js",
           "line": 20,
           "description": "<div class=\"docs-md\"><p>The best method ever made, anywhere.</p>\n</div>",
           "itemtype": "method",
@@ -59,7 +59,7 @@
       "project-version": {
         "data": {
           "type": "project-version",
-          "id": "ember-cli-addon-docs-0.0.0+6d945aa8"
+          "id": "ember-cli-addon-docs-0.0.0+7220deb1"
         }
       }
     }
