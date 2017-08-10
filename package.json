@@ -24,7 +24,7 @@
     "ember-cli-autoprefixer": "^0.7.0",
     "ember-cli-babel": "^6.3.0",
     "ember-cli-clipboard": "^0.8.0",
-    "ember-code-snippet": "^1.9.0",
+    "ember-code-snippet": "^1.10.0",
     "ember-cli-htmlbars": "^1.1.1",
     "ember-cli-sass": "6.x",
     "ember-component-css": "0.3.x",
