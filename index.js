@@ -28,17 +28,19 @@ module.exports = {
     return {
       'ember-component-css': {
         namespacing: false
-      },
-      snippetSearchPaths: ['tests/dummy/app'],
-      snippetRegexes: {
-        begin: /{{#docs-snippet\sname=\"(\S+)\"/,
-        end: /{{\/docs-snippet}}/,
-      },
+      }
     };
   },
 
-  included() {
+ included(parentApp) {
     this._super.included.apply(this, arguments);
+    parentApp.options = Object.assign(parentApp.options, {
+      snippetSearchPaths: ['tests/dummy/app'],
+      snippetRegexes: {
+        begin: /{{#(?:docs-snippet|demo.example|demo.live-example)\sname=(?:\"|\')(\S+)(?:\"|\')/,
+        end: /{{\/(?:docs-snippet|demo.example|demo.live-example)}}/,
+      },
+    });
 
     let importer = findImporter(this);
 
