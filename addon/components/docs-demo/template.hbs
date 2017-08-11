@@ -7,7 +7,7 @@
 {{#if snippets}}
   <nav class="docs-demo__snippets-nav">
     {{#each snippets as |snippet|}}
-      <a href='#' {{action 'selectSnippet' snippet.name}}
+      <a href='#' {{action 'selectSnippet' snippet}}
         class='
           docs-demo__snippets-nav-item
           {{if snippet.isActive 'docs-demo__snippets-nav-item--active'}}
@@ -22,7 +22,7 @@
 {{#each snippets as |snippet|}}
   {{#if snippet.isActive}}
     <div class="docs-demo__snippet-wrapper">
-      {{docs-snippet name=snippet.name unindent=true}}
+      {{docs-snippet name=snippet.name unindent=true language=snippet.language}}
     </div>
   {{/if}}
 {{/each}}

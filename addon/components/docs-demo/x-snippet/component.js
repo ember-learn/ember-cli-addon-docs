@@ -5,7 +5,7 @@ const Component = Ember.Component.extend({
     this._super(...arguments);
 
     Ember.run.scheduleOnce('afterRender', () => {
-      this.get('did-init')(this.get('name'))
+      this.get('did-init')(this.getProperties('name', 'label', 'language'))
     });
   }
 

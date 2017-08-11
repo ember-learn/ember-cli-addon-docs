@@ -9,56 +9,64 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
 
-    this.set('snippetNames', Ember.A());
+    this.set('snippetRegistrations', Ember.A());
   },
 
   isJavascript: Ember.computed.match('name', /.js$/),
-  snippets: Ember.computed('activeSnippet', 'snippetNames.[]', function() {
+  snippets: Ember.computed('activeSnippet', 'snippetRegistrations.[]', function() {
     let activeSnippet = this.get('activeSnippet');
-    function labelFromName(name) {
-      let label;
-      switch (name.split('.').pop()) {
-        case 'js':
-          label = 'controller.js';
-          break;
-        case 'css':
-          label = 'style.css';
-          break;
-        case 'scss':
-          label = 'style.scss';
-          break;
-        case 'hbs':
-          label = 'template.hbs';
-          break;
-        default:
-          label = 'script.js';
-          break;
-      }
 
-      return label;
-    }
-
-    return this.get('snippetNames')
-      .map(name => {
+    return this.get('snippetRegistrations')
+      .map(({ name, label, language }) => {
+        let defaults = this.defaultsFromName(name);
         return {
           name,
           isActive: activeSnippet === name,
-          label: labelFromName(name)
+          label: label || defaults.label,
+          language: language || defaults.language
         };
       })
   }),
 
-  actions: {
-    registerSnippet(snippetName) {
-      this.get('snippetNames').pushObject(snippetName);
+  defaultsFromName(name) {
+    let label, language;
+    switch (name.split('.').pop()) {
+      case 'js':
+        label = 'controller.js';
+        language = 'javascript';
+        break;
+      case 'css':
+        label = 'styles.css';
+        language = 'css';
+        break;
+      case 'scss':
+        label = 'styles.scss';
+        language = 'sass';
+        break;
+      case 'hbs':
+      case 'md':
+        label = 'template.hbs';
+        language = 'htmlbars';
+        break;
+      default:
+        label = 'script.js';
+        break;
+    }
 
-      if (this.get('snippetNames.length') === 1) {
-        this.set('activeSnippet', snippetName);
+    return { label, language };
+  },
+
+  actions: {
+    registerSnippet(snippet) {
+      this.get('snippetRegistrations').pushObject(snippet);
+
+      if (this.get('snippetRegistrations.length') === 1) {
+        this.set('activeSnippet', snippet.name);
       }
     },
 
-    selectSnippet(snippetName) {
-      this.set('activeSnippet', snippetName);
+    selectSnippet(snippet) {
+      this.set('activeSnippet', snippet.name);
     }
   }
 });
