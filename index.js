@@ -34,13 +34,17 @@ module.exports = {
 
  included(parentApp) {
     this._super.included.apply(this, arguments);
-    parentApp.options = Object.assign(parentApp.options, {
-      snippetSearchPaths: ['tests/dummy/app'],
-      snippetRegexes: {
+
+    // Do not override the parent options if they have already been defined.
+    if (!parent.options.snippetSearchPaths) {
+      parent.options.snippetSearchPaths = ['tests/dummy/app'];
+    }
+    if (!parent.options.snippetRegexes) {
+      parent.options.snippetRegexes = {
         begin: /{{#(?:docs-snippet|demo.example|demo.live-example)\sname=(?:\"|\')(\S+)(?:\"|\')/,
         end: /{{\/(?:docs-snippet|demo.example|demo.live-example)}}/,
-      },
-    });
+      }
+    }
 
     let importer = findImporter(this);
 
