@@ -1,7 +1,9 @@
 /* eslint-env node */
 'use strict';
 
-module.exports = {
+const AddonDocsConfig = require('./lib/config');
+
+module.exports = class extends AddonDocsConfig {
   shouldDeploy(repoInfo) {
     if (process.env.CI) {
       // If in CI, deploy whenever we do a build on master in the default ember-try scenario
@@ -11,4 +13,4 @@ module.exports = {
       return true;
     }
   }
-};
+}
