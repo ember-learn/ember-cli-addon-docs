@@ -41,4 +41,4 @@ module.exports = class extends AddonDocsConfig {
   deployDirectory(info) {
     return super.deployDirectory(info);
   }
-}
+};
