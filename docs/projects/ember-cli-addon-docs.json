@@ -1,17 +1,1 @@
-{
-  "data": {
-    "type": "project",
-    "id": "ember-cli-addon-docs",
-    "attributes": {},
-    "relationships": {
-      "project-versions": {
-        "data": [
-          {
-            "type": "project-version",
-            "id": "ember-cli-addon-docs-0.0.0+7220deb1"
-          }
-        ]
-      }
-    }
-  }
-}
+{"data":{"type":"project","id":"ember-cli-addon-docs","attributes":{},"relationships":{"project-versions":{"data":[{"type":"project-version","id":"ember-cli-addon-docs-0.0.0+2b69040a"}]}}}}
