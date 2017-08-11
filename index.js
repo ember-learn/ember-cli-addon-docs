@@ -37,7 +37,13 @@ module.exports = {
     };
   },
 
-  included() {
+  included(includer) {
+    if (includer.parent) {
+      throw new Error(`ember-cli-addon-docs should be in your package.json's devDependencies`);
+    } else if (includer.name === this.project.name()) {
+      throw new Error(`ember-cli-addon-docs only currently works with addons, not applications`);
+    }
+
     this._super.included.apply(this, arguments);
 
     let importer = findImporter(this);
