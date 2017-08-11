@@ -10,7 +10,7 @@ export default Ember.Component.extend({
 
     // Set initial template from snippet
     let name = this.get('name');
-    let rawTemplate = snippets[`${name}.hbs`];
+    let rawTemplate = snippets[`${name}.hbs`] || snippets[`${name}.md`]
     this.set('rawTemplate', this._unindent(rawTemplate));
 
     this.compileTemplate();
