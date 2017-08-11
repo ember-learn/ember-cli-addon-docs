@@ -1,6 +1,8 @@
 <div class='docs-container'>
   <h1 class='docs-hero__heading'>
-    {{#if logo}}
+    {{#if hasBlock}}
+      {{yield}}
+    {{else if logo}}
       <span class='docs-hero__logo'>
         {{docs-logo logo=logo}}
       </span>
