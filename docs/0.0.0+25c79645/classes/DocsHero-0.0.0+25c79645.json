@@ -1,6 +1,6 @@
 {
   "data": {
-    "id": "DocsHero-0.0.0+74491d1d",
+    "id": "DocsHero-0.0.0+25c79645",
     "type": "class",
     "attributes": {
       "name": "DocsHero",
@@ -10,7 +10,7 @@
       "extensions": [],
       "plugin_for": [],
       "extension_for": [],
-      "file": "/home/travis/build/ember-learn/ember-cli-addon-docs/tmp/docs_generator-input_base_path-hryMPBFo.tmp/components/docs-hero/component.js",
+      "file": "/home/travis/build/ember-learn/ember-cli-addon-docs/tmp/docs_generator-input_base_path-mTIosJqm.tmp/components/docs-hero/component.js",
       "line": 4,
       "description": "<div class=\"docs-md\"><p>A component that renders a hero banner. Useful for your docs site&#39;s homepage.</p>\n</div>",
       "access": "public",
@@ -32,7 +32,7 @@
       "project-version": {
         "data": {
           "type": "project-version",
-          "id": "ember-cli-addon-docs-0.0.0+74491d1d"
+          "id": "ember-cli-addon-docs-0.0.0+25c79645"
         }
       }
     }
