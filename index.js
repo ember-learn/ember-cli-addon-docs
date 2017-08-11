@@ -66,10 +66,8 @@ module.exports = {
     ].filter(Boolean));
   },
 
-  treeForPublic() {
-    let parentAddon = this.parent.findAddonByName(this.parent.name());
-    if (!parentAddon) { return; }
-
+  treeForPublic() { 
+    let parentAddon = this.parent.treePaths ? this.parent : this;
     let DocsGenerator = require('./lib/broccoli/docs-generator');
     let addonSources = path.resolve(parentAddon.root, parentAddon.treePaths.addon);
     return new DocsGenerator([addonSources], {
