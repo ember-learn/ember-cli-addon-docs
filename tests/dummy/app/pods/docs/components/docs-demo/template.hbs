@@ -25,6 +25,7 @@
 
 <p>Let's look at a basic example:</p>
 
+{{! BEGIN-SNIPPET docs-demo-basic-src }}
 {{#docs-demo as |demo|}}
   {{#demo.example name='docs-demo-basic'}}
       <p>I am a <strong>handlebars</strong> template!</p>
@@ -36,24 +37,13 @@
 
   {{demo.snippet 'docs-demo-basic.hbs'}}
 {{/docs-demo}}
+{{! END-SNIPPET }}
 
 <p>
   Here's the code that rendered the above demo (you can copy-paste this block to get going in your own app):
 </p>
 
-{{#docs-snippet name="docs-demo-basic-src"}}
-  {{#docs-demo as |demo|}}
-    {{#demo.example nam='docs-demo-basic'}}
-        <p>I am a <strong>handlebars</strong> template!</p>
-        <p>The value is: {{val}}</p>
-        <div>
-          {{input value=val}}
-        </div>
-    {{/demo.example }}
-
-    {{demo.snippet 'docs-demo-basic.hbs'}}
-  {{/docs-demo}}
-{{/docs-snippet}}
+{{code-snippet name='docs-demo-basic-src.hbs'}}
 
 <p>To explain,</p>
 
@@ -89,10 +79,29 @@
   {{demo.snippet 'docs-demo-multiple.js'}}
 {{/docs-demo}}
 
+<h2>Custom Snippet Handling</h2>
+
+<p>If you wish to override the inferred label or syntax highlighting for a snippet, you can specify <code>label</code> and <code>language</code> properties.</p>
+
+{{!-- BEGIN-SNIPPET docs-demo-custom-src --}}
+{{#docs-demo as |demo|}}
+  {{#demo.example name='docs-demo-custom'}}
+    <pre>
+    # Markdown
+    - Has syntax highlighting, too
+    </pre>
+  {{/demo.example}}
+
+  {{demo.snippet 'docs-demo-custom-src.hbs' label='Source'}}
+  {{demo.snippet 'docs-demo-custom.hbs' label='My Custom Label' language='markdown'}}
+{{/docs-demo}}
+{{!-- END-SNIPPET --}}
+
 <h2>Live examples</h2>
 
 <p>You can also make a live example, so your users can edit your demos and try out your components for themselves.</p>
 
+{{! BEGIN-SNIPPET live-example-src }}
 {{#docs-demo as |demo|}}
   {{#demo.live-example name='live-example'}}
     <p>The air up here is {{foo}}</p>
@@ -100,18 +109,11 @@
     {{input value=foo}}
   {{/demo.live-example}}
 {{/docs-demo}}
+{{! END-SNIPPET }}
 
 <p>Here's the code for this:</p>
 
-{{#docs-snippet name='live-example-src'}}
-  {{#docs-demo as |demo|}}
-    {{#demo.live-example name='my-live-example'}}
-      <p>The air up here is {{foo}}</p>
-
-      {{input value=foo}}
-    {{/demo.live-example }}
-  {{/docs-demo}}
-{{/docs-snippet}}
+{{code-snippet name='live-example-src.hbs'}}
 
 <p>Note that we're using the <code>demo.live-example</code> contextual component now. This component takes a block as a starting template for the user to see. It then puts that template into the <code>textarea</code>, and every time its value changes the template is recompiled and rerendered.</p>
 
