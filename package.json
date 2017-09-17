@@ -28,7 +28,7 @@
     "ember-cli-clipboard": "^0.8.0",
     "ember-cli-htmlbars": "^1.1.1",
     "ember-cli-sass": "6.x",
-    "ember-code-snippet": "^2.0.0-alpha.2",
+    "ember-code-snippet": "^2.0.0",
     "ember-component-css": "0.3.x",
     "ember-data": "2.x",
     "fs-extra": "^4.0.1",
