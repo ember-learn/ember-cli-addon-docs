@@ -56,6 +56,14 @@ module.exports = {
     // importer.import('vendor/highlightjs-styles/github.css');
   },
 
+  createDeployPlugin() {
+    const AddonDocsDeployPlugin = require('./lib/deploy/plugin');
+    const readConfig = require('./lib/utils/read-config');
+
+    let userConfig = readConfig(this.project);
+    return new AddonDocsDeployPlugin(userConfig);
+  },
+
   setupPreprocessorRegistry(type, registry) {
     if (type === 'parent') {
       let TemplateCompiler = require('./lib/preprocessors/markdown-template-compiler');
