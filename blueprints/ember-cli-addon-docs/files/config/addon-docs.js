@@ -10,7 +10,7 @@ module.exports = class extends AddonDocsConfig {
     git commit. Note that you can also access any configured environment
     variables via `process.ENV`.
 
-    info.branch         => the current branch
+    info.branch         => the current branch or `null` if not on a branch
     info.sha            => the current sha
     info.abbreviatedSha => the first 10 chars of the current sha
     info.tag            => the tag for the current sha or `null` if none exists
@@ -19,15 +19,19 @@ module.exports = class extends AddonDocsConfig {
     info.author         => the author for the current sha
     info.authorDate     => the authored date for the current sha
     info.commitMessage  => the commit message for the current sha
+
+    Note that CI providers typically check out a specific commit hash rather
+    than a named branch, so `info.branch` may not be available in CI builds.
   */
   shouldDeploy(info) {
     /*
       For example, you might configure your CI builds to execute `ember deploy`
       at the end of each successful run, but you may only want to actually
       deploy builds on the `master` branch with the default ember-try scenario.
-      To accomplish that, you could write:
+      To accomplish that on Travis, you could write:
 
-      return info.branch === 'master' && process.env.EMBER_TRY_SCENARIO == 'ember-default';
+      return process.env.TRAVIS_BRANCH === 'master'
+          && process.env.EMBER_TRY_SCENARIO == 'ember-default';
     */
     return super.shouldDeploy(info);
   }
