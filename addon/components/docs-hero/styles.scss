@@ -1,13 +1,20 @@
 .docs-hero {
   background-color: #2D2D2D;
   color: white;
-  padding-top: 40px;
+  padding-top: 50px;
   padding-bottom: 50px;
 
   &__logo {
+    margin-top: 5px;
+    margin-bottom: 5px;
     display: block;
-    width: 130px;
+    height: 35px;
     opacity: 0.2;
+
+    svg {
+      display: block;
+      width: auto;
+    }
   }
 
   &__heading {
@@ -16,7 +23,6 @@
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 20px;
-    overflow: hidden;
   }
 
   &__slim-heading {

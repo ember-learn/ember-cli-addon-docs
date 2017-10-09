@@ -8,6 +8,7 @@ import layout from './template';
 */
 export default Ember.Component.extend({
   layout,
+  tagName: '',
 
   /**
     Render either the 'ember', 'ember-cli' or 'ember-data' logo:
@@ -22,6 +23,14 @@ export default Ember.Component.extend({
     @public
   */
   logo: 'ember',
+
+  didReceiveAttrs() {
+    this._super(...arguments);
+
+    let logo = this.get('logo');
+    let validLogos = ['ember', 'ember-cli', 'ember-data'];
+    Ember.assert(`You passed "${logo}" to the docs-logo component, but the only valid options are [${validLogos}].`, validLogos.includes(logo));
+  },
 
   showEmber: Ember.computed.equal('logo', 'ember'),
   showEmberCli: Ember.computed.equal('logo', 'ember-cli'),

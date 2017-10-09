@@ -1,3 +1,5 @@
+$code-color: #fafafa; // #f5f2f0
+
 @import 'normalize';
 @import 'pod-styles';
 @import 'syntax';
@@ -77,7 +79,7 @@ button {
   }
 
   code {
-    background: #f5f2f0;
+    background: $code-color;
   }
 
   blockquote {
@@ -97,7 +99,7 @@ button {
   }
 
   pre {
-    background: #f5f2f0;
+    background: $code-color;
     padding: 20px;
     overflow-x: scroll;
     font-size: 14px;
