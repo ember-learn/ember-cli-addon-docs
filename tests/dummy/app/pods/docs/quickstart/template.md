@@ -75,7 +75,9 @@
   </div>
   ```
 
-7. **Add more docs pages.** It's up to you how to structure your docs - use the Snippet, Viewer and Demo components to help you write your documentation. Let's add another page to ours: we'll add the route, link to our docs viewer, and the actual template.
+7. **Add a favicon.** We recommend using [Ember CLI Favicon]( https://github.com/davewasmer/ember-cli-favicon).
+
+8. **Add more docs pages.** It's up to you how to structure your docs - use the Snippet, Viewer and Demo components to help you write your documentation. Let's add another page to ours: we'll add the route, link to our docs viewer, and the actual template.
 
   ```js
   // tests/dummy/app/router.js
