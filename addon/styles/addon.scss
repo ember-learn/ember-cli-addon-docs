@@ -1,4 +1,5 @@
 $code-color: #fafafa; // #f5f2f0
+$break-small: 420px;
 
 @import 'normalize';
 @import 'pod-styles';
@@ -18,6 +19,9 @@ body {
 
 html, body {
   height: 100%;
+  @media screen and (max-width: $break-small) {
+    height: auto;
+  }
 }
 
 pre {

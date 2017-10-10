@@ -8,6 +8,11 @@ body.docs-viewer--showing > .ember-view {
   display: flex;
   height: 100%;
 
+  @media screen and (max-width: $break-small) {
+    flex-direction: column;
+    height: auto;
+  }
+
   &__main {
     flex: 1;
     overflow: scroll;
