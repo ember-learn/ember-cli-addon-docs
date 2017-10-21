@@ -33,6 +33,9 @@ module.exports = {
       'ember-component-css': {
         namespacing: false
       },
+      'ember-cli-addon-docs': {
+        packageJson: this.parent.pkg
+      }
     };
   },
 

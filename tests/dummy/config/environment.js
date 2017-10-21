@@ -8,6 +8,9 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'router-scroll',
     historySupportMiddleware: true,
+    routerScroll: {
+      scrollElement: '#docs-viewer__scroll-body'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

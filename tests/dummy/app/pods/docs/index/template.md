@@ -1,8 +1,6 @@
 # Introduction
 
-Dear addon author,
-
-Welcome to Ember CLI Addon Docs!
+Welcome addon author!
 
 This project was created to help you document and showcase your addon using the accumulated knowledge of the addon community. After surveying several popular project sites we saw that they had much in common, though addon authors have had no easy way to share these techniques.
 

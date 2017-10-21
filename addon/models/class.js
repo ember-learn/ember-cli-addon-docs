@@ -22,6 +22,10 @@ export default DS.Model.extend({
   uses: attr(),
   file: attr(),
   line: attr(),
-  module: attr()
+  module: attr(),
+
+  sortedMethods: computed('methods.@each.name', function() {
+    return Ember.A(this.get('methods')).sortBy('name');
+  })
 
 });

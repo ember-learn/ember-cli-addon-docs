@@ -23,7 +23,9 @@ Router.map(function() {
       this.route('docs-demo');
     });
 
-    this.route('api');
+    this.route('api', function() {
+      this.route('class', { path: '/:class_id' });
+    });
   });
 
   this.route('not-found', { path: '/*path' });

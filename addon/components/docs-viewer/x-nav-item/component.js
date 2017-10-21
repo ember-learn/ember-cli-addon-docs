@@ -8,7 +8,7 @@ const Component = Ember.Component.extend({
 });
 
 Component.reopenClass({
-  positionalParams: ['label', 'route']
+  positionalParams: ['label', 'route', 'model']
 });
 
 export default Component;

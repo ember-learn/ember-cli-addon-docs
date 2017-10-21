@@ -6,6 +6,7 @@ export default Ember.Component.extend({
 
   tagName: 'main',
 
+  elementId: 'docs-viewer__scroll-body',
   classNames: 'docs-viewer__main'
 
 });

@@ -7,4 +7,11 @@
     item=(component 'docs-viewer/x-nav-item')
     subnav=(component 'docs-viewer/x-nav-list')
   )}}
+
+  {{docs-viewer/x-nav-item 'API Reference' 'docs.api.index'}}
+  {{#docs-viewer/x-nav-list as |subnav|}}
+    {{#each projectVersion.sortedClasses as |class|}}
+      {{subnav.item class.name 'docs.api.class' class.id}}
+    {{/each}}
+  {{/docs-viewer/x-nav-list}}
 {{/docs-viewer/x-nav-list}}
