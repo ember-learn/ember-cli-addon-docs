@@ -4,7 +4,14 @@ import layout from './template';
 const Component = Ember.Component.extend({
   layout,
 
-  tagName: 'li'
+  docsRoutes: Ember.inject.service(),
+
+  tagName: 'li',
+
+  didInsertElement() {
+    this._super(...arguments);
+    this.get('docsRoutes.items').addObject(this);
+  },
 });
 
 Component.reopenClass({

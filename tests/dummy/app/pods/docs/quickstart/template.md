@@ -1,5 +1,7 @@
 # Quickstart
 
+This quickstart guide will get you going with a docs site for your brand new addon.
+
 1. **Install the addon.**
 
   ```
@@ -74,9 +76,6 @@
     <p>This page doesn't exist. {{#link-to 'index'}}Head home?{{/link-to}}</p>
   </div>
   ```
-
-7. **Add a favicon.** We recommend using [Ember CLI Favicon]( https://github.com/davewasmer/ember-cli-favicon).
-
 8. **Add more docs pages.** It's up to you how to structure your docs - use the Snippet, Viewer and Demo components to help you write your documentation. Let's add another page to ours: we'll add the route, link to our docs viewer, and the actual template.
 
   ```js
@@ -103,3 +102,8 @@
 
   To install My Addon, run...
   ```
+
+8. **Round out your site.**
+  - **Add a favicon.** We recommend using [Ember CLI Favicon]( https://github.com/davewasmer/ember-cli-favicon).
+
+  - **Install [Ember Router Scroll](https://github.com/dollarshaveclub/ember-router-scroll).**

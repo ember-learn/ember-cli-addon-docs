@@ -10,8 +10,8 @@ const Router = Ember.Router.extend(RouterScroll, {
 Router.map(function() {
 
   this.route('docs', function() {
+    this.route('usage');
     this.route('quickstart');
-
     this.route('patterns');
 
     this.route('components', function() {

@@ -4,6 +4,8 @@ import layout from './template';
 export default Ember.Component.extend({
   layout,
 
+  docsRoutes: Ember.inject.service(),
+
   tagName: 'main',
 
   elementId: 'docs-viewer__scroll-body',

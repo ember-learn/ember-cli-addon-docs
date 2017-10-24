@@ -31,7 +31,9 @@
     "ember-code-snippet": "^2.0.0",
     "ember-component-css": "0.3.x",
     "ember-data": "2.x",
+    "ember-href-to": "^1.14.0",
     "ember-router-scroll": "^0.4.0",
+    "ember-svg-jar": "^0.10.3",
     "fs-extra": "^4.0.1",
     "git-repo-info": "^1.4.1",
     "git-repo-version": "^0.4.1",
@@ -65,7 +67,6 @@
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.13.3",
-    "ember-svg-jar": "^0.10.3",
     "eslint-plugin-node": "^5.1.1",
     "loader.js": "^4.2.3"
   },

@@ -89,15 +89,18 @@ button {
   }
 
   aside {
-    // font-size: small;
-    // width: 180px;
-    // position: absolute;
-    // left: 780px;
-    // line-height: 1.4;
-    background: #fafafa;
-    padding: 5px 20px;
-    margin-top: 20px;
-    font-style: italic;
+    // right side version
+    font-size: small;
+    width: 180px;
+    position: absolute;
+    left: 780px;
+    line-height: 1.4;
+
+    // inline version
+    // background: #fafafa;
+    // padding: 5px 20px;
+    // margin-top: 20px;
+    // font-style: italic;
   }
 
   pre {

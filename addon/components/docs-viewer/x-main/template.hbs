@@ -1,1 +1,13 @@
 {{yield}}
+
+{{#if docsRoutes.previousPage}}
+  <a href="{{href-to docsRoutes.previousPage.route}}" class='docs-viewer__page-nav'>
+    {{svg-jar 'left-arrow' width=24}}
+  </a>
+{{/if}}
+
+{{#if docsRoutes.nextPage}}
+  <a href="{{href-to docsRoutes.nextPage.route}}" class='docs-viewer__page-nav docs-viewer__page-nav--next'>
+    {{svg-jar 'right-arrow' width=24}}
+  </a>
+{{/if}}

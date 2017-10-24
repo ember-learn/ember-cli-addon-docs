@@ -3,6 +3,7 @@ import layout from './template';
 
 export default Ember.Component.extend({
   layout,
+  docsRoutes: Ember.inject.service(),
 
   classNames: 'docs-viewer',
 
@@ -12,6 +13,7 @@ export default Ember.Component.extend({
 
   willDestroyElement() {
     Ember.$('body').removeClass('docs-viewer--showing');
+    this.get('docsRoutes').resetState();
   },
 
 });

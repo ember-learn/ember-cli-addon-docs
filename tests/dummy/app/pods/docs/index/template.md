@@ -15,17 +15,3 @@ and more.
 The goal of this project is to make these features and patterns easily available to you in a way that doesn't stifle your creativity. We understand your addon may require unique pages to demo or test its functionality, and you may already have an existing site up and running. So we've taken care to break up our primitives so that you can pick and choose just what you need.
 
 As with all open-source, our discovery of best practices is never finished. If you'd like to make a suggestion on any topic covered by this addon, [we'd love to hear from you](#).
-
-## Installation
-
-```sh
-ember install ember-cli-addon-docs
-```
-
-## Usage
-
-The on-boarding story serves two major audiences: existing addons and new addons.
-
-### New addons
-
-### Existing addons

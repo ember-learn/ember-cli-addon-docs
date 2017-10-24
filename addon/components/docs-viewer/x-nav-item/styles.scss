@@ -1,12 +1,114 @@
+// Right border implementation
+// .docs-viewer__nav-link {
+//   display: block;
+//   margin-left: 3px;
+//   padding: 7px 20px;
+//   text-decoration: none;
+//   color: #364149;
+//   border-left: 4px solid transparent;
+//   transition: all 0.15s;
+//
+//   &:hover {
+//     border-left-color: lighten(#2196F3, 30%);
+//     color: #2196F3;
+//   }
+//
+//   &--active,
+//   &--active:hover {
+//     border-left-color: #2196F3;
+//   }
+// }
+
+// Blue link implementation
+// .docs-viewer__nav-link {
+//   display: block;
+//   padding: 7px 20px;
+//   text-decoration: none;
+//   color: #364149;
+//   transition: all 0.15s;
+//
+//   &:hover,
+//   &--active {
+//     color: #2196F3;
+//     // color: #0070c9;
+//   }
+// }
+
+// Arrow implementation 1
+// .docs-viewer__nav-link {
+//   display: block;
+//   padding: 7px 20px;
+//   text-decoration: none;
+//   color: #364149;
+//
+//   border-left: 2px solid transparent;
+//   transition: all 0.15s;
+//   opacity: 0.5;
+//
+//   &:before {
+//     content: '▸';
+//     opacity: 0;
+//     transition: all 0.15s;
+//     padding-right: 5px;
+//   }
+//
+//   &:hover,
+//   &--active {
+//     opacity: 1;
+//   }
+//
+//   &--active {
+//     border-left: 6px solid transparent;
+//     &:before {
+//       opacity: 1;
+//     }
+//   }
+//
+// }
+
+// Arrow implementation 2
+// .docs-viewer__nav-link {
+//   display: block;
+//   padding: 7px 5px;
+//   text-decoration: none;
+//   color: #364149;
+//
+//   border-left: 2px solid transparent;
+//   transition: all 0.15s;
+//   opacity: 0.65;
+//
+//   &:before {
+//     content: '▸';
+//     opacity: 0;
+//     transition: all 0.15s;
+//     padding-right: 5px;
+//   }
+//
+//   &:hover,
+//   &--active {
+//     opacity: 1;
+//   }
+//
+//   &--active,
+//   &--active:hover {
+//     &:before {
+//       opacity: 1;
+//     }
+//   }
+// }
+
+// Dim link implementation
 .docs-viewer__nav-link {
   display: block;
   padding: 7px 20px;
   text-decoration: none;
+  transition: all 0.15s;
   color: #364149;
 
   &:hover,
   &--active {
-    color: #2196F3;
+    opacity: 0.5;
+    // color: #2196F3;
     // color: #0070c9;
   }
 }

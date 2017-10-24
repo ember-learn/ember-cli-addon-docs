@@ -1,4 +1,43 @@
 .docs-viewer__main {
   flex: 1;
   overflow: scroll;
+  position: relative;
+}
+
+.docs-viewer__page-nav {
+  text-decoration: none;
+  position: absolute;
+  top: 0px;
+  bottom: 0;
+  margin: 0;
+  max-width: 150px;
+  min-width: 90px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  font-size: 40px;
+  color: #ccc;
+  text-align: center;
+  transition: all 0.15s;
+
+  svg * {
+    transition: all 0.15s;
+    fill: #ccc;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #444;
+
+    svg * {
+      fill: #444;
+    }
+  }
+
+  &--next {
+    right: 0;
+  }
+}
+.docs-viewer__prev-page {
 }

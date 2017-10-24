@@ -2362,7 +2362,7 @@ ember-cli-babel@^5.1.5, ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7:
     ember-cli-version-checker "^1.0.2"
     resolve "^1.1.2"
 
-ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.4.1, ember-cli-babel@^6.6.0:
+ember-cli-babel@^6, ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.4.1, ember-cli-babel@^6.6.0:
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.6.0.tgz#a8362bc44841bfdf89b389f3197f104d7ba526da"
   dependencies:
@@ -2855,6 +2855,12 @@ ember-getowner-polyfill@^2.0.1:
   dependencies:
     ember-cli-version-checker "^1.2.0"
     ember-factory-for-polyfill "^1.1.0"
+
+ember-href-to@^1.14.0:
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/ember-href-to/-/ember-href-to-1.14.0.tgz#12cbfb1de3f95ecd015a072b242f2e0a929feb84"
+  dependencies:
+    ember-cli-babel "^6"
 
 ember-inflector@^2.0.0:
   version "2.0.1"

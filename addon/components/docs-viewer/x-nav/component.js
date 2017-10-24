@@ -4,11 +4,12 @@ import layout from './template';
 export default Ember.Component.extend({
   layout,
 
+  store: Ember.inject.service(),
+
   tagName: 'nav',
 
   classNames: 'docs-viewer__nav',
 
-  store: Ember.inject.service(),
   projectVersion: Ember.computed(function() {
     return this.get('store').peekAll('project-version').get('firstObject');
   }),
