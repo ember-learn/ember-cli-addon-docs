@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { hrefTo } from 'ember-href-to/helpers/href-to';
 
 export default Ember.Service.extend({
 
@@ -13,23 +14,32 @@ export default Ember.Service.extend({
     this.set('items', Ember.A());
   },
 
-  currentPage: Ember.computed('items.[]', 'router.currentPath', function() {
-    return this.get('items').findBy('route', this.get('router.currentPath'));
+  allUrls: Ember.computed('items.[]', function() {
+    return this.get('items').map(item => {
+      let hrefToArgs = [ this, item.route ];
+      if (item.model) {
+        hrefToArgs.push(item.model);
+      }
+
+      return hrefTo.apply(null, hrefToArgs);
+    });
   }),
 
-  previousPage: Ember.computed('items.[]', 'currentPage', function() {
-    let currentIndex = this.get('items').indexOf(this.get('currentPage'));
+  currentUrl: Ember.computed.readOnly('router.router.currentURL'),
+
+  previousUrl: Ember.computed('allUrls.[]', 'currentUrl', function() {
+    let currentIndex = this.get('allUrls').indexOf(this.get('currentUrl'));
 
     if (currentIndex > 0) {
-      return this.get('items').objectAt(currentIndex - 1);
+      return this.get('allUrls')[(currentIndex - 1)];
     }
   }),
 
-  nextPage: Ember.computed('items.[]', 'currentPage', function() {
-    let currentIndex = this.get('items').indexOf(this.get('currentPage'));
+  nextUrl: Ember.computed('allUrls.[]', 'currentUrl', function() {
+    let currentIndex = this.get('allUrls').indexOf(this.get('currentUrl'));
 
-    if (currentIndex < this.get('items.length')) {
-      return this.get('items').objectAt(currentIndex + 1);
+    if (currentIndex < this.get('allUrls.length')) {
+      return this.get('allUrls')[(currentIndex + 1)];
     }
   })
 

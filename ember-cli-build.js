@@ -7,7 +7,10 @@ module.exports = function(defaults) {
       prepend: '/ember-cli-addon-docs/',
     },
     svgJar: {
-      sourceDirs: ['tests/dummy/public']
+      sourceDirs: [
+        'public',
+        'tests/dummy/public'
+      ]
     }
   });
 
