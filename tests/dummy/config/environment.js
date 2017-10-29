@@ -49,7 +49,6 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.rootURL = '/ember-cli-addon-docs';
-    ENV.locationType = 'hash';
   }
 
   return ENV;
