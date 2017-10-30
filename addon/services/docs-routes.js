@@ -25,7 +25,12 @@ export default Ember.Service.extend({
     });
   }),
 
-  currentUrl: Ember.computed.readOnly('router.router.currentURL'),
+  currentUrl: Ember.computed('router.router.currentPath', function() {
+    let router = this.get('router.router');
+    let currentUrl = router.get('rootURL') + router.get('currentURL');
+
+    return currentUrl.replace("//", "/");
+  }),
 
   previousUrl: Ember.computed('allUrls.[]', 'currentUrl', function() {
     let currentIndex = this.get('allUrls').indexOf(this.get('currentUrl'));
