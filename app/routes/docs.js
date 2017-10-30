@@ -16,6 +16,13 @@ export default Ember.Route.extend({
         this.set('projectVersion.version', version);
 
         return this.store.findRecord('project-version', projectVersion);
+      })
+      .then(projectVersion => {
+        let allClassPromises = projectVersion.hasMany('classes').ids().map(id => {
+          return this.store.findRecord('class', id);
+        });
+
+        return Ember.RSVP.all(allClassPromises);
       });
   }
 

@@ -25,6 +25,12 @@ module.exports = {
           include: [ 'styles/monokai.css' ]
         }
       }
+    },
+    svgJar: {
+      sourceDirs: [
+        'public',
+        'node_modules/ember-cli-addon-docs/public'
+      ]
     }
   },
 
@@ -92,10 +98,13 @@ module.exports = {
 
     let DocsGenerator = require('./lib/broccoli/docs-generator');
     let addonSources = path.resolve(parentAddon.root, parentAddon.treePaths.addon);
-    return new DocsGenerator([addonSources], {
+    let docsTree = new DocsGenerator([addonSources], {
       project: this.project,
       destDir: 'docs'
     });
+
+    let defaultTree = this._super.treeForPublic.apply(this, arguments);
+    return new MergeTrees([ defaultTree, docsTree ]);
   },
 
   _highlightJSTree() {

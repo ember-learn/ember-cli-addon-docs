@@ -26,6 +26,9 @@ export default DS.Model.extend({
 
   sortedMethods: computed('methods.@each.name', function() {
     return Ember.A(this.get('methods')).sortBy('name');
-  })
+  }),
+
+  publicMethods: computed.filterBy('sortedMethods', 'access', 'public'),
+  publicProperties: computed.filterBy('properties', 'access', 'public'),
 
 });

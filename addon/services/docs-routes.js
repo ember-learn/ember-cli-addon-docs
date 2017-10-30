@@ -25,7 +25,7 @@ export default Ember.Service.extend({
     });
   }),
 
-  currentUrl: Ember.computed('router.router.currentPath', function() {
+  currentUrl: Ember.computed('router.router.currentURL', function() {
     let router = this.get('router.router');
     let currentUrl = router.get('rootURL') + router.get('currentURL');
 

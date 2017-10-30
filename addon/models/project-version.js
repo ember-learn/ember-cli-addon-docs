@@ -5,14 +5,15 @@ const { attr, hasMany, belongsTo } = DS;
 
 export default DS.Model.extend({
 
-  modules: hasMany('module', { async: true }),
-  classes: hasMany('class', { async: true }),
+  version: attr(),
+
+  project: belongsTo('project'),
+  modules: hasMany('module', { async: false }),
+  classes: hasMany('class', { async: false }),
 
   classesSorting: ['name'],
   sortedClasses: Ember.computed.sort('classes', 'classesSorting'),
 
-  project: belongsTo('project'),
 
-  version: attr()
 
 });

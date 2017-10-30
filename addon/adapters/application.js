@@ -18,6 +18,13 @@ export default DS.JSONAPIAdapter.extend({
     }
 
     return `${url}.json`;
+  },
+
+  shouldBackgroundReloadAll() {
+    return false;
+  },
+  shouldBackgroundReloadRecord() {
+    return false;
   }
 
 });

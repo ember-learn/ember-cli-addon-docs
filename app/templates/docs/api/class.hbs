@@ -3,19 +3,19 @@
 {{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
 <div>{{{model.description}}}</div>
 
-{{#if model.properties}}
+{{#if model.publicProperties}}
   <h2>Properties</h2>
   <ul>
-    {{#each model.properties as |property|}}
+    {{#each model.publicProperties as |property|}}
       <li>{{property.name}}</li>
     {{/each}}
   </ul>
 {{/if}}
 
-{{#if model.sortedMethods}}
+{{#if model.publicMethods}}
   <h2>Methods</h2>
   <ul>
-    {{#each model.sortedMethods as |method|}}
+    {{#each model.publicMethods as |method|}}
       <li>{{method.name}}</li>
     {{/each}}
   </ul>
@@ -23,11 +23,11 @@
 
 <hr>
 
-{{#if model.properties}}
+{{#if model.publicProperties}}
   <h2>Properties</h2>
 {{/if}}
 
-{{#each model.properties as |property|}}
+{{#each model.publicProperties as |property|}}
   {{#if property.description}}
     <h3>{{property.name}}</h3>
     {{{property.description}}}
@@ -38,7 +38,7 @@
   <h2>Methods</h2>
 {{/if}}
 
-{{#each model.sortedMethods as |method|}}
+{{#each model.publicMethods as |method|}}
   {{#if method.description}}
     <h3>{{method.name}}({{get methodParams method.name}})</h3>
     {{{method.description}}}
