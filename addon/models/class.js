@@ -1,7 +1,7 @@
+import { readOnly, filterBy } from '@ember/object/computed';
+import { A } from '@ember/array';
+import { computed } from '@ember/object';
 import DS from 'ember-data';
-import Ember from 'ember';
-
-const { computed } = Ember;
 const { attr, belongsTo } = DS;
 
 export default DS.Model.extend({
@@ -9,7 +9,7 @@ export default DS.Model.extend({
   parentClass: belongsTo('class', { async: true, inverse: null }),
   projectVersion: belongsTo('project-version', { inverse: 'classes' }),
 
-  project: computed.readOnly('projectVersion.project'),
+  project: readOnly('projectVersion.project'),
 
   name: attr(),
   methods: attr(),
@@ -25,10 +25,10 @@ export default DS.Model.extend({
   module: attr(),
 
   sortedMethods: computed('methods.@each.name', function() {
-    return Ember.A(this.get('methods')).sortBy('name');
+    return A(this.get('methods')).sortBy('name');
   }),
 
-  publicMethods: computed.filterBy('sortedMethods', 'access', 'public'),
-  publicProperties: computed.filterBy('properties', 'access', 'public'),
+  publicMethods: filterBy('sortedMethods', 'access', 'public'),
+  publicProperties: filterBy('properties', 'access', 'public'),
 
 });

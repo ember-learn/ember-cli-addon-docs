@@ -1,10 +1,12 @@
 // import Controller from '@ember/controller';
 // import { computed } from '@ember/object';
-import Ember from 'ember';
+import { computed } from '@ember/object';
 
-export default Ember.Controller.extend({
+import Controller from '@ember/controller';
 
-  methodParams: Ember.computed('model', function() {
+export default Controller.extend({
+
+  methodParams: computed('model', function() {
     return this.get('model.methods')
       .reduce((allParams, method) => {
         let params = method.params ? method.params.map(m => m.name) : [];

@@ -1,13 +1,15 @@
-import Ember from 'ember';
+import { equal, match } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import layout from './template';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
-  router: Ember.inject.service('-routing'),
+  router: service('-routing'),
 
-  isHome: Ember.computed.equal('router.currentPath', 'index'),
-  isViewingDocs: Ember.computed.match('router.currentPath', /docs/),
+  isHome: equal('router.currentPath', 'index'),
+  isViewingDocs: match('router.currentPath', /docs/),
 
   tagName: 'nav',
   classNames: 'docs-navbar'

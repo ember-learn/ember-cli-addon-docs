@@ -1,18 +1,20 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import layout from './template';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
-  docsRoutes: Ember.inject.service(),
+  docsRoutes: service(),
 
   classNames: 'docs-viewer',
 
   didInsertElement() {
-    Ember.$('body').addClass('docs-viewer--showing');
+    $('body').addClass('docs-viewer--showing');
   },
 
   willDestroyElement() {
-    Ember.$('body').removeClass('docs-viewer--showing');
+    $('body').removeClass('docs-viewer--showing');
     this.get('docsRoutes').resetState();
   },
 

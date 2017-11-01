@@ -1,4 +1,6 @@
-import Ember from 'ember';
+import { equal } from '@ember/object/computed';
+import { assert } from '@ember/debug';
+import Component from '@ember/component';
 import layout from './template';
 
 /**
@@ -6,7 +8,7 @@ import layout from './template';
   @class DocsLogo
   @public
 */
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
   tagName: '',
 
@@ -29,10 +31,10 @@ export default Ember.Component.extend({
 
     let logo = this.get('logo');
     let validLogos = ['ember', 'ember-cli', 'ember-data'];
-    Ember.assert(`You passed "${logo}" to the docs-logo component, but the only valid options are [${validLogos}].`, validLogos.includes(logo));
+    assert(`You passed "${logo}" to the docs-logo component, but the only valid options are [${validLogos}].`, validLogos.includes(logo));
   },
 
-  showEmber: Ember.computed.equal('logo', 'ember'),
-  showEmberCli: Ember.computed.equal('logo', 'ember-cli'),
-  showEmberData: Ember.computed.equal('logo', 'ember-data')
+  showEmber: equal('logo', 'ember'),
+  showEmberCli: equal('logo', 'ember-cli'),
+  showEmberData: equal('logo', 'ember-data')
 });

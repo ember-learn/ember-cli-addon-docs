@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
 import DS from 'ember-data';
 import config from 'dummy/config/environment';
 
@@ -6,7 +6,7 @@ export default DS.JSONAPIAdapter.extend({
 
   namespace: `${config.rootURL.replace(/\/$/, '')}/docs`,
 
-  projectVersion: Ember.inject.service(),
+  projectVersion: service(),
 
   buildURL(modelName, id, snapshot, requestType, query) {
     let url = this._super(...arguments);

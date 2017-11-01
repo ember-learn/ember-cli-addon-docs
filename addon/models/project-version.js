@@ -1,5 +1,5 @@
+import { sort } from '@ember/object/computed';
 import DS from 'ember-data';
-import Ember from 'ember';
 
 const { attr, hasMany, belongsTo } = DS;
 
@@ -12,7 +12,7 @@ export default DS.Model.extend({
   classes: hasMany('class', { async: false }),
 
   classesSorting: ['name'],
-  sortedClasses: Ember.computed.sort('classes', 'classesSorting'),
+  sortedClasses: sort('classes', 'classesSorting'),
 
 
 

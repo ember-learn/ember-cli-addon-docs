@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 import layout from './template';
 import Snippets from "dummy/snippets";
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: '',
   layout,
 
@@ -23,7 +24,7 @@ export default Ember.Component.extend({
     return src;
   },
 
-  snippetText: Ember.computed('name', function(){
+  snippetText: computed('name', function(){
     let name = this.get('name');
     if (!/\..+/.test(name)) {
       name += '.hbs';

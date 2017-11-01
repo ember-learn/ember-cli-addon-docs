@@ -1,7 +1,10 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import { match } from '@ember/object/computed';
+import { A } from '@ember/array';
+import Component from '@ember/component';
 import layout from './template';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
   classNames: 'docs-demo',
@@ -9,11 +12,11 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
 
-    this.set('snippetRegistrations', Ember.A());
+    this.set('snippetRegistrations', A());
   },
 
-  isJavascript: Ember.computed.match('name', /.js$/),
-  snippets: Ember.computed('activeSnippet', 'snippetRegistrations.[]', function() {
+  isJavascript: match('name', /.js$/),
+  snippets: computed('activeSnippet', 'snippetRegistrations.[]', function() {
     let activeSnippet = this.get('activeSnippet');
 
     return this.get('snippetRegistrations')

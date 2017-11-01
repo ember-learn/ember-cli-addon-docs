@@ -1,18 +1,15 @@
-import Ember from 'ember';
+import { scheduleOnce } from '@ember/runloop';
+import Component from '@ember/component';
 
-const Component = Ember.Component.extend({
+export default Component.extend({
   init() {
     this._super(...arguments);
 
-    Ember.run.scheduleOnce('afterRender', () => {
+    scheduleOnce('afterRender', () => {
       this.get('did-init')(this.getProperties('name', 'label', 'language'))
     });
   }
 
-});
-
-Component.reopenClass({
+}).reopenClass({
   positionalParams: ['name']
 });
-
-export default Component;

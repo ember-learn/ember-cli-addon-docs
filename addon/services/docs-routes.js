@@ -1,9 +1,11 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import { A } from '@ember/array';
+import Service, { inject as service } from '@ember/service';
 import { hrefTo } from 'ember-href-to/helpers/href-to';
 
-export default Ember.Service.extend({
+export default Service.extend({
 
-  router: Ember.inject.service('-routing'),
+  router: service('-routing'),
 
   init() {
     this._super(...arguments);
@@ -11,10 +13,10 @@ export default Ember.Service.extend({
   },
 
   resetState() {
-    this.set('items', Ember.A());
+    this.set('items', A());
   },
 
-  allUrls: Ember.computed('items.[]', function() {
+  allUrls: computed('items.[]', function() {
     return this.get('items').map(item => {
       let hrefToArgs = [ this, item.route ];
       if (item.model) {
@@ -25,14 +27,14 @@ export default Ember.Service.extend({
     });
   }),
 
-  currentUrl: Ember.computed('router.router.currentURL', function() {
+  currentUrl: computed('router.router.currentURL', function() {
     let router = this.get('router.router');
     let currentUrl = router.get('rootURL') + router.get('currentURL');
 
     return currentUrl.replace("//", "/");
   }),
 
-  previousUrl: Ember.computed('allUrls.[]', 'currentUrl', function() {
+  previousUrl: computed('allUrls.[]', 'currentUrl', function() {
     let currentIndex = this.get('allUrls').indexOf(this.get('currentUrl'));
 
     if (currentIndex > 0) {
@@ -40,7 +42,7 @@ export default Ember.Service.extend({
     }
   }),
 
-  nextUrl: Ember.computed('allUrls.[]', 'currentUrl', function() {
+  nextUrl: computed('allUrls.[]', 'currentUrl', function() {
     let currentIndex = this.get('allUrls').indexOf(this.get('currentUrl'));
 
     if (currentIndex < this.get('allUrls.length')) {

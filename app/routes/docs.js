@@ -1,11 +1,13 @@
-import Ember from 'ember';
+import { all } from 'rsvp';
+import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
 import config from '../config/environment';
 
 const packageJson = config['ember-cli-addon-docs'].packageJson;
 
-export default Ember.Route.extend({
+export default Route.extend({
 
-  projectVersion: Ember.inject.service(),
+  projectVersion: service(),
 
   model() {
     return this.store.findRecord('project', packageJson.name)
@@ -22,7 +24,7 @@ export default Ember.Route.extend({
           return this.store.findRecord('class', id);
         });
 
-        return Ember.RSVP.all(allClassPromises);
+        return all(allClassPromises);
       });
   }
 

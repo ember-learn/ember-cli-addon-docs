@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import layout from './template';
 
-const Component = Ember.Component.extend({
+export default Component.extend({
   layout,
 
-  docsRoutes: Ember.inject.service(),
+  docsRoutes: service(),
 
   tagName: 'li',
 
@@ -12,10 +13,6 @@ const Component = Ember.Component.extend({
     this._super(...arguments);
     this.get('docsRoutes.items').addObject(this);
   },
-});
-
-Component.reopenClass({
+}).reopenClass({
   positionalParams: ['label', 'route', 'model']
 });
-
-export default Component;
