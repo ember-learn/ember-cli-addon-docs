@@ -80,7 +80,9 @@ module.exports = {
   setupPreprocessorRegistry(type, registry) {
     if (type === 'parent') {
       let TemplateCompiler = require('./lib/preprocessors/markdown-template-compiler');
+      let TemplateIndexer = require('./lib/preprocessors/hbs-template-indexer');
       registry.add('template', new TemplateCompiler());
+      registry.add('template', this.templateIndexer = new TemplateIndexer());
     }
   },
 
@@ -103,8 +105,9 @@ module.exports = {
       destDir: 'docs'
     });
 
+    let searchIndexTree = this.templateIndexer.getTemplateIndexTree();
     let defaultTree = this._super.treeForPublic.apply(this, arguments);
-    return new MergeTrees([ defaultTree, docsTree ]);
+    return new MergeTrees([ defaultTree, docsTree, searchIndexTree ]);
   },
 
   _highlightJSTree() {

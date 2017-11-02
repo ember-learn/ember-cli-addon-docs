@@ -19,6 +19,7 @@
     "test": "ember try:each"
   },
   "dependencies": {
+    "@glimmer/syntax": "^0.29.10",
     "broccoli-caching-writer": "^3.0.3",
     "broccoli-merge-trees": "^2.0.0",
     "broccoli-stew": "^1.5.0",
