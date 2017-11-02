@@ -1,4 +1,3 @@
-import { all } from 'rsvp';
 import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
 import config from '../config/environment';
@@ -18,13 +17,6 @@ export default Route.extend({
         this.set('projectVersion.version', version);
 
         return this.store.findRecord('project-version', projectVersion);
-      })
-      .then(projectVersion => {
-        let allClassPromises = projectVersion.hasMany('classes').ids().map(id => {
-          return this.store.findRecord('class', id);
-        });
-
-        return all(allClassPromises);
       });
   }
 

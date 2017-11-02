@@ -9,22 +9,34 @@ export default DS.JSONAPIAdapter.extend({
   projectVersion: service(),
 
   buildURL(modelName, id, snapshot, requestType, query) {
-    let url = this._super(...arguments);
-    let namespace = this.get('namespace');
-
-    if (modelName !== 'project') {
-      let version = this.get('projectVersion');
-      url = `${namespace}/${version.version}/${url.substr(namespace.length + 1)}`;
-    }
-
-    return `${url}.json`;
+    return `${this._super(...arguments)}.json`;
   },
 
   shouldBackgroundReloadAll() {
     return false;
   },
+
   shouldBackgroundReloadRecord() {
     return false;
+  },
+
+  findRecord(store, modelClass, id, snapshot) {
+    let type = modelClass.modelName;
+    if (type === 'project') {
+      return this._super(...arguments);
+    } else if (type === 'project-version') {
+      return this._projectVersion || (this._projectVersion = this._super(...arguments));
+    } else {
+      return this.findRecord(store, store.modelFor('project-version'), this.get('projectVersion.version'))
+        .then((projectVersionDoc) => {
+          let modelDoc = projectVersionDoc.included.find(doc => doc.type === type && doc.id === id);
+          if (modelDoc) {
+            return { data: modelDoc };
+          } else {
+            throw new DS.NotFoundError();
+          }
+        });
+    }
   }
 
 });

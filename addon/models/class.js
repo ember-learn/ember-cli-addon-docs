@@ -6,8 +6,8 @@ const { attr, belongsTo } = DS;
 
 export default DS.Model.extend({
 
-  parentClass: belongsTo('class', { async: true, inverse: null }),
-  projectVersion: belongsTo('project-version', { inverse: 'classes' }),
+  parentClass: belongsTo('class', { async: false, inverse: null }),
+  projectVersion: belongsTo('project-version', { async: false, inverse: 'classes' }),
 
   project: readOnly('projectVersion.project'),
 
