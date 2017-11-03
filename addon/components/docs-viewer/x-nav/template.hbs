@@ -1,5 +1,5 @@
 <div class="docs-viewer__nav-search">
-  <input type="text" placeholder="Type to search">
+  <input type="text" placeholder="Type to search" oninput={{action 'search' value='target.value'}}>
 </div>
 
 {{#docs-viewer/x-nav-list}}

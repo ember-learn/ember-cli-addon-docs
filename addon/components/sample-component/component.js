@@ -4,7 +4,7 @@ import layout from './template';
 /**
   Pretty cool component, right?
 
-  Here's how you'd use it:
+  To use it, you could enter the following in your template:
 
   ```handlebars
   {{sample-component foo='bar'}}

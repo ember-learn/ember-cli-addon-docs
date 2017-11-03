@@ -40,6 +40,7 @@
     "git-repo-version": "^0.4.1",
     "highlightjs": "^9.10.0",
     "hosted-git-info": "^2.5.0",
+    "html-entities": "^1.2.1",
     "inflected": "^2.0.2",
     "lunr": "^2.1.4",
     "marked": "^0.3.6",
