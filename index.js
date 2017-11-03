@@ -4,6 +4,7 @@
 const path = require('path');
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = {
   name: 'ember-cli-addon-docs',
@@ -80,9 +81,9 @@ module.exports = {
   setupPreprocessorRegistry(type, registry) {
     if (type === 'parent') {
       let TemplateCompiler = require('./lib/preprocessors/markdown-template-compiler');
-      let TemplateIndexer = require('./lib/preprocessors/hbs-template-indexer');
+      let ContentExtractor = require('./lib/preprocessors/hbs-content-extractor');
       registry.add('template', new TemplateCompiler());
-      registry.add('template', this.templateIndexer = new TemplateIndexer());
+      registry.add('template', this.contentExtractor = new ContentExtractor());
     }
   },
 
@@ -96,17 +97,24 @@ module.exports = {
 
   treeForPublic() {
     let parentAddon = this.parent.findAddonByName(this.parent.name());
-    if (!parentAddon) { return; }
+    let defaultTree = this._super.treeForPublic.apply(this, arguments);
+    if (!parentAddon) { return defaultTree; }
 
     let DocsGenerator = require('./lib/broccoli/docs-generator');
+    let SearchIndexer = require('./lib/broccoli/search-indexer');
+
     let addonSources = path.resolve(parentAddon.root, parentAddon.treePaths.addon);
     let docsTree = new DocsGenerator([addonSources], {
       project: this.project,
       destDir: 'docs'
     });
 
-    let searchIndexTree = this.templateIndexer.getTemplateIndexTree();
-    let defaultTree = this._super.treeForPublic.apply(this, arguments);
+    let templateContentsTree = this.contentExtractor.getTemplateContentsTree();
+    let searchIndexTree = new SearchIndexer(new MergeTrees([docsTree, templateContentsTree]), {
+      outputFile: 'ember-cli-addon-docs/search-index.json',
+      config: this.project.config(EmberApp.env())
+    });
+
     return new MergeTrees([ defaultTree, docsTree, searchIndexTree ]);
   },
 

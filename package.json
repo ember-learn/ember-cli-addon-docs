@@ -41,9 +41,11 @@
     "highlightjs": "^9.10.0",
     "hosted-git-info": "^2.5.0",
     "inflected": "^2.0.2",
+    "lunr": "^2.1.4",
     "marked": "^0.3.6",
     "minimatch": "^3.0.4",
     "quick-temp": "^0.1.8",
+    "striptags": "^3.1.0",
     "yuidoc-to-jsonapi": "^0.4.1",
     "yuidocjs": "^0.10.2"
   },
