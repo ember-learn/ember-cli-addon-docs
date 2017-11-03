@@ -38,11 +38,14 @@ export default Service.extend({
           let doc = result.document;
           if (doc.type === 'class') {
             console.groupCollapsed(`Class: %c${doc.title}`, 'font-family: monospace');
-            for (let match of Object.values(result.resultInfo.matchData.metadata)) {
+            for (let [term, match] of Object.entries(result.resultInfo.matchData.metadata)) {
               for (let [key, data] of Object.entries(match)) {
                 if (key === 'keywords') {
-                  for (let position of data.position) {
-                    console.log(`%c${extractKeyword(doc.keywords, position)} %c(field)`, 'font-family: monospace', 'font-family: inherit');
+                  let test = term.toLowerCase();
+                  for (let keyword of doc.keywords) {
+                    if (keyword.toLowerCase().indexOf(test) !== -1) {
+                      console.log(`%c${keyword} %c(field)`, 'font-family: monospace; font-weight: bold', 'font-family: inherit; font-weight: normal');
+                    }
                   }
                 } else {
                   for (let position of data.position) {
