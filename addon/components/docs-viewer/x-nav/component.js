@@ -7,6 +7,7 @@ export default Component.extend({
   layout,
 
   store: service(),
+  docsSearch: service(),
 
   tagName: 'nav',
 
@@ -15,6 +16,11 @@ export default Component.extend({
   projectVersion: computed(function() {
     return this.get('store').peekAll('project-version').get('firstObject');
   }),
+
+  init() {
+    this._super();
+    this.get('docsSearch').loadSearchIndex();
+  }
 
   // didInsertElement() {
   //   this._super(...arguments);

@@ -64,6 +64,10 @@ module.exports = {
     let importer = findImporter(this);
 
     importer.import(`${this._hasEmberSource() ? 'vendor' : 'bower_components'}/ember/ember-template-compiler.js`);
+    importer.import('vendor/lunr/lunr.js', {
+      using: [{ transformation: 'amd', as: 'lunr' }]
+    });
+
     // importer.import('vendor/highlightjs-styles/default.css');
     // importer.import('vendor/styles/highlightjs-styles/default.css');
     // importer.import('vendor/highlight.js/styles/monokai.css');
@@ -91,6 +95,7 @@ module.exports = {
     return new MergeTrees([
       vendor,
       this._highlightJSTree(),
+      this._lunrTree(),
       this._templateCompilerTree()
     ].filter(Boolean));
   },
@@ -116,6 +121,10 @@ module.exports = {
     });
 
     return new MergeTrees([ defaultTree, docsTree, searchIndexTree ]);
+  },
+
+  _lunrTree() {
+    return new Funnel(path.dirname(require.resolve('lunr/package.json')), { destDir: 'lunr' });
   },
 
   _highlightJSTree() {
