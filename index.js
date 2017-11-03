@@ -2,6 +2,7 @@
 'use strict';
 
 const path = require('path');
+const resolve = require('resolve');
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
@@ -136,7 +137,7 @@ module.exports = {
 
   _templateCompilerTree() {
     if (this._hasEmberSource()) {
-      return new Funnel(path.dirname(require.resolve('ember-source/package.json')), {
+      return new Funnel(path.dirname(resolve.sync('ember-source/package.json'), { basedir: this.project.root }), {
         srcDir: 'dist',
         destDir: 'ember'
       });

@@ -46,6 +46,7 @@
     "marked": "^0.3.6",
     "minimatch": "^3.0.4",
     "quick-temp": "^0.1.8",
+    "resolve": "^1.5.0",
     "striptags": "^3.1.0",
     "yuidoc-to-jsonapi": "^0.4.1",
     "yuidocjs": "^0.10.2"
