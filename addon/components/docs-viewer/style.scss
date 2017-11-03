@@ -1,4 +1,4 @@
-body.docs-viewer--showing > .ember-view {
+body.docs-viewer--showing > [class="ember-view"] {
   display: flex;
   flex-direction: column;
   height: 100%;

@@ -31,13 +31,14 @@ module.exports = {
     svgJar: {
       sourceDirs: [
         'public',
-        'node_modules/ember-cli-addon-docs/public'
+        'node_modules/ember-cli-addon-docs/public',
+        'tests/dummy/public'
       ]
     }
   },
 
   config(env, baseConfig) {
-    return {
+    let config = {
       'ember-component-css': {
         namespacing: false
       },
@@ -45,6 +46,18 @@ module.exports = {
         packageJson: this.parent.pkg
       }
     };
+
+    let updatedConfig = Object.assign({}, baseConfig, config);
+
+    // Augment config with addons we depend on
+    updatedConfig = this.addons.reduce((config, addon) => {
+      if (addon.config) {
+        config = Object.assign({}, addon.config(env, config), config);
+      }
+      return config;
+    }, updatedConfig);
+
+    return updatedConfig;
   },
 
   included(includer) {

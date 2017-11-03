@@ -1,0 +1,71 @@
+.docs-viewer-search {
+  &__box {
+    padding: 6px;
+    background: 0 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+
+    input {
+      width: 100%;
+      border: 1px solid transparent;
+      box-shadow: none;
+      outline: 0;
+      padding: 10px 13px;
+
+      &::placeholder {
+        color: #8d98a0;
+      }
+    }
+  }
+
+  &__result-list {
+    width: 300px;
+    background: white;
+    // box-shadow: 0 4px 10px -3px rgba(0,0,0,.1);
+    box-shadow: 0 6px 23px -4px rgba(0, 0, 0, 0.5);
+    border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__result-icon {
+    margin-right: 10px;
+  }
+  &__result-item {
+    padding: 7px 20px;
+    color: #333;
+    text-decoration: none;
+    display: block;
+
+    &:hover {
+      background: #eee;
+    }
+
+    &__label {
+      display: flex;
+      align-items: center;
+    }
+    &__text {
+      color: #888;
+      line-height: 1.6;
+      display: inline-block;
+
+      &--emphasis {
+        background-color: rgba(255, 220, 0, 0.4);
+      }
+    }
+
+    &--selected {
+      background: #eee;
+    }
+
+    &--disabled {
+      color: #999;
+
+      &:hover {
+        background: white;
+      }
+    }
+  }
+}

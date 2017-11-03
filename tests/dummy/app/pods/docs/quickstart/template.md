@@ -18,17 +18,9 @@ This quickstart guide will get you going with a docs site for your brand new add
   });
   ```
 
-3. **Add a navbar.** Open your application template and add the DocsNavbar component, customizing its properties for your project.
+3. **Create your app skeleton.** Open your application template and add the DocsNavbar component, customizing its properties for your project. You can also add the global keyboard shortcuts component (use `?` to show the help window). Here's our application template:
 
-  ```hbs
-  {{! // tests/dummy/app/templates/application.hbs }}
-  {{docs-navbar
-    logo='ember-cli'
-    name='Addon Docs'
-    githubUrl='https://github.com/ember-learn/ember-cli-addon-docs'}}
-
-  {{outlet}}
-  ```
+  {{docs-snippet name="docs-demo-application-template.hbs"}}
 
 4. **Create your docs skeleton.** Create a template for the `docs` route and add the DocsViewer component.
 

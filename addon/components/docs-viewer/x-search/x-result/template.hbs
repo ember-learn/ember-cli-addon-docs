@@ -1,0 +1,15 @@
+{{#link-to
+  params=linkArgs
+  class=(concat
+    "docs-viewer-search__result-item "
+    (if selected "docs-viewer-search__result-item--selected")
+  )
+}}
+  <div class="docs-viewer-search__result-item__label">
+    {{svg-jar icon height=28 width=28 class="docs-viewer-search__result-icon"}}
+    {{result.document.title}}
+  </div>
+  <small class='docs-viewer-search__result-item__text'>
+    {{{matches}}}
+  </small>
+{{/link-to}}

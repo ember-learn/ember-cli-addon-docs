@@ -1,0 +1,160 @@
+{{#if isShowingKeyboardShortcuts}}
+  {{#modal-dialog
+    animatable=true
+    overlay=true
+    wrapperClass='docs-fullscreen-modal docs-keyboard-shortcuts-modal modal-fade'
+    clickOutsideToClose=true
+    onClose=(action 'toggleKeyboardShortcuts')}}
+    <div class="docs-fullscreen-modal__header">
+      <h2 class='docs-fullscreen-modal__title'>Keyboard shortcuts</h2>
+      <a {{action 'toggleKeyboardShortcuts'}}
+        href="#"
+        class='docs-fullscreen-modal__close-button'>
+        &times;
+      </a>
+    </div>
+
+    <div class="docs-fullscreen-modal__body">
+      <table class="docs-keyboard-shortcut-modal">
+        <tbody>
+          <tr>
+            <th></th>
+            <th>
+              <h3 class='docs-fullscreen-modal__subtitle'>Site wide shortcuts</h3>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>g</code>
+              <code class='docs__keyboard-key'>h</code>
+            </td>
+            <td>
+              Go to Home
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>g</code>
+              <code class='docs__keyboard-key'>d</code>
+            </td>
+            <td>
+              Go to Docs
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>?</code>
+            </td>
+            <td>
+              Bring up this help dialog
+            </td>
+          </tr>
+
+          <tr>
+            <th></th>
+            <th>
+              <h3 class='docs-fullscreen-modal__subtitle'>Docs search</h3>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>/</code>
+              or
+              <code class='docs__keyboard-key'>s</code>
+            </td>
+            <td>
+              Focus search bar
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>ctrl</code>
+              <code class='docs__keyboard-key'>n</code>
+            </td>
+            <td>
+              Select next search result
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>ctrl</code>
+              <code class='docs__keyboard-key'>p</code>
+            </td>
+            <td>
+              Select previous search result
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>enter</code>
+            </td>
+            <td>
+              Navigate to selected search result
+            </td>
+          </tr>
+
+          <tr>
+            <th></th>
+            <th>
+              <h3 class='docs-fullscreen-modal__subtitle'>Docs nav</h3>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>l</code>
+              or
+              <code class='docs__keyboard-key'>→</code>
+            </td>
+            <td>
+              Navigate to next page
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>h</code>
+              or
+              <code class='docs__keyboard-key'>←</code>
+            </td>
+            <td>
+              Navigate to previous page
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>j</code>
+            </td>
+            <td>
+              Scroll current page down
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>ctrl</code>
+              <code class='docs__keyboard-key'>j</code>
+            </td>
+            <td>
+              Scroll current page halfway down
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>k</code>
+            </td>
+            <td>
+              Scroll current page up
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code class='docs__keyboard-key'>ctrl</code>
+              <code class='docs__keyboard-key'>k</code>
+            </td>
+            <td>
+              Scroll current page halfway up
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  {{/modal-dialog}}
+{{/if}}
