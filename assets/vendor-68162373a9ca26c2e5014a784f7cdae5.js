@@ -7426,34 +7426,30 @@ return n.model&&r.push(n.model),t.hrefTo.apply(null,r)})}),currentUrl:n("router.
 return(e.get("rootURL")+e.get("currentURL")).replace("//","/")}),previousUrl:n("allUrls.[]","currentUrl",function(){var e=this.get("allUrls").indexOf(this.get("currentUrl"))
 if(e>0)return this.get("allUrls")[e-1]}),nextUrl:n("allUrls.[]","currentUrl",function(){var e=this.get("allUrls").indexOf(this.get("currentUrl"))
 if(e<this.get("allUrls.length"))return this.get("allUrls")[e+1]})})}),define("ember-cli-addon-docs/services/docs-search",["exports","lunr"],function(e,t){"use strict"
-function n(e,t){var n=e.lastIndexOf("\0",t[0])
-n=-1===n?0:n
-var r=e.indexOf("\0",t[0]+t[1])
-return r=-1===r?e.length:r,e.slice(n,r-n)}function r(e,t,n){var r=e[t]
+function n(e,t,n){var r=e[t]
 if(r){var i=Math.max(n[0]-15,0),o=Math.min(n[0]+n[1]+15,r.length),s=(0===i?"":"...")+r.slice(i,n[0]),a=r.slice(n[0],n[0]+n[1]),l=r.slice(n[0]+n[1],o)+(o===r.length?"":"...")
 console.log(s+"%c"+a+"%c"+l+" ("+t+")","font-weight: bold","font-weight: regular")}}Object.defineProperty(e,"__esModule",{value:!0})
-var i=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0
+var r=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0
 try{for(var s,a=e[Symbol.iterator]();!(r=(s=a.next()).done)&&(n.push(s.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&a.return&&a.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t
 if(Symbol.iterator in Object(t))return e(t,n)
-throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),o=Ember.Service,s=Ember.getOwner,a=Ember.computed,l=Ember.RSVP.resolve,u=Ember.$,c=t.default.Index,h=t.default.Query
-e.default=o.extend({search:function(e){return this.loadSearchIndex().then(function(t){var n=t.index,r=t.documents,i=e.split(/\s+/)
+throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),i=Ember.Service,o=Ember.getOwner,s=Ember.computed,a=Ember.RSVP.resolve,l=Ember.$,u=t.default.Index,c=t.default.Query
+e.default=i.extend({search:function(e){return this.loadSearchIndex().then(function(t){var n=t.index,r=t.documents,i=e.split(/\s+/)
 return n.query(function(e){var t=!0,r=!1,o=void 0
 try{for(var s,a=i[Symbol.iterator]();!(t=(s=a.next()).done);t=!0){var l=s.value
-e.term(n.pipeline.runString(l)[0],{wildcard:h.wildcard.LEADING|h.wildcard.TRAILING})}}catch(e){r=!0,o=e}finally{try{!t&&a.return&&a.return()}finally{if(r)throw o}}}).map(function(e){return{resultInfo:e,document:r[e.ref]}})})},searchAndLog:function(e){this.search(e).then(function(t){console.group("Search For '"+e+"'")
-var o=!0,s=!1,a=void 0
-try{for(var l,u=t[Symbol.iterator]();!(o=(l=u.next()).done);o=!0){var c=l.value,h=c.document
-if("class"===h.type){console.groupCollapsed("Class: %c"+h.title,"font-family: monospace")
-var d=!0,p=!1,f=void 0
-try{for(var m,g=Object.values(c.resultInfo.matchData.metadata)[Symbol.iterator]();!(d=(m=g.next()).done);d=!0){var y=m.value,v=!0,b=!1,w=void 0
-try{for(var E,_=Object.entries(y)[Symbol.iterator]();!(v=(E=_.next()).done);v=!0){var A=E.value,C=i(A,2),x=C[0],k=C[1]
-if("keywords"===x){var S=!0,F=!1,R=void 0
-try{for(var T,O=k.position[Symbol.iterator]();!(S=(T=O.next()).done);S=!0){var D=T.value
-console.log("%c"+n(h.keywords,D)+" %c(field)","font-family: monospace","font-family: inherit")}}catch(e){F=!0,R=e}finally{try{!S&&O.return&&O.return()}finally{if(F)throw R}}}else{var M=!0,L=!1,P=void 0
-try{for(var N,B=k.position[Symbol.iterator]();!(M=(N=B.next()).done);M=!0)r(h,x,N.value)}catch(e){L=!0,P=e}finally{try{!M&&B.return&&B.return()}finally{if(L)throw P}}}}}catch(e){b=!0,w=e}finally{try{!v&&_.return&&_.return()}finally{if(b)throw w}}}}catch(e){p=!0,f=e}finally{try{!d&&g.return&&g.return()}finally{if(p)throw f}}console.groupEnd()}else if("template"===h.type){console.groupCollapsed("Route: %c"+h.route,"font-family: monospace")
-var I=!0,j=!1,$=void 0
-try{for(var z,H=Object.values(c.resultInfo.matchData.metadata)[Symbol.iterator]();!(I=(z=H.next()).done);I=!0){var U=z.value,q=!0,W=!1,V=void 0
-try{for(var K,G=Object.entries(U)[Symbol.iterator]();!(q=(K=G.next()).done);q=!0){var Q=K.value,Y=i(Q,2),X=Y[0],J=Y[1],Z=!0,ee=!1,te=void 0
-try{for(var ne,re=J.position[Symbol.iterator]();!(Z=(ne=re.next()).done);Z=!0)r(h,X,ne.value)}catch(e){ee=!0,te=e}finally{try{!Z&&re.return&&re.return()}finally{if(ee)throw te}}}}catch(e){W=!0,V=e}finally{try{!q&&G.return&&G.return()}finally{if(W)throw V}}}}catch(e){j=!0,$=e}finally{try{!I&&H.return&&H.return()}finally{if(j)throw $}}console.groupEnd()}}}catch(e){s=!0,a=e}finally{try{!o&&u.return&&u.return()}finally{if(s)throw a}}console.groupEnd()})},loadSearchIndex:function(){return this._searchIndex||(this._searchIndex=l(u.get(this.get("_indexURL"))).then(function(e){return{index:c.load(e.index),documents:e.documents}})),this._searchIndex},_indexURL:a(function(){return s(this).resolveRegistration("config:environment").rootURL+"ember-cli-addon-docs/search-index.json"})})}),define("ember-cli-addon-docs/services/project-version",["exports"],function(e){"use strict"
+e.term(n.pipeline.runString(l)[0],{wildcard:c.wildcard.LEADING|c.wildcard.TRAILING})}}catch(e){r=!0,o=e}finally{try{!t&&a.return&&a.return()}finally{if(r)throw o}}}).map(function(e){return{resultInfo:e,document:r[e.ref]}})})},searchAndLog:function(e){this.search(e).then(function(t){console.group("Search For '"+e+"'")
+var i=!0,o=!1,s=void 0
+try{for(var a,l=t[Symbol.iterator]();!(i=(a=l.next()).done);i=!0){var u=a.value,c=u.document
+if("class"===c.type){console.groupCollapsed("Class: %c"+c.title,"font-family: monospace")
+var h=!0,d=!1,p=void 0
+try{for(var f,m=Object.entries(u.resultInfo.matchData.metadata)[Symbol.iterator]();!(h=(f=m.next()).done);h=!0){var g=f.value,y=r(g,2),v=y[0],b=y[1],w=!0,E=!1,_=void 0
+try{for(var A,C=Object.entries(b)[Symbol.iterator]();!(w=(A=C.next()).done);w=!0){var x=A.value,k=r(x,2),S=k[0],F=k[1]
+if("keywords"===S){var R=v.toLowerCase(),T=!0,O=!1,D=void 0
+try{for(var M,L=c.keywords[Symbol.iterator]();!(T=(M=L.next()).done);T=!0){var P=M.value;-1!==P.toLowerCase().indexOf(R)&&console.log("%c"+P+" %c(field)","font-family: monospace; font-weight: bold","font-family: inherit; font-weight: normal")}}catch(e){O=!0,D=e}finally{try{!T&&L.return&&L.return()}finally{if(O)throw D}}}else{var N=!0,B=!1,I=void 0
+try{for(var j,$=F.position[Symbol.iterator]();!(N=(j=$.next()).done);N=!0)n(c,S,j.value)}catch(e){B=!0,I=e}finally{try{!N&&$.return&&$.return()}finally{if(B)throw I}}}}}catch(e){E=!0,_=e}finally{try{!w&&C.return&&C.return()}finally{if(E)throw _}}}}catch(e){d=!0,p=e}finally{try{!h&&m.return&&m.return()}finally{if(d)throw p}}console.groupEnd()}else if("template"===c.type){console.groupCollapsed("Route: %c"+c.route,"font-family: monospace")
+var z=!0,H=!1,U=void 0
+try{for(var q,W=Object.values(u.resultInfo.matchData.metadata)[Symbol.iterator]();!(z=(q=W.next()).done);z=!0){var V=q.value,K=!0,G=!1,Q=void 0
+try{for(var Y,X=Object.entries(V)[Symbol.iterator]();!(K=(Y=X.next()).done);K=!0){var J=Y.value,Z=r(J,2),ee=Z[0],te=Z[1],ne=!0,re=!1,ie=void 0
+try{for(var oe,se=te.position[Symbol.iterator]();!(ne=(oe=se.next()).done);ne=!0)n(c,ee,oe.value)}catch(e){re=!0,ie=e}finally{try{!ne&&se.return&&se.return()}finally{if(re)throw ie}}}}catch(e){G=!0,Q=e}finally{try{!K&&X.return&&X.return()}finally{if(G)throw Q}}}}catch(e){H=!0,U=e}finally{try{!z&&W.return&&W.return()}finally{if(H)throw U}}console.groupEnd()}}}catch(e){o=!0,s=e}finally{try{!i&&l.return&&l.return()}finally{if(o)throw s}}console.groupEnd()})},loadSearchIndex:function(){return this._searchIndex||(this._searchIndex=a(l.get(this.get("_indexURL"))).then(function(e){return{index:u.load(e.index),documents:e.documents}})),this._searchIndex},_indexURL:s(function(){return o(this).resolveRegistration("config:environment").rootURL+"ember-cli-addon-docs/search-index.json"})})}),define("ember-cli-addon-docs/services/project-version",["exports"],function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0})
 var t=Ember.Service
 e.default=t.extend({version:null})}),define("ember-cli-clipboard/components/copy-button",["exports","ember-cli-clipboard/templates/components/copy-button"],function(e,t){"use strict"
