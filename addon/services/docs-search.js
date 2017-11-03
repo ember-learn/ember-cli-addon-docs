@@ -92,14 +92,6 @@ export default Service.extend({
   })
 });
 
-function extractKeyword(keywords, position) {
-  let start = keywords.lastIndexOf('\0', position[0]);
-  start = start === -1 ? 0 : start;
-  let end = keywords.indexOf('\0', position[0] + position[1]);
-  end = end === -1 ? keywords.length : end;
-  return keywords.slice(start, end - start);
-}
-
 function logSnippet(doc, key, position) {
   let field = doc[key];
   if (!field) { return; }
