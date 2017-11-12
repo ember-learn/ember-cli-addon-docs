@@ -7966,8 +7966,10 @@ var n=Ember.computed,r=Ember.A,i=Ember.Service,o=Ember.inject.service
 e.default=i.extend({router:o("-routing"),init:function(){this._super.apply(this,arguments),this.resetState()},resetState:function(){this.set("items",r())},routes:n("items.[]",function(){return this.get("items").map(function(e){var t=[e.route]
 return e.model&&t.push(e.model),t})}),routeUrls:n("routes.[]",function(){var e=this
 return this.get("routes").map(function(n){return t.hrefTo.apply(null,[e].concat(function(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t]
-return n}return Array.from(e)}(n)))})}),currentRouteIndex:n("router.router.currentURL","routeUrls.[]",function(){if(this.get("routeUrls.length")){var e=this.get("router.router.currentURL").replace(/\/$/,""),t=this.get("routeUrls").indexOf(e)
-return t}}),nextRoute:n("currentRouteIndex","routes.[]",function(){var e=this.get("currentRouteIndex")
+return n}return Array.from(e)}(n)))})}),currentRouteIndex:n("router.router.currentURL","routeUrls.[]",function(){if(this.get("routeUrls.length")){var e=this.get("router.router"),t=e.get("rootURL")+e.get("currentURL")
+t=t.replace("//","/").replace(/\/$/,"")
+var n=this.get("routeUrls").indexOf(t)
+return n}}),nextRoute:n("currentRouteIndex","routes.[]",function(){var e=this.get("currentRouteIndex")
 if(e<this.get("routes.length"))return this.get("routes")[e+1]}),previousRoute:n("currentRouteIndex","routes.[]",function(){var e=this.get("currentRouteIndex")
 if(e>0)return this.get("routes")[e-1]})})}),define("ember-cli-addon-docs/services/docs-search",["exports","lunr"],function(e,t){"use strict"
 function n(e,t,n){var r=e[t]
