@@ -28,14 +28,14 @@ export default Component.extend(EKMixin, {
   },
 
   nextPage: Ember.on(keyDown('KeyL'), keyDown('ArrowRight'), function() {
-    if (this.searchIsNotFocused() && this.get('docsRoutes.nextUrl')) {
-      this.get('router').transitionTo(this.get('docsRoutes.nextUrl'));
+    if (this.searchIsNotFocused() && this.get('docsRoutes.nextRoute')) {
+      this.get('router').transitionTo(...this.get('docsRoutes.nextRoute'));
     }
   }),
 
   previousPage: Ember.on(keyDown('KeyH'), keyDown('ArrowLeft'), function() {
-    if (this.searchIsNotFocused() && this.get('docsRoutes.previousUrl')) {
-      this.get('router').transitionTo(this.get('docsRoutes.previousUrl'));
+    if (this.searchIsNotFocused() && this.get('docsRoutes.previousRoute')) {
+      this.get('router').transitionTo(...this.get('docsRoutes.previousRoute'));
     }
   }),
 

@@ -1,13 +1,13 @@
 {{yield}}
 
-{{#if docsRoutes.previousUrl}}
-  <a href="{{docsRoutes.previousUrl}}" class='docs-viewer__page-nav'>
+{{#if docsRoutes.previousRoute}}
+  {{#link-to params=docsRoutes.previousRoute class='docs-viewer__page-nav'}}
     {{svg-jar 'left-arrow' width=32}}
-  </a>
+  {{/link-to}}
 {{/if}}
 
-{{#if docsRoutes.nextUrl}}
-  <a href="{{docsRoutes.nextUrl}}" class='docs-viewer__page-nav docs-viewer__page-nav--next'>
+{{#if docsRoutes.nextRoute}}
+  {{#link-to params=docsRoutes.nextRoute class='docs-viewer__page-nav docs-viewer__page-nav--next'}}
     {{svg-jar 'right-arrow' width=32}}
-  </a>
+  {{/link-to}}
 {{/if}}

@@ -2,6 +2,7 @@ import { computed } from '@ember/object';
 import { A } from '@ember/array';
 import Service, { inject as service } from '@ember/service';
 import { hrefTo } from 'ember-href-to/helpers/href-to';
+import { assert } from '@ember/debug';
 
 export default Service.extend({
 
@@ -16,40 +17,47 @@ export default Service.extend({
     this.set('items', A());
   },
 
-  allUrls: computed('items.[]', function() {
+  // Each routeParam is [ routeName, model ] where model is optional
+  routes: computed('items.[]', function() {
     return this.get('items').map(item => {
-      let hrefToArgs = [ this, item.route ];
+      let routeParams = [ item.route ];
       if (item.model) {
-        hrefToArgs.push(item.model);
+        routeParams.push(item.model);
       }
 
-      return hrefTo.apply(null, hrefToArgs);
+      return routeParams;
     });
   }),
 
-  currentUrl: computed('router.router.currentURL', function() {
-    let router = this.get('router.router');
-    let currentUrl = router.get('rootURL') + router.get('currentURL');
-
-    return currentUrl
-      .replace("//", "/")  // dedup slashes
-      .replace(/\/$/, ""); // remove trailing slash
+  routeUrls: computed('routes.[]', function() {
+    return this.get('routes').map(route => {
+      return hrefTo.apply(null, [this, ...route]);
+    });
   }),
 
-  previousUrl: computed('allUrls.[]', 'currentUrl', function() {
-    let currentIndex = this.get('allUrls').indexOf(this.get('currentUrl'));
+  currentRouteIndex: computed('router.router.currentURL', 'routeUrls.[]', function() {
+    if (this.get('routeUrls.length')) {
+      let currentURL = this.get('router.router.currentURL').replace(/\/$/, "");
+      let index = this.get('routeUrls').indexOf(currentURL);
+      assert(`DocsRoutes wasn't able to correctly detect the current route.`, index > -1);
+      return index;
+    }
+  }),
+
+  nextRoute: computed('currentRouteIndex', 'routes.[]', function() {
+    let currentIndex = this.get('currentRouteIndex');
+
+    if (currentIndex < this.get('routes.length')) {
+      return this.get('routes')[(currentIndex + 1)];
+    }
+  }),
+
+  previousRoute: computed('currentRouteIndex', 'routes.[]', function() {
+    let currentIndex = this.get('currentRouteIndex');
 
     if (currentIndex > 0) {
-      return this.get('allUrls')[(currentIndex - 1)];
-    }
-  }),
-
-  nextUrl: computed('allUrls.[]', 'currentUrl', function() {
-    let currentIndex = this.get('allUrls').indexOf(this.get('currentUrl'));
-
-    if (currentIndex < this.get('allUrls.length')) {
-      return this.get('allUrls')[(currentIndex + 1)];
+      return this.get('routes')[(currentIndex - 1)];
     }
   })
-
+  
 });
