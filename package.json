@@ -32,9 +32,12 @@
     "ember-code-snippet": "^2.0.0",
     "ember-component-css": "^0.3.5",
     "ember-data": "^2.0.0",
-    "ember-href-to": "^1.15.0",
+    "ember-href-to": "^1.15.1",
+    "ember-keyboard": "^2.3.0",
+    "ember-modal-dialog": "yapplabs/ember-modal-dialog#a14f0a33c1c7cc9d7a77f86512732b920a8befe8",
     "ember-router-scroll": "^0.4.0",
     "ember-svg-jar": "^0.11.1",
+    "ember-truth-helpers": "^2.0.0",
     "fs-extra": "^4.0.2",
     "git-repo-info": "^1.4.1",
     "git-repo-version": "^0.4.1",
@@ -42,6 +45,8 @@
     "hosted-git-info": "^2.5.0",
     "html-entities": "^1.2.1",
     "inflected": "^2.0.2",
+    "liquid-fire": "^0.29.0",
+    "liquid-tether": "pzuraq/liquid-tether#5f06902ac8fd198491cece74bac0e1f804f3e490",
     "lunr": "^2.1.4",
     "marked": "^0.3.6",
     "minimatch": "^3.0.4",
@@ -83,6 +88,9 @@
     "before": [
       "ember-cli-htmlbars",
       "ember-svg-jar"
+    ],
+    "after": [
+      "ember-modal-dialog"
     ]
   }
 }

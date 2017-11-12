@@ -1,0 +1,31 @@
+<div class="docs-viewer-search__box" data-tether-id='searchbox'>
+  <input class="docs-viewer-search__input" oninput={{action 'search' value='target.value'}} placeholder='Type to search' type='text'>
+</div>
+
+{{#if didSearch}}
+  {{#modal-dialog
+    tetherTarget='[data-tether-id="searchbox"]'
+    attachment='top left'
+    clickOutsideToClose=true
+    onClose=(action 'clearSearch')
+    targetAttachment='bottom left'
+    animatable=true
+    containerClass='modal-fade-and-drop'}}
+    <ul class="docs-viewer-search__result-list">
+      {{#each searchResults as |result index|}}
+        <li>
+          {{docs-viewer/x-search/x-result
+            result=result
+            query=query
+            selected=(eq index selectedIndex)
+            on-mouse-enter=(action 'selectResult' index)
+            on-click=(action 'clearSearch')}}
+        </li>
+      {{else}}
+        <li class='docs-viewer-search__result-item docs-viewer-search__result-item--disabled'>
+          No results.
+        </li>
+      {{/each}}
+    </ul>
+  {{/modal-dialog}}
+{{/if}}

@@ -6,24 +6,4 @@
   font-weight: 400;
   display: flex;
   flex-direction: column;
-
-  &-search {
-    padding: 6px;
-    background: 0 0;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    // margin-bottom: 10px;
-
-    input {
-      width: 100%;
-      border: 1px solid transparent;
-      box-shadow: none;
-      outline: 0;
-      padding: 10px 13px;
-
-      &::placeholder {
-        color: #8d98a0;
-      }
-    }
-  }
 }
