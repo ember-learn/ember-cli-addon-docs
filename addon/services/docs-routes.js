@@ -31,7 +31,9 @@ export default Service.extend({
     let router = this.get('router.router');
     let currentUrl = router.get('rootURL') + router.get('currentURL');
 
-    return currentUrl.replace("//", "/");
+    return currentUrl
+      .replace("//", "/")  // dedup slashes
+      .replace(/\/$/, ""); // remove trailing slash
   }),
 
   previousUrl: computed('allUrls.[]', 'currentUrl', function() {
