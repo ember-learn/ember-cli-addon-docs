@@ -37,7 +37,11 @@ export default Service.extend({
 
   currentRouteIndex: computed('router.router.currentURL', 'routeUrls.[]', function() {
     if (this.get('routeUrls.length')) {
-      let currentURL = this.get('router.router.currentURL').replace(/\/$/, "");
+      let router = this.get('router.router');
+      let currentURL = router.get('rootURL') + router.get('currentURL');
+      currentURL = currentURL
+        .replace("//", "/")  // dedup slashes
+        .replace(/\/$/, ""); // remove trailing slash
       let index = this.get('routeUrls').indexOf(currentURL);
       assert(`DocsRoutes wasn't able to correctly detect the current route.`, index > -1);
       return index;
@@ -59,5 +63,5 @@ export default Service.extend({
       return this.get('routes')[(currentIndex - 1)];
     }
   })
-  
+
 });
