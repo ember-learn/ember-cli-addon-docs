@@ -7965,7 +7965,7 @@ var n=Ember.computed,r=Ember.A,i=Ember.Service,o=Ember.inject.service
 e.default=i.extend({router:o("-routing"),init:function(){this._super.apply(this,arguments),this.resetState()},resetState:function(){this.set("items",r())},allUrls:n("items.[]",function(){var e=this
 return this.get("items").map(function(n){var r=[e,n.route]
 return n.model&&r.push(n.model),t.hrefTo.apply(null,r)})}),currentUrl:n("router.router.currentURL",function(){var e=this.get("router.router")
-return(e.get("rootURL")+e.get("currentURL")).replace("//","/")}),previousUrl:n("allUrls.[]","currentUrl",function(){var e=this.get("allUrls").indexOf(this.get("currentUrl"))
+return(e.get("rootURL")+e.get("currentURL")).replace("//","/").replace(/\/$/,"")}),previousUrl:n("allUrls.[]","currentUrl",function(){var e=this.get("allUrls").indexOf(this.get("currentUrl"))
 if(e>0)return this.get("allUrls")[e-1]}),nextUrl:n("allUrls.[]","currentUrl",function(){var e=this.get("allUrls").indexOf(this.get("currentUrl"))
 if(e<this.get("allUrls.length"))return this.get("allUrls")[e+1]})})}),define("ember-cli-addon-docs/services/docs-search",["exports","lunr"],function(e,t){"use strict"
 function n(e,t,n){var r=e[t]
