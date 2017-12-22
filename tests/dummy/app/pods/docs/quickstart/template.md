@@ -12,8 +12,9 @@ This quickstart guide will get you going with a docs site for your brand new add
 
   ```js
   // tests/dummy/app/router.js
-  Router.map(function() {
-    this.route('docs', function() {
+  this.route('docs', function() {
+    this.route('api', function() {
+      this.route('class', { path: '/:class_id' });
     });
   });
   ```
