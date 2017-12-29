@@ -1,6 +1,7 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import layout from './template';
+import { next } from '@ember/runloop';
 
 export default Component.extend({
   layout,
@@ -11,8 +12,14 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    this.get('docsRoutes.items').addObject(this);
-  },
+
+    next(() => {
+      this.get('docsRoutes.items').addObject(this);
+    });
+  }
+
 }).reopenClass({
+
   positionalParams: ['label', 'route', 'model']
+
 });

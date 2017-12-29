@@ -35,15 +35,15 @@ export default Service.extend({
     });
   }),
 
-  currentRouteIndex: computed('router.router.currentURL', 'routeUrls.[]', function() {
+  currentRouteIndex: computed('router.router.url', 'routeUrls.[]', function() {
     if (this.get('routeUrls.length')) {
       let router = this.get('router.router');
-      let currentURL = router.get('rootURL') + router.get('currentURL');
+      let currentURL = router.get('rootURL') + router.get('url');
       currentURL = currentURL
         .replace("//", "/")  // dedup slashes
         .replace(/\/$/, ""); // remove trailing slash
       let index = this.get('routeUrls').indexOf(currentURL);
-      assert(`DocsRoutes wasn't able to correctly detect the current route.`, index > -1);
+      assert(`DocsRoutes wasn't able to correctly detect the current route. The current url is ${currentURL}`, index > -1);
       return index;
     }
   }),
