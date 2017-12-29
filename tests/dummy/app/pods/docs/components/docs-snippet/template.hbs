@@ -45,5 +45,9 @@
 <p>Then in any of you templates, you can use the non-block form of <code>docs-snippet</code> to render your named snippet:</p>
 
 {{#docs-snippet name="my-snippet-src2"}}
-  {{docs-snippet name='my-snippet'}}
+  {{docs-snippet name='my-snippet.js'}}
 {{/docs-snippet}}
+
+<p>Be sure to include the file extension.</p>
+
+<p>Code snippets are provided by the `ember-code-snippet` addon and are made available to your app via the `dummy/snippets` importable ES6 module. If you ever want to debug which snippets are getting registered, you can open this module in your devtools (+O, dummy/snippet).</p>
