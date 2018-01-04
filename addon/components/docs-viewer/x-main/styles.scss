@@ -1,16 +1,25 @@
+$bp: 1000px;
+
 .docs-viewer__main {
   flex: 1;
   overflow: scroll;
+
+  @media (min-width: $bp) {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
 }
 
 .docs-viewer__page-nav {
+  @media (max-width: $bp - 1) {
+    display: none;
+  }
   text-decoration: none;
   position: absolute;
   top: 0px;
   bottom: 0;
   margin: 0;
-  max-width: 150px;
-  min-width: 90px;
+  width: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +28,7 @@
   color: #ccc;
   text-align: center;
   transition: all 0.15s;
+  margin-left: -90px;
 
   svg * {
     transition: all 0.15s;
