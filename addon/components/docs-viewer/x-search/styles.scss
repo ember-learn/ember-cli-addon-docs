@@ -1,19 +1,19 @@
 .docs-viewer-search {
   &__box {
-    padding: 6px;
+    padding: 0 20px 20px;
     background: 0 0;
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    // background: #fff;
 
     input {
       width: 100%;
-      border: 1px solid transparent;
+      border: 1px solid #ddd;
+      border-radius: 3px;
       box-shadow: none;
       outline: 0;
-      padding: 10px 13px;
+      padding: 8px 13px;
 
       &::placeholder {
-        color: #8d98a0;
+        color: #ccc;
       }
     }
   }

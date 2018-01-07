@@ -6,6 +6,8 @@ const resolve = require('resolve');
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
 const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-line node/no-unpublished-require
+const Plugin = require('broccoli-plugin');
+const walkSync = require('walk-sync');
 
 module.exports = {
   name: 'ember-cli-addon-docs',
@@ -111,6 +113,12 @@ module.exports = {
     }
   },
 
+  treeForAddon(tree) {
+    let dummyAppFiles = new FindDummyAppFiles([ 'tests/dummy/app' ]);
+
+    return this._super(new MergeTrees([ tree, dummyAppFiles ]));
+  },
+
   treeForVendor(vendor) {
     return new MergeTrees([
       vendor,
@@ -184,5 +192,15 @@ function findImporter(addon) {
       app = current.app || app;
     } while (current.parent.parent && (current = current.parent));
     return app;
+  }
+}
+
+class FindDummyAppFiles extends Plugin {
+  build() {
+    let addonPath = this.inputPaths[0];
+    let paths = walkSync(addonPath, { directories: false })
+    let pathsString = JSON.stringify(paths);
+
+    fs.writeFileSync(path.join(this.outputPath, 'app-files.js'), `export default ${pathsString};`);
   }
 }

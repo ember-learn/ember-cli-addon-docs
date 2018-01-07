@@ -1,3 +1,12 @@
+<div class="docs-viewer__page-header docs-container">
+  <a class='docs-viewer__page-header-link' href={{editCurrentPageUrl}}>
+    <span class="docs-viewer__page-header-link-icon">
+      {{docs-svg-icon 'pencil'}}
+    </span>
+     Edit this page
+   </a>
+</div>
+
 {{yield}}
 
 {{#if docsRoutes.previousRoute}}
