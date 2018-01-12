@@ -39,29 +39,45 @@ export default Component.extend({
   matches: computed(function() {
     let metadata = this.get('result.resultInfo.matchData.metadata');
 
-    return Object.keys(metadata).reduce((matches, key) => {
-      let match = metadata[key];
-      if (match.text) {
-        let text = this.get('result.document.text');
-        let spaceIndices = text.split("")
-          .map((char, index) => (char === ' ') ? index : null)
-          .filter(val => val > 0);
+    return Object.keys(metadata).reduce((matches, term) => {
+      let match = metadata[term];
+      let query = this.get('query');
+      let normalizedQuery = query.toLowerCase();
+      Object.keys(match).forEach((key) => {
+        if (key === 'text') {
+          let text = this.get('result.document.text');
+          let spaceIndices = text.split("")
+            .map((char, index) => (char === ' ') ? index : null)
+            .filter(val => val > 0);
 
-        match.text.position.forEach(([ wordStart, length ]) => {
-          let spaceAfterWord = spaceIndices.find(i => i > wordStart);
-          let indexOfSpaceAfterWord = spaceIndices.indexOf(spaceAfterWord);
-          let indexOfSpaceBeforeWord = indexOfSpaceAfterWord - 1;
-          let indexOfStartingSpace = (indexOfSpaceBeforeWord > 3) ? indexOfSpaceBeforeWord - 3 : 0;
-          let indexOfEndingSpace = ((indexOfSpaceAfterWord + 3) < spaceIndices.length) ? indexOfSpaceAfterWord + 3 : spaceIndices.length;
-          let matchingText = text.slice(spaceIndices[indexOfStartingSpace], spaceIndices[indexOfEndingSpace]);
-          let query = this.get('query');
-          matchingText = matchingText.replace(query, `<em class='docs-viewer-search__result-item__text--emphasis'>${query}</em>`);
+          match.text.position.forEach(([ wordStart, length ]) => {
+            let spaceAfterWord = spaceIndices.find(i => i > wordStart);
+            let indexOfSpaceAfterWord = spaceIndices.indexOf(spaceAfterWord);
+            let indexOfSpaceBeforeWord = indexOfSpaceAfterWord - 1;
+            let indexOfStartingSpace = (indexOfSpaceBeforeWord > 3) ? indexOfSpaceBeforeWord - 3 : 0;
+            let indexOfEndingSpace = ((indexOfSpaceAfterWord + 3) < spaceIndices.length) ? indexOfSpaceAfterWord + 3 : spaceIndices.length;
+            let matchingText = text.slice(spaceIndices[indexOfStartingSpace], spaceIndices[indexOfEndingSpace]);
+            matchingText = this._highlight(matchingText, matchingText.indexOf(query), query.length);
 
-          matches.push(matchingText);
-        });
-      }
+            matches.push(matchingText);
+          });
+        } else {
+          let normalizedTerm = term.toLowerCase();
+          this.get('result.document.keywords').forEach((keyword) => {
+            let normalizedKeyword = keyword.toLowerCase();
+            if (keyword.toLowerCase().indexOf(normalizedTerm) !== -1) {
+              let index = normalizedKeyword.indexOf(normalizedQuery);
+              matches.push(this._highlight(keyword, index, normalizedQuery.length));
+            }
+          });
+        }
+      });
 
       return matches;
-    }, []).join(' &middot ');
-  })
+    }, []).join(' &middot; ');
+  }),
+
+  _highlight(text, start, length) {
+    return `${text.slice(0, start)}<em class='docs-viewer-search__result-item__text--emphasis'>${text.slice(start, start + length)}</em>${text.slice(start + length)}`;
+  }
 });

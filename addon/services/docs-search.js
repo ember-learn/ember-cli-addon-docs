@@ -11,7 +11,7 @@ export default Service.extend({
   search(phrase) {
     return this.loadSearchIndex()
       .then(({ index, documents }) => {
-        let words = phrase.split(/\s+/);
+        let words = phrase.toLowerCase().split(/\s+/);
         let results = index.query((query) => {
           // In the future we could boost results based on the field they come from
           for (let word of words) {

@@ -115,7 +115,7 @@ export default Component.extend(EKMixin, {
 
   actions: {
     search(text) {
-      debounce(this, 'search', text, 250);
+      debounce(this, 'search', text, 100);
     },
 
     selectResult(index) {
