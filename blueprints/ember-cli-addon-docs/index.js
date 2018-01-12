@@ -23,10 +23,9 @@ module.exports = {
   afterInstall() {
     const configPath = require.resolve(this.project.configPath());
     const configContents = fs.readFileSync(configPath, 'utf-8')
-      .replace(/rootURL: .*,/, `rootURL: '/${this.project.name()}/',`)
-      .replace(/locationType: .*,/, `locationType: 'hash',`);
+      .replace(/rootURL: .*,/, `rootURL: '/${this.project.name()}/',`);
 
     fs.writeFileSync(configPath, configContents, 'utf-8');
-    this.ui.writeInfoLine('Updated dummy app rootURL and locationType for compatibility with GitHub Pages.');
+    this.ui.writeInfoLine('Updated dummy app rootURL for compatibility with GitHub Pages.');
   }
 };

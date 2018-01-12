@@ -1,6 +1,7 @@
 /* eslint-env node */
 'use strict';
 
+const fs = require('fs');
 const path = require('path');
 const resolve = require('resolve');
 const MergeTrees = require('broccoli-merge-trees');
@@ -77,6 +78,7 @@ module.exports = {
 
     let importer = findImporter(this);
 
+    importer.import('vendor/404.html');
     importer.import(`${this._hasEmberSource() ? 'vendor' : 'bower_components'}/ember/ember-template-compiler.js`);
     importer.import('vendor/lunr/lunr.js', {
       using: [{ transformation: 'amd', as: 'lunr' }]
@@ -102,6 +104,12 @@ module.exports = {
       let ContentExtractor = require('./lib/preprocessors/hbs-content-extractor');
       registry.add('template', new TemplateCompiler());
       registry.add('template', this.contentExtractor = new ContentExtractor());
+    }
+  },
+
+  contentFor(type) {
+    if (type === 'body') {
+      return fs.readFileSync(`${__dirname}/vendor/ember-cli-addon-docs/github-spa.html`, 'utf-8');
     }
   },
 
@@ -134,7 +142,11 @@ module.exports = {
       config: this.project.config(EmberApp.env())
     });
 
-    return new MergeTrees([ defaultTree, docsTree, searchIndexTree ]);
+    let notFoundSnippet = new Funnel(`${__dirname}/vendor/ember-cli-addon-docs`, {
+      include: ['404.html']
+    });
+
+    return new MergeTrees([ defaultTree, notFoundSnippet, docsTree, searchIndexTree ]);
   },
 
   _lunrTree() {
