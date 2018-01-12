@@ -78,7 +78,6 @@ module.exports = {
 
     let importer = findImporter(this);
 
-    importer.import('vendor/404.html');
     importer.import(`${this._hasEmberSource() ? 'vendor' : 'bower_components'}/ember/ember-template-compiler.js`);
     importer.import('vendor/lunr/lunr.js', {
       using: [{ transformation: 'amd', as: 'lunr' }]
