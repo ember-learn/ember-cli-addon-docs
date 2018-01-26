@@ -54,4 +54,17 @@
 
 <h2>Customizing Snippets</h2>
 
-<p></p>
+<p>By default, snippets will render with a button allowing readers to copy the snippet's contents to their clipboard. You can turn this off by passing <code>showCopy=false</code> to <code>\{{docs-snippet}}</code></p>
+
+<p>You can override the detected language for syntax highlighting in your snippet by specifying a <code>language</code> property.</p>
+
+<p>Finally, you can use the <code>title</code> property to specify a header for your snippet, for instance to specify the file your snippet would be found in.</p>
+
+{{#docs-snippet name="docs-snippet-title-example" title="app/components/my-component.js"}}
+  import Component from '@ember/component';
+
+  export default Component.extend({
+    // ...
+  });
+{{/docs-snippet}}
+
