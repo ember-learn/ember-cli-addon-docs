@@ -9,7 +9,7 @@ export default Component.extend({
 
   language: undefined,
   title: undefined,
-  showCopy: false,
+  showCopy: true,
 
   _unindent: function(src) {
     if (!this.get('unindent')) {
