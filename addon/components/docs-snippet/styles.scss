@@ -14,4 +14,11 @@
       opacity: 1;
     }
   }
+
+  &__title {
+    background-color: $code-title-background-color;
+    font-family: monospace;
+    font-size: 14px;
+    padding: 8px 15px;
+  }
 }

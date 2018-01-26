@@ -7,6 +7,10 @@ export default Component.extend({
   tagName: '',
   layout,
 
+  language: undefined,
+  title: undefined,
+  showCopy: false,
+
   _unindent: function(src) {
     if (!this.get('unindent')) {
       return src;

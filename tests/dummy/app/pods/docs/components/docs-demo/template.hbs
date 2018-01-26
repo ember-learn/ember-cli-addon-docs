@@ -43,7 +43,7 @@
   Here's the code that rendered the above demo (you can copy-paste this block to get going in your own app):
 </p>
 
-{{code-snippet name='docs-demo-basic-src.hbs'}}
+{{docs-snippet name='docs-demo-basic-src.hbs'}}
 
 <p>To explain,</p>
 
@@ -58,7 +58,7 @@
 
 <p>You can render multiple snippets to support your example. This can be useful when part of your example relies on code defined elsewhere, for example in a controller or stylesheet.</p>
 
-<p>Use a file extension to help code-snippet identify and properly syntax highlight your snippet. Templates end in `.hbs`, JavaScript snippets end in `.js`, stylesheets in `.css` or `.scss`.</p>
+<p>Use a file extension to help docs-snippet identify and properly syntax highlight your snippet. Templates end in `.hbs`, JavaScript snippets end in `.js`, stylesheets in `.css` or `.scss`.</p>
 
 {{#docs-demo as |demo|}}
   {{#demo.example data-test-id='docs-demo-multiple'}}
@@ -113,7 +113,7 @@
 
 <p>Here's the code for this:</p>
 
-{{code-snippet name='live-example-src.hbs'}}
+{{docs-snippet name='live-example-src.hbs'}}
 
 <p>Note that we're using the <code>demo.live-example</code> contextual component now. This component takes a block as a starting template for the user to see. It then puts that template into the <code>textarea</code>, and every time its value changes the template is recompiled and rerendered.</p>
 

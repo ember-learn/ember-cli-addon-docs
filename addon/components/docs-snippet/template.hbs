@@ -1,14 +1,16 @@
-<div class='docs-snippet' data-test-id={{name}}>
-  {{#copy-button
-    clipboardText=snippetText
-    title='copy to clipboard'
-  }}
-    Copy
-  {{/copy-button}}
+{{#if file}}
+  <div class='docs-snippet__title'>{{file}}</div>
+{{/if}}
 
-  {{#if hasBlock}}
-    {{code-snippet name=(concat name '.hbs')}}
-  {{else}}
-    {{code-snippet name=name language=language}}
+<div class='docs-snippet' data-test-id={{name}}>
+  {{#if showCopy}}
+    {{#copy-button
+      clipboardText=snippetText
+      title='copy to clipboard'
+    }}
+      Copy
+    {{/copy-button}}
   {{/if}}
+
+  {{code-snippet name=(if hasBlock (concat name '.hbs') name) language=language}}
 </div>
