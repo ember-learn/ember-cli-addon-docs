@@ -1,9 +1,9 @@
-import Ember from 'ember';
 import $ from 'jquery';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import layout from './template';
 import { EKMixin, keyDown } from 'ember-keyboard';
+import { on } from '@ember/object/evented';
 
 export default Component.extend(EKMixin, {
   layout,
@@ -27,19 +27,19 @@ export default Component.extend(EKMixin, {
     this.get('docsRoutes').resetState();
   },
 
-  nextPage: Ember.on(keyDown('KeyL'), keyDown('ArrowRight'), function() {
+  nextPage: on(keyDown('KeyL'), keyDown('ArrowRight'), function() {
     if (this.searchIsNotFocused() && this.get('docsRoutes.nextRoute')) {
       this.get('router').transitionTo(...this.get('docsRoutes.nextRoute'));
     }
   }),
 
-  previousPage: Ember.on(keyDown('KeyH'), keyDown('ArrowLeft'), function() {
+  previousPage: on(keyDown('KeyH'), keyDown('ArrowLeft'), function() {
     if (this.searchIsNotFocused() && this.get('docsRoutes.previousRoute')) {
       this.get('router').transitionTo(...this.get('docsRoutes.previousRoute'));
     }
   }),
 
-  pageDown: Ember.on(keyDown('KeyJ'), function() {
+  pageDown: on(keyDown('KeyJ'), function() {
     if (this.searchIsNotFocused()) {
       let $el = $("#docs-viewer__scroll-body");
 
@@ -52,7 +52,7 @@ export default Component.extend(EKMixin, {
     }
   }),
 
-  halfPageDown: Ember.on(keyDown('ctrl+KeyJ'), function() {
+  halfPageDown: on(keyDown('ctrl+KeyJ'), function() {
     if (this.searchIsNotFocused()) {
       let $el = $("#docs-viewer__scroll-body");
 
@@ -65,7 +65,7 @@ export default Component.extend(EKMixin, {
     }
   }),
 
-  pageUp: Ember.on(keyDown('KeyK'), function() {
+  pageUp: on(keyDown('KeyK'), function() {
     if (this.searchIsNotFocused()) {
       let $el = $("#docs-viewer__scroll-body");
 
@@ -78,7 +78,7 @@ export default Component.extend(EKMixin, {
     }
   }),
 
-  halfPageUp: Ember.on(keyDown('ctrl+KeyK'), function() {
+  halfPageUp: on(keyDown('ctrl+KeyK'), function() {
     if (this.searchIsNotFocused()) {
       let $el = $("#docs-viewer__scroll-body");
 

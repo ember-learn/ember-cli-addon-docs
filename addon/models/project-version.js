@@ -11,9 +11,6 @@ export default DS.Model.extend({
   modules: hasMany('module', { async: false }),
   classes: hasMany('class', { async: false }),
 
-  classesSorting: ['name'],
+  classesSorting: ['name'], // eslint-disable-line ember/avoid-leaking-state-in-ember-objects
   sortedClasses: sort('classes', 'classesSorting'),
-
-
-
 });

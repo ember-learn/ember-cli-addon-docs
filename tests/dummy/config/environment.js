@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'dummy',
     podModulePrefix: 'dummy/pods',
-    environment: environment,
+    environment,
     rootURL: '/',
     locationType: 'router-scroll',
     historySupportMiddleware: true,
@@ -45,6 +45,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.autoboot = false;
   }
 
   if (environment === 'production') {

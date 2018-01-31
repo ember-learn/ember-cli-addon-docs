@@ -1,4 +1,3 @@
-/* eslint-env node */
 'use strict';
 
 const fs = require('fs');
@@ -6,7 +5,7 @@ const path = require('path');
 const resolve = require('resolve');
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
-const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-line node/no-unpublished-require
 
 module.exports = {
   name: 'ember-cli-addon-docs',

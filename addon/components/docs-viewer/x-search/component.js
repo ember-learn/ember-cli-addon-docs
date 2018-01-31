@@ -1,9 +1,10 @@
-import Ember from 'ember';
 import { inject as service } from '@ember/service';
 import { debounce } from '@ember/runloop';
 import Component from '@ember/component';
 import layout from './template';
 import { EKMixin, keyUp, keyDown } from 'ember-keyboard';
+import { on } from '@ember/object/evented';
+import { computed } from '@ember/object';
 
 export default Component.extend(EKMixin, {
   layout,
@@ -42,7 +43,7 @@ export default Component.extend(EKMixin, {
     }
   },
 
-  searchResults: Ember.computed('rawSearchResults.[]', function() {
+  searchResults: computed('rawSearchResults.[]', function() {
     let rawSearchResults = this.get('rawSearchResults');
 
     if (rawSearchResults) {
@@ -59,7 +60,7 @@ export default Component.extend(EKMixin, {
     }
   }),
 
-  gotoSelectedItem: Ember.on(keyUp('Enter'), function() {
+  gotoSelectedItem: on(keyUp('Enter'), function() {
     if (this.get('selectedIndex') !== null) {
       let selectedResult = this.get('searchResults')[this.get('selectedIndex')];
       if (selectedResult.document.type === 'template') {
@@ -72,7 +73,7 @@ export default Component.extend(EKMixin, {
     this.clearSearch();
   }),
 
-  nextSearchResult: Ember.on(keyDown('ctrl+KeyN'), function() {
+  nextSearchResult: on(keyDown('ctrl+KeyN'), function() {
     let hasSearchResults = this.get('searchResults.length');
     let lastResultIsSelected = (this.get('selectedIndex') + 1 === this.get('searchResults.length'));
 
@@ -81,7 +82,7 @@ export default Component.extend(EKMixin, {
     }
   }),
 
-  previousSearchResult: Ember.on(keyDown('ctrl+KeyP'), function() {
+  previousSearchResult: on(keyDown('ctrl+KeyP'), function() {
     let hasSearchResults = this.get('searchResults.length');
     let firstResultIsSelected = (this.get('selectedIndex') === 0);
 
@@ -90,11 +91,11 @@ export default Component.extend(EKMixin, {
     }
   }),
 
-  focusSearch: Ember.on(keyUp('Slash'), keyUp('KeyS'), function() {
+  focusSearch: on(keyUp('Slash'), keyUp('KeyS'), function() {
     this.$('.docs-viewer-search__input').focus();
   }),
 
-  unfocusSearch: Ember.on(keyUp('Escape'), function() {
+  unfocusSearch: on(keyUp('Escape'), function() {
     this.setProperties({
       rawSearchResults: null,
       didSearch: false

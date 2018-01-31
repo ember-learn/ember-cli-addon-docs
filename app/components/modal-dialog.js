@@ -1,18 +1,19 @@
 import ModalDialog from 'ember-modal-dialog/components/modal-dialog';
-import Ember from 'ember';
+import { on } from '@ember/object/evented';
+import $ from 'jquery';
 
 export default ModalDialog.extend({
 
-  setup: Ember.on('didInsertElement', function() {
-    Ember.$('body').on('keyup.modal-dialog', (e) => {
+  setup: on('didInsertElement', function() {
+    $('body').on('keyup.modal-dialog', (e) => {
       if (e.keyCode === 27) {
-        this.sendAction('onClose');
+        this.sendAction('onClose'); // eslint-disable-line ember/closure-actions
       }
     });
   }),
 
-  teardown: Ember.on('willDestroyElement', function() {
-    Ember.$('body').off('keyup.modal-dialog');
+  teardown: on('willDestroyElement', function() {
+    $('body').off('keyup.modal-dialog');
   })
 
 });
