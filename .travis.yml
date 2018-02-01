@@ -17,6 +17,7 @@ env:
     # See https://git.io/vdao3 for details.
     - JOBS=1
   matrix:
+    - EMBER_TRY_SCENARIO=node
     - EMBER_TRY_SCENARIO=ember-lts-2.12
     - EMBER_TRY_SCENARIO=ember-lts-2.16
     - EMBER_TRY_SCENARIO=ember-release

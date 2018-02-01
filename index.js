@@ -71,6 +71,7 @@ module.exports = {
 
     this._super.included.apply(this, arguments);
 
+    includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
     includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
     includer.options.snippetRegexes = Object.assign({}, {
       begin: /{{#(?:docs-snippet|demo.example|demo.live-example)\sname=(?:"|')(\S+)(?:"|')/,
