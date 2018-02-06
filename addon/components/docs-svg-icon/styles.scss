@@ -1,20 +1,26 @@
 .docs-svg-icon {
-  display: inline-flex;
-  align-self: center;
-  position: relative;
-  height: 1em;
-  width: 1em;
-
-  svg {
-    height: 100%;
-    width: 100%;
-
-    // align with the baseline
-    bottom: -0.125em;
-    position: absolute;
-
-    &, * {
-      fill: currentColor;
-    }
+  &, * {
+    fill: currentColor;
   }
 }
+
+// .docs-svg-icon {
+//   display: inline-flex;
+//   align-self: center;
+//   position: relative;
+//   height: 1em;
+//   width: 1em;
+//
+//   svg {
+//     height: 100%;
+//     width: 100%;
+//
+//     // align with the baseline
+//     bottom: -0.125em;
+//     position: absolute;
+//
+//     &, * {
+//       fill: currentColor;
+//     }
+//   }
+// }

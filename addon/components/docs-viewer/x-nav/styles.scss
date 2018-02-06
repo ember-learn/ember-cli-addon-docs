@@ -55,16 +55,36 @@
   }
 
   &-footer {
-    padding: 20px;
+    padding: 14px;
     text-align: center;
-    box-shadow: 0 0px 6px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 6px 1px rgba(0, 0, 0, 0.1);
   }
 
   &-footer-link {
-    opacity: 0.4;
+    opacity: 0.25;
+    color: inherit;
+    text-decoration: none;
 
     &:hover {
       opacity: 1;
+    }
+  }
+
+  &-footer-powered-by {
+    font-size: 11px;
+    margin-top: 6px;
+    margin-bottom: 0;
+    color: #bbb;
+    font-weight: 500;
+  }
+
+  &-footer-powered-by-link {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.15s;
+
+    &:hover {
+      color: #444;
     }
   }
 }

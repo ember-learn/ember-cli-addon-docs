@@ -4,7 +4,10 @@ import layout from './template';
 export default Component.extend({
   layout,
 
-  classNames: 'docs-svg-icon'
+  tagName: '',
+  height: 16,
+  width: 16,
+
 
 }).reopenClass({
 

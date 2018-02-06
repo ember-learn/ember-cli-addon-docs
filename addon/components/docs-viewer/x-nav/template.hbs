@@ -36,7 +36,16 @@
 </div>
 
 <div class='docs-viewer__nav-footer'>
-  <a href={{packageJson.repository}} class='docs-viewer__nav-footer-link'>
-    {{svg-jar 'github' width=20 height=20}}
-  </a>
+  <div>
+    <a href={{packageJson.repository}} class='docs-viewer__nav-footer-link'>
+      {{svg-jar 'github' width=28 height=28}}
+    </a>
+  </div>
+  <div>
+    <p class='docs-viewer__nav-footer-powered-by'>Powered by
+      <a class='docs-viewer__nav-footer-powered-by-link' href="https://github.com/ember-learn/ember-cli-addon-docs">
+        AddonDocs
+      </a>
+    </p>
+  </div>
 </div>
