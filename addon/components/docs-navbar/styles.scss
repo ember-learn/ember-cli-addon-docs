@@ -1,16 +1,4 @@
 .docs-navbar {
-  // background-color: #f0f0f0;
-  // background-color: #222;
-  // color: white;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // right: 0;
-  //
-  // & + * {
-  //   margin-top: 47px;
-  // }
-  // border-bottom: 1px solid #eee;
   border-bottom: 1px solid #f0f0f0;
 
   &__inner {
@@ -18,11 +6,6 @@
     padding-bottom: 10px;
     display: flex;
     align-items: center;
-  }
-  .docs-logo {
-    path, text {
-      fill: #1D1D1D;
-    }
   }
   &__link {
     color: #1D1D1D;
@@ -42,14 +25,5 @@
       margin-left: auto;
       margin-right: 0;
     }
-  }
-
-  &__logo {
-    // letter-spacing: -0.5px;
-    line-height: 0;
-  }
-  &__logo-trademark {
-    display: inline-block;
-    height: 16px;
   }
 }

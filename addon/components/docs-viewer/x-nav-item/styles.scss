@@ -98,17 +98,35 @@
 // }
 
 // Dim link implementation
+// .docs-viewer__nav-link {
+//   display: block;
+//   padding: 7px 20px;
+//   text-decoration: none;
+//   transition: all 0.15s;
+//   color: #364149;
+//
+//   &:hover,
+//   &--active {
+//     opacity: 0.5;
+//     // color: #2196F3;
+//     // color: #0070c9;
+//   }
+// }
+
 .docs-viewer__nav-link {
   display: block;
   padding: 7px 20px;
   text-decoration: none;
-  transition: all 0.15s;
+  transition: opacity 0.15s;
   color: #364149;
 
-  &:hover,
-  &--active {
+  &:hover {
     opacity: 0.5;
-    // color: #2196F3;
-    // color: #0070c9;
+  }
+
+  &--active,
+  &--active:hover {
+    opacity: 1;
+    font-weight: 900;
   }
 }

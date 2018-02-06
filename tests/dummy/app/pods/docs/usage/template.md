@@ -6,7 +6,7 @@
 ember install ember-cli-addon-docs
 ```
 
-## New addons
+<!-- ## New addons
 
 
-## Existing addons
+## Existing addons -->

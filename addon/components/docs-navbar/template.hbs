@@ -1,24 +1,7 @@
-<div class='docs-navbar__inner docs-container {{if isViewingDocs 'docs-container--fluid'}}'>
-  {{#if isHome}}
-    {{#link-to 'docs' class='docs-navbar__link'}}
-      Documentation
-    {{/link-to}}
-  {{else}}
-    {{#link-to 'index' class='docs-navbar__link'}}
-      <span class='docs-navbar__logo'>
-        {{#if hasBlock}}
-          {{yield}}
-        {{else if logo}}
-          <span class='docs-navbar__logo-trademark'>
-            {{docs-logo logo=logo}}
-          </span>
-        {{/if}}
-        <span>
-          {{name}}
-        </span>
-      </span>
-    {{/link-to}}
-  {{/if}}
+<div class='docs-navbar__inner docs-container'>
+  {{#link-to 'docs' class='docs-navbar__link'}}
+    Documentation
+  {{/link-to}}
 
   <a href={{githubUrl}} class='docs-navbar__link docs-navbar__link--right'>GitHub</a>
 </div>
