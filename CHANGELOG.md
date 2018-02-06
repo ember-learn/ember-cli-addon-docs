@@ -1,6 +1,6 @@
 # Ember CLI Addon Docs Changelog
 
-## master
+## 0.1.2
 
 Style tweaks.
 
