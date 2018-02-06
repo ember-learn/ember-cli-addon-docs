@@ -6,7 +6,8 @@ import { EKMixin, keyUp } from 'ember-keyboard';
 import { inject as service } from '@ember/service';
 
 /**
-  A component that renders a hero banner. Useful for your docs site's homepage.
+  A component that enables keyboard shortcuts. Press '?' to toggle the keyboard shortcuts dialog.
+
   @class DocsKeyboardShortcuts
   @public
 */

@@ -71,23 +71,17 @@ button {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
 
-  h2 {
+  &__h2 {
     font-size: 24px;
     font-weight: 600;
     margin-top: 1.5em;
   }
 
-  p {
-  }
-
-  li {
-  }
-
-  code {
+  &__code {
     background: $code-background-color;
   }
 
-  blockquote {
+  &__blockquote {
     margin: 0;
     margin-bottom: .85em;
     padding: 0 15px;
@@ -95,15 +89,8 @@ button {
     border-left: 4px solid #e5e5e5
   }
 
+  // Couldn't figure out how to add class in our Renderer
   aside {
-    // right side version
-    // font-size: small;
-    // width: 180px;
-    // position: absolute;
-    // left: 780px;
-    // line-height: 1.4;
-
-    // inline version
     background: #fafafa;
     padding: 10px 20px;
     margin-top: 20px;
@@ -118,7 +105,7 @@ button {
     font-size: 14px;
   }
 
-  a {
+  &__a {
     text-decoration: none;
     border-bottom: 1px solid #ccc;
     color: inherit;
@@ -128,7 +115,7 @@ button {
     }
   }
 
-  hr {
+  &__hr {
     height: 4px;
     padding: 0;
     margin: 1.7em 0;

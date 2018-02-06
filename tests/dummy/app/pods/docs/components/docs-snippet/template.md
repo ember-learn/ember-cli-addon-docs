@@ -6,15 +6,7 @@ Easily render a code snippet with syntax highlighting and a copy-to-clipboard bu
 
 To render a Handlebars snippet from one of your templates, wrap it in `{{#docs-snippet name="your-snippet-name"}}`.
 
-{{#docs-snippet name="docs-snippet"}}
-  <div id='foo'>
-    {{#my-awesome-thing
-      some=true
-      options=false}}
-      <p>Something old, something new</p>
-    {{/my-awesome-thing}}
-  </div>
-{{/docs-snippet}}
+{{docs/components/docs-snippet/demo1}}
 
 All snippets must have a globally unique name.
 
@@ -28,21 +20,11 @@ You can also render snippets from other files in your app, like JavaScript and C
 
 To do this, first mark up the source you want to display using comments that start with BEGIN—SNIPPET and END—SNIPPET. BEGIN—SNIPPET should be followed by a name, which you can use to identify the snippet.
 
-{{#docs-snippet name="my-snippet-src"}}
-  // BEGIN-SNIPPET my-snippet
-  App = Ember.Application.extend({
-    modulePrefix: config.modulePrefix,
-    podModulePrefix: config.podModulePrefix,
-    Resolver
-  });
-  // END-SNIPPET
-{{/docs-snippet}}
+{{docs/components/docs-snippet/demo2}}
 
 Then in any of you templates, you can use the non-block form of `docs-snippet` to render your named snippet:
 
-{{#docs-snippet name="my-snippet-src2"}}
-  {{docs-snippet name='my-snippet.js'}}
-{{/docs-snippet}}
+{{docs/components/docs-snippet/demo3}}
 
 Be sure to include the file extension.
 
@@ -56,9 +38,4 @@ You can override the detected language for syntax highlighting in your snippet b
 
 Finally, you can use the `title` property to specify a header for your snippet, for instance to specify the file your snippet would be found in.
 
-{{#docs-snippet name="docs-snippet-title-example" title="app/components/my-component.js"}}
-  import Component from '@ember/component';
-  export default Component.extend({
-    // ...
-  });
-{{/docs-snippet}}
+{{docs/components/docs-snippet/demo4}}
