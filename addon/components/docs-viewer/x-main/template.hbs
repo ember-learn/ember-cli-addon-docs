@@ -1,13 +1,17 @@
-<div class="docs-viewer__page-header docs-container">
-  <a class='docs-viewer__page-header-link' href={{editCurrentPageUrl}}>
-    <span class="docs-viewer__page-header-link-icon">
-      {{docs-svg-icon 'pencil'}}
-    </span>
-     Edit this page
-   </a>
-</div>
+<div class="docs-container">
+  <div class="docs-section">
+    <div class="docs-viewer__page-header">
+      <a class='docs-viewer__page-header-link' href={{editCurrentPageUrl}}>
+        <span class="docs-viewer__page-header-link-icon">
+          {{docs-svg-icon 'pencil'}}
+        </span>
+         Edit this page
+       </a>
+    </div>
 
-{{yield}}
+    {{yield}}
+  </div>
+</div>
 
 {{#if docsRoutes.previousRoute}}
   {{#link-to params=docsRoutes.previousRoute class='docs-viewer__page-nav'}}

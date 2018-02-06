@@ -4,7 +4,7 @@ Here's a summary of the patterns we encourage addon authors to follow when docum
 
 {{! FIXME these links don't work  with the 'hash' locationType}}
 - [Document your addon using its dummy app](#document-your-addon-using-its-dummy-app)
-- [Author in Markdown when possible](#author-in-markdown-when-possible)
+- [Author in Markdown](#author-in-markdown)
 - [Design for your audience](#design-for-your-audience)
 - [Write versioned guides](#write-versioned-guides)
 - [Write versioned API references](#write-versioned-api-references)
@@ -25,21 +25,29 @@ Every addon comes with a fully bootstrapped Ember application that can be found 
 
   Once you document the new behavior on your doc site, you can now write an acceptance test against it, ensuring (1) that your code is functioning correctly, and (2) that your docs are accurate and up-to-date. Win-win!
 
-## Author in Markdown when possible
+## Author in Markdown
 
-In general it is good to author your docs pages as Markdown documents. This helps you focus on content and makes it easy for contributors to make edits and improvements to your docs. For functionality-rich docs pages you can always fall back to `template.hbs` files.
+Authoring your docs pages in Markdown makes it easy for you and your contributors to read and edit your site.
 
-We automatically set up a template preprocessor so that you can opt-in to authoring any page you'd like as a Markdown file — just create a `template.md` file wherever you'd normally create a `template.hbs` file. [The file you're reading](#) is an example.
+To make a route a Markdown document, simply create a `template.md` file instead of a `template.hbs`.
 
-Whenever you author a template as a Markdown file, we wrap it in a div with the class `.docs-md`. You can view our [predefined styles here](#) — feel free to overwrite these in your own app if you'd like.
+To show additional functionality, create route-specific components and render them from your `template.md` files:
+
+```md
+## My Component demo
+
+Here's a demo of it working:
+
+{{docs/my-component/demo1}}
+```
 
 In addition to authoring normal Markdown content, you can
+
+- Use an `<aside>` element. This is good for calling out important info or long-standing bug fixes that were part of a release.
 
 <aside>
   Here's an example of an aside.
 </aside>
-
-- Use an `<aside>` element. This is good for calling out important info or long-standing bug fixes that were part of a release.
 
 - Use Handlebars helpers. For example, you can use `link-to` to render a link to {{link-to 'the home page' 'index'}}, or you can even render a component.
 

@@ -1,8 +1,12 @@
 .docs-dummy {
   &__header {
+    display: flex;
+    align-items: center;
+    margin-top: 70px !important;
+  }
+  &__header-icon {
     float: left;
     margin-right: 10px;
-    margin-top: 8px;
   }
   &__btn-area {
     margin-top: 40px;

@@ -47,11 +47,17 @@ button {
   &--fluid {
     max-width: none;
   }
+  &--small {
+    max-width: 760px;
+  }
 }
 .docs-section {
   position: relative;
-  max-width: 720px;
-  margin-bottom: 80px;
+  max-width: 760px;
+  margin: 0 auto 80px;
+}
+.docs-section--left {
+  margin-left: 0;
 }
 .docs-snippet {
   font-size: 14px;
@@ -91,17 +97,17 @@ button {
 
   aside {
     // right side version
-    font-size: small;
-    width: 180px;
-    position: absolute;
-    left: 780px;
-    line-height: 1.4;
+    // font-size: small;
+    // width: 180px;
+    // position: absolute;
+    // left: 780px;
+    // line-height: 1.4;
 
     // inline version
-    // background: #fafafa;
-    // padding: 5px 20px;
-    // margin-top: 20px;
-    // font-style: italic;
+    background: #fafafa;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-style: italic;
   }
 
   // Applied to fenced code in compiled markdown
