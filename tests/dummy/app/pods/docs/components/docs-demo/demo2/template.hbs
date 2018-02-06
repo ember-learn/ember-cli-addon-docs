@@ -1,0 +1,18 @@
+{{#docs-demo as |demo|}}
+  {{#demo.example data-test-id='docs-demo-multiple'}}
+    {{!-- BEGIN-SNIPPET docs-demo-multiple --}}
+    <button onclick={{action 'toggleIsShowing'}}>
+      Press me!
+    </button>
+
+    {{#if isShowing}}
+      <p>Yep</p>
+    {{else}}
+      <p>Nope</p>
+    {{/if}}
+    {{!-- END-SNIPPET --}}
+  {{/demo.example}}
+
+  {{demo.snippet 'docs-demo-multiple.hbs'}}
+  {{demo.snippet 'docs-demo-multiple.js' label='component.js'}}
+{{/docs-demo}}
