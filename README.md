@@ -1,38 +1,12 @@
-
-[![Build Status](https://travis-ci.org/ember-learn/ember-cli-addon-docs.svg)](https://travis-ci.org/ember-learn/ember-cli-addon-docs)
-
 # Ember CLI Addon Docs
 
-**NOTE: This is a work in progress but we are quickly moving to a minimal usable set of tools.**
+[![npm version](https://img.shields.io/npm/v/ember-cli-addon-docs.svg?style=flat-square)](http://badge.fury.io/js/ember-cli-addon-docs)
+[![Build Status](https://img.shields.io/travis/ember-learn/ember-cli-addon-docs.svg?style=flat-square)](https://travis-ci.org/ember-learn/ember-cli-addon-docs)
 
-This addon has the goal of providing tools for addon developers to easily document and market their addons.
+Easy documentation for Ember addons.
 
-Features planned:
+[View the docs here](https://ember-learn.github.io/ember-cli-addon-docs/).
 
-* [ ] Marketing homepage
-* [ ] Versioned API documentation
-* [ ] Versioned guides
+## About
 
-## Installation
-
-* `git clone <repository-url>` this repository
-* `cd ember-cli-addon-docs`
-* `npm install`
-* `bower install`
-
-## Running
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-## Running Tests
-
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+This library was started by [Dan Freeman](https://twitter.com/schiefgelaufen) and [Sam Selikoff](https://twitter.com/samselikoff). Thanks to all of our [contributors](https://github.com/ember-learn/ember-cli-addon-docs/graphs/contributors)!
