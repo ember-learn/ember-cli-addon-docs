@@ -1,13 +1,9 @@
-import Controller from '@ember/controller';
+import Controller from "@ember/controller";
 
 export default Controller.extend({
-
   actions: {
-    // BEGIN-SNIPPET docs-demo-multiple
     toggleIsShowing() {
-      this.toggleProperty('isShowing');
+      this.toggleProperty("isShowing");
     }
-    // END-SNIPPET
   }
-
 });
