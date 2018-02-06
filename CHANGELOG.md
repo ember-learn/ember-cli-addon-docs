@@ -6,7 +6,9 @@ Style tweaks.
 
 ## 0.1.1
 
-More style updates.
+More style updates. Updates:
+
+- Use `docs-link` anywhere in your MD files where you were using `link-to`, as we now style by class rather than descendents.
 
 ## 0.1.0
 
