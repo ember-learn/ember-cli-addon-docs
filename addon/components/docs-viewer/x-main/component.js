@@ -4,6 +4,9 @@ import layout from './template';
 import { computed } from '@ember/object';
 import appFiles from 'ember-cli-addon-docs/app-files';
 import { dasherize } from '@ember/string';
+import config from 'dummy/config/environment';
+
+const packageJson = config['ember-cli-addon-docs'].packageJson;
 
 export default Component.extend({
   layout,
@@ -29,12 +32,12 @@ export default Component.extend({
       let klass = dasherize(params.class_id.replace(/-.+$/g, ''));
       let path = `pods/${path}`;
 
-      return `https://github.com/ember-learn/ember-cli-addon-docs/edit/master/addon/components/${klass}/component.js`;
+      return `${packageJson.repository}/edit/master/addon/components/${klass}/component.js`;
     } else {
       let templatePath = `pods/${path}`;
       let file = appFiles.find(file => file.match(`${templatePath}/template.(hbs|md)`));
 
-      return `https://github.com/ember-learn/ember-cli-addon-docs/edit/master/tests/dummy/app/${file}`;
+      return `${packageJson.repository}/edit/master/tests/dummy/app/${file}`;
     }
   })
 
