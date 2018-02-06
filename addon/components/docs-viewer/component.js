@@ -27,67 +27,15 @@ export default Component.extend(EKMixin, {
     this.get('docsRoutes').resetState();
   },
 
-  nextPage: on(keyDown('KeyL'), keyDown('ArrowRight'), function() {
+  nextPage: on(keyDown('KeyJ'), keyDown('ArrowRight'), function() {
     if (this.searchIsNotFocused() && this.get('docsRoutes.nextRoute')) {
       this.get('router').transitionTo(...this.get('docsRoutes.nextRoute'));
     }
   }),
 
-  previousPage: on(keyDown('KeyH'), keyDown('ArrowLeft'), function() {
+  previousPage: on(keyDown('KeyK'), keyDown('ArrowLeft'), function() {
     if (this.searchIsNotFocused() && this.get('docsRoutes.previousRoute')) {
       this.get('router').transitionTo(...this.get('docsRoutes.previousRoute'));
-    }
-  }),
-
-  pageDown: on(keyDown('KeyJ'), function() {
-    if (this.searchIsNotFocused()) {
-      let $el = $("#docs-viewer__scroll-body");
-
-      $el.velocity('stop');
-      $el.velocity('scroll', {
-        offset: ($el.height() - 150),
-        container: $el,
-        duration: 225
-      });
-    }
-  }),
-
-  halfPageDown: on(keyDown('ctrl+KeyJ'), function() {
-    if (this.searchIsNotFocused()) {
-      let $el = $("#docs-viewer__scroll-body");
-
-      $el.velocity('stop');
-      $el.velocity('scroll', {
-        offset: (($el.height() / 2) - 150),
-        container: $el,
-        duration: 225
-      });
-    }
-  }),
-
-  pageUp: on(keyDown('KeyK'), function() {
-    if (this.searchIsNotFocused()) {
-      let $el = $("#docs-viewer__scroll-body");
-
-      $el.velocity('stop');
-      $el.velocity('scroll', {
-        offset: -($el.height() - 150),
-        container: $el,
-        duration: 225
-      });
-    }
-  }),
-
-  halfPageUp: on(keyDown('ctrl+KeyK'), function() {
-    if (this.searchIsNotFocused()) {
-      let $el = $("#docs-viewer__scroll-body");
-
-      $el.velocity('stop');
-      $el.velocity('scroll', {
-        offset: -(($el.height() / 2) - 150),
-        container: $el,
-        duration: 225
-      });
     }
   }),
 
