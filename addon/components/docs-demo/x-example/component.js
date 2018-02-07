@@ -6,7 +6,7 @@ export default Component.extend({
 
   classNames: 'docs-demo-example',
 
-  didReceiveAttrs() {
+  init() {
     this._super(...arguments);
     this.set('elementId', 'example-' + this.get('name'));
   }
