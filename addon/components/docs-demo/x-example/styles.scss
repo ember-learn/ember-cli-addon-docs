@@ -1,3 +1,13 @@
 .docs-demo-example {
   padding: 20px;
+  position: relative;
+
+  .docs-demo__anchor {
+    color: black;
+    opacity: 0.5;
+    padding: 10px 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
