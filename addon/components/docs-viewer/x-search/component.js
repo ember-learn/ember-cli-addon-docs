@@ -16,10 +16,11 @@ export default Component.extend(EKMixin, {
   query: null,
   selectedIndex: null,
 
-  init() {
+  didInsertElement() {
     this._super();
 
     this.set('keyboardActivated', true);
+
     // Start downloading the search index immediately
     this.get('docsSearch').loadSearchIndex();
   },
@@ -45,11 +46,14 @@ export default Component.extend(EKMixin, {
 
   searchResults: computed('rawSearchResults.[]', function() {
     let rawSearchResults = this.get('rawSearchResults');
+    let router = this.get('router');
+    let routerMicrolib = router._router._routerMicrolib || router._router.router;
 
     if (rawSearchResults) {
       let filteredSearchResults = this.get('rawSearchResults')
         .filter(({ document }) => {
-          return document.route !== 'not-found';
+          let routeExists = routerMicrolib.recognizer.names[document.route];
+          return routeExists && document.route !== 'not-found';
         })
         .filter(({ document }) => {
           let isClassTemplate = (document.route === 'docs.api.class' && document.type === 'template');
