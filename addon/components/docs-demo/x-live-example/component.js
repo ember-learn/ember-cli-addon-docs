@@ -11,9 +11,7 @@ export default Component.extend({
 
     // Set initial template from snippet
     let name = this.get('name');
-
-    // We support either .hbs snippets or .md
-    let rawTemplate = snippets[`${name}.hbs`] || snippets[`${name}.md`];
+    let rawTemplate = snippets[name] || '';
 
     this.set('rawTemplate', this._unindent(rawTemplate));
 

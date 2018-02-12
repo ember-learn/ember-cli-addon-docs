@@ -1392,9 +1392,9 @@ broccoli-filter@^1.2.2, broccoli-filter@^1.2.3, broccoli-filter@^1.2.4:
     symlink-or-copy "^1.0.1"
     walk-sync "^0.3.1"
 
-broccoli-flatiron@^0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/broccoli-flatiron/-/broccoli-flatiron-0.0.0.tgz#e97504016b56eea04813b5d862fda18b6f11a77f"
+broccoli-flatiron@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/broccoli-flatiron/-/broccoli-flatiron-0.1.2.tgz#088cf6f03cee71721a925df9bb12cabf07e6b65c"
   dependencies:
     broccoli-kitchen-sink-helpers "~0.2.4"
     broccoli-writer "~0.1.1"
@@ -2021,7 +2021,7 @@ commander@^2.5.0, commander@^2.6.0, commander@^2.9.0, commander@~2.13.0:
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
 
-common-tags@^1.4.0:
+common-tags@^1.4.0, common-tags@^1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/common-tags/-/common-tags-1.7.2.tgz#24d9768c63d253a56ecff93845b44b4df1d52771"
   dependencies:
@@ -2914,16 +2914,20 @@ ember-cli@~2.18.1:
     walk-sync "^0.3.0"
     yam "0.0.22"
 
-ember-code-snippet@^2.0.0:
+ember-code-snippet@dfreeman/ember-code-snippet#exclude-file-extension:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ember-code-snippet/-/ember-code-snippet-2.0.0.tgz#79e006c982411dc7eb21bf5a51feb66cd36d7f3b"
+  resolved "https://codeload.github.com/dfreeman/ember-code-snippet/tar.gz/002cff01f0880d1b85306083a6c9f8194d6a3753"
   dependencies:
-    broccoli-flatiron "^0.0.0"
+    broccoli-flatiron "^0.1.2"
     broccoli-merge-trees "^1.0.0"
     broccoli-static-compiler "^0.1.4"
     broccoli-writer "^0.1.1"
     es6-promise "^1.0.0"
     glob "^4.0.4"
+
+"ember-code-snippet@link:../ember-code-snippet":
+  version "0.0.0"
+  uid ""
 
 ember-component-css@^0.3.5:
   version "0.3.7"

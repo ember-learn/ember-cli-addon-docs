@@ -1,11 +1,11 @@
-{{! BEGIN-SNIPPET docs-demo-basic-src }}
+{{! BEGIN-SNIPPET docs-demo-basic-src.hbs }}
 {{#docs-demo as |demo|}}
-  {{#demo.example name='docs-demo-basic'}}
-      <p>I am a <strong>handlebars</strong> template!</p>
-      <p>The value is: {{val}}</p>
-      <div>
-        {{input value=val}}
-      </div>
+  {{#demo.example name='docs-demo-basic.hbs'}}
+    <p>I am a <strong>handlebars</strong> template!</p>
+    <p>The value is: {{val}}</p>
+    <div>
+      {{input value=val}}
+    </div>
   {{/demo.example}}
 
   {{demo.snippet 'docs-demo-basic.hbs'}}

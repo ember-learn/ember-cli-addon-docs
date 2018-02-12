@@ -30,7 +30,8 @@ module.exports = {
         'ember-cli-build.js',
         'config/**/*.js',
         'lib/**/*.js',
-        'tests/dummy/config/**/*.js'
+        'tests/dummy/config/**/*.js',
+        'tests-node/**/*.js'
       ],
       excludedFiles: [
         'app/**',
@@ -57,6 +58,14 @@ module.exports = {
       excludedFiles: ['tests/dummy/**/*.js'],
       env: {
         embertest: true
+      }
+    },
+
+    // node test files
+    {
+      files: ['tests-node/**/*.js'],
+      rules: {
+        'node/no-unpublished-require': 'off'
       }
     }
   ]
