@@ -1,5 +1,13 @@
 # Ember CLI Addon Docs Changelog
 
+## 0.1.4
+
+- **Breaking change**: You now must always pass the file extension into the DocsSnippet component: {{docs-snippet name='foo.js'}}
+
+- Addon docs now works in Fastboot
+
+And more bug fixes.
+
 ## 0.1.3
 
 Bug fixes.
