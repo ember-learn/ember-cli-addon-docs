@@ -2925,10 +2925,6 @@ ember-code-snippet@dfreeman/ember-code-snippet#exclude-file-extension:
     es6-promise "^1.0.0"
     glob "^4.0.4"
 
-"ember-code-snippet@link:../ember-code-snippet":
-  version "0.0.0"
-  uid ""
-
 ember-component-css@^0.3.5:
   version "0.3.7"
   resolved "https://registry.yarnpkg.com/ember-component-css/-/ember-component-css-0.3.7.tgz#bde1a8db53116cca1a134aaf6379b2b259b79799"
