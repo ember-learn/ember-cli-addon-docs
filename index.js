@@ -9,6 +9,11 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 
+const DEFAULT_ADDON_OPTIONS = {
+  includePaths: [],
+  includeTrees: ['addon']
+}
+
 module.exports = {
   name: 'ember-cli-addon-docs',
 
@@ -71,7 +76,10 @@ module.exports = {
 
     this._super.included.apply(this, arguments);
 
+    this.addonOptions = Object.assign({}, DEFAULT_ADDON_OPTIONS, includer.options['ember-cli-addon-docs']);
+
     includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
+
     includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
     includer.options.snippetRegexes = Object.assign({}, {
       begin: /{{#(?:docs-snippet|demo.example|demo.live-example)\sname=(?:"|')(\S+)(?:"|')/,
@@ -114,10 +122,10 @@ module.exports = {
     }
   },
 
-  treeForAddon(tree) {
+  treeForAddon() {
     let dummyAppFiles = new FindDummyAppFiles([ 'tests/dummy/app' ]);
 
-    return this._super(new MergeTrees([ tree, dummyAppFiles ]));
+    return this._super(new MergeTrees([ dummyAppFiles ]));
   },
 
   treeForVendor(vendor) {
@@ -129,6 +137,10 @@ module.exports = {
     ].filter(Boolean));
   },
 
+  treeForAddonStyles() {
+    return new Funnel('app/styles');
+  },
+
   treeForPublic() {
     let parentAddon = this.parent.findAddonByName(this.parent.name());
     let defaultTree = this._super.treeForPublic.apply(this, arguments);
@@ -137,8 +149,11 @@ module.exports = {
     let DocsGenerator = require('./lib/broccoli/docs-generator');
     let SearchIndexer = require('./lib/broccoli/search-indexer');
 
-    let addonSources = path.resolve(parentAddon.root, parentAddon.treePaths.addon);
-    let docsTree = new DocsGenerator([addonSources], {
+    let includePaths = this.addonOptions.includePaths;
+    let includeTreePaths = this.addonOptions.includeTrees.map(t => parentAddon.treePaths[t]);
+
+    let addonSources = includePaths.concat(includeTreePaths).map(p => path.resolve(parentAddon.root, p));
+    let docsTree = new DocsGenerator(addonSources, {
       project: this.project,
       destDir: 'docs'
     });
