@@ -12,6 +12,9 @@ module.exports = function(defaults) {
         'public',
         'tests/dummy/public'
       ]
+    },
+    'ember-cli-addon-docs': {
+      includeTrees: ['app']
     }
   });
 

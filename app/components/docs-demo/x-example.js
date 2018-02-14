@@ -1,1 +1,10 @@
-export { default } from 'ember-cli-addon-docs/components/docs-demo/x-example/component';
+import Component from '@ember/component';
+
+export default Component.extend({
+  classNames: 'docs-demo-example',
+
+  init() {
+    this._super(...arguments);
+    this.set('elementId', 'example-' + this.get('name'));
+  }
+});

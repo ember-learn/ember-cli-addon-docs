@@ -1,1 +1,7 @@
-export { default } from 'ember-cli-addon-docs/services/project-version';
+import Service from '@ember/service';
+
+export default Service.extend({
+
+  version: null
+
+});

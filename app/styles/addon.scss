@@ -2,8 +2,15 @@ $code-background-color: #fafafa; // #f5f2f0
 $code-title-background-color: #e3e3e3;
 
 @import 'normalize';
-@import 'pod-styles';
 @import 'syntax';
+
+@import './components/docs-demo';
+@import './components/docs-hero';
+@import './components/docs-logo';
+@import './components/docs-navbar';
+@import './components/docs-snippet';
+@import './components/docs-svg-icon';
+@import './components/docs-viewer';
 
 body {
   font-family: 'helvetica neue', helvetica, sans-serif;
