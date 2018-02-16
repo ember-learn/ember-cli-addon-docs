@@ -114,6 +114,20 @@ module.exports = {
     }
   },
 
+  treeForApp(app) {
+    let trees = [ app ];
+
+    let addonPath = path.join(this.project.root, 'addon');
+    let addonTree = new Funnel(addonPath, {
+      include: ['**/*.js']
+    });
+
+    let autoExportedAddonTree = new AutoExportAddonToApp([ addonTree ]);
+    trees.push(autoExportedAddonTree);
+
+    return new MergeTrees(trees);
+  },
+
   treeForAddon(tree) {
     let dummyAppFiles = new FindDummyAppFiles([ 'tests/dummy/app' ]);
 
@@ -204,4 +218,41 @@ class FindDummyAppFiles extends Plugin {
 
     fs.writeFileSync(path.join(this.outputPath, 'app-files.js'), `export default ${pathsString};`);
   }
+}
+
+class AutoExportAddonToApp extends Plugin {
+  build() {
+    let addonPath = this.inputPaths[0];
+
+    // Components
+    walkSync(path.join(addonPath, 'components'), { directories: false })
+      .forEach(addonFile => {
+        let module = addonFile.replace('/component.js', '');
+        let file = path.join(this.outputPath, 'components', `${module}.js`);
+        ensureDirectoryExistence(file);
+        fs.writeFileSync(file, `export { default } from 'ember-cli-addon-docs/components/${module}/component';`);
+      });
+
+    // Non-pods modules (slightly different logic)
+    [ 'adapters', 'controllers', 'models', 'services', 'transitions' ].forEach(moduleType => {
+      let addonFiles = walkSync(path.join(addonPath, moduleType), { directories: false });
+
+      addonFiles.forEach(addonFile => {
+        let module = addonFile.replace('.js', '');
+        let file = path.join(this.outputPath, moduleType, `${module}.js`);
+        ensureDirectoryExistence(file);
+        fs.writeFileSync(file, `export { default } from 'ember-cli-addon-docs/${moduleType}/${module}';`);
+      });
+    });
+
+  }
+}
+
+function ensureDirectoryExistence(filePath) {
+  var dirname = path.dirname(filePath);
+  if (fs.existsSync(dirname)) {
+    return true;
+  }
+  ensureDirectoryExistence(dirname);
+  fs.mkdirSync(dirname);
 }
