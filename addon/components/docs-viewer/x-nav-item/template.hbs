@@ -1,9 +1,15 @@
 {{#if model}}
-  {{#link-to route model class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
+  {{#link-to route model
+    class='docs-viewer__nav-link'
+    activeClass='docs-viewer__nav-link--active'
+    data-test-id='nav-item'}}
     {{label}}
   {{/link-to}}
 {{else}}
-  {{#link-to route class='docs-viewer__nav-link' activeClass='docs-viewer__nav-link--active'}}
+  {{#link-to route
+    class='docs-viewer__nav-link'
+    activeClass='docs-viewer__nav-link--active'
+    data-test-id='nav-item'}}
     {{label}}
   {{/link-to}}
 {{/if}}
