@@ -1,4 +1,4 @@
-export default function(){
+export default function() {
   this.transition(
     this.hasClass('modal-fade-and-drop'),
     this.use('fadeAndDrop')
