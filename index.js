@@ -9,6 +9,14 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 
+const DocsCompiler = require('./lib/broccoli/docs-compiler');
+const PluginRegistry = require('./lib/models/plugin-registry');
+
+const DEFAULT_ADDON_OPTIONS = {
+  includePaths: [],
+  includeTrees: ['addon']
+}
+
 module.exports = {
   name: 'ember-cli-addon-docs',
 
@@ -70,6 +78,8 @@ module.exports = {
     }
 
     this._super.included.apply(this, arguments);
+
+    this.addonOptions = Object.assign({}, DEFAULT_ADDON_OPTIONS, includer.options['ember-cli-addon-docs']);
 
     includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
     includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
@@ -148,13 +158,35 @@ module.exports = {
     let defaultTree = this._super.treeForPublic.apply(this, arguments);
     if (!parentAddon) { return defaultTree; }
 
-    let DocsGenerator = require('./lib/broccoli/docs-generator');
+    let { project } = this;
+
+    let includePaths = this.addonOptions.includePaths;
+    let includeTreePaths = this.addonOptions.includeTrees.map(t => `${parentAddon.treePaths[t]}/**/*`);
+
+    let addonSourceTree = new Funnel(parentAddon.root, {
+      include: includePaths.concat(includeTreePaths).concat('package.json', 'README.md')
+    });
+
+    let pluginRegistry = new PluginRegistry({ project, parentAddon });
+
+    // let DocsGenerator = require('./lib/broccoli/docs-generator');
     let SearchIndexer = require('./lib/broccoli/search-indexer');
 
-    let addonSources = path.resolve(parentAddon.root, parentAddon.treePaths.addon);
-    let docsTree = new DocsGenerator([addonSources], {
-      project: this.project,
-      destDir: 'docs'
+    // let addonSources = path.resolve(parentAddon.root, parentAddon.treePaths.addon);
+    // let docsTree = new DocsGenerator([addonSources], {
+    //   project: this.project,
+    //   destDir: 'docs'
+    // });
+
+    let docsGenerators = pluginRegistry.createDocsGenerators(addonSourceTree, {
+      destDir: 'docs',
+      project,
+      parentAddon
+    });
+
+    let docsTree = new DocsCompiler(docsGenerators, {
+      project,
+      parentAddon
     });
 
     let templateContentsTree = this.contentExtractor.getTemplateContentsTree();
@@ -234,7 +266,7 @@ class AutoExportAddonToApp extends Plugin {
       });
 
     // Non-pods modules (slightly different logic)
-    [ 'adapters', 'controllers', 'models', 'routes', 'services', 'transitions' ].forEach(moduleType => {
+    [ 'adapters', 'controllers', 'models', 'routes', 'services', 'serializers', 'transitions' ].forEach(moduleType => {
       let addonFiles = walkSync(path.join(addonPath, moduleType), { directories: false });
 
       addonFiles.forEach(addonFile => {

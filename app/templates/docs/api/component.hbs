@@ -1,0 +1,100 @@
+<h1>{{model.name}}</h1>
+
+{{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
+<div>{{{model.description}}}</div>
+
+<h2>Index</h2>
+
+<div class="class-index">
+
+  <h3>Constructors</h3>
+
+  <h3>Yields</h3>
+
+
+  <h3>Arguments</h3>
+
+
+  <h3>Fields</h3>
+
+
+  <h3>Accessors</h3>
+
+
+  <h3>Methods</h3>
+
+</div>
+
+{{!-- {{#if model.yields}}
+  <h2>Yields</h2>
+
+  <table>
+    {{#each model.yields as |yield|}}
+      <tr>
+        <td>{{yield.name}}</td>
+        <td>{{yield.type}}</td>
+        <td>{{yield.description}}</td>
+      </tr>
+    {{/each}}
+  </table>
+{{/if}} --}}
+
+{{!-- {{#if model.arguments}}
+  <h2>Arguments</h2>
+  <table>
+    {{#each model.arguments as |argument|}}
+      <tr>
+        <td>{{yield.name}}</td>
+        <td>{{yield.type}}</td>
+        <td>{{yield.description}}</td>
+      </tr>
+    {{/each}}
+  </table>
+  <ul>
+    {{#each model.arguments as |property|}}
+      <li>{{property.name}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+
+{{#if model.publicProperties}}
+  <h2>Properties</h2>
+  <ul>
+    {{#each model.publicProperties as |property|}}
+      <li>{{property.name}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+
+{{#if model.publicMethods}}
+  <h2>Methods</h2>
+  <ul>
+    {{#each model.publicMethods as |method|}}
+      <li>{{method.name}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+
+<hr>
+
+{{#if model.publicProperties}}
+  <h2>Properties</h2>
+{{/if}}
+
+{{#each model.publicProperties as |property|}}
+  {{#if property.description}}
+    <h3>{{property.name}}</h3>
+    {{{property.description}}}
+  {{/if}}
+{{/each}}
+
+{{#if model.methods}}
+  <h2>Methods</h2>
+{{/if}}
+
+{{#each model.publicMethods as |method|}}
+  {{#if method.description}}
+    <h3>{{method.name}}({{get methodParams method.name}})</h3>
+    {{{method.description}}}
+  {{/if}}
+{{/each}} --}}

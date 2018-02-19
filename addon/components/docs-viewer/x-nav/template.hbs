@@ -28,8 +28,25 @@
     {{docs-viewer/x-nav-item 'API Reference' 'docs.api.index'}}
 
     {{#docs-viewer/x-nav-list as |subnav|}}
-      {{#each projectVersion.sortedClasses as |class|}}
-        {{subnav.item class.name 'docs.api.class' class.id}}
+      {{#each project.navigationIndex as |module|}}
+        <li class="docs-viewer__module-heading">
+          {{module.path}}
+        </li>
+
+        {{#docs-viewer/x-nav-list as |subnav|}}
+          {{#each module.components as |component|}}
+            {{subnav.item (concat "{{" component.path "}}") 'docs.api.component' component.id}}
+          {{/each}}
+          {{#each module.classes as |class|}}
+            {{subnav.item class.name 'docs.api.class' class.id}}
+          {{/each}}
+          {{#each module.functions as |function|}}
+            {{subnav.item function.name 'docs.api.module' function.moduleId}}
+          {{/each}}
+          {{#each module.variables as |variable|}}
+            {{subnav.item variable.name 'docs.api.module' variable.moduleId}}
+          {{/each}}
+        {{/docs-viewer/x-nav-list}}
       {{/each}}
     {{/docs-viewer/x-nav-list}}
   {{/docs-viewer/x-nav-list}}

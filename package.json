@@ -55,8 +55,10 @@
     "hosted-git-info": "^2.5.0",
     "html-entities": "^1.2.1",
     "inflected": "^2.0.3",
+    "json-api-serializer": "danivek/json-api-serializer#012242a",
     "liquid-fire": "^0.29.1",
     "liquid-tether": "^2.0.6",
+    "lodash": "^4.17.5",
     "lunr": "^2.1.5",
     "marked": "^0.3.12",
     "minimatch": "^3.0.4",
@@ -73,6 +75,7 @@
     "common-tags": "^1.7.2",
     "ember-ajax": "^3.0.0",
     "ember-cli": "~2.18.1",
+    "ember-cli-addon-docs-esdoc": "pzuraq/ember-cli-addon-docs-esdoc#c24026981c8d13237ed7ddafb1f6f8bb232963f0",
     "ember-cli-dependency-checker": "^2.1.0",
     "ember-cli-deploy": "^1.0.2",
     "ember-cli-deploy-build": "^1.1.1",
@@ -97,7 +100,7 @@
     "qunit": "^2.5.0"
   },
   "engines": {
-    "node": "^4.5 || 6.* || >= 7.*"
+    "node": "6.* || >= 7.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",

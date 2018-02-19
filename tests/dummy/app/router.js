@@ -24,7 +24,9 @@ Router.map(function() {
     });
 
     this.route('api', function() {
-      this.route('class', { path: '/:class_id' });
+      this.route('class', { path: '/classes/:class_id' });
+      this.route('component', { path: '/components/:component_id' });
+      this.route('module', { path: '/modules/:module_id' });
     });
   });
 
