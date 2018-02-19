@@ -5,6 +5,7 @@ import { computed } from '@ember/object';
 import appFiles from 'ember-cli-addon-docs/app-files';
 import { dasherize } from '@ember/string';
 import config from 'dummy/config/environment';
+import { getOwner } from '@ember/application';
 
 const packageJson = config['ember-cli-addon-docs'].packageJson;
 
@@ -28,7 +29,7 @@ export default Component.extend({
     path = path.replace(/\./g, '/');
 
     if (path === 'docs/api/class') {
-      let params = this.get('router._router._routerMicrolib.state').params['docs.api.class'];
+      let params = getOwner(this).lookup('route:application').paramsFor('docs.api.class');
       let klass = dasherize(params.class_id.replace(/-.+$/g, ''));
       let path = `pods/${path}`;
 
