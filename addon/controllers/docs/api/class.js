@@ -1,9 +1,10 @@
-import { computed } from '@ember/object';
 import Controller from '@ember/controller';
 
-export default Controller.extend({
+import { computed } from '@ember-decorators/object';
 
-  methodParams: computed('model', function() {
+export default class ApiController extends Controller {
+  @computed('model')
+  get methodParams() {
     return this.get('model.methods')
       .reduce((allParams, method) => {
         let params = method.params ? method.params.map(m => m.name) : [];
@@ -11,6 +12,5 @@ export default Controller.extend({
 
         return allParams;
       }, {});
-  })
-
-});
+  }
+}

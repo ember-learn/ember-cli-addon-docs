@@ -1,23 +1,30 @@
 import Component from '@ember/component';
+
+import { classNames } from '@ember-decorators/component';
+import { argument } from '@ember-decorators/argument';
+import { type } from '@ember-decorators/argument/type';
 import layout from './template';
 
 /**
   A component that renders a hero banner. Useful for your docs site's homepage.
-
-  @class DocsHero
-  @public
 */
-export default Component.extend({
-  layout,
+@classNames('docs-hero')
+export default class DocsHeroComponent extends Component {
+  layout = layout;
 
-  classNames: 'docs-hero',
+  @argument({ defaultIfUndefined: true })
+  @type('string')
+  logo = '';
 
-  /*
-    @property logo
-    @public
-  */
-  logo: '',
-  'slim-heading': '',
-  'strong-heading': '',
-  'byline': '',
-});
+  @argument({ defeaultIfUndefine: true })
+  @type('string')
+  slimHeading = '';
+
+  @argument({ defeaultIfUndefine: true })
+  @type('string')
+  strongHeading = '';
+
+  @argument({ defeaultIfUndefine: true })
+  @type('string')
+  byline = '';
+}

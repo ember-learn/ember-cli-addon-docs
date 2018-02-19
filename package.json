@@ -21,6 +21,8 @@
     "test:node": "qunit tests-node"
   },
   "dependencies": {
+    "@ember-decorators/argument": "^0.8.12",
+    "@ember-decorators/babel-transforms": "^2.0.0",
     "@glimmer/syntax": "^0.30.5",
     "broccoli-caching-writer": "^3.0.3",
     "broccoli-filter": "^1.2.4",
@@ -37,8 +39,10 @@
     "ember-code-snippet": "dfreeman/ember-code-snippet#exclude-file-extension",
     "ember-component-css": "^0.3.5",
     "ember-data": "^2.18.0",
+    "ember-decorators": "ember-decorators/ember-decorators#v2",
     "ember-href-to": "^1.15.1",
     "ember-keyboard": "^3.0.0",
+    "ember-legacy-class-shim": "^1.0.2",
     "ember-modal-dialog": "^2.4.1",
     "ember-router-scroll": "^0.4.0",
     "ember-svg-jar": "^0.12.0",
@@ -64,6 +68,7 @@
     "yuidocjs": "^0.10.2"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.1",
     "broccoli-asset-rev": "^2.6.0",
     "common-tags": "^1.7.2",
     "ember-ajax": "^3.0.0",
@@ -84,7 +89,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.5.0",
-    "ember-source": "~2.18.0",
+    "ember-source": "~2.12.0",
     "ember-test-selectors": "^0.3.8",
     "eslint-plugin-ember": "^5.0.3",
     "eslint-plugin-node": "^5.2.1",
