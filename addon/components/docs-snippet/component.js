@@ -1,17 +1,39 @@
-import { computed } from '@ember/object';
 import Component from '@ember/component';
-import layout from './template';
 import Snippets from "dummy/snippets";
 
-export default Component.extend({
-  tagName: '',
-  layout,
+import { tagName } from '@ember-decorators/component';
+import { computed } from '@ember-decorators/object';
 
-  language: undefined,
-  title: undefined,
-  showCopy: true,
+import { argument } from '@ember-decorators/argument';
+import { type, optional } from '@ember-decorators/argument/type';
 
-  _unindent: function(src) {
+import layout from './template';
+
+@tagName('')
+export default class DocsSnippetComponent extends Component {
+  layout = layout;
+
+  @argument
+  @type(optional('string'))
+  language;
+
+  @argument
+  @type(optional('string'))
+  title;
+
+  @argument
+  @type(optional('string'))
+  name;
+
+  @argument({ defaultIfUndefined: true })
+  @type('boolean')
+  showCopy = true;
+
+  @argument({defaultIfUndefined: true })
+  @type('boolean')
+  unindent = false;
+
+  _unindent(src) {
     if (!this.get('unindent')) {
       return src;
     }
@@ -26,9 +48,10 @@ export default Component.extend({
       src = src.replace(new RegExp("^[ \t]{" + min + "}", 'gm'), "");
     }
     return src;
-  },
+  }
 
-  snippetText: computed('name', function(){
+  @computed('name')
+  get snippetText() {
     let name = this.get('name');
     if (!/\..+/.test(name)) {
       name += '.hbs';
@@ -39,5 +62,5 @@ export default Component.extend({
         .replace(/^(\s*\n)*/, '')
         .replace(/\s*$/, '')
     );
-  }),
-});
+  }
+}

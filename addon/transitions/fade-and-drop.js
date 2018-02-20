@@ -1,5 +1,8 @@
 import { animate } from "liquid-fire";
 
+/**
+ * @hideDoc
+ */
 export default function(opts={ duration: 100 }) {
   if (this.newElement) {
     this.newElement.css('margin-top', '-10px');

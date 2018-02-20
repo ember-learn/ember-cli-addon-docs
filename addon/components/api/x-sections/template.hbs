@@ -1,0 +1,27 @@
+{{#each-in sections as |section items|}}
+  {{#if items}}
+    <section class="class-section">
+      <h2>{{capitalize section}}</h2>
+
+      {{#each items as |item|}}
+        <h3>{{type-signature item}}</h3>
+
+        {{{item.description}}}
+
+        {{#if item.params}}
+          <h4>Params</h4>
+
+          <table>
+            {{#each item.params as |param|}}
+              <tr>
+                <td>{{param.name}}</td>
+                <td>{{param.type}}</td>
+                <td>{{param.description}}</td>
+              </tr>
+            {{/each}}
+          </table>
+        {{/if}}
+      {{/each}}
+    </section>
+  {{/if}}
+{{/each-in}}

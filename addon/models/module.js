@@ -1,10 +1,12 @@
-import ClassModel from './class';
 import DS from 'ember-data';
 
-const { attr } = DS;
+const { attr, hasMany } = DS;
 
-export default ClassModel.extend({
-  submodules: attr(),
-  namespaces: attr(),
-  parent: attr()
+export default DS.Model.extend({
+  path: attr(),
+  variables: attr(),
+  functions: attr(),
+
+  classes: hasMany('class', { async: false, }),
+  components: hasMany('class', { async: false, })
 });

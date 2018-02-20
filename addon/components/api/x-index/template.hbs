@@ -1,0 +1,15 @@
+<div class="class-index__sticky">
+  <h2>Index</h2>
+
+  {{#each-in sections as |section items|}}
+    {{#if items}}
+      <h3>{{capitalize section}}</h3>
+
+      <ul>
+        {{#each items as |item|}}
+          <li><a href="#{{item.name}}">{{item.name}}</a></li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  {{/each-in}}
+</div>
