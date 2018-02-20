@@ -1,0 +1,58 @@
+<h1>{{component.name}}</h1>
+
+{{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
+<div>{{{component.description}}}</div>
+
+<div class="class-contents">
+  {{api/x-index
+    sections=(hash
+      constructors=component.constructors
+      yields=component.yields
+      arguments=component.arguments
+      fields=component.fields
+      accessors=component.accessors
+      methods=component.methods
+    )
+  }}
+
+  {{api/x-sections
+    sections=(hash
+      constructors=component.constructors
+      yields=component.yields
+      arguments=component.arguments
+      fields=component.fields
+      accessors=component.accessors
+      methods=component.methods
+    )
+  }}
+    {{!-- {{#api/x-section name="Yields" items=component.yields as |yield|}}
+      <h3>{{type-signature yield}}</h3>
+
+      {{{yield.description}}}
+    {{/api/x-section}}
+
+    {{#api/x-section name="Arguments" items=component.arguments as |argument|}}
+      <h3>{{type-signature argument}}</h3>
+
+      {{{argument.description}}}
+    {{/api/x-section}}
+
+    {{#api/x-section name="Fields" items=component.fields as |field|}}
+      <h3>{{type-signature field}}</h3>
+
+      {{{field.description}}}
+    {{/api/x-section}}
+
+    {{#api/x-section name="Accessors" items=component.accessors as |accessor|}}
+      <h3>{{type-signature accessor}}</h3>
+
+      {{{accessor.description}}}
+    {{/api/x-section}}
+
+    {{#api/x-section name="Methods" items=component.methods as |method|}}
+      <h3>{{type-signature method}}</h3>
+
+      {{{method.description}}}
+    {{/api/x-section}}
+  </section> --}}
+</div>

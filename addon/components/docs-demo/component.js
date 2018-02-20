@@ -7,10 +7,58 @@ import { classNames } from '@ember-decorators/component';
 import layout from './template';
 
 /**
- * @yield {Hash} demo
- * @yield {Component} demo.example
- * @yield {Component} demo.snippet
- * @yield {Component} demo.liveExample
+ * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+ * tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+ * quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+ * consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+ * cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+ * proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+ *
+ * ```js
+ * {{#docs-demo as |demo|}}
+ *   {{#demo.example name='docs-demo-basic.hbs'}}
+ *     <p>I am a <strong>handlebars</strong> template!</p>
+ *     <p>The value is: {{val}}</p>
+ *     <div>
+ *       {{input value=val}}
+ *     </div>
+ *   {{/demo.example}}
+ *
+ *   {{demo.snippet 'docs-demo-basic.hbs'}}
+ * {{/docs-demo}}
+ * ```
+ *
+ *
+ * @yield {Hash} demo - Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+ * sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+ * minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+ * commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+ * esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+ * non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+ *
+ * @yield {Component} demo.example - Lorem ipsum dolor sit amet, consectetur
+ * adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+ * aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+ * nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+ * in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+ * sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+ * mollit anim id est laborum.
+ *
+ * @yield {Component} demo.snippet - Lorem ipsum dolor sit amet, consectetur
+ * adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+ * aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+ * nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+ * in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+ * occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+ * anim id est laborum.
+ *
+ * @yield {Component} demo.liveExample - Lorem ipsum dolor sit amet, consectetur
+ * adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+ * aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+ * nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+ * in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+ * occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+ * anim id est laborum.
  */
 @classNames('docs-demo')
 export default class DocsDemoComponent extends Component {
@@ -35,6 +83,20 @@ export default class DocsDemoComponent extends Component {
       });
   }
 
+  /**
+   * Lorem ipsum dolor sit amet, consectetur
+   * adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+   * aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+   * nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+   * in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+   * occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+   * anim id est laborum.
+   *
+   * @param {string} name - the name of the snippet
+   * @param {Object} param - aoeu
+   * @param {string} param.bar - uaoeu
+   * @returns {Object} - the label and language defaults
+   */
   defaultsFromName(name) {
     let label, language;
     switch (name.split('.').pop()) {

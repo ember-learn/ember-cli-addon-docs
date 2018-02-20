@@ -1,6 +1,9 @@
 import Component from '@ember/component';
 import layout from './template';
 
+/**
+ * @hideDoc
+ */
 export default Component.extend({
   layout,
 
