@@ -235,7 +235,11 @@ class AutoExportAddonToApp extends Plugin {
 
     // Non-pods modules (slightly different logic)
     [ 'adapters', 'controllers', 'models', 'routes', 'services', 'transitions' ].forEach(moduleType => {
-      let addonFiles = walkSync(path.join(addonPath, moduleType), { directories: false });
+      let addonFullPath = path.join(addonPath, moduleType);
+      if (!fs.existsSync(addonFullPath)) {
+        return;
+      }
+      let addonFiles = walkSync(addonFullPath, { directories: false });
 
       addonFiles.forEach(addonFile => {
         let module = addonFile.replace('.js', '');
