@@ -117,12 +117,7 @@ module.exports = {
   treeForApp(app) {
     let trees = [ app ];
 
-    let addonPath;
-    if (this.project.name() === this.name) {
-      addonPath = this.project.root;
-    } else {
-      addonPath = this.project.findAddonByName(this.name).root;
-    }
+    let addonPath = this.project.findAddonByName(this.name).root;
     let addonTree = new Funnel(path.join(addonPath, 'addon'), {
       include: ['**/*.js']
     });
