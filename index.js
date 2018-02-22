@@ -117,11 +117,10 @@ module.exports = {
   treeForApp(app) {
     let trees = [ app ];
 
-    let addonPath = path.join(this.project.root, 'addon');
-    let addonTree = new Funnel(addonPath, {
+    let addonPath = this.project.findAddonByName(this.name).root;
+    let addonTree = new Funnel(path.join(addonPath, 'addon'), {
       include: ['**/*.js']
     });
-
     let autoExportedAddonTree = new AutoExportAddonToApp([ addonTree ]);
     trees.push(autoExportedAddonTree);
 
