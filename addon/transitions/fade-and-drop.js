@@ -1,6 +1,6 @@
 import { animate } from "liquid-fire";
 
-export default function(opts={ duration: 100 }) {
+export default function fadeAndDrop(opts={ duration: 100 }) {
   if (this.newElement) {
     this.newElement.css('margin-top', '-10px');
   }

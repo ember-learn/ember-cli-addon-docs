@@ -5,5 +5,7 @@ const { attr, hasMany } = DS;
 export default DS.Model.extend({
   name: attr(),
   githubUrl: attr(),
-  projectVersions: hasMany('project-version', { async: true })
+  version: attr(),
+  navigationIndex: attr(),
+  modules: hasMany('module', { async: false })
 });
