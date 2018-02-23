@@ -37,7 +37,7 @@ export default Component.extend({
 
   releasesUrl: `${packageJson.repository}/releases`,
 
-  projectVersion: computed(function() {
-    return this.get('store').peekAll('project-version').get('firstObject');
+  project: computed(function() {
+    return this.get('store').peekAll('project').get('firstObject');
   })
 });

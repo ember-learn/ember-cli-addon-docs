@@ -9,6 +9,11 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 
+const DEFAULT_ADDON_OPTIONS = {
+  includePaths: [],
+  includeTrees: ['addon']
+}
+
 module.exports = {
   name: 'ember-cli-addon-docs',
 
@@ -70,6 +75,8 @@ module.exports = {
     }
 
     this._super.included.apply(this, arguments);
+
+    this.addonOptions = Object.assign({}, DEFAULT_ADDON_OPTIONS, includer.options['ember-cli-addon-docs']);
 
     includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
     includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
@@ -147,13 +154,27 @@ module.exports = {
     let defaultTree = this._super.treeForPublic.apply(this, arguments);
     if (!parentAddon) { return defaultTree; }
 
+    let project = this.project;
+
+    let includePaths = this.addonOptions.includePaths;
+    let includeTreePaths = this.addonOptions.includeTrees.map(t => `${parentAddon.treePaths[t]}/**/*`);
+
+    let addonSourceTree = new Funnel(parentAddon.root, {
+      include: includePaths.concat(includeTreePaths).concat('package.json', 'README.md')
+    });
+
     let DocsGenerator = require('./lib/broccoli/docs-generator');
+    let DocsCompiler = require('./lib/broccoli/docs-compiler');
     let SearchIndexer = require('./lib/broccoli/search-indexer');
 
-    let addonSources = path.resolve(parentAddon.root, parentAddon.treePaths.addon);
-    let docsTree = new DocsGenerator([addonSources], {
-      project: this.project,
+    let docsGenerator = new DocsGenerator([addonSourceTree], {
+      project,
       destDir: 'docs'
+    });
+
+    let docsTree = new DocsCompiler([docsGenerator], {
+      project,
+      parentAddon
     });
 
     let templateContentsTree = this.contentExtractor.getTemplateContentsTree();
@@ -233,7 +254,7 @@ class AutoExportAddonToApp extends Plugin {
       });
 
     // Non-pods modules (slightly different logic)
-    [ 'adapters', 'controllers', 'models', 'routes', 'services', 'transitions' ].forEach(moduleType => {
+    [ 'adapters', 'controllers', 'models', 'routes', 'serializers', 'services', 'transitions' ].forEach(moduleType => {
       let addonFullPath = path.join(addonPath, moduleType);
       if (!fs.existsSync(addonFullPath)) {
         return;
