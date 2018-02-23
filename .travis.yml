@@ -16,19 +16,6 @@ env:
   global:
     # See https://git.io/vdao3 for details.
     - JOBS=1
-  matrix:
-    - EMBER_TRY_SCENARIO=node
-    - EMBER_TRY_SCENARIO=ember-lts-2.12
-    - EMBER_TRY_SCENARIO=ember-lts-2.16
-    - EMBER_TRY_SCENARIO=ember-release
-    - EMBER_TRY_SCENARIO=ember-beta
-    - EMBER_TRY_SCENARIO=ember-canary
-    - EMBER_TRY_SCENARIO=ember-default
-
-matrix:
-  fast_finish: true
-  allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
   # Locking to Yarn 1.0.2 to work around https://github.com/yarnpkg/yarn/issues/4612
@@ -38,10 +25,42 @@ before_install:
 install:
   - yarn install --no-lockfile --non-interactive
 
-script:
-  - yarn lint:js
-  # We need to cleanup, since our deploy depends on the git repo's status
-  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+# script:
+#   - yarn lint:js
+#   # We need to cleanup, since our deploy depends on the git repo's status
+#   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
 
-after_success:
-  - node_modules/.bin/ember deploy production
+notifications:
+  email: false
+
+stages:
+  - test
+  - additional tests
+  - versioned tests
+  - deploy
+
+jobs:
+  fail_fast: true
+
+  include:
+    - stage: test
+      env: NAME=test
+      script: yarn test
+
+    - stage: additional tests
+      env: NAME=floating dependencies
+      install: yarn install --no-lockfile --non-interactive
+      script: yarn test
+
+    - stage: versioned tests
+      env: EMBER_TRY_SCENARIO=ember-lts-2.12
+    - env: EMBER_TRY_SCENARIO=ember-lts-2.16
+    - env: EMBER_TRY_SCENARIO=ember-release
+    - env: EMBER_TRY_SCENARIO=ember-beta
+    - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-default
+
+    - stage: deploy
+      if: (branch = master OR tag IS present) AND type = push
+      env: NAME=deploy
+      script: node_modules/.bin/ember deploy production
