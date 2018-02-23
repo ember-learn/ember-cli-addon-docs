@@ -8121,17 +8121,16 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ember.Controller.exte
 return e[t.name]=n.join(", "),e},{})})})}),define("ember-cli-addon-docs/models/class",["exports","ember-data"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0})
 var n=t.default.attr,r=t.default.belongsTo
-e.default=t.default.Model.extend({parentClass:r("class",{async:!1,inverse:null}),name:n(),file:n(),exportType:n(),description:n(),lineNumber:n(),access:n(),methods:n(),fields:n(),tags:n()})}),define("ember-cli-addon-docs/models/component",["exports","ember-data","ember-cli-addon-docs/models/class"],function(e,t,n){"use strict"
+e.default=t.default.Model.extend({parentClass:r("class",{async:!1,inverse:null}),name:n(),file:n(),exportType:n(),description:n(),lineNumber:n(),access:n(),accessors:n(),methods:n(),fields:n(),tags:n()})}),define("ember-cli-addon-docs/models/component",["exports","ember-data","ember-cli-addon-docs/models/class"],function(e,t,n){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0})
 var r=t.default.attr
-e.default=n.default.extend({yields:r(),arguments:r(),componentTag:Ember.computed("file",{get:function(){var e=this.get("file").replace(/\.js$|\.ts$/,"").split("/"),t=e.pop()
-return"component"===t&&(t=e.pop()),"{{"+t+"}}"}})})}),define("ember-cli-addon-docs/models/module",["exports","ember-data"],function(e,t){"use strict"
+e.default=n.default.extend({yields:r(),arguments:r()})}),define("ember-cli-addon-docs/models/module",["exports","ember-data"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0})
 var n=t.default.attr,r=t.default.hasMany
-e.default=t.default.Model.extend({file:n(),variables:n(),functions:n(),classes:r("class",{async:!1}),components:r("class",{async:!1})})}),define("ember-cli-addon-docs/models/project",["exports","ember-data"],function(e,t){"use strict"
+e.default=t.default.Model.extend({file:n(),variables:n(),functions:n(),helpers:n(),classes:r("class",{async:!1}),components:r("class",{async:!1})})}),define("ember-cli-addon-docs/models/project",["exports","ember-data"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0})
 var n=t.default.attr,r=t.default.hasMany
-e.default=t.default.Model.extend({name:n(),githubUrl:n(),navigationIndex:n(),modules:r("module",{async:!1})})})
+e.default=t.default.Model.extend({name:n(),githubUrl:n(),version:n(),navigationIndex:n(),modules:r("module",{async:!1})})})
 define("ember-cli-addon-docs/routes/docs",["exports","dummy/config/environment"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0})
 var n=t.default["ember-cli-addon-docs"].packageJson
@@ -8171,10 +8170,9 @@ try{for(var W,V=Object.values(u.resultInfo.matchData.metadata)[Symbol.iterator](
 try{for(var Y,X=Object.entries(U)[Symbol.iterator]();!(K=(Y=X.next()).done);K=!0){var J=Y.value,Z=n(J,2),ee=Z[0],te=Z[1],ne=!0,re=!1,ie=void 0
 try{for(var oe,se=te.position[Symbol.iterator]();!(ne=(oe=se.next()).done);ne=!0){o(c,ee,oe.value)}}catch(e){re=!0,ie=e}finally{try{!ne&&se.return&&se.return()}finally{if(re)throw ie}}}}catch(e){G=!0,Q=e}finally{try{!K&&X.return&&X.return()}finally{if(G)throw Q}}}}catch(e){q=!0,H=e}finally{try{!B&&V.return&&V.return()}finally{if(q)throw H}}console.groupEnd()}}}catch(e){i=!0,s=e}finally{try{!r&&l.return&&l.return()}finally{if(i)throw s}}console.groupEnd()})},loadSearchIndex:function(){return this._searchIndex||(this._searchIndex=Ember.RSVP.resolve(Ember.$.get(this.get("_indexURL"))).then(function(e){return{index:r.load(e.index),documents:e.documents}})),this._searchIndex},_indexURL:Ember.computed(function(){return Ember.getOwner(this).resolveRegistration("config:environment").rootURL+"ember-cli-addon-docs/search-index.json"})})}),define("ember-cli-addon-docs/services/project-version",["exports"],function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ember.Service.extend({version:null})}),define("ember-cli-addon-docs/transitions/fade-and-drop",["exports","liquid-fire"],function(e,t){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0}),e.FOO_BAR=void 0,e.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{duration:100}
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{duration:100}
 this.newElement&&this.newElement.css("margin-top","-10px")
-return(0,t.animate)(this.newElement,{opacity:1,"margin-top":"0px"},e)}
-e.FOO_BAR=123}),define("ember-cli-clipboard/components/copy-button",["exports","ember-cli-clipboard/templates/components/copy-button"],function(e,t){"use strict"
+return(0,t.animate)(this.newElement,{opacity:1,"margin-top":"0px"},e)}}),define("ember-cli-clipboard/components/copy-button",["exports","ember-cli-clipboard/templates/components/copy-button"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ember.Component.extend({layout:t.default,tagName:"button",classNames:["copy-btn"],attributeBindings:["clipboardText:data-clipboard-text","clipboardTarget:data-clipboard-target","clipboardAction:data-clipboard-action","buttonType:type","disabled","aria-label","title"],clipboardEvents:["success","error"],buttonType:"button",disabled:!1,didInsertElement:function(){var e=this,t=new window.Clipboard("#"+this.get("elementId"))
 Ember.set(this,"clipboard",t),Ember.get(this,"clipboardEvents").forEach(function(n){t.on(n,Ember.run.bind(e,function(t){try{e.get("disabled")||e.sendAction(n,t)}catch(e){Ember.Logger.debug(e.message)}}))})},willDestroyElement:function(){Ember.get(this,"clipboard").destroy()}})}),define("ember-cli-clipboard/helpers/is-clipboard-supported",["exports"],function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0})
