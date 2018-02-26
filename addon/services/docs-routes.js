@@ -40,8 +40,9 @@ export default Service.extend({
       let router = this.get('router.router');
       let currentURL = router.get('rootURL') + router.get('url');
       currentURL = currentURL
-        .replace("//", "/")   // dedup slashes
-        .replace(/\/$/, "")   // remove trailing slash
+        .replace('//', '/')   // dedup slashes
+        .replace(/\?.+$/, '') // remove query-params
+        .replace(/\/$/, '')   // remove trailing slash
         .replace(/#.+$/, ''); // remove # anchor links
       let index = this.get('routeUrls').indexOf(currentURL);
       assert(`DocsRoutes wasn't able to correctly detect the current route. The current url is ${currentURL}`, index > -1);
