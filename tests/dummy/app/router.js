@@ -13,6 +13,7 @@ Router.map(function() {
     this.route('usage');
     this.route('quickstart');
     this.route('patterns');
+    this.route('deploying');
 
     this.route('components', function() {
       this.route('docs-hero');
