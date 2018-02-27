@@ -6,9 +6,7 @@ export default DS.Adapter.extend({
 
   namespace: `${config.rootURL.replace(/\/$/, '')}/docs`,
 
-  projectVersion: service(),
-
-  project: null,
+  ajax: service(),
 
   shouldBackgroundReloadAll() {
     return false;
@@ -20,7 +18,7 @@ export default DS.Adapter.extend({
 
   findRecord(store, modelClass, id, snapshot) {
     if (modelClass.modelName === 'project') {
-      return fetch(`${this.namespace}/index.json`).then(r => r.json());
+      return this.get('ajax').request(`${this.namespace}/index.json`);
     } else {
       return store.peekRecord(modelClass.modelName, id);
     }
