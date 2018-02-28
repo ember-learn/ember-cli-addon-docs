@@ -1,0 +1,40 @@
+{{#each-in sections as |section items|}}
+  {{#if items}}
+    <section class="item-section">
+      <h2>{{capitalize section}}</h2>
+
+      {{#each items as |item|}}
+        {{#if (or item.isClass item.isComponent)}}
+          <h3 id={{item.name}} class="item-section__class-header">
+            {{#link-to 'docs.api.item' (concat 'root/' item.id)}}
+              {{#if (eq item.exportType 'default')}}
+                <span class="item-section__default-label">Default</span>
+              {{/if}}
+              {{item.name}}
+            {{/link-to}}
+          </h3>
+
+          {{{item.description}}}
+        {{else}}
+          <h3 id={{item.name}} class="item-section__item-header">
+            <a href="#{{item.name}}">
+              {{#if (eq item.exportType 'default')}}
+                <span class="item-section__default-label">Default</span>
+              {{/if}}
+
+              {{type-signature item}}
+            </a>
+          </h3>
+
+          {{#if item.exportType}}
+            {{api/x-import-path item=item}}
+          {{/if}}
+
+          {{{item.description}}}
+
+          {{api/x-params params=item.params}}
+        {{/if}}
+      {{/each}}
+    </section>
+  {{/if}}
+{{/each-in}}

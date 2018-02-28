@@ -1,0 +1,30 @@
+.class-index {
+  width: 200px;
+  padding: 0 20px;
+
+  font-size: 0.85em;
+
+  .class-index__sticky {
+    position: sticky;
+    top: 20px;
+  }
+
+  h2, h3 {
+    font-weight: normal;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    a {
+      text-decoration: none;
+
+      color: #999;
+
+      &:hover {
+        color: #222;
+      }
+    }
+  }
+}

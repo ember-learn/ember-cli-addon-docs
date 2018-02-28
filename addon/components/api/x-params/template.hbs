@@ -1,0 +1,22 @@
+{{#if shouldDisplayParams}}
+  <h4>Params</h4>
+
+  <table>
+    {{!-- <thead>
+      <tr>
+        <th>name</th>
+        <th>type</th>
+        <th>description</th>
+      </tr>
+    </thead> --}}
+    <tbody>
+      {{#each params as |param|}}
+        <tr>
+          <td><span class="item-params__param-name">{{param.name}}</span></td>
+          <td><span class="item-params__param-type">{{param.type}}</span></td>
+          <td>{{param.description}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{/if}}
