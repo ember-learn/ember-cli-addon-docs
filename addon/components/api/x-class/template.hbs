@@ -1,0 +1,26 @@
+<h1>{{class.name}}</h1>
+
+{{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
+<div>{{{class.description}}}</div>
+
+{{#if hasContents}}
+  <div class="class-contents">
+    {{api/x-index
+      sections=(hash
+        constructors=class.constructors
+        fields=class.fields
+        accessors=class.accessors
+        methods=class.methods
+      )
+    }}
+
+    {{api/x-sections
+      sections=(hash
+        constructors=class.constructors
+        fields=class.fields
+        accessors=class.accessors
+        methods=class.methods
+      )
+    }}
+  </div>
+{{/if}}

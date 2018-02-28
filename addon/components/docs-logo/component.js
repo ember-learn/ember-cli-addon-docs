@@ -5,6 +5,7 @@ import layout from './template';
 
 /**
   A simple component to render an Ember, Ember CLI or Ember Data logo.
+
   @class DocsLogo
   @public
 */
@@ -21,8 +22,8 @@ export default Component.extend({
     {{docs-logo logo='ember-data'}}
     ```
 
-    @property logo
-    @public
+    @argument logo
+    @type String
   */
   logo: 'ember',
 

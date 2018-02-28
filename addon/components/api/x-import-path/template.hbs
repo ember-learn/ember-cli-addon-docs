@@ -1,0 +1,10 @@
+<span class="hljs-keyword">import</span>
+
+{{#if (eq item.exportType "default")}}
+  {{item.name}}
+{{else}}
+ { {{item.name}} }
+{{/if}}
+
+<span class="hljs-keyword">from</span>
+<span class="hljs-string">'{{projectName}}{{item.file}}'</span>;

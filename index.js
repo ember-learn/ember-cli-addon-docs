@@ -254,7 +254,7 @@ class AutoExportAddonToApp extends Plugin {
       });
 
     // Non-pods modules (slightly different logic)
-    [ 'adapters', 'controllers', 'models', 'routes', 'serializers', 'services', 'transitions' ].forEach(moduleType => {
+    [ 'adapters', 'controllers', 'helpers', 'models', 'routes', 'serializers', 'services', 'transitions' ].forEach(moduleType => {
       let addonFullPath = path.join(addonPath, moduleType);
       if (!fs.existsSync(addonFullPath)) {
         return;
