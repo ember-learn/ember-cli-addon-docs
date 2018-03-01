@@ -27,5 +27,17 @@ module.exports = {
 
     fs.writeFileSync(configPath, configContents, 'utf-8');
     this.ui.writeInfoLine('Updated dummy app rootURL for compatibility with GitHub Pages.');
+
+    const hasPlugins = this.project.addons.some(function(addon) {
+      const isPlugin = addon.pkg.keywords.indexOf('ember-cli-addon-docs-plugin') !== -1;
+      const isPluginPack = addon.pkg.keywords.indexOf('ember-cli-addon-docs-plugin-pack') !== -1;
+      return isPlugin || isPluginPack;
+    });
+
+    if (!hasPlugins) {
+      return this.addAddonsToProject({
+        packages: ['ember-cli-addon-docs-yuidoc']
+      })
+    }
   }
 };
