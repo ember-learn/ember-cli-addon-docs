@@ -76,6 +76,16 @@ module.exports = {
 
     this._super.included.apply(this, arguments);
 
+    const hasPlugins = this.project.addons.some(function(addon) {
+      const isPlugin = addon.pkg.keywords.indexOf('ember-cli-addon-docs-plugin') !== -1;
+      const isPluginPack = addon.pkg.keywords.indexOf('ember-cli-addon-docs-plugin-pack') !== -1;
+      return isPlugin || isPluginPack;
+    });
+
+    if (!hasPlugins) {
+      this.ui.writeWarnLine('ember-cli-addon-docs needs plugins to generate API documentation. You can install the default with `ember install ember-cli-addon-docs-yuidoc`');
+    }
+
     this.addonOptions = Object.assign({}, DEFAULT_ADDON_OPTIONS, includer.options['ember-cli-addon-docs']);
 
     includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
@@ -163,16 +173,19 @@ module.exports = {
       include: includePaths.concat(includeTreePaths).concat('package.json', 'README.md')
     });
 
-    let DocsGenerator = require('./lib/broccoli/docs-generator');
+    let PluginRegistry = require('./lib/models/plugin-registry');
     let DocsCompiler = require('./lib/broccoli/docs-compiler');
     let SearchIndexer = require('./lib/broccoli/search-indexer');
 
-    let docsGenerator = new DocsGenerator([addonSourceTree], {
+    let pluginRegistry = new PluginRegistry(project);
+
+    let docsGenerators = pluginRegistry.createDocsGenerators(addonSourceTree, {
+      destDir: 'docs',
       project,
-      destDir: 'docs'
+      parentAddon
     });
 
-    let docsTree = new DocsCompiler([docsGenerator], {
+    let docsTree = new DocsCompiler(docsGenerators, {
       project,
       parentAddon
     });
