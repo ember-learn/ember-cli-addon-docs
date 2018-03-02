@@ -60,6 +60,7 @@
     "marked": "^0.3.12",
     "quick-temp": "^0.1.8",
     "resolve": "^1.5.0",
+    "semver": "^5.5.0",
     "striptags": "^3.1.1",
     "walk-sync": "^0.3.2",
     "yuidocjs": "^0.10.2"

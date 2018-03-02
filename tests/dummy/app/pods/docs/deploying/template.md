@@ -2,6 +2,8 @@
 
 Deploying your documentation site can involve a lot of moving parts, but Ember CLI Addon Docs aims to streamline as much of the process as possible by providing a set of out-of-the-box conventions for deploying to GitHub Pages.
 
+Once everything is set up, you'll be able to run `ember deploy production` and then see your documentation app at <u>https://**[username]**.github.io/**[repo-name]**</u>.
+
 - [Deployment Using `ember-cli-deploy`](#deployment-using-ember-cli-deploy)
 - [Versioning Your Content](#versioning-your-content)
 - [Automating Deploys](#automating-deploys)
@@ -32,20 +34,30 @@ Now take a look at the `gh-pages` branch either locally or on GitHub. You should
 ```
 
 Let's break down what each of those items is doing.
- - `index.html` simply redirects from the root of your gh-pages site to `/latest` (more details on that below)
+ - `index.html` simply redirects from the root of your gh-pages site to `/latest` (more details on that [below](#tag-deploys))
  - `404.html` contains [some smart redirect logic](https://github.com/rafrex/spa-github-pages) to keep you from having to use `locationType: 'hash'` in your dummy app
  - `versions.json` contains a manifest of the available versions of your documentation
  - `[current-branch-name]` contains all the files from your built docs app
 
-If you were to make a change to your dummy app and run `ember deploy production` again right now, the entry for `[current-branch-name]` in `version.json` and the entire contents of the `[current-branch-name]` directory would be replaced with the updated version of your site. Next we'll talk about how to manage multiple versions of your documentation at once.
+If you were to make a change to your dummy app and run `ember deploy production` again right now, the entry for `[current-branch-name]` in `version.json` and the entire contents of the `[current-branch-name]` directory would be replaced with the updated version of your site. Next we'll talk about how to manage keeping published documentation around for multiple versions of your addon.
 
 ## Versioning Your Content
 
-TODO write me
- - `/latest`
- - `/master`
- - `/<tag>`
- - `index.html` redirect
+Whenever you deploy your documentation site with Addon Docs, it places the compiled application in a subdirectory based on the current state of your git repository. All of this behavior [is customizable](#customizing-deploys), but we expect the out-of-the-box configuration should be a good place to get started.
+
+### Tag Deploys
+
+When you run `ember deploy` at a commit that has a git tag associated with it, the app will wind up in a directory named after that tag. For example, if you've just published version 1.2.3 of your addon (creating tag `v1.2.3` in your git repository), your deployed site will be available at <u>https://**[username]**.github.io/**[repo-name]**/v1.2.3</u>.
+
+By default, deploying from a tagged commit also places a copy of your app under a special directory called `/latest`. As mentioned above, the `index.html` that Addon Docs sets up at the root redirects to `/latest`, so <u>https://**[username]**.github.io/**[repo-name]**</u> will always bring developers to the documentation for the most recent stable release of your addon.
+
+Note that this only applies to non-prerelease tags, so `v1.2.3` would update `/latest`, but `v2.0.0-beta.1` would not. Check out the documentation for [node-semver](https://github.com/npm/node-semver) for the exact details on what constitutes a prerelease version.
+
+### Branch Deploys
+
+When you deploy from a commit at the head of a branch that _doesn't_ have a tag associated with it, the compiled app will land in a folder named after that branch, as in our "getting started" example above. Unlike tag deploys, branch deploys will never automatically update `/latest`.
+
+The main use case for branch deploys is tracking development work since your last stable release. If you run `ember deploy` after successful builds on `master`, you'll always have documentation available for the bleeding edge of your addon's features. Since branch deploys don't update `/latest`, though, developers looking at your docs will still hit your most recent stable tag by default, so there won't be any confusion about things that have drifted since the last release.
 
 ## Automating Deploys
 
