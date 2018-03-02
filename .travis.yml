@@ -34,8 +34,8 @@ notifications:
   email: false
 
 stages:
-  - test
-  - additional tests
+  - locked dependencies
+  - floating dependencies
   - versioned tests
   - deploy
 
@@ -43,14 +43,19 @@ jobs:
   fail_fast: true
 
   include:
-    - stage: test
-      env: NAME=test
-      script: yarn test
+    - stage: locked dependencies
+      env: NAME=browser tests
+      script: yarn test:browser
+    - env: NAME=node tests
+      script: yarn test:node
 
-    - stage: additional tests
-      env: NAME=floating dependencies
+    - stage: floating dependencies
+      env: NAME=browser tests
       install: yarn install --no-lockfile --non-interactive
-      script: yarn test
+      script: yarn test:browser
+    - env: NAME=node tests
+      install: yarn install --no-lockfile --non-interactive
+      script: yarn test:node
 
     - stage: versioned tests
       env: EMBER_TRY_SCENARIO=ember-lts-2.12
@@ -58,7 +63,6 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-release
     - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
-    - env: EMBER_TRY_SCENARIO=ember-default
 
     - stage: deploy
       if: (branch = master OR tag IS present) AND type = push

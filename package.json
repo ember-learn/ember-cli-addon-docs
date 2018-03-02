@@ -18,7 +18,8 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember try:each",
-    "test:node": "qunit tests-node"
+    "test:node": "qunit tests-node",
+    "test:browser": "ember test"
   },
   "dependencies": {
     "@glimmer/syntax": "^0.30.5",
