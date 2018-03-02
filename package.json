@@ -39,7 +39,6 @@
     "ember-code-snippet": "ef4/ember-code-snippet",
     "ember-component-css": "^0.3.5",
     "ember-data": "^2.18.0",
-    "ember-fetch": "^3.4.4",
     "ember-href-to": "^1.15.1",
     "ember-keyboard": "^3.0.0",
     "ember-modal-dialog": "^2.4.1",

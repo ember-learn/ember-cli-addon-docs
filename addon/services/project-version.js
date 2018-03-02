@@ -1,8 +1,10 @@
-import Service from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
-import fetch from 'fetch';
+import { resolve } from 'rsvp';
 
 export default Service.extend({
+  ajax: service(),
+
   current: null,
   root: null,
 
@@ -14,13 +16,10 @@ export default Service.extend({
 
     if (slash === -1) {
       this.set('current', 'development');
-      this.set('_versionsPromise', Promise.resolve([
-        { name: 'development', path: '' }
-      ]));
+      this.set('_versionsPromise', resolve([{ name: 'development', path: '' }]));
     } else {
       this.set('current', rootURL.substring(slash + 1).replace(/\/$/, ''));
-      this.set('_versionsPromise', fetch(`${this.get('root')}/versions.json`)
-        .then(response => response.json())
+      this.set('_versionsPromise', this.get('ajax').request(`${this.get('root')}/versions.json`)
         .then(json => Object.keys(json).map(key => json[key])));
     }
   },
