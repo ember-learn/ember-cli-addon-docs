@@ -2,12 +2,13 @@
 
 Deploying your documentation site can involve a lot of moving parts, but Ember CLI Addon Docs aims to streamline as much of the process as possible by providing a set of out-of-the-box conventions for deploying to GitHub Pages.
 
-Once everything is set up, you'll be able to run `ember deploy production` and then see your documentation app at <u>https://**[username]**.github.io/**[repo-name]**</u>.
+Once everything is set up, you'll be able to visit <u>https://**[user]**.github.io/**[repo]**</u> to see the docs for the latest release of your addon, and your CI builds will automatically keep it up to date.
 
 - [Deployment Using `ember-cli-deploy`](#deployment-using-ember-cli-deploy)
 - [Versioning Your Content](#versioning-your-content)
 - [Automating Deploys](#automating-deploys)
 - [Customizing Deploys](#customizing-deploys)
+- [Removing Deployed Versions](#removing-deployed-versions)
 
 ## Deployment Using `ember-cli-deploy`
 
@@ -19,14 +20,14 @@ To deploy your docs site to GitHub pages, you'll need to go through a few steps 
  4. Run `ember deploy production` and answer "yes" if prompted to create a `gh-pages` branch. **Note**: if your repo already has a `gh-pages` branch, you may want to manually archive the existing content there before deploying.
 
 Once the deploy completes and GitHub has a moment to publish your pages site, if all went well you should see your addon's dummy app live at
-<u>https://**[username]**.github.io/**[repo-name]**/**[current-branch-name]**</u>.
+<u>https://**[user]**.github.io/**[repo]**/**[current-branch]**</u>.
 
 Now take a look at the `gh-pages` branch either locally or on GitHub. You should see a layout something like this:
 
 ```sh
 ├── 404.html
 ├── index.html
-├── [current-branch-name]
+├── [current-branch]
 │   ├── assets
 │   ├── index.html
 │   └── ...
@@ -37,9 +38,9 @@ Let's break down what each of those items is doing.
  - `index.html` simply redirects from the root of your gh-pages site to `/latest` (more details on that [below](#tag-deploys))
  - `404.html` contains [some smart redirect logic](https://github.com/rafrex/spa-github-pages) to keep you from having to use `locationType: 'hash'` in your dummy app
  - `versions.json` contains a manifest of the available versions of your documentation
- - `[current-branch-name]` contains all the files from your built docs app
+ - `[current-branch]` contains all the files from your built docs app
 
-If you were to make a change to your dummy app and run `ember deploy production` again right now, the entry for `[current-branch-name]` in `version.json` and the entire contents of the `[current-branch-name]` directory would be replaced with the updated version of your site. Next we'll talk about how to manage keeping published documentation around for multiple versions of your addon.
+If you were to make a change to your dummy app and run `ember deploy production` again right now, the entry for `[current-branch]` in `version.json` and the entire contents of the `[current-branch]` directory would be replaced with the updated version of your site. Next we'll talk about how to manage keeping published documentation around for multiple versions of your addon.
 
 ## Versioning Your Content
 
@@ -47,9 +48,9 @@ Whenever you deploy your documentation site with Addon Docs, it places the compi
 
 ### Tag Deploys
 
-When you run `ember deploy` at a commit that has a git tag associated with it, the app will wind up in a directory named after that tag. For example, if you've just published version 1.2.3 of your addon (creating tag `v1.2.3` in your git repository), your deployed site will be available at <u>https://**[username]**.github.io/**[repo-name]**/v1.2.3</u>.
+When you run `ember deploy` at a commit that has a git tag associated with it, the app will wind up in a directory named after that tag. For example, if you've just published version 1.2.3 of your addon (creating tag `v1.2.3` in your git repository), your deployed site will be available at <u>https://**[user]**.github.io/**[repo]**/v1.2.3</u>.
 
-By default, deploying from a tagged commit also places a copy of your app under a special directory called `/latest`. As mentioned above, the `index.html` that Addon Docs sets up at the root redirects to `/latest`, so <u>https://**[username]**.github.io/**[repo-name]**</u> will always bring developers to the documentation for the most recent stable release of your addon.
+By default, deploying from a tagged commit also places a copy of your app under a special directory called `/latest`. As mentioned above, the `index.html` that Addon Docs sets up at the root redirects to `/latest`, so <u>https://**[user]**.github.io/**[repo]**</u> will always bring developers to the documentation for the most recent stable release of your addon.
 
 Note that this only applies to non-prerelease tags, so `v1.2.3` would update `/latest`, but `v2.0.0-beta.1` would not. Check out the documentation for [node-semver](https://github.com/npm/node-semver) for the exact details on what constitutes a prerelease version.
 
@@ -61,18 +62,61 @@ The main use case for branch deploys is tracking development work since your las
 
 ## Automating Deploys
 
-TODO write me
-- generating a key
-- configuring the public key for Github
-- configuring the private key for Travis
-- setting up deployment in `.travis.yml`
+While you _can_ just run `ember deploy production` yourself after every commit to `master` and each new release of your addon, you can simplify life a bit by automating the process as part of your CI setup. The process described here details the configuration for [Travis CI](https://travis-ci.org/), which Ember addons are configured to work with out of the box, but the setup should be very similar for other CI providers.
+
+### Generate a Deploy Key
+
+The first step you'll need to take is to generate a _deploy key_. This is a special SSH key that will only have write access to a single git repository: the one for your addon.
+
+To generate the public/private key pair on macOS or Linux, you'll use the [`ssh-keygen`](https://www.freebsd.org/cgi/man.cgi?query=ssh-keygen&sektion=1&manpath=OpenBSD+3.9) command line tool. On Windows, you can use [PuTTYGen](https://www.ssh.com/ssh/putty/windows/puttygen) instead.
+
+```sh
+ssh-keygen -t rsa -b 4096 -N '' -f deploy_key
+```
+
+This will produce two files in your current directory: `deploy_key` (the private key) and `deploy_key.pub` (the public key). **Do not commit these files to your repository.**
+
+### Configure the Public Key with GitHub
+
+On GitHub, open the page for your repo and navigate to Settings -> Deploy keys (or just directly visit <u>https://github.com/**[user]**/**[repo]**/settings/keys)</u> and click "Add deploy key".
+
+Enter a name for your key and then paste the contents of your public key (`id_rsa.pub`) into the big textarea. Make sure you check the **Allow write access** box, then click "Add key" and you're all set.
+
+### Configure the Private Key with Travis
+
+Now that GitHub knows that this public key is allowed to push commits to your repo, we need to set up Travis to use the corresponding private key. Because the keyfile contains newlines, the easiest way to do this is using the [Travis CLI](https://github.com/travis-ci/travis.rb#installation) tool.
+
+```sh
+travis env set -- DEPLOY_KEY "$(cat deploy_key)"
+```
+
+### Deploy After Successful Builds
+
+All that's left now is to set up Travis to run your deploys for you. The simplest way to do this is to add this `after_success` script to the end of your `.travis.yml`:
+
+```yml
+after_success:
+  - if [[ ($TRAVIS_BRANCH == master || -n $TRAVIS_TAG) && $EMBER_TRY_SCENARIO == ember-default ]]; then
+      node_modules/.bin/ember deploy production;
+    fi
+```
+
+Alternatively, if you're using Travis's [build stages system](https://docs.travis-ci.com/user/build-stages/), you can set up the deploy as a conditional stage at the end of your build:
+
+```yml
+stages:
+  # ...your other build stages...
+  - name: deploy
+    if: (branch = master or tag is present) and type = push
+    script: node_modules/.bin/ember deploy production
+```
 
 ## Customizing Deploys
 
 TODO write me
 - `AddonDocsConfig`
 - `shouldUpdateLatest()`
-   <!-- * This hook controls whether the 'latest' docs version alis will be updated
+   <!-- * This hook controls whether the 'latest' docs version alias will be updated
    * to point to the current build. By default, this will return true whenever
    * a deploy is occurring from a tagged commit.
    *
@@ -103,3 +147,6 @@ When you first install Addon Docs (or when you run `ember g ember-cli-addon-docs
 
 Together, these plugins will allow you to run `ember deploy production` to build your docs site and push it to GitHub pages. -->
 
+## Removing Deployed Versions
+
+TODO write me
