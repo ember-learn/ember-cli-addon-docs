@@ -8,7 +8,7 @@ Once everything is set up, you'll be able to visit <u>https://**[user]**.github.
 - [Versioning Your Content](#versioning-your-content)
 - [Automating Deploys](#automating-deploys)
 - [Customizing Deploys](#customizing-deploys)
-- [Removing Deployed Versions](#removing-deployed-versions)
+- [Removing a Deployed Version](#removing-a-deployed-version)
 
 ## Deployment Using `ember-cli-deploy`
 
@@ -78,7 +78,7 @@ This will produce two files in your current directory: `deploy_key` (the private
 
 ### Configure the Public Key with GitHub
 
-On GitHub, open the page for your repo and navigate to Settings -> Deploy keys (or just directly visit <u>https://github.com/**[user]**/**[repo]**/settings/keys)</u> and click "Add deploy key".
+On GitHub, open the page for your repo and navigate to _Settings_ -> _Deploy keys_ (or just directly visit <u>https://github.com/**[user]**/**[repo]**/settings/keys)</u> and click "Add deploy key".
 
 Enter a name for your key and then paste the contents of your public key (`id_rsa.pub`) into the big textarea. Make sure you check the **Allow write access** box, then click "Add key" and you're all set.
 
@@ -113,40 +113,53 @@ stages:
 
 ## Customizing Deploys
 
-TODO write me
-- `AddonDocsConfig`
-- `shouldUpdateLatest()`
-   <!-- * This hook controls whether the 'latest' docs version alias will be updated
-   * to point to the current build. By default, this will return true whenever
-   * a deploy is occurring from a tagged commit.
-   *
-   * The default behavior can be overridden by setting the environment variable
-   * ADDON_DOCS_UPDATE_LATEST to 'true' or 'false'.
-   *
-   * @return {boolean} Whether to update the 'latest' docs version alias. -->
-- `getVersionPath()`
-   <!-- * This hook sets the directory that this version will be deployed to,
-   * typically either a tag (e.g. 'v1.2.3'), a branch name like 'master'
-   * for continuously deploying docs that track a given branch, or nothing
-   * at all to skip deploying.
-   *
-   * The default behavior can be overridden by setting the environment variable
-   * ADDON_DOCS_VERSION_PATH to the desired location (or to '' to skip).
-   *
-   * @return {string} The target directory for this build's files in the deploy
-   * branch -->
-- `getVersionName()`
+When you install Addon Docs, a `config/addon-docs.js` file will automatically be created for you that looks something like this:
 
-<!-- ## Deploy Plugins
+```js
+const AddonDocsConfig = require('ember-cli-addon-docs/lib/config');
 
-When you first install Addon Docs (or when you run `ember g ember-cli-addon-docs`), we'll automatically add some deployment-related addons to your project:
- - [ember-cli-deploy](https://github.com/ember-cli-deploy/ember-cli-deploy), which orchestrates the process of deploying an app via an `ember deploy` command
- - [ember-cli-deploy-build](https://github.com/ember-cli-deploy-build), which automatically runs a build as part of your deployment
- - [ember-cli-deploy-git](https://github.com/ef4/ember-cli-deploy-git), which sets up a git branch as your deploy target
- - [ember-cli-deploy-git-ci](https://github.com/dfreeman/ember-cli-deploy-git-ci), which takes care of some of the details of deploying to GitHub Pages as part of your CI builds
+module.exports = class extends AddonDocsConfig {
+  // ...
+};
+```
 
-Together, these plugins will allow you to run `ember deploy production` to build your docs site and push it to GitHub pages. -->
+You can override methods on this class to customize deploy behavior.
 
-## Removing Deployed Versions
+### `getVersionPath()`
 
-TODO write me
+This method determines the location that a given version of your documentation will be written to on your deploy branch.
+
+By default, this method will use the current tag name (if any), or fall back to the current branch name as described above. Note that you can override this behavior by setting an `ADDON_DOCS_VERSION_PATH` environment variable.
+
+If this method returns a falsey value, the deploy will be aborted.
+
+### `getVersionName()`
+
+This method returns a name for a given version of your documentation. By default it just returns the same thing as `getVersionPath()`, but if, for instance, you wanted to set up named releases, you might override this method. You can also explicitly specify the version name by setting an `ADDON_DOCS_VERSION_NAME` environment variable.
+
+### `shouldUpdateLatest()`
+
+This method determines whether the `/latest` directory will also be updated with the current deploy. By default, this will return true for builds from a tagged commit where the tag is a [semver non-prerelease version]([node-semver](https://github.com/npm/node-semver), and false otherwise. You can explicitly set the `ADDON_DOCS_UPDATE_LATEST` environment variable to `true` or `false` to override this behavior.
+
+## Removing a Deployed Version
+
+Deploying a version of your documentation does two things: it copies the `dist` directory of your built docs app into a particular place on your `gh-pages` branch, and it adds or updates an entry in the `versions.json` manifest in the root of that branch. To remove a version, then, you just need to undo those two things.
+
+First, you can run `git checkout gh-pages` to switch to your deploy branch. You may see a message indicating that that branch has already been checked out somewhere else by `git worktree`—if that's the case, you can just `cd` to that directory instead.
+
+Next, remove the item from `versions.json` for the version you want to get rid of, and delete the corresponding directory. For example, if you ran a deploy on a branch called `deploy-test` and wanted to remove the results of that after you finished testing it out, you could `git rm deploy-test` to remove the deployed app, and then find the `deploy-test` key in `versions.json` and remove it:
+
+```js
+{
+  // ...
+  "deploy-test": {
+    "sha": "caad536c48dd3562629a4f7a467c976f0ec6bb2b",
+    "tag": null,
+    "path": "deploy-test",
+    "name": "deploy-test"
+  },
+  // ...
+}
+```
+
+Keep in mind, your deployed site is still a git branch like everything else in your repo, so you have all the same tools at your disposal for making changes to it. In many case, rather than going through the manual steps outlined above, you may be able to just find the commit that added the version you want to remove and `git revert` it.

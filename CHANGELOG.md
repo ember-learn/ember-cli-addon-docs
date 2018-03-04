@@ -7,7 +7,9 @@
 
 ### Migrating to 0.2.x
 
-TODO @dfreeman finish filling me out
+Addon Docs 0.2.x uses a different structure for deploys than 0.1.x in order to accomodate versioned documentation. For details on the new structure, read the new [Deploying](https://ember-learn.github.io/ember-cli-addon-docs/docs/deploying) section of the guide. In short, before deploying with 0.2.x, you should consider manually migrating your existing site to a subdirectory on your `gh-pages` branch. If you want, you can add an entry in `versions.json` for this subdirectory after you've done a deploy with 0.2.x.
+
+In particular, if you have an `index.html` and/or `404.html` in the root of your `gh-pages` branch, you should move or delete them to allow Addon Docs to set up its own redirection logic.
 
 ## 0.1.4
 

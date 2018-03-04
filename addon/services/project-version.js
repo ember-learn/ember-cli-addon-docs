@@ -12,6 +12,8 @@ export default Service.extend({
     let { rootURL } = getOwner(this).resolveRegistration('config:environment');
     let slash = rootURL.indexOf('/', 1);
 
+    // TODO deal with apps deployed to custom domains, so their pathnames don't have a leading
+    // segmenet for the project name. This will impact this service and the 404 page.
     this.set('root', rootURL.slice(0, slash));
 
     if (slash === -1) {
