@@ -29,6 +29,12 @@ Router.map(function() {
     });
   });
 
+  this.route('sandbox', function() {
+    this.route('api', function() {
+      this.route('item', { path: '/*path' });
+    });
+  });
+
   this.route('not-found', { path: '/*path' });
 });
 

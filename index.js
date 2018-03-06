@@ -9,9 +9,12 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 
-const DEFAULT_ADDON_OPTIONS = {
-  includePaths: [],
-  includeTrees: ['addon']
+const DEFAULT_PROJECTS = {
+  main: {
+    tree: null,
+    include: null,
+    includeTrees: ['addon']
+  }
 }
 
 module.exports = {
@@ -86,7 +89,8 @@ module.exports = {
       this.ui.writeWarnLine('ember-cli-addon-docs needs plugins to generate API documentation. You can install the default with `ember install ember-cli-addon-docs-yuidoc`');
     }
 
-    this.addonOptions = Object.assign({}, DEFAULT_ADDON_OPTIONS, includer.options['ember-cli-addon-docs']);
+    this.addonOptions = Object.assign({}, includer.options['ember-cli-addon-docs']);
+    this.addonOptions.projects = Object.assign({}, DEFAULT_PROJECTS, this.addonOptions.projects);
 
     includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
     includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
@@ -162,33 +166,51 @@ module.exports = {
   treeForPublic() {
     let parentAddon = this.parent.findAddonByName(this.parent.name());
     let defaultTree = this._super.treeForPublic.apply(this, arguments);
+
     if (!parentAddon) { return defaultTree; }
-
-    let project = this.project;
-
-    let includePaths = this.addonOptions.includePaths;
-    let includeTreePaths = this.addonOptions.includeTrees.map(t => `${parentAddon.treePaths[t]}/**/*`);
-
-    let addonSourceTree = new Funnel(parentAddon.root, {
-      include: includePaths.concat(includeTreePaths).concat('package.json', 'README.md')
-    });
 
     let PluginRegistry = require('./lib/models/plugin-registry');
     let DocsCompiler = require('./lib/broccoli/docs-compiler');
     let SearchIndexer = require('./lib/broccoli/search-indexer');
 
-    let pluginRegistry = new PluginRegistry(project);
+    let project = this.project;
+    let docsTrees = [];
 
-    let docsGenerators = pluginRegistry.createDocsGenerators(addonSourceTree, {
-      destDir: 'docs',
-      project,
-      parentAddon
-    });
+    for (let projectName in this.addonOptions.projects) {
+      let docProject = this.addonOptions.projects[projectName];
 
-    let docsTree = new DocsCompiler(docsGenerators, {
-      project,
-      parentAddon
-    });
+      let addonSourceTree;
+
+      if (docProject.tree) {
+        addonSourceTree = docProject.tree;
+      } else {
+        let include = docProject.include || [];
+        let includeTrees = docProject.includeTrees || [];
+
+        let includeTreePaths = includeTrees.map(t => `${parentAddon.treePaths[t]}/**/*`);
+
+        addonSourceTree = new Funnel(parentAddon.root, {
+          include: include.concat(includeTreePaths).concat('package.json', 'README.md')
+        });
+      }
+
+      let pluginRegistry = new PluginRegistry(project);
+
+      let docsGenerators = pluginRegistry.createDocsGenerators(addonSourceTree, {
+        destDir: 'docs',
+        project,
+        parentAddon
+      });
+
+      docsTrees.push(
+        new DocsCompiler(docsGenerators, {
+          name: projectName === 'main' ? parentAddon.name : projectName,
+          project
+        })
+      );
+    }
+
+    let docsTree = new MergeTrees(docsTrees);
 
     let templateContentsTree = this.contentExtractor.getTemplateContentsTree();
     let searchIndexTree = new SearchIndexer(new MergeTrees([docsTree, templateContentsTree]), {

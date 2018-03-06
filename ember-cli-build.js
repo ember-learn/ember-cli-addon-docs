@@ -12,6 +12,13 @@ module.exports = function(defaults) {
         'public',
         'tests/dummy/public'
       ]
+    },
+    'ember-cli-addon-docs': {
+      projects: {
+        sandbox: {
+          tree: 'lib/sandbox'
+        }
+      }
     }
   });
 
