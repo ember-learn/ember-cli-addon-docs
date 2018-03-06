@@ -26,8 +26,8 @@
       var l = window.location;
       var segments = l.pathname.split('/');
 
-      // Special case the `latest` version so we don't wind up in a redirect loop
-      if (segments[segmentCount] !== 'latest') {
+      // Avoid an infinite loop if we try to direct to a location that doesn't exist
+      if (!/^\?p=\/.*&q=.*/.test(l.search)) {
         l.replace(
           l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
           segments.slice(0, 1 + segmentCount).join('/') + '/?p=/' +
@@ -38,5 +38,5 @@
       }
     </script>
   </head>
-  <body>No latest release found.</body>
+  <body>The request page wasn't found.</body>
 </html>
