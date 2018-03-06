@@ -28,7 +28,9 @@ function variableSignature({ name, type }) {
   return `<strong>${name}:</strong> <em>${escape(type)}</em>`;
 }
 
-
+/**
+  @hide
+*/
 export function typeSignature([typed]) {
   let signature;
 

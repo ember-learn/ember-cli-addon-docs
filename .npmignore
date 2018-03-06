@@ -15,6 +15,9 @@ bower.json
 ember-cli-build.js
 testem.js
 
+# sandbox examples
+/lib/sandbox
+
 # ember-try
 .node_modules.ember-try/
 bower.json.ember-try

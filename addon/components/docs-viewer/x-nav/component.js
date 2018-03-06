@@ -12,6 +12,8 @@ export default Component.extend({
   tagName: 'nav',
   classNames: 'docs-viewer__nav',
 
+  root: 'docs',
+
   store: service(),
   packageJson,
 
@@ -38,6 +40,6 @@ export default Component.extend({
   releasesUrl: `${packageJson.repository}/releases`,
 
   project: computed(function() {
-    return this.get('store').peekAll('project').get('firstObject');
+    return this.get('store').peekRecord('project', packageJson.name);
   })
 });

@@ -18,7 +18,7 @@ export default DS.Adapter.extend({
 
   findRecord(store, modelClass, id, snapshot) {
     if (modelClass.modelName === 'project') {
-      return this.get('ajax').request(`${this.namespace}/index.json`);
+      return this.get('ajax').request(`${this.namespace}/${id}.json`);
     } else {
       return store.peekRecord(modelClass.modelName, id);
     }
