@@ -1,4 +1,10 @@
 {
+  "latest": {
+    "sha": "00bfa8cbe26291982ac24f227db2c7f94ab38528",
+    "tag": null,
+    "path": "latest",
+    "name": "latest"
+  },
   "master": {
     "sha": "0d79794cb12c9e1718afb1a18bddb09f9e7c32c0",
     "tag": null,
