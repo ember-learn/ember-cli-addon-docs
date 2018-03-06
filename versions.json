@@ -1,7 +1,7 @@
 {
   "latest": {
-    "sha": "00bfa8cbe26291982ac24f227db2c7f94ab38528",
-    "tag": null,
+    "sha": "c205237d508e13e1df30e7cc0d43194214b48a2d",
+    "tag": "v0.2.0",
     "path": "latest",
     "name": "latest"
   },
@@ -10,5 +10,11 @@
     "tag": null,
     "path": "master",
     "name": "master"
+  },
+  "v0.2.0": {
+    "sha": "c205237d508e13e1df30e7cc0d43194214b48a2d",
+    "tag": "v0.2.0",
+    "path": "v0.2.0",
+    "name": "v0.2.0"
   }
 }
