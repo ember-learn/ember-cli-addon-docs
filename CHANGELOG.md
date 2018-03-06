@@ -1,5 +1,16 @@
 # Ember CLI Addon Docs Changelog
 
+## Unreleased
+
+- **Breaking change**: Versioned deployment has been overhauled, impacting the deployed layout of files on `gh-pages` and changing the API available in `config/addon-docs.js`. See [Migrating to 0.2.x](#migrating-to-02x) below for more details.
+- **Breaking change**: We no longer attempt to abort from within when running `ember deploy` on a non-`master` branch or a non-default Ember Try scenario. You should instead guard the invocation of `ember deploy` itself in your `.travis.yml` or equivalent.
+
+### Migrating to 0.2.x
+
+Addon Docs 0.2.x uses a different structure for deploys than 0.1.x in order to accomodate versioned documentation. For details on the new structure, read the new [Deploying](https://ember-learn.github.io/ember-cli-addon-docs/docs/deploying) section of the guide. In short, before deploying with 0.2.x, you should consider manually migrating your existing site to a subdirectory on your `gh-pages` branch. If you want, you can add an entry in `versions.json` for this subdirectory after you've done a deploy with 0.2.x.
+
+In particular, if you have an `index.html` and/or `404.html` in the root of your `gh-pages` branch, you should move or delete them to allow Addon Docs to set up its own redirection logic.
+
 ## 0.1.4
 
 - **Breaking change**: You now must always pass the file extension into the DocsSnippet component: {{docs-snippet name='foo.js'}}

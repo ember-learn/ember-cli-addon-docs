@@ -196,11 +196,7 @@ module.exports = {
       config: this.project.config(EmberApp.env())
     });
 
-    let notFoundSnippet = new Funnel(`${__dirname}/vendor/ember-cli-addon-docs`, {
-      include: ['404.html']
-    });
-
-    return new MergeTrees([ defaultTree, notFoundSnippet, docsTree, searchIndexTree ]);
+    return new MergeTrees([ defaultTree, docsTree, searchIndexTree ]);
   },
 
   _lunrTree() {

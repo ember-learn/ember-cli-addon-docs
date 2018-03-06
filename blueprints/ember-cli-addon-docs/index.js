@@ -21,12 +21,24 @@ module.exports = {
   },
 
   afterInstall() {
-    const configPath = require.resolve(this.project.configPath());
-    const configContents = fs.readFileSync(configPath, 'utf-8')
-      .replace(/rootURL: .*,/, `rootURL: '/${this.project.name()}/',`);
+    let configPath = require.resolve(this.project.configPath());
+    let configContents = fs.readFileSync(configPath, 'utf-8');
+
+    if (configContents.indexOf('ADDON_DOCS_ROOT_URL') === -1) {
+      configContents = configContents.replace(/([ \t]+)if \(environment === 'production'\) {/, [
+        '$&',
+        '$1  // Allow ember-cli-addon-docs to update the rootURL in compiled assets',
+        '$1  ENV.rootURL = \'ADDON_DOCS_ROOT_URL\';'
+      ].join('\n'));
+
+      if (configContents.indexOf('ADDON_DOCS_ROOT_URL') === -1) {
+        this.ui.writeWarnLine(
+          `Unable to update rootURL configuration. You should update ${configPath} so that your rootURL is ` +
+          `the string 'ADDON_DOCS_ROOT_URL' in production.`);
+      }
+    }
 
     fs.writeFileSync(configPath, configContents, 'utf-8');
-    this.ui.writeInfoLine('Updated dummy app rootURL for compatibility with GitHub Pages.');
 
     const hasPlugins = this.project.addons.some(function(addon) {
       const isPlugin = addon.pkg.keywords.indexOf('ember-cli-addon-docs-plugin') !== -1;
