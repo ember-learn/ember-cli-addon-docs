@@ -4,10 +4,30 @@
 
   .docs-demo__anchor {
     color: black;
-    opacity: 0.5;
-    padding: 10px 15px;
+    font-size: .8rem;
+    line-height: 1em;
+    opacity: 0.3;
+    padding: 4px 15px;
     position: absolute;
     right: 0;
     top: 0;
+    text-transform: lowercase;
+    transition: opacity .2s ease-in-out;
+
+    &__sliding {
+      display: inline-block;
+      overflow: hidden;
+      text-indent: -40px;
+      transition: text-indent .2s ease-in-out;
+      vertical-align: top;
+    }
+
+    &:hover {
+      opacity: .7;
+
+      .docs-demo__anchor__sliding {
+        text-indent: 0;
+      }
+    }
   }
 }
