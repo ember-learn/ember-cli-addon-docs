@@ -6,24 +6,34 @@
 {{#if hasContents}}
   <div class="class-contents">
     {{api/x-index
+      options=(hash
+        inherited=(hash shouldShow=component.hasInherited value=showInherited)
+        internal=(hash shouldShow=component.hasInternal value=showInternal)
+        protected=(hash shouldShow=component.hasProtected value=showProtected)
+        private=(hash shouldShow=component.hasPrivate value=showPrivate)
+        deprecated=(hash shouldShow=component.hasDeprecated value=showDeprecated)
+      )
+
+      onOptionToggle=(action 'updateFilter')
+
       sections=(hash
-        constructors=component.constructors
-        yields=component.yields
-        arguments=component.arguments
-        fields=component.fields
-        accessors=component.accessors
-        methods=component.methods
+        constructors=constructors
+        yields=yields
+        arguments=arguments
+        fields=fields
+        accessors=accessors
+        methods=methods
       )
     }}
 
     {{api/x-sections
       sections=(hash
-        constructors=component.constructors
-        yields=component.yields
-        arguments=component.arguments
-        fields=component.fields
-        accessors=component.accessors
-        methods=component.methods
+        constructors=constructors
+        yields=yields
+        arguments=arguments
+        fields=fields
+        accessors=accessors
+        methods=methods
       )
     }}
   </div>

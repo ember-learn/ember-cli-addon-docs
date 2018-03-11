@@ -42,6 +42,14 @@ export function typeSignature([typed]) {
     signature = functionSignature(typed);
   }
 
+  if (typed.isStatic) {
+    signature = `static ${signature}`;
+  }
+
+  if (typed.access === 'private' || typed.access === 'protected') {
+    signature = `${typed.access} ${signature}`;
+  }
+
   return htmlSafe(signature);
 }
 
