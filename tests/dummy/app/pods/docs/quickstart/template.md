@@ -5,15 +5,15 @@ This quickstart guide will get you going with a docs site for your brand new add
 1. **Install the addon.**
 
   ```
-  ember install ember-learn/ember-cli-addon-docs
+  ember install ember-cli-addon-docs
   ```
 
-2. **Add the docs route.** Open `tests/dummy/app/router.js` and add a route named `docs`. Go ahead and make it nested, since this is where you'll be defining additional documentation pages.
+2. **Add the required routes.** Open `tests/dummy/app/router.js` and add the following route definitions:
 
   {{#docs-snippet name='quickstart-router.js' title='tests/dummy/app/router.js'}}
     this.route('docs', function() {
       this.route('api', function() {
-        this.route('class', { path: '/:class_id' });
+        this.route('item', { path: '/*path' });
       });
     });
   {{/docs-snippet}}
