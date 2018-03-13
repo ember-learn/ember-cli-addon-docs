@@ -108,9 +108,6 @@
     ],
     "after": [
       "ember-modal-dialog"
-    ],
-    "paths": [
-      "lib/sandbox"
     ]
   }
 }
