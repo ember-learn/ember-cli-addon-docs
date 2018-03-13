@@ -9,6 +9,8 @@ export default Service.extend({
   root: null,
 
   init() {
+    this._super(...arguments);
+
     let { rootURL } = getOwner(this).resolveRegistration('config:environment');
     let slash = rootURL.indexOf('/', 1);
 
