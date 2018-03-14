@@ -1,10 +1,9 @@
-import Service, { inject as service } from '@ember/service';
+import Service from '@ember/service';
 import { getOwner } from '@ember/application';
 import { resolve } from 'rsvp';
+import fetch from 'fetch';
 
 export default Service.extend({
-  ajax: service(),
-
   current: null,
   root: null,
 
@@ -23,7 +22,8 @@ export default Service.extend({
       this.set('_versionsPromise', resolve([{ name: 'development', path: '' }]));
     } else {
       this.set('current', rootURL.substring(slash + 1).replace(/\/$/, ''));
-      this.set('_versionsPromise', this.get('ajax').request(`${this.get('root')}/versions.json`)
+      this.set('_versionsPromise', fetch(`${this.get('root')}/versions.json`)
+        .then(result => result.json())
         .then(json => Object.keys(json).map(key => json[key])));
     }
   },

@@ -1,12 +1,10 @@
-import { inject as service } from '@ember/service';
 import DS from 'ember-data';
 import config from 'dummy/config/environment';
+import fetch from 'fetch';
 
 export default DS.Adapter.extend({
 
   namespace: `${config.rootURL.replace(/\/$/, '')}/docs`,
-
-  ajax: service(),
 
   shouldBackgroundReloadAll() {
     return false;
@@ -18,7 +16,7 @@ export default DS.Adapter.extend({
 
   findRecord(store, modelClass, id, snapshot) {
     if (modelClass.modelName === 'project') {
-      return this.get('ajax').request(`${this.namespace}/${id}.json`);
+      return fetch(`${this.namespace}/${id}.json`).then(response => response.json());
     } else {
       return store.peekRecord(modelClass.modelName, id);
     }
