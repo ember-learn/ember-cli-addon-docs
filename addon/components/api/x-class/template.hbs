@@ -6,11 +6,20 @@
 {{#if hasContents}}
   <div class="class-contents">
     {{api/x-index
+      options=(hash
+        inherited=inherited
+        protected=protected
+        private=private
+        deprecated=deprecated
+      )
+
+      onOptionToggle=(action 'updateFilter')
+
       sections=(hash
-        constructors=class.constructors
-        fields=class.fields
-        accessors=class.accessors
-        methods=class.methods
+        constructors=constructors
+        fields=fields
+        accessors=accessors
+        methods=methods
       )
     }}
 

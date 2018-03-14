@@ -37,6 +37,16 @@ export default class ESDocComponent extends Component {
   onEvent;
 
   /**
+    An awesome static value
+  */
+  static isESDocComponent = true;
+
+  /**
+    PRIVATE DO NOT TOUCH
+  */
+  _privateField = 123;
+
+  /**
     The best method ever made, anywhere.
     @param {Object} features the features of the user
     @param {String} name the name of the user

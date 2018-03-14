@@ -1,6 +1,20 @@
 <div class="class-index__sticky">
   <h2>Index</h2>
 
+  <ul>
+    {{#each-in options as |key option|}}
+      {{#if option.shouldShow}}
+        <li>
+          <label>
+            <input type="checkbox" checked={{option.value}} onclick={{action onOptionToggle key}}>
+
+            {{capitalize key}}
+          </label>
+        </li>
+      {{/if}}
+    {{/each-in}}
+  </ul>
+
   {{#each-in sections as |section items|}}
     {{#if items}}
       <h3>{{capitalize section}}</h3>

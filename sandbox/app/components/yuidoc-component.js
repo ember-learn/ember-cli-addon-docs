@@ -12,7 +12,29 @@ import Component from '@ember/component';
   @class YUIDocComponent
   @public
 */
-export default Component.extend({
+let YUIDocComponent = Component.extend({
+  /**
+    The count
+    @argument count
+    @type number
+  */
+ count: 0,
+
+  /**
+    An action that sends on events
+    @argument onEvent
+    @type Action
+  */
+  onEvent: null,
+
+  /**
+    PRIVATE DO NOT TOUCH
+
+    @field _privateField
+    @private
+    @type number
+  */
+  _privateField: 123,
 
   /**
     The best method ever made, anywhere.
@@ -27,3 +49,21 @@ export default Component.extend({
   }
 
 });
+
+YUIDocComponent.reopenClass({
+  /**
+    An awesome static value
+
+    @field isYUIDocComponent
+    @static
+    @type boolean
+  */
+  isYUIDocComponent: true
+});
+
+/**
+  ESDoc is double documenting this export, so hide the second export.
+
+  @hide
+*/
+export default YUIDocComponent;
