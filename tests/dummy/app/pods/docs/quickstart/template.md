@@ -85,6 +85,6 @@ This quickstart guide will get you going with a docs site for your brand new add
 
 8. **Round out your site.**
 
-* **Add a favicon.** We recommend using [Ember CLI Favicon](https://github.com/davewasmer/ember-cli-favicon).
+* **Add a favicon to your dummy app.** We recommend using [Ember CLI Favicon](https://github.com/davewasmer/ember-cli-favicon).
 
 * **Install [Ember Router Scroll](https://github.com/dollarshaveclub/ember-router-scroll).**
