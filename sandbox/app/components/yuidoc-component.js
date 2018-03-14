@@ -1,3 +1,5 @@
+/** @documenter yuidoc */
+
 import Component from '@ember/component';
 
 /**
@@ -61,9 +63,4 @@ YUIDocComponent.reopenClass({
   isYUIDocComponent: true
 });
 
-/**
-  ESDoc is double documenting this export, so hide the second export.
-
-  @hide
-*/
 export default YUIDocComponent;
