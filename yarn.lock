@@ -2708,11 +2708,11 @@ ember-ace@^1.2.0:
     ember-cli-htmlbars "^2.0.2"
     ember-cli-node-assets "^0.2.2"
 
-ember-ajax@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/ember-ajax/-/ember-ajax-3.0.0.tgz#8f21e9da0c1d433cf879aa855fce464d517e9ab5"
+ember-ajax@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/ember-ajax/-/ember-ajax-3.1.0.tgz#3db36e67357ef447639517656aeac4bb13e73a9c"
   dependencies:
-    ember-cli-babel "^6.0.0"
+    ember-cli-babel "^6.6.0"
 
 ember-app-scheduler@^0.2.0:
   version "0.2.1"
