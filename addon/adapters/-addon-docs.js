@@ -3,7 +3,7 @@ import config from 'dummy/config/environment';
 import fetch from 'fetch';
 
 export default DS.Adapter.extend({
-
+  defaultSerializer: '-addon-docs',
   namespace: `${config.rootURL.replace(/\/$/, '')}/docs`,
 
   shouldBackgroundReloadAll() {
