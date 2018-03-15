@@ -39,6 +39,10 @@ module.exports = {
     }
 
     fs.writeFileSync(configPath, configContents, 'utf-8');
+    
+    if (fs.existsSync('.npmignore')) {
+      this.insertIntoFile('.npmignore', '/config/addon-docs.js');
+    }
 
     const hasPlugins = this.project.addons.some(function(addon) {
       const isPlugin = addon.pkg.keywords.indexOf('ember-cli-addon-docs-plugin') !== -1;
