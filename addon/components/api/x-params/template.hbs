@@ -11,7 +11,7 @@
     </thead> --}}
     <tbody>
       {{#each params as |param|}}
-        <tr>
+        <tr data-test-item-param>
           <td><span class="item-params__param-name">{{param.name}}</span></td>
           <td><span class="item-params__param-type">{{param.type}}</span></td>
           <td>{{param.description}}</td>
