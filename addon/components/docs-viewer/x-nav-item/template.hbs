@@ -2,14 +2,16 @@
   {{#link-to route model
     class='docs-viewer__nav-link'
     activeClass='docs-viewer__nav-link--active'
-    data-test-id='nav-item'}}
+    data-test-id='nav-item'
+    data-test-label=label}}
     {{label}}
   {{/link-to}}
 {{else}}
   {{#link-to route
     class='docs-viewer__nav-link'
     activeClass='docs-viewer__nav-link--active'
-    data-test-id='nav-item'}}
+    data-test-id='nav-item'
+    data-test-label=label}}
     {{label}}
   {{/link-to}}
 {{/if}}
