@@ -101,6 +101,7 @@
     "eslint-plugin-ember": "^5.0.3",
     "eslint-plugin-node": "^5.2.1",
     "loader.js": "^4.6.0",
+    "parse-git-config": "^1.1.1",
     "qunit": "^2.5.0",
     "qunit-dom": "^0.5.0"
   },

@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/ember-learn/ember-cli-addon-docs",
+  "ember-addon": {
+    "demoUrl": "https://ember-learn.github.io/ember-cli-addon-docs"
+  }
+}
