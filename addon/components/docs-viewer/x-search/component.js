@@ -96,7 +96,7 @@ export default Component.extend(EKMixin, {
   }),
 
   focusSearch: on(keyUp('Slash'), keyUp('KeyS'), function() {
-    this.$('.docs-viewer-search__input').focus();
+    this.element.querySelector('.docs-viewer-search__input').focus();
   }),
 
   unfocusSearch: on(keyUp('Escape'), function() {
@@ -104,7 +104,7 @@ export default Component.extend(EKMixin, {
       rawSearchResults: null,
       didSearch: false
     });
-    this.$('.docs-viewer-search__input').blur();
+    this.element.querySelector('.docs-viewer-search__input').blur();
   }),
 
   clearSearch() {
@@ -114,8 +114,9 @@ export default Component.extend(EKMixin, {
       rawSearchResults: null,
       query: null
     });
-    this.$('.docs-viewer-search__input').val('');
-    this.$('.docs-viewer-search__input').blur();
+    let input = this.element.querySelector('.docs-viewer-search__input');
+    input.value = '';
+    input.blur();
   },
 
   actions: {
