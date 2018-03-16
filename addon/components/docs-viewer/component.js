@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import layout from './template';
@@ -45,11 +44,11 @@ export default Component.extend(EKMixin, {
   },
 
   didInsertElement() {
-    $('body').addClass('docs-viewer--showing');
+    document.querySelector('body').classList.add('docs-viewer--showing');
   },
 
   willDestroyElement() {
-    $('body').removeClass('docs-viewer--showing');
+    document.querySelector('body').classList.remove('docs-viewer--showing');
     this.get('docsRoutes').resetState();
   },
 
@@ -66,7 +65,7 @@ export default Component.extend(EKMixin, {
   }),
 
   searchIsNotFocused() {
-    return !this.$('.docs-viewer-search__input').is(':focus');
+    return !this.element.querySelector('.docs-viewer-search__input') === document.activeElement;
   }
 
 });

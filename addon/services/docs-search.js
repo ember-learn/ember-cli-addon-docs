@@ -1,8 +1,6 @@
 import Service from '@ember/service';
 import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
-import { resolve } from 'rsvp';
-import $ from 'jquery';
 import lunr from 'lunr';
 
 const { Index, Query } = lunr;
@@ -74,7 +72,8 @@ export default Service.extend({
 
   loadSearchIndex() {
     if (!this._searchIndex) {
-      this._searchIndex = resolve($.get(this.get('_indexURL')))
+      this._searchIndex = fetch(this.get('_indexURL'))
+        .then(res => res.json())
         .then(json => {
           return {
             index: Index.load(json.index),
