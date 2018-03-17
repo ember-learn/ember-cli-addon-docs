@@ -1,4 +1,12 @@
+{{!-- {{#link-to route
+  class='transition text-black no-underline hover:opacity-50 mr-8'
+  activeClass=(if (eq route 'index') '' 'opacity-50')}}
+  {{yield}}
+{{/link-to}} --}}
+
+{{!-- Different style link --}}
 {{#link-to route
-  class='transition text-black no-underline hover:opacity-50 mr-8'}}
+  class='transition uppercase text-xs font-medium text-black opacity-75 no-underline hover:opacity-50 mr-8'
+  activeClass=(if (eq route 'index') '' 'opacity-50')}}
   {{yield}}
 {{/link-to}}

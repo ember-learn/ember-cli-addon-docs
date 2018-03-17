@@ -1,13 +1,13 @@
 <nav class='docs-navbar'>
   <div class='flex items-center py-4 docs-container'>
-    {{#docs-navbar/link 'application'}}
+    {{#docs-navbar/link 'index'}}
       <div class="text-center text-xs">
         {{#if logo}}
           <div class='h-4 pb-1'>
             {{docs-logo logo=addonLogo}}
           </div>
         {{/if}}
-        <span class='font-medium'>{{addonName}}</span>
+        <span class='font-medium normal-case'>{{addonName}}</span>
       </div>
     {{/docs-navbar/link}}
     {{#docs-navbar/link 'docs'}}

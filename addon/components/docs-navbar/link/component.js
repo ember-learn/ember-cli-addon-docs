@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import layout from './template';
+import { inject as service } from '@ember/service';
 
 /**
   Render a link in your DocsHeader header.
@@ -9,6 +10,7 @@ import layout from './template';
 */
 export default Component.extend({
   layout,
+  router: service(),
 
   tagName: ''
 
