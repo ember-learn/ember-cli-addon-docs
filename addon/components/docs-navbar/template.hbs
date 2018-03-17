@@ -2,10 +2,12 @@
   <div class='flex items-center py-4 docs-container'>
     {{#docs-navbar/link 'application'}}
       <div class="text-center text-xs">
-        <div class='h-4 pb-1'>
-          {{docs-logo logo='ember-cli'}}
-        </div>
-        <span class='opacity-75'>Addon</span><span class='font-bold'>Docs</span>
+        {{#if logo}}
+          <div class='h-4 pb-1'>
+            {{docs-logo logo=addonLogo}}
+          </div>
+        {{/if}}
+        <span class='font-medium'>{{addonName}}</span>
       </div>
     {{/docs-navbar/link}}
     {{#docs-navbar/link 'docs'}}
@@ -17,10 +19,12 @@
     )}}
 
     <div class="ml-auto">
-      <a href={{githubUrl}}
-        class='transition flex text-black no-underline hover:opacity-50'>
-        {{svg-jar 'github' width=24 height=24}}
-      </a>
+      {{#if packageJson.repository}}
+        <a href={{packageJson.repository}}
+          class='transition flex text-black no-underline hover:opacity-50'>
+          {{svg-jar 'github' width=24 height=24}}
+        </a>
+      {{/if}}
     </div>
   </div>
 </nav>
