@@ -18,7 +18,7 @@ import layout from './template';
 export default Component.extend({
   layout,
 
-  classNames: 'docs-hero',
+  tagName: '',
 
   /**
     The logo to show, one of: 'ember', 'ember-cli', or 'ember-data'

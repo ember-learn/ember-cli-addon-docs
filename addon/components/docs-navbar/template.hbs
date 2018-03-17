@@ -1,9 +1,26 @@
-<div class='docs-navbar__inner docs-container'>
-  {{#link-to 'docs' class='docs-navbar__link'}}
-    Documentation
-  {{/link-to}}
+<nav class='docs-navbar'>
+  <div class='flex items-center py-4 docs-container'>
+    {{#docs-navbar/link 'application'}}
+      <div class="text-center text-xs">
+        <div class='h-4 pb-1'>
+          {{docs-logo logo='ember-cli'}}
+        </div>
+        <span class='opacity-75'>Addon</span><span class='font-bold'>Docs</span>
+      </div>
+    {{/docs-navbar/link}}
+    {{#docs-navbar/link 'docs'}}
+      Documentation
+    {{/docs-navbar/link}}
 
-  {{yield}}
+    {{yield (hash
+      link=(component 'docs-navbar/link')
+    )}}
 
-  <a href={{githubUrl}} class='docs-navbar__link docs-navbar__link--right'>GitHub</a>
-</div>
+    <div class="ml-auto">
+      <a href={{githubUrl}}
+        class='transition flex text-black no-underline hover:opacity-50'>
+        {{svg-jar 'github' width=24 height=24}}
+      </a>
+    </div>
+  </div>
+</nav>

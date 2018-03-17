@@ -14,8 +14,7 @@ const packageJson = config['ember-cli-addon-docs'].packageJson;
 export default Component.extend({
   layout,
 
-  tagName: 'nav',
-  classNames: 'docs-navbar',
+  tagName: '',
 
   githubUrl: packageJson.repository
 

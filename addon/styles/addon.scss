@@ -5,6 +5,8 @@ $code-title-background-color: #e3e3e3;
 @import 'pod-styles';
 @import 'syntax';
 
+@import 'tailwind';
+
 body {
   font-family: 'helvetica neue', helvetica, sans-serif;
   color: #333;
@@ -214,4 +216,8 @@ button {
   & th:nth-child(2) {
     text-align: left;
   }
+}
+
+.transition {
+  transition: all .10s ease-in;
 }

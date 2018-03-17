@@ -1,14 +1,14 @@
-{{#docs-navbar logo='ember-cli' name='AddonDocs'}}
-  {{#link-to 'sandbox' class='docs-navbar__link'}}
+{{#docs-navbar logo='ember-cli' name='AddonDocs' as |nav|}}
+  {{#nav.link 'sandbox'}}
     Sandbox
-  {{/link-to}}
+  {{/nav.link}}
 {{/docs-navbar}}
 
 {{docs-hero
   logo='ember-cli'
   slimHeading='Addon'
   strongHeading='Docs'
-  byline='Patterns and primitives to help you document your addon'}}
+  byline='Easy, beautiful docs for your Ember addons'}}
 
 <div class='doc-container docs-md'>
   <section class='docs-section'>
