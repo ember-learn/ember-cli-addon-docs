@@ -2,8 +2,8 @@
 
 This quickstart guide will get you started with a docs site for your brand new
 addon. After completion you will have a docs homepage, a docs subpage named
-`usage`, an automatically generated API reference and a marketing
-homepage you can use to promote your addon.
+`usage`, an automatically generated API reference and a nice looking
+marketing/demo page you can use to promote your addon.
 
 1. **Install Addon Docs.**
 
@@ -46,7 +46,7 @@ all docs pages in your site.
     {{/docs-viewer}}
   {{/docs-snippet}}
 
-4. **Create your documentation sources.** Documentation sources contain the
+4. **Create your Markdown templates.** Markdown templates contain the actual
 actual documentation for your addon and live in the folder
 `tests/dummy/app/templates/docs`. Since Addon Docs supports Markdown out
 of the box we will create two `.md` files (one for your docs `index` and one
@@ -64,14 +64,26 @@ for the `usage` page).
     So easy to use, sweet!
   {{/docs-snippet}}
 
-5. **Create your marketing homepage**. Create a new template that will function
-as the marketing homepage for your new addon.
+5. **Create your marketing homepage**. Addon Docs comes with a set of
+components that take out all the hard work normally required for creating
+good looking marketing/demo pages. Creating a template with the following
+components will instantly give your main page a docs site a navbar, a nice hero
+and a snippet-ready demo container.
 
   {{#docs-snippet name='quickstart-marketing-index.hbs' title='tests/dummy/app/templates/index.hbs'}}
-    {{#link-to 'docs'}}Docs{{/link-to}}
-    {{#link-to 'docs.api'}}API Reference{{/link-to}}
+    {{docs-navbar}}
 
-    My addon marketing page with mind-blowing demo.
+    {{docs-hero
+      logo='ember'
+      slimHeading='My'
+      strongHeading='Addon'
+      byline='My addon demo/marketing page.'}}
+
+    {{#docs-demo as |demo|}}
+      {{#demo.example name='my-demo.hbs'}}
+        <p>Make sure to read up on the DocsDemo component before building out this page.</p>
+      {{/demo.example}}
+    {{/docs-demo}}
   {{/docs-snippet}}
 
 6. **Add a 404 route.** Add the following route to the end of your router and
@@ -95,8 +107,8 @@ create the associated template.
 used for the `Usage` page in above instructions:
 
   - create a docs subroute
-  - add a navigation item to the `docs` template
-  - create a new documentation source file (using Markdown, HtmlBars, etc.)
+  - add a corresponding navigation item to the `docs` template
+  - create a corresponding Markdown template
 
 ## Optional
 
