@@ -12,6 +12,7 @@ module.exports = function(defaults) {
 
   var app = new EmberAddon(defaults, {
     project,
+    vendorFiles: { 'jquery.js': null, 'app-shims.js': null },
     svgJar: {
       sourceDirs: [
         'public',
