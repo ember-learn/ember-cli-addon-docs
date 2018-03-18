@@ -67,7 +67,7 @@ for the `usage` page).
 5. **Create your marketing homepage**. Addon Docs comes with a set of
 components that take out all the hard work normally required for creating
 good looking marketing/demo pages. Creating a template with the following
-components will instantly give your main page a docs site a navbar, a nice hero
+components will instantly give your main page a navbar, a nice hero
 and a snippet-ready demo container.
 
   {{#docs-snippet name='quickstart-marketing-index.hbs' title='tests/dummy/app/templates/index.hbs'}}
