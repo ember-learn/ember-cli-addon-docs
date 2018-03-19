@@ -20,11 +20,11 @@ export default Component.extend({
   addonLogo: computed(function() {
     let name = packageJson.name;
     let logo;
-    if (name.match(/^ember-cli/)) {
+    if (name.match(/ember-cli/)) {
       logo = 'ember-cli';
-    } else if (name.match(/^ember-data/)) {
+    } else if (name.match(/ember-data/)) {
       logo = 'ember-data';
-    } else if (name.match(/^ember/)) {
+    } else {
       logo = 'ember';
     }
 
