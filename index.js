@@ -20,10 +20,6 @@ const DEFAULT_PROJECTS = {
 module.exports = {
   name: 'ember-cli-addon-docs',
 
-  isDevelopingAddon() {
-    return true;
-  },
-
   options: {
     ace: {
       modes: ['handlebars']
