@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const resolve = require('resolve');
+const UnwatchedDir = require('broccoli-source').UnwatchedDir;
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
 const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-line node/no-unpublished-require
@@ -183,11 +184,23 @@ module.exports = {
         let include = docProject.include || [];
         let includeTrees = docProject.includeTrees || [];
 
-        let includeTreePaths = includeTrees.map(t => `${parentAddon.treePaths[t]}/**/*`);
+        let includeTreePaths = includeTrees.map(t => parentAddon.treePaths[t]);
+        let includeFunnels = [
+          // We need to be very careful to avoid triggering a watch on the addon root here
+          // because of https://github.com/nodejs/node/issues/15683
+          new Funnel(new UnwatchedDir(parentAddon.root), {
+            include: ['package.json', 'README.md']
+          })
+        ];
 
-        addonSourceTree = new Funnel(parentAddon.root, {
-          include: include.concat(includeTreePaths).concat('package.json', 'README.md')
-        });
+        for (let path of include.concat(includeTreePaths)) {
+          let fullPath = `${parentAddon.root}/${path}`;
+          if (fs.existsSync(fullPath)) {
+            includeFunnels.push(new Funnel(fullPath, { destDir: path }));
+          }
+        }
+
+        addonSourceTree = new MergeTrees(includeFunnels);
       }
 
       let pluginRegistry = new PluginRegistry(project);
