@@ -1,26 +1,42 @@
-<div class="docs-container">
-  <div class="docs-section">
-    <div class="docs-viewer__page-header">
-      <a class='docs-viewer__page-header-link' href={{editCurrentPageUrl}}>
-        <span class="docs-viewer__page-header-link-icon">
-          {{docs-svg-icon 'pencil'}}
+<main class='w-3/5 mt-4'>
+  <div class="docs-container">
+    <div class="float-right">
+      <a href={{editCurrentPageUrl}}
+        class='transition text-xs text-black opacity-50
+        no-underline hover:opacity-75 border px-2 py-1
+        rounded flex items-center'>
+        <span class="mr-1">
+          {{docs-svg-icon 'github' height=10 width=10}}
         </span>
-         Edit this page
-       </a>
+        <span>
+          Edit on GitHub
+        </span>
+      </a>
     </div>
 
     {{yield}}
   </div>
-</div>
 
-{{#if docsRoutes.previousRoute}}
-  {{#link-to params=docsRoutes.previousRoute class='docs-viewer__page-nav'}}
-    {{svg-jar 'left-arrow' width=32}}
-  {{/link-to}}
-{{/if}}
-
-{{#if docsRoutes.nextRoute}}
-  {{#link-to params=docsRoutes.nextRoute class='docs-viewer__page-nav docs-viewer__page-nav--next'}}
-    {{svg-jar 'right-arrow' width=32}}
-  {{/link-to}}
-{{/if}}
+  <div class="flex my-8">
+    <div class='w-1/2'>
+      {{#if docsRoutes.previousRoute}}
+        {{#link-to params=docsRoutes.previousRoute
+          class='opacity-25 hover:opacity-100 uppercase no-underline
+          flex items-center justify-begin text-black text-lg'}}
+          {{svg-jar 'left-arrow' width=24}}
+          Previous
+        {{/link-to}}
+      {{/if}}
+    </div>
+    <div class='w-1/2'>
+      {{#if docsRoutes.nextRoute}}
+        {{#link-to params=docsRoutes.nextRoute
+          class='opacity-25 hover:opacity-100 uppercase no-underline
+          flex items-center justify-end text-black text-lg'}}
+          Next
+          {{svg-jar 'right-arrow' width=24}}
+        {{/link-to}}
+      {{/if}}
+    </div>
+  </div>
+</main>

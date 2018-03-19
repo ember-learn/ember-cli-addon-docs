@@ -9,8 +9,8 @@ const packageJson = config['ember-cli-addon-docs'].packageJson;
 
 export default Component.extend({
   layout,
-  tagName: 'nav',
-  classNames: 'docs-viewer__nav',
+  tagName: '',
+  // classNames: 'docs-viewer__nav',
 
   root: 'docs',
 

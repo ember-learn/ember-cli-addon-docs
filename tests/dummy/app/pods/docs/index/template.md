@@ -1,4 +1,4 @@
-# Introduction
+# What is Addon Docs?
 
 Welcome addon author!
 

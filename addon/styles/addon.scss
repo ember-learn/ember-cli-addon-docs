@@ -1,7 +1,6 @@
 $code-background-color: #fafafa; // #f5f2f0
 $code-title-background-color: #e3e3e3;
 
-@import 'normalize';
 @import 'pod-styles';
 @import 'syntax';
 
@@ -40,7 +39,7 @@ button {
 }
 
 .docs-container {
-  max-width: 1000px;
+  max-width: 1280px;
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
@@ -73,10 +72,23 @@ button {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
 
+  &__h1 {
+    @extend .mb-4;
+  }
   &__h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-top: 1.5em;
+    @extend .mb-4;
+  }
+  &__h3 {
+    @extend .mb-2;
+  }
+  p {
+    @extend .mb-4;
+  }
+  ul {
+    @extend .mb-4;
+  }
+  ol {
+    @extend .mb-4;
   }
 
   &__code {

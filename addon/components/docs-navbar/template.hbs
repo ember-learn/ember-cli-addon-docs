@@ -18,10 +18,19 @@
       link=(component 'docs-navbar/link')
     )}}
 
-    <div class="ml-auto">
+    <div class="ml-auto flex items-center">
+      {{!-- {{docs-viewer/x-search}} --}}
+
+      <a href="{{packageJson.repository}}/releases"
+        class='transition flex text-black opacity-75
+        no-underline hover:opacity-50'>
+        v{{packageJson.version}}
+      </a>
+
       {{#if packageJson.repository}}
         <a href={{packageJson.repository}}
-          class='transition flex text-black no-underline hover:opacity-50'>
+          class='transition flex text-black opacity-75
+          no-underline hover:opacity-50 ml-8'>
           {{svg-jar 'github' width=24 height=24}}
         </a>
       {{/if}}

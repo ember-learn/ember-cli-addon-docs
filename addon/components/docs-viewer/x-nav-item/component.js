@@ -5,10 +5,9 @@ import { next } from '@ember/runloop';
 
 export default Component.extend({
   layout,
+  tagName: '',
 
   docsRoutes: service(),
-
-  tagName: 'li',
 
   didInsertElement() {
     this._super(...arguments);
