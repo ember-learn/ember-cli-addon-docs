@@ -119,11 +119,11 @@ windows.
 
   {{docs-snippet name="docs-demo-application-template.hbs" title="tests/dummy/app/templates/application.hbs"}}
 
-2. **Optional: add a favicon.** You may want to place a favicon in the
+2. **Add a favicon.** You may want to place a favicon in the
 `tests/dummy/public` folder. We recommend using using
  [Ember CLI Favicon](https://github.com/davewasmer/ember-cli-favicon).
 
-3. **Optional: better scrolling.** You may want to install
+3. **Better scrolling.** You may want to install
 [Ember Router Scroll](https://github.com/dollarshaveclub/ember-router-scroll)
 to enable "scroll to top with preserved browser history scroll position".
 
