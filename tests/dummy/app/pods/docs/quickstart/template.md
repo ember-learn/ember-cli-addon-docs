@@ -47,7 +47,7 @@ all docs pages in your site.
   {{/docs-snippet}}
 
 4. **Create your Markdown templates.** Markdown templates contain the actual
-actual documentation for your addon and live in the folder
+documentation for your addon and live in the folder
 `tests/dummy/app/templates/docs`. Since Addon Docs supports Markdown out
 of the box we will create two `.md` files (one for your docs `index` and one
 for the `usage` page).
@@ -104,7 +104,7 @@ create the associated template.
 `localhost:4200/docs` to enjoy your brand new documentation website.
 
 8. **Create more pages.** To add more doc pages simply follow the same steps as
-used for the `Usage` page in above instructions:
+used for the `Usage page in above examples`:
 
   - create a docs subroute
   - add a corresponding navigation item to the `docs` template
