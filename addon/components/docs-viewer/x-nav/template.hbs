@@ -1,5 +1,6 @@
 <nav class='w-1/5 flex-no-shrink'>
   <div class='mb-8'>
+
     {{#docs-viewer/x-nav-list}}
       {{yield (hash
         section=(component 'docs-viewer/x-section')
@@ -38,21 +39,6 @@
         {{/docs-viewer/x-nav-list}}
       {{/if}}
     {{/docs-viewer/x-nav-list}}
+    
   </div>
-
-  {{!-- <div class='docs-viewer__nav-footer'>
-    <div>
-      <a href={{packageJson.repository}} class='docs-viewer__nav-footer-link'>
-        {{svg-jar 'github' width=28 height=28}}
-      </a>
-    </div>
-    <div>
-      <p class='docs-viewer__nav-footer-powered-by'>Powered by
-        <a class='docs-viewer__nav-footer-powered-by-link' href="https://github.com/ember-learn/ember-cli-addon-docs">
-          AddonDocs
-        </a>
-      </p>
-    </div>
-  </div> --}}
-
 </nav>

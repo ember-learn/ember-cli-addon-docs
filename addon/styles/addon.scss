@@ -90,6 +90,9 @@ button {
   ol {
     @extend .mb-4;
   }
+  pre {
+    @extend .mb-4;
+  }
 
   &__code {
     background: $code-background-color;

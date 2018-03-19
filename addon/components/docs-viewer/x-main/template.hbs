@@ -3,7 +3,7 @@
     <div class="float-right">
       <a href={{editCurrentPageUrl}}
         class='transition text-xs text-black opacity-50
-        no-underline hover:opacity-75 border px-2 py-1
+        no-underline hover:opacity-75 border px-2 py-1 mt-2
         rounded flex items-center'>
         <span class="mr-1">
           {{docs-svg-icon 'github' height=10 width=10}}
@@ -22,7 +22,7 @@
       {{#if docsRoutes.previousRoute}}
         {{#link-to params=docsRoutes.previousRoute
           class='opacity-25 hover:opacity-100 uppercase no-underline
-          flex items-center justify-begin text-black text-lg'}}
+          flex items-center justify-begin text-black text-sm'}}
           {{svg-jar 'left-arrow' width=24}}
           Previous
         {{/link-to}}
@@ -32,7 +32,7 @@
       {{#if docsRoutes.nextRoute}}
         {{#link-to params=docsRoutes.nextRoute
           class='opacity-25 hover:opacity-100 uppercase no-underline
-          flex items-center justify-end text-black text-lg'}}
+          flex items-center justify-end text-black text-sm'}}
           Next
           {{svg-jar 'right-arrow' width=24}}
         {{/link-to}}
