@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
-import { visit, click, currentURL, find } from '@ember/test-helpers';
+import { visit, click, currentURL } from '@ember/test-helpers';
 
 module('Acceptance | Docs route test', function(hooks) {
   setupApplicationTest(hooks);
@@ -15,6 +15,6 @@ module('Acceptance | Docs route test', function(hooks) {
     await visit('/docs');
     await click('[data-test-label="{{docs-hero}}"]');
 
-    assert.equal(find('h1').textContent.trim(), 'DocsHero');
+    assert.dom('h1').hasText('DocsHero');
   });
 });
