@@ -5,7 +5,8 @@ const fs = require('fs-extra');
 const path = require('path');
 const updateDemoUrl = require('../../../lib/utils/update-demo-url');
 
-const { module: qModule, test } = QUnit;
+const qModule = QUnit.module;
+const test = QUnit.test;
 
 qModule('`updateDemoUrl` | fixture test', hooks => {
   const fixturesPath = path.join(__dirname, '../..', 'fixtures', 'update-demo-url');
