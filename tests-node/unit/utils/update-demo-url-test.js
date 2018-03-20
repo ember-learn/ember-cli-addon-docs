@@ -28,8 +28,8 @@ qModule('`updateDemoUrl` | fixture test', hooks => {
     }
   });
 
-  test('it updates the `demoUrl` on the `ember-addon` property', assert => {
-    setupFixtureDirectory('ember-addon-present');
+  test('it leaves the `homepage` property if it already exists', assert => {
+    setupFixtureDirectory('has-existing-homepage');
 
     const result = updateDemoUrl(inputCopyPath);
 
@@ -40,8 +40,23 @@ qModule('`updateDemoUrl` | fixture test', hooks => {
     );
   });
 
-  test('it adds `ember-addon` property if not there in package.json', assert => {
-    setupFixtureDirectory('ember-addon-missing');
+  test('it adds the `homepage` property based on git remote repository', assert => {
+    const dir = 'has-git-repository';
+    setupFixtureDirectory(dir);
+
+    const gitPath = path.join(fixturesPath, dir, 'git-config');
+
+    const result = updateDemoUrl(inputCopyPath, gitPath);
+
+    assert.ok(result);
+    assert.equal(
+      fs.readFileSync(inputCopyPath, 'utf-8'),
+      fs.readFileSync(outputPath, 'utf-8')
+    );
+  });
+
+  test('it adds the `homepage` property based on package repository value', assert => {
+    setupFixtureDirectory('has-package-repository');
 
     const result = updateDemoUrl(inputCopyPath);
 
@@ -52,8 +67,8 @@ qModule('`updateDemoUrl` | fixture test', hooks => {
     );
   });
 
-  test('it updates the `demoUrl` on the `ember-addon` property when repository is an object', assert => {
-    setupFixtureDirectory('repository-object');
+  test('it adds the `homepage` property based on package repository url property', assert => {
+    setupFixtureDirectory('has-git-repository-object');
 
     const result = updateDemoUrl(inputCopyPath);
 
@@ -64,7 +79,7 @@ qModule('`updateDemoUrl` | fixture test', hooks => {
     );
   });
 
-  test('it returns false when there is no repository', assert => {
+  test('it returns false when there is no repository to update', assert => {
     const dir = 'missing-repository';
     setupFixtureDirectory(dir);
 
@@ -82,20 +97,5 @@ qModule('`updateDemoUrl` | fixture test', hooks => {
     const result = updateDemoUrl(inputCopyPath, gitPath);
 
     assert.notOk(result);
-  });
-
-  test('it falls back to the git origin when it can', assert => {
-    const dir = 'missing-repository-with-git';
-    setupFixtureDirectory(dir);
-
-    const gitPath = path.join(fixturesPath, dir, 'git-config');
-
-    const result = updateDemoUrl(inputCopyPath, gitPath);
-
-    assert.ok(result);
-    assert.equal(
-      fs.readFileSync(inputCopyPath, 'utf-8'),
-      fs.readFileSync(outputPath, 'utf-8')
-    );
   });
 });

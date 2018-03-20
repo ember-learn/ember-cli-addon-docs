@@ -57,7 +57,7 @@ module.exports = {
 
     if (!updatedDemoUrl) {
       this.ui.writeWarnLine(
-        `Unable to update the "ember-addon.demoUrl" configuration in your package.json. To include this for ` +
+        `Unable to update the "homepage" configuration in your package.json. To include this for ` +
         `including a link on Ember Observer, set it to https://{ORGANIZATION}.github.io/{REPO}`
       );
     }

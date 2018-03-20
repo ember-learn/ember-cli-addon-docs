@@ -1,6 +1,4 @@
 {
   "repository": "https://github.com/ember-learn/ember-cli-addon-docs",
-  "ember-addon": {
-    "configPath": "tests/dummy/config"
-  }
+  "homepage": "https://ember-learn.github.io/ember-cli-addon-docs"
 }
