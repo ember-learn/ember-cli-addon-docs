@@ -1,6 +1,10 @@
 # Ember CLI Addon Docs Changelog
 
-## Unreleased
+## 0.2.4
+
+- Fix EMFILE errors for developers on APFS without watchman installed
+
+## 0.2.0
 
 - **Breaking change**: Versioned deployment has been overhauled, impacting the deployed layout of files on `gh-pages` and changing the API available in `config/addon-docs.js`. See [Migrating to 0.2.x](#migrating-to-02x) below for more details.
 - **Breaking change**: We no longer attempt to abort from within when running `ember deploy` on a non-`master` branch or a non-default Ember Try scenario. You should instead guard the invocation of `ember deploy` itself in your `.travis.yml` or equivalent.
