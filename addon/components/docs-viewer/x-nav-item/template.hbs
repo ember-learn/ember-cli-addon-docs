@@ -1,7 +1,7 @@
 <li class='mt-2 mb-1 flex items-center text-sm'>
   {{#if model}}
     {{#link-to route model
-      class='transition text-black no-underline hover:underline'
+      class='text-black no-underline hover:underline'
       activeClass='font-bold'
       data-test-id='nav-item'
       data-test-label=label}}
@@ -9,7 +9,7 @@
     {{/link-to}}
   {{else}}
     {{#link-to route
-      class='transition text-black no-underline hover:underline'
+      class='text-black no-underline hover:underline'
       activeClass='font-bold'
       data-test-id='nav-item'
       data-test-label=label}}

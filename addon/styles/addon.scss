@@ -93,6 +93,9 @@ button {
   pre {
     @extend .mb-4;
   }
+  aside {
+    @extend .mb-4;
+  }
 
   &__code {
     background: $code-background-color;

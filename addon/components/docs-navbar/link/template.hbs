@@ -1,9 +1,10 @@
 {{#link-to route
   class=(concat
     'transition uppercase text-xs font-medium
-    text-black opacity-75 no-underline mr-8 '
-    (if (eq route 'index') '' 'hover:opacity-50')
+    text-black no-underline mr-8 hover:opacity-50 '
+    (if (not isActive) 'opacity-75')
+    (if (and isActive (not (eq route 'index'))) 'opacity-50')
   )
-  activeClass=(if (eq route 'index') '' 'opacity-50')}}
+}}
   {{yield}}
 {{/link-to}}
