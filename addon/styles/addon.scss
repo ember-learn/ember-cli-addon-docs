@@ -116,18 +116,20 @@ button {
 
   // Couldn't figure out how to add class in our Renderer
   aside {
-    background: #fafafa;
-    padding: 10px 20px;
-    margin-top: 20px;
-    font-style: italic;
+    @extend .bg-grey-lightest;
+    @extend .py-3;
+    @extend .px-4;
+    @extend .mt-6;
+    @extend .italic;
   }
 
   // Applied to fenced code in compiled markdown
   &__code {
     @extend .bg-grey-lightest;
-    padding: 20px;
-    overflow-x: scroll;
-    font-size: 14px;
+    @extend .my-8;
+    @extend .p-6;
+    @extend .overflow-x-scroll;
+    @extend .text-sm;
   }
 
   &__a {
