@@ -36,7 +36,7 @@ all docs pages in your site.
       {{/viewer.nav}}
 
       {{#viewer.main}}
-        <div class="docs-container docs__center">
+        <div class="docs-container">
           <div class="docs-section">
             {{outlet}}
           </div>

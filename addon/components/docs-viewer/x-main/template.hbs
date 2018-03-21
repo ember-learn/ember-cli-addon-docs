@@ -21,7 +21,7 @@
     <div class='w-1/2'>
       {{#if docsRoutes.previousRoute}}
         {{#link-to params=docsRoutes.previousRoute
-          class='opacity-25 hover:opacity-100 uppercase no-underline
+          class='opacity-50 hover:opacity-100 uppercase no-underline
           flex items-center justify-begin text-black text-sm'}}
           {{svg-jar 'left-arrow' width=24}}
           Previous
@@ -31,7 +31,7 @@
     <div class='w-1/2'>
       {{#if docsRoutes.nextRoute}}
         {{#link-to params=docsRoutes.nextRoute
-          class='opacity-25 hover:opacity-100 uppercase no-underline
+          class='opacity-50 hover:opacity-100 uppercase no-underline
           flex items-center justify-end text-black text-sm'}}
           Next
           {{svg-jar 'right-arrow' width=24}}

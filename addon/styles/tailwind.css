@@ -1,17 +1,3 @@
-/**
- * This injects Tailwind's base styles, which is a combination of
- * Normalize.css and some additional base styles.
- *
- * You can see the styles here:
- * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
- *
- * If using `postcss-import`, you should import this line from it's own file:
- *
- * @import "./tailwind-preflight.css";
- *
- * See: https://github.com/tailwindcss/tailwindcss/issues/53#issuecomment-341413622
- */
-
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -128,7 +114,8 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -565,6 +552,7 @@ ul {
 *,
 *::before,
 *::after {
+  border-width: 0;
   border-style: solid;
   border-color: #dae1e7;
 }
@@ -612,6 +600,24 @@ textarea {
   font-family: inherit;
 }
 
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
 input::placeholder,
 textarea::placeholder {
   color: inherit;
@@ -622,33 +628,6 @@ button,
 [role=button] {
   cursor: pointer;
 }
-
-/**
- * Here you would add any of your custom component classes; stuff that you'd
- * want loaded *before* the utilities so that the utilities could still
- * override them.
- *
- * Example:
- *
- * .btn { ... }
- * .form-input { ... }
- *
- * Or if using a preprocessor or `postcss-import`:
- *
- * @import "components/buttons";
- * @import "components/forms";
- */
-
-/**
- * This injects all of Tailwind's utility classes, generated based on your
- * config file.
- *
- * If using `postcss-import`, you should import this line from it's own file:
- *
- * @import "./tailwind-utilities.css";
- *
- * See: https://github.com/tailwindcss/tailwindcss/issues/53#issuecomment-341413622
- */
 
 .container {
   width: 100%;
@@ -684,7 +663,9 @@ button,
 }
 
 .appearance-none {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .bg-fixed {
@@ -736,7 +717,7 @@ button,
 }
 
 .bg-white {
-  background-color: white;
+  background-color: #fff;
 }
 
 .bg-red-darkest {
@@ -1028,7 +1009,7 @@ button,
 }
 
 .hover\:bg-white:hover {
-  background-color: white;
+  background-color: #fff;
 }
 
 .hover\:bg-red-darkest:hover {
@@ -1335,6 +1316,10 @@ button,
   background-repeat: repeat-y;
 }
 
+.bg-auto {
+  background-size: auto;
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -1380,7 +1365,7 @@ button,
 }
 
 .border-white {
-  border-color: white;
+  border-color: #fff;
 }
 
 .border-red-darkest {
@@ -1672,7 +1657,7 @@ button,
 }
 
 .hover\:border-white:hover {
-  border-color: white;
+  border-color: #fff;
 }
 
 .hover\:border-red-darkest:hover {
@@ -2253,6 +2238,14 @@ button,
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.cursor-wait {
+  cursor: wait;
+}
+
+.cursor-move {
+  cursor: move;
 }
 
 .cursor-not-allowed {
@@ -3219,26 +3212,6 @@ button,
   opacity: 1;
 }
 
-.hover\:opacity-0:hover {
-  opacity: 0;
-}
-
-.hover\:opacity-25:hover {
-  opacity: .25;
-}
-
-.hover\:opacity-50:hover {
-  opacity: .5;
-}
-
-.hover\:opacity-75:hover {
-  opacity: .75;
-}
-
-.hover\:opacity-100:hover {
-  opacity: 1;
-}
-
 .overflow-auto {
   overflow: auto;
 }
@@ -3255,14 +3228,20 @@ button,
   overflow: scroll;
 }
 
-.overflow-x-scroll {
+.overflow-x-auto {
   overflow-x: auto;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.overflow-x-scroll {
+  overflow-x: scroll;
 }
 
 .overflow-y-scroll {
-  overflow-y: auto;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-y: scroll;
 }
 
 .scrolling-touch {
@@ -3537,6 +3516,11 @@ button,
   position: relative;
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
 .pin-none {
   top: auto;
   right: auto;
@@ -3674,7 +3658,7 @@ button,
 }
 
 .text-white {
-  color: white;
+  color: #fff;
 }
 
 .text-red-darkest {
@@ -3966,7 +3950,7 @@ button,
 }
 
 .hover\:text-white:hover {
-  color: white;
+  color: #fff;
 }
 
 .hover\:text-red-darkest:hover {
@@ -4362,11 +4346,17 @@ button,
 }
 
 .select-none {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .select-text {
-  user-select: text;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
 }
 
 .align-baseline {
@@ -4575,21 +4565,6 @@ button,
   z-index: auto;
 }
 
-/**
- * Here you would add any custom utilities you need that don't come out of the
- * box with Tailwind.
- *
- * Example :
- *
- * .bg-pattern-graph-paper { ... }
- * .skew-45 { ... }
- *
- * Or if using a preprocessor or `postcss-import`:
- *
- * @import "utilities/background-patterns";
- * @import "utilities/skew-transforms";
- */
-
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;
@@ -4597,7 +4572,9 @@ button,
   }
 
   .sm\:appearance-none {
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
 
   .sm\:bg-fixed {
@@ -4649,7 +4626,7 @@ button,
   }
 
   .sm\:bg-white {
-    background-color: white;
+    background-color: #fff;
   }
 
   .sm\:bg-red-darkest {
@@ -4941,7 +4918,7 @@ button,
   }
 
   .sm\:hover\:bg-white:hover {
-    background-color: white;
+    background-color: #fff;
   }
 
   .sm\:hover\:bg-red-darkest:hover {
@@ -5248,6 +5225,10 @@ button,
     background-repeat: repeat-y;
   }
 
+  .sm\:bg-auto {
+    background-size: auto;
+  }
+
   .sm\:bg-cover {
     background-size: cover;
   }
@@ -5293,7 +5274,7 @@ button,
   }
 
   .sm\:border-white {
-    border-color: white;
+    border-color: #fff;
   }
 
   .sm\:border-red-darkest {
@@ -5585,7 +5566,7 @@ button,
   }
 
   .sm\:hover\:border-white:hover {
-    border-color: white;
+    border-color: #fff;
   }
 
   .sm\:hover\:border-red-darkest:hover {
@@ -6166,6 +6147,14 @@ button,
 
   .sm\:cursor-pointer {
     cursor: pointer;
+  }
+
+  .sm\:cursor-wait {
+    cursor: wait;
+  }
+
+  .sm\:cursor-move {
+    cursor: move;
   }
 
   .sm\:cursor-not-allowed {
@@ -7132,26 +7121,6 @@ button,
     opacity: 1;
   }
 
-  .sm\:hover\:opacity-0:hover {
-    opacity: 0;
-  }
-
-  .sm\:hover\:opacity-25:hover {
-    opacity: .25;
-  }
-
-  .sm\:hover\:opacity-50:hover {
-    opacity: .5;
-  }
-
-  .sm\:hover\:opacity-75:hover {
-    opacity: .75;
-  }
-
-  .sm\:hover\:opacity-100:hover {
-    opacity: 1;
-  }
-
   .sm\:overflow-auto {
     overflow: auto;
   }
@@ -7168,14 +7137,20 @@ button,
     overflow: scroll;
   }
 
-  .sm\:overflow-x-scroll {
+  .sm\:overflow-x-auto {
     overflow-x: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .sm\:overflow-y-auto {
+    overflow-y: auto;
+  }
+
+  .sm\:overflow-x-scroll {
+    overflow-x: scroll;
   }
 
   .sm\:overflow-y-scroll {
-    overflow-y: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow-y: scroll;
   }
 
   .sm\:scrolling-touch {
@@ -7450,6 +7425,11 @@ button,
     position: relative;
   }
 
+  .sm\:sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+
   .sm\:pin-none {
     top: auto;
     right: auto;
@@ -7579,7 +7559,7 @@ button,
   }
 
   .sm\:text-white {
-    color: white;
+    color: #fff;
   }
 
   .sm\:text-red-darkest {
@@ -7871,7 +7851,7 @@ button,
   }
 
   .sm\:hover\:text-white:hover {
-    color: white;
+    color: #fff;
   }
 
   .sm\:hover\:text-red-darkest:hover {
@@ -8267,11 +8247,17 @@ button,
   }
 
   .sm\:select-none {
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
   }
 
   .sm\:select-text {
-    user-select: text;
+    -webkit-user-select: text;
+       -moz-user-select: text;
+        -ms-user-select: text;
+            user-select: text;
   }
 
   .sm\:align-baseline {
@@ -8488,7 +8474,9 @@ button,
   }
 
   .md\:appearance-none {
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
 
   .md\:bg-fixed {
@@ -8540,7 +8528,7 @@ button,
   }
 
   .md\:bg-white {
-    background-color: white;
+    background-color: #fff;
   }
 
   .md\:bg-red-darkest {
@@ -8832,7 +8820,7 @@ button,
   }
 
   .md\:hover\:bg-white:hover {
-    background-color: white;
+    background-color: #fff;
   }
 
   .md\:hover\:bg-red-darkest:hover {
@@ -9139,6 +9127,10 @@ button,
     background-repeat: repeat-y;
   }
 
+  .md\:bg-auto {
+    background-size: auto;
+  }
+
   .md\:bg-cover {
     background-size: cover;
   }
@@ -9184,7 +9176,7 @@ button,
   }
 
   .md\:border-white {
-    border-color: white;
+    border-color: #fff;
   }
 
   .md\:border-red-darkest {
@@ -9476,7 +9468,7 @@ button,
   }
 
   .md\:hover\:border-white:hover {
-    border-color: white;
+    border-color: #fff;
   }
 
   .md\:hover\:border-red-darkest:hover {
@@ -10057,6 +10049,14 @@ button,
 
   .md\:cursor-pointer {
     cursor: pointer;
+  }
+
+  .md\:cursor-wait {
+    cursor: wait;
+  }
+
+  .md\:cursor-move {
+    cursor: move;
   }
 
   .md\:cursor-not-allowed {
@@ -11023,26 +11023,6 @@ button,
     opacity: 1;
   }
 
-  .md\:hover\:opacity-0:hover {
-    opacity: 0;
-  }
-
-  .md\:hover\:opacity-25:hover {
-    opacity: .25;
-  }
-
-  .md\:hover\:opacity-50:hover {
-    opacity: .5;
-  }
-
-  .md\:hover\:opacity-75:hover {
-    opacity: .75;
-  }
-
-  .md\:hover\:opacity-100:hover {
-    opacity: 1;
-  }
-
   .md\:overflow-auto {
     overflow: auto;
   }
@@ -11059,14 +11039,20 @@ button,
     overflow: scroll;
   }
 
-  .md\:overflow-x-scroll {
+  .md\:overflow-x-auto {
     overflow-x: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .md\:overflow-y-auto {
+    overflow-y: auto;
+  }
+
+  .md\:overflow-x-scroll {
+    overflow-x: scroll;
   }
 
   .md\:overflow-y-scroll {
-    overflow-y: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow-y: scroll;
   }
 
   .md\:scrolling-touch {
@@ -11341,6 +11327,11 @@ button,
     position: relative;
   }
 
+  .md\:sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+
   .md\:pin-none {
     top: auto;
     right: auto;
@@ -11470,7 +11461,7 @@ button,
   }
 
   .md\:text-white {
-    color: white;
+    color: #fff;
   }
 
   .md\:text-red-darkest {
@@ -11762,7 +11753,7 @@ button,
   }
 
   .md\:hover\:text-white:hover {
-    color: white;
+    color: #fff;
   }
 
   .md\:hover\:text-red-darkest:hover {
@@ -12158,11 +12149,17 @@ button,
   }
 
   .md\:select-none {
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
   }
 
   .md\:select-text {
-    user-select: text;
+    -webkit-user-select: text;
+       -moz-user-select: text;
+        -ms-user-select: text;
+            user-select: text;
   }
 
   .md\:align-baseline {
@@ -12379,7 +12376,9 @@ button,
   }
 
   .lg\:appearance-none {
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
 
   .lg\:bg-fixed {
@@ -12431,7 +12430,7 @@ button,
   }
 
   .lg\:bg-white {
-    background-color: white;
+    background-color: #fff;
   }
 
   .lg\:bg-red-darkest {
@@ -12723,7 +12722,7 @@ button,
   }
 
   .lg\:hover\:bg-white:hover {
-    background-color: white;
+    background-color: #fff;
   }
 
   .lg\:hover\:bg-red-darkest:hover {
@@ -13030,6 +13029,10 @@ button,
     background-repeat: repeat-y;
   }
 
+  .lg\:bg-auto {
+    background-size: auto;
+  }
+
   .lg\:bg-cover {
     background-size: cover;
   }
@@ -13075,7 +13078,7 @@ button,
   }
 
   .lg\:border-white {
-    border-color: white;
+    border-color: #fff;
   }
 
   .lg\:border-red-darkest {
@@ -13367,7 +13370,7 @@ button,
   }
 
   .lg\:hover\:border-white:hover {
-    border-color: white;
+    border-color: #fff;
   }
 
   .lg\:hover\:border-red-darkest:hover {
@@ -13948,6 +13951,14 @@ button,
 
   .lg\:cursor-pointer {
     cursor: pointer;
+  }
+
+  .lg\:cursor-wait {
+    cursor: wait;
+  }
+
+  .lg\:cursor-move {
+    cursor: move;
   }
 
   .lg\:cursor-not-allowed {
@@ -14914,26 +14925,6 @@ button,
     opacity: 1;
   }
 
-  .lg\:hover\:opacity-0:hover {
-    opacity: 0;
-  }
-
-  .lg\:hover\:opacity-25:hover {
-    opacity: .25;
-  }
-
-  .lg\:hover\:opacity-50:hover {
-    opacity: .5;
-  }
-
-  .lg\:hover\:opacity-75:hover {
-    opacity: .75;
-  }
-
-  .lg\:hover\:opacity-100:hover {
-    opacity: 1;
-  }
-
   .lg\:overflow-auto {
     overflow: auto;
   }
@@ -14950,14 +14941,20 @@ button,
     overflow: scroll;
   }
 
-  .lg\:overflow-x-scroll {
+  .lg\:overflow-x-auto {
     overflow-x: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .lg\:overflow-y-auto {
+    overflow-y: auto;
+  }
+
+  .lg\:overflow-x-scroll {
+    overflow-x: scroll;
   }
 
   .lg\:overflow-y-scroll {
-    overflow-y: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow-y: scroll;
   }
 
   .lg\:scrolling-touch {
@@ -15232,6 +15229,11 @@ button,
     position: relative;
   }
 
+  .lg\:sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+
   .lg\:pin-none {
     top: auto;
     right: auto;
@@ -15361,7 +15363,7 @@ button,
   }
 
   .lg\:text-white {
-    color: white;
+    color: #fff;
   }
 
   .lg\:text-red-darkest {
@@ -15653,7 +15655,7 @@ button,
   }
 
   .lg\:hover\:text-white:hover {
-    color: white;
+    color: #fff;
   }
 
   .lg\:hover\:text-red-darkest:hover {
@@ -16049,11 +16051,17 @@ button,
   }
 
   .lg\:select-none {
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
   }
 
   .lg\:select-text {
-    user-select: text;
+    -webkit-user-select: text;
+       -moz-user-select: text;
+        -ms-user-select: text;
+            user-select: text;
   }
 
   .lg\:align-baseline {
@@ -16270,7 +16278,9 @@ button,
   }
 
   .xl\:appearance-none {
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
 
   .xl\:bg-fixed {
@@ -16322,7 +16332,7 @@ button,
   }
 
   .xl\:bg-white {
-    background-color: white;
+    background-color: #fff;
   }
 
   .xl\:bg-red-darkest {
@@ -16614,7 +16624,7 @@ button,
   }
 
   .xl\:hover\:bg-white:hover {
-    background-color: white;
+    background-color: #fff;
   }
 
   .xl\:hover\:bg-red-darkest:hover {
@@ -16921,6 +16931,10 @@ button,
     background-repeat: repeat-y;
   }
 
+  .xl\:bg-auto {
+    background-size: auto;
+  }
+
   .xl\:bg-cover {
     background-size: cover;
   }
@@ -16966,7 +16980,7 @@ button,
   }
 
   .xl\:border-white {
-    border-color: white;
+    border-color: #fff;
   }
 
   .xl\:border-red-darkest {
@@ -17258,7 +17272,7 @@ button,
   }
 
   .xl\:hover\:border-white:hover {
-    border-color: white;
+    border-color: #fff;
   }
 
   .xl\:hover\:border-red-darkest:hover {
@@ -17839,6 +17853,14 @@ button,
 
   .xl\:cursor-pointer {
     cursor: pointer;
+  }
+
+  .xl\:cursor-wait {
+    cursor: wait;
+  }
+
+  .xl\:cursor-move {
+    cursor: move;
   }
 
   .xl\:cursor-not-allowed {
@@ -18805,26 +18827,6 @@ button,
     opacity: 1;
   }
 
-  .xl\:hover\:opacity-0:hover {
-    opacity: 0;
-  }
-
-  .xl\:hover\:opacity-25:hover {
-    opacity: .25;
-  }
-
-  .xl\:hover\:opacity-50:hover {
-    opacity: .5;
-  }
-
-  .xl\:hover\:opacity-75:hover {
-    opacity: .75;
-  }
-
-  .xl\:hover\:opacity-100:hover {
-    opacity: 1;
-  }
-
   .xl\:overflow-auto {
     overflow: auto;
   }
@@ -18841,14 +18843,20 @@ button,
     overflow: scroll;
   }
 
-  .xl\:overflow-x-scroll {
+  .xl\:overflow-x-auto {
     overflow-x: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .xl\:overflow-y-auto {
+    overflow-y: auto;
+  }
+
+  .xl\:overflow-x-scroll {
+    overflow-x: scroll;
   }
 
   .xl\:overflow-y-scroll {
-    overflow-y: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+    overflow-y: scroll;
   }
 
   .xl\:scrolling-touch {
@@ -19123,6 +19131,11 @@ button,
     position: relative;
   }
 
+  .xl\:sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+
   .xl\:pin-none {
     top: auto;
     right: auto;
@@ -19252,7 +19265,7 @@ button,
   }
 
   .xl\:text-white {
-    color: white;
+    color: #fff;
   }
 
   .xl\:text-red-darkest {
@@ -19544,7 +19557,7 @@ button,
   }
 
   .xl\:hover\:text-white:hover {
-    color: white;
+    color: #fff;
   }
 
   .xl\:hover\:text-red-darkest:hover {
@@ -19940,11 +19953,17 @@ button,
   }
 
   .xl\:select-none {
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
   }
 
   .xl\:select-text {
-    user-select: text;
+    -webkit-user-select: text;
+       -moz-user-select: text;
+        -ms-user-select: text;
+            user-select: text;
   }
 
   .xl\:align-baseline {
@@ -20153,3 +20172,5 @@ button,
     z-index: auto;
   }
 }
+
+/*# sourceMappingURL=tailwind.css.map */

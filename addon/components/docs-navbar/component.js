@@ -15,7 +15,6 @@ const packageJson = config['ember-cli-addon-docs'].packageJson;
 */
 export default Component.extend({
   layout,
-
   tagName: '',
 
   packageJson: packageJson,

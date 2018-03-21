@@ -4,7 +4,7 @@ import Component from '@ember/component';
 import layout from './template';
 
 /**
-  A simple demo component that can be used to demonstrate code samples. Comes
+  A demo component that can be used to demonstrate code samples. Comes
   with built in snippet handling, so you don't have to write code twice!
 
   ```hbs
@@ -29,8 +29,7 @@ import layout from './template';
 */
 export default Component.extend({
   layout,
-
-  classNames: 'docs-demo',
+  tagName: '',
 
   init() {
     this._super(...arguments);
