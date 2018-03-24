@@ -1,17 +1,19 @@
-{{!-- <div class='bg-red-light text-white py-2 text-sm font-bold shadow-inner'>
-  <div class="docs-container">
-    WARNING: AddonDocs is currently unstable. Check back soon for updates.
-  </div>
-</div> --}}
+<div class='font-sans text-black leading-normal'>
+  {{!-- <div class='bg-red-light text-white py-2 text-sm font-bold shadow-inner'>
+    <div class="docs-container">
+      WARNING: AddonDocs is currently unstable. Check back soon for updates.
+    </div>
+  </div> --}}
 
-{{#docs-navbar logo='ember-cli' name='AddonDocs' as |nav|}}
-  {{#nav.link 'sandbox'}}
-    Sandbox
-  {{/nav.link}}
-{{/docs-navbar}}
+  {{#docs-navbar logo='ember-cli' name='AddonDocs' as |nav|}}
+    {{#nav.link 'sandbox'}}
+      Sandbox
+    {{/nav.link}}
+  {{/docs-navbar}}
 
-{{! BEGIN-SNIPPET docs-demo-application-template.hbs }}
-{{outlet}}
+  {{! BEGIN-SNIPPET docs-demo-application-template.hbs }}
+  {{outlet}}
 
-{{docs-keyboard-shortcuts}}
-{{! END-SNIPPET }}
+  {{docs-keyboard-shortcuts}}
+  {{! END-SNIPPET }}
+</div>

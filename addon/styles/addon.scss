@@ -1,6 +1,6 @@
-@import 'tailwind';
+// @import 'tailwind';
 @import 'syntax';
-@import 'pod-styles';
+@import 'pod-styles.scss';
 
 // Once we get ember-cli-tailwind, enable these via customization
 .hover\:opacity-0:hover {
@@ -26,14 +26,6 @@
   }
 }
 
-body {
-  @extend .font-sans;
-  // font-family: 'helvetica neue', helvetica, sans-serif;
-  color: #333;
-  line-height: 1.7;
-  letter-spacing: 0.2px;
-}
-
 * {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
@@ -57,101 +49,4 @@ button {
   &:hover {
     background: #ccc;
   }
-}
-
-.docs-container {
-  max-width: 1280px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-
-  &--fluid {
-    max-width: none;
-  }
-  &--small {
-    max-width: 760px;
-  }
-}
-.docs-md {
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-
-  &__h1 {
-    @extend .mb-4;
-  }
-  &__h2 {
-    @extend .mb-4;
-  }
-  &__h3 {
-    @extend .mb-2;
-  }
-  p {
-    @extend .mb-4;
-  }
-  ul {
-    @extend .mb-4;
-  }
-  ol {
-    @extend .mb-4;
-  }
-  li {
-    @extend .mb-2;
-  }
-  // This interferes with docs-snippet and others...
-  // pre {
-  //   @extend .mb-4;
-  // }
-  aside {
-    @extend .mb-4;
-  }
-
-  &__blockquote {
-    margin: 0;
-    margin-bottom: .85em;
-    padding: 0 15px;
-    color: #858585;
-    border-left: 4px solid #e5e5e5
-  }
-
-  // Couldn't figure out how to add class in our Renderer
-  aside {
-    @extend .bg-grey-lightest;
-    @extend .py-3;
-    @extend .px-4;
-    @extend .mt-6;
-    @extend .italic;
-  }
-
-  // Applied to fenced code in compiled markdown
-  &__code {
-    @extend .bg-grey-lightest;
-    @extend .my-8;
-    @extend .p-6;
-    @extend .overflow-x-scroll;
-    @extend .text-sm;
-  }
-
-  &__a {
-    text-decoration: none;
-    border-bottom: 1px solid #ccc;
-    color: inherit;
-
-    &:hover, &:focus {
-      border-bottom: 1px solid #666;
-    }
-  }
-
-  &__hr {
-    height: 4px;
-    padding: 0;
-    margin: 1.7em 0;
-    overflow: hidden;
-    background-color: #e7e7e7;
-    border: none
-  }
-}
-
-.transition {
-  transition: all .10s ease-in;
 }

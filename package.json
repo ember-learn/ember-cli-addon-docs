@@ -38,6 +38,7 @@
     "ember-cli-htmlbars": "^2.0.3",
     "ember-cli-sass": "7.1.3",
     "ember-cli-string-helpers": "^1.7.0",
+    "ember-cli-tailwind": "embermap/ember-cli-tailwind#master",
     "ember-code-snippet": "ef4/ember-code-snippet",
     "ember-component-css": "^0.3.5",
     "ember-data": "^2.18.0",

@@ -1,0 +1,117 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+ *
+ * If using `postcss-import`, you should import this line from it's own file:
+ *
+ * @import "./tailwind-preflight.css";
+ *
+ * See: https://github.com/tailwindcss/tailwindcss/issues/53#issuecomment-341413622
+ */
+@tailwind preflight;
+
+/**
+ * Here you would add any of your custom component classes; stuff that you'd
+ * want loaded *before* the utilities so that the utilities could still
+ * override them.
+ *
+ * Example:
+ *
+ * .btn { ... }
+ * .form-input { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "components/buttons";
+ * @import "components/forms";
+ */
+.docs-container {
+  @apply px-4 max-w-3xl mx-auto;
+}
+
+.docs-md {
+  -webkit-font-smoothing: antialiased;
+}
+
+.docs-md__h1 {
+  @apply mb-4;
+}
+.docs-md__h2 {
+  @apply mb-4;
+}
+.docs-md__h3 {
+  @apply mb-2;
+}
+.docs-md p {
+  @apply mb-4;
+}
+.docs-md ul {
+  @apply mb-4;
+}
+.docs-md ol {
+  @apply mb-4;
+}
+.docs-md li {
+  @apply mb-2;
+}
+.docs-md aside {
+  @apply mb-4 mt-6 bg-grey-lightest italic px-4 py-3;
+}
+
+/* mb-4 on pre interferes with docs-snippet and others, really want Renderer
+to generate its own class...
+pre {
+  @apply .mb-4;
+} */
+
+.docs-md__blockquote {
+  @apply pl-4 text-grey-dark border-l-4;
+}
+
+/* Applied to fenced code in compiled markdown */
+.docs-md__code {
+  @apply bg-grey-lightest my-8 p-6 overflow-x-scroll text-sm;
+}
+
+.docs-md__a {
+  @apply no-underline border-b text-inherit;
+}
+.docs-md__a:hover,
+.docs-md__a:focus {
+  @apply border-grey-dark;
+}
+
+.docs-md__hr {
+  @apply py-0 my-8 h-px border-b;
+}
+
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ * If using `postcss-import`, you should import this line from it's own file:
+ *
+ * @import "./tailwind-utilities.css";
+ *
+ * See: https://github.com/tailwindcss/tailwindcss/issues/53#issuecomment-341413622
+ */
+@tailwind utilities;
+
+/**
+ * Here you would add any custom utilities you need that don't come out of the
+ * box with Tailwind.
+ *
+ * Example :
+ *
+ * .bg-pattern-graph-paper { ... }
+ * .skew-45 { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "utilities/background-patterns";
+ * @import "utilities/skew-transforms";
+ */
