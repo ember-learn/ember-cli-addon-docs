@@ -28,6 +28,8 @@
  * @import "components/buttons";
  * @import "components/forms";
  */
+
+/* Let's move these to ../components once ecli-tailwind supports it.  */
 .docs-container {
   @apply px-4 max-w-3xl mx-auto;
 }
@@ -86,6 +88,9 @@ pre {
 
 .docs-md__hr {
   @apply py-0 my-8 h-px border-b;
+}
+.docs-btn {
+  @apply bg-grey-light border-b-2 border-grey-dark py-2 px-4;
 }
 
 

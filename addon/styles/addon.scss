@@ -38,15 +38,3 @@ html, body {
 pre {
   margin: 0;
 }
-
-button {
-  background: #ddd;
-  padding: 10px 15px;
-  border: none;
-  border-bottom: 2px solid #999;
-  cursor: pointer;
-
-  &:hover {
-    background: #ccc;
-  }
-}
