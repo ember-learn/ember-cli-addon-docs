@@ -22,15 +22,15 @@
       {{!-- {{docs-viewer/x-search}} --}}
 
       <a href="{{packageJson.repository}}/releases"
-        class='transition flex text-black opacity-75
-        no-underline hover:opacity-50'>
+        class='transition flex text-black
+        no-underline opacity-50 hover:opacity-100'>
         v{{packageJson.version}}
       </a>
 
       {{#if packageJson.repository}}
         <a href={{packageJson.repository}}
-          class='transition flex text-black opacity-75
-          no-underline hover:opacity-50 ml-8'>
+          class='transition flex text-black opacity-50 hover:opacity-100
+          no-underline ml-8'>
           {{svg-jar 'github' width=24 height=24}}
         </a>
       {{/if}}

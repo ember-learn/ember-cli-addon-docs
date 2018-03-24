@@ -79,7 +79,7 @@ pre {
 }
 
 .docs-md__a {
-  @apply no-underline border-b text-inherit;
+  @apply no-underline border-b border-grey text-inherit;
 }
 .docs-md__a:hover,
 .docs-md__a:focus {
