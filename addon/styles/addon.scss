@@ -25,3 +25,12 @@ pre {
 svg {
   fill: currentColor;
 }
+
+.transition {
+  transition: all 0.15s;
+}
+
+// get this if we upgrade tailwind
+.sticky {
+  position: sticky;
+}
