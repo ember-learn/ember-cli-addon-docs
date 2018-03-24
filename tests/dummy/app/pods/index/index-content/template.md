@@ -8,8 +8,6 @@
 
 Documenting software libraries has gotten easier. We have nicely-formatted README.md files, the ability to host custom sites for free on GitHub Pages, and even dedicated tools like [GitBook](https://www.gitbook.com/) and [ReadTheDocs](https://readthedocs.org/). But even though these tools have come a long way, modern developers have high expectations, and library authors can quickly find themselves juggling more tasks than they can manage.
 
-> Hey peter! What's happening.
-
 Ember addons occupy a unique space here. Besides everything that's expected of any modern JavaScript library, there's even more that goes into authoring a library that plays nicely with an ecosystem as mature as Ember's. And too often addon authors with limited time must choose between being a better community citizen, or focusing on the core problem their library was created to solve in the first place.
 
 These days, a well-maintained Ember addon should

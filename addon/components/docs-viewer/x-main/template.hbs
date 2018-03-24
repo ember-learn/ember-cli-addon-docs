@@ -1,40 +1,36 @@
 <main class='w-3/5 mt-4'>
   <div class="docs-container">
-    <div class="float-right">
+    {{yield}}
+
+    <div class="mt-16 mb-8">
       <a href={{editCurrentPageUrl}}
-        class='transition text-xs text-black opacity-50
-        no-underline hover:opacity-75 border px-2 py-1 mt-2
-        rounded flex items-center'>
-        <span class="mr-1">
-          {{docs-svg-icon 'github' height=10 width=10}}
-        </span>
-        <span>
-          Edit on GitHub
-        </span>
+        class='transition text-black opacity-50 text-sm
+        hover:opacity-75 no-underline border-b hover:border-black'>
+        Edit this page
       </a>
     </div>
 
-    {{yield}}
   </div>
 
-  <div class="flex my-8">
-    <div class='w-1/2'>
+  <div class="my-8 flex">
+    <div class="w-1/5">
       {{#if docsRoutes.previousRoute}}
         {{#link-to params=docsRoutes.previousRoute
-          class='opacity-50 hover:opacity-100 uppercase no-underline
-          flex items-center justify-begin text-black text-sm'}}
-          {{svg-jar 'left-arrow' width=24}}
+          class='bg-grey-darkest hover:bg-black text-white
+            py-2 px-4 no-underline flex items-center justify-begin'}}
+          {{svg-jar 'left-arrow' width=24 height=16}}
           Previous
         {{/link-to}}
       {{/if}}
     </div>
-    <div class='w-1/2'>
+
+    <div class="w-1/5 ml-auto">
       {{#if docsRoutes.nextRoute}}
         {{#link-to params=docsRoutes.nextRoute
-          class='opacity-50 hover:opacity-100 uppercase no-underline
-          flex items-center justify-end text-black text-sm'}}
+          class='bg-grey-darkest hover:bg-black text-white
+            py-2 px-4 no-underline flex items-center justify-end'}}
           Next
-          {{svg-jar 'right-arrow' width=24}}
+          {{svg-jar 'right-arrow' height=16 width=16}}
         {{/link-to}}
       {{/if}}
     </div>

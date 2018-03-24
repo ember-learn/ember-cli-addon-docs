@@ -2,23 +2,6 @@
 @import 'syntax';
 @import 'pod-styles.scss';
 
-// Once we get ember-cli-tailwind, enable these via customization
-.hover\:opacity-0:hover {
-  opacity: 0;
-}
-.hover\:opacity-25:hover {
-  opacity: .25;
-}
-.hover\:opacity-50:hover {
-  opacity: .50;
-}
-.hover\:opacity-75:hover {
-  opacity: .75;
-}
-.hover\:opacity-100:hover {
-  opacity: 1;
-}
-
 // Figure out how to do this in tailwind
 .fill-current {
   &, & * {
@@ -37,4 +20,8 @@ html, body {
 
 pre {
   margin: 0;
+}
+
+svg {
+  fill: currentColor;
 }

@@ -60,7 +60,7 @@
   @apply mb-2;
 }
 .docs-md aside {
-  @apply mb-4 mt-6 bg-grey-lightest italic px-4 py-3;
+  @apply mb-4 mt-6 bg-grey-lightest italic px-4 py-3 text-sm;
 }
 
 /* mb-4 on pre interferes with docs-snippet and others, really want Renderer
