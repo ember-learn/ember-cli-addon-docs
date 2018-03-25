@@ -20,7 +20,7 @@
         link=(component 'docs-header/link')
       )}}
 
-      {{docs-header/x-search}}
+      {{docs-header/search-box query=query on-input=(action (mut query))}}
 
       {{#docs-header/link href=(concat packageJson.repository '/releases')}}
         v{{packageJson.version}}
@@ -39,3 +39,8 @@
     </div>
   </div>
 </header>
+
+{{#if query}}
+  {{docs-header/search-results query=query
+    on-visit=(action 'didVisitPage')}}
+{{/if}}

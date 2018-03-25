@@ -53,7 +53,7 @@ export default Service.extend({
   next: computed('currentRouteIndex', 'routes.[]', function() {
     let currentIndex = this.get('currentRouteIndex');
 
-    if (currentIndex < this.get('routes.length')) {
+    if (currentIndex < (this.get('routes.length') - 1)) {
       let nextRouteIndex = currentIndex + 1;
       let route = this.get('routes')[(nextRouteIndex)];
 

@@ -65,7 +65,7 @@ export default Component.extend(EKMixin, {
   }),
 
   searchIsNotFocused() {
-    return !this.element.querySelector('[data-search-input]') === document.activeElement;
+    return !this.element.querySelector('[data-search-box-input]') === document.activeElement;
   }
 
 });

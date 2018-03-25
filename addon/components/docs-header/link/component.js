@@ -3,12 +3,6 @@ import layout from './template';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 
-/**
-  Render a link in your DocsHeader.
-
-  @class DocsHeader/Link
-  @public
-*/
 export default Component.extend({
   layout,
   tagName: '',

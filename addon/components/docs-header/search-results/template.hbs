@@ -1,24 +1,15 @@
-<div class='relative text-grey-darkest' data-tether-id='searchbox'>
-  <input oninput={{action 'search' value='target.value'}}
-    type="text"
-    placeholder='Search'
-    class='w-24 text-xs p-2 pl-6 rounded focus:bg-grey-lighter outline-none'
-    data-search-input>
-  {{svg-jar 'search' width=12 height=12 class='absolute pin-t h-full ml-1'}}
-</div>
-
-{{#if didSearch}}
+{{#if (and trimmedQuery search.isIdle)}}
   {{#modal-dialog
-    tetherTarget='[data-tether-id="searchbox"]'
+    tetherTarget='[data-search-box]'
     attachment='top left'
     clickOutsideToClose=true
     onClose=(action 'clearSearch')
     targetAttachment='bottom left'
-    containerClass='modal-fade-and-drop'}}
+    constraints=(array (hash to='window' attachment='together' pin=true))}}
     <ul class="docs-viewer-search__result-list">
-      {{#each searchResults as |result index|}}
+      {{#each (take 5 searchResults) as |result index|}}
         <li>
-          {{docs-header/x-search/x-result
+          {{docs-header/search-result
             result=result
             query=query
             selected=(eq index selectedIndex)

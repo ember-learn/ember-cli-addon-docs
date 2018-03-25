@@ -1,19 +1,18 @@
 import { inject as service } from '@ember/service';
-import { debounce } from '@ember/runloop';
 import Component from '@ember/component';
 import layout from './template';
 import { EKMixin, keyUp, keyDown } from 'ember-keyboard';
 import { on } from '@ember/object/evented';
 import { computed } from '@ember/object';
+import { task } from 'ember-concurrency';
 
 export default Component.extend(EKMixin, {
   layout,
-  classNames: 'ml-auto',
 
   docsSearch: service(),
   router: service(),
 
-  query: null,
+  query: null, // passed in
   selectedIndex: null,
 
   didInsertElement() {
@@ -25,24 +24,26 @@ export default Component.extend(EKMixin, {
     this.get('docsSearch').loadSearchIndex();
   },
 
-  search(text) {
-    if (text.trim().length) {
-      this.set('query', text);
-      this.get('docsSearch').search(text)
-        .then(rawSearchResults => {
-          this.setProperties({
-            rawSearchResults,
-            selectedIndex: 0,
-            didSearch: true
-          });
-        });
-    } else {
-      this.setProperties({
-        didSearch: false,
-        selectedIndex: null
-      });
-    }
+  didReceiveAttrs() {
+    this._super(...arguments);
+
+    this.get('search').perform();
   },
+
+  trimmedQuery: computed('query', function() {
+    return this.get('query').trim();
+  }),
+
+  search: task(function*() {
+    let results;
+
+    if (this.get('trimmedQuery')) {
+      results = yield this.get('docsSearch').search(this.get('trimmedQuery'));
+    }
+
+    this.set('selectedIndex', (results.length ? 0 : null));
+    this.set('rawSearchResults', results);
+  }).restartable(),
 
   searchResults: computed('rawSearchResults.[]', function() {
     let rawSearchResults = this.get('rawSearchResults');
@@ -74,7 +75,7 @@ export default Component.extend(EKMixin, {
       }
     }
 
-    this.clearSearch();
+    this.get('on-visit')();
   }),
 
   nextSearchResult: on(keyDown('ctrl+KeyN'), function() {
@@ -95,35 +96,11 @@ export default Component.extend(EKMixin, {
     }
   }),
 
-  focusSearch: on(keyUp('Slash'), keyUp('KeyS'), function() {
-    this.element.querySelector('input').focus();
-  }),
-
-  unfocusSearch: on(keyUp('Escape'), function() {
-    this.setProperties({
-      rawSearchResults: null,
-      didSearch: false
-    });
-    this.element.querySelector('input').blur();
-  }),
-
   clearSearch() {
-    this.setProperties({
-      didSearch: false,
-      selectedIndex: null,
-      rawSearchResults: null,
-      query: null
-    });
-    let input = this.element.querySelector('input');
-    input.value = '';
-    input.blur();
+    this.set('query', null);
   },
 
   actions: {
-    search(text) {
-      debounce(this, 'search', text, 100);
-    },
-
     selectResult(index) {
       this.set('selectedIndex', index);
     },

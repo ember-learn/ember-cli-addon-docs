@@ -1,0 +1,16 @@
+<div class='relative text-grey-darkest' data-search-box>
+  {{svg-jar 'search' width=12 height=12 class='absolute pin-t h-full ml-1'}}
+
+  {{!--
+    This is a dumb input - so why not use the {{input}} helper? Because apparently
+    it takes over enter and ctrl+n/p keys. We are using those for our own shortcuts
+    so we stick with the dumb html element. Maybe there's a way to disable them
+    and get the convenient two-way binding.
+   --}}
+  <input oninput={{action on-input value='target.value'}}
+    value={{query}}
+    type="text"
+    placeholder='Search'
+    class='w-24 text-xs p-2 pl-6 rounded focus:bg-grey-lighter outline-none'
+    data-search-box-input>
+</div>

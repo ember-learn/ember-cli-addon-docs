@@ -7,11 +7,24 @@ import { classify } from '@ember/string';
 const packageJson = config['ember-cli-addon-docs'].packageJson;
 
 /**
-  Render a header showing a link to your documentation, your project logo and
-  a GitHub link to your addon's repository.
+  Render a header showing a link to your documentation, your project logo, a
+  search bar, and a link to your rpeo on GitHub.
+
+  Yields a `link` contextual component which can be used to add additional
+  header links.
+
+  ```hbs
+  {{#docs-header logo='ember-cli' name='AddonDocs' as |header|}}
+    {{#header.link 'sandbox'}}
+      Sandbox
+    {{/header.link}}
+  {{/docs-header}}
+  ```
 
   @class DocsHeader
   @public
+  @yield {Hash} header
+  @yield {Component} header.link
 */
 export default Component.extend({
   layout,
@@ -41,6 +54,14 @@ export default Component.extend({
     name = name.replace('ember-', '');
 
     return classify(name);
-  })
+  }),
+
+  actions: {
+    didVisitPage() {
+      this.set('query', null);
+      let search = document.querySelector('[data-search-box-input]');
+      search.blur();
+    }
+  }
 
 });
