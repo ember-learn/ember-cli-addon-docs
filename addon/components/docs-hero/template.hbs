@@ -1,5 +1,5 @@
-<div class="text-center text-grey-darkest py-16">
-  <div class=''>
+<div class="text-center text-grey-darkest py-8 md:py-16">
+  <div class='docs-container'>
     <h1 class='text-5xl leading-none'>
       {{#if hasBlock}}
         {{yield}}
@@ -13,6 +13,9 @@
 
       <span class='font-thin'>{{slimHeading}}</span>{{strongHeading}}
     </h1>
-    <p class='text-grey-darker text-lg mt-4'>{{byline}}</p>
+
+    <p class='text-grey-darker text-lg mt-4 w-3/4 mx-auto leading-tight'>
+      {{byline}}
+    </p>
   </div>
 </div>
