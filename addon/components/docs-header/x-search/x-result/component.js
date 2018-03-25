@@ -74,7 +74,9 @@ export default Component.extend({
       });
 
       return matches;
-    }, []).join(' &middot; ');
+    }, [])
+      .slice(0, 5)
+      .join(' &middot; ');
   }),
 
   _highlight(text, start, length) {
