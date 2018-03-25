@@ -10,7 +10,7 @@ const packageJson = config['ember-cli-addon-docs'].packageJson;
   Render a header showing a link to your documentation, your project logo and
   a GitHub link to your addon's repository.
 
-  @class DocsNavbar
+  @class DocsHeader
   @public
 */
 export default Component.extend({

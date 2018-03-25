@@ -5,11 +5,11 @@
     </div>
   </div> --}}
 
-  {{#docs-navbar logo='ember-cli' name='AddonDocs' as |nav|}}
-    {{#nav.link 'sandbox'}}
+  {{#docs-header logo='ember-cli' name='AddonDocs' as |h|}}
+    {{#h.link 'sandbox'}}
       Sandbox
-    {{/nav.link}}
-  {{/docs-navbar}}
+    {{/h.link}}
+  {{/docs-header}}
 
   {{! BEGIN-SNIPPET docs-demo-application-template.hbs }}
   {{outlet}}

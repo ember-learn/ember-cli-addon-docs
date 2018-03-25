@@ -1,6 +1,6 @@
-<nav class='border-b shadow-sm'>
+<header class='border-b shadow-sm'>
   <div class='flex items-center py-4 docs-container'>
-    {{#docs-navbar/link 'index'}}
+    {{#docs-header/link 'index'}}
       <div class="text-center text-xs">
         {{#if logo}}
           <div class='h-4 pb-1'>
@@ -9,13 +9,13 @@
         {{/if}}
         <span class='font-medium normal-case block -mt-2px'>{{addonName}}</span>
       </div>
-    {{/docs-navbar/link}}
-    {{#docs-navbar/link 'docs'}}
+    {{/docs-header/link}}
+    {{#docs-header/link 'docs'}}
       Documentation
-    {{/docs-navbar/link}}
+    {{/docs-header/link}}
 
     {{yield (hash
-      link=(component 'docs-navbar/link')
+      link=(component 'docs-header/link')
     )}}
 
     <div class="ml-auto flex items-center">
@@ -36,4 +36,4 @@
       {{/if}}
     </div>
   </div>
-</nav>
+</header>

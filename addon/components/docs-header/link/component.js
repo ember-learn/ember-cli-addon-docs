@@ -4,9 +4,9 @@ import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 
 /**
-  Render a link in your DocsHeader header.
+  Render a link in your DocsHeader.
 
-  @class DocsNavbar/Link
+  @class DocsHeader/Link
   @public
 */
 export default Component.extend({
