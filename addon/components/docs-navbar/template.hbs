@@ -7,7 +7,7 @@
             {{docs-logo logo=addonLogo}}
           </div>
         {{/if}}
-        <span class='font-medium normal-case'>{{addonName}}</span>
+        <span class='font-medium normal-case block -mt-2px'>{{addonName}}</span>
       </div>
     {{/docs-navbar/link}}
     {{#docs-navbar/link 'docs'}}
@@ -22,14 +22,14 @@
       {{!-- {{docs-viewer/x-search}} --}}
 
       <a href="{{packageJson.repository}}/releases"
-        class='transition flex text-black
+        class='transition flex text-grey-darkest text-sm font-semibold
         no-underline opacity-50 hover:opacity-100'>
         v{{packageJson.version}}
       </a>
 
       {{#if packageJson.repository}}
         <a href={{packageJson.repository}}
-          class='transition flex text-black opacity-50 hover:opacity-100
+          class='transition flex text-grey-darkest opacity-50 hover:opacity-100
           no-underline ml-8'>
           {{svg-jar 'github' width=24 height=24}}
         </a>
