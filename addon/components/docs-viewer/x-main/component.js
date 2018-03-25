@@ -15,10 +15,10 @@ export default Component.extend({
   docsRoutes: service(),
   router: service(),
 
-  tagName: 'main',
+  tagName: '',
 
-  elementId: 'docs-viewer__scroll-body',
-  classNames: 'docs-viewer__main',
+  // elementId: 'docs-viewer__scroll-body',
+  // classNames: 'docs-viewer__main',
 
   editCurrentPageUrl: computed('router.currentRouteName', function() {
     let path = this.get('router.currentRouteName');

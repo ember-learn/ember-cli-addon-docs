@@ -1,0 +1,46 @@
+<header class='border-b shadow-sm'>
+  <div class='flex items-center max-w-3xl mx-auto'>
+    {{#docs-header/link 'index'}}
+      <div class="text-center text-xs">
+        {{#if logo}}
+          <div class='h-4 pb-1'>
+            {{docs-logo logo=addonLogo}}
+          </div>
+        {{/if}}
+        <span class='font-medium normal-case block -mt-2px'>{{addonName}}</span>
+      </div>
+    {{/docs-header/link}}
+
+    <div class='flex-1 flex items-center overflow-auto overflow-momentum mask-image md:no-mask-image'>
+      {{#docs-header/link 'docs'}}
+        Documentation
+      {{/docs-header/link}}
+
+      {{yield (hash
+        link=(component 'docs-header/link')
+      )}}
+
+      {{docs-header/search-box query=query on-input=(action (mut query))}}
+
+      {{#docs-header/link href=(concat packageJson.repository '/releases')}}
+        v{{packageJson.version}}
+      {{/docs-header/link}}
+
+      {{#if packageJson.repository}}
+        {{#docs-header/link href=packageJson.repository}}
+          <span class='flex'>
+            {{svg-jar 'github' width=24 height=24}}
+          </span>
+        {{/docs-header/link}}
+      {{/if}}
+
+      {{!-- Something to take up space on mobile, so the scrolling nav isn't hugging the edge --}}
+      <div class='h-px px-3 md:hidden'></div>
+    </div>
+  </div>
+</header>
+
+{{#if query}}
+  {{docs-header/search-results query=query
+    on-visit=(action 'didVisitPage')}}
+{{/if}}

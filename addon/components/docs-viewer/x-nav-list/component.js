@@ -4,8 +4,8 @@ import layout from './template';
 export default Component.extend({
   layout,
 
-  tagName: 'ul',
+  tagName: ''
 
-  classNames: 'docs-viewer__nav-list'
+  // classNames: 'docs-viewer__nav-list'
 
 });

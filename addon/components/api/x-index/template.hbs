@@ -1,29 +1,40 @@
-<div class="class-index__sticky">
-  <h2>Index</h2>
+<nav class="w-48 px-4">
+  <div class="sticky pin-t pt-8">
+    <p class='text-xl mb-4'>Index</p>
 
-  <ul>
-    {{#each-in options as |key option|}}
-      {{#if option.shouldShow}}
-        <li>
-          <label>
-            <input type="checkbox" checked={{option.value}} onclick={{action onOptionToggle key}}>
+    <ul class='list-reset pl-0 text-sm'>
+      {{#each-in options as |key option|}}
+        {{#if option.shouldShow}}
+          <li>
+            <label>
+              <input type="checkbox"
+                checked={{option.value}}
+                onclick={{action onOptionToggle key}}
+                class='mr-1'>
 
-            {{capitalize key}}
-          </label>
-        </li>
+              {{capitalize key}}
+            </label>
+          </li>
+        {{/if}}
+      {{/each-in}}
+    </ul>
+
+    {{#each-in sections as |section items|}}
+      {{#if items}}
+        <p class='mt-6'>
+          {{capitalize section}}
+        </p>
+
+        <ul class='list-reset pl-0 mt-3 text-sm'>
+          {{#each items as |item|}}
+            <li>
+              <a href="#{{item.name}}" class='no-underline text-grey-darkest opacity-50 hover:opacity-100'>
+                {{item.name}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
       {{/if}}
     {{/each-in}}
-  </ul>
-
-  {{#each-in sections as |section items|}}
-    {{#if items}}
-      <h3>{{capitalize section}}</h3>
-
-      <ul>
-        {{#each items as |item|}}
-          <li><a href="#{{item.name}}">{{item.name}}</a></li>
-        {{/each}}
-      </ul>
-    {{/if}}
-  {{/each-in}}
-</div>
+  </div>
+</nav>

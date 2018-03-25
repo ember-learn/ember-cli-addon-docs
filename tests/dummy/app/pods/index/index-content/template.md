@@ -1,5 +1,6 @@
-<h2 class='docs-dummy__header'>
-  {{svg-jar 'logo-horizontal' class='docs-dummy__header-icon' width=40 height=16}}
+<h2 class='flex items-center mt-8 docs-h2'>
+  {{svg-jar 'logo-horizontal' width=40 height=16
+    class='mr-2'}}
   Motivation
 </h2>
 
@@ -18,9 +19,3 @@ These days, a well-maintained Ember addon should
 - **Make it easy for contributors to correct documentation errors** in addition to submitting code fixes
 
 Looking at the available tools for authoring docs, none proved satisfactory for all these needs. This is why addons deserve their own solution.
-
-<div class="docs-dummy__btn-area">
-  {{#docs-link 'docs' class='docs-dummy__btn'}}
-    Get started
-  {{/docs-link}}
-</div>

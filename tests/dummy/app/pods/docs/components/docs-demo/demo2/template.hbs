@@ -1,15 +1,17 @@
 {{#docs-demo as |demo|}}
   {{#demo.example data-test-id='docs-demo-multiple.hbs'}}
     {{!-- BEGIN-SNIPPET docs-demo-multiple.hbs --}}
-    <button onclick={{action 'toggleIsShowing'}}>
+    <button onclick={{action 'toggleIsShowing'}} class='docs-btn'>
       Press me!
     </button>
 
-    {{#if isShowing}}
-      <p>Yep</p>
-    {{else}}
-      <p>Nope</p>
-    {{/if}}
+    <p class='mt-4'>
+      {{#if isShowing}}
+        Yep
+      {{else}}
+        Nope
+      {{/if}}
+    </p>
     {{!-- END-SNIPPET --}}
   {{/demo.example}}
 

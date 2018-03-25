@@ -1,10 +1,10 @@
-<h1>{{component.name}}</h1>
+<h1 class='docs-h1'>{{component.name}}</h1>
 
 {{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
 <div>{{{component.description}}}</div>
 
 {{#if hasContents}}
-  <div class="class-contents">
+  <div class="flex flex-row-reverse">
     {{api/x-index
       options=(hash
         inherited=(hash shouldShow=component.hasInherited value=showInherited)

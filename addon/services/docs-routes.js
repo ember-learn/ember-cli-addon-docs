@@ -50,19 +50,31 @@ export default Service.extend({
     }
   }),
 
-  nextRoute: computed('currentRouteIndex', 'routes.[]', function() {
+  next: computed('currentRouteIndex', 'routes.[]', function() {
     let currentIndex = this.get('currentRouteIndex');
 
-    if (currentIndex < this.get('routes.length')) {
-      return this.get('routes')[(currentIndex + 1)];
+    if (currentIndex < (this.get('routes.length') - 1)) {
+      let nextRouteIndex = currentIndex + 1;
+      let route = this.get('routes')[(nextRouteIndex)];
+
+      return {
+        route,
+        label: this.get('items').objectAt(nextRouteIndex).get('label')
+      };
     }
   }),
 
-  previousRoute: computed('currentRouteIndex', 'routes.[]', function() {
+  previous: computed('currentRouteIndex', 'routes.[]', function() {
     let currentIndex = this.get('currentRouteIndex');
 
     if (currentIndex > 0) {
-      return this.get('routes')[(currentIndex - 1)];
+      let previousRouteIndex = currentIndex - 1;
+      let route = this.get('routes')[(previousRouteIndex)];
+
+      return {
+        route,
+        label: this.get('items').objectAt(previousRouteIndex).get('label')
+      };
     }
   })
 

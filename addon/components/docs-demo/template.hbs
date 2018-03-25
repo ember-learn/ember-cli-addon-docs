@@ -1,28 +1,34 @@
-{{yield (hash
-  example=(component 'docs-demo/x-example')
-  snippet=(component 'docs-demo/x-snippet' did-init=(action 'registerSnippet') activeSnippet=activeSnippet)
-  live-example=(component 'docs-demo/x-live-example')
-)}}
+<div class="rounded border my-8">
 
-{{#if snippets}}
-  <nav class="docs-demo__snippets-nav">
-    {{#each snippets as |snippet|}}
-      <a href='#' {{action 'selectSnippet' snippet}}
-        class='
-          docs-demo__snippets-nav-item
-          {{if snippet.isActive 'docs-demo__snippets-nav-item--active'}}
-        '
-      >
-        {{snippet.label}}
-      </a>
-    {{/each}}
-  </nav>
-{{/if}}
+  {{yield (hash
+    example=(component 'docs-demo/x-example')
+    snippet=(component 'docs-demo/x-snippet' did-init=(action 'registerSnippet') activeSnippet=activeSnippet)
+    live-example=(component 'docs-demo/x-live-example')
+  )}}
 
-{{#each snippets as |snippet|}}
-  {{#if snippet.isActive}}
-    <div class="docs-demo__snippet-wrapper">
-      {{docs-snippet name=snippet.name unindent=true language=snippet.language}}
-    </div>
+  {{#if snippets}}
+    <nav class="docs-demo__snippets-nav py-2 px-4 font-medium bg-grey-lighter tracking-tight">
+      {{#each snippets as |snippet|}}
+        <a href='#' {{action 'selectSnippet' snippet}}
+          class='
+            docs-demo__snippets-nav-item
+            mr-4 text-sm no-underline
+            hover:text-grey-darkest
+            {{if snippet.isActive 'text-grey-darkest' 'text-grey-dark'}}
+          '
+        >
+          {{snippet.label}}
+        </a>
+      {{/each}}
+    </nav>
   {{/if}}
-{{/each}}
+
+  {{#each snippets as |snippet|}}
+    {{#if snippet.isActive}}
+      <div class="docs-demo__snippet-wrapper">
+        {{docs-snippet name=snippet.name unindent=true language=snippet.language}}
+      </div>
+    {{/if}}
+  {{/each}}
+
+</div>

@@ -36,7 +36,7 @@ all docs pages in your site.
       {{/viewer.nav}}
 
       {{#viewer.main}}
-        <div class="docs-container docs__center">
+        <div class="docs-container">
           <div class="docs-section">
             {{outlet}}
           </div>
@@ -67,11 +67,11 @@ for the `usage` page).
 5. **Create your marketing homepage**. Addon Docs comes with a set of
 components that take out all the hard work normally required for creating
 good looking marketing/demo pages. Creating a template with the following
-components will instantly give your main page a navbar, a nice hero
+components will instantly give your main page a header, a nice hero
 and a snippet-ready demo container.
 
   {{#docs-snippet name='quickstart-marketing-index.hbs' title='tests/dummy/app/templates/index.hbs'}}
-    {{docs-navbar}}
+    {{docs-header}}
 
     {{docs-hero
       logo='ember'
@@ -126,4 +126,3 @@ windows.
 3. **Better scrolling.** You may want to install
 [Ember Router Scroll](https://github.com/dollarshaveclub/ember-router-scroll)
 to enable "scroll to top with preserved browser history scroll position".
-

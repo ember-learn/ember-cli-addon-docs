@@ -1,11 +1,19 @@
-<div class='WarningBanner'>
-  <div class="docs-container bg-red">
-    WARNING: AddonDocs is currently unstable. Check back soon for updates.
-  </div>
+<div class='font-sans text-black leading-normal'>
+  {{!-- <div class='bg-red-light text-white py-2 text-sm font-bold shadow-inner'>
+    <div class="docs-container">
+      WARNING: AddonDocs is currently unstable. Check back soon for updates.
+    </div>
+  </div> --}}
+
+  {{#docs-header logo='ember-cli' name='AddonDocs' as |header|}}
+    {{#header.link 'sandbox'}}
+      Sandbox
+    {{/header.link}}
+  {{/docs-header}}
+
+  {{! BEGIN-SNIPPET docs-demo-application-template.hbs }}
+  {{outlet}}
+
+  {{docs-keyboard-shortcuts}}
+  {{! END-SNIPPET }}
 </div>
-
-{{! BEGIN-SNIPPET docs-demo-application-template.hbs }}
-{{outlet}}
-
-{{docs-keyboard-shortcuts}}
-{{! END-SNIPPET }}

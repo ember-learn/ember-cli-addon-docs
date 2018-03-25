@@ -3,12 +3,12 @@
   overflow-x: auto;
   padding: 0.5em;
   color: #333;
-  background: #f8f8f8;
+  background: inherit;
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: #998;
+  color: #8795A1;
   font-style: italic;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .hljs-meta {
-  color: #999;
+  color: #8795A1;
   font-weight: bold;
 }
 

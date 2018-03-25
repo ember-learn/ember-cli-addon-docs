@@ -8,8 +8,8 @@ import layout from './template';
   @public
 */
 export default Component.extend({
-  tagName: '',
   layout,
+  tagName: '',
 
   /**
     @argument icon

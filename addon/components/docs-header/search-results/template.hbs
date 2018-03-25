@@ -1,0 +1,26 @@
+{{#if (and trimmedQuery search.isIdle)}}
+  {{#modal-dialog
+    tetherTarget='[data-search-box]'
+    attachment='top left'
+    clickOutsideToClose=true
+    onClose=(action 'clearSearch')
+    targetAttachment='bottom left'
+    constraints=(array (hash to='window' attachment='together' pin=true))}}
+    <ul class="docs-viewer-search__result-list">
+      {{#each (take 5 searchResults) as |result index|}}
+        <li>
+          {{docs-header/search-result
+            result=result
+            query=query
+            selected=(eq index selectedIndex)
+            on-mouse-enter=(action 'selectResult' index)
+            on-click=(action 'clearSearch')}}
+        </li>
+      {{else}}
+        <li class='docs-viewer-search__result-item docs-viewer-search__result-item--disabled'>
+          No results.
+        </li>
+      {{/each}}
+    </ul>
+  {{/modal-dialog}}
+{{/if}}

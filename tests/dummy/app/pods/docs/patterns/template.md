@@ -49,13 +49,13 @@ In addition to authoring normal Markdown content, you can
   Here's an example of an aside.
 </aside>
 
-- Use Handlebars helpers. For example, you can use `link-to` to render a link to {{link-to 'the home page' 'index'}}, or you can even render a component.
+- Use Handlebars helpers. For example, you can use `link-to` to render a link to {{docs-link 'the home page' 'index'}}, or you can even render a component.
 
 ## Design for your audience
 
 The design of your docs site should meet the needs of your users — other busy software developers. It needs to explain what problems your library solves and the principles behind your approach, but also serve as a quick reference for developers who are already familiar with your addon, and are just looking up an API.
 
-We've included a {{link-to 'Docs Viewer' 'docs.components.docs-viewer'}}  component to help you with your site's design and functionality. The entire layout of the current page comes from this component. It's an opinionated setup intended to be used with a dedicated `docs` route.
+We've included a {{docs-link 'Docs Viewer' 'docs.components.docs-viewer'}}  component to help you with your site's design and functionality. The entire layout of the current page comes from this component. It's an opinionated setup intended to be used with a dedicated `docs` route.
 
 It features the nav area you see on the left and a main area for the content in the middle, with both sections filling up the available height and independently scrollable. This is a nice pattern used by many other online documentation viewers that gives your users easy access to navigation while also letting them focus on individual pieces of content without getting overwhelmed.
 
@@ -79,7 +79,7 @@ Write this...
 
 We suggest deploying your dummy app to GitHub Pages, as it's a simple place available to every GitHub project to host your documentation site. Once you have this set up, you can even automate deployment as part of your Travis CI builds.
 
-For more details, see the {{link-to 'Deploying' 'docs.deploying'}} section of the guides.
+For more details, see the {{docs-link 'Deploying' 'docs.deploying'}} section of the guides.
 
 ## Miscellaneous
 
