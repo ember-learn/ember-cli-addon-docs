@@ -136,3 +136,6 @@ pre {
 .overflow-momentum {
   -webkit-overflow-scrolling: touch;
 }
+.outline-none {
+  outline: none;
+}

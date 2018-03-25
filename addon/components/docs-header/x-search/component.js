@@ -8,7 +8,7 @@ import { computed } from '@ember/object';
 
 export default Component.extend(EKMixin, {
   layout,
-  classNames: 'docs-viewer-search',
+  classNames: 'ml-auto',
 
   docsSearch: service(),
   router: service(),
@@ -96,7 +96,7 @@ export default Component.extend(EKMixin, {
   }),
 
   focusSearch: on(keyUp('Slash'), keyUp('KeyS'), function() {
-    this.element.querySelector('.docs-viewer-search__input').focus();
+    this.element.querySelector('input').focus();
   }),
 
   unfocusSearch: on(keyUp('Escape'), function() {
@@ -104,7 +104,7 @@ export default Component.extend(EKMixin, {
       rawSearchResults: null,
       didSearch: false
     });
-    this.element.querySelector('.docs-viewer-search__input').blur();
+    this.element.querySelector('input').blur();
   }),
 
   clearSearch() {
@@ -114,7 +114,7 @@ export default Component.extend(EKMixin, {
       rawSearchResults: null,
       query: null
     });
-    let input = this.element.querySelector('.docs-viewer-search__input');
+    let input = this.element.querySelector('input');
     input.value = '';
     input.blur();
   },

@@ -20,7 +20,9 @@
         link=(component 'docs-header/link')
       )}}
 
-      {{#docs-header/link href=(concat packageJson.repository '/releases') push=true}}
+      {{docs-header/x-search}}
+
+      {{#docs-header/link href=(concat packageJson.repository '/releases')}}
         v{{packageJson.version}}
       {{/docs-header/link}}
 
