@@ -1,5 +1,10 @@
 # Ember CLI Addon Docs Changelog
 
+## master
+
+- Adds new `section` contextual component yielded from DocsViewer
+- Renames `{{docs-navbar}}` to `{{docs-header}}`
+
 ## 0.2.4
 
 - Fix EMFILE errors for developers on APFS without watchman installed
