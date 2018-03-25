@@ -54,18 +54,18 @@ export default Component.extend(EKMixin, {
 
   nextPage: on(keyDown('KeyJ'), keyDown('ArrowRight'), function() {
     if (this.searchIsNotFocused() && this.get('docsRoutes.next')) {
-      this.get('router').transitionTo(...this.get('docsRoutes.next'));
+      this.get('router').transitionTo(...this.get('docsRoutes.next.route'));
     }
   }),
 
   previousPage: on(keyDown('KeyK'), keyDown('ArrowLeft'), function() {
     if (this.searchIsNotFocused() && this.get('docsRoutes.previous')) {
-      this.get('router').transitionTo(...this.get('docsRoutes.previous'));
+      this.get('router').transitionTo(...this.get('docsRoutes.previous.route'));
     }
   }),
 
   searchIsNotFocused() {
-    return !this.element.querySelector('[data-search-box-input]') === document.activeElement;
+    return !(document.querySelector('[data-search-box-input]') === document.activeElement);
   }
 
 });

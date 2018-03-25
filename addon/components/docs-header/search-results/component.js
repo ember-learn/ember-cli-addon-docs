@@ -78,7 +78,7 @@ export default Component.extend(EKMixin, {
     this.get('on-visit')();
   }),
 
-  nextSearchResult: on(keyDown('ctrl+KeyN'), function() {
+  nextSearchResult: on(keyDown('ctrl+KeyN'), keyDown('ArrowDown'), function() {
     let hasSearchResults = this.get('searchResults.length');
     let lastResultIsSelected = (this.get('selectedIndex') + 1 === this.get('searchResults.length'));
 
@@ -87,7 +87,7 @@ export default Component.extend(EKMixin, {
     }
   }),
 
-  previousSearchResult: on(keyDown('ctrl+KeyP'), function() {
+  previousSearchResult: on(keyDown('ctrl+KeyP'), keyDown('ArrowUp'), function() {
     let hasSearchResults = this.get('searchResults.length');
     let firstResultIsSelected = (this.get('selectedIndex') === 0);
 
