@@ -1,5 +1,31 @@
-<nav class='w-1/5 flex-no-shrink'>
+{{#if (or media.isMobile media.isTablet)}}
+  <div class='text-right'>
+    <button {{action (toggle 'isShowingMenu' this)}}
+      class='text-grey-darkest py-2 text-sm rounded uppercase font-medium'>
+      ☰ Menu
+    </button>
+  </div>
+{{/if}}
+
+<nav {{action (mut isShowingMenu) false}}
+  class='
+    absolute pin-r lg:relative bg-white shadow-lg lg:shadow-none
+    w-90% px-3 lg:px-0 z-10 lg:w-1/5 flex-no-shrink transition
+    max-w-xs mr-2
+    {{if (or media.isMobile media.isTablet)
+      (if isShowingMenu 'opacity-100' 'opacity-0 pointer-events-none')
+
+    }}
+  '>
   <div class='pt-px sticky pin-t mb-8 '>
+    {{#if (or media.isMobile media.isTablet)}}
+      <div class="text-right">
+        <button {{action (mut isShowingMenu) false}}
+          class='text-grey-darkest opacity-50 hover:opacity-100 text-3xl py-2 no-underline'>
+          &times;
+        </button>
+      </div>
+    {{/if}}
 
     {{#docs-viewer/x-nav-list}}
       {{yield (hash
@@ -40,7 +66,7 @@
       {{/if}}
     {{/docs-viewer/x-nav-list}}
 
-    <div class="mt-16 mr-4 text-xs rounded">
+    <div class="mt-16 mr-2 text-xs rounded">
       <a href="https://github.com/ember-learn/ember-cli-addon-docs"
         class='opacity-50 hover:opacity-100 transition no-underline text-inherit flex items-center'>
         {{svg-jar 'logo-horizontal' width=22 height=16 class='mr-2'}}
