@@ -20,23 +20,17 @@
         link=(component 'docs-header/link')
       )}}
 
-      {{!-- <div class="ml-auto flex items-center"> --}}
-        {{!-- {{docs-viewer/x-search}} --}}
+      {{#docs-header/link href=(concat packageJson.repository '/releases') push=true}}
+        v{{packageJson.version}}
+      {{/docs-header/link}}
 
-        <a href="{{packageJson.repository}}/releases"
-          class='ml-auto transition flex text-grey-darkest text-xs font-semibold
-          px-4 py-3 no-underline opacity-50 hover:opacity-100'>
-          v{{packageJson.version}}
-        </a>
-
-        {{#if packageJson.repository}}
-          <a href={{packageJson.repository}}
-            class='transition flex text-grey-darkest opacity-50 hover:opacity-100
-            no-underline px-4 py-3'>
+      {{#if packageJson.repository}}
+        {{#docs-header/link href=packageJson.repository}}
+          <span class='flex'>
             {{svg-jar 'github' width=24 height=24}}
-          </a>
-        {{/if}}
-      {{!-- </div> --}}
+          </span>
+        {{/docs-header/link}}
+      {{/if}}
 
       {{!-- Something to take up space on mobile, so the scrolling nav isn't hugging the edge --}}
       <div class='h-px px-3 md:hidden'></div>
