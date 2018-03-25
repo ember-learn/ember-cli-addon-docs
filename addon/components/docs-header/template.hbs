@@ -1,5 +1,5 @@
 <header class='border-b shadow-sm'>
-  <div class='flex items-center py-4 docs-container'>
+  <div class='flex items-center max-w-3xl mx-auto'>
     {{#docs-header/link 'index'}}
       <div class="text-center text-xs">
         {{#if logo}}
@@ -10,30 +10,36 @@
         <span class='font-medium normal-case block -mt-2px'>{{addonName}}</span>
       </div>
     {{/docs-header/link}}
-    {{#docs-header/link 'docs'}}
-      Documentation
-    {{/docs-header/link}}
 
-    {{yield (hash
-      link=(component 'docs-header/link')
-    )}}
+    <div class='flex-1 flex items-center overflow-auto overflow-momentum mask-image md:no-mask-image'>
+      {{#docs-header/link 'docs'}}
+        Documentation
+      {{/docs-header/link}}
 
-    <div class="ml-auto flex items-center">
-      {{!-- {{docs-viewer/x-search}} --}}
+      {{yield (hash
+        link=(component 'docs-header/link')
+      )}}
 
-      <a href="{{packageJson.repository}}/releases"
-        class='transition flex text-grey-darkest text-sm font-semibold
-        no-underline opacity-50 hover:opacity-100'>
-        v{{packageJson.version}}
-      </a>
+      {{!-- <div class="ml-auto flex items-center"> --}}
+        {{!-- {{docs-viewer/x-search}} --}}
 
-      {{#if packageJson.repository}}
-        <a href={{packageJson.repository}}
-          class='transition flex text-grey-darkest opacity-50 hover:opacity-100
-          no-underline ml-8'>
-          {{svg-jar 'github' width=24 height=24}}
+        <a href="{{packageJson.repository}}/releases"
+          class='ml-auto transition flex text-grey-darkest text-xs font-semibold
+          px-4 py-3 no-underline opacity-50 hover:opacity-100'>
+          v{{packageJson.version}}
         </a>
-      {{/if}}
+
+        {{#if packageJson.repository}}
+          <a href={{packageJson.repository}}
+            class='transition flex text-grey-darkest opacity-50 hover:opacity-100
+            no-underline px-4 py-3'>
+            {{svg-jar 'github' width=24 height=24}}
+          </a>
+        {{/if}}
+      {{!-- </div> --}}
+
+      {{!-- Something to take up space on mobile, so the scrolling nav isn't hugging the edge --}}
+      <div class='h-px px-3 md:hidden'></div>
     </div>
   </div>
 </header>
