@@ -33,7 +33,7 @@ export default Component.extend({
 
   packageJson: packageJson,
 
-  addonLogo: addonLogo(packageJson),
+  logo: addonLogo(packageJson),
 
   addonName: computed(function() {
     let name = packageJson.name;
