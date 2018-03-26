@@ -4,6 +4,9 @@
 
 - Adds new `section` contextual component yielded from DocsViewer
 - Renames `{{docs-navbar}}` to `{{docs-header}}`
+- Removes yield for alt-logo in docs-hero (was anyone using this?)
+- Adds `style` attr to docs-hero which can be "light" or "dark". Defaults to "light".
+- Simpler /docs/template.hbs setup (viewer.main outlet)
 
 ## 0.2.4
 
