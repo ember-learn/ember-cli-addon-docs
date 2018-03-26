@@ -1,12 +1,13 @@
 # Ember CLI Addon Docs Changelog
 
-## master
+## 0.3.0
 
-- Adds new `section` contextual component yielded from DocsViewer
-- Renames `{{docs-navbar}}` to `{{docs-header}}`
-- Removes yield for alt-logo in docs-hero (was anyone using this?)
-- Adds `style` attr to docs-hero which can be "light" or "dark". Defaults to "light".
-- Simpler /docs/template.hbs setup (viewer.main outlet)
+- [ BREAKING ] If you have any config for `ember-router-scroll` in your dummy app's `config/environment`, you can remove it. (The `<body>` element is the only scrollable element now.)
+- [ BREAKING ] Renames `{{docs-navbar}}` to `{{docs-header}}`
+- [ BREAKING ]The setup for your dummy app's `/docs/template.hbs` is simpler and should be updated. Check out the docs for example usage.
+- The navigation section of `{{docs-viewer}}` has a new contextual component `{{viewer.section}}` that you should use to group your guides. (The nav layout was designed to expect a section for the first item). See the docs for example usage.
+- [ BREAKING ] Removes yield for alt-logo in docs-hero. The block below the byline is now yielded. (We will introduce a new api for custom project logos later).
+- Adds `style` arg to docs-hero which can be "light" or "dark". Defaults to "light".
 
 ## 0.2.4
 
