@@ -35,7 +35,7 @@ export default Component.extend({
 
   logo: addonLogo(packageJson),
 
-  addonName: computed(function() {
+  name: computed(function() {
     let name = packageJson.name;
     name = name.replace('ember-data-', '');
     name = name.replace('ember-cli-', '');
