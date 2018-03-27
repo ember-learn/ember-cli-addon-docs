@@ -147,8 +147,9 @@ module.exports = {
 
   treeForAddon(tree) {
     let dummyAppFiles = new FindDummyAppFiles([ 'tests/dummy/app' ]);
+    let addonFiles = new FindAddonFiles([ 'addon' ]);
 
-    return this._super(new MergeTrees([ tree, dummyAppFiles ]));
+    return this._super(new MergeTrees([ tree, dummyAppFiles, addonFiles ]));
   },
 
   treeForVendor(vendor) {
@@ -277,6 +278,16 @@ class FindDummyAppFiles extends Plugin {
     let pathsString = JSON.stringify(paths);
 
     fs.writeFileSync(path.join(this.outputPath, 'app-files.js'), `export default ${pathsString};`);
+  }
+}
+
+class FindAddonFiles extends Plugin {
+  build() {
+    let addonPath = this.inputPaths[0];
+    let paths = walkSync(addonPath, { directories: false })
+    let pathsString = JSON.stringify(paths);
+
+    fs.writeFileSync(path.join(this.outputPath, 'addon-files.js'), `export default ${pathsString};`);
   }
 }
 
