@@ -35,8 +35,9 @@ export default Component.extend({
 
       return `${packageJson.repository}/edit/master/addon/components/${klass}/component.js`;
     } else {
-      let templatePath = `pods/${path}`;
-      let file = appFiles.find(file => file.match(`${templatePath}/template.(hbs|md)`));
+      let file = appFiles
+        .filter(file => file.match(/template.(hbs|md)/))
+        .find(file => file.match(path));
 
       return `${packageJson.repository}/edit/master/tests/dummy/app/${file}`;
     }
