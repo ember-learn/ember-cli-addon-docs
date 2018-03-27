@@ -111,3 +111,21 @@ export function hasMemberType(...memberKeys) {
   });
 }
 
+/**
+  @hide
+*/
+export function addonLogo(packageJson) {
+  return computed(function() {
+    let name = packageJson.name;
+    let logo;
+    if (name.match(/ember-cli/)) {
+      logo = 'ember-cli';
+    } else if (name.match(/ember-data/)) {
+      logo = 'ember-data';
+    } else {
+      logo = 'ember';
+    }
+
+    return logo;
+  });
+}
