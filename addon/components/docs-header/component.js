@@ -9,7 +9,7 @@ const packageJson = config['ember-cli-addon-docs'].packageJson;
 
 /**
   Render a header showing a link to your documentation, your project logo, a
-  search bar, and a link to your rpeo on GitHub.
+  search bar, and a link to your repo on GitHub.
 
   Yields a `link` contextual component which can be used to add additional
   header links.
