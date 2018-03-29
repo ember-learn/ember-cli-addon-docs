@@ -3,7 +3,7 @@ import Component from '@ember/component';
 import layout from './template';
 import { computed } from '@ember/object';
 import appFiles from 'ember-cli-addon-docs/app-files';
-import { dasherize } from '@ember/string';
+import addonFiles from 'ember-cli-addon-docs/addon-files';
 import config from 'dummy/config/environment';
 import { getOwner } from '@ember/application';
 
@@ -23,20 +23,23 @@ export default Component.extend({
   editCurrentPageUrl: computed('router.currentRouteName', function() {
     let path = this.get('router.currentRouteName');
     if (!path) {
-      // `routing` doesn't exist for old ember versions via ember-try
+      // `router` doesn't exist for old ember versions via ember-try
       return;
     }
+
     path = path.replace(/\./g, '/');
 
-    if (path === 'docs/api/class') {
-      let params = getOwner(this).lookup('route:application').paramsFor('docs.api.class');
-      let klass = dasherize(params.class_id.replace(/-.+$/g, ''));
-      let path = `pods/${path}`;
+    if (path === 'docs/api/item') {
+      let { path } = getOwner(this).lookup('route:application').paramsFor('docs.api.item');
+      let file = addonFiles.find(f => f.match(path));
 
-      return `${packageJson.repository}/edit/master/addon/components/${klass}/component.js`;
+      if (file) {
+        return `${packageJson.repository}/edit/master/addon/${file}`;
+      }
     } else {
-      let templatePath = `pods/${path}`;
-      let file = appFiles.find(file => file.match(`${templatePath}/template.(hbs|md)`));
+      let file = appFiles
+        .filter(file => file.match(/template.(hbs|md)/))
+        .find(file => file.match(path));
 
       return `${packageJson.repository}/edit/master/tests/dummy/app/${file}`;
     }
