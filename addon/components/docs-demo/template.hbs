@@ -9,16 +9,15 @@
   {{#if snippets}}
     <nav class="docs-demo__snippets-nav py-2 px-4 font-medium bg-grey-lighter tracking-tight">
       {{#each snippets as |snippet|}}
-        <a href='#' {{action 'selectSnippet' snippet}}
+        <button {{action 'selectSnippet' snippet}}
           class='
-            docs-demo__snippets-nav-item
-            mr-4 text-sm no-underline
+            mr-4 text-sm no-underline outline-none
             hover:text-grey-darkest
             {{if snippet.isActive 'text-grey-darkest' 'text-grey-dark'}}
           '
         >
           {{snippet.label}}
-        </a>
+        </button>
       {{/each}}
     </nav>
   {{/if}}
