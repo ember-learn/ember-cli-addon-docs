@@ -1,28 +1,28 @@
 'use strict';
 
-import colors from '../colors';
-import screens from '../screens';
-import fonts from '../fonts';
-import textSizes from '../text-sizes';
-import fontWeights from '../font-weights';
-import leading from '../line-height';
-import tracking from '../letter-spacing';
-import borderWidths from '../border-widths';
-import borderRadius from '../border-radius';
-import width from '../width';
-import height from '../height';
-import minWidth from '../min-width';
-import minHeight from '../min-height';
-import maxWidth from '../max-width';
-import maxHeight from '../max-height';
-import padding from '../padding';
-import margin from '../margin';
-import negativeMargin from '../negative-margin';
-import shadows from '../shadows';
-import zIndex from '../z-index';
-import opacity from '../opacity';
-import svgFill from '../svg-fill';
-import svgStroke from '../svg-stroke';
+import colors from './colors';
+import screens from './screens';
+import fonts from './fonts';
+import textSizes from './text-sizes';
+import fontWeights from './font-weights';
+import leading from './line-height';
+import tracking from './letter-spacing';
+import borderWidths from './border-widths';
+import borderRadius from './border-radius';
+import width from './width';
+import height from './height';
+import minWidth from './min-width';
+import minHeight from './min-height';
+import maxWidth from './max-width';
+import maxHeight from './max-height';
+import padding from './padding';
+import margin from './margin';
+import negativeMargin from './negative-margin';
+import shadows from './shadows';
+import zIndex from './z-index';
+import opacity from './opacity';
+import svgFill from './svg-fill';
+import svgStroke from './svg-stroke';
 
 export default {
 
