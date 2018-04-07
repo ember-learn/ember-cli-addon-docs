@@ -1,0 +1,9 @@
+.docs-btn {
+  @apply bg-grey-light border-b-2 border-grey-dark py-2 px-4 outline-none;
+}
+.docs-btn:hover {
+  @apply bg-grey;
+}
+.docs-btn:focus {
+  @apply outline-none;
+}
