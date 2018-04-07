@@ -50,6 +50,7 @@ export default Component.extend({
     and whether or not it is active.
 
     @computed snippets
+    @private
     @type Array<Object>
     @readOnly
    */
