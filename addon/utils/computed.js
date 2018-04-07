@@ -67,15 +67,20 @@ export function memberFilter(classKey, memberType) {
       let showPrivate = this.get('showPrivate');
       let showDeprecated = this.get('showDeprecated');
 
+      let members = [];
+
       if (showInternal === false && memberType !== 'arguments') {
-        return [];
+        return members;
       }
 
       let capitalKey = capitalize(memberType);
 
-      let members = showInherited ? klass.get(`allPublic${capitalKey}`) : klass.get(`public${capitalKey}`);
+
+      let publicMembers = showInherited ? klass.get(`allPublic${capitalKey}`) : klass.get(`public${capitalKey}`);
       let privateMembers = showInherited ? klass.get(`allPrivate${capitalKey}`) : klass.get(`private${capitalKey}`);
       let protectedMembers = showInherited ? klass.get(`allProtected${capitalKey}`) : klass.get(`protected${capitalKey}`);
+
+      members.push(...publicMembers);
 
       if (showPrivate) {
         members.push(...privateMembers);
