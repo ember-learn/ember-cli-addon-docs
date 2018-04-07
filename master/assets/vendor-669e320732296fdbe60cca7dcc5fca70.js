@@ -7733,12 +7733,11 @@ var i={},o=!0,s=!1,a=void 0
 try{for(var l,u=r[Symbol.iterator]();!(o=(l=u.next()).done);o=!0){var c=l.value
 i[c.name]=c}}catch(e){s=!0,a=e}finally{try{!o&&u.return&&u.return()}finally{if(s)throw a}}var h=!0,d=!1,p=void 0
 try{for(var f,m=n[Symbol.iterator]();!(h=(f=m.next()).done);h=!0){var g=f.value
-i[g.name]=g}}catch(e){d=!0,p=e}finally{try{!h&&m.return&&m.return()}finally{if(d)throw p}}return Object.values(i)})},e.memberFilter=function(e,n){return Ember.computed(e,"showInherited","showInternal","showProtected","showPrivate","showDeprecated",function(){var i=this.get(e),o=this.get("showInternal"),s=this.get("showInherited"),a=this.get("showProtected"),l=this.get("showPrivate"),u=this.get("showDeprecated")
-if(!1===o&&"arguments"!==n)return[]
-var c,h,d=Ember.String.capitalize(n),p=s?i.get("allPublic"+d):i.get("public"+d),f=s?i.get("allPrivate"+d):i.get("private"+d),m=s?i.get("allProtected"+d):i.get("protected"+d)
-l&&(c=p).push.apply(c,t(f))
-a&&(h=p).push.apply(h,t(m))
-return u||(p=p.filter(function(e){return!e.tags||!e.tags.find(function(e){return"deprecated"===e.name})})),p.sort(r)})},e.hasMemberType=function(){for(var e=arguments.length,r=Array(e),n=0;n<e;n++)r[n]=arguments[n]
+i[g.name]=g}}catch(e){d=!0,p=e}finally{try{!h&&m.return&&m.return()}finally{if(d)throw p}}return Object.values(i)})},e.memberFilter=function(e,n){return Ember.computed(e,"showInherited","showInternal","showProtected","showPrivate","showDeprecated",function(){var i,o=this.get(e),s=this.get("showInternal"),a=this.get("showInherited"),l=this.get("showProtected"),u=this.get("showPrivate"),c=this.get("showDeprecated"),h=[]
+if(!1===s&&"arguments"!==n)return h
+var d,p,f=Ember.String.capitalize(n),m=a?o.get("allPublic"+f):o.get("public"+f),g=a?o.get("allPrivate"+f):o.get("private"+f),y=a?o.get("allProtected"+f):o.get("protected"+f);((i=h).push.apply(i,t(m)),u)&&(d=h).push.apply(d,t(g))
+l&&(p=h).push.apply(p,t(y))
+return c||(h=h.filter(function(e){return!e.tags||!e.tags.find(function(e){return"deprecated"===e.name})})),h.sort(r)})},e.hasMemberType=function(){for(var e=arguments.length,r=Array(e),n=0;n<e;n++)r[n]=arguments[n]
 var i=r.pop()
 return Ember.computed.apply(void 0,t(r.map(function(e){return e+".[]"})).concat([{get:function(){var e=this
 return r.some(function(t){return e.get(t).some(function(e){return i(e,t)})})}}]))},e.addonLogo=function(e){return Ember.computed(function(){var t=e.name
