@@ -15,7 +15,7 @@ const packageJson = config['ember-cli-addon-docs'].packageJson;
   header links.
 
   ```hbs
-  {{#docs-header logo='ember-cli' name='AddonDocs' as |header|}}
+  {{#docs-header as |header|}}
     {{#header.link 'sandbox'}}
       Sandbox
     {{/header.link}}
