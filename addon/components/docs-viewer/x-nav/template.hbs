@@ -7,7 +7,7 @@
   </div>
 {{/if}}
 
-<nav {{action (mut isShowingMenu) false}}
+<nav onclick={{action (mut isShowingMenu) false}}
   class='
     absolute pin-r lg:relative bg-white shadow-lg lg:shadow-none
     w-90% px-3 lg:px-0 z-10 lg:w-1/5 flex-no-shrink transition
@@ -20,7 +20,7 @@
   <div class='pt-px sticky pin-t mb-8 '>
     {{#if (or media.isMobile media.isTablet)}}
       <div class="text-right">
-        <button {{action (mut isShowingMenu) false}}
+        <button onclick={{action (mut isShowingMenu) false}}
           class='text-grey-darkest opacity-50 hover:opacity-100 text-3xl py-2 no-underline'>
           &times;
         </button>

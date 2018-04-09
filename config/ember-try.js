@@ -16,6 +16,17 @@ module.exports = function() {
           command: 'yarn test:node'
         },
         {
+          name: 'ember-lts-2.8',
+          bower: {
+            dependencies: {
+              'ember': 'components/ember#lts-2-8'
+            },
+            resolutions: {
+              'ember': 'lts-2-8'
+            }
+          },
+        },
+        {
           name: 'ember-lts-2.12',
           npm: {
             devDependencies: {
