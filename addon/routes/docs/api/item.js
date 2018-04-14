@@ -17,7 +17,7 @@ export default Route.extend({
         || module;
     } else {
       let modules = this.store.peekAll('module');
-      let matches = modules.filter(m => m.id.match(path));
+      let matches = modules.filter(m => (m.get('file') === `/${path}`));
       let module = matches[0];
 
       assert(`no modules match the path '${path}'`, matches.length > 0);
