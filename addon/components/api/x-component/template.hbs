@@ -1,7 +1,7 @@
-<h1 class='docs-h1'>{{component.name}}</h1>
+<h1 class='docs-h1' data-test-component-name>{{component.name}}</h1>
 
 {{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
-<div>{{{component.description}}}</div>
+<div data-test-component-name>{{{component.description}}}</div>
 
 {{#if hasContents}}
   <div class="flex flex-row-reverse">

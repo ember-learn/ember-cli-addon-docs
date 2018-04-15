@@ -6,7 +6,6 @@ export default DS.Model.extend({
   file: attr(),
   variables: attr(),
   functions: attr(),
-  helpers: attr(),
 
   classes: hasMany('class', { async: false, }),
   components: hasMany('class', { async: false, })
