@@ -53,7 +53,7 @@ of the box we will create two `.md` files (one for your docs `index` and one
 for the `usage` page).
 
   {{#docs-snippet name='quickstart-markdown-index.md' title='tests/dummy/app/templates/docs/index.md' language='markdown'}}
-    # Index
+    # Introduction
 
     This is my new addon, and it rocks!
   {{/docs-snippet}}
