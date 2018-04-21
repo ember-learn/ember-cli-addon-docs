@@ -17,7 +17,7 @@
 
     }}
   '>
-  <div class='pt-px sticky pin-t mb-8 '>
+  <div class='pt-px sticky pin-t mb-8 lg:max-h-screen lg:-mt-4 lg:pt-4 lg:overflow-y-scroll'>
     {{#if (or media.isMobile media.isTablet)}}
       <div class="text-right">
         <button onclick={{action (mut isShowingMenu) false}}
@@ -66,7 +66,7 @@
       {{/if}}
     {{/docs-viewer/x-nav-list}}
 
-    <div class="mt-16 mr-2 text-xs rounded">
+    <div class="mt-16 lg:mb-16 mr-2 text-xs rounded">
       <a href="https://github.com/ember-learn/ember-cli-addon-docs"
         class='opacity-50 hover:opacity-100 transition no-underline
         text-inherit flex items-center text-grey-darkest'>
