@@ -1,0 +1,43 @@
+{{#modal-dialog
+  tetherTarget='[data-version-selector]'
+  attachment='top right'
+  clickOutsideToClose=true
+  onClose=(action on-close)
+  targetAttachment='bottom right'}}
+  <ul class="list-reset mt-2 bg-white shadow-md text-sm rounded z-10">
+    {{#each sortedVersions as |version|}}
+      <li data-test-id='version'>
+        <a {{action 'changeVersion' version}} href='#' class='text-black no-underline flex items-center px-4 py-3 hover:bg-grey-lighter'>
+          <span class='w-6 flex'>
+            {{#if (eq version currentVersion)}}
+              {{svg-jar 'check' height=16 width=16}}
+            {{/if}}
+          </span>
+          <span class='font-medium'>
+            {{if (eq version.name 'latest') 'Latest' version.name}}
+          </span>
+
+          <span class="ml-auto pl-8 flex items-center opacity-50">
+            {{#if (or (eq version.name 'latest') (eq version.name 'master'))}}
+              {{svg-jar (if version.tag 'git-tag' 'git-sha') height=16 width=16}}
+            {{else}}
+              {{svg-jar 'git-sha' height=16 width=16}}
+            {{/if}}
+
+            <span class='text-xs font-mono pl-1'>
+              {{#if (or (eq version.name 'latest') (eq version.name 'master'))}}
+                {{#if version.tag}}
+                  {{version.tag}}
+                {{else}}
+                  {{version.truncatedSha}}
+                {{/if}}
+              {{else}}
+                {{version.truncatedSha}}
+              {{/if}}
+            </span>
+          </span>
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+{{/modal-dialog}}

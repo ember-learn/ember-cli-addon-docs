@@ -22,8 +22,21 @@
 
       {{docs-header/search-box query=query on-input=(action (mut query))}}
 
-      {{#docs-header/link href=(concat packageJson.repository '/releases')}}
-        v{{packageJson.version}}
+      {{#docs-header/link on-click=(action (toggle 'isShowingVersionSelector' this)) data-test-id='current-version'}}
+        <span data-version-selector class='flex items-center'>
+
+          {{#if (or (eq currentVersion.name 'latest'))}}
+            {{#if currentVersion.tag}}
+              {{currentVersion.tag}}
+            {{else}}
+              Latest
+            {{/if}}
+          {{else}}
+            {{currentVersion.name}}
+          {{/if}}
+
+          {{svg-jar 'caret' height=12 width=12}}
+        </span>
       {{/docs-header/link}}
 
       {{#if packageJson.repository}}
@@ -41,6 +54,9 @@
 </header>
 
 {{#if query}}
-  {{docs-header/search-results query=query
-    on-visit=(action 'didVisitPage')}}
+  {{docs-header/search-results query=query on-visit=(action 'didVisitPage')}}
+{{/if}}
+
+{{#if isShowingVersionSelector}}
+  {{docs-header/version-selector on-close=(action (mut isShowingVersionSelector false))}}
 {{/if}}

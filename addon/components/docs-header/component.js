@@ -4,6 +4,8 @@ import config from 'dummy/config/environment';
 import { computed } from '@ember/object';
 import { classify } from '@ember/string';
 import { addonLogo } from 'ember-cli-addon-docs/utils/computed';
+import { inject as service } from '@ember/service';
+import { reads } from '@ember/object/computed';
 
 const packageJson = config['ember-cli-addon-docs'].packageJson;
 
@@ -32,6 +34,12 @@ export default Component.extend({
   tagName: '',
 
   packageJson: packageJson,
+  projectVersion: service(),
+
+  didInsertElement() {
+    this._super(...arguments);
+    this.get('projectVersion').loadAvailableVersions();
+  },
 
   logo: addonLogo(packageJson),
 
@@ -43,6 +51,8 @@ export default Component.extend({
 
     return classify(name);
   }),
+
+  currentVersion: reads('projectVersion.currentVersion'),
 
   actions: {
     didVisitPage() {

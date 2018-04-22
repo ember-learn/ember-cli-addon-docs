@@ -1,9 +1,11 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { visit, click, currentURL } from '@ember/test-helpers';
 
 module('Acceptance | Docs route test', function(hooks) {
   setupApplicationTest(hooks);
+  setupMirage(hooks);
 
   test('the docs route renders', async function(assert) {
     await visit('/docs');

@@ -11,7 +11,6 @@ const packageJson = config['ember-cli-addon-docs'].packageJson;
 export default Component.extend({
   layout,
   tagName: '',
-  // classNames: 'docs-viewer__nav',
 
   root: 'docs',
 
@@ -25,8 +24,6 @@ export default Component.extend({
 
     return classify(packageJson.name.replace(`${logo}-`, ''));
   }),
-
-  releasesUrl: `${packageJson.repository}/releases`,
 
   project: computed(function() {
     return this.get('store').peekRecord('project', packageJson.name);
