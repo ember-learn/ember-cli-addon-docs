@@ -1,38 +1,48 @@
 import Service from '@ember/service';
 import { getOwner } from '@ember/application';
-import { resolve } from 'rsvp';
 import fetch from 'fetch';
+import { computed } from '@ember/object';
+import { task } from 'ember-concurrency';
 
 export default Service.extend({
   current: null,
   root: null,
 
-  init() {
-    this._super(...arguments);
-
+  _loadAvailableVersions: task(function*() {
     let { rootURL } = getOwner(this).resolveRegistration('config:environment');
     let slash = rootURL.indexOf('/', 1);
 
     // TODO deal with apps deployed to custom domains, so their pathnames don't have a leading
     // segmenet for the project name. This will impact this service and the 404 page.
     this.set('root', rootURL.slice(0, slash));
+    let currentFromURL = rootURL.substring(slash + 1).replace(/\/$/, '');
+    this.set('current', currentFromURL || 'latest'); // dev-time guard. Think of a better way?
 
-    if (slash === -1) {
-      this.set('current', 'development');
-      this.set('_versionsPromise', resolve([{ name: 'development', path: '' }]));
-    } else {
-      this.set('current', rootURL.substring(slash + 1).replace(/\/$/, ''));
-      this.set('_versionsPromise', fetch(`${this.get('root')}/versions.json`)
-        .then(result => result.json())
-        .then(json => Object.keys(json).map(key => json[key])));
-    }
-  },
+    let response = yield fetch(`${this.get('root')}/versions.json`);
+    let json = yield response.json();
+
+    this.set('versions', Object.keys(json).map(key => {
+      let version = json[key];
+      version.truncatedSha = version.sha.substr(0,5);
+
+      return version;
+    }));
+  }),
 
   redirectTo(version) {
     window.location.href = `${this.get('root')}/${version.path || version}`;
   },
 
-  getAvailableVersions() {
-    return this.get('_versionsPromise');
-  }
+  loadAvailableVersions() {
+    return this.get('_loadAvailableVersions').perform();
+  },
+
+  currentVersion: computed('versions.[]', function() {
+    let versions = this.get('versions');
+
+    if (versions) {
+      return versions.find(version => version.name === this.get('current'));
+    }
+  })
+
 });

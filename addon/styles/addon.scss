@@ -34,3 +34,7 @@ svg {
 .sticky {
   position: sticky;
 }
+
+.ember-modal-dialog {
+  z-index: 10;
+}
