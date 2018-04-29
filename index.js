@@ -54,9 +54,6 @@ module.exports = {
       },
       'ember-cli-addon-docs': {
         packageJson: this.parent.pkg
-      },
-      'ember-cli-mirage': {
-        directory: path.resolve(this.root, path.join('addon', 'mirage'))
       }
     };
 

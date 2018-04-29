@@ -9,7 +9,9 @@ export default Service.extend({
   root: null,
 
   _loadAvailableVersions: task(function*() {
-    let { rootURL } = getOwner(this).resolveRegistration('config:environment');
+    let config = getOwner(this).resolveRegistration('config:environment');
+    let rootURL = config.rootURL;
+    let tag = config['ember-cli-addon-docs'].packageJson.version;
     let slash = rootURL.indexOf('/', 1);
 
     // TODO deal with apps deployed to custom domains, so their pathnames don't have a leading
@@ -19,7 +21,7 @@ export default Service.extend({
     this.set('current', currentFromURL || 'latest'); // dev-time guard. Think of a better way?
 
     let response = yield fetch(`${this.get('root')}/versions.json`);
-    let json = yield response.json();
+    let json = yield response.ok ? response.json() : [{ name: 'latest', tag, sha: '12345', path: '/' }];
 
     this.set('versions', Object.keys(json).map(key => {
       let version = json[key];
