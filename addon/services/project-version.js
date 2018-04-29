@@ -11,7 +11,7 @@ export default Service.extend({
   _loadAvailableVersions: task(function*() {
     let config = getOwner(this).resolveRegistration('config:environment');
     let rootURL = config.rootURL;
-    let tag = config['ember-cli-addon-docs'].packageJson.version;
+    let tag = config['ember-cli-addon-docs'].projectTag;
     let slash = rootURL.indexOf('/', 1);
 
     // TODO deal with apps deployed to custom domains, so their pathnames don't have a leading

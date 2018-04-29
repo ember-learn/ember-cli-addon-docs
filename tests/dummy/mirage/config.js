@@ -1,12 +1,12 @@
 import config from 'dummy/config/environment';
-const packageJson = config['ember-cli-addon-docs'].packageJson;
+const projectTag = config['ember-cli-addon-docs'].projectTag;
 
 export default function() {
   this.get('/versions.json', () => {
     return {
       "latest": {
         "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
-        "tag": packageJson.version,
+        "tag": projectTag,
         "path": "latest",
         "name": "latest"
       },

@@ -7,7 +7,7 @@ import addonFiles from 'ember-cli-addon-docs/addon-files';
 import config from 'dummy/config/environment';
 import { getOwner } from '@ember/application';
 
-const packageJson = config['ember-cli-addon-docs'].packageJson;
+const projectHref = config['ember-cli-addon-docs'].projectHref;
 
 export default Component.extend({
   layout,
@@ -34,14 +34,14 @@ export default Component.extend({
       let file = addonFiles.find(f => f.match(path));
 
       if (file) {
-        return `${packageJson.repository}/edit/master/addon/${file}`;
+        return `${projectHref}/edit/master/addon/${file}`;
       }
     } else {
       let file = appFiles
         .filter(file => file.match(/template.(hbs|md)/))
         .find(file => file.match(path));
 
-      return `${packageJson.repository}/edit/master/tests/dummy/app/${file}`;
+      return `${projectHref}/edit/master/tests/dummy/app/${file}`;
     }
   })
 

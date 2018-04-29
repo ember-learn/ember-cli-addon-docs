@@ -7,7 +7,7 @@ import { addonLogo } from 'ember-cli-addon-docs/utils/computed';
 import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
 
-const packageJson = config['ember-cli-addon-docs'].packageJson;
+const { projectName, projectHref } = config['ember-cli-addon-docs'];
 
 /**
   Render a header showing a link to your documentation, your project logo, a
@@ -33,18 +33,19 @@ export default Component.extend({
   layout,
   tagName: '',
 
-  packageJson: packageJson,
   projectVersion: service(),
+
+  projectHref,
 
   didInsertElement() {
     this._super(...arguments);
     this.get('projectVersion').loadAvailableVersions();
   },
 
-  logo: addonLogo(packageJson),
+  logo: addonLogo(projectName),
 
   name: computed(function() {
-    let name = packageJson.name;
+    let name = projectName;
     name = name.replace('ember-data-', '');
     name = name.replace('ember-cli-', '');
     name = name.replace('ember-', '');
