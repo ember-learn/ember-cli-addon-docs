@@ -19,7 +19,7 @@ export default Service.extend({
     this.set('current', currentFromURL || 'latest'); // dev-time guard. Think of a better way?
 
     let response = yield fetch(`${this.get('root')}/versions.json`);
-    let json = yield response.json();
+    let json = yield response.ok ? response.json() : [{ name: 'latest', sha: 'abcde', path: '/' }];
 
     this.set('versions', Object.keys(json).map(key => {
       let version = json[key];
