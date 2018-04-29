@@ -8,13 +8,11 @@ module('Acceptance | Version selector test', function(hooks) {
   setupMirage(hooks);
 
   test('if the current version is latest and latest has a tag, it displays the tag', async function(assert) {
-    server.get('/versions.json', {
-      "latest": {
-        "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
-        "tag": 'v0.1.0',
-        "path": "latest",
-        "name": "latest"
-      },
+    this.owner.lookup('service:project-version').set('currentVersion', {
+      "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
+      "tag": 'v0.1.0',
+      "path": "latest",
+      "name": "latest"
     });
 
     await visit('/');
@@ -23,13 +21,11 @@ module('Acceptance | Version selector test', function(hooks) {
   });
 
   test(`if the current version is latest and latest doesn't have a tag, it displays Latest`, async function(assert) {
-    server.get('/versions.json', {
-      "latest": {
-        "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
-        "tag": null,
-        "path": "latest",
-        "name": "latest"
-      },
+    this.owner.lookup('service:project-version').set('currentVersion', {
+      "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
+      "tag": null,
+      "path": "latest",
+      "name": "latest"
     });
 
     await visit('/');

@@ -22,7 +22,7 @@
       // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
       // https://username.github.io/repo-name/?p=/one/two&q=a=b~and~c=d#qwe
       // Otherwise, leave segmentCount as 0.
-      var segmentCount = 2;
+      var segmentCount = ADDON_DOCS_SEGMENT_COUNT;
       var l = window.location;
       var segments = l.pathname.split('/');
 
@@ -38,5 +38,5 @@
       }
     </script>
   </head>
-  <body>The request page wasn't found.</body>
+  <body>The requested page wasn't found.</body>
 </html>
