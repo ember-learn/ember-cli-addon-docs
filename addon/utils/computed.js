@@ -119,9 +119,8 @@ export function hasMemberType(...memberKeys) {
 /**
   @hide
 */
-export function addonLogo(packageJson) {
+export function addonLogo(name) {
   return computed(function() {
-    let name = packageJson.name;
     let logo;
     if (name.match(/ember-cli/)) {
       logo = 'ember-cli';

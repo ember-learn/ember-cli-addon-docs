@@ -6,7 +6,7 @@ import config from 'dummy/config/environment';
 import { classify } from '@ember/string';
 import { addonLogo } from 'ember-cli-addon-docs/utils/computed';
 
-const packageJson = config['ember-cli-addon-docs'].packageJson;
+const projectName = config['ember-cli-addon-docs'].projectName;
 
 export default Component.extend({
   layout,
@@ -15,17 +15,16 @@ export default Component.extend({
   root: 'docs',
 
   store: service(),
-  packageJson,
 
-  addonLogo: addonLogo(packageJson),
+  addonLogo: addonLogo(projectName),
 
   addonTitle: computed('addonLogo', function() {
     let logo = this.get('addonLogo');
 
-    return classify(packageJson.name.replace(`${logo}-`, ''));
+    return classify(projectName.replace(`${logo}-`, ''));
   }),
 
   project: computed(function() {
-    return this.get('store').peekRecord('project', packageJson.name);
+    return this.get('store').peekRecord('project', projectName);
   })
 });

@@ -39,8 +39,8 @@
         </span>
       {{/docs-header/link}}
 
-      {{#if packageJson.repository}}
-        {{#docs-header/link href=packageJson.repository}}
+      {{#if projectHref}}
+        {{#docs-header/link href=projectHref}}
           <span class='flex'>
             {{svg-jar 'github' width=24 height=24}}
           </span>

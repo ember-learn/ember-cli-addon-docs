@@ -48,12 +48,17 @@ module.exports = {
   },
 
   config(env, baseConfig) {
+    let repo = this.parent.pkg.repository;
+    let info = require('hosted-git-info').fromUrl(repo.url || repo);
+
     let config = {
       'ember-component-css': {
         namespacing: false
       },
       'ember-cli-addon-docs': {
-        packageJson: this.parent.pkg
+        projectName: this.parent.pkg.name,
+        projectTag: this.parent.pkg.version,
+        projectHref: info && info.browse()
       }
     };
 
