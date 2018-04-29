@@ -26,6 +26,12 @@
       var l = window.location;
       var segments = l.pathname.split('/');
 
+      // If we're looking at a versioned deploy, there are effectively
+      // two more static segments in the count.
+      if (segments[segmentCount + 1] === 'v') {
+        segmentCount += 2;
+      }
+
       // Avoid an infinite loop if we try to direct to a location that doesn't exist
       if (!/^\?p=\/.*&q=.*/.test(l.search)) {
         l.replace(
