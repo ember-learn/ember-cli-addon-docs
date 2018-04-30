@@ -15,12 +15,11 @@ export default Component.extend(EKMixin, {
     this.set('keyboardActivated', true);
   },
 
-  focusSearch: on(keyUp('Slash'), keyUp('KeyS'), function() {
+  focusSearch: on(keyUp('Slash'), function() {
     this.element.querySelector('input').focus();
   }),
 
   unfocusSearch: on(keyUp('Escape'), function() {
     this.get('on-input')(null);
   })
-
 });
