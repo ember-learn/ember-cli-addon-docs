@@ -2,6 +2,8 @@
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 const Project = require('ember-cli/lib/models/project');
+const MergeTrees = require('broccoli-merge-trees');
+const Funnel = require('broccoli-funnel');
 
 module.exports = function(defaults) {
   let project = Project.closestSync(process.cwd());
@@ -21,9 +23,12 @@ module.exports = function(defaults) {
     },
     'ember-cli-addon-docs': {
       projects: {
-        sandbox: {
-          tree: 'sandbox'
-        }
+        sandbox: new MergeTrees([
+          new Funnel('sandbox/app', { destDir: 'sandbox' }),
+          new Funnel('sandbox', {
+            include: ['package.json', 'README.md']
+          })
+        ])
       }
     }
   });
