@@ -16,8 +16,13 @@ export default Route.extend({
         || module.get('classes').findBy('id', itemId)
         || module;
     } else {
+      // Create a regex that will match modules by either the path, or the
+      // pod-path (/component, /route, etc)
+      let type = path.match(/^(.*)s\//)[1];
+      let pathRegex = new RegExp(`${path}(/${type})?$`);
+
       let modules = this.store.peekAll('module');
-      let matches = modules.filter(m => m.id.match(path));
+      let matches = modules.filter(m => m.id.match(pathRegex));
       let module = matches[0];
 
       assert(`no modules match the path '${path}'`, matches.length > 0);
