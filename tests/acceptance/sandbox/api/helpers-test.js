@@ -37,7 +37,7 @@ module('Acceptance | API | helpers', function(hooks) {
 
         assert.equal(
           helperItem.importPath,
-          `import { ${helperName} } from 'ember-cli-addon-docs/helpers/${kebabName}';`,
+          `import { ${helperName} } from 'sandbox/helpers/${kebabName}';`,
           'renders the import path correctly'
         );
 

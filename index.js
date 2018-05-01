@@ -10,14 +10,6 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 
-const DEFAULT_PROJECTS = {
-  main: {
-    tree: null,
-    include: null,
-    includeTrees: ['addon']
-  }
-}
-
 module.exports = {
   name: 'ember-cli-addon-docs',
 
@@ -95,7 +87,7 @@ module.exports = {
     }
 
     this.addonOptions = Object.assign({}, includer.options['ember-cli-addon-docs']);
-    this.addonOptions.projects = Object.assign({}, DEFAULT_PROJECTS, this.addonOptions.projects);
+    this.addonOptions.projects = Object.assign({}, this.addonOptions.projects);
 
     includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
     includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
@@ -182,35 +174,10 @@ module.exports = {
     let project = this.project;
     let docsTrees = [];
 
+    this.addonOptions.projects.main = this.addonOptions.projects.main || generateDefaultProject(parentAddon);
+
     for (let projectName in this.addonOptions.projects) {
-      let docProject = this.addonOptions.projects[projectName];
-
-      let addonSourceTree;
-
-      if (docProject.tree) {
-        addonSourceTree = docProject.tree;
-      } else {
-        let include = docProject.include || [];
-        let includeTrees = docProject.includeTrees || [];
-
-        let includeTreePaths = includeTrees.map(t => parentAddon.treePaths[t]);
-        let includeFunnels = [
-          // We need to be very careful to avoid triggering a watch on the addon root here
-          // because of https://github.com/nodejs/node/issues/15683
-          new Funnel(new UnwatchedDir(parentAddon.root), {
-            include: ['package.json', 'README.md']
-          })
-        ];
-
-        for (let path of include.concat(includeTreePaths)) {
-          let fullPath = `${parentAddon.root}/${path}`;
-          if (fs.existsSync(fullPath)) {
-            includeFunnels.push(new Funnel(fullPath, { destDir: path }));
-          }
-        }
-
-        addonSourceTree = new MergeTrees(includeFunnels);
-      }
+      let addonSourceTree = this.addonOptions.projects[projectName];
 
       let pluginRegistry = new PluginRegistry(project);
 
@@ -277,6 +244,33 @@ function findImporter(addon) {
     } while (current.parent.parent && (current = current.parent));
     return app;
   }
+}
+
+function generateDefaultProject(parentAddon) {
+  let includeFunnels = [
+    // We need to be very careful to avoid triggering a watch on the addon root here
+    // because of https://github.com/nodejs/node/issues/15683
+    new Funnel(new UnwatchedDir(parentAddon.root), {
+      include: ['package.json', 'README.md']
+    })
+  ];
+
+  let addonTreePath = path.join(parentAddon.root, parentAddon.treePaths['addon']);
+  let testSupportPath = path.join(parentAddon.root, parentAddon.treePaths['addon-test-support']);
+
+  if (fs.existsSync(addonTreePath)) {
+    includeFunnels.push(new Funnel(addonTreePath, {
+      destDir: parentAddon.name
+    }));
+  }
+
+  if (fs.existsSync(testSupportPath)) {
+    includeFunnels.push(new Funnel(testSupportPath, {
+      destDir: `${parentAddon.name}/test-support`
+    }));
+  }
+
+  return new MergeTrees(includeFunnels);
 }
 
 class FindDummyAppFiles extends Plugin {

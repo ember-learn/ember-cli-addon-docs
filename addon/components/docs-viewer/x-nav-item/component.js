@@ -11,6 +11,11 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
+    let model = this.get('model');
+
+    if (typeof model === 'string' && model.includes('#')) {
+      return;
+    }
 
     next(() => {
       this.get('docsRoutes.items').addObject(this);
