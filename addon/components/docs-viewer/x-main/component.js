@@ -38,7 +38,7 @@ export default Component.extend({
       }
     } else {
       let file = appFiles
-        .filter(file => file.match(/template.(hbs|md)/))
+        .filter(file => file.match(/template.+(hbs|md)/))
         .find(file => file.match(path));
 
       return `${projectHref}/edit/master/tests/dummy/app/${file}`;
