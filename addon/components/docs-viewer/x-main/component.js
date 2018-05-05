@@ -11,10 +11,10 @@ import layout from './template';
 
 const projectHref = config['ember-cli-addon-docs'].projectHref;
 
-const tagToSize = { H2: 'sm', H3: 'xs' };
-const tagToIndent = { H2: '0', H3: '2' };
-const tagToMarginTop = { H2: '2', H3: '0' };
-const tagToMarginBottom = { H2: '1', H3: '0' };
+const tagToSize = { H2: 'xs', H3: 'xs' };
+const tagToIndent = { H2: '0', H3: '4' };
+const tagToMarginTop = { H2: '2', H3: '2' };
+const tagToMarginBottom = { H2: '0', H3: '0' };
 
 export default Component.extend({
   layout,
@@ -24,7 +24,7 @@ export default Component.extend({
   pageIndex: service(),
 
   tagName: 'main',
-  classNames: ['lg:w-4/5', 'xl:w-3/5', 'max-w-md', 'lg:max-w-none', 'mx-auto', 'lg:mx-0', 'mt-6'],
+  classNames: ['lg:w-4/5', 'xl:w-3/5', 'max-w-md', 'lg:max-w-none', 'mx-auto', 'lg:mx-0', 'mt-6', 'flex-no-shrink'],
 
   didInsertElement() {
     this._super(...arguments);
