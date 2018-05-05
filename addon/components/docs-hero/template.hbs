@@ -3,23 +3,21 @@
   {{if (eq style 'light') 'text-grey-darkest'}}
   {{if (eq style 'dark') 'bg-black text-white'}}
 ">
-  <div class='docs-container'>
-    <h1 class='text-5xl md:text-jumbo leading-none'>
-      {{#if logo}}
-        <div class='md:-mb-1 -mt-4 md:-mt-8'>
-          <span class='inline-block h-6 opacity-50'>
-            {{docs-logo logo=logo}}
-          </span>
-        </div>
-      {{/if}}
+  <h1 class='text-5xl md:text-jumbo leading-none'>
+    {{#if logo}}
+      <div class='md:-mb-1 -mt-4 md:-mt-8'>
+        <span class='inline-block h-6 opacity-50'>
+          {{docs-logo logo=logo}}
+        </span>
+      </div>
+    {{/if}}
 
-      <span class='font-thin'>{{slimHeading}}</span>{{strongHeading}}
-    </h1>
+    <span class='font-thin'>{{slimHeading}}</span>{{strongHeading}}
+  </h1>
 
-    <p class='opacity-75 text-xl mt-4 w-3/4 mx-auto leading-tight'>
-      {{byline}}
-    </p>
+  <p class='opacity-75 text-xl mt-4 w-3/4 mx-auto leading-tight'>
+    {{byline}}
+  </p>
 
-    {{yield}}
-  </div>
+  {{yield}}
 </div>
