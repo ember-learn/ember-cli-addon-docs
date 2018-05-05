@@ -1,44 +1,42 @@
-<main class='lg:w-4/5 xl:w-3/5 max-w-md lg:max-w-none mx-auto lg:mx-0 mt-6'>
-  <div class="lg:px-4">
-    {{yield}}
+<div class="lg:px-4" data-page-index-target>
+  {{yield}}
 
-    <div class="mt-16 mb-8">
-      <a href={{editCurrentPageUrl}}
-        class='transition text-grey-darkest opacity-50 text-sm
-        hover:opacity-75 no-underline border-b border-grey hover:border-grey-darkest'>
-        Edit this page
-      </a>
-    </div>
-
+  <div class="mt-16 mb-8">
+    <a href={{editCurrentPageUrl}}
+      class='transition text-grey-darkest opacity-50 text-sm
+      hover:opacity-75 no-underline border-b border-grey hover:border-grey-darkest'>
+      Edit this page
+    </a>
   </div>
 
-  <div class="lg:px-4">
-    <div class="mt-16 pb-16 border-t border-grey-lighter pt-4 flex">
-      <div class="w-1/2">
-        {{#if docsRoutes.previous}}
-          <div class='text-sm text-grey-dark'>
-            Previous
-          </div>
-          {{#link-to params=docsRoutes.previous.route
-            class='text-grey-darkest text-2xl font-light no-underline
-            border-b border-grey hover:border-grey-darkest transition'}}
-            {{docsRoutes.previous.label}}
-          {{/link-to}}
-        {{/if}}
-      </div>
+</div>
 
-      <div class="w-1/2 text-right">
-        {{#if docsRoutes.next}}
-          <div class='text-sm text-grey-dark'>
-            Next
-          </div>
-          {{#link-to params=docsRoutes.next.route
-            class='text-grey-darkest text-2xl font-light no-underline
-            border-b border-grey hover:border-grey-darkest transition'}}
-            {{docsRoutes.next.label}}
-          {{/link-to}}
-        {{/if}}
-      </div>
+<div class="lg:px-4">
+  <div class="mt-16 pb-16 border-t border-grey-lighter pt-4 flex">
+    <div class="w-1/2">
+      {{#if docsRoutes.previous}}
+        <div class='text-sm text-grey-dark'>
+          Previous
+        </div>
+        {{#link-to params=docsRoutes.previous.route
+          class='text-grey-darkest text-2xl font-light no-underline
+          border-b border-grey hover:border-grey-darkest transition'}}
+          {{docsRoutes.previous.label}}
+        {{/link-to}}
+      {{/if}}
+    </div>
+
+    <div class="w-1/2 text-right">
+      {{#if docsRoutes.next}}
+        <div class='text-sm text-grey-dark'>
+          Next
+        </div>
+        {{#link-to params=docsRoutes.next.route
+          class='text-grey-darkest text-2xl font-light no-underline
+          border-b border-grey hover:border-grey-darkest transition'}}
+          {{docsRoutes.next.label}}
+        {{/link-to}}
+      {{/if}}
     </div>
   </div>
-</main>
+</div>

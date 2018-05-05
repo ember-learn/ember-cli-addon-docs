@@ -3,17 +3,26 @@
 }
 
 .docs-md__h1,
-.docs-h1 {
-  @apply mb-6 text-grey-darkest text-4xl font-extrabold leading-tight;
+.docs-h1,
+.docs-md__h1 a,
+.docs-h1 a {
+  @apply mb-6 text-grey-darkest text-4xl font-extrabold leading-tight no-underline;
 }
+
 .docs-md__h2,
-.docs-h2 {
-  @apply mt-8 mb-4 text-grey-darkest leading-tight;
+.docs-h2,
+.docs-md__h2 a,
+.docs-h2 a {
+  @apply mt-8 mb-4 text-grey-darkest leading-tight no-underline;
 }
+
 .docs-md__h3,
-.docs-h3 {
-  @apply mb-2 text-grey-darkest leading-tight;
+.docs-h3,
+.docs-md__h3 a,
+.docs-h3 a {
+  @apply mb-2 text-grey-darkest leading-tight no-underline;
 }
+
 .docs-md p {
   @apply mb-4;
 }

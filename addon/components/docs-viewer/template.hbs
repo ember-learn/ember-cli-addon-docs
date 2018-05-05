@@ -1,6 +1,8 @@
 <div class="docs-container lg:flex w-full mt-4">
   {{yield (hash
     nav=(component 'docs-viewer/x-nav')
-    main=(component 'docs-viewer/x-main')
+    main=(component 'docs-viewer/x-main' onReindex=(action (mut pageIndex)))
   )}}
+
+  {{docs-viewer/x-page-index pageIndex=pageIndex}}
 </div>

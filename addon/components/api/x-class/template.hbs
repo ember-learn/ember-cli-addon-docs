@@ -4,32 +4,23 @@
 <div data-test-class-description>{{{class.description}}}</div>
 
 {{#if hasContents}}
-  <div class="flex flex-row-reverse">
-    {{api/x-index
-      options=(hash
-        inherited=inherited
-        protected=protected
-        private=private
-        deprecated=deprecated
-      )
-
-      onOptionToggle=(action 'updateFilter')
-
-      sections=(hash
-        constructors=constructors
-        fields=fields
-        accessors=accessors
-        methods=methods
+  {{#if hasToggles}}
+    {{api/x-toggles
+      toggles=(hash
+        inherited=(if component.hasInherited showInherited)
+        protected=(if component.hasProtected showProtected)
+        private=(if component.hasPrivate showPrivate)
+        deprecated=(if component.hasDeprecated showDeprecated)
       )
     }}
+  {{/if}}
 
-    {{api/x-sections
-      sections=(hash
-        constructors=class.constructors
-        fields=class.fields
-        accessors=class.accessors
-        methods=class.methods
-      )
-    }}
-  </div>
+  {{api/x-sections
+    sections=(hash
+      constructors=class.constructors
+      fields=class.fields
+      accessors=class.accessors
+      methods=class.methods
+    )
+  }}
 {{/if}}

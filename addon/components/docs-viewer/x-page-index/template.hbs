@@ -1,0 +1,30 @@
+<nav class="hidden lg:block lg:w-1/5 pl-4" data-test-page-index>
+  <div class="sticky pin-t pt-4 -mt-4 max-h-screen overflow-y-scroll">
+    <ul class="list-reset">
+      {{#if pageIndex.length}}
+        <li class="mt-8 text-grey font-bold tracking-wide uppercase text-xs">
+          On This Page
+        </li>
+      {{/if}}
+
+      {{#each pageIndex as |item|}}
+        <li class="
+          leading-tight
+          {{if item.indent (concat 'ml-' item.indent)}}
+          {{if item.marginTop (concat 'mt-' item.marginTop)}}
+          {{if item.marginBottom (concat 'mt-' item.marginBottom)}}
+        "
+
+        data-test-index-item
+        >
+          <a
+            href="#{{item.id}}"
+            class="text-grey-dark no-underline hover:underline text-{{item.size}}"
+          >
+            {{item.text}}
+            </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</nav>

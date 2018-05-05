@@ -1,15 +1,14 @@
-import EmberRouter from '@ember/routing/router';
+import AddonDocsRouter, { docsRoute, apiRoute } from 'ember-cli-addon-docs/router';
 import config from './config/environment';
-import RouterScroll from 'ember-router-scroll';
 
-const Router = EmberRouter.extend(RouterScroll, {
+const Router = AddonDocsRouter.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
 });
 
 Router.map(function() {
 
-  this.route('docs', function() {
+  docsRoute(this, function() {
     this.route('usage');
     this.route('quickstart');
     this.route('patterns');
@@ -23,16 +22,10 @@ Router.map(function() {
       this.route('docs-viewer');
       this.route('docs-demo');
     });
-
-    this.route('api', function() {
-      this.route('item', { path: '/*path' });
-    });
   });
 
   this.route('sandbox', function() {
-    this.route('api', function() {
-      this.route('item', { path: '/*path' });
-    });
+    apiRoute(this);
   });
 
   this.route('not-found', { path: '/*path' });
