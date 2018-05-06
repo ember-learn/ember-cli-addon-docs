@@ -1,11 +1,14 @@
 import Component from '@ember/component';
-import layout from './template';
+import hbs from 'htmlbars-inline-precompile'
 
 export default Component.extend({
-  layout,
+  tagName: 'ul',
 
-  tagName: ''
+  classNames: ['list-reset'],
 
-  // classNames: 'docs-viewer__nav-list'
-
+  layout: hbs`
+    {{yield (hash
+      item=(component 'docs-viewer/x-nav-item')
+    )}}
+  `
 });
