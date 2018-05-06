@@ -1,0 +1,19 @@
+Show:
+
+<ul class="list-reset inline">
+  {{#each-in toggles as |key toggle|}}
+    {{#if (not-eq toggle undefined)}}
+      <li class="inline ml-4">
+        <label data-test-toggle>
+          <input type="checkbox"
+            checked={{toggle}}
+            onclick={{action onToggle key}}
+            class='mr-1'
+          >
+
+          {{capitalize key}}
+        </label>
+      </li>
+    {{/if}}
+  {{/each-in}}
+</ul>

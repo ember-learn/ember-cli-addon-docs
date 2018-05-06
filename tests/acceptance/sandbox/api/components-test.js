@@ -19,4 +19,30 @@ module('Acceptance | API | components', function(hooks) {
 
     assert.equal(currentURL(), `/sandbox/api/components/simple-list/item`, 'correct url');
   });
+
+  test('component page index works', async function(assert) {
+    await visit('/sandbox');
+    await modulePage.navItems.findOne({ text: `{{esdoc-component}}` }).click();
+
+    assert.equal(currentURL(), `/sandbox/api/components/esdoc-component`, 'correct url');
+
+    let indexItems = modulePage.index.items.map(i => i.text);
+
+    assert.equal(indexItems.length, 7, 'correct number of items rendered');
+    assert.ok(indexItems.includes('Yields') && indexItems.includes('Arguments'), 'correct sections rendered');
+
+    await modulePage.toggles.findOne({ text: 'Internal' }).click();
+
+    indexItems = modulePage.index.items.map(i => i.text);
+
+    assert.equal(indexItems.length, 12, 'correct number of items rendered');
+    assert.ok(indexItems.includes('Fields') && indexItems.includes('Methods'), 'correct sections rendered');
+
+    await modulePage.toggles.findOne({ text: 'Private' }).click();
+
+    indexItems = modulePage.index.items.map(i => i.text);
+
+    assert.equal(indexItems.length, 13, 'correct number of items rendered');
+    assert.ok(indexItems.includes('_privateField'), 'private field rendered');
+  });
 });

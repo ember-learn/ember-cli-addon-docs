@@ -16,26 +16,9 @@
 }
 
 .item-section__item-header {
-  margin-left: -1em;
-
   a {
     color: #333;
     text-decoration: none;
-
-    &:before {
-      content: '\B6';
-      cursor: pointer;
-      display: block;
-      float: left;
-      width: 1em;
-      visibility: hidden;
-
-      color: #aaa;
-    }
-
-    &:hover:before {
-      visibility: visible;
-    }
   }
 }
 

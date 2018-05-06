@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { alias } from '@ember/object/computed';
+import { alias, or } from '@ember/object/computed';
 import { capitalize } from '@ember/string';
 import { memberFilter }  from '../../../utils/computed';
 
@@ -8,6 +8,7 @@ import layout from './template';
 
 export default Component.extend({
   layout,
+  tagName: '',
 
   showInherited: false,
   showInternal: false,
@@ -21,6 +22,14 @@ export default Component.extend({
   accessors: memberFilter('component', 'accessors'),
   methods: memberFilter('component', 'methods'),
   fields: memberFilter('component', 'fields'),
+
+  hasToggles: or(
+    'component.hasInherited',
+    'component.hasInternal',
+    'component.hasProtected',
+    'component.hasPrivate',
+    'component.hasDeprecated',
+  ),
 
   hasContents: computed('component', {
     get() {
