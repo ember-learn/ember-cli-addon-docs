@@ -9,7 +9,7 @@
         <div data-test-item>
           {{#if (or item.isClass item.isComponent)}}
             <h3 id={{item.name}} data-test-item-header class="item-section__class-header mb-1">
-              {{#link-to 'docs.api.item' (concat 'root/' item.id)}}
+              {{#link-to 'docs.api.item' (concat 'modules/' item.id)}}
                 {{#if (eq item.exportType 'default')}}
                   <span class="item-section__default-label">Default</span>
                 {{/if}}
