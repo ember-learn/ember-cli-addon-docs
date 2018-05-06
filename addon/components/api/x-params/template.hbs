@@ -1,14 +1,9 @@
 {{#if shouldDisplayParams}}
-  <h4>Params</h4>
+  <h4 class="mb-2 text-grey font-bold tracking-wide uppercase text-xs">
+    Params
+  </h4>
 
-  <table>
-    {{!-- <thead>
-      <tr>
-        <th>name</th>
-        <th>type</th>
-        <th>description</th>
-      </tr>
-    </thead> --}}
+  <table class="item-params mb-6" data-test-item-params>
     <tbody>
       {{#each params as |param|}}
         <tr data-test-item-param>

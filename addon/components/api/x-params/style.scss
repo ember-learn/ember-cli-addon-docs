@@ -1,30 +1,13 @@
 .item-params {
-  h4 {
-    margin: 1em 0;
+  width: 100%;
+
+  td {
+    padding-right: 1em;
   }
 
-  table {
-    font-size: 0.85em;
-    width: 100%;
-
-    padding: 6px 10px;
-    border: 1px solid #E4E4E4;
-    border-radius: 6px;
-
-    th {
-      text-align: left;
-      color: #777;
-      padding: 3px 10px;
-    }
-
-    td {
-      padding: 0 20px 0 10px;
-    }
-
-    td:last-of-type {
-      width: 99%;
-      padding-right: 10px;
-    }
+  td:last-of-type {
+    width: 99%;
+    padding-right: 0;
   }
 }
 

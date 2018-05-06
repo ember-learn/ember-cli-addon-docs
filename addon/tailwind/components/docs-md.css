@@ -20,7 +20,7 @@
 .docs-h3,
 .docs-md__h3 a,
 .docs-h3 a {
-  @apply pt-4 mb-2 text-grey-darkest leading-tight no-underline;
+  @apply pt-4 mb-1 text-grey-darkest leading-tight no-underline;
 }
 
 .docs-md p {

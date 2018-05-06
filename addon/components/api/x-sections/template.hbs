@@ -8,36 +8,37 @@
       {{#each items as |item|}}
         <div data-test-item>
           {{#if (or item.isClass item.isComponent)}}
-            <h3 id={{item.name}} data-test-item-header class="item-section__class-header mb-1">
+            <h3 id={{item.name}} data-test-item-header class="item-section__class-header">
+              {{#if (eq item.exportType 'default')}}
+                <span class="item-section__default-label">Default</span>
+              {{/if}}
+
               {{#link-to 'docs.api.item' (concat 'modules/' item.id)}}
-                {{#if (eq item.exportType 'default')}}
-                  <span class="item-section__default-label">Default</span>
-                {{/if}}
                 {{item.name}}
               {{/link-to}}
             </h3>
 
             {{{item.description}}}
           {{else}}
-            <h3 id={{item.name}} data-test-item-header data-text="{{item.name}}" class="docs-h3 mb-1">
-              <a href="#{{item.name}}" class="docs-header-link">
-                {{#if (eq item.exportType 'default')}}
-                  <span class="item-section__default-label">Default</span>
-                {{/if}}
+            <h3 id={{item.name}} data-test-item-header data-text="{{item.name}}" class="docs-h3">
+              {{#if (eq item.exportType 'default')}}
+                <span class="item-section__default-label">Default</span>
+              {{/if}}
 
+              <a href="#{{item.name}}" class="docs-header-link">
                 {{type-signature item}}
               </a>
             </h3>
-
-            {{#if item.exportType}}
-              {{api/x-import-path data-test-import-path=true item=item}}
-            {{/if}}
 
             <p data-test-item-description>
               {{{item.description}}}
             </p>
 
-            {{api/x-params data-test-item-params=true params=item.params}}
+            <div class="px-6 pt-3 mt-4 border border-grey-light rounded text-sm">
+              {{api/x-import-path item=item}}
+
+              {{api/x-params params=item.params}}
+            </div>
           {{/if}}
         </div>
       {{/each}}

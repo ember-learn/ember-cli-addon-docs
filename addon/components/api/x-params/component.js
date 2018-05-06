@@ -4,7 +4,7 @@ import layout from './template';
 
 export default Component.extend({
   layout,
-  classNames: ['item-params'],
+  tagName: '',
 
   /**
    * Params shouldn't be displayed when there are no descriptions and no subparams,

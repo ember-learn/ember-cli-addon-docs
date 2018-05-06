@@ -23,12 +23,21 @@
 }
 
 .item-section__class-header {
+  .item-section__default-label {
+    line-height: 1.4em;
+    vertical-align: text-top;
+  }
+
   a {
     color: #333;
     font-size: 1.4em;
 
     &:visited {
       color: #999;
+    }
+
+    &:before {
+      content: ''
     }
   }
 }
