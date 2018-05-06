@@ -11,20 +11,20 @@ module('Acceptance | API | components', function(hooks) {
 
   test('nested components work', async function(assert) {
     await visit('/sandbox');
-    await modulePage.navItems.findOne({ text: `{{simple-list}}` }).click();
+    await modulePage.navItems.findOne({ text: '{{simple-list}}' }).click();
 
-    assert.equal(currentURL(), `/sandbox/api/components/simple-list`, 'correct url');
+    assert.equal(currentURL(), '/sandbox/api/components/simple-list', 'correct url');
 
-    await modulePage.navItems.findOne({ text: `{{simple-list/item}}` }).click();
+    await modulePage.navItems.findOne({ text: '{{simple-list/\u200Bitem}}' }).click();
 
-    assert.equal(currentURL(), `/sandbox/api/components/simple-list/item`, 'correct url');
+    assert.equal(currentURL(), '/sandbox/api/components/simple-list/item', 'correct url');
   });
 
   test('component page index works', async function(assert) {
     await visit('/sandbox');
-    await modulePage.navItems.findOne({ text: `{{esdoc-component}}` }).click();
+    await modulePage.navItems.findOne({ text: '{{esdoc-component}}' }).click();
 
-    assert.equal(currentURL(), `/sandbox/api/components/esdoc-component`, 'correct url');
+    assert.equal(currentURL(), '/sandbox/api/components/esdoc-component', 'correct url');
 
     let indexItems = modulePage.index.items.map(i => i.text);
 
