@@ -9,7 +9,7 @@
       <li data-test-id='version'>
         <a {{action 'changeVersion' version}} href='#' class='text-black no-underline flex items-center px-4 py-3 hover:bg-grey-lighter'>
           <span class='w-6 flex'>
-            {{#if (eq version currentVersion)}}
+            {{#if (eq version.name currentVersion.name)}}
               {{svg-jar 'check' height=16 width=16}}
             {{/if}}
           </span>

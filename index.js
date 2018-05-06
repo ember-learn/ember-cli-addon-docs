@@ -50,7 +50,8 @@ module.exports = {
       'ember-cli-addon-docs': {
         projectName: this.parent.pkg.name,
         projectTag: this.parent.pkg.version,
-        projectHref: info && info.browse()
+        projectHref: info && info.browse(),
+        deployVersion: 'ADDON_DOCS_DEPLOY_VERSION'
       }
     };
 
