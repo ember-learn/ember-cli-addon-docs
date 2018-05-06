@@ -21,7 +21,6 @@ export default Component.extend({
 
   router: service(),
   docsRoutes: service(),
-  pageIndex: service(),
 
   tagName: 'main',
   classNames: ['lg:w-4/5', 'xl:w-3/5', 'max-w-md', 'lg:max-w-none', 'mx-auto', 'lg:mx-0', 'mt-6', 'flex-no-shrink'],
