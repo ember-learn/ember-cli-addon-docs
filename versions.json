@@ -6,10 +6,10 @@
     "name": "latest"
   },
   "master": {
-    "sha": "633f4386501db948427c77d0e2fbd3b61d05e529",
-    "tag": null,
     "path": "master",
-    "name": "master"
+    "name": "master",
+    "sha": "9a08bd3588dbd36c4d29ad7302d20c76faa1efa5",
+    "tag": null
   },
   "v0.2.0": {
     "sha": "c205237d508e13e1df30e7cc0d43194214b48a2d",
