@@ -10,9 +10,9 @@ export default Component.extend({
    * Params shouldn't be displayed when there are no descriptions and no subparams,
    * because the information is already displayed in the type signature and redundant
    */
-  shouldDisplayParams: computed('params.[]', function() {
-    let params = this.get('params') || [];
+  shouldDisplayParams: computed('item.params.[]', function() {
+    let params = this.get('item.params') || [];
 
     return params.some(p => p.description || p.name.includes('.'));
-  })
+  }),
 });

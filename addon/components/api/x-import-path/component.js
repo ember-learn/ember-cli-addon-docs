@@ -1,7 +1,20 @@
 import Component from '@ember/component';
-import layout from './template';
+import hbs from 'htmlbars-inline-precompile';
 
 export default Component.extend({
-  layout,
-  tagName: ''
+  tagName: '',
+  layout: hbs`
+    <div class="import-path mb-6 font-mono" data-test-import-path>
+      <span class="hljs-keyword">import</span>
+
+      {{#if (eq item.exportType "default")}}
+        {{item.name}}
+      {{else}}
+      { {{item.name}} }
+      {{/if}}
+
+      <span class="hljs-keyword">from</span>
+      <span class="hljs-string">'{{item.file}}'</span>;
+    </div>
+  `,
 });

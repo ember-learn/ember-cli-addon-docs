@@ -1,0 +1,62 @@
+<div data-test-item>
+  <h3
+    id={{item.name}}
+    data-text="{{item.name}}"
+    data-test-item-header
+    class="docs-h3 font-mono font-normal"
+  >
+    {{#if (eq item.exportType 'default')}}
+      <span class="border border-grey-light align-text-top leading-loose text-xs pl-2 mr-2 py-1 rounded">
+        Default
+      </span>
+    {{/if}}
+
+    {{#if (or item.isClass item.isComponent)}}
+      {{#link-to 'docs.api.item' (concat 'modules/' item.id) class='hover:underline'}}
+        <strong>{{item.name}}</strong>
+      {{/link-to}}
+    {{else}}
+      {{#if (eq item.exportType 'default')}}
+        <span class="item-section__default-label">Default</span>
+      {{/if}}
+
+      <a href="#{{item.name}}" class="heading-anchor">
+        {{type-signature item}}
+      </a>
+    {{/if}}
+  </h3>
+
+  <p data-test-item-description>
+    {{{item.description}}}
+  </p>
+
+  {{#if (or item.exportType shouldDisplayParams)}}
+    {{#api/x-meta-panel as |panel|}}
+      {{#if item.exportType}}
+        {{#panel.header}}
+          Import Path
+        {{/panel.header}}
+
+        {{api/x-import-path item=item}}
+      {{/if}}
+
+      {{#if shouldDisplayParams}}
+        {{#panel.header}}
+          Params
+        {{/panel.header}}
+
+        <table class="mb-6" data-test-item-params>
+          <tbody>
+            {{#each item.params as |param|}}
+              <tr data-test-item-param>
+                <td><span class="font-mono font-bold border-r border-grey-light pr-2">{{param.name}}</span></td>
+                <td><span class="font-mono border-r border-grey-light px-2">{{param.type}}</span></td>
+                <td class="pl-2">{{param.description}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      {{/if}}
+    {{/api/x-meta-panel}}
+  {{/if}}
+</div>
