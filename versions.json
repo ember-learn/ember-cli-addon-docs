@@ -1,9 +1,9 @@
 {
   "latest": {
-    "sha": "17b5d3439f948c9877c2419cfe6a90bfcef17717",
-    "tag": "v0.4.1",
     "path": "latest",
-    "name": "latest"
+    "name": "latest",
+    "sha": "4136850772b9aafd3b381014b2a5b36e67b9e6c8",
+    "tag": "v0.4.2"
   },
   "master": {
     "path": "master",
@@ -40,5 +40,11 @@
     "tag": "v0.4.1",
     "path": "v0.4.1",
     "name": "v0.4.1"
+  },
+  "v0.4.2": {
+    "path": "v0.4.2",
+    "name": "v0.4.2",
+    "sha": "4136850772b9aafd3b381014b2a5b36e67b9e6c8",
+    "tag": "v0.4.2"
   }
 }
