@@ -44,8 +44,8 @@ export default {
     'serif',
   ],
   'mono': [
-    'Menlo',
     'Monaco',
+    'Menlo',
     'Consolas',
     'Liberation Mono',
     'Courier New',

@@ -3,18 +3,36 @@
 {{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
 <div data-test-class-description>{{{class.description}}}</div>
 
-{{#if hasContents}}
-  {{#if hasToggles}}
-    {{api/x-toggles
-      toggles=(hash
-        inherited=(if component.hasInherited showInherited)
-        protected=(if component.hasProtected showProtected)
-        private=(if component.hasPrivate showPrivate)
-        deprecated=(if component.hasDeprecated showDeprecated)
-      )
-    }}
-  {{/if}}
+{{#if (or class.exportType hasToggles)}}
+  {{#api/x-meta-panel as |panel|}}
+    {{#if class.exportType}}
+      {{#panel.header}}
+        Import Path
+      {{/panel.header}}
 
+      {{api/x-import-path item=class}}
+    {{/if}}
+
+    {{#if hasToggles}}
+      {{#panel.header}}
+        Show
+      {{/panel.header}}
+
+      {{#if hasToggles}}
+        {{api/x-toggles
+          toggles=(hash
+            inherited=(if class.hasInherited showInherited)
+            protected=(if class.hasProtected showProtected)
+            private=(if class.hasPrivate showPrivate)
+            deprecated=(if class.hasDeprecated showDeprecated)
+          )
+        }}
+      {{/if}}
+    {{/if}}
+  {{/api/x-meta-panel}}
+{{/if}}
+
+{{#if hasContents}}
   {{api/x-sections
     sections=(hash
       constructors=class.constructors

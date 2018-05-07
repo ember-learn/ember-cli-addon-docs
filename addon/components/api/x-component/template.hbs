@@ -3,21 +3,30 @@
 {{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
 <div data-test-component-name>{{{component.description}}}</div>
 
+{{#if hasToggles}}
+  {{#api/x-meta-panel as |panel|}}
+    {{#panel.header}}
+      Show
+    {{/panel.header}}
+
+    {{#if hasToggles}}
+      {{api/x-toggles
+        toggles=(hash
+          inherited=(if component.hasInherited showInherited)
+          internal=(if component.hasInternal showInternal)
+          protected=(if component.hasProtected showProtected)
+          private=(if component.hasPrivate showPrivate)
+          deprecated=(if component.hasDeprecated showDeprecated)
+        )
+
+        onToggle=(action 'updateFilter')
+      }}
+    {{/if}}
+  {{/api/x-meta-panel}}
+{{/if}}
+
+
 {{#if hasContents}}
-  {{#if hasToggles}}
-    {{api/x-toggles
-      toggles=(hash
-        inherited=(if component.hasInherited showInherited)
-        internal=(if component.hasInternal showInternal)
-        protected=(if component.hasProtected showProtected)
-        private=(if component.hasPrivate showPrivate)
-        deprecated=(if component.hasDeprecated showDeprecated)
-      )
-
-      onToggle=(action 'updateFilter')
-    }}
-  {{/if}}
-
   {{api/x-sections
     sections=(hash
       constructors=constructors
