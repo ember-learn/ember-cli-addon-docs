@@ -1,12 +1,13 @@
-import Service from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
-import fetch from 'fetch';
 import { computed } from '@ember/object';
 import { task } from 'ember-concurrency';
 
 export default Service.extend({
+  docsFetch: service(),
+
   _loadAvailableVersions: task(function*() {
-    let response = yield fetch(`${this.get('root')}versions.json`);
+    let response = yield this.get('docsFetch').fetch({ url: `${this.get('root')}versions.json` }).response();
     let json = yield response.ok ? response.json() : { latest: this.get('currentVersion') };
 
     this.set('versions', Object.keys(json).map(key => {
