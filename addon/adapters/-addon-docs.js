@@ -1,10 +1,11 @@
 import DS from 'ember-data';
 import config from 'dummy/config/environment';
-import fetch from 'fetch';
+import { inject as service } from '@ember/service';
 
 export default DS.Adapter.extend({
   defaultSerializer: '-addon-docs',
   namespace: `${config.rootURL.replace(/\/$/, '')}/docs`,
+  docsFetch: service(),
 
   shouldBackgroundReloadAll() {
     return false;
@@ -16,7 +17,7 @@ export default DS.Adapter.extend({
 
   findRecord(store, modelClass, id, snapshot) {
     if (modelClass.modelName === 'project') {
-      return fetch(`${this.namespace}/${id}.json`).then(response => response.json());
+      return this.get('docsFetch').fetch(`${this.namespace}/${id}.json`).then(response => response.json());
     } else {
       return store.peekRecord(modelClass.modelName, id);
     }
