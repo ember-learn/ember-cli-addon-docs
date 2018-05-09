@@ -72,7 +72,7 @@ export default Service.extend({
 
   loadSearchIndex() {
     if (!this._searchIndex) {
-      this._searchIndex = fetch(this.get('_indexURL'))
+      this._searchIndex = fetch(this.get('_indexURL'), { credentials: 'same-origin' })
         .then(res => res.json())
         .then(json => {
           return {
