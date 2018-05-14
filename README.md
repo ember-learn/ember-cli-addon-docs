@@ -9,4 +9,4 @@ Easy documentation for Ember addons.
 
 ## About
 
-This library was started by [Dan Freeman](https://twitter.com/__dfreeman) and [Sam Selikoff](https://twitter.com/samselikoff). Thanks to all of our [contributors](https://github.com/ember-learn/ember-cli-addon-docs/graphs/contributors)!
+Created and maintained by [Dan Freeman](https://twitter.com/__dfreeman), [Chris Garrett](https://twitter.com/pzuraq), and [Sam Selikoff](https://twitter.com/samselikoff). Thanks to all of our [contributors](https://github.com/ember-learn/ember-cli-addon-docs/graphs/contributors)!
