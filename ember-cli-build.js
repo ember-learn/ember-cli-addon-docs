@@ -21,6 +21,9 @@ module.exports = function(defaults) {
         'tests/dummy/public'
       ]
     },
+    prember: {
+      urls: require('prember-crawler')
+    },
     'ember-cli-addon-docs': {
       projects: {
         sandbox: new MergeTrees([
