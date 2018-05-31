@@ -133,7 +133,7 @@ This method returns a name for a given version of your documentation. By default
 
 ### `shouldUpdateLatest()`
 
-This method determines whether the `/latest` directory will also be updated with the current deploy. By default, this will return true for builds from a tagged commit where the tag is a [semver non-prerelease version]([node-semver](https://github.com/npm/node-semver), and false otherwise. You can explicitly set the `ADDON_DOCS_UPDATE_LATEST` environment variable to `true` or `false` to override this behavior.
+This method determines whether the `/latest` directory will also be updated with the current deploy. By default, this will return true for builds from a tagged commit where the tag is a [semver non-prerelease version](https://github.com/npm/node-semver), and false otherwise. You can explicitly set the `ADDON_DOCS_UPDATE_LATEST` environment variable to `true` or `false` to override this behavior.
 
 ### `getRootURL()`
 
