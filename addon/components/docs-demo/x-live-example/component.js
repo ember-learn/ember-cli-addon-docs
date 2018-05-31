@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import Ember from 'ember';
+import { compileTemplate } from '@ember/template-compilation';
 import layout from './template';
 import snippets from 'dummy/snippets';
 
@@ -23,7 +23,7 @@ export default Component.extend({
       let compiledTemplate;
       let error = false;
       try {
-        compiledTemplate = Ember.HTMLBars.compile(this.get('rawTemplate'));
+        compiledTemplate = compileTemplate(this.get('rawTemplate'));
       } catch (e) {
         console.error(e);
         error = e;
