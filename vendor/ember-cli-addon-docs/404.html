@@ -26,6 +26,12 @@
       var l = window.location;
       var segments = l.pathname.split('/');
 
+      // If we're inside the special "versions" path, we want to load a versioned 
+      // child app, and those are two segments deeper than the top-level app.
+      if (segments[segmentCount+1] === "versions") {
+        segmentCount += 2;
+      }
+
       // Avoid an infinite loop if we try to direct to a location that doesn't exist
       if (!/^\?p=\/.*&q=.*/.test(l.search)) {
         l.replace(
