@@ -26,6 +26,16 @@
       var l = window.location;
       var segments = l.pathname.split('/');
 
+      var oldPaths = ADDON_DOCS_OLD_PATHS;
+
+      var firstLocalSegment = segments[segmentCount+1];
+      for (var i = 0; i < oldPaths.length; i++) {
+        if (firstLocalSegment === oldPaths[i]) {
+          segments.splice(segmentCount + 1, 0, "versions");
+          break;
+        }
+      }
+
       // If we're inside the special "versions" path, we want to load a versioned 
       // child app, and those are two segments deeper than the top-level app.
       if (segments[segmentCount+1] === "versions") {
@@ -37,7 +47,7 @@
         l.replace(
           l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
           segments.slice(0, 1 + segmentCount).join('/') + '/?p=/' +
-          l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+          segments.slice(segmentCount+1).join('/').replace(/&/g, '~and~') +
           (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
           l.hash
         );
