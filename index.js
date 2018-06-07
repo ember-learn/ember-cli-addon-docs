@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const resolve = require('resolve');
 const UnwatchedDir = require('broccoli-source').UnwatchedDir;
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
