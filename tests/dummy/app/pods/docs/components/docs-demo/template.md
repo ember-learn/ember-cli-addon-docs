@@ -41,17 +41,3 @@ Use a file extension to help docs-snippet identify and properly syntax highlight
 If you wish to override the inferred label or syntax highlighting for a snippet, you can specify `label` and `language` properties.
 
 {{docs/components/docs-demo/demo3}}
-
-## Live examples
-
-You can also make a live example, so your users can edit your demos and try out your components for themselves.
-
-{{docs/components/docs-demo/demo4}}
-
-Here's the code for this:
-
-{{docs-snippet name='live-example-src.hbs'}}
-
-Note that we're using the `demo.live-example` contextual component now. This component takes a block as a starting template for the user to see. It then puts that template into the `textarea`, and every time its value changes the template is recompiled and rerendered.
-
-If there is a template compilation error it should show instead of the rendered output.

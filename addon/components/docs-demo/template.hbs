@@ -3,7 +3,6 @@
   {{yield (hash
     example=(component 'docs-demo/x-example')
     snippet=(component 'docs-demo/x-snippet' did-init=(action 'registerSnippet') activeSnippet=activeSnippet)
-    live-example=(component 'docs-demo/x-live-example')
   )}}
 
   {{#if snippets}}

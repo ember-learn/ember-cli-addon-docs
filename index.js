@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const resolve = require('resolve');
 const UnwatchedDir = require('broccoli-source').UnwatchedDir;
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
@@ -14,9 +13,6 @@ module.exports = {
   name: 'ember-cli-addon-docs',
 
   options: {
-    ace: {
-      modes: ['handlebars']
-    },
     nodeAssets: {
       'highlight.js': {
         public: {
@@ -93,13 +89,12 @@ module.exports = {
     includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
     includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
     includer.options.snippetRegexes = Object.assign({}, {
-      begin: /{{#(?:docs-snippet|demo.example|demo.live-example)\sname=(?:"|')(\S+)(?:"|')/,
-      end: /{{\/(?:docs-snippet|demo.example|demo.live-example)}}/,
+      begin: /{{#(?:docs-snippet|demo.example)\sname=(?:"|')(\S+)(?:"|')/,
+      end: /{{\/(?:docs-snippet|demo.example)}}/,
     }, includer.options.snippetRegexes);
 
     let importer = findImporter(this);
 
-    importer.import(`${this._hasEmberSource() ? 'vendor' : 'bower_components'}/ember/ember-template-compiler.js`);
     importer.import('vendor/lunr/lunr.js', {
       using: [{ transformation: 'amd', as: 'lunr' }]
     });
@@ -157,8 +152,7 @@ module.exports = {
     return new MergeTrees([
       vendor,
       this._highlightJSTree(),
-      this._lunrTree(),
-      this._templateCompilerTree()
+      this._lunrTree()
     ].filter(Boolean));
   },
 
@@ -216,19 +210,6 @@ module.exports = {
       srcDir: 'styles',
       destDir: 'highlightjs-styles'
     });
-  },
-
-  _templateCompilerTree() {
-    if (this._hasEmberSource()) {
-      return new Funnel(path.dirname(resolve.sync('ember-source/package.json'), { basedir: this.project.root }), {
-        srcDir: 'dist',
-        destDir: 'ember'
-      });
-    }
-  },
-
-  _hasEmberSource() {
-    return 'ember-source' in this.project.pkg.devDependencies;
   }
 };
 
