@@ -9,8 +9,12 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 
+const LATEST_VERSION_NAME = '-latest';
+
 module.exports = {
   name: 'ember-cli-addon-docs',
+
+  LATEST_VERSION_NAME,
 
   options: {
     nodeAssets: {
@@ -38,6 +42,7 @@ module.exports = {
   config(env, baseConfig) {
     let repo = this.parent.pkg.repository;
     let info = require('hosted-git-info').fromUrl(repo.url || repo);
+    let userConfig = this._readUserConfig();
 
     let config = {
       'ember-component-css': {
@@ -47,6 +52,8 @@ module.exports = {
         projectName: this.parent.pkg.name,
         projectTag: this.parent.pkg.version,
         projectHref: info && info.browse(),
+        primaryBranch: userConfig.getPrimaryBranch(),
+        latestVersionName: LATEST_VERSION_NAME,
         deployVersion: 'ADDON_DOCS_DEPLOY_VERSION'
       }
     };
@@ -107,10 +114,7 @@ module.exports = {
 
   createDeployPlugin() {
     const AddonDocsDeployPlugin = require('./lib/deploy/plugin');
-    const readConfig = require('./lib/utils/read-config');
-
-    let userConfig = readConfig(this.project);
-    return new AddonDocsDeployPlugin(userConfig);
+    return new AddonDocsDeployPlugin(this._readUserConfig());
   },
 
   setupPreprocessorRegistry(type, registry) {
@@ -210,6 +214,15 @@ module.exports = {
       srcDir: 'styles',
       destDir: 'highlightjs-styles'
     });
+  },
+
+  _readUserConfig() {
+    if (!this._userConfig) {
+      const readConfig = require('./lib/utils/read-config');
+      this._userConfig = readConfig(this.project);
+    }
+
+    return this._userConfig;
   }
 };
 
