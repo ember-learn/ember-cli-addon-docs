@@ -142,6 +142,10 @@ If instead, however, you want to [set up a CNAME for your project](https://help.
 
 **Note**: if you change this configuration after you've already deployed copies of your docs site, you'll need to check out your `gh-pages` branch and find/replace your previous root URL in those copies in order for them to continue to function in their new location.
 
+### `getPrimaryBranch()`
+
+This method determines what Addon Docs considers to be your primary branch, which is where links such as "edit this page" will point. By default, this branch is `master`, but you can override this method to choose a different branch instead, e.g. `develop`.
+
 ## Removing a deployed version
 
 Deploying a version of your documentation does two things: it copies the `dist` directory of your built docs app into a particular place on your `gh-pages` branch, and it adds or updates an entry in the `versions.json` manifest in the root of that branch. To remove a version, then, you just need to undo those two things.
