@@ -81,5 +81,7 @@ export default Component.extend({
 
   _highlight(text, start, length) {
     return `${text.slice(0, start)}<em class='docs-viewer-search__result-item__text--emphasis'>${text.slice(start, start + length)}</em>${text.slice(start + length)}`;
-  }
+  },
+
+  'data-test-search-result': true,
 });

@@ -6,7 +6,7 @@
     onClose=(action 'clearSearch')
     targetAttachment='bottom left'
     constraints=(array (hash to='window' attachment='together' pin=true))}}
-    <ul class="docs-viewer-search__result-list">
+    <ul class="docs-viewer-search__result-list" data-test-search-result-list>
       {{#each (take 5 searchResults) as |result index|}}
         <li>
           {{docs-header/search-result

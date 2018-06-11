@@ -1,6 +1,7 @@
-import PageObject, { collection, text } from 'ember-classy-page-object';
+import BaseAddonPage from '../base';
+import { collection, text } from 'ember-classy-page-object';
 
-const ClassPage = PageObject.extend({
+const ClassPage = BaseAddonPage.extend({
   navItems: collection({ scope: '[data-test-id="nav-item"]' }),
 
   title: text('[data-test-class-name]'),
