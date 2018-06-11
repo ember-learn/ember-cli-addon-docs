@@ -12,7 +12,7 @@ export default Service.extend({
   search(phrase) {
     return this.loadSearchIndex()
       .then(({ index, documents }) => {
-        let words = phrase.toLowerCase().split(config['ember-cli-addon-docs'].searchTokenSeparator);
+        let words = phrase.toLowerCase().split(new RegExp(config['ember-cli-addon-docs'].searchTokenSeparator));
         let results = index.query((query) => {
           // In the future we could boost results based on the field they come from
           for (let word of words) {

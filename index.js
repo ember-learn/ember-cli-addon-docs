@@ -48,7 +48,7 @@ module.exports = {
         projectTag: this.parent.pkg.version,
         projectHref: info && info.browse(),
         deployVersion: 'ADDON_DOCS_DEPLOY_VERSION',
-        searchTokenSeparator: /\s+/
+        searchTokenSeparator: "\\s+"
       }
     };
 
