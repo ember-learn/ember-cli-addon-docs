@@ -2,6 +2,7 @@ import Service, { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
 import lunr from 'lunr';
+import config from 'dummy/config/environment';
 
 const { Index, Query } = lunr;
 
@@ -11,7 +12,7 @@ export default Service.extend({
   search(phrase) {
     return this.loadSearchIndex()
       .then(({ index, documents }) => {
-        let words = phrase.toLowerCase().split(/\s+/);
+        let words = phrase.toLowerCase().split(config['ember-cli-addon-docs'].searchTokenSeparator);
         let results = index.query((query) => {
           // In the future we could boost results based on the field they come from
           for (let word of words) {
