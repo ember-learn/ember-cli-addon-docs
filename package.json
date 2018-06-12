@@ -61,6 +61,7 @@
     "hosted-git-info": "^2.5.0",
     "html-entities": "^1.2.1",
     "inflected": "^2.0.3",
+    "jsdom": "^11.11.0",
     "json-api-serializer": "^1.11.0",
     "liquid-fire": "^0.29.1",
     "lodash": "^4.17.5",
