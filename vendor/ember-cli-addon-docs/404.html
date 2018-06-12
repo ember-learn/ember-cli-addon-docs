@@ -25,15 +25,11 @@
       var segmentCount = ADDON_DOCS_SEGMENT_COUNT;
       var l = window.location;
       var segments = l.pathname.split('/');
-
-      var oldPaths = ADDON_DOCS_OLD_PATHS;
+      var redirects = ADDON_DOCS_REDIRECTS;
 
       var firstLocalSegment = segments[segmentCount+1];
-      for (var i = 0; i < oldPaths.length; i++) {
-        if (firstLocalSegment === oldPaths[i]) {
-          segments.splice(segmentCount + 1, 0, "versions");
-          break;
-        }
+      if (redirects[firstLocalSegment] != null) {
+        segments = [""].concat(segments.slice(0, segmentCount+1).concat(redirects[firstLocalSegment]).concat(segments.slice(segmentCount+2)).filter(Boolean).join('/').split('/'))
       }
 
       // If we're inside the special "versions" path, we want to load a versioned 
