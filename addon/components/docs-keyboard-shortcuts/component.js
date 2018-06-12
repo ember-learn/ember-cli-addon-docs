@@ -4,6 +4,7 @@ import { later } from "@ember/runloop";
 import layout from './template';
 import { EKMixin, keyUp } from 'ember-keyboard';
 import { inject as service } from '@ember/service';
+import { formElementHasFocus } from '../../keyboard-config';
 
 /**
   A component that enables keyboard shortcuts. Press '?' to toggle the keyboard shortcuts dialog.
@@ -11,6 +12,7 @@ import { inject as service } from '@ember/service';
   @class DocsKeyboardShortcuts
   @public
 */
+
 export default Component.extend(EKMixin, {
   layout,
 
@@ -23,26 +25,34 @@ export default Component.extend(EKMixin, {
   }),
 
   goto: on(keyUp('KeyG'), function() {
-    this.set('isGoingTo', true);
-    later(() => {
-      this.set('isGoingTo', false);
-    }, 500);
+    if (!formElementHasFocus()) {
+      this.set('isGoingTo', true);
+      later(() => {
+        this.set('isGoingTo', false);
+      }, 500);
+    }
   }),
 
   gotoDocs: on(keyUp('KeyD'), function() {
-    if (this.get('isGoingTo')) {
-      this.get('router').transitionTo('docs');
+    if (!formElementHasFocus()) {
+      if (this.get('isGoingTo')) {
+        this.get('router').transitionTo('docs');
+      }
     }
   }),
 
   gotoHome: on(keyUp('KeyH'), function() {
-    if (this.get('isGoingTo')) {
-      this.get('router').transitionTo('index');
+    if (!formElementHasFocus()) {
+      if (this.get('isGoingTo')) {
+        this.get('router').transitionTo('index');
+      }
     }
   }),
 
   toggleKeyboardShortcuts: on(keyUp('shift+Slash'), function() {
-    this.toggleProperty('isShowingKeyboardShortcuts');
+    if (!formElementHasFocus()) {
+      this.toggleProperty('isShowingKeyboardShortcuts');
+    }
   }),
 
   actions: {

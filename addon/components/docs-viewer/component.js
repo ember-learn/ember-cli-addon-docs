@@ -3,6 +3,7 @@ import Component from '@ember/component';
 import layout from './template';
 import { EKMixin, keyDown } from 'ember-keyboard';
 import { on } from '@ember/object/evented';
+import { formElementHasFocus } from '../../keyboard-config';
 
 /**
   The main docs viewer component for Ember-CLI addon docs. This component must be placed
@@ -30,6 +31,7 @@ import { on } from '@ember/object/evented';
   @yield {Component} viewer.main
   @public
 */
+
 export default Component.extend(EKMixin, {
   layout,
   docsRoutes: service(),
@@ -53,18 +55,19 @@ export default Component.extend(EKMixin, {
   },
 
   nextPage: on(keyDown('KeyJ'), keyDown('ArrowRight'), function() {
-    if (this.searchIsNotFocused() && this.get('docsRoutes.next')) {
-      this.get('router').transitionTo(...this.get('docsRoutes.next.route'));
+    if (!formElementHasFocus()) {
+      if (this.get('docsRoutes.next')) {
+        this.get('router').transitionTo(...this.get('docsRoutes.next.route'));
+      }
     }
   }),
 
   previousPage: on(keyDown('KeyK'), keyDown('ArrowLeft'), function() {
-    if (this.searchIsNotFocused() && this.get('docsRoutes.previous')) {
-      this.get('router').transitionTo(...this.get('docsRoutes.previous.route'));
+    if (!formElementHasFocus()) {
+      if (this.get('docsRoutes.previous')) {
+        this.get('router').transitionTo(...this.get('docsRoutes.previous.route'));
+      }
     }
   }),
 
-  searchIsNotFocused() {
-    return !(document.querySelector('[data-search-box-input]') === document.activeElement);
-  }
 });
