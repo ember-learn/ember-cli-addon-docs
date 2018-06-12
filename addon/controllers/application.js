@@ -3,6 +3,7 @@ import { EKMixin, keyUp } from 'ember-keyboard';
 import { inject as service } from '@ember/service';
 import { on } from '@ember/object/evented';
 import { later } from '@ember/runloop';
+import { formElementHasFocus } from '../keyboard-config';
 
 export default Controller.extend(EKMixin, {
 
@@ -15,26 +16,34 @@ export default Controller.extend(EKMixin, {
   }),
 
   goto: on(keyUp('KeyG'), function() {
-    this.set('isGoingTo', true);
-    later(() => {
-      this.set('isGoingTo', false);
-    }, 500);
+    if (!formElementHasFocus()) {
+      this.set('isGoingTo', true);
+      later(() => {
+        this.set('isGoingTo', false);
+      }, 500);
+    }
   }),
 
   gotoDocs: on(keyUp('KeyD'), function() {
-    if (this.get('isGoingTo')) {
-      this.get('router').transitionTo('docs');
+    if (!formElementHasFocus()) {
+      if (this.get('isGoingTo')) {
+        this.get('router').transitionTo('docs');
+      }
     }
   }),
 
   gotoHome: on(keyUp('KeyH'), function() {
-    if (this.get('isGoingTo')) {
-      this.get('router').transitionTo('index');
+    if (!formElementHasFocus()) {
+      if (this.get('isGoingTo')) {
+        this.get('router').transitionTo('index');
+      }
     }
   }),
 
   toggleKeyboardShortcuts: on(keyUp('shift+Slash'), function() {
-    this.toggleProperty('isShowingKeyboardShortcuts');
+    if (!formElementHasFocus()) {
+      this.toggleProperty('isShowingKeyboardShortcuts');
+    }
   }),
 
   actions: {
