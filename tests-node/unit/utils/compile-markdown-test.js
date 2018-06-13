@@ -37,4 +37,32 @@ QUnit.module('Unit | compile-markdown', function(hooks) {
 
     assert.equal(result, expected);
   });
+
+  test('classic components remain unescaped', function(assert) {
+    let input = stripIndent`
+      {{#foo-bar prop="value" otherProp='value'}}
+
+      {{/foo-bar}}
+    `;
+
+    let result = compileMarkdown(input, { targetHandlebars: true });
+    let expected = stripIndent`
+      <div class="docs-md"><p>{{#foo-bar prop="value" otherProp='value'}} {{/foo-bar}}</p></div>
+    `;
+
+    assert.equal(result, expected);
+  });
+
+  test('angle bracket contextual components remain unescaped', function(assert) {
+    let input = stripIndent`
+      <foo.bar @prop={{value}}></foo.bar>
+    `;
+
+    let result = compileMarkdown(input, { targetHandlebars: true });
+    let expected = stripIndent`
+      <div class="docs-md"><p><foo.bar @prop={{value}}></foo.bar></p></div>
+    `;
+
+    assert.equal(result, expected);
+  });
 });
