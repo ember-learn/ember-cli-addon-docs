@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const resolve = require('resolve');
 const UnwatchedDir = require('broccoli-source').UnwatchedDir;
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
@@ -10,13 +9,14 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 
+const LATEST_VERSION_NAME = '-latest';
+
 module.exports = {
   name: 'ember-cli-addon-docs',
 
+  LATEST_VERSION_NAME,
+
   options: {
-    ace: {
-      modes: ['handlebars']
-    },
     nodeAssets: {
       'highlight.js': {
         public: {
@@ -42,6 +42,7 @@ module.exports = {
   config(env, baseConfig) {
     let repo = this.parent.pkg.repository;
     let info = require('hosted-git-info').fromUrl(repo.url || repo);
+    let userConfig = this._readUserConfig();
 
     let config = {
       'ember-component-css': {
@@ -51,6 +52,8 @@ module.exports = {
         projectName: this.parent.pkg.name,
         projectTag: this.parent.pkg.version,
         projectHref: info && info.browse(),
+        primaryBranch: userConfig.getPrimaryBranch(),
+        latestVersionName: LATEST_VERSION_NAME,
         deployVersion: 'ADDON_DOCS_DEPLOY_VERSION'
       }
     };
@@ -93,13 +96,12 @@ module.exports = {
     includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
     includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
     includer.options.snippetRegexes = Object.assign({}, {
-      begin: /{{#(?:docs-snippet|demo.example|demo.live-example)\sname=(?:"|')(\S+)(?:"|')/,
-      end: /{{\/(?:docs-snippet|demo.example|demo.live-example)}}/,
+      begin: /{{#(?:docs-snippet|demo.example)\sname=(?:"|')(\S+)(?:"|')/,
+      end: /{{\/(?:docs-snippet|demo.example)}}/,
     }, includer.options.snippetRegexes);
 
     let importer = findImporter(this);
 
-    importer.import(`${this._hasEmberSource() ? 'vendor' : 'bower_components'}/ember/ember-template-compiler.js`);
     importer.import('vendor/lunr/lunr.js', {
       using: [{ transformation: 'amd', as: 'lunr' }]
     });
@@ -112,10 +114,7 @@ module.exports = {
 
   createDeployPlugin() {
     const AddonDocsDeployPlugin = require('./lib/deploy/plugin');
-    const readConfig = require('./lib/utils/read-config');
-
-    let userConfig = readConfig(this.project);
-    return new AddonDocsDeployPlugin(userConfig);
+    return new AddonDocsDeployPlugin(this._readUserConfig());
   },
 
   setupPreprocessorRegistry(type, registry) {
@@ -157,8 +156,7 @@ module.exports = {
     return new MergeTrees([
       vendor,
       this._highlightJSTree(),
-      this._lunrTree(),
-      this._templateCompilerTree()
+      this._lunrTree()
     ].filter(Boolean));
   },
 
@@ -218,17 +216,13 @@ module.exports = {
     });
   },
 
-  _templateCompilerTree() {
-    if (this._hasEmberSource()) {
-      return new Funnel(path.dirname(resolve.sync('ember-source/package.json'), { basedir: this.project.root }), {
-        srcDir: 'dist',
-        destDir: 'ember'
-      });
+  _readUserConfig() {
+    if (!this._userConfig) {
+      const readConfig = require('./lib/utils/read-config');
+      this._userConfig = readConfig(this.project);
     }
-  },
 
-  _hasEmberSource() {
-    return 'ember-source' in this.project.pkg.devDependencies;
+    return this._userConfig;
   }
 };
 
