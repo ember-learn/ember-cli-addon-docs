@@ -6,14 +6,22 @@ function escape(text) {
   return text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-function functionSignature({ name, params, returns }) {
-  let paramSignature = params.filter(p => !p.name.includes('.')).map(({ name, type }) => {
-    return [`<strong>${name}</strong>`, `<em>${type}</em>`].join(': ');
-  }).join(', ')
+function functionSignature(fn) {
+  // Functions may have { params, returns } directly on them, or they
+  // may have a `signatures` array of hashes each with those properties.
+  let signatures = (fn.signatures || [fn]).map(({ params, returns }) => {
+    let paramSignature = params.filter(p => !p.name.includes('.')).map(({ name, type, isRest, isOptional }) => {
+      let prefix = isRest ? '...' : '';
+      let suffix = isOptional ? '?' : '';
+      return `${prefix}<strong>${name}</strong>${suffix}: <em>${type}</em>`;
+    }).join(', ')
 
-  let returnType = returns ? returns.type : 'any';
+    let returnType = returns ? returns.type : 'any';
 
-  return `<strong>${name}</strong>(${paramSignature}): <em>${returnType}</em>`;
+    return `<strong>${fn.name}</strong>(${paramSignature}): <em>${returnType}</em>`;
+  });
+
+  return signatures.join('<br>');
 }
 
 function accessorSignature({ name, type, hasGetter, hasSetter }) {
