@@ -1,6 +1,7 @@
-import PageObject, { collection } from 'ember-classy-page-object';
+import BaseAddonPage from './base';
+import { collection } from 'ember-classy-page-object';
 
-const GuidePage = PageObject.extend({
+const GuidePage = BaseAddonPage.extend({
   navItems: collection({ scope: '[data-test-id="nav-item"]' }),
 
   // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects

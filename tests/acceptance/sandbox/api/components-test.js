@@ -45,4 +45,12 @@ module('Acceptance | API | components', function(hooks) {
     assert.equal(indexItems.length, 13, 'correct number of items rendered');
     assert.ok(indexItems.includes('_privateField'), 'private field rendered');
   });
+
+  test('search box works', async function(assert) {
+    await visit('/sandbox');
+
+    assert.equal(modulePage.searchResults.items.length, 0, 'no search results shown');
+    await modulePage.fillInSearchQuery('sub-subsection');
+    assert.equal(modulePage.searchResults.items.length, 1, 'one search result shown');
+  });
 });

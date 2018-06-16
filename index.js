@@ -54,7 +54,8 @@ module.exports = {
         projectHref: info && info.browse(),
         primaryBranch: userConfig.getPrimaryBranch(),
         latestVersionName: LATEST_VERSION_NAME,
-        deployVersion: 'ADDON_DOCS_DEPLOY_VERSION'
+        deployVersion: 'ADDON_DOCS_DEPLOY_VERSION',
+        searchTokenSeparator: "\\s+"
       }
     };
 
