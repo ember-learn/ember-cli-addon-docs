@@ -19,10 +19,10 @@ export default Component.extend({
   currentVersion: reads('projectVersion.currentVersion'),
 
   sortedVersions: sort('projectVersion.versions', function(a, b) {
-    if ([latestVersionName, primaryBranch].includes(a.name) || [latestVersionName, primaryBranch].includes(b.name) ) {
-      return a.name > b.name;
+    if ([latestVersionName, primaryBranch].includes(a.key) || [latestVersionName, primaryBranch].includes(b.key) ) {
+      return a.key > b.key;
     } else {
-      return a.name < b.name;
+      return a.key < b.key;
     }
   }),
 

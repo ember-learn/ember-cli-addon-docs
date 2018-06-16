@@ -14,18 +14,18 @@
             {{/if}}
           </span>
           <span class='font-medium'>
-            {{if (eq version.name latestVersionName) 'Latest' version.name}}
+            {{version.name}}
           </span>
 
           <span class="ml-auto pl-8 flex items-center opacity-50">
-            {{#if (or (eq version.name latestVersionName) (eq version.name primaryBranch))}}
+            {{#if (or (eq version.key latestVersionName) (eq version.key primaryBranch))}}
               {{svg-jar (if version.tag 'git-tag' 'git-sha') height=16 width=16}}
             {{else}}
               {{svg-jar 'git-sha' height=16 width=16}}
             {{/if}}
 
             <span class='text-xs font-mono pl-1'>
-              {{#if (or (eq version.name latestVersionName) (eq version.name primaryBranch))}}
+              {{#if (or (eq version.key latestVersionName) (eq version.key primaryBranch))}}
                 {{#if version.tag}}
                   {{version.tag}}
                 {{else}}

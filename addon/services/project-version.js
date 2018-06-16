@@ -16,6 +16,7 @@ export default Service.extend({
     this.set('versions', Object.keys(json).map(key => {
       let version = json[key];
       version.truncatedSha = version.sha.substr(0,5);
+      version.key = key;
 
       return version;
     }));
@@ -41,6 +42,7 @@ export default Service.extend({
     // In development, this token won't have been replaced replaced
     if (currentVersion === 'ADDON_DOCS_DEPLOY_VERSION') {
       currentVersion = {
+        key: latestVersionName,
         name: latestVersionName,
         tag: config.projectTag,
         path: '',
