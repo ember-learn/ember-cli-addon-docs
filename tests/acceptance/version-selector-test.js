@@ -13,7 +13,8 @@ module('Acceptance | Version selector test', function(hooks) {
       "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
       "tag": 'v0.1.0',
       "path": "",
-      "name": "-latest"
+      "key": "-latest",
+      "name": "latest"
     });
 
     await visit('/');
@@ -26,7 +27,8 @@ module('Acceptance | Version selector test', function(hooks) {
       "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
       "tag": null,
       "path": "",
-      "name": "-latest"
+      "key": "-latest",
+      "name": "latest"
     });
 
     await visit('/');
@@ -40,7 +42,7 @@ module('Acceptance | Version selector test', function(hooks) {
         "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
         "tag": null,
         "path": "",
-        "name": "-latest"
+        "name": "Latest"
       },
       "master": {
         "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
@@ -76,7 +78,7 @@ module('Acceptance | Version selector test', function(hooks) {
         "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
         "tag": 'v0.1.0',
         "path": "",
-        "name": "-latest"
+        "name": "Latest"
       },
       "master": {
         "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
@@ -116,7 +118,7 @@ module('Acceptance | Version selector test', function(hooks) {
           "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
           "tag": null,
           "path": "",
-          "name": "-latest"
+          "name": "Latest"
         },
         "master": {
           "sha": "53b73465d31925f26fd1f77881aefcaccce2915a",
