@@ -1,0 +1,11 @@
+{{#if (gt project.modules.length 0)}}
+  {{docs-viewer/x-section 'API Reference' style='large'}}
+
+  {{#each-in project.navigationIndex as |type items|}}
+    {{docs-viewer/x-section type}}
+
+    {{#each items as |item|}}
+      {{docs-viewer/x-nav-item (break-on item.name '/') (concat root '.api.item') item.path}}
+    {{/each}}
+  {{/each-in}}
+{{/if}}
