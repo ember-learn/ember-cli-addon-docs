@@ -31,7 +31,6 @@
     "broccoli-plugin": "^1.3.0",
     "broccoli-source": "^1.1.0",
     "broccoli-stew": "^1.5.0",
-    "ember-ace": "^1.2.0",
     "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-babel": "^6.11.0",
     "ember-cli-clipboard": "^0.8.1",
