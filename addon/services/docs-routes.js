@@ -39,14 +39,16 @@ export default Service.extend({
     if (this.get('routeUrls.length')) {
       let router = this.get('router.router');
       let currentURL = router.get('rootURL') + router.get('url');
-      currentURL = currentURL
-        .replace('//', '/')   // dedup slashes
-        .replace(/\?.+$/, '') // remove query-params
-        .replace(/\/$/, '')   // remove trailing slash
-        .replace(/#.+$/, ''); // remove # anchor links
-      let index = this.get('routeUrls').indexOf(currentURL);
-      assert(`DocsRoutes wasn't able to correctly detect the current route. The current url is ${currentURL}`, index > -1);
-      return index;
+      currentURL = currentURL.replace('//', '/')   // dedup slashes
+      let longestIndex, longestPrefix;
+      this.get('routeUrls').forEach((url, index) => {
+        if (currentURL.indexOf(url) === 0 && (!longestPrefix || url.length > longestPrefix.length)) {
+          longestIndex = index;
+          longestPrefix = url;
+        }
+      });
+      assert(`DocsRoutes wasn't able to correctly detect the current route. The current url is ${currentURL}`, longestIndex != null);
+      return longestIndex;
     }
   }),
 
