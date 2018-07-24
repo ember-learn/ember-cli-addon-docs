@@ -71,6 +71,7 @@
     "resolve": "^1.5.0",
     "semver": "^5.5.0",
     "striptags": "^3.1.1",
+    "symlink-or-copy": "^1.2.0",
     "walk-sync": "^0.3.2",
     "yuidocjs": "^0.10.2"
   },

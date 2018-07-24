@@ -197,16 +197,10 @@ module.exports = {
 
     let docsTree = new MergeTrees(docsTrees);
 
-    let searchIndexInput = new MergeTrees([docsTree]);
-    let searchIndexTree = new SearchIndexer(searchIndexInput, {
+    let templateContentsTree = this.getBroccoliBridge().placeholderFor('template-contents');
+    let searchIndexTree = new SearchIndexer(new MergeTrees([docsTree, templateContentsTree]), {
       outputFile: 'ember-cli-addon-docs/search-index.json',
       config: this.project.config(EmberApp.env())
-    });
-
-    this.getBroccoliBridge().register({
-      name: 'search-index-input',
-      tree: searchIndexInput,
-      dependencies: ['template-contents']
     });
 
     return new MergeTrees([ defaultTree, docsTree, searchIndexTree ]);
