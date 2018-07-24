@@ -208,7 +208,7 @@ module.exports = {
 
   getBroccoliBridge() {
     if (!this._broccoliBridge) {
-      const Bridge = require('./lib/broccoli/bridge');
+      const Bridge = require('broccoli-bridge');
       this._broccoliBridge = new Bridge();
     }
     return this._broccoliBridge;
