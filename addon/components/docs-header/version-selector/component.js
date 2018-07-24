@@ -3,9 +3,15 @@ import { inject as service } from '@ember/service';
 import layout from './template';
 import { sort } from '@ember/object/computed';
 import { reads } from '@ember/object/computed';
+import config from 'dummy/config/environment';
+
+const { latestVersionName, primaryBranch } = config['ember-cli-addon-docs'];
 
 export default Component.extend({
   layout,
+
+  latestVersionName,
+  primaryBranch,
 
   projectVersion: service(),
   'on-close'() {},
@@ -13,10 +19,10 @@ export default Component.extend({
   currentVersion: reads('projectVersion.currentVersion'),
 
   sortedVersions: sort('projectVersion.versions', function(a, b) {
-    if (['latest', 'master'].includes(a.name) || ['latest', 'master'].includes(b.name) ) {
-      return a.name > b.name;
+    if ([latestVersionName, primaryBranch].includes(a.key) || [latestVersionName, primaryBranch].includes(b.key) ) {
+      return a.key > b.key;
     } else {
-      return a.name < b.name;
+      return a.key < b.key;
     }
   }),
 

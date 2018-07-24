@@ -9,7 +9,7 @@ import { getOwner } from '@ember/application';
 
 import layout from './template';
 
-const projectHref = config['ember-cli-addon-docs'].projectHref;
+const { projectHref, primaryBranch } = config['ember-cli-addon-docs'];
 
 const tagToSize = { H2: 'xs', H3: 'xs' };
 const tagToIndent = { H2: '0', H3: '4' };
@@ -76,14 +76,14 @@ export default Component.extend({
       let file = addonFiles.find(f => f.match(path));
 
       if (file) {
-        return `${projectHref}/edit/master/addon/${file}`;
+        return `${projectHref}/edit/${primaryBranch}/addon/${file}`;
       }
     } else {
       let file = appFiles
         .filter(file => file.match(/template.(hbs|md)/))
         .find(file => file.match(path));
 
-      return `${projectHref}/edit/master/tests/dummy/app/${file}`;
+      return `${projectHref}/edit/${primaryBranch}/tests/dummy/app/${file}`;
     }
   })
 

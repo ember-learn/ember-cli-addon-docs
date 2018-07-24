@@ -7,7 +7,7 @@ import { addonLogo } from 'ember-cli-addon-docs/utils/computed';
 import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
 
-const { projectName, projectHref } = config['ember-cli-addon-docs'];
+const { projectName, projectHref, latestVersionName } = config['ember-cli-addon-docs'];
 
 /**
   Render a header showing a link to your documentation, your project logo, a
@@ -36,6 +36,7 @@ export default Component.extend({
   projectVersion: service(),
 
   projectHref,
+  latestVersionName,
 
   didInsertElement() {
     this._super(...arguments);
