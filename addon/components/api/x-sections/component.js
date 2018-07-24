@@ -4,11 +4,11 @@ import hbs from 'htmlbars-inline-precompile';
 export default Component.extend({
   tagName: '',
   layout: hbs`
-    {{#each-in sections as |section items|}}
+    {{#each-in sections as |sectionName items|}}
       {{#if items}}
         <section data-test-api-section class="item-section">
-          <h2 data-test-section-header={{section}} class="docs-h2">
-            {{capitalize section}}
+          <h2 data-test-section-header={{sectionName}} class="docs-h2">
+            {{capitalize sectionName}}
           </h2>
 
           {{#each items as |item|}}
