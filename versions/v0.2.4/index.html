@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ember CLI Addon Docs</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+<meta name="dummy/config/environment" content="%7B%22modulePrefix%22%3A%22dummy%22%2C%22podModulePrefix%22%3A%22dummy%2Fpods%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22%2Fember-cli-addon-docs%2Fversions%2Fv0.2.4%2F%22%2C%22locationType%22%3A%22router-scroll%22%2C%22historySupportMiddleware%22%3Atrue%2C%22routerScroll%22%3A%7B%22scrollElement%22%3A%22%23docs-viewer__scroll-body%22%7D%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%7D%2C%22APP%22%3A%7B%7D%2C%22ember-modal-dialog%22%3A%7B%22hasLiquidWormhole%22%3A%222.1.1%22%2C%22hasLiquidTether%22%3A%222.0.6%22%7D%2C%22ember-component-css%22%3A%7B%22namespacing%22%3Afalse%2C%22terseClassNames%22%3Atrue%7D%2C%22ember-cli-addon-docs%22%3A%7B%22packageJson%22%3A%7B%22name%22%3A%22ember-cli-addon-docs%22%2C%22version%22%3A%220.2.4%22%2C%22description%22%3A%22The%20default%20blueprint%20for%20ember-cli%20addons.%22%2C%22keywords%22%3A%5B%22ember-addon%22%2C%22ember-cli-deploy-plugin%22%5D%2C%22license%22%3A%22MIT%22%2C%22author%22%3A%22%22%2C%22directories%22%3A%7B%22doc%22%3A%22doc%22%2C%22test%22%3A%22tests%22%7D%2C%22repository%22%3A%22https%3A%2F%2Fgithub.com%2Fember-learn%2Fember-cli-addon-docs%22%2C%22scripts%22%3A%7B%22build%22%3A%22ember%20build%22%2C%22lint%3Ajs%22%3A%22eslint%20.%22%2C%22start%22%3A%22ember%20serve%22%2C%22test%22%3A%22ember%20try%3Aeach%22%2C%22test%3Anode%22%3A%22qunit%20tests-node%22%2C%22test%3Abrowser%22%3A%22ember%20test%22%7D%2C%22dependencies%22%3A%7B%22%40glimmer%2Fsyntax%22%3A%22%5E0.30.5%22%2C%22broccoli-caching-writer%22%3A%22%5E3.0.3%22%2C%22broccoli-filter%22%3A%22%5E1.2.4%22%2C%22broccoli-funnel%22%3A%22%5E2.0.1%22%2C%22broccoli-merge-trees%22%3A%22%5E2.0.0%22%2C%22broccoli-persistent-filter%22%3A%22%5E1.4.3%22%2C%22broccoli-plugin%22%3A%22%5E1.3.0%22%2C%22broccoli-source%22%3A%22%5E1.1.0%22%2C%22broccoli-stew%22%3A%22%5E1.5.0%22%2C%22ember-ace%22%3A%22%5E1.2.0%22%2C%22ember-cli-autoprefixer%22%3A%22%5E0.8.1%22%2C%22ember-cli-babel%22%3A%22%5E6.11.0%22%2C%22ember-cli-clipboard%22%3A%22%5E0.8.1%22%2C%22ember-cli-htmlbars%22%3A%22%5E2.0.3%22%2C%22ember-cli-sass%22%3A%227.1.3%22%2C%22ember-cli-string-helpers%22%3A%22%5E1.7.0%22%2C%22ember-code-snippet%22%3A%22ef4%2Fember-code-snippet%22%2C%22ember-component-css%22%3A%22%5E0.3.5%22%2C%22ember-data%22%3A%22%5E2.18.0%22%2C%22ember-fetch%22%3A%22%5E3.4.4%22%2C%22ember-href-to%22%3A%22%5E1.15.1%22%2C%22ember-keyboard%22%3A%22%5E3.0.0%22%2C%22ember-modal-dialog%22%3A%22%5E2.4.1%22%2C%22ember-router-scroll%22%3A%22%5E0.4.0%22%2C%22ember-svg-jar%22%3A%22%5E0.12.0%22%2C%22ember-truth-helpers%22%3A%22%5E2.0.0%22%2C%22execa%22%3A%22%5E0.9.0%22%2C%22fs-extra%22%3A%22%5E5.0.0%22%2C%22git-repo-info%22%3A%22%5E1.4.1%22%2C%22highlightjs%22%3A%22%5E9.10.0%22%2C%22hosted-git-info%22%3A%22%5E2.5.0%22%2C%22html-entities%22%3A%22%5E1.2.1%22%2C%22inflected%22%3A%22%5E2.0.3%22%2C%22json-api-serializer%22%3A%22%5E1.11.0%22%2C%22liquid-fire%22%3A%22%5E0.29.1%22%2C%22liquid-tether%22%3A%22%5E2.0.6%22%2C%22lodash%22%3A%22%5E4.17.5%22%2C%22lunr%22%3A%22%5E2.1.5%22%2C%22marked%22%3A%22%5E0.3.12%22%2C%22quick-temp%22%3A%22%5E0.1.8%22%2C%22resolve%22%3A%22%5E1.5.0%22%2C%22semver%22%3A%22%5E5.5.0%22%2C%22striptags%22%3A%22%5E3.1.1%22%2C%22walk-sync%22%3A%22%5E0.3.2%22%2C%22yuidocjs%22%3A%22%5E0.10.2%22%7D%2C%22devDependencies%22%3A%7B%22%40ember-decorators%2Fbabel-transforms%22%3A%22%5E2.0.0%22%2C%22babel-eslint%22%3A%22%5E8.2.2%22%2C%22broccoli-asset-rev%22%3A%22%5E2.6.0%22%2C%22common-tags%22%3A%22%5E1.7.2%22%2C%22ember-classy-page-object%22%3A%22%5E0.4.6%22%2C%22ember-cli%22%3A%22~3.0.0%22%2C%22ember-cli-addon-docs-esdoc%22%3A%22%5E0.1.1%22%2C%22ember-cli-addon-docs-yuidoc%22%3A%22%5E0.1.1%22%2C%22ember-cli-dependency-checker%22%3A%22%5E2.1.0%22%2C%22ember-cli-deploy%22%3A%22%5E1.0.2%22%2C%22ember-cli-deploy-build%22%3A%22%5E1.1.1%22%2C%22ember-cli-deploy-git%22%3A%22%5E1.3.2%22%2C%22ember-cli-deploy-git-ci%22%3A%22%5E1.0.1%22%2C%22ember-cli-eslint%22%3A%22%5E4.2.3%22%2C%22ember-cli-htmlbars-inline-precompile%22%3A%22%5E1.0.2%22%2C%22ember-cli-inject-live-reload%22%3A%22%5E1.7.0%22%2C%22ember-cli-qunit%22%3A%22%5E4.3.0%22%2C%22ember-cli-shims%22%3A%22%5E1.2.0%22%2C%22ember-cli-sri%22%3A%22%5E2.1.0%22%2C%22ember-cli-uglify%22%3A%22%5E2.0.0%22%2C%22ember-disable-prototype-extensions%22%3A%22%5E1.1.3%22%2C%22ember-export-application-global%22%3A%22%5E2.0.0%22%2C%22ember-load-initializers%22%3A%22%5E1.0.0%22%2C%22ember-maybe-import-regenerator-for-testing%22%3A%22%5E1.0.0%22%2C%22ember-resolver%22%3A%22%5E4.5.0%22%2C%22ember-source%22%3A%22~3.0.0%22%2C%22ember-source-channel-url%22%3A%22%5E1.0.1%22%2C%22ember-test-selectors%22%3A%22%5E0.3.8%22%2C%22ember-try%22%3A%22%5E0.2.23%22%2C%22eslint-plugin-ember%22%3A%22%5E5.0.3%22%2C%22eslint-plugin-node%22%3A%22%5E5.2.1%22%2C%22loader.js%22%3A%22%5E4.6.0%22%2C%22qunit%22%3A%22%5E2.5.0%22%2C%22qunit-dom%22%3A%22%5E0.5.0%22%7D%2C%22engines%22%3A%7B%22node%22%3A%22%5E4.5%20%7C%7C%206.*%20%7C%7C%20%3E%3D%207.*%22%7D%2C%22ember-addon%22%3A%7B%22configPath%22%3A%22tests%2Fdummy%2Fconfig%22%2C%22before%22%3A%5B%22ember-cli-htmlbars%22%2C%22ember-svg-jar%22%5D%2C%22after%22%3A%5B%22ember-modal-dialog%22%5D%2C%22paths%22%3A%5B%22sandbox%22%5D%7D%7D%7D%2C%22exportApplicationGlobal%22%3Afalse%7D" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon-4b77b3967e2f84e2d6fde259ea319030.png" />
+    <link rel="stylesheet" href="/ember-cli-addon-docs/versions/v0.2.4/assets/vendor-e2a60ee6ff1c346d464592d8b8b79914.css">
+    <link rel="stylesheet" href="/ember-cli-addon-docs/versions/v0.2.4/assets/dummy-792276ae0636b1589e9959831c2f9c3f.css">
+
+    
+  </head>
+  <body>
+    <!-- Start Single Page Apps for GitHub Pages -->
+<script type="text/javascript">
+  // Single Page Apps for GitHub Pages
+  // https://github.com/rafrex/spa-github-pages
+  // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+  // ----------------------------------------------------------------------
+  // This script checks to see if a redirect is present in the query string
+  // and converts it back into the correct url and adds it to the
+  // browser's history using window.history.replaceState(...),
+  // which won't cause the browser to attempt to load the new url.
+  // When the single page app is loaded further down in this file,
+  // the correct url will be waiting in the browser's history for
+  // the single page app to route accordingly.
+  (function(l) {
+    if (l.search) {
+      var q = {};
+      l.search.slice(1).split('&').forEach(function(v) {
+        var a = v.split('=');
+        q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+      });
+      if (q.p !== undefined) {
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + (q.p || '') +
+          (q.q ? ('?' + q.q) : '') +
+          l.hash
+        );
+      }
+    }
+  }(window.location))
+</script>
+<!-- End Single Page Apps for GitHub Pages -->
+
+
+    <script src="/ember-cli-addon-docs/versions/v0.2.4/assets/vendor-f2a3bff5d48a729fc4d6eb0894966b6d.js"></script>
+    <script src="/ember-cli-addon-docs/versions/v0.2.4/assets/dummy-7d209099240db14c21cd2dd90661b072.js"></script>
+
+    
+  </body>
+</html>
