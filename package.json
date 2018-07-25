@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@glimmer/syntax": "^0.30.5",
+    "broccoli-bridge": "^1.0.0",
     "broccoli-caching-writer": "^3.0.3",
     "broccoli-filter": "^1.2.4",
     "broccoli-funnel": "^2.0.1",

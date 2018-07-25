@@ -123,7 +123,7 @@ module.exports = {
       let TemplateCompiler = require('./lib/preprocessors/markdown-template-compiler');
       let ContentExtractor = require('./lib/preprocessors/hbs-content-extractor');
       registry.add('template', new TemplateCompiler());
-      registry.add('template', this.contentExtractor = new ContentExtractor());
+      registry.add('template', new ContentExtractor(this.getBroccoliBridge()));
     }
   },
 
@@ -197,13 +197,21 @@ module.exports = {
 
     let docsTree = new MergeTrees(docsTrees);
 
-    let templateContentsTree = this.contentExtractor.getTemplateContentsTree();
+    let templateContentsTree = this.getBroccoliBridge().placeholderFor('template-contents');
     let searchIndexTree = new SearchIndexer(new MergeTrees([docsTree, templateContentsTree]), {
       outputFile: 'ember-cli-addon-docs/search-index.json',
       config: this.project.config(EmberApp.env())
     });
 
     return new MergeTrees([ defaultTree, docsTree, searchIndexTree ]);
+  },
+
+  getBroccoliBridge() {
+    if (!this._broccoliBridge) {
+      const Bridge = require('broccoli-bridge');
+      this._broccoliBridge = new Bridge();
+    }
+    return this._broccoliBridge;
   },
 
   _lunrTree() {
