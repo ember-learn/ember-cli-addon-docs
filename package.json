@@ -50,7 +50,7 @@
     "ember-modal-dialog": "2.4.3",
     "ember-responsive": "^3.0.0-beta.1",
     "ember-router-scroll": "^0.6.0",
-    "ember-svg-jar": "^0.12.0",
+    "ember-svg-jar": "^1.2.1",
     "ember-tether": "^1.0.0-beta.2",
     "ember-truth-helpers": "^2.0.0",
     "execa": "^0.9.0",
