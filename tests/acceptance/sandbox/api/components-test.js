@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
-import { currentURL, visit } from '@ember/test-helpers';
+import { currentURL, visit, waitUntil } from '@ember/test-helpers';
 
 import modulePage from '../../../pages/api/module';
 
@@ -32,13 +32,14 @@ module('Acceptance | API | components', function(hooks) {
     assert.ok(indexItems.includes('Yields') && indexItems.includes('Arguments'), 'correct sections rendered');
 
     await modulePage.toggles.findOne({ text: 'Internal' }).click();
+    await waitUntil(() => modulePage.index.items.length === 12);
 
     indexItems = modulePage.index.items.map(i => i.text);
 
-    assert.equal(indexItems.length, 12, 'correct number of items rendered');
     assert.ok(indexItems.includes('Fields') && indexItems.includes('Methods'), 'correct sections rendered');
 
     await modulePage.toggles.findOne({ text: 'Private' }).click();
+    await waitUntil(() => modulePage.index.items.length === 13);
 
     indexItems = modulePage.index.items.map(i => i.text);
 
@@ -51,6 +52,7 @@ module('Acceptance | API | components', function(hooks) {
 
     assert.equal(modulePage.searchResults.items.length, 0, 'no search results shown');
     await modulePage.fillInSearchQuery('sub-subsection');
+    await waitUntil(() => modulePage.searchResults.items.length > 0);
     assert.equal(modulePage.searchResults.items.length, 1, 'one search result shown');
   });
 });
