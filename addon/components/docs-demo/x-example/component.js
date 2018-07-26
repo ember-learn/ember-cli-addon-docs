@@ -4,7 +4,7 @@ import layout from './template';
 export default Component.extend({
   layout,
 
-  classNames: 'p-4',
+  classNames: 'ad-p-4',
 
   init() {
     this._super(...arguments);

@@ -6,62 +6,62 @@
 .docs-h1,
 .docs-md__h1 a,
 .docs-h1 a {
-  @apply mb-6 text-grey-darkest text-4xl font-extrabold leading-tight no-underline;
+  @apply ad-mb-6 ad-text-grey-darkest ad-text-4xl ad-font-extrabold ad-leading-tight ad-no-underline;
 }
 
 .docs-md__h2,
 .docs-h2,
 .docs-md__h2 a,
 .docs-h2 a {
-  @apply pt-8 mb-4 text-grey-darkest leading-tight no-underline;
+  @apply ad-pt-8 ad-mb-4 ad-text-grey-darkest ad-leading-tight ad-no-underline;
 }
 
 .docs-md__h3,
 .docs-h3,
 .docs-md__h3 a,
 .docs-h3 a {
-  @apply pt-4 mb-1 text-grey-darkest leading-tight no-underline;
+  @apply ad-pt-4 ad-mb-1 ad-text-grey-darkest ad-leading-tight ad-no-underline;
 }
 
 .docs-md p {
-  @apply mb-4;
+  @apply ad-mb-4;
 }
 .docs-md ul {
-  @apply mb-4;
+  @apply ad-mb-4;
 }
 .docs-md ol {
-  @apply mb-4;
+  @apply ad-mb-4;
 }
 .docs-md li {
-  @apply mb-2;
+  @apply ad-mb-2;
 }
 .docs-md aside {
-  @apply mb-4 mt-6 bg-grey-lightest italic px-4 py-3 text-sm;
+  @apply ad-mb-4 ad-mt-6 ad-bg-grey-lightest ad-italic ad-px-4 ad-py-3 ad-text-sm;
 }
 
 /* mb-4 on pre interferes with docs-snippet and others, really want Renderer
 to generate its own class...
 pre {
-  @apply .mb-4;
+  @apply .ad-mb-4;
 } */
 
 .docs-md__blockquote {
-  @apply pl-4 text-grey-dark border-l-4;
+  @apply ad-pl-4 ad-text-grey-dark ad-border-l-4;
 }
 
 /* Applied to fenced code in compiled markdown */
 .docs-md__code {
-  @apply bg-grey-lightest my-8 p-6 overflow-x-scroll text-sm;
+  @apply ad-bg-grey-lightest ad-my-8 ad-p-6 ad-overflow-x-scroll ad-text-sm;
 }
 
 .docs-md__a {
-  @apply no-underline border-b border-grey text-inherit;
+  @apply ad-no-underline ad-border-b ad-border-grey ad-text-inherit;
 }
 .docs-md__a:hover,
 .docs-md__a:focus {
-  @apply border-grey-dark;
+  @apply ad-border-grey-dark;
 }
 
 .docs-md__hr {
-  @apply py-0 my-8 h-px border-b;
+  @apply ad-py-0 ad-my-8 ad-h-px ad-border-b;
 }

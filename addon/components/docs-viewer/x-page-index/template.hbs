@@ -1,25 +1,25 @@
-<nav class="hidden lg:block lg:w-1/5 pl-4" data-test-page-index>
-  <div class="sticky pin-t pt-4 pb-8 -mt-4 max-h-screen overflow-y-scroll">
-    <ul class="list-reset border-l border-grey-lighter pl-6 leading-normal">
+<nav class="ad-hidden lg:ad-block lg:ad-w-1/5 ad-pl-4" data-test-page-index>
+  <div class="ad-sticky ad-pin-t ad-pt-4 ad-pb-8 ad--mt-4 ad-max-h-screen ad-overflow-y-scroll">
+    <ul class="ad-list-reset ad-border-l ad-border-grey-lighter ad-pl-6 ad-leading-normal">
       {{#if pageIndex.length}}
-        <li class="mt-20 text-grey font-bold tracking-wide uppercase text-xs">
+        <li class="ad-mt-20 ad-text-grey ad-font-bold ad-tracking-wide ad-uppercase ad-text-xs">
           On This Page
         </li>
       {{/if}}
 
       {{#each pageIndex as |item|}}
         <li class="
-          leading-tight
-          {{if item.indent (concat 'ml-' item.indent)}}
-          {{if item.marginTop (concat 'mt-' item.marginTop)}}
-          {{if item.marginBottom (concat 'mt-' item.marginBottom)}}
+          ad-leading-tight
+          {{if item.indent (concat 'ad-ml-' item.indent)}}
+          {{if item.marginTop (concat 'ad-mt-' item.marginTop)}}
+          {{if item.marginBottom (concat 'ad-mt-' item.marginBottom)}}
         "
 
         data-test-index-item
         >
           <a
             href="#{{item.id}}"
-            class="text-grey-dark font-semibold no-underline hover:underline text-{{item.size}}"
+            class="ad-text-grey-dark ad-font-semibold ad-no-underline hover:ad-underline ad-text-{{item.size}}"
           >
             {{item.text}}
             </a>

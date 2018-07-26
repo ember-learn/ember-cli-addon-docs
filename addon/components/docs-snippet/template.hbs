@@ -1,18 +1,18 @@
 {{#if title}}
-  <div class='bg-grey-lighter text-sm text-grey-darkest
-    font-medium py-2 px-4'>
+  <div class='ad-bg-grey-lighter ad-text-sm ad-text-grey-darkest
+    ad-font-medium ad-py-2 ad-px-4'>
     {{title}}
   </div>
 {{/if}}
 
-<div class='text-sm p-4 bg-grey-lightest relative' data-test-id={{name}}>
+<div class='ad-text-sm ad-p-4 ad-bg-grey-lightest ad-relative' data-test-id={{name}}>
   {{#if showCopy}}
     {{#copy-button
       clipboardText=snippetText
       title='copy to clipboard'
       class='
-        absolute pin-t pin-r bg-transparent hover:bg-transparent
-        border-none opacity-50 hover:opacity-100 p-3
+        ad-absolute ad-pin-t ad-pin-r ad-bg-transparent hover:ad-bg-transparent
+        ad-border-none ad-opacity-50 hover:ad-opacity-100 ad-p-3
       '
     }}
       Copy

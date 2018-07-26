@@ -1,4 +1,4 @@
-<h2 class='flex items-center mt-8 docs-h2'>
+<h2 class='ad-flex ad-items-center ad-mt-8 docs-h2'>
   {{svg-jar 'logo-horizontal' width=40 height=16
     class='mr-2'}}
   Motivation

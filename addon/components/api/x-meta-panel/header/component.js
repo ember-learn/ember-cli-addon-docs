@@ -4,7 +4,7 @@ import hbs from 'htmlbars-inline-precompile';
 export default Component.extend({
   tagName: '',
   layout: hbs`
-    <h4 class="mb-2 text-grey font-bold tracking-wide uppercase text-xs">
+    <h4 class="ad-mb-2 ad-text-grey ad-font-bold ad-tracking-wide ad-uppercase ad-text-xs">
       {{yield}}
     </h4>
   `,

@@ -1,21 +1,21 @@
 <div class="
-  text-center py-8 md:py-16
-  {{if (eq style 'light') 'text-grey-darkest'}}
-  {{if (eq style 'dark') 'bg-black text-white'}}
+  ad-text-center ad-py-8 md:ad-py-16
+  {{if (eq style 'light') 'ad-text-grey-darkest'}}
+  {{if (eq style 'dark') 'ad-bg-black ad-text-white'}}
 ">
-  <h1 class='text-5xl md:text-jumbo leading-none'>
+  <h1 class='ad-text-5xl md:ad-text-jumbo ad-leading-none'>
     {{#if logo}}
-      <div class='md:-mb-1 -mt-4 md:-mt-8'>
-        <span class='inline-block h-6 opacity-50'>
+      <div class='md:ad--mb-1 ad--mt-4 md:ad--mt-8'>
+        <span class='ad-inline-block ad-h-6 ad-opacity-50'>
           {{docs-logo logo=logo}}
         </span>
       </div>
     {{/if}}
 
-    <span class='font-thin'>{{slimHeading}}</span>{{strongHeading}}
+    <span class='ad-font-thin'>{{slimHeading}}</span>{{strongHeading}}
   </h1>
 
-  <p class='opacity-75 text-xl mt-4 w-3/4 mx-auto leading-tight'>
+  <p class='ad-opacity-75 ad-text-xl ad-mt-4 ad-w-3/4 ad-mx-auto ad-leading-tight'>
     {{byline}}
   </p>
 

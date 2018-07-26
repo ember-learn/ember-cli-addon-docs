@@ -1,7 +1,7 @@
 {{#if (or media.isMobile media.isTablet)}}
-  <div class='text-right'>
+  <div class='ad-text-right'>
     <button {{action (toggle 'isShowingMenu' this)}}
-      class='text-grey-darkest py-2 text-sm rounded uppercase font-medium'>
+      class='ad-text-grey-darkest ad-py-2 ad-text-sm ad-rounded ad-uppercase ad-font-medium'>
       ☰ Menu
     </button>
   </div>
@@ -9,19 +9,19 @@
 
 <nav onclick={{action (mut isShowingMenu) false}}
   class='
-    absolute pin-r lg:relative bg-white shadow-lg lg:shadow-none
-    w-90% px-3 lg:px-0 z-10 lg:w-1/5 flex-no-shrink transition
-    max-w-xs mr-2
+    ad-absolute ad-pin-r lg:ad-relative ad-bg-white ad-shadow-lg lg:ad-shadow-none
+    ad-w-90% ad-px-3 lg:ad-px-0 ad-z-10 lg:ad-w-1/5 ad-flex-no-shrink ad-transition
+    ad-max-w-xs ad-mr-2
     {{if (or media.isMobile media.isTablet)
-      (if isShowingMenu 'opacity-100' 'opacity-0 pointer-events-none')
+      (if isShowingMenu 'ad-opacity-100' 'ad-opacity-0 ad-pointer-events-none')
 
     }}
   '>
-  <div class='pt-px sticky pin-t mb-8 lg:max-h-screen lg:-mt-4 lg:pt-4 lg:overflow-y-scroll'>
+  <div class='ad-pt-px ad-sticky ad-pin-t ad-mb-8 lg:ad-max-h-screen lg:ad--mt-4 lg:ad-pt-4 lg:ad-overflow-y-scroll'>
     {{#if (or media.isMobile media.isTablet)}}
-      <div class="text-right">
+      <div class="ad-text-right">
         <button onclick={{action (mut isShowingMenu) false}}
-          class='text-grey-darkest opacity-50 hover:opacity-100 text-3xl py-2 no-underline'>
+          class='ad-text-grey-darkest ad-opacity-50 hover:ad-opacity-100 ad-text-3xl ad-py-2 ad-no-underline'>
           &times;
         </button>
       </div>
@@ -48,14 +48,14 @@
       {{/if}}
     {{/docs-viewer/x-nav-list}}
 
-    <div class="mt-16 lg:mb-16 mr-2 text-xs rounded">
+    <div class="ad-mt-16 lg:ad-mb-16 ad-mr-2 ad-text-xs ad-rounded">
       <a href="https://github.com/ember-learn/ember-cli-addon-docs"
-        class='opacity-50 hover:opacity-100 transition no-underline
-        text-inherit flex items-center text-grey-darkest'>
-        {{svg-jar 'addon-docs-pen' width=22 height=16 class='mr-2'}}
+        class='ad-opacity-50 hover:ad-opacity-100 ad-transition ad-no-underline
+        ad-text-inherit ad-flex ad-items-center ad-text-grey-darkest'>
+        {{svg-jar 'addon-docs-pen' width=22 height=16 class='ad-mr-2'}}
         <div>
           Powered by
-          <span class="font-bold">AddonDocs</span>
+          <span class="ad-font-bold">AddonDocs</span>
         </div>
       </a>
     </div>

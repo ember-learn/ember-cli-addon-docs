@@ -23,7 +23,7 @@ export default Component.extend({
   docsRoutes: service(),
 
   tagName: 'main',
-  classNames: ['lg:w-4/5', 'xl:w-3/5', 'max-w-md', 'lg:max-w-none', 'mx-auto', 'lg:mx-0', 'mt-6', 'flex-no-shrink'],
+  classNames: ['lg:ad-w-4/5', 'xl:ad-w-3/5', 'ad-max-w-md', 'lg:ad-max-w-none', 'ad-mx-auto', 'lg:ad-mx-0', 'ad-mt-6', 'ad-flex-no-shrink'],
 
   didInsertElement() {
     this._super(...arguments);
