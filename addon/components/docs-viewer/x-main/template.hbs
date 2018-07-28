@@ -1,39 +1,39 @@
-<div class="lg:px-4" data-page-index-target>
+<div class="lg:ad-px-4" data-page-index-target>
   {{yield}}
 
-  <div class="mt-16 mb-8">
+  <div class="ad-mt-16 ad-mb-8">
     <a href={{editCurrentPageUrl}}
-      class='transition text-grey-darkest opacity-50 text-sm
-      hover:opacity-75 no-underline border-b border-grey hover:border-grey-darkest'>
+      class='ad-transition ad-text-grey-darkest ad-opacity-50 ad-text-sm
+      hover:ad-opacity-75 ad-no-underline ad-border-b ad-border-grey hover:ad-border-grey-darkest'>
       Edit this page
     </a>
   </div>
 
 </div>
 
-<div class="lg:px-4">
-  <div class="mt-16 pb-16 border-t border-grey-lighter pt-4 flex">
-    <div class="w-1/2">
+<div class="lg:ad-px-4">
+  <div class="ad-mt-16 ad-pb-16 ad-border-t ad-border-grey-lighter ad-pt-4 ad-flex">
+    <div class="ad-w-1/2">
       {{#if docsRoutes.previous}}
-        <div class='text-sm text-grey-dark'>
+        <div class='ad-text-sm ad-text-grey-dark'>
           Previous
         </div>
         {{#link-to params=docsRoutes.previous.route
-          class='text-grey-darkest text-2xl font-light no-underline
-          border-b border-grey hover:border-grey-darkest transition'}}
+          class='ad-text-grey-darkest ad-text-2xl ad-font-light ad-no-underline
+          ad-border-b ad-border-grey hover:ad-border-grey-darkest ad-transition'}}
           {{docsRoutes.previous.label}}
         {{/link-to}}
       {{/if}}
     </div>
 
-    <div class="w-1/2 text-right" data-test-next-link>
+    <div class="ad-w-1/2 ad-text-right" data-test-next-link>
       {{#if docsRoutes.next}}
-        <div class='text-sm text-grey-dark'>
+        <div class='ad-text-sm ad-text-grey-dark'>
           Next
         </div>
         {{#link-to params=docsRoutes.next.route
-          class='text-grey-darkest text-2xl font-light no-underline
-          border-b border-grey hover:border-grey-darkest transition'}}
+          class='ad-text-grey-darkest ad-text-2xl ad-font-light ad-no-underline
+          ad-border-b ad-border-grey hover:ad-border-grey-darkest ad-transition'}}
           {{docsRoutes.next.label}}
         {{/link-to}}
       {{/if}}

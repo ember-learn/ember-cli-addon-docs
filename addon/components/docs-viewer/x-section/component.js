@@ -6,9 +6,9 @@ export default Component.extend({
 
   layout: hbs`
     <li class='
-      mt-8 text-grey font-bold
-      tracking-wide uppercase
-      {{if (eq style 'large') '-mb-4 text-sm' 'text-xs'}}
+      ad-mt-8 ad-text-grey ad-font-bold
+      ad-tracking-wide ad-uppercase
+      {{if (eq style 'large') 'ad--mb-4 ad-text-sm' 'ad-text-xs'}}
     '>
       {{label}}
     </li>

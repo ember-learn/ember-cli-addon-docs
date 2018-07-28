@@ -5,7 +5,7 @@ import { on } from '@ember/object/evented';
 
 export default Component.extend(EKMixin, {
   layout,
-  classNames: 'ml-auto',
+  classNames: 'ad-ml-auto',
 
   query: null,
 

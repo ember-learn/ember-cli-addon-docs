@@ -2,9 +2,9 @@
 
   <a href={{href}}
     class='
-      px-4 py-3 transition uppercase text-xs font-semibold
-      text-grey-darkest no-underline opacity-50 hover:opacity-100
-      {{if push 'ml-auto'}}
+      ad-px-4 ad-py-3 ad-transition ad-uppercase ad-text-xs ad-font-semibold
+      ad-text-grey-darkest ad-no-underline ad-opacity-50 hover:ad-opacity-100
+      {{if push 'ad-ml-auto'}}
     '
     data-test-id={{data-test-id}}>
     {{yield}}
@@ -15,8 +15,8 @@
   <a {{action on-click}}
     href='#'
     class='
-      px-4 py-3 transition uppercase text-xs font-semibold
-      text-grey-darkest no-underline opacity-50 hover:opacity-100
+      ad-px-4 ad-py-3 ad-transition ad-uppercase ad-text-xs ad-font-semibold
+      ad-text-grey-darkest ad-no-underline ad-opacity-50 hover:ad-opacity-100
       {{if push 'ml-auto'}}
     '
     data-test-id={{data-test-id}}>
@@ -27,9 +27,9 @@
 
   {{#link-to route
     class=(concat
-      'px-4 py-3 transition uppercase text-xs font-semibold
-      text-grey-darkest no-underline '
-      (if (and (not isActive) (not (eq route 'index'))) 'opacity-50 hover:opacity-100')
+      'ad-px-4 ad-py-3 ad-transition ad-uppercase ad-text-xs ad-font-semibold
+      ad-text-grey-darkest ad-no-underline '
+      (if (and (not isActive) (not (eq route 'index'))) 'ad-opacity-50 hover:ad-opacity-100')
     )
     data-test-id=data-test-id
   }}

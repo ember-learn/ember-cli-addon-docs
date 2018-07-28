@@ -1,4 +1,4 @@
-<div class="rounded border my-8">
+<div class="ad-rounded ad-border ad-my-8">
 
   {{yield (hash
     example=(component 'docs-demo/x-example')
@@ -6,13 +6,13 @@
   )}}
 
   {{#if snippets}}
-    <nav class="docs-demo__snippets-nav py-2 px-4 font-medium bg-grey-lighter tracking-tight">
+    <nav class="docs-demo__snippets-nav ad-py-2 ad-px-4 ad-font-medium ad-bg-grey-lighter ad-tracking-tight">
       {{#each snippets as |snippet|}}
         <button {{action 'selectSnippet' snippet}}
           class='
-            mr-4 text-sm no-underline outline-none
-            hover:text-grey-darkest
-            {{if snippet.isActive 'text-grey-darkest' 'text-grey-dark'}}
+            ad-mr-4 ad-text-sm ad-no-underline outline-none
+            hover:ad-text-grey-darkest
+            {{if snippet.isActive 'ad-text-grey-darkest' 'ad-text-grey-dark'}}
           '
         >
           {{snippet.label}}

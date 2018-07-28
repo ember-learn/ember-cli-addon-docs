@@ -1,17 +1,17 @@
-<header class='border-b shadow-sm'>
-  <div class='flex items-center max-w-3xl mx-auto'>
+<header class='ad-border-b ad-shadow-sm'>
+  <div class='ad-flex ad-items-center ad-max-w-3xl ad-mx-auto'>
     {{#docs-header/link 'index'}}
-      <div class="text-center text-xs">
+      <div class="ad-text-center ad-text-xs">
         {{#if logo}}
-          <div class='h-4 pb-1'>
+          <div class='ad-h-4 ad-pb-1'>
             {{docs-logo logo=logo}}
           </div>
         {{/if}}
-        <span class='font-medium normal-case block -mt-2px'>{{name}}</span>
+        <span class='ad-font-medium ad-normal-case ad-block ad--mt-2px'>{{name}}</span>
       </div>
     {{/docs-header/link}}
 
-    <div class='flex-1 flex items-center overflow-auto overflow-momentum mask-image md:no-mask-image'>
+    <div class='ad-flex-1 ad-flex ad-items-center ad-overflow-auto ad-overflow-momentum ad-mask-image md:ad-no-mask-image'>
       {{#docs-header/link 'docs'}}
         Documentation
       {{/docs-header/link}}
@@ -23,7 +23,7 @@
       {{docs-header/search-box query=query on-input=(action (mut query))}}
 
       {{#docs-header/link on-click=(action (toggle 'isShowingVersionSelector' this)) data-test-id='current-version'}}
-        <span data-version-selector class='flex items-center'>
+        <span data-version-selector class='ad-flex ad-items-center'>
 
           {{#if (or (eq currentVersion.key latestVersionName))}}
             {{#if currentVersion.tag}}
@@ -41,14 +41,14 @@
 
       {{#if projectHref}}
         {{#docs-header/link href=projectHref}}
-          <span class='flex'>
+          <span class='ad-flex'>
             {{svg-jar 'github' width=24 height=24}}
           </span>
         {{/docs-header/link}}
       {{/if}}
 
       {{!-- Something to take up space on mobile, so the scrolling nav isn't hugging the edge --}}
-      <div class='h-px px-3 md:hidden'></div>
+      <div class='ad-h-px ad-px-3 md:ad-hidden'></div>
     </div>
   </div>
 </header>

@@ -3,7 +3,7 @@
 @import 'pod-styles.scss';
 
 // Figure out how to do this in tailwind
-.fill-current {
+.ad-fill-current {
   &, & * {
     fill: currentColor;
   }
@@ -26,12 +26,12 @@ svg {
   fill: currentColor;
 }
 
-.transition {
+.ad-transition {
   transition: all 0.15s;
 }
 
 // get this if we upgrade tailwind
-.sticky {
+.ad-sticky {
   position: sticky;
 }
 

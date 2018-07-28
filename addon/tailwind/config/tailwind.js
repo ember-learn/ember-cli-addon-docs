@@ -112,7 +112,7 @@ export default {
   */
 
   options: {
-    prefix: '',
+    prefix: 'ad-',
     important: false,
     separator: ':',
   },
