@@ -26,6 +26,12 @@ Router.map(function() {
 
   this.route('sandbox', function() {
     apiRoute(this);
+    docsRoute(this, function() {
+      this.route('one', function() {
+        this.route('child');
+      });
+      this.route('two');
+    });
   });
 
   this.route('not-found', { path: '/*path' });
