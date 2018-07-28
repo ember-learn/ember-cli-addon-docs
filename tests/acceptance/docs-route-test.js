@@ -19,4 +19,9 @@ module('Acceptance | Docs route test', function(hooks) {
 
     assert.dom('h1').hasText('DocsHero');
   });
+
+  test('I can visit a nested child route within the docs pages and still have the correct links', async function(assert) {
+    await visit('/sandbox/docs/one/child');
+    assert.dom('[data-test-next-link] > a').hasText('Two');
+  });
 });
