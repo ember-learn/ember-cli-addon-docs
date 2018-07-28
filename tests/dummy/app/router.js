@@ -12,11 +12,7 @@ Router.map(function() {
     this.route('usage');
     this.route('quickstart');
     this.route('patterns');
-    this.route('deploying', function() {
-      // This exists so we can acceptance test whether the docs pages tolerate
-      // embedded child routes. It's not used in the public documentation site.
-      this.route('test-nested-route');
-    });
+    this.route('deploying');
 
     this.route('components', function() {
       this.route('docs-hero');
@@ -30,6 +26,12 @@ Router.map(function() {
 
   this.route('sandbox', function() {
     apiRoute(this);
+    docsRoute(this, function() {
+      this.route('one', function() {
+        this.route('child');
+      });
+      this.route('two');
+    });
   });
 
   this.route('not-found', { path: '/*path' });
