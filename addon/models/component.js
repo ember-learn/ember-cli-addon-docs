@@ -1,5 +1,7 @@
 import DS from 'ember-data';
 import { filterBy, or } from '@ember/object/computed';
+import { dasherize } from '@ember/string';
+import { computed } from '@ember/object';
 
 import Class from './class';
 import { memberUnion, hasMemberType } from '../utils/computed';
@@ -61,5 +63,17 @@ export default Class.extend({
     function(member) {
       return member.tags && member.tags.find(t => t.name === 'deprecated');
     }
-  )
+  ),
+
+  /*
+    This gives us a way to link to a model, since we don't always link by the actual ID:
+
+      {{link-to 'item' model.routingId}}
+
+    Possible refactoring is to always link by actual ID, and implement redirects.
+  */
+  routingId: computed('name', function() {
+    return `components/${dasherize(this.get('name'))}`;
+  })
+
 });

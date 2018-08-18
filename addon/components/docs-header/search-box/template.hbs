@@ -10,6 +10,7 @@
   <input oninput={{action on-input value='target.value'}}
     value={{query}}
     type="text"
+    disabled={{fetchProject.isRunning}}
     placeholder='Search'
     class='ad-w-24 ad-text-xs ad-p-2 ad-pl-6 ad-rounded focus:ad-bg-grey-lighter outline-none'
     data-search-box-input

@@ -5,7 +5,7 @@ import { currentURL, visit, waitUntil } from '@ember/test-helpers';
 
 import modulePage from '../../../pages/api/module';
 
-module('Acceptance | API | components', function(hooks) {
+module('Acceptance | Sandbox | API | components', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
@@ -45,14 +45,5 @@ module('Acceptance | API | components', function(hooks) {
 
     assert.equal(indexItems.length, 13, 'correct number of items rendered');
     assert.ok(indexItems.includes('_privateField'), 'private field rendered');
-  });
-
-  test('search box works', async function(assert) {
-    await visit('/sandbox');
-
-    assert.equal(modulePage.searchResults.items.length, 0, 'no search results shown');
-    await modulePage.fillInSearchQuery('sub-subsection');
-    await waitUntil(() => modulePage.searchResults.items.length > 0);
-    assert.equal(modulePage.searchResults.items.length, 1, 'one search result shown');
   });
 });

@@ -6,7 +6,8 @@
     onClose=(action 'clearSearch')
     targetAttachment='bottom left'
     constraints=(array (hash to='window' attachment='together' pin=true))}}
-    <ul class="docs-viewer-search__result-list" data-test-search-result-list>
+
+    <ul class="ad-w-76 ad-bg-white ad-shadow-md ad-list-reset" data-test-search-result-list>
       {{#each (take 5 searchResults) as |result index|}}
         <li>
           {{docs-header/search-result
@@ -17,10 +18,11 @@
             on-click=(action 'clearSearch')}}
         </li>
       {{else}}
-        <li class='docs-viewer-search__result-item docs-viewer-search__result-item--disabled'>
+        <li class='ad-block ad-py-1 ad-px-3 ad-text-grey-dark ad-no-underline'>
           No results.
         </li>
       {{/each}}
     </ul>
+
   {{/modal-dialog}}
 {{/if}}

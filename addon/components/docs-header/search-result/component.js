@@ -14,8 +14,9 @@ export default Component.extend({
     let type = this.get('result.document.type');
     if (type === 'template') {
       args = [ this.get('result.document.route') ];
-    } else if (type === 'class') {
-      args = [ 'docs.api.class', this.get('result.document.class.id') ];
+
+    } else {
+      args = [ 'docs.api.item', this.get('result.model.routingId') ];
     }
 
     return args;
@@ -32,7 +33,7 @@ export default Component.extend({
     if (this.get('result.document.type') === 'template') {
       return 'guide';
     } else {
-      return 'class';
+      return 'api-item';
     }
   }),
 
@@ -80,7 +81,7 @@ export default Component.extend({
   }),
 
   _highlight(text, start, length) {
-    return `${text.slice(0, start)}<em class='docs-viewer-search__result-item__text--emphasis'>${text.slice(start, start + length)}</em>${text.slice(start + length)}`;
+    return `${text.slice(0, start)}<em class='ad-bg-yellow'>${text.slice(start, start + length)}</em>${text.slice(start + length)}`;
   },
 
   'data-test-search-result': true,

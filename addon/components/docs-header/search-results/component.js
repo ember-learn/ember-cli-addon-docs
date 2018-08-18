@@ -5,12 +5,16 @@ import { EKMixin, keyUp, keyDown } from 'ember-keyboard';
 import { on } from '@ember/object/evented';
 import { computed } from '@ember/object';
 import { task } from 'ember-concurrency';
+import config from 'dummy/config/environment';
+
+const projectName = config['ember-cli-addon-docs'].projectName;
 
 export default Component.extend(EKMixin, {
   layout,
 
   docsSearch: service(),
   router: service(),
+  store: service(),
 
   query: null, // passed in
   selectedIndex: null,
@@ -29,6 +33,10 @@ export default Component.extend(EKMixin, {
 
     this.get('search').perform();
   },
+
+  project: computed(function() {
+    return this.get('store').peekRecord('project', projectName);
+  }),
 
   trimmedQuery: computed('query', function() {
     return this.get('query').trim();
@@ -51,17 +59,44 @@ export default Component.extend(EKMixin, {
     let routerMicrolib = router._router._routerMicrolib || router._router.router;
 
     if (rawSearchResults) {
-      let filteredSearchResults = this.get('rawSearchResults')
+      return this.get('rawSearchResults')
+        // If the doc has a route, ensure it exists
         .filter(({ document }) => {
-          let routeExists = routerMicrolib.recognizer.names[document.route];
-          return routeExists && document.route !== 'not-found';
-        })
-        .filter(({ document }) => {
-          let isClassTemplate = (document.route === 'docs.api.class' && document.type === 'template');
-          return !isClassTemplate;
-        });
+          if (document.route) {
+            let routeExists = routerMicrolib.recognizer.names[document.route];
 
-      return filteredSearchResults;
+            return routeExists && document.route !== 'not-found' && document.route !== 'application';
+          } else {
+            return true;
+          }
+        })
+
+        // Filter out the templates of the API items' pages, since we handle them separately
+        .filter(({ document }) => {
+          let isApiItemTemplate = (document.route === 'docs.api.item' && document.type === 'template');
+          return !isApiItemTemplate;
+        })
+
+        // Filter out modules that are not in the navigationIndex
+        .filter(({ document }) => {
+          if (document.type === 'module') {
+            let navigableModules = this.get('project.navigationIndex.modules').map(x => x.name);
+            return navigableModules.includes(document.title);
+          } else {
+            return true;
+          }
+        })
+
+        // Add a reference to the Ember Data model to each API item search result
+        .map(searchResult => {
+          let { document } = searchResult;
+          if (document.type !== 'template') {
+            let store = this.get('store');
+            searchResult.model = store.peekRecord(document.type, document.item.id)
+          }
+
+          return searchResult;
+        });
     }
   }),
 
@@ -70,8 +105,8 @@ export default Component.extend(EKMixin, {
       let selectedResult = this.get('searchResults')[this.get('selectedIndex')];
       if (selectedResult.document.type === 'template') {
         this.get('router').transitionTo(selectedResult.document.route);
-      } else if (selectedResult.document.type === 'class') {
-        this.get('router').transitionTo('docs.api.class', selectedResult.document.class.id);
+      } else {
+        this.get('router').transitionTo('docs.api.item', selectedResult.model.get('routingId'));
       }
     }
 
