@@ -4,7 +4,7 @@ import hbs from 'htmlbars-inline-precompile';
 export default Component.extend({
   tagName: '',
   layout: hbs`
-    <div class="ad-px-6 ad-pt-3 ad-mt-4 ad-border ad-border-grey-light ad-rounded ad-text-sm">
+    <div class="docs-px-6 docs-pt-3 docs-mt-4 docs-border docs-border-grey-light docs-rounded docs-text-sm">
       {{yield (hash
         header=(component 'api/x-meta-panel/header')
       )}}

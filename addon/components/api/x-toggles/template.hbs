@@ -1,12 +1,12 @@
-<ul class="ad-list-reset ad-mb-6">
+<ul class="docs-list-reset docs-mb-6">
   {{#each-in toggles as |key toggle|}}
     {{#if (not-eq toggle undefined)}}
-      <li class="ad-inline ad-ml-4">
+      <li class="docs-inline docs-ml-4">
         <label data-test-toggle>
           <input type="checkbox"
             checked={{toggle}}
             onclick={{action onToggle key}}
-            class='ad-mr-1'
+            class='docs-mr-1'
           >
 
           {{capitalize key}}

@@ -4,7 +4,7 @@ import hbs from 'htmlbars-inline-precompile'
 export default Component.extend({
   tagName: 'ul',
 
-  classNames: ['ad-list-reset'],
+  classNames: ['docs-list-reset'],
 
   layout: hbs`
     {{yield (hash

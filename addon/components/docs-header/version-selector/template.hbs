@@ -4,28 +4,29 @@
   clickOutsideToClose=true
   onClose=(action on-close)
   targetAttachment='bottom right'}}
-  <ul class="ad-list-reset ad-mt-2 ad-bg-white ad-shadow-md ad-text-sm ad-rounded ad-z-10">
+  <ul class="docs-list-reset docs-mt-2 docs-bg-white docs-shadow-md docs-text-sm docs-rounded docs-z-10">
     {{#each sortedVersions as |version|}}
       <li data-test-id='version'>
-        <a {{action 'changeVersion' version}} href='#' class='ad-text-black ad-no-underline ad-flex ad-items-center
-          ad-px-4 ad-py-3 hover:ad-bg-grey-lighter'>
-          <span class='w-6 flex'>
+        <a {{action 'changeVersion' version}} href='#'
+          class='docs-text-black docs-no-underline docs-flex docs-items-center
+            docs-px-4 docs-py-3 hover:docs-bg-grey-lighter'>
+          <span class='docs-w-6 flex'>
             {{#if (eq version.key currentVersion.key)}}
               {{svg-jar 'check' height=16 width=16}}
             {{/if}}
           </span>
-          <span class='ad-font-medium'>
+          <span class='docs-font-medium'>
             {{version.name}}
           </span>
 
-          <span class="ad-ml-auto ad-pl-8 ad-flex ad-items-center ad-opacity-50">
+          <span class="docs-ml-auto docs-pl-8 docs-flex docs-items-center docs-opacity-50">
             {{#if (or (eq version.key latestVersionName) (eq version.key primaryBranch))}}
               {{svg-jar (if version.tag 'git-tag' 'git-sha') height=16 width=16}}
             {{else}}
               {{svg-jar 'git-sha' height=16 width=16}}
             {{/if}}
 
-            <span class='ad-text-xs ad-font-mono ad-pl-1'>
+            <span class='docs-text-xs docs-font-mono docs-pl-1'>
               {{#if (or (eq version.key latestVersionName) (eq version.key primaryBranch))}}
                 {{#if version.tag}}
                   {{version.tag}}

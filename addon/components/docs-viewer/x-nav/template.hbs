@@ -1,7 +1,7 @@
 {{#if (or media.isMobile media.isTablet)}}
-  <div class='ad-text-right'>
+  <div class='docs-text-right'>
     <button {{action (toggle 'isShowingMenu' this)}}
-      class='ad-text-grey-darkest ad-py-2 ad-text-sm ad-rounded ad-uppercase ad-font-medium'>
+      class='docs-text-grey-darkest docs-py-2 docs-text-sm docs-rounded docs-uppercase docs-font-medium'>
       ☰ Menu
     </button>
   </div>
@@ -9,19 +9,19 @@
 
 <nav onclick={{action (mut isShowingMenu) false}}
   class='
-    ad-absolute ad-pin-r lg:ad-relative ad-bg-white ad-shadow-lg lg:ad-shadow-none
-    ad-w-90% ad-px-3 lg:ad-px-0 ad-z-10 lg:ad-w-1/5 ad-flex-no-shrink ad-transition
-    ad-max-w-xs ad-mr-2
+    docs-absolute docs-pin-r lg:docs-relative docs-bg-white docs-shadow-lg lg:docs-shadow-none
+    docs-w-90% docs-px-3 lg:docs-px-0 docs-z-10 lg:docs-w-1/5 docs-flex-no-shrink docs-transition
+    docs-max-w-xs docs-mr-2
     {{if (or media.isMobile media.isTablet)
-      (if isShowingMenu 'ad-opacity-100' 'ad-opacity-0 ad-pointer-events-none')
+      (if isShowingMenu 'docs-opacity-100' 'docs-opacity-0 docs-pointer-events-none')
 
     }}
   '>
-  <div class='ad-pt-px ad-sticky ad-pin-t ad-mb-8 lg:ad-max-h-screen lg:ad--mt-4 lg:ad-pt-4 lg:ad-overflow-y-scroll'>
+  <div class='docs-pt-px docs-sticky docs-pin-t docs-mb-8 lg:docs-max-h-screen lg:docs--mt-4 lg:docs-pt-4 lg:docs-overflow-y-scroll'>
     {{#if (or media.isMobile media.isTablet)}}
-      <div class="ad-text-right">
+      <div class="docs-text-right">
         <button onclick={{action (mut isShowingMenu) false}}
-          class='ad-text-grey-darkest ad-opacity-50 hover:ad-opacity-100 ad-text-3xl ad-py-2 ad-no-underline'>
+          class='docs-text-grey-darkest docs-opacity-50 hover:docs-opacity-100 docs-text-3xl docs-py-2 docs-no-underline'>
           &times;
         </button>
       </div>
@@ -48,14 +48,14 @@
       {{/if}}
     {{/docs-viewer/x-nav-list}}
 
-    <div class="ad-mt-16 lg:ad-mb-16 ad-mr-2 ad-text-xs ad-rounded">
+    <div class="docs-mt-16 lg:docs-mb-16 docs-mr-2 docs-text-xs docs-rounded">
       <a href="https://github.com/ember-learn/ember-cli-addon-docs"
-        class='ad-opacity-50 hover:ad-opacity-100 ad-transition ad-no-underline
-        ad-text-inherit ad-flex ad-items-center ad-text-grey-darkest'>
-        {{svg-jar 'addon-docs-pen' width=22 height=16 class='ad-mr-2'}}
+        class='docs-opacity-50 hover:docs-opacity-100 docs-transition docs-no-underline
+        docs-text-inherit docs-flex docs-items-center docs-text-grey-darkest'>
+        {{svg-jar 'addon-docs-pen' width=22 height=16 class='docs-mr-2'}}
         <div>
           Powered by
-          <span class="ad-font-bold">AddonDocs</span>
+          <span class="docs-font-bold">AddonDocs</span>
         </div>
       </a>
     </div>
