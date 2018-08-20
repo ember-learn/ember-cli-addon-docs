@@ -28,12 +28,6 @@ script:
 notifications:
   email: false
 
-stages:
-  - locked dependencies
-  - floating dependencies
-  - versioned tests
-  - deploy
-
 jobs:
   fail_fast: true
 
@@ -64,6 +58,18 @@ jobs:
       if: (branch = master OR tag IS present) AND type = push
       env: NAME=deploy
       script: node_modules/.bin/ember deploy production
+
+    - stage: npm publish
+      install: skip
+      script: skip
+      deploy:
+        provider: npm
+        email: sam.selikoff@gmail.com
+        api_key:
+          secure: kgNMxKYw1kI+Wzz6YPbAoNw3T0Q7nXDsyIFiIp3SurBtkVBm66LmAFSoUI/yESAYTJ/PguyqQGkIlQ9022kwBRgUAXSSeU63QyESiTULj5EGewn/fVnj2RF2z5KC2tg0rEpqVkPgZpecT4Khkm13eQwViJYEsKlnu3IQhmi8pN6hIcffXMEa+Yjk9m4cAXcGXplXGzVVA8vg70+zxZ9RDKk8SIJe2x+s6ZffQRQ4E0fpJQ399hlZceiQ1Heh7fsWGR+ewHPGnuMNKvg/NEiksiS0T+HCf+XIXi16xzwk3/An+6sRuFmNEVRaMx/rlNHiJg2rUQlNKjQ1AZ+SIV58rT2Nyyx4vdTMVooKALv+zNwLqrEcvkbRZ3DHqvTCBWqz9qFBYDSfHL9ylyNW0VBlHxyOCx9OJN6F6H7Qpa91cnzmMXi0RWQbVoXLORnW/eckcCJmyDjlnK8YgLbop+vBGcbhFxTOzXbUOqauwJ6K8j5rMmdcuHgc0eIMqZq7MRxflnKqBWH3rbyiRRCN0DnNkhjUIbPwioTINBRSdRXy1b1LIqflq6MG9UzBaTPIlPUe3l4pyX4cIbgTJPJSTQCOVhoTH+gj7fwG2mVDhyXAn6KJzw9BHvb5CiIaqR15XuHxQWoPVXBbwzgga36Y77rGGQ8Jq+NIqFwiUxeU8UithJU=
+        on:
+          tags: true
+          repo: ember-learn/ember-cli-addon-docs
 
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-beta
