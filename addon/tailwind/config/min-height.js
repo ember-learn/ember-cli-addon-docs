@@ -14,6 +14,6 @@
 
 export default {
   '0': '0',
-  'full': '100%',
-  'screen': '100vh'
+  full: '100%',
+  screen: '100vh'
 };

@@ -14,8 +14,8 @@
 */
 
 export default {
-  'auto': 'auto',
-  'px': '1px',
+  auto: 'auto',
+  px: '1px',
   '1': '0.25rem',
   '2': '0.5rem',
   '3': '0.75rem',
@@ -29,6 +29,6 @@ export default {
   '32': '8rem',
   '48': '12rem',
   '64': '16rem',
-  'full': '100%',
-  'screen': '100vh'
+  full: '100%',
+  screen: '100vh'
 };

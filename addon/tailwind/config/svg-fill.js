@@ -13,5 +13,5 @@
 */
 
 export default {
-  'current': 'currentColor',
+  current: 'currentColor'
 };
