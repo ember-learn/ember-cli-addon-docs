@@ -1,25 +1,25 @@
-<nav class="ad-hidden lg:ad-block lg:ad-w-1/5 ad-pl-4" data-test-page-index>
-  <div class="ad-sticky ad-pin-t ad-pt-4 ad-pb-8 ad--mt-4 ad-max-h-screen ad-overflow-y-scroll">
-    <ul class="ad-list-reset ad-border-l ad-border-grey-lighter ad-pl-6 ad-leading-normal">
+<nav class="docs-hidden lg:docs-block lg:docs-w-1/5 docs-pl-4" data-test-page-index>
+  <div class="docs-sticky docs-pin-t docs-pt-4 docs-pb-8 docs--mt-4 docs-max-h-screen docs-overflow-y-scroll">
+    <ul class="docs-list-reset docs-border-l docs-border-grey-lighter docs-pl-6 docs-leading-normal">
       {{#if pageIndex.length}}
-        <li class="ad-mt-20 ad-text-grey ad-font-bold ad-tracking-wide ad-uppercase ad-text-xs">
+        <li class="docs-mt-20 docs-text-grey docs-font-bold docs-tracking-wide docs-uppercase docs-text-xs">
           On This Page
         </li>
       {{/if}}
 
       {{#each pageIndex as |item|}}
         <li class="
-          ad-leading-tight
-          {{if item.indent (concat 'ad-ml-' item.indent)}}
-          {{if item.marginTop (concat 'ad-mt-' item.marginTop)}}
-          {{if item.marginBottom (concat 'ad-mt-' item.marginBottom)}}
+          docs-leading-tight
+          {{if item.indent (concat 'docs-ml-' item.indent)}}
+          {{if item.marginTop (concat 'docs-mt-' item.marginTop)}}
+          {{if item.marginBottom (concat 'docs-mt-' item.marginBottom)}}
         "
 
         data-test-index-item
         >
           <a
             href="#{{item.id}}"
-            class="ad-text-grey-dark ad-font-semibold ad-no-underline hover:ad-underline ad-text-{{item.size}}"
+            class="docs-text-grey-dark docs-font-semibold docs-no-underline hover:docs-underline docs-text-{{item.size}}"
           >
             {{item.text}}
             </a>

@@ -3,10 +3,10 @@
     id={{item.name}}
     data-text="{{item.name}}"
     data-test-item-header
-    class="docs-h3 ad-font-mono ad-font-normal"
+    class="docs-h3 docs-font-mono docs-font-normal"
   >
     {{#if (eq item.exportType 'default')}}
-      <span class="ad-border ad-border-grey-light ad-align-text-top ad-leading-loose ad-text-xs ad-pl-2 ad-mr-2 ad-py-1 ad-rounded">
+      <span class="docs-border docs-border-grey-light docs-align-text-top docs-leading-loose docs-text-xs docs-pl-2 docs-mr-2 docs-py-1 docs-rounded">
         Default
       </span>
     {{/if}}
@@ -45,13 +45,13 @@
           Params
         {{/panel.header}}
 
-        <table class="ad-mb-6" data-test-item-params>
+        <table class="docs-mb-6" data-test-item-params>
           <tbody>
             {{#each item.params as |param|}}
               <tr data-test-item-param>
-                <td><span class="ad-font-mono ad-font-bold ad-border-r ad-border-grey-light ad-pr-2">{{param.name}}</span></td>
-                <td><span class="ad-font-mono ad-border-r ad-border-grey-light ad-px-2">{{param.type}}</span></td>
-                <td class="ad-pl-2">{{param.description}}</td>
+                <td><span class="docs-font-mono docs-font-bold docs-border-r docs-border-grey-light docs-pr-2">{{param.name}}</span></td>
+                <td><span class="docs-font-mono docs-border-r docs-border-grey-light docs-px-2">{{param.type}}</span></td>
+                <td class="docs-pl-2">{{param.description}}</td>
               </tr>
             {{/each}}
           </tbody>

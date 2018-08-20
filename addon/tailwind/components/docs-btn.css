@@ -1,8 +1,8 @@
 .docs-btn {
-  @apply ad-bg-grey-light ad-border-b-2 ad-border-grey-dark ad-py-2 ad-px-4 outline-none;
+  @apply docs-bg-grey-light docs-border-b-2 docs-border-grey-dark docs-py-2 docs-px-4 outline-none;
 }
 .docs-btn:hover {
-  @apply ad-bg-grey;
+  @apply docs-bg-grey;
 }
 .docs-btn:focus {
   @apply outline-none;

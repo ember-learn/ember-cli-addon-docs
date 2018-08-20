@@ -2,9 +2,9 @@
 
   <a href={{href}}
     class='
-      ad-px-4 ad-py-3 ad-transition ad-uppercase ad-text-xs ad-font-semibold
-      ad-text-grey-darkest ad-no-underline ad-opacity-50 hover:ad-opacity-100
-      {{if push 'ad-ml-auto'}}
+      docs-px-4 docs-py-3 docs-transition docs-uppercase docs-text-xs docs-font-semibold
+      docs-text-grey-darkest docs-no-underline docs-opacity-50 hover:docs-opacity-100
+      {{if push 'docs-ml-auto'}}
     '
     data-test-id={{data-test-id}}>
     {{yield}}
@@ -15,8 +15,8 @@
   <a {{action on-click}}
     href='#'
     class='
-      ad-px-4 ad-py-3 ad-transition ad-uppercase ad-text-xs ad-font-semibold
-      ad-text-grey-darkest ad-no-underline ad-opacity-50 hover:ad-opacity-100
+      docs-px-4 docs-py-3 docs-transition docs-uppercase docs-text-xs docs-font-semibold
+      docs-text-grey-darkest docs-no-underline docs-opacity-50 hover:docs-opacity-100
       {{if push 'ml-auto'}}
     '
     data-test-id={{data-test-id}}>
@@ -27,9 +27,9 @@
 
   {{#link-to route
     class=(concat
-      'ad-px-4 ad-py-3 ad-transition ad-uppercase ad-text-xs ad-font-semibold
-      ad-text-grey-darkest ad-no-underline '
-      (if (and (not isActive) (not (eq route 'index'))) 'ad-opacity-50 hover:ad-opacity-100')
+      'docs-px-4 docs-py-3 docs-transition docs-uppercase docs-text-xs docs-font-semibold
+      docs-text-grey-darkest docs-no-underline '
+      (if (and (not isActive) (not (eq route 'index'))) 'docs-opacity-50 hover:docs-opacity-100')
     )
     data-test-id=data-test-id
   }}

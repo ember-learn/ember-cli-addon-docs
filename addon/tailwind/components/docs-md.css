@@ -6,62 +6,62 @@
 .docs-h1,
 .docs-md__h1 a,
 .docs-h1 a {
-  @apply ad-mb-6 ad-text-grey-darkest ad-text-4xl ad-font-extrabold ad-leading-tight ad-no-underline;
+  @apply docs-mb-6 docs-text-grey-darkest docs-text-4xl docs-font-extrabold docs-leading-tight docs-no-underline;
 }
 
 .docs-md__h2,
 .docs-h2,
 .docs-md__h2 a,
 .docs-h2 a {
-  @apply ad-pt-8 ad-mb-4 ad-text-grey-darkest ad-leading-tight ad-no-underline;
+  @apply docs-pt-8 docs-mb-4 docs-text-grey-darkest docs-leading-tight docs-no-underline;
 }
 
 .docs-md__h3,
 .docs-h3,
 .docs-md__h3 a,
 .docs-h3 a {
-  @apply ad-pt-4 ad-mb-1 ad-text-grey-darkest ad-leading-tight ad-no-underline;
+  @apply docs-pt-4 docs-mb-1 docs-text-grey-darkest docs-leading-tight docs-no-underline;
 }
 
 .docs-md p {
-  @apply ad-mb-4;
+  @apply docs-mb-4;
 }
 .docs-md ul {
-  @apply ad-mb-4;
+  @apply docs-mb-4;
 }
 .docs-md ol {
-  @apply ad-mb-4;
+  @apply docs-mb-4;
 }
 .docs-md li {
-  @apply ad-mb-2;
+  @apply docs-mb-2;
 }
 .docs-md aside {
-  @apply ad-mb-4 ad-mt-6 ad-bg-grey-lightest ad-italic ad-px-4 ad-py-3 ad-text-sm;
+  @apply docs-mb-4 docs-mt-6 docs-bg-grey-lightest docs-italic docs-px-4 docs-py-3 docs-text-sm;
 }
 
 /* mb-4 on pre interferes with docs-snippet and others, really want Renderer
 to generate its own class...
 pre {
-  @apply .ad-mb-4;
+  @apply .docs-mb-4;
 } */
 
 .docs-md__blockquote {
-  @apply ad-pl-4 ad-text-grey-dark ad-border-l-4;
+  @apply docs-pl-4 docs-text-grey-dark docs-border-l-4;
 }
 
 /* Applied to fenced code in compiled markdown */
 .docs-md__code {
-  @apply ad-bg-grey-lightest ad-my-8 ad-p-6 ad-overflow-x-scroll ad-text-sm;
+  @apply docs-bg-grey-lightest docs-my-8 docs-p-6 docs-overflow-x-scroll docs-text-sm;
 }
 
 .docs-md__a {
-  @apply ad-no-underline ad-border-b ad-border-grey ad-text-inherit;
+  @apply docs-no-underline docs-border-b docs-border-grey docs-text-inherit;
 }
 .docs-md__a:hover,
 .docs-md__a:focus {
-  @apply ad-border-grey-dark;
+  @apply docs-border-grey-dark;
 }
 
 .docs-md__hr {
-  @apply ad-py-0 ad-my-8 ad-h-px ad-border-b;
+  @apply docs-py-0 docs-my-8 docs-h-px docs-border-b;
 }

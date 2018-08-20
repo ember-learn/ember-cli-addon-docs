@@ -1,17 +1,17 @@
-<header class='ad-border-b ad-shadow-sm'>
-  <div class='ad-flex ad-items-center ad-max-w-3xl ad-mx-auto'>
+<header class='docs-border-b docs-shadow-sm'>
+  <div class='docs-flex docs-items-center docs-max-w-3xl docs-mx-auto'>
     {{#docs-header/link 'index'}}
-      <div class="ad-text-center ad-text-xs">
+      <div class="docs-text-center docs-text-xs">
         {{#if logo}}
-          <div class='ad-h-4 ad-pb-1'>
+          <div class='docs-h-4 docs-pb-1'>
             {{docs-logo logo=logo}}
           </div>
         {{/if}}
-        <span class='ad-font-medium ad-normal-case ad-block ad--mt-2px'>{{name}}</span>
+        <span class='docs-font-medium docs-normal-case docs-block docs--mt-2px'>{{name}}</span>
       </div>
     {{/docs-header/link}}
 
-    <div class='ad-flex-1 ad-flex ad-items-center ad-overflow-auto ad-overflow-momentum ad-mask-image md:ad-no-mask-image'>
+    <div class='docs-flex-1 docs-flex docs-items-center docs-overflow-auto docs-overflow-momentum docs-mask-image md:docs-no-mask-image'>
       {{#docs-header/link 'docs'}}
         Documentation
       {{/docs-header/link}}
@@ -23,7 +23,7 @@
       {{docs-header/search-box query=query on-input=(action (mut query))}}
 
       {{#docs-header/link on-click=(action (toggle 'isShowingVersionSelector' this)) data-test-id='current-version'}}
-        <span data-version-selector class='ad-flex ad-items-center'>
+        <span data-version-selector class='docs-flex docs-items-center'>
 
           {{#if (or (eq currentVersion.key latestVersionName))}}
             {{#if currentVersion.tag}}
@@ -41,14 +41,14 @@
 
       {{#if projectHref}}
         {{#docs-header/link href=projectHref}}
-          <span class='ad-flex'>
+          <span class='docs-flex'>
             {{svg-jar 'github' width=24 height=24}}
           </span>
         {{/docs-header/link}}
       {{/if}}
 
       {{!-- Something to take up space on mobile, so the scrolling nav isn't hugging the edge --}}
-      <div class='ad-h-px ad-px-3 md:ad-hidden'></div>
+      <div class='docs-h-px docs-px-3 md:docs-hidden'></div>
     </div>
   </div>
 </header>

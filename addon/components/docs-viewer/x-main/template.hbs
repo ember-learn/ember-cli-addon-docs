@@ -1,39 +1,39 @@
-<div class="lg:ad-px-4" data-page-index-target>
+<div class="lg:docs-px-4" data-page-index-target>
   {{yield}}
 
-  <div class="ad-mt-16 ad-mb-8">
+  <div class="docs-mt-16 docs-mb-8">
     <a href={{editCurrentPageUrl}}
-      class='ad-transition ad-text-grey-darkest ad-opacity-50 ad-text-sm
-      hover:ad-opacity-75 ad-no-underline ad-border-b ad-border-grey hover:ad-border-grey-darkest'>
+      class='docs-transition docs-text-grey-darkest docs-opacity-50 docs-text-sm
+      hover:docs-opacity-75 docs-no-underline docs-border-b docs-border-grey hover:docs-border-grey-darkest'>
       Edit this page
     </a>
   </div>
 
 </div>
 
-<div class="lg:ad-px-4">
-  <div class="ad-mt-16 ad-pb-16 ad-border-t ad-border-grey-lighter ad-pt-4 ad-flex">
-    <div class="ad-w-1/2">
+<div class="lg:docs-px-4">
+  <div class="docs-mt-16 docs-pb-16 docs-border-t docs-border-grey-lighter docs-pt-4 docs-flex">
+    <div class="docs-w-1/2">
       {{#if docsRoutes.previous}}
-        <div class='ad-text-sm ad-text-grey-dark'>
+        <div class='docs-text-sm docs-text-grey-dark'>
           Previous
         </div>
         {{#link-to params=docsRoutes.previous.route
-          class='ad-text-grey-darkest ad-text-2xl ad-font-light ad-no-underline
-          ad-border-b ad-border-grey hover:ad-border-grey-darkest ad-transition'}}
+          class='docs-text-grey-darkest docs-text-2xl docs-font-light docs-no-underline
+          docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition'}}
           {{docsRoutes.previous.label}}
         {{/link-to}}
       {{/if}}
     </div>
 
-    <div class="ad-w-1/2 ad-text-right" data-test-next-link>
+    <div class="docs-w-1/2 docs-text-right" data-test-next-link>
       {{#if docsRoutes.next}}
-        <div class='ad-text-sm ad-text-grey-dark'>
+        <div class='docs-text-sm docs-text-grey-dark'>
           Next
         </div>
         {{#link-to params=docsRoutes.next.route
-          class='ad-text-grey-darkest ad-text-2xl ad-font-light ad-no-underline
-          ad-border-b ad-border-grey hover:ad-border-grey-darkest ad-transition'}}
+          class='docs-text-grey-darkest docs-text-2xl docs-font-light docs-no-underline
+          docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition'}}
           {{docsRoutes.next.label}}
         {{/link-to}}
       {{/if}}

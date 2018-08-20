@@ -12,7 +12,7 @@ export default Component.extend(EKMixin, {
   layout,
   store: service(),
 
-  classNames: 'ad-ml-auto',
+  classNames: 'docs-ml-auto',
 
   query: null,
 

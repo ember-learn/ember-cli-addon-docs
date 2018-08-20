@@ -112,7 +112,7 @@ export default {
   */
 
   options: {
-    prefix: 'ad-',
+    prefix: 'docs-',
     important: false,
     separator: ':',
   },

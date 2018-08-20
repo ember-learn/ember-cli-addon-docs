@@ -1,17 +1,17 @@
 {{#link-to
   params=linkArgs
   class=(concat
-    "ad-block ad-py-2 ad-px-3 ad-text-black ad-no-underline hover:ad-bg-grey-lighter "
-    (if selected "ad-bg-grey-lighter")
+    "docs-block docs-py-2 docs-px-3 docs-text-black docs-no-underline hover:docs-bg-grey-lighter "
+    (if selected "docs-bg-grey-lighter")
   )
 }}
-  <div class="ad-flex ad-items-center">
-    {{svg-jar icon height=28 width=28 class="ad-mr-2 ad-flex-no-shrink"}}
-    <span class='ad-truncate'>
+  <div class="docs-flex docs-items-center">
+    {{svg-jar icon height=28 width=28 class="docs-mr-2 docs-flex-no-shrink"}}
+    <span class='docs-truncate'>
       {{result.document.title}}
     </span>
   </div>
-  <small class='ad-text-grey-dark ad-inline-block'>
+  <small class='docs-text-grey-dark docs-inline-block'>
     {{{matches}}}
   </small>
 {{/link-to}}
