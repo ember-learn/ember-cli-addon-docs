@@ -6,7 +6,7 @@ import { currentURL, visit } from '@ember/test-helpers';
 import modulePage from '../../../pages/api/module';
 import classPage from '../../../pages/api/class';
 
-module('Acceptance | API | helpers', function(hooks) {
+module('Acceptance | Sandbox | API | helpers', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 

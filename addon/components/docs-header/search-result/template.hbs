@@ -1,15 +1,17 @@
 {{#link-to
   params=linkArgs
   class=(concat
-    "docs-viewer-search__result-item "
-    (if selected "docs-viewer-search__result-item--selected")
+    "ad-block ad-py-2 ad-px-3 ad-text-black ad-no-underline hover:ad-bg-grey-lighter "
+    (if selected "ad-bg-grey-lighter")
   )
 }}
-  <div class="docs-viewer-search__result-item__label">
-    {{svg-jar icon height=28 width=28 class="docs-viewer-search__result-icon"}}
-    {{result.document.title}}
+  <div class="ad-flex ad-items-center">
+    {{svg-jar icon height=28 width=28 class="ad-mr-2 ad-flex-no-shrink"}}
+    <span class='ad-truncate'>
+      {{result.document.title}}
+    </span>
   </div>
-  <small class='docs-viewer-search__result-item__text'>
+  <small class='ad-text-grey-dark ad-inline-block'>
     {{{matches}}}
   </small>
 {{/link-to}}
