@@ -37,6 +37,8 @@ jobs:
       script: yarn test:browser
     - env: NAME=node tests
       script: yarn test:node
+    - env: NAME=test-apps tests
+      script: yarn test:test-apps
 
     - stage: floating dependencies
       env: NAME=browser tests
@@ -45,6 +47,9 @@ jobs:
     - env: NAME=node tests
       install: yarn install --no-lockfile --non-interactive
       script: yarn test:node
+    - env: NAME=test-apps tests
+      install: yarn install --no-lockfile --non-interactive
+      script: yarn test:test-apps
 
     - stage: versioned tests
       env: EMBER_TRY_SCENARIO=ember-lts-2.8
