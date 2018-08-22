@@ -18,8 +18,10 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember try:each",
+    "test:browser": "ember test --test-port=0",
     "test:node": "qunit tests-node",
-    "test:browser": "ember test"
+    "test:test-apps": "cd test-apps/new-addon && yarn test",
+    "prepare": "./scripts/link-them.sh"
   },
   "dependencies": {
     "@glimmer/syntax": "^0.30.5",
