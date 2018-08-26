@@ -16,9 +16,11 @@
         Documentation
       {{/docs-header/link}}
 
-      {{#docs-header/link 'api'}}
-        API Reference
-      {{/docs-header/link}}
+      {{#if (gt project.modules.length 0)}}
+        {{#docs-header/link 'api'}}
+          API Reference
+        {{/docs-header/link}}
+      {{/if}}
 
       {{yield (hash
         link=(component 'docs-header/link')
