@@ -12,7 +12,7 @@ export default Component.extend({
   layout,
   tagName: '',
 
-  root: 'docs',
+  root: 'api',
 
   store: service(),
 
