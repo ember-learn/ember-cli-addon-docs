@@ -33,9 +33,6 @@ module.exports = {
         'node_modules/ember-cli-addon-docs/public',
         'tests/dummy/public'
       ]
-    },
-    'ember-cli-tailwind': {
-      buildTarget: 'addon'
     }
   },
 
@@ -56,6 +53,9 @@ module.exports = {
         latestVersionName: LATEST_VERSION_NAME,
         deployVersion: 'ADDON_DOCS_DEPLOY_VERSION',
         searchTokenSeparator: "\\s+"
+      },
+      'ember-cli-tailwind': {
+        shouldIncludeStyleguide: false
       }
     };
 
