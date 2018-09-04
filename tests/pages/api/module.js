@@ -1,5 +1,5 @@
 import BaseAddonPage from '../base';
-import { collection, text } from 'ember-classy-page-object';
+import { attribute, collection, text } from 'ember-classy-page-object';
 
 const ModulePage = BaseAddonPage.extend({
   navItems: collection({ scope: '[data-test-id="nav-item"]' }),
@@ -25,6 +25,12 @@ const ModulePage = BaseAddonPage.extend({
       })
     })
   }),
+
+  // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
+  editLink: {
+    scope: '[data-test-edit-page-link]',
+    href: attribute('href', 'a'),
+  },
 
   // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
   index: {

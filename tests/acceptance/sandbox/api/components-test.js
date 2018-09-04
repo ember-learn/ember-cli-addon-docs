@@ -46,4 +46,12 @@ module('Acceptance | Sandbox | API | components', function(hooks) {
     assert.equal(indexItems.length, 13, 'correct number of items rendered');
     assert.ok(indexItems.includes('_privateField'), 'private field rendered');
   });
+
+  test('welcome page \'Edit this page\' link is correct', async function(assert) {
+    await visit('/sandbox');
+
+    const editThisPageLinkHref = await modulePage.editLink.href;
+
+    assert.equal(editThisPageLinkHref, 'https://github.com/ember-learn/ember-cli-addon-docs/edit/master/tests/dummy/app/pods/sandbox/index/template.md');
+  });
 });
