@@ -80,7 +80,7 @@ export default Component.extend({
       }
     } else {
       let file = appFiles
-        .filter(file => file.match(/template.+(hbs|md)/))
+        .filter(file => file.match(/\.(hbs|md)$/))
         .find(file => file.match(path));
 
       return `${projectHref}/edit/${primaryBranch}/tests/dummy/app/${file}`;
