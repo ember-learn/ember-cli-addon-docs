@@ -120,16 +120,15 @@ export function hasMemberType(...memberKeys) {
   @hide
 */
 export function addonLogo(name) {
-  return computed(function() {
-    let logo;
-    if (name.match(/ember-cli/)) {
-      logo = 'ember-cli';
-    } else if (name.match(/ember-data/)) {
-      logo = 'ember-data';
-    } else {
-      logo = 'ember';
-    }
+  let logo;
 
-    return logo;
-  });
+  if (name.match(/ember-cli/)) {
+    logo = 'ember-cli';
+  } else if (name.match(/ember-data/)) {
+    logo = 'ember-data';
+  } else {
+    logo = 'ember';
+  }
+
+  return logo;
 }

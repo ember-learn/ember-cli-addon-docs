@@ -2,7 +2,7 @@
 
   <a href={{href}}
     class='
-      docs-px-4 docs-py-3 docs-transition docs-uppercase docs-text-xs docs-font-semibold
+      docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xs docs-font-semibold
       docs-text-grey-darkest docs-no-underline docs-opacity-50 hover:docs-opacity-100
       {{if push 'docs-ml-auto'}}
     '
@@ -15,7 +15,7 @@
   <a {{action on-click}}
     href='#'
     class='
-      docs-px-4 docs-py-3 docs-transition docs-uppercase docs-text-xs docs-font-semibold
+      docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xs docs-font-semibold
       docs-text-grey-darkest docs-no-underline docs-opacity-50 hover:docs-opacity-100
       {{if push 'ml-auto'}}
     '
@@ -27,7 +27,7 @@
 
   {{#link-to route
     class=(concat
-      'docs-px-4 docs-py-3 docs-transition docs-uppercase docs-text-xs docs-font-semibold
+      'docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xs docs-font-semibold
       docs-text-grey-darkest docs-no-underline '
       (if (and (not isActive) (not (eq route 'index'))) 'docs-opacity-50 hover:docs-opacity-100')
     )

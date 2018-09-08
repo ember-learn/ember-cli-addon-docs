@@ -40,10 +40,15 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
+
     this.get('projectVersion').loadAvailableVersions();
   },
 
-  logo: addonLogo(projectName),
+  logo: classify(addonLogo(projectName)),
+
+  prefix: computed('logo', function() {
+    return (this.get('logo') === 'EmberCli') ? 'EmberCLI' : this.get('logo');
+  }),
 
   name: computed(function() {
     let name = projectName;

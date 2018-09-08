@@ -45,12 +45,9 @@ export default Component.extend(EKMixin, {
     this.set('keyboardActivated', true);
   },
 
-  didInsertElement() {
-    document.querySelector('body').classList.add('docs-viewer--showing');
-  },
-
   willDestroyElement() {
-    document.querySelector('body').classList.remove('docs-viewer--showing');
+    this._super(...arguments);
+
     this.get('docsRoutes').resetState();
   },
 
