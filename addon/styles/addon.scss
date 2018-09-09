@@ -1,7 +1,7 @@
-// @import 'tailwind';
+@import 'tailwind';
 // @import url('https://fonts.googleapis.com/css?family=Lora:400,700');
 @import 'syntax';
-@import 'pod-styles.scss';
+// @import 'pod-styles';
 
 // Figure out how to do this in tailwind
 .docs-fill-current {
@@ -21,9 +21,10 @@ html, body {
 }
 
 body {
-  // @extend .docs-antialiased;
-  // @extend .docs-antialiased .docs-font-sans .docs-text-black .docs-leading-normal;
-  // @extend .docs-leading-normal;
+  @extend .docs-antialiased;
+  @extend .docs-font-sans;
+  @extend .docs-text-black;
+  @extend .docs-leading-normal;
 }
 
 pre {
