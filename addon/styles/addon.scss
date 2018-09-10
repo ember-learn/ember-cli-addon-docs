@@ -1,5 +1,4 @@
 @import 'tailwind';
-// @import url('https://fonts.googleapis.com/css?family=Lora:400,700');
 @import 'syntax';
 @import 'pod-styles.scss';
 
@@ -11,20 +10,22 @@
 }
 
 * {
-  // -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
 
-
-html, body {
-  min-height: 100%;
+html {
+  @extend .docs-min-h-screen;
+  @extend .docs-bg-red;
 }
 
 body {
+  @extend .docs-min-h-screen;
   @extend .docs-antialiased;
   @extend .docs-font-sans;
-  @extend .docs-text-black;
   @extend .docs-leading-normal;
+  @extend .docs-text-black;
+  @extend .docs-bg-white;
+  @extend .docs-mt-1;
 }
 
 pre {

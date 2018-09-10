@@ -33,7 +33,16 @@ module.exports = {
         'public',
         'node_modules/ember-cli-addon-docs/public',
         'tests/dummy/public'
-      ]
+      ],
+      optimizer : {
+        plugins: [
+          {
+            removeAttrs: {
+              attrs: [ 'fill' ]
+            }
+          }
+        ]
+      }
     }
   },
 
@@ -57,6 +66,17 @@ module.exports = {
       },
       'ember-cli-tailwind': {
         shouldIncludeStyleguide: false
+      },
+      svgJar: {
+        optimizer : {
+          plugins: [
+            {
+              removeAttrs: {
+                attrs: [ 'fill' ]
+              }
+            }
+          ]
+        }
       }
     };
 

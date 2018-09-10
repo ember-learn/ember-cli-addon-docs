@@ -2,8 +2,8 @@
 
   <a href={{href}}
     class='
-      docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xs docs-font-semibold
-      docs-text-grey-darkest docs-no-underline docs-opacity-50 hover:docs-opacity-100
+      docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xs docs-font-bold
+      docs-text-grey-darkest docs-no-underline hover:docs-text-red
       {{if push 'docs-ml-auto'}}
     '
     data-test-id={{data-test-id}}>
@@ -15,9 +15,9 @@
   <a {{action on-click}}
     href='#'
     class='
-      docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xs docs-font-semibold
-      docs-text-grey-darkest docs-no-underline docs-opacity-50 hover:docs-opacity-100
-      {{if push 'ml-auto'}}
+      docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xs docs-font-bold
+      docs-text-grey-darkest docs-no-underline hover:docs-text-red
+      {{if push 'docs-ml-auto'}}
     '
     data-test-id={{data-test-id}}>
     {{yield}}
@@ -27,9 +27,10 @@
 
   {{#link-to route
     class=(concat
-      'docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xs docs-font-semibold
+      'docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xs docs-font-bold
       docs-text-grey-darkest docs-no-underline '
-      (if (and (not isActive) (not (eq route 'index'))) 'docs-opacity-50 hover:docs-opacity-100')
+      (if (and (not isActive) (not (eq route 'index'))) 'hover:docs-text-red')
+      (if (and isActive (not (eq route 'index'))) 'docs-text-red')
     )
     data-test-id=data-test-id
   }}
