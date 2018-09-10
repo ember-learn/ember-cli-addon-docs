@@ -1581,7 +1581,7 @@ broccoli-merge-trees@^2.0.0:
     broccoli-plugin "^1.3.0"
     merge-trees "^1.0.1"
 
-broccoli-merge-trees@^3.0.1:
+broccoli-merge-trees@^3.0.0, broccoli-merge-trees@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/broccoli-merge-trees/-/broccoli-merge-trees-3.0.1.tgz#545dfe9f695cec43372b3ee7e63c7203713ea554"
   dependencies:
@@ -1695,16 +1695,6 @@ broccoli-sass-source-maps@^2.1.0:
     object-assign "^2.0.0"
     rsvp "^3.0.6"
 
-broccoli-sass-source-maps@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/broccoli-sass-source-maps/-/broccoli-sass-source-maps-4.0.0.tgz#1ee4c10a810b10955b0502e28f85ab672f5961a2"
-  dependencies:
-    broccoli-caching-writer "^3.0.3"
-    include-path-searcher "^0.1.0"
-    mkdirp "^0.3.5"
-    object-assign "^2.0.0"
-    rsvp "^3.0.6"
-
 broccoli-slow-trees@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/broccoli-slow-trees/-/broccoli-slow-trees-3.0.1.tgz#9bf2a9e2f8eb3ed3a3f2abdde988da437ccdc9b4"
@@ -1778,14 +1768,14 @@ broccoli-string-replace@^0.1.1, broccoli-string-replace@^0.1.2:
     broccoli-persistent-filter "^1.1.5"
     minimatch "^3.0.3"
 
-broccoli-style-manifest@^1.4.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/broccoli-style-manifest/-/broccoli-style-manifest-1.5.0.tgz#036b0bec2a6d384a44ce708126d6d5d1f3bc3f48"
+broccoli-style-manifest@^1.5.0:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/broccoli-style-manifest/-/broccoli-style-manifest-1.5.2.tgz#249accc81a75b83fb581cd8c2d16a51a4989664d"
   dependencies:
-    broccoli-plugin "^1.3.0"
+    broccoli-caching-writer "^3.0.3"
     fs-tree-diff "^0.5.6"
     md5 "^2.2.1"
-    rsvp "^4.7.0"
+    rsvp "^4.8.2"
     walk-sync "^0.3.1"
 
 broccoli-svg-optimizer@1.1.0:
@@ -3170,15 +3160,6 @@ ember-cli-sass@7.1.7:
     broccoli-sass-source-maps "^2.1.0"
     ember-cli-version-checker "^2.1.0"
 
-ember-cli-sass@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/ember-cli-sass/-/ember-cli-sass-8.0.1.tgz#22730bb8eee1eedc6ddd0cf2e51f5405a09b9139"
-  dependencies:
-    broccoli-funnel "^1.0.0"
-    broccoli-merge-trees "^1.1.0"
-    broccoli-sass-source-maps "^4.0.0"
-    ember-cli-version-checker "^2.1.0"
-
 ember-cli-shims@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/ember-cli-shims/-/ember-cli-shims-1.2.0.tgz#0f53aff0aab80b5f29da3a9731bac56169dd941f"
@@ -3206,9 +3187,9 @@ ember-cli-string-utils@^1.0.0, ember-cli-string-utils@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ember-cli-string-utils/-/ember-cli-string-utils-1.1.0.tgz#39b677fc2805f55173735376fcef278eaa4452a1"
 
-ember-cli-tailwind@embermap/ember-cli-tailwind#1a6a614918babb17a2d909e68fe68310e2388126:
+ember-cli-tailwind@embermap/ember-cli-tailwind#9183434cea61512dd1654ac382aa9a82c3fb74c1:
   version "0.6.1"
-  resolved "https://codeload.github.com/embermap/ember-cli-tailwind/tar.gz/1a6a614918babb17a2d909e68fe68310e2388126"
+  resolved "https://codeload.github.com/embermap/ember-cli-tailwind/tar.gz/9183434cea61512dd1654ac382aa9a82c3fb74c1"
   dependencies:
     broccoli-funnel "^2.0.1"
     broccoli-merge-trees "^3.0.1"
@@ -3217,7 +3198,7 @@ ember-cli-tailwind@embermap/ember-cli-tailwind#1a6a614918babb17a2d909e68fe68310e
     ember-cli-babel "^6.6.0"
     ember-cli-clipboard "^0.8.1"
     ember-cli-htmlbars "^2.0.1"
-    ember-cli-sass "^8.0.1"
+    ember-cli-sass "7.1.7"
     ember-cli-string-utils "^1.1.0"
     ember-composable-helpers "^2.1.0"
     ember-truth-helpers "^2.0.0"
@@ -3373,25 +3354,25 @@ ember-code-snippet@^2.2.0:
     es6-promise "^1.0.0"
     glob "^4.0.4"
 
-ember-component-css@^0.3.5:
-  version "0.3.7"
-  resolved "https://registry.yarnpkg.com/ember-component-css/-/ember-component-css-0.3.7.tgz#bde1a8db53116cca1a134aaf6379b2b259b79799"
+ember-component-css@0.6.5:
+  version "0.6.5"
+  resolved "https://registry.yarnpkg.com/ember-component-css/-/ember-component-css-0.6.5.tgz#b07a7e53e224f8b254a1ad3ce2f848afb87e3617"
   dependencies:
     broccoli-concat "^3.2.2"
     broccoli-funnel "^2.0.1"
-    broccoli-merge-trees "^2.0.0"
+    broccoli-merge-trees "^3.0.0"
     broccoli-persistent-filter "^1.4.2"
     broccoli-plugin "^1.3.0"
-    broccoli-style-manifest "^1.4.0"
-    ember-cli-babel "^6.6.0"
-    ember-getowner-polyfill "^2.0.1"
+    broccoli-style-manifest "^1.5.0"
+    ember-cli-babel "^6.11.0"
+    ember-getowner-polyfill "^2.2.0"
     fs-tree-diff "^0.5.6"
     md5 "^2.2.1"
-    postcss "^6.0.8"
-    postcss-less "^1.1.0"
-    postcss-scss "^1.0.2"
-    postcss-selector-namespace "^1.4.1"
-    rsvp "^4.0.1"
+    postcss "^6.0.19"
+    postcss-less "^1.1.3"
+    postcss-scss "^1.0.3"
+    postcss-selector-namespace "^1.5.0"
+    rsvp "^4.8.1"
     walk-sync "^0.3.2"
 
 ember-composable-helpers@^2.1.0:
@@ -3492,7 +3473,7 @@ ember-get-config@^0.2.2:
     broccoli-file-creator "^1.1.1"
     ember-cli-babel "^6.3.0"
 
-ember-getowner-polyfill@^2.0.1:
+ember-getowner-polyfill@^2.0.1, ember-getowner-polyfill@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-2.2.0.tgz#38e7dccbcac69d5ec694000329ec0b2be651d2b2"
   dependencies:
@@ -7484,9 +7465,9 @@ postcss-js@^1.0.1:
     camelcase-css "^1.0.1"
     postcss "^6.0.11"
 
-postcss-less@^1.1.0:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/postcss-less/-/postcss-less-1.1.3.tgz#6930525271bfe38d5793d33ac09c1a546b87bb51"
+postcss-less@^1.1.3:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/postcss-less/-/postcss-less-1.1.5.tgz#a6f0ce180cf3797eeee1d4adc0e9e6d6db665609"
   dependencies:
     postcss "^5.2.16"
 
@@ -7503,13 +7484,13 @@ postcss-scss@^0.3.0:
   dependencies:
     postcss "^5.2.4"
 
-postcss-scss@^1.0.2:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-1.0.4.tgz#6310fe1a15be418707a2cfd77f21dd4a06d1e09d"
+postcss-scss@^1.0.3:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-1.0.6.tgz#ab903f3bb20161bc177896462293a53d4bff5f7a"
   dependencies:
-    postcss "^6.0.19"
+    postcss "^6.0.23"
 
-postcss-selector-namespace@^1.4.1:
+postcss-selector-namespace@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/postcss-selector-namespace/-/postcss-selector-namespace-1.5.0.tgz#62335de8f1992eae989d1be33ba2298156ab458b"
   dependencies:
@@ -7536,7 +7517,7 @@ postcss@^5.0.8, postcss@^5.2.16, postcss@^5.2.4:
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@^6.0.1, postcss@^6.0.14, postcss@^6.0.17, postcss@^6.0.19, postcss@^6.0.8:
+postcss@^6.0.1, postcss@^6.0.14, postcss@^6.0.17, postcss@^6.0.19:
   version "6.0.19"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.19.tgz#76a78386f670b9d9494a655bf23ac012effd1555"
   dependencies:
@@ -7551,6 +7532,14 @@ postcss@^6.0.11, postcss@^6.0.20, postcss@^6.0.9:
     chalk "^2.3.2"
     source-map "^0.6.1"
     supports-color "^5.3.0"
+
+postcss@^6.0.23:
+  version "6.0.23"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.23.tgz#61c82cc328ac60e677645f979054eb98bc0e3324"
+  dependencies:
+    chalk "^2.4.1"
+    source-map "^0.6.1"
+    supports-color "^5.4.0"
 
 prelude-ls@~1.1.2:
   version "1.1.2"
@@ -8221,7 +8210,7 @@ rsvp@^3.0.14, rsvp@^3.0.16, rsvp@^3.0.17, rsvp@^3.0.18, rsvp@^3.0.21, rsvp@^3.0.
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-3.6.2.tgz#2e96491599a96cde1b515d5674a8f7a91452926a"
 
-rsvp@^4.0.1, rsvp@^4.6.1:
+rsvp@^4.6.1:
   version "4.8.1"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.1.tgz#168addb3963222de37ee351b70e3876bdb2ac285"
 
@@ -8855,7 +8844,7 @@ supports-color@^3.2.3:
   dependencies:
     has-flag "^1.0.0"
 
-supports-color@^5.2.0:
+supports-color@^5.2.0, supports-color@^5.4.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f"
   dependencies:
