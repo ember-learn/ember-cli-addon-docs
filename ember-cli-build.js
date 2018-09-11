@@ -15,12 +15,6 @@ module.exports = function(defaults) {
   var app = new EmberAddon(defaults, {
     project,
     vendorFiles: { 'jquery.js': null, 'app-shims.js': null },
-    svgJar: {
-      sourceDirs: [
-        'public',
-        'tests/dummy/public'
-      ]
-    },
     'ember-cli-addon-docs': {
       projects: {
         sandbox: new MergeTrees([

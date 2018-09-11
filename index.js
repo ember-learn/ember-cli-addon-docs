@@ -66,17 +66,6 @@ module.exports = {
       },
       'ember-cli-tailwind': {
         shouldIncludeStyleguide: false
-      },
-      svgJar: {
-        optimizer : {
-          plugins: [
-            {
-              removeAttrs: {
-                attrs: [ 'fill' ]
-              }
-            }
-          ]
-        }
       }
     };
 
