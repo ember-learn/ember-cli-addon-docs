@@ -1,16 +1,16 @@
-<li class='docs-mt-2 docs-mb-1 docs-flex docs-items-center docs-text-sm'>
+<li class='docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-base-sm'>
   {{#if model}}
     {{#link-to route model
-      class='docs-text-grey-darkest docs-no-underline hover:docs-underline'
-      activeClass='docs-font-bold'
+      class='docs-text-grey-darker docs-no-underline hover:docs-underline'
+      activeClass='docs-text-red'
       data-test-id='nav-item'
       data-test-label=label}}
       {{label}}
     {{/link-to}}
   {{else}}
     {{#link-to route
-      class='docs-text-grey-darkest docs-no-underline hover:docs-underline'
-      activeClass='docs-font-bold'
+      class='docs-text-grey-darker docs-no-underline hover:docs-underline'
+      activeClass='docs-text-red'
       data-test-id='nav-item'
       data-test-label=label}}
       {{label}}

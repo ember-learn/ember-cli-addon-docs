@@ -1,4 +1,4 @@
-<div class="lg:docs-px-4" data-page-index-target>
+<div data-page-index-target>
   {{yield}}
 
   <div class="docs-mt-16 docs-mb-8">
@@ -8,35 +8,32 @@
       Edit this page
     </a>
   </div>
-
 </div>
 
-<div class="lg:docs-px-4">
-  <div class="docs-mt-16 docs-pb-16 docs-border-t docs-border-grey-lighter docs-pt-4 docs-flex">
-    <div class="docs-w-1/2">
-      {{#if docsRoutes.previous}}
-        <div class='docs-text-sm docs-text-grey-dark'>
-          Previous
-        </div>
-        {{#link-to params=docsRoutes.previous.route
-          class='docs-text-grey-darkest docs-text-2xl docs-font-light docs-no-underline
-          docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition'}}
-          {{docsRoutes.previous.label}}
-        {{/link-to}}
-      {{/if}}
-    </div>
+<div class="docs-mt-16 docs-pb-16 docs-border-t docs-border-grey-lighter docs-pt-4 docs-flex">
+  <div class="docs-w-1/2">
+    {{#if docsRoutes.previous}}
+      <div class='docs-text-sm docs-text-grey-dark'>
+        Previous
+      </div>
+      {{#link-to params=docsRoutes.previous.route
+        class='docs-text-grey-darkest docs-text-2xl docs-font-light docs-no-underline
+        docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition'}}
+        {{docsRoutes.previous.label}}
+      {{/link-to}}
+    {{/if}}
+  </div>
 
-    <div class="docs-w-1/2 docs-text-right" data-test-next-link>
-      {{#if docsRoutes.next}}
-        <div class='docs-text-sm docs-text-grey-dark'>
-          Next
-        </div>
-        {{#link-to params=docsRoutes.next.route
-          class='docs-text-grey-darkest docs-text-2xl docs-font-light docs-no-underline
-          docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition'}}
-          {{docsRoutes.next.label}}
-        {{/link-to}}
-      {{/if}}
-    </div>
+  <div class="docs-w-1/2 docs-text-right" data-test-next-link>
+    {{#if docsRoutes.next}}
+      <div class='docs-text-sm docs-text-grey-dark'>
+        Next
+      </div>
+      {{#link-to params=docsRoutes.next.route
+        class='docs-text-grey-darkest docs-text-2xl docs-font-light docs-no-underline
+        docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition'}}
+        {{docsRoutes.next.label}}
+      {{/link-to}}
+    {{/if}}
   </div>
 </div>

@@ -40,15 +40,6 @@ svg {
   transition: all 0.15s;
 }
 
-// get this if we upgrade tailwind
-.docs-sticky {
-  position: sticky;
-}
-
-.ember-modal-dialog {
-  z-index: 10;
-}
-
 h1 > .heading-anchor:before,
 h2 > .heading-anchor:before,
 h3 > .heading-anchor:before {

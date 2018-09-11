@@ -1,0 +1,6 @@
+// 80rem is being used as the max-width for the site, in docs-container, etc.
+// If this changes, we'll need to change its use here.
+.AddonDocs-DocsViewer-Nav {
+  width: calc((100% - 80rem) / 2 + 278px);
+  padding-left: calc((100% - 80rem) / 2);
+}
