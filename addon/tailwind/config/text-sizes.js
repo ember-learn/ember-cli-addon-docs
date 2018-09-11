@@ -16,19 +16,24 @@
 | Class name: .text-{size}
 |
 */
-
-export default {
-  '2xs': '0.6875rem',    // 11px
-  'xs': '.75rem',        // 12px
-  'sm': '.875rem',       // 14px
-  'base-sm': '.9375rem', // 15px
-  'base': '1rem',        // 16px
-  'lg': '1.125rem',      // 18px
-  'xl': '1.25rem',       // 20px
-  '2xl': '1.5rem',       // 24px
-  '3xl': '1.875rem',     // 30px
-  '4xl': '2.25rem',      // 36px
-  '5xl': '3rem',         // 48px
-
-  'jumbo': '3.75rem'
+let textSizes = {
+  'xxs':   '12px',
+  'xs':    '14px',
+  'sm':    '15px',
+  'base':  '16px',
+  'xl':    '20px',
+  '2xl':   '24px',
+  '3xl':   '30px',
+  '4xl':   '36px',
+  '5xl':   '48px',
+  'jumbo': '60px'
 };
+
+export default Object.keys(textSizes).reduce((memo, textSize) => {
+  let pixelValue = textSizes[textSize];
+  let remValue = `${(+pixelValue.replace('px', '') / 16)}rem`;
+
+  memo[textSize] = remValue;
+
+  return memo;
+}, {});

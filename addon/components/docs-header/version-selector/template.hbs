@@ -4,7 +4,7 @@
   clickOutsideToClose=true
   onClose=(action on-close)
   targetAttachment='bottom right'}}
-  <ul class="docs-list-reset docs-mt-2 docs-bg-white docs-shadow-md docs-text-sm docs-rounded docs-z-10">
+  <ul class="docs-list-reset docs-mt-2 docs-bg-white docs-shadow-md docs-text-xs docs-rounded docs-z-10">
     {{#each sortedVersions as |version|}}
       <li data-test-id='version'>
         <a {{action 'changeVersion' version}} href='#'
@@ -26,7 +26,7 @@
               {{svg-jar 'git-sha' height=16 width=16}}
             {{/if}}
 
-            <span class='docs-text-xs docs-font-mono docs-pl-1'>
+            <span class='docs-text-xxs docs-font-mono docs-pl-1'>
               {{#if (or (eq version.key latestVersionName) (eq version.key primaryBranch))}}
                 {{#if version.tag}}
                   {{version.tag}}

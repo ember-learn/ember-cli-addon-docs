@@ -36,7 +36,7 @@
   @apply docs-mb-2;
 }
 .docs-md aside {
-  @apply docs-mb-4 docs-mt-6 docs-bg-grey-lightest docs-italic docs-px-4 docs-py-3 docs-text-sm;
+  @apply docs-mb-4 docs-mt-6 docs-bg-grey-lightest docs-italic docs-px-4 docs-py-3 docs-text-xs;
 }
 
 /* mb-4 on pre interferes with docs-snippet and others, really want Renderer
@@ -51,15 +51,15 @@ pre {
 
 /* Applied to fenced code in compiled markdown */
 .docs-md__code {
-  @apply docs-bg-grey-lightest docs-my-8 docs-p-6 docs-overflow-x-scroll docs-text-sm;
+  @apply docs-bg-grey-lightest docs-my-8 docs-p-6 docs-overflow-x-scroll docs-text-xs;
 }
 
 .docs-md__a {
-  @apply docs-no-underline docs-border-b docs-border-grey docs-text-inherit;
+  @apply docs-text-brand docs-no-underline;
 }
 .docs-md__a:hover,
 .docs-md__a:focus {
-  @apply docs-border-grey-dark;
+  @apply docs-underline;
 }
 
 .docs-md__hr {
