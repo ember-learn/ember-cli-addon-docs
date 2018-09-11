@@ -3358,7 +3358,7 @@ ember-copy@^1.0.0:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-ember-data@^3.4.0:
+"ember-data@2.x - 3.x":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-3.4.0.tgz#d303057d560b0002f5b1490a7c24c4bfb74cd2fa"
   dependencies:
