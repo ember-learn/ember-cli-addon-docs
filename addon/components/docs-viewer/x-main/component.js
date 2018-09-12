@@ -24,10 +24,10 @@ export default Component.extend({
 
   tagName: 'main',
   classNames: [
-    'lg:docs-w-4/5', 'xl:docs-w-3/5', 'docs-max-w-md',
-    'lg:docs-max-w-lg', 'docs-px-4', 'lg:docs-px-6',
-    'lg:docs-mx-12', 'docs-mx-auto', 'docs-mt-6',
-    'lg:docs-mt-12', 'docs-flex-no-shrink'
+
+    'docs-px-4', 'lg:docs-px-16',
+    'docs-mx-auto', 'lg:docs-mx-0', 'docs-mt-6', 'lg:docs-mt-12',
+    'lg:docs-max-w-main-content-area'
   ],
 
   didInsertElement() {

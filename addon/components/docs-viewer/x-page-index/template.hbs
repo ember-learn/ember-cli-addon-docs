@@ -1,4 +1,4 @@
-<nav class="docs-hidden lg:docs-block lg:docs-w-1/5 docs-pl-4" data-test-page-index>
+<nav class="docs-hidden lg:docs-block docs-flex-no-shrink lg:docs-w-56 docs-pl-4 docs-mr-auto" data-test-page-index>
   <div class="docs-sticky docs-pin-t docs-pt-4 docs-pb-8 docs-max-h-screen docs-overflow-y-scroll">
     <ul class="docs-list-reset docs-border-l docs-border-grey-lighter docs-pl-6 docs-leading-normal">
       {{#if pageIndex.length}}
@@ -9,7 +9,7 @@
 
       {{#each pageIndex as |item|}}
         <li class="
-          docs-leading-tight
+          docs-leading-tight docs-tracking-tight
           {{if item.indent (concat 'docs-ml-' item.indent)}}
           {{if item.marginTop (concat 'docs-mt-' item.marginTop)}}
           {{if item.marginBottom (concat 'docs-mt-' item.marginBottom)}}
