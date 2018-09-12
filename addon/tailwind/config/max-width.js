@@ -15,6 +15,7 @@
 
 export default {
   'none': 'none',
+  'xxs': '17rem',
   'xs': '20rem',
   'sm': '30rem',
   'md': '40rem',

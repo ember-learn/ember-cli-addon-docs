@@ -46,10 +46,34 @@ export default Component.extend({
 
   logo: classify(addonLogo(projectName)),
 
+  /**
+    The prefix of your project, typically "Ember", "EmberCLI" or "EmberData".
+
+    By default the prefix will be autodiscovered from the `name` field of your addon's package.json.
+
+    ```hbs
+    {{docs-header prefix='EmberData'}}
+    ```
+
+    @argument prefix
+    @type String?
+  */
   prefix: computed('logo', function() {
     return (this.get('logo') === 'EmberCli') ? 'EmberCLI' : this.get('logo');
   }),
 
+  /**
+    The name of your project (without the "ember", "ember-cli" or "ember-data" prefix).
+
+    By default the name will be autodiscovered from the `name` field of your addon's package.json.
+
+    ```hbs
+    {{docs-header name='MyProject'}}
+    ```
+
+    @argument name
+    @type String?
+  */
   name: computed(function() {
     let name = projectName;
     name = name.replace('ember-data-', '');

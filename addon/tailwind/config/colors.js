@@ -1,21 +1,21 @@
 /*
-|-------------------------------------------------------------------------------
-| Colors                                    https://tailwindcss.com/docs/colors
-|-------------------------------------------------------------------------------
-| Text colors                         https://tailwindcss.com/docs/text-color
-|
-| Class name: .text-{color}
-|
-|-----------------------------------------------------------------------------
-| Background colors             https://tailwindcss.com/docs/background-color
-|
-| Class name: .bg-{color}
-|
-|-----------------------------------------------------------------------------
-| Border colors                     https://tailwindcss.com/docs/border-color
-|
-| Class name: .border-{color}
-|
+|:--------------------------------------------------------------------------------|
+| Colors                                    https://tailwindcss.com/docs/colors   |
+| ------------------------------------------------------------------------------- |
+| Text colors                         https://tailwindcss.com/docs/text-color     |
+|                                                                                 |
+| Class name: .text-{color}                                                       |
+|                                                                                 |
+| -----------------------------------------------------------------------------   |
+| Background colors             https://tailwindcss.com/docs/background-color     |
+|                                                                                 |
+| Class name: .bg-{color}                                                         |
+|                                                                                 |
+| -----------------------------------------------------------------------------   |
+| Border colors                     https://tailwindcss.com/docs/border-color     |
+|                                                                                 |
+| Class name: .border-{color}                                                     |
+|                                                                                 |
 */
 
 export default {
@@ -35,6 +35,6 @@ export default {
 
   'yellow': '#ffed4a',
 
-  'brand': '#e3342f'
+  'brand': '#E04E39'
 
 };

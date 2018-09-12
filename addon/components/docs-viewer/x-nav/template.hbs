@@ -10,14 +10,14 @@
 <div class="AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink">
   <nav onclick={{action (mut isShowingMenu) false}}
     class='
-      docs-absolute docs-pin-r lg:docs-relative docs-shadow-lg lg:docs-shadow-none
-      docs-w-90% docs-px-3 lg:docs-px-4 docs-z-10 docs-transition docs-mr-2
+      docs-absolute docs-pin-r lg:docs-relative docs-shadow-lg lg:docs-shadow-none docs-mr-2 lg:docs-mr-0
+      docs-max-w-xs docs-w-90% lg:docs-w-72 docs-z-10 docs-transition lg:docs-sticky lg:docs-pin-t
       {{if (or media.isMobile media.isTablet)
         (if isShowingMenu 'docs-opacity-100 docs-bg-white' 'docs-opacity-0 docs-pointer-events-none')
 
       }}
     '>
-    <div class='docs-pt-px docs-sticky docs-pin-t docs-mb-8 lg:docs-max-h-screen lg:docs--mt-4 lg:docs-pt-4 lg:docs-overflow-y-scroll'>
+    <div class='docs-pt-px docs-mb-8 docs-px-3 lg:docs-px-4 lg:docs-max-h-screen lg:docs-overflow-y-scroll'>
       {{#if (or media.isMobile media.isTablet)}}
         <div class="docs-text-right">
           <button onclick={{action (mut isShowingMenu) false}}
