@@ -19,6 +19,8 @@
 */
 
 export default {
+  'site-container': '$site-container',
+
   'auto': 'auto',
   'px': '1px',
   '1': '0.25rem',

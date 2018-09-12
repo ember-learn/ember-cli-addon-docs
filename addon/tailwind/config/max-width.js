@@ -12,8 +12,9 @@
 | Class name: .max-w-{size}                                                     |
 |                                                                               |
 */
-
 export default {
+  'site-container': '$site-container',
+
   'none': 'none',
   'xxs': '17rem',
   'xs': '20rem',
@@ -25,7 +26,5 @@ export default {
   '3xl': '80rem',
   '4xl': '90rem',
   '5xl': '100rem',
-  'full': '100%',
-
-  'main-content-area': '48rem',  //needs to be ($container-width - (18 + 14))
+  'full': '100%'
 };
