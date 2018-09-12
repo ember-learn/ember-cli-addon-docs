@@ -16,6 +16,8 @@
 html {
   @extend .docs-min-h-screen;
   @extend .docs-bg-brand;
+  @extend .docs-flex;
+  @extend .docs-flex-col;
 }
 
 body {
@@ -24,10 +26,18 @@ body {
   @extend .docs-text-base;
   @extend .docs-leading-normal;
   @extend .docs-text-black;
-
-  @extend .docs-min-h-screen;
   @extend .docs-bg-white;
+
+  @extend .docs-flex-1;
+  @extend .docs-flex;
+  @extend .docs-flex-col;
   @extend .docs-mt-1;
+}
+
+body > .ember-view {
+  @extend .docs-flex-1;
+  @extend .docs-flex;
+  @extend .docs-flex-col;
 }
 
 pre {

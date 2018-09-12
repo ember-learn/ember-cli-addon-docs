@@ -37,7 +37,7 @@ export default Component.extend(EKMixin, {
   docsRoutes: service(),
   router: service(),
 
-  classNames: 'docs-viewer',
+  classNames: 'docs-viewer docs-flex docs-flex-1',
 
   init() {
     this._super();

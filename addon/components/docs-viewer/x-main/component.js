@@ -11,7 +11,7 @@ import layout from './template';
 
 const { projectHref, primaryBranch } = config['ember-cli-addon-docs'];
 
-const tagToSize = { H2: 'xs', H3: 'xs' };
+const tagToSize = { H2: 'xxs', H3: 'xxs' };
 const tagToIndent = { H2: '0', H3: '4' };
 const tagToMarginTop = { H2: '2', H3: '2' };
 const tagToMarginBottom = { H2: '0', H3: '0' };

@@ -1,5 +1,5 @@
 {{#if (or media.isMobile media.isTablet)}}
-  <div class='docs-text-right'>
+  <div class='docs-text-right docs-px-4 docs-mt-4'>
     <button {{action (toggle 'isShowingMenu' this)}}
       class='docs-text-grey-darkest docs-py-2 docs-text-xs docs-rounded docs-uppercase docs-font-medium'>
       ☰ Menu
@@ -13,7 +13,7 @@
       docs-absolute docs-pin-r lg:docs-relative docs-shadow-lg lg:docs-shadow-none
       docs-w-90% docs-px-3 lg:docs-px-4 docs-z-10 docs-transition docs-mr-2
       {{if (or media.isMobile media.isTablet)
-        (if isShowingMenu 'docs-opacity-100' 'docs-opacity-0 docs-pointer-events-none')
+        (if isShowingMenu 'docs-opacity-100 docs-bg-white' 'docs-opacity-0 docs-pointer-events-none')
 
       }}
     '>

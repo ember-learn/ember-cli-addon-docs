@@ -1,13 +1,11 @@
-<div class=''>
-  {{#docs-header as |header|}}
-    {{#header.link 'sandbox'}}
-      Sandbox
-    {{/header.link}}
-  {{/docs-header}}
+{{#docs-header as |header|}}
+  {{#header.link 'sandbox'}}
+    Sandbox
+  {{/header.link}}
+{{/docs-header}}
 
-  {{! BEGIN-SNIPPET docs-demo-application-template.hbs }}
-  {{outlet}}
+{{! BEGIN-SNIPPET docs-demo-application-template.hbs }}
+{{outlet}}
 
-  {{docs-keyboard-shortcuts}}
-  {{! END-SNIPPET }}
-</div>
+{{docs-keyboard-shortcuts}}
+{{! END-SNIPPET }}

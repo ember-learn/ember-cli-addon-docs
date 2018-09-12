@@ -33,7 +33,6 @@ export default {
   'grey-lightest': '#f8fafc',
   'white': 'white',
 
-  'red': '#e3342f',
   'yellow': '#ffed4a',
 
   'brand': '#e3342f'
