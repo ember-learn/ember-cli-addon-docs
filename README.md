@@ -15,7 +15,7 @@ You can view the most-upvoted feature requests with [this link](https://github.c
 
 ## Getting help
 
-Please open an issue or stop be #ec-addon-docs in Slack!
+Please open an issue or stop by #ec-addon-docs in Slack!
 
 ## About
 
