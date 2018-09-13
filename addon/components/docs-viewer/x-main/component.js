@@ -24,7 +24,7 @@ export default Component.extend({
 
   tagName: 'main',
   classNames: [
-    'docs-px-4', 'lg:docs-px-16', 'docs-mx-auto', 'lg:docs-mx-0', 'docs-mt-6',
+    'docs-px-4', 'lg:docs-px-20', 'docs-mx-auto', 'lg:docs-mx-0', 'docs-mt-6',
     'lg:docs-mt-12', 'lg:docs-min-w-0'
   ],
 
