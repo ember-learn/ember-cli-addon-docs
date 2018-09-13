@@ -24,14 +24,14 @@ export default Component.extend({
 
   tagName: 'main',
   classNames: [
-    'docs-px-4', 'lg:docs-px-20', 'docs-mx-auto', 'lg:docs-mx-0', 'docs-mt-6',
-    'lg:docs-mt-12', 'lg:docs-min-w-0'
+    'docs-px-4', 'md:docs-px-8', 'lg:docs-px-20', 'docs-mx-auto', 'md:docs-mx-0', 'docs-mt-6',
+    'md:docs-mt-12', 'md:docs-min-w-0'
   ],
 
   didInsertElement() {
     this._super(...arguments);
 
-    let target = this.element.querySelector('[data-page-index-target]')
+    let target = this.element.querySelector('[data-current-page-index-target]')
 
     this._mutationObserver = new MutationObserver(bind(this, this.reindex, target))
 

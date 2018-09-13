@@ -1,5 +1,5 @@
-{{#if (or media.isMobile media.isTablet)}}
-  <div class='docs-text-right docs-px-4 docs-mt-4'>
+{{#if media.isMobile}}
+  <div class='docs-text-right docs-px-4 md:docs-px-6 docs-mt-4'>
     <button {{action (toggle 'isShowingMenu' this)}}
       class='docs-text-grey-darkest docs-py-2 docs-text-xs docs-rounded docs-uppercase docs-font-medium'>
       ☰ Menu
@@ -10,14 +10,14 @@
 <div class="AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink">
   <nav onclick={{action (mut isShowingMenu) false}}
     class='
-      docs-absolute docs-pin-r lg:docs-relative docs-shadow-lg lg:docs-shadow-none docs-mr-2 lg:docs-mr-0
-      docs-max-w-xs docs-w-90% lg:docs-w-72 docs-z-10 docs-transition lg:docs-sticky lg:docs-pin-t
-      {{if (or media.isMobile media.isTablet)
+      docs-absolute docs-pin-r md:docs-relative docs-shadow-lg md:docs-shadow-none docs-mr-2 md:docs-mr-0 md:docs-pl-2
+      docs-max-w-xs docs-w-90% md:docs-w-72 docs-z-10 docs-transition md:docs-sticky md:docs-pin-t
+      {{if media.isMobile
         (if isShowingMenu 'docs-opacity-100 docs-bg-white' 'docs-opacity-0 docs-pointer-events-none')
       }}
     '>
-    <div class='docs-pt-px docs-mb-8 docs-px-3 lg:docs-px-4 lg:docs-max-h-screen lg:docs-overflow-y-scroll'>
-      {{#if (or media.isMobile media.isTablet)}}
+    <div class='docs-pt-px docs-mb-8 docs-px-3 md:docs-px-4 md:docs-max-h-screen md:docs-overflow-y-scroll'>
+      {{#if media.isMobile}}
         <div class="docs-text-right">
           <button onclick={{action (mut isShowingMenu) false}}
             class='docs-text-grey-darkest docs-opacity-50 hover:docs-opacity-100 docs-text-3xl docs-py-2 docs-no-underline'>
