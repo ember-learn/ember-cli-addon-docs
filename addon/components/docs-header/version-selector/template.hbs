@@ -8,8 +8,12 @@
     {{#each sortedVersions as |version|}}
       <li data-test-id='version'>
         <a {{action 'changeVersion' version}} href='#'
-          class='docs-text-black docs-no-underline docs-flex docs-items-center
-            docs-px-4 docs-py-3 hover:docs-bg-grey-lighter'>
+          class={{concat
+            'docs-text-black docs-no-underline docs-flex docs-items-center
+            docs-px-4 docs-py-3 hover:docs-bg-brand hover:docs-text-white group '
+            (if (eq version sortedVersions.firstObject) 'docs-rounded-t')
+            (if (eq version sortedVersions.lastObject) 'docs-rounded-b')
+          }}>
           <span class='docs-w-6 flex'>
             {{#if (eq version.key currentVersion.key)}}
               {{svg-jar 'check' height=16 width=16}}
@@ -19,7 +23,7 @@
             {{version.name}}
           </span>
 
-          <span class="docs-ml-auto docs-pl-8 docs-flex docs-items-center docs-opacity-50">
+          <span class="docs-ml-auto docs-pl-8 docs-flex docs-items-center docs-opacity-50 group-hover:docs-opacity-100">
             {{#if (or (eq version.key latestVersionName) (eq version.key primaryBranch))}}
               {{svg-jar (if version.tag 'git-tag' 'git-sha') height=16 width=16}}
             {{else}}
