@@ -45,7 +45,7 @@
     "ember-code-snippet": "^2.2.0",
     "ember-component-css": "^0.3.5",
     "ember-concurrency": "^0.8.16",
-    "ember-data": "3.x",
+    "ember-data": "~3",
     "ember-fetch": "^4.0.2",
     "ember-fetch-adapter": "^0.4.2",
     "ember-href-to": "^1.15.1",
