@@ -20,14 +20,6 @@ export default Component.extend({
   tagName: '',
 
   /**
-    The style of the header, "light" or "dark". Defaults to light.
-
-    @argument style
-    @type String
-  */
-  style: 'light',
-
-  /**
     The logo to show, one of: 'ember', 'ember-cli', or 'ember-data'
 
     @argument logo
@@ -36,20 +28,12 @@ export default Component.extend({
   logo: '',
 
   /**
-    Smaller heading for the logo
+    The logo's main heading
 
-    @argument slimHeading
+    @argument heading
     @type String
   */
-  slimHeading: '',
-
-  /**
-    Larger heading for the logo
-
-    @argument strongHeading
-    @type String
-  */
-  strongHeading: '',
+  heading: '',
 
   /**
     Byline for the logo

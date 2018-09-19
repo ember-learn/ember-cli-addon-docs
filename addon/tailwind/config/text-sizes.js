@@ -29,6 +29,7 @@ let textSizes = {
   'jumbo': '60px'
 };
 
+// Convert pixel sizes to REMs
 export default Object.keys(textSizes).reduce((memo, textSize) => {
   let pixelValue = textSizes[textSize];
   let remValue = `${(+pixelValue.replace('px', '') / 16)}rem`;
