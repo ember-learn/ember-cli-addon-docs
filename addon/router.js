@@ -41,9 +41,8 @@ export default EmberRouter.extend(RouterScroll);
 export function docsRoute(router, callback) {
   router.route('docs', function() {
     callback.apply(this);
-
-    apiRoute(this);
   });
+  apiRoute(router);
 }
 
 export function apiRoute(router) {

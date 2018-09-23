@@ -72,7 +72,7 @@ export default Component.extend({
     path = path.replace(/\./g, '/');
 
     if (path === 'docs/api/item') {
-      let { path } = getOwner(this).lookup('route:application').paramsFor('docs.api.item');
+      let { path } = getOwner(this).lookup('route:application').paramsFor('api.item');
       let file = addonFiles.find(f => f.match(path));
 
       if (file) {

@@ -16,7 +16,7 @@ export default Component.extend({
       args = [ this.get('result.document.route') ];
 
     } else {
-      args = [ 'docs.api.item', this.get('result.model.routingId') ];
+      args = [ 'api.item', this.get('result.model.routingId') ];
     }
 
     return args;

@@ -35,6 +35,8 @@ export default Component.extend({
 
   projectVersion: service(),
 
+  store: service(),
+
   projectHref,
   latestVersionName,
 
@@ -55,6 +57,10 @@ export default Component.extend({
   }),
 
   currentVersion: reads('projectVersion.currentVersion'),
+
+  project: computed('store', function() {
+    return this.get('store').peekRecord('project', projectName);
+  }),
 
   actions: {
     didVisitPage() {

@@ -73,7 +73,7 @@ export default Component.extend(EKMixin, {
 
         // Filter out the templates of the API items' pages, since we handle them separately
         .filter(({ document }) => {
-          let isApiItemTemplate = (document.route === 'docs.api.item' && document.type === 'template');
+          let isApiItemTemplate = (document.route === 'api.item' && document.type === 'template');
           return !isApiItemTemplate;
         })
 
@@ -106,7 +106,7 @@ export default Component.extend(EKMixin, {
       if (selectedResult.document.type === 'template') {
         this.get('router').transitionTo(selectedResult.document.route);
       } else {
-        this.get('router').transitionTo('docs.api.item', selectedResult.model.get('routingId'));
+        this.get('router').transitionTo('api.item', selectedResult.model.get('routingId'));
       }
     }
 

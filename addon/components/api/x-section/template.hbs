@@ -12,7 +12,7 @@
     {{/if}}
 
     {{#if (or item.isClass item.isComponent)}}
-      {{#link-to 'docs.api.item' (concat 'modules/' item.id) class='hover:underline'}}
+      {{#link-to 'api.item' (concat 'modules/' item.id) class='hover:underline'}}
         <strong>{{item.name}}</strong>
       {{/link-to}}
     {{else}}
