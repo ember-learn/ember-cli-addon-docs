@@ -1,4 +1,5 @@
 /**
+  @function initialize
   @hide
 */
 export function initialize(application) {

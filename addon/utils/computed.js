@@ -2,6 +2,7 @@ import { computed } from '@ember/object';
 import { capitalize } from '@ember/string';
 
 /**
+  @function initialize
   @hide
 */
 export function memberUnion(parentMembersKey, childMembersKey) {
@@ -49,6 +50,7 @@ function memberSort(a, b) {
 }
 
 /**
+  @function initialize
   @hide
 */
 export function memberFilter(classKey, memberType) {
@@ -102,6 +104,7 @@ export function memberFilter(classKey, memberType) {
 }
 
 /**
+  @function initialize
   @hide
 */
 export function hasMemberType(...memberKeys) {
@@ -117,6 +120,7 @@ export function hasMemberType(...memberKeys) {
 }
 
 /**
+  @function initialize
   @hide
 */
 export function addonLogo(name) {
@@ -139,6 +143,7 @@ let prefixMap = {
   'ember': 'Ember',
 };
 /**
+  @function initialize
   @hide
 */
 export function addonPrefix(name) {
@@ -146,6 +151,7 @@ export function addonPrefix(name) {
 }
 
 /**
+  @function initialize
   @hide
 */
 export function unprefixedAddonName(name) {
