@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-addon-docs",
   "version": "0.5.3",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Easy, beautiful docs for your Ember addon",
   "keywords": [
     "ember-addon",
     "ember-cli-deploy-plugin"

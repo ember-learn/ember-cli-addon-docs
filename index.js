@@ -57,6 +57,7 @@ module.exports = {
       },
       'ember-cli-addon-docs': {
         projectName: this.parent.pkg.name,
+        projectDescription: this.parent.pkg.description,
         projectTag: this.parent.pkg.version,
         projectHref: info && info.browse(),
         primaryBranch: userConfig.getPrimaryBranch(),

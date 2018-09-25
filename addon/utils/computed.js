@@ -136,16 +136,18 @@ export function addonLogo(name) {
 /**
   @hide
 */
+let prefixMap = {
+  'ember-cli': 'EmberCLI',
+  'ember-data': 'EmberData',
+  'ember': 'Ember',
+};
 export function addonPrefix(name) {
-  let logo;
+  return prefixMap[addonLogo(name)];
+}
 
-  if (name.match(/ember-cli/)) {
-    logo = 'EmberCLI';
-  } else if (name.match(/ember-data/)) {
-    logo = 'EmberData';
-  } else {
-    logo = 'Ember';
-  }
-
-  return logo;
+/**
+  @hide
+*/
+export function unprefixedAddonName(name) {
+  return name.replace(/ember-(cli-|data-)?/, "");
 }

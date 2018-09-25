@@ -17,17 +17,20 @@
 |
 */
 let textSizes = {
-  'xxs':   '12px',
-  'xs':    '14px',
-  'sm':    '15px',
-  'base':  '16px',
-  'lg':    '18px',
-  'xl':    '20px',
-  '2xl':   '24px',
-  '3xl':   '30px',
-  '4xl':   '36px',
-  '5xl':   '48px',
-  'jumbo': '60px'
+  'xxs':      '12px',
+  'xs':       '14px',
+  'sm':       '15px',
+  'base':     '16px',
+  'large-1':  '18px',
+  'large-2':  '20px',
+  'large-3':  '22px',
+  'large-4':  '24px',
+  'large-5':  '30px',
+  'large-6':  '36px',
+  'large-7':  '42px',
+  'jumbo-1':  '60px',
+  'jumbo-2':  '74px',
+  'jumbo-3':  '86px'
 };
 
 // Convert pixel sizes to REMs

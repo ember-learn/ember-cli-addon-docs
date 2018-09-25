@@ -6,7 +6,7 @@
 .docs-h1,
 .docs-md__h1 a,
 .docs-h1 a {
-  @apply docs-mb-6 docs-text-grey-darkest docs-text-4xl docs-font-extrabold docs-leading-tight docs-no-underline;
+  @apply docs-mb-6 docs-text-grey-darkest docs-text-large-6 docs-font-extrabold docs-leading-tight docs-no-underline;
 }
 
 .docs-md__h2,
