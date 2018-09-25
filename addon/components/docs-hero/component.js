@@ -3,7 +3,7 @@ import layout from './template';
 import { addonPrefix, unprefixedAddonName } from 'ember-cli-addon-docs/utils/computed';
 import config from 'dummy/config/environment';
 import { classify } from '@ember/string';
-const { projectName, projectDescription, projectHref } = config['ember-cli-addon-docs'];
+const { projectName, projectDescription } = config['ember-cli-addon-docs'];
 
 /**
   A component that renders a hero banner. Useful for your docs site's homepage.
@@ -44,7 +44,5 @@ export default Component.extend({
     @argument byline
     @type String
   */
-  byline: projectDescription,
-
-  projectHref
+  byline: projectDescription
 });

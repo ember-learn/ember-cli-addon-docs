@@ -133,14 +133,14 @@ export function addonLogo(name) {
   return logo;
 }
 
-/**
-  @hide
-*/
 let prefixMap = {
   'ember-cli': 'EmberCLI',
   'ember-data': 'EmberData',
   'ember': 'Ember',
 };
+/**
+  @hide
+*/
 export function addonPrefix(name) {
   return prefixMap[addonLogo(name)];
 }
