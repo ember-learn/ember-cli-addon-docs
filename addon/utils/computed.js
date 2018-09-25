@@ -132,3 +132,20 @@ export function addonLogo(name) {
 
   return logo;
 }
+
+/**
+  @hide
+*/
+export function addonPrefix(name) {
+  let logo;
+
+  if (name.match(/ember-cli/)) {
+    logo = 'EmberCLI';
+  } else if (name.match(/ember-data/)) {
+    logo = 'EmberData';
+  } else {
+    logo = 'Ember';
+  }
+
+  return logo;
+}

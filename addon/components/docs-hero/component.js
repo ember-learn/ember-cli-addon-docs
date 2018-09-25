@@ -1,14 +1,16 @@
 import Component from '@ember/component';
 import layout from './template';
+import { addonPrefix } from 'ember-cli-addon-docs/utils/computed';
+import config from 'dummy/config/environment';
+const { projectName } = config['ember-cli-addon-docs'];
 
 /**
   A component that renders a hero banner. Useful for your docs site's homepage.
 
   ```hbs
   {{docs-hero
-    logo='ember'
-    slimHeading='Super'
-    strongHeading='Addon'
+    prefix='Ember'
+    headding='SuperAddon'
     byline='The best addon ever. Now playing in theaters.'}}
   ```
 
@@ -20,12 +22,12 @@ export default Component.extend({
   tagName: '',
 
   /**
-    The logo to show, one of: 'ember', 'ember-cli', or 'ember-data'
+    The prefix to show, tyipcally of: 'Ember', 'EmberCLI', or 'EmberData'
 
     @argument logo
     @type String
   */
-  logo: '',
+  prefix: addonPrefix(projectName),
 
   /**
     The logo's main heading

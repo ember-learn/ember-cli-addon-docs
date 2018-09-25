@@ -21,6 +21,7 @@ let textSizes = {
   'xs':    '14px',
   'sm':    '15px',
   'base':  '16px',
+  'lg':    '18px',
   'xl':    '20px',
   '2xl':   '24px',
   '3xl':   '30px',

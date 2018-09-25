@@ -3,7 +3,7 @@ import layout from './template';
 import config from 'dummy/config/environment';
 import { computed } from '@ember/object';
 import { classify } from '@ember/string';
-import { addonLogo } from 'ember-cli-addon-docs/utils/computed';
+import { addonLogo, addonPrefix } from 'ember-cli-addon-docs/utils/computed';
 import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
 
@@ -58,9 +58,7 @@ export default Component.extend({
     @argument prefix
     @type String?
   */
-  prefix: computed('logo', function() {
-    return (this.get('logo') === 'EmberCli') ? 'EmberCLI' : this.get('logo');
-  }),
+  prefix: addonPrefix(projectName),
 
   /**
     The name of your project (without the "ember", "ember-cli" or "ember-data" prefix).
