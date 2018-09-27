@@ -9,6 +9,8 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 const CopyTailwindBuildPlugin = require('ember-cli-tailwind/lib/copy-tailwind-build-plugin');
+const debugTree = require('broccoli-debug').buildDebugCallback(`ember-engines:${this.name}`);
+
 
 const LATEST_VERSION_NAME = '-latest';
 
@@ -169,7 +171,7 @@ module.exports = {
 
     trees.push(new CopyTailwindBuildPlugin([ tree ], this));
 
-    return new MergeTrees(trees);
+    return debugTree(new MergeTrees(trees), 'tree-for-addon-styles');
   },
 
   treeForVendor(vendor) {
