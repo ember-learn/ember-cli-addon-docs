@@ -72,9 +72,6 @@ module.exports = {
             }
           });
         });
-      return this.addAddonsToProject({
-        packages: ['ember-cli-addon-docs-yuidoc']
-      });
     }
   },
 
