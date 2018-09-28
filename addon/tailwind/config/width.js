@@ -19,6 +19,8 @@
 */
 
 export default {
+  'site-container': '$site-container',
+
   'auto': 'auto',
   'px': '1px',
   '1': '0.25rem',
@@ -33,7 +35,9 @@ export default {
   '24': '6rem',
   '32': '8rem',
   '48': '12rem',
+  '56': '14rem',
   '64': '16rem',
+  '72': '18rem',
   '76': '19rem',
   '1/2': '50%',
   '1/3': '33.33333%',

@@ -1,6 +1,7 @@
 import { animate } from "liquid-fire";
 
 /**
+  @function fadeAndDrop
   @hide
 */
 export default function fadeAndDrop(opts={ duration: 100 }) {

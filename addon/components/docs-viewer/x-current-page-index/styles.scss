@@ -1,0 +1,5 @@
+.AddonDocs-DocsViewer-CurrentPageIndex {
+  width: calc(((100% - #{$site-container}) / 2) + 14rem);
+  padding-right: calc((100% - #{$site-container}) / 2);
+  min-width: 14rem;
+}

@@ -1,0 +1,9 @@
+input[data-search-box-input]::placeholder {
+  @extend .docs-text-black;
+  @extend .docs-font-bold;
+  @extend .docs-opacity-100;
+
+  &:focus {
+    @extend .docs-text-grey;
+  }
+}

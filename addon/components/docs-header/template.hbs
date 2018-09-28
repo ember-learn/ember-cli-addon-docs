@@ -1,14 +1,15 @@
-<header class='docs-border-b docs-shadow-sm'>
-  <div class='docs-flex docs-items-center docs-max-w-3xl docs-mx-auto'>
+<header class='docs-shadow docs-relative docs-z-40 docs-bg-white'>
+  <div class='docs-flex docs-items-center docs-max-w-site-container docs-mx-auto md:docs-px-2'>
+
     {{#docs-header/link 'index'}}
-      <div class="docs-text-center docs-text-xs">
-        {{#if logo}}
-          <div class='docs-h-4 docs-pb-1'>
-            {{docs-logo logo=logo}}
+      <span class='docs-leading-none docs-font-title docs-text-large-2 docs-font-normal docs-normal-case docs-block docs-mr-6'>
+        {{#if prefix}}
+          <div class='docs-text-xxs'>
+            {{prefix}}
           </div>
         {{/if}}
-        <span class='docs-font-medium docs-normal-case docs-block docs--mt-2px'>{{name}}</span>
-      </div>
+        {{name}}
+      </span>
     {{/docs-header/link}}
 
     <div class='docs-flex-1 docs-flex docs-items-center docs-overflow-auto docs-overflow-momentum docs-mask-image md:docs-no-mask-image'>
@@ -48,7 +49,7 @@
       {{/if}}
 
       {{!-- Something to take up space on mobile, so the scrolling nav isn't hugging the edge --}}
-      <div class='docs-h-px docs-px-3 md:docs-hidden'></div>
+      <div class='docs-h-px docs-px-3 sm:docs-hidden'></div>
     </div>
   </div>
 </header>

@@ -1,0 +1,5 @@
+.hover\:docs-nudge-t {
+  &:hover {
+    transform: translateY(-1px);
+  }
+}

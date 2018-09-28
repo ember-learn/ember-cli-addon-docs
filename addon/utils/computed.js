@@ -2,6 +2,7 @@ import { computed } from '@ember/object';
 import { capitalize } from '@ember/string';
 
 /**
+  @function initialize
   @hide
 */
 export function memberUnion(parentMembersKey, childMembersKey) {
@@ -49,6 +50,7 @@ function memberSort(a, b) {
 }
 
 /**
+  @function initialize
   @hide
 */
 export function memberFilter(classKey, memberType) {
@@ -102,6 +104,7 @@ export function memberFilter(classKey, memberType) {
 }
 
 /**
+  @function initialize
   @hide
 */
 export function hasMemberType(...memberKeys) {
@@ -117,19 +120,40 @@ export function hasMemberType(...memberKeys) {
 }
 
 /**
+  @function initialize
   @hide
 */
 export function addonLogo(name) {
-  return computed(function() {
-    let logo;
-    if (name.match(/ember-cli/)) {
-      logo = 'ember-cli';
-    } else if (name.match(/ember-data/)) {
-      logo = 'ember-data';
-    } else {
-      logo = 'ember';
-    }
+  let logo;
 
-    return logo;
-  });
+  if (name.match(/ember-cli/)) {
+    logo = 'ember-cli';
+  } else if (name.match(/ember-data/)) {
+    logo = 'ember-data';
+  } else {
+    logo = 'ember';
+  }
+
+  return logo;
+}
+
+let prefixMap = {
+  'ember-cli': 'EmberCLI',
+  'ember-data': 'EmberData',
+  'ember': 'Ember',
+};
+/**
+  @function initialize
+  @hide
+*/
+export function addonPrefix(name) {
+  return prefixMap[addonLogo(name)];
+}
+
+/**
+  @function initialize
+  @hide
+*/
+export function unprefixedAddonName(name) {
+  return name.replace(/ember-(cli-|data-)?/, "");
 }

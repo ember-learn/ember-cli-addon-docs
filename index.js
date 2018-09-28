@@ -8,6 +8,7 @@ const Funnel = require('broccoli-funnel');
 const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-line node/no-unpublished-require
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
+const buildTailwind = require('ember-cli-tailwind/lib/build-tailwind');
 
 const LATEST_VERSION_NAME = '-latest';
 
@@ -32,7 +33,16 @@ module.exports = {
         'public',
         'node_modules/ember-cli-addon-docs/public',
         'tests/dummy/public'
-      ]
+      ],
+      optimizer : {
+        plugins: [
+          {
+            removeAttrs: {
+              attrs: [ 'fill' ]
+            }
+          }
+        ]
+      }
     }
   },
 
@@ -42,11 +52,9 @@ module.exports = {
     let userConfig = this._readUserConfig();
 
     let config = {
-      'ember-component-css': {
-        namespacing: false
-      },
       'ember-cli-addon-docs': {
         projectName: this.parent.pkg.name,
+        projectDescription: this.parent.pkg.description,
         projectTag: this.parent.pkg.version,
         projectHref: info && info.browse(),
         primaryBranch: userConfig.getPrimaryBranch(),
@@ -54,8 +62,12 @@ module.exports = {
         deployVersion: 'ADDON_DOCS_DEPLOY_VERSION',
         searchTokenSeparator: "\\s+"
       },
+      'ember-component-css': {
+        namespacing: false
+      },
       'ember-cli-tailwind': {
-        shouldIncludeStyleguide: false
+        shouldIncludeStyleguide: false,
+        shouldBuildTailwind: false
       }
     };
 
@@ -151,6 +163,14 @@ module.exports = {
     let addonFiles = new FindAddonFiles([ 'addon' ].filter(dir => fs.existsSync(dir)));
 
     return this._super(new MergeTrees([ tree, dummyAppFiles, addonFiles ]));
+  },
+
+  treeForAddonStyles(tree) {
+    let trees = tree ? [ tree ] : [];
+
+    trees.push(buildTailwind(this));
+
+    return new MergeTrees(trees);
   },
 
   treeForVendor(vendor) {

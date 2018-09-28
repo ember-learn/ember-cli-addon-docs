@@ -11,7 +11,7 @@ import layout from './template';
 
 const { projectHref, primaryBranch } = config['ember-cli-addon-docs'];
 
-const tagToSize = { H2: 'xs', H3: 'xs' };
+const tagToSize = { H2: 'xxs', H3: 'xxs' };
 const tagToIndent = { H2: '0', H3: '4' };
 const tagToMarginTop = { H2: '2', H3: '2' };
 const tagToMarginBottom = { H2: '0', H3: '0' };
@@ -23,12 +23,15 @@ export default Component.extend({
   docsRoutes: service(),
 
   tagName: 'main',
-  classNames: ['lg:docs-w-4/5', 'xl:docs-w-3/5', 'docs-max-w-md', 'lg:docs-max-w-none', 'docs-mx-auto', 'lg:docs-mx-0', 'docs-mt-6', 'docs-flex-no-shrink'],
+  classNames: [
+    'docs-px-4', 'md:docs-px-8', 'lg:docs-px-20', 'docs-mx-auto', 'md:docs-mx-0', 'docs-mt-6',
+    'md:docs-mt-12', 'md:docs-min-w-0'
+  ],
 
   didInsertElement() {
     this._super(...arguments);
 
-    let target = this.element.querySelector('[data-page-index-target]')
+    let target = this.element.querySelector('[data-current-page-index-target]')
 
     this._mutationObserver = new MutationObserver(bind(this, this.reindex, target))
 

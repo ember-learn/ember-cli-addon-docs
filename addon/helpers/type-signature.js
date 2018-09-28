@@ -29,6 +29,7 @@ function variableSignature({ name, type }) {
 }
 
 /**
+  @function typeSignature
   @hide
 */
 export function typeSignature([typed]) {

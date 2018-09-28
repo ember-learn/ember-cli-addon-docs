@@ -1,23 +1,38 @@
-<div class="
-  docs-text-center docs-py-8 md:docs-py-16
-  {{if (eq style 'light') 'docs-text-grey-darkest'}}
-  {{if (eq style 'dark') 'docs-bg-black docs-text-white'}}
-">
-  <h1 class='docs-text-5xl md:docs-text-jumbo docs-leading-none'>
-    {{#if logo}}
-      <div class='md:docs--mb-1 docs--mt-4 md:docs--mt-8'>
-        <span class='docs-inline-block docs-h-6 docs-opacity-50'>
-          {{docs-logo logo=logo}}
+<div class='
+  docs-bg-brand docs-text-white
+  docs-px-4 docs-py-16 docs-text-center
+'>
+  <div class="docs-max-w-sm docs-mx-auto">
+    <h1 class='
+      docs-font-title docs-font-normal docs-text-jumbo-1 md:docs-text-jumbo-2 xl:docs-text-jumbo-3
+      docs-leading-none docs-tracking-tight
+    '>
+      {{#if prefix}}
+        <span class="docs-block docs-text-large-5 md:docs-text-large-6 xl:docs-text-large-7">
+          {{prefix}}
         </span>
-      </div>
-    {{/if}}
+      {{/if}}
 
-    <span class='docs-font-thin'>{{slimHeading}}</span>{{strongHeading}}
-  </h1>
+      {{heading}}
+    </h1>
 
-  <p class='docs-opacity-75 docs-text-xl docs-mt-4 docs-w-3/4 docs-mx-auto docs-leading-tight'>
-    {{byline}}
-  </p>
+    <p class='
+      docs-mt-4 xl:docs-mt-6 docs-mb-2 docs-leading-small docs-mx-auto docs-tracking-tight
+      docs-text-large-1 md:docs-text-large-2 xl:docs-text-large-3
+    '>
+      {{byline}}
+    </p>
 
-  {{yield}}
+    <div class="docs-mt-8">
+      {{#link-to 'docs' class='
+        docs-no-underline docs-bg-white docs-text-brand docs-text-xs docs-px-3 docs-py-2
+        docs-rounded docs-mt-4 docs-shadow-md hover:docs-shadow-lg
+        docs-transition hover:docs-nudge-t docs-font-bold docs-inline-block docs-uppercase
+      '}}
+        Read the docs
+      {{/link-to}}
+    </div>
+
+    {{yield}}
+  </div>
 </div>

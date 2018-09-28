@@ -1,0 +1,6 @@
+.AddonDocs-DocsViewer-Nav {
+  @media (min-width: $site-container) {
+    width: calc(((100% - #{$site-container}) / 2) + 288px);
+    padding-left: calc((100% - #{$site-container}) / 2);
+  }
+}

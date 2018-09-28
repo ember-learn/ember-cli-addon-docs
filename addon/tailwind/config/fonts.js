@@ -17,6 +17,10 @@
 */
 
 export default {
+  title: [
+    'Crimson Text',
+    'serif'
+  ],
   sans: [
     'system-ui',
     'BlinkMacSystemFont',

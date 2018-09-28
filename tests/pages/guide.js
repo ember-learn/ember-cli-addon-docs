@@ -6,7 +6,7 @@ const GuidePage = BaseAddonPage.extend({
 
   // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
   index: {
-    scope: '[data-test-page-index]',
+    scope: '[data-test-current-page-index]',
 
     items: collection({
       scope: '[data-test-index-item]'
