@@ -15,6 +15,7 @@ export default Component.extend({
    * because the information is already displayed in the type signature and redundant
    *
    * @function
+   * @hide
    */
   shouldDisplayParams: computed('item.params.[]', function() {
     let params = this.get('item.params') || [];
