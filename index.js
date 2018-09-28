@@ -143,6 +143,10 @@ module.exports = {
     if (type === 'body') {
       return fs.readFileSync(`${__dirname}/vendor/ember-cli-addon-docs/github-spa.html`, 'utf-8');
     }
+
+    if (type === 'head-footer') {
+      return `<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,600" rel="stylesheet">`;
+    }
   },
 
   treeForApp(app) {
