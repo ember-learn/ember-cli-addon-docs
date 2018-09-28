@@ -18,7 +18,7 @@
 
 export default {
   title: [
-    'Crimson Text',
+    '"Crimson Text"',
     'serif'
   ],
   sans: [
