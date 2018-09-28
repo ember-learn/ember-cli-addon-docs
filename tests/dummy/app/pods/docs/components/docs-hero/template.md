@@ -4,7 +4,7 @@ This component helps you quickly get a hero section on your addon's homepage. Th
 
 The component has three arguments. By default, these arguments are pulled from your project's `package.json`:
 
-  - `prefix` and `heading` come from your the `name` field
+  - `prefix` and `heading` come from the `name` field
   - `byline` comes from the `description` field
 
 As long as these are present, you can just render `{{docs-demo}}` with no arguments:
