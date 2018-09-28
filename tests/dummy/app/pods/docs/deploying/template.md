@@ -177,7 +177,7 @@ If you wish to disable ember-cli-addon-docs' built-in deployment plugins altoget
 // ...
 ENV.pipeline = {
   disabled: {
-    'addon-docs': true
+    'ember-cli-addon-docs': true
   }
 };
 // ...
