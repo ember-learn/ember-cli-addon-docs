@@ -8,9 +8,7 @@ const Funnel = require('broccoli-funnel');
 const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-line node/no-unpublished-require
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
-const CopyTailwindBuildPlugin = require('ember-cli-tailwind/lib/copy-tailwind-build-plugin');
-const debugTree = require('broccoli-debug').buildDebugCallback(`ember-engines:${this.name}`);
-
+const buildTailwind = require('ember-cli-tailwind/lib/build-tailwind');
 
 const LATEST_VERSION_NAME = '-latest';
 
@@ -54,9 +52,6 @@ module.exports = {
     let userConfig = this._readUserConfig();
 
     let config = {
-      'ember-component-css': {
-        namespacing: false
-      },
       'ember-cli-addon-docs': {
         projectName: this.parent.pkg.name,
         projectDescription: this.parent.pkg.description,
@@ -67,8 +62,12 @@ module.exports = {
         deployVersion: 'ADDON_DOCS_DEPLOY_VERSION',
         searchTokenSeparator: "\\s+"
       },
+      'ember-component-css': {
+        namespacing: false
+      },
       'ember-cli-tailwind': {
-        shouldIncludeStyleguide: false
+        shouldIncludeStyleguide: false,
+        shouldBuildTailwind: false
       }
     };
 
@@ -169,9 +168,9 @@ module.exports = {
   treeForAddonStyles(tree) {
     let trees = tree ? [ tree ] : [];
 
-    trees.push(new CopyTailwindBuildPlugin([ tree ], this));
+    trees.push(buildTailwind(this));
 
-    return debugTree(new MergeTrees(trees), 'tree-for-addon-styles');
+    return new MergeTrees(trees);
   },
 
   treeForVendor(vendor) {
