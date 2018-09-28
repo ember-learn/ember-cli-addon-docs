@@ -168,3 +168,17 @@ Next, remove the item from `versions.json` for the version you want to get rid o
 ```
 
 Keep in mind, your deployed site is still a git branch like everything else in your repo, so you have all the same tools at your disposal for making changes to it. In many case, rather than going through the manual steps outlined above, you may be able to just find the commit that added the version you want to remove and `git revert` it.
+
+## Disabling the default deployment plugins
+
+If you wish to disable ember-cli-addon-docs' built-in deployment plugins altogether and instead define your own pipeline, you can do so by [editing your pipeline configuration](http://ember-cli-deploy.com/docs/v1.0.x/configuration/#disabling-plugins). In your `config/deploy.js` file:
+
+```js
+// ...
+ENV.pipeline = {
+  disabled: {
+    'ember-cli-addon-docs': true
+  }
+};
+// ...
+```
