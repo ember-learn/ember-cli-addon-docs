@@ -1,0 +1,156 @@
+[
+  {
+    "id": "ember-cli-addon-docs/components/docs-demo/component",
+    "file": "ember-cli-addon-docs/components/docs-demo/component",
+    "functions": [],
+    "variables": [],
+    "classes": [],
+    "components": [
+      {
+        "id": "ember-cli-addon-docs/components/docs-demo/component~DocsDemo",
+        "name": "DocsDemo",
+        "file": "ember-cli-addon-docs/components/docs-demo/component",
+        "description": "<div class=\"docs-md\"><p>A demo component that can be used to demonstrate code samples. Comes\nwith built in snippet handling, so you don&#39;t have to write code twice!</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedhbs\"><span class=\"xml\"></span><span class=\"hljs-template-tag\">{{#<span class=\"hljs-name\">docs-demo</span> as |demo|}}</span><span class=\"xml\">\n  </span><span class=\"hljs-template-tag\">{{#<span class=\"hljs-name\">demo.example</span> name='docs-demo-basic.hbs'}}</span><span class=\"xml\">\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">p</span>&gt;</span>I am a <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">strong</span>&gt;</span>handlebars<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">strong</span>&gt;</span> template!<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">p</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">p</span>&gt;</span>The value is: </span><span class=\"hljs-template-variable\">{{val}}</span><span class=\"xml\"><span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">p</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">div</span>&gt;</span>\n      </span><span class=\"hljs-template-variable\">{{input value=val}}</span><span class=\"xml\">\n    <span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">div</span>&gt;</span>\n  </span><span class=\"hljs-template-tag\">{{/<span class=\"hljs-name\">demo.example</span>}}</span><span class=\"xml\">\n\n  </span><span class=\"hljs-template-variable\">{{demo.snippet 'docs-demo-basic.hbs'}}</span><span class=\"xml\">\n</span><span class=\"hljs-template-tag\">{{/<span class=\"hljs-name\">docs-demo</span>}}</span><span class=\"xml\"></span></code></pre></div>",
+        "lineNumber": 6,
+        "access": "public",
+        "tags": [],
+        "isInterface": false,
+        "exportType": "default",
+        "decorators": [],
+        "fields": [
+          {
+            "name": "snippetRegistrations",
+            "file": "ember-cli-addon-docs/components/docs-demo/component",
+            "description": "<div class=\"docs-md\"><p>The snippets registered with this demo component</p></div>",
+            "lineNumber": 40,
+            "access": "public",
+            "tags": [],
+            "type": "Array<Object>",
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "methods": [
+          {
+            "name": "defaultsFromName",
+            "file": "ember-cli-addon-docs/components/docs-demo/component",
+            "description": "<div class=\"docs-md\"><p>Returns the default label and language based on snippet file name</p></div>",
+            "lineNumber": 72,
+            "access": "public",
+            "tags": [],
+            "returns": {
+              "type": "object",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "name": "name",
+                "type": "string",
+                "description": ""
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "registerSnippet",
+            "file": "ember-cli-addon-docs/components/docs-demo/component",
+            "description": "<div class=\"docs-md\"><p>Registers snippets with the demo component and sets it to the active\nsnippet if it&#39;s the only one</p></div>",
+            "lineNumber": 108,
+            "access": "public",
+            "tags": [
+              {
+                "name": "action",
+                "value": ""
+              }
+            ],
+            "returns": null,
+            "params": [
+              {
+                "name": "snippet",
+                "type": "object",
+                "description": ""
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "selectSnippet",
+            "file": "ember-cli-addon-docs/components/docs-demo/component",
+            "description": "<div class=\"docs-md\"><p>Sets the active snippet</p></div>",
+            "lineNumber": 123,
+            "access": "public",
+            "tags": [
+              {
+                "name": "action",
+                "value": ""
+              }
+            ],
+            "returns": null,
+            "params": [
+              {
+                "name": "snippet",
+                "type": "object",
+                "description": ""
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [
+          {
+            "name": "snippets",
+            "file": "ember-cli-addon-docs/components/docs-demo/component",
+            "description": "<div class=\"docs-md\"><p>The finalized snippets complete with name (or default), language,\nand whether or not it is active.</p></div>",
+            "lineNumber": 48,
+            "access": "private",
+            "tags": [
+              {
+                "name": "readonly",
+                "value": ""
+              }
+            ],
+            "type": "Array<Object>",
+            "isStatic": false,
+            "decorators": [],
+            "hasGetter": true,
+            "hasSetter": false
+          }
+        ],
+        "parentClassId": null,
+        "arguments": [],
+        "yields": [
+          {
+            "name": "demo",
+            "type": "Hash",
+            "description": ""
+          },
+          {
+            "name": "demo.example",
+            "type": "Component",
+            "description": ""
+          },
+          {
+            "name": "demo.snippet",
+            "type": "Component",
+            "description": ""
+          },
+          {
+            "name": "demo.liveExample",
+            "type": "Component",
+            "description": ""
+          }
+        ]
+      }
+    ]
+  }
+]
