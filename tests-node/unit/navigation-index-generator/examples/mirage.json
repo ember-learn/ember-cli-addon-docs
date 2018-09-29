@@ -1,0 +1,4475 @@
+[
+  {
+    "id": "ember-cli-mirage/db-collection",
+    "file": "ember-cli-mirage/db-collection",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/db-collection~DbCollection",
+        "name": "DbCollection",
+        "file": "ember-cli-mirage/db-collection",
+        "exportType": "default",
+        "description": "<div class=\"docs-md\"><p>The collection attached to the database object.</p>\n<p>For example if you had the following data file named <code>mirage/fixtures/contacts.js</code></p>\n<pre class=\"docs-md__code\"><code><span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> [\n  {<span class=\"hljs-attribute\">id:</span><span class=\"hljs-string\"> 1, name</span>: <span class=\"hljs-string\">'Zelda'</span>},\n  {<span class=\"hljs-attribute\">id:</span><span class=\"hljs-string\"> 2, name</span>: <span class=\"hljs-string\">'Link'</span>}\n];</code></pre><p>then <code>db.contacts</code> would return this array.</p></div>",
+        "lineNumber": 32,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [
+          {
+            "name": "class",
+            "value": "DbCollection"
+          },
+          {
+            "name": "constructor",
+            "value": ""
+          }
+        ],
+        "fields": [],
+        "methods": [
+          {
+            "name": "all",
+            "description": "<div class=\"docs-md\"><p>Returns a copy of the data, to prevent inadvertent data manipulation.</p></div>",
+            "lineNumber": 49,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "all"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "insert",
+            "description": "<div class=\"docs-md\"><p>Inserts <code>data</code> into the collection. <code>data</code> can be a single object\nor an array of objects. Returns the inserted record.</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedjs\"><span class=\"hljs-comment\">// Insert a single record</span>\n<span class=\"hljs-keyword\">let</span> link = db.users.insert({<span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">'Link'</span>, <span class=\"hljs-attr\">age</span>: <span class=\"hljs-number\">173</span>});\n\nlink;  <span class=\"hljs-comment\">// {id: 1, name: 'Link', age: 137}</span>\n\n<span class=\"hljs-comment\">// Insert an array</span>\n<span class=\"hljs-keyword\">let</span> users = db.users.insert([\n  {<span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">'Zelda'</span>, <span class=\"hljs-attr\">age</span>: <span class=\"hljs-number\">142</span>},\n  {<span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">'Epona'</span>, <span class=\"hljs-attr\">age</span>: <span class=\"hljs-number\">58</span>},\n]);\n\nusers;  <span class=\"hljs-comment\">// [{id: 2, name: 'Zelda', age: 142}, {id: 3, name: 'Epona', age: 58}]</span></code></pre></div>",
+            "lineNumber": 76,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "insert"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "data",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "find",
+            "description": "<div class=\"docs-md\"><p>Returns a single record from the <code>collection</code> if <code>ids</code> is a single\nid, or an array of records if <code>ids</code> is an array of ids. Note\neach id can be an int or a string, but integer ids as strings\n(e.g. the string “1”) will be treated as integers.</p></div>",
+            "lineNumber": 95,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "find"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "ids",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "findBy",
+            "description": "<div class=\"docs-md\"><p>Returns the first model from <code>collection</code> that matches the\nkey-value pairs in the <code>query</code> object. Note that a string\ncomparison is used. <code>query</code> is a POJO.</p></div>",
+            "lineNumber": 121,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "find"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "query",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "where",
+            "description": "<div class=\"docs-md\"><p>Returns an array of models from <code>collection</code> that match the\nkey-value pairs in the <code>query</code> object. Note that a string\ncomparison is used. <code>query</code> is a POJO.</p></div>",
+            "lineNumber": 139,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "where"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "query",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "firstOrCreate",
+            "description": "<div class=\"docs-md\"><p>Finds the first record matching the provided query in\n<code>collection</code>, or creates a new record using a merge of the\n<code>query</code> and optional <code>attributesForCreate</code>.</p></div>",
+            "lineNumber": 152,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "firstOrCreate"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "query",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attributesForCreate",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "update",
+            "description": "<div class=\"docs-md\"><p>Updates one or more records in collection.\nIf attrs is the only arg present, updates all records\nin the collection according to the key-value pairs in attrs.\nIf target is present, restricts updates to those that\nmatch target. If target is a number or string, finds a\nsingle record whose id is target to update. If target is\na POJO, queries collection for records that match the\nkey-value pairs in target, and updates their attrs.\nReturns the updated record or records.</p></div>",
+            "lineNumber": 181,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "update"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "target",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attrs",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "remove",
+            "description": "<div class=\"docs-md\"><p>Removes one or more records in <code>collection</code>.\nIf <code>target</code> is undefined, removes all records.\nIf <code>target</code> is a number or string, removes a\nsingle record using <code>target</code> as id. If <code>target</code> is\na POJO, queries <code>collection</code> for records that\nmatch the key-value pairs in <code>target</code>, and\nremoves them from the collection.</p></div>",
+            "lineNumber": 242,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "remove"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "target",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_findRecord",
+            "description": "",
+            "lineNumber": 282,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_findRecord"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "id",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_findRecordBy",
+            "description": "",
+            "lineNumber": 295,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_findRecordBy"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "query",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_findRecords",
+            "description": "",
+            "lineNumber": 304,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_findRecords"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "ids",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_findRecordsWhere",
+            "description": "",
+            "lineNumber": 313,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_findRecordsWhere"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "query",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_insertRecord",
+            "description": "",
+            "lineNumber": 334,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_insertRecord"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "data",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_updateRecord",
+            "description": "",
+            "lineNumber": 356,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_updateRecord"
+              }
+            ],
+            "file": "ember-cli-mirage/db-collection",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "record",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attrs",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/ember-data",
+    "file": "ember-cli-mirage/ember-data",
+    "functions": [
+      {
+        "name": "getDsModels",
+        "description": "<div class=\"docs-md\"><p>Get all ember data models under the app&#39;s namespaces</p></div>",
+        "lineNumber": 24,
+        "access": "private",
+        "tags": [
+          {
+            "name": "method",
+            "value": "getDsModels"
+          }
+        ],
+        "file": "ember-cli-mirage/ember-data",
+        "returns": {
+          "type": "Object",
+          "description": "models",
+          "properties": []
+        },
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "named"
+      },
+      {
+        "name": "getModels",
+        "description": "<div class=\"docs-md\"><p>Get all mirage models for each of the ember-data models</p></div>",
+        "lineNumber": 62,
+        "access": "private",
+        "tags": [
+          {
+            "name": "method",
+            "value": "getModels"
+          }
+        ],
+        "file": "ember-cli-mirage/ember-data",
+        "returns": {
+          "type": "Object",
+          "description": "models",
+          "properties": []
+        },
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "named"
+      },
+      {
+        "name": "modelFor",
+        "description": "<div class=\"docs-md\"><p>A lookup method for an autogenerated model</p></div>",
+        "lineNumber": 96,
+        "access": "private",
+        "tags": [
+          {
+            "name": "method",
+            "value": "modelFor"
+          }
+        ],
+        "file": "ember-cli-mirage/ember-data",
+        "returns": {
+          "type": "Model",
+          "description": "",
+          "properties": []
+        },
+        "params": [
+          {
+            "nullable": null,
+            "spread": false,
+            "optional": false,
+            "name": "name",
+            "description": "",
+            "type": "String"
+          }
+        ],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "named"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/factory",
+    "file": "ember-cli-mirage/factory",
+    "functions": [
+      {
+        "name": "Factory",
+        "description": null,
+        "lineNumber": 7,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/factory",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "default"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/get-rfc232-test-context",
+    "file": "ember-cli-mirage/get-rfc232-test-context",
+    "functions": [
+      {
+        "name": "getRfc232TestContext",
+        "description": null,
+        "lineNumber": 7,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/get-rfc232-test-context",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "default"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/identity-manager",
+    "file": "ember-cli-mirage/identity-manager",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/identity-manager~IdentityManager",
+        "name": "IdentityManager",
+        "file": "ember-cli-mirage/identity-manager",
+        "exportType": "default",
+        "description": "<div class=\"docs-md\"><p>IdentityManager for a DbCollection</p></div>",
+        "lineNumber": 12,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [
+          {
+            "name": "class",
+            "value": "IdentityManager"
+          },
+          {
+            "name": "constructor",
+            "value": ""
+          }
+        ],
+        "fields": [],
+        "methods": [
+          {
+            "name": "get",
+            "description": "",
+            "lineNumber": 23,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "get"
+              }
+            ],
+            "file": "ember-cli-mirage/identity-manager",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "set",
+            "description": "",
+            "lineNumber": 32,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "set"
+              }
+            ],
+            "file": "ember-cli-mirage/identity-manager",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "n",
+                "description": "",
+                "type": "String|Number"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "inc",
+            "description": "",
+            "lineNumber": 48,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "inc"
+              }
+            ],
+            "file": "ember-cli-mirage/identity-manager",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "fetch",
+            "description": "",
+            "lineNumber": 61,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "fetch"
+              }
+            ],
+            "file": "ember-cli-mirage/identity-manager",
+            "returns": {
+              "type": "String",
+              "description": "Unique identifier",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "reset",
+            "description": "",
+            "lineNumber": 75,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "reset"
+              }
+            ],
+            "file": "ember-cli-mirage/identity-manager",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/instance-initializers/ember-cli-mirage-autostart",
+    "file": "ember-cli-mirage/instance-initializers/ember-cli-mirage-autostart",
+    "functions": [
+      {
+        "name": "initialize",
+        "description": null,
+        "lineNumber": 25,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/instance-initializers/ember-cli-mirage-autostart",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "named"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/orm/associations/association",
+    "file": "ember-cli-mirage/orm/associations/association",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/orm/associations/association~Association",
+        "name": "Association",
+        "file": "ember-cli-mirage/orm/associations/association",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 3,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [
+          {
+            "name": "setSchema",
+            "description": "<div class=\"docs-md\"><p>A setter for schema, since we don&#39;t have a reference at constuction time.</p></div>",
+            "lineNumber": 30,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "setSchema"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/associations/association",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "isReflexive",
+            "description": "<div class=\"docs-md\"><p>Returns true if the association is reflexive.</p></div>",
+            "lineNumber": 41,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "isReflexive"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/associations/association",
+            "returns": {
+              "type": "Boolean",
+              "description": "",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [
+          {
+            "name": "isPolymorphic",
+            "description": null,
+            "lineNumber": 48,
+            "access": "public",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/associations/association",
+            "type": "any",
+            "isStatic": false,
+            "decorators": [],
+            "hasGetter": true,
+            "hasSetter": false
+          },
+          {
+            "name": "isHasMany",
+            "description": null,
+            "lineNumber": 52,
+            "access": "public",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/associations/association",
+            "type": "any",
+            "isStatic": false,
+            "decorators": [],
+            "hasGetter": true,
+            "hasSetter": false
+          },
+          {
+            "name": "isBelongsTo",
+            "description": null,
+            "lineNumber": 56,
+            "access": "public",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/associations/association",
+            "type": "any",
+            "isStatic": false,
+            "decorators": [],
+            "hasGetter": true,
+            "hasSetter": false
+          },
+          {
+            "name": "identifier",
+            "description": null,
+            "lineNumber": 60,
+            "access": "public",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/associations/association",
+            "type": "any",
+            "isStatic": false,
+            "decorators": [],
+            "hasGetter": true,
+            "hasSetter": false
+          }
+        ],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/orm/associations/belongs-to",
+    "file": "ember-cli-mirage/orm/associations/belongs-to",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/orm/associations/belongs-to~BelongsTo",
+        "name": "BelongsTo",
+        "file": "ember-cli-mirage/orm/associations/belongs-to",
+        "exportType": "default",
+        "description": "<div class=\"docs-md\"><p>The belongsTo association adds a fk to the owner of the association</p></div>",
+        "lineNumber": 15,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [
+          {
+            "name": "class",
+            "value": "BelongsTo"
+          },
+          {
+            "name": "constructor",
+            "value": ""
+          }
+        ],
+        "fields": [],
+        "methods": [
+          {
+            "name": "getForeignKeyArray",
+            "description": "",
+            "lineNumber": 23,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "getForeignKeyArray"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/associations/belongs-to",
+            "returns": {
+              "type": "Array",
+              "description": "Array of camelized name of the model owning the association\nand foreign key for the association",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "getForeignKey",
+            "description": "",
+            "lineNumber": 32,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "getForeignKey"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/associations/belongs-to",
+            "returns": {
+              "type": "String",
+              "description": "Foreign key for the association",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "addMethodsToModelClass",
+            "description": "<div class=\"docs-md\"><p>Registers belongs-to association defined by given key on given model,\ndefines getters / setters for associated parent and associated parent&#39;s id,\nadds methods for creating unsaved parent record and creating a saved one</p></div>",
+            "lineNumber": 46,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "addMethodsToModelClass"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/associations/belongs-to",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "ModelClass",
+                "description": "",
+                "type": "Function"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "key",
+                "description": "the named key for the association",
+                "type": "String"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "disassociateAllDependentsFromTarget",
+            "description": "",
+            "lineNumber": 224,
+            "access": "public",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/associations/belongs-to",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [],
+        "parentClassId": "*"
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/orm/associations/has-many",
+    "file": "ember-cli-mirage/orm/associations/has-many",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/orm/associations/has-many~HasMany",
+        "name": "HasMany",
+        "file": "ember-cli-mirage/orm/associations/has-many",
+        "exportType": "default",
+        "description": "",
+        "lineNumber": 16,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [
+          {
+            "name": "class",
+            "value": "HasMany"
+          },
+          {
+            "name": "constructor",
+            "value": ""
+          }
+        ],
+        "fields": [],
+        "methods": [
+          {
+            "name": "getForeignKeyArray",
+            "description": "",
+            "lineNumber": 24,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "getForeignKeyArray"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/associations/has-many",
+            "returns": {
+              "type": "Array",
+              "description": "Array of camelized model name of associated objects\nand foreign key for the object owning the association",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "getForeignKey",
+            "description": "",
+            "lineNumber": 33,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "getForeignKey"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/associations/has-many",
+            "returns": {
+              "type": "String",
+              "description": "Foreign key for the object owning the association",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "addMethodsToModelClass",
+            "description": "<div class=\"docs-md\"><p>Registers has-many association defined by given key on given model,\ndefines getters / setters for associated records and associated records&#39; ids,\nadds methods for creating unsaved child records and creating saved ones</p></div>",
+            "lineNumber": 47,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "addMethodsToModelClass"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/associations/has-many",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "ModelClass",
+                "description": "",
+                "type": "Function"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "key",
+                "description": "",
+                "type": "String"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "disassociateAllDependentsFromTarget",
+            "description": "",
+            "lineNumber": 246,
+            "access": "public",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/associations/has-many",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [],
+        "parentClassId": "*"
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/orm/collection",
+    "file": "ember-cli-mirage/orm/collection",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/orm/collection~Collection",
+        "name": "Collection",
+        "file": "ember-cli-mirage/orm/collection",
+        "exportType": "default",
+        "description": "<div class=\"docs-md\"><p>Collections represent arrays of models. They are returned by a hasMany association, or by one of the ModelClass query methods:</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedjs\"><span class=\"hljs-keyword\">let</span> posts = user.blogPosts;\n<span class=\"hljs-keyword\">let</span> posts = schema.blogPosts.all();\n<span class=\"hljs-keyword\">let</span> posts = schema.blogPosts.find([<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">4</span>]);\n<span class=\"hljs-keyword\">let</span> posts = schema.blogPosts.where({ <span class=\"hljs-attr\">published</span>: <span class=\"hljs-literal\">true</span> });</code></pre></div>",
+        "lineNumber": 18,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [
+          {
+            "name": "class",
+            "value": "Collection"
+          },
+          {
+            "name": "constructor",
+            "value": ""
+          }
+        ],
+        "fields": [],
+        "methods": [
+          {
+            "name": "update",
+            "description": "<div class=\"docs-md\"><p>Updates each model in the collection, and immediately persists all changes to the db.</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedjs\"><span class=\"hljs-keyword\">let</span> posts = author.blogPosts.all();\n\nposts.update(<span class=\"hljs-string\">'published'</span>, <span class=\"hljs-literal\">true</span>); <span class=\"hljs-comment\">// the db was updated for all posts</span></code></pre></div>",
+            "lineNumber": 91,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "update"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "key",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "val",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "destroy",
+            "description": "<div class=\"docs-md\"><p>Destroys the db record for all models in the collection.</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedjs\"><span class=\"hljs-keyword\">let</span> posts = author.blogPosts.all();\n\nposts.destroy(); <span class=\"hljs-comment\">// all posts removed from db</span></code></pre></div>",
+            "lineNumber": 110,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "destroy"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "save",
+            "description": "<div class=\"docs-md\"><p>Saves all models in the collection.</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedjs\"><span class=\"hljs-keyword\">let</span> posts = author.blogPosts.all();\n\nposts.models[<span class=\"hljs-number\">0</span>].published = <span class=\"hljs-literal\">true</span>;\n\nposts.save(); <span class=\"hljs-comment\">// all posts saved to db</span></code></pre></div>",
+            "lineNumber": 131,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "save"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "reload",
+            "description": "<div class=\"docs-md\"><p>Reloads each model in the collection.</p></div>",
+            "lineNumber": 144,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "reload"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "add",
+            "description": "<div class=\"docs-md\"><p>Adds a model to this collection.</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedjs\">user.posts.add(newPost);</code></pre></div>",
+            "lineNumber": 162,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "add"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "model",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "remove",
+            "description": "<div class=\"docs-md\"><p>Removes a model to this collection</p></div>",
+            "lineNumber": 175,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "remove"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "includes",
+            "description": "<div class=\"docs-md\"><p>Checks if the collection includes the model</p></div>",
+            "lineNumber": 192,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "includes"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/collection",
+            "returns": {
+              "type": "any",
+              "description": "boolean",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "filter",
+            "description": "",
+            "lineNumber": 202,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "filter"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/collection",
+            "returns": {
+              "type": "Collection",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "f",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "sort",
+            "description": "<div class=\"docs-md\"><p>Returns a new Collection with its models sorted according to the provided <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#Parameters\"  class=\"docs-md__a\">compare function</a>.</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedjs\"><span class=\"hljs-keyword\">let</span> posts = author.blogPosts.all();\n\n<span class=\"hljs-keyword\">let</span> postsByTitleAsc = posts.sort(<span class=\"hljs-function\">(<span class=\"hljs-params\">a, b</span>) =&gt;</span> {\n  <span class=\"hljs-keyword\">return</span> b.title &lt; a.title;\n});</code></pre></div>",
+            "lineNumber": 224,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "sort"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/collection",
+            "returns": {
+              "type": "Collection",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "f",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "slice",
+            "description": "",
+            "lineNumber": 237,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "slice"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/collection",
+            "returns": {
+              "type": "Collection",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "begin",
+                "description": "",
+                "type": "Integer"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "end",
+                "description": "",
+                "type": "Integer"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "mergeCollection",
+            "description": "",
+            "lineNumber": 249,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "mergeCollection"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "collection",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "toString",
+            "description": "<div class=\"docs-md\"><p>Simple string representation of the collection and id.</p></div>",
+            "lineNumber": 262,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "toString"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/collection",
+            "returns": {
+              "type": "String",
+              "description": "",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [
+          {
+            "name": "length",
+            "description": "<div class=\"docs-md\"><p>The number of models in the collection.</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedjs\">user.posts.length; <span class=\"hljs-comment\">// 2</span></code></pre></div>",
+            "lineNumber": 72,
+            "access": "public",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/collection",
+            "type": "any",
+            "isStatic": false,
+            "decorators": [],
+            "hasGetter": true,
+            "hasSetter": false
+          }
+        ],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/orm/model",
+    "file": "ember-cli-mirage/orm/model",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/orm/model~Model",
+        "name": "Model",
+        "file": "ember-cli-mirage/orm/model",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 23,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [
+          {
+            "name": "save",
+            "description": "<div class=\"docs-md\"><p>Creates or saves the model.</p></div>",
+            "lineNumber": 47,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "save"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "update",
+            "description": "<div class=\"docs-md\"><p>Update the record in the db.</p></div>",
+            "lineNumber": 76,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "update"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "key",
+                "description": "",
+                "type": "String"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "val",
+                "description": "",
+                "type": "String"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "destroy",
+            "description": "<div class=\"docs-md\"><p>Destroys the db record</p></div>",
+            "lineNumber": 105,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "destroy"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "isNew",
+            "description": "<div class=\"docs-md\"><p>Boolean, true if the model has not been persisted yet to the db.</p>\n<p>Originally this method simply checked if the model had an id; however,\nwe let people create models with pre-specified ids. So, we have to\ncheck whether the record is in the actual databse or not.</p></div>",
+            "lineNumber": 125,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "isNew"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": {
+              "type": "Boolean",
+              "description": "",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "isSaved",
+            "description": "<div class=\"docs-md\"><p>Boolean, opposite of <code>isNew</code></p></div>",
+            "lineNumber": 147,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "isSaved"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": {
+              "type": "Boolean",
+              "description": "",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "reload",
+            "description": "<div class=\"docs-md\"><p>Reload a model’s data from the database.</p></div>",
+            "lineNumber": 157,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "reload"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "associationFor",
+            "description": "<div class=\"docs-md\"><p>Returns the association for the given key</p></div>",
+            "lineNumber": 188,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "associationFor"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "key",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "inverseFor",
+            "description": "<div class=\"docs-md\"><p>Returns this model&#39;s inverse association for the given\nmodel-type-association pair, if it exists.</p>\n<p>Example:</p>\n<pre class=\"docs-md__code\"><code><span class=\"hljs-selector-tag\">post</span>: <span class=\"hljs-selector-tag\">Model</span><span class=\"hljs-selector-class\">.extend</span>({\n  <span class=\"hljs-attribute\">comments</span>: <span class=\"hljs-built_in\">hasMany</span>()\n}),\n<span class=\"hljs-selector-tag\">comments</span>: <span class=\"hljs-selector-tag\">Model</span><span class=\"hljs-selector-class\">.extend</span>({\n  <span class=\"hljs-attribute\">post</span>: <span class=\"hljs-built_in\">belongsTo</span>()\n})</code></pre><p>post.inversefor(commentsPostAssociation) would return the\n<code>post.comments</code> association object.</p>\n<p>Originally we had association.inverse() but that became impossible with\nthe addition of polymorphic models. Consider the following:</p>\n<pre class=\"docs-md__code\"><code><span class=\"hljs-selector-tag\">post</span>: <span class=\"hljs-selector-tag\">Model</span><span class=\"hljs-selector-class\">.extend</span>({\n  <span class=\"hljs-attribute\">comments</span>: <span class=\"hljs-built_in\">hasMany</span>()\n}),\n<span class=\"hljs-selector-tag\">picture</span>: <span class=\"hljs-selector-tag\">Model</span><span class=\"hljs-selector-class\">.extend</span>({\n  <span class=\"hljs-attribute\">comments</span>: <span class=\"hljs-built_in\">hasMany</span>()\n}),\n<span class=\"hljs-selector-tag\">comments</span>: <span class=\"hljs-selector-tag\">Model</span><span class=\"hljs-selector-class\">.extend</span>({\n  <span class=\"hljs-attribute\">commentable</span>: <span class=\"hljs-built_in\">belongsTo</span>({ polymorphic: true })\n})</code></pre><p><code>commentable.inverse()</code> is ambiguous - does it return\n<code>post.comments</code> or <code>picture.comments</code>? Instead we need to ask each model\nif it has an inverse for a given association. post.inverseFor(commentable)\nis no longer ambiguous.</p></div>",
+            "lineNumber": 233,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "hasInverseFor"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": {
+              "type": "ORM/Association",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "modelName",
+                "description": "The model name of the class we're scanning",
+                "type": "String"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "association",
+                "description": "",
+                "type": "ORM/Association"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_explicitInverseFor",
+            "description": "<div class=\"docs-md\"><p>Finds the inverse for an association that explicity defines it&#39;s inverse</p></div>",
+            "lineNumber": 242,
+            "access": "private",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_checkForMultipleExplicitInverses",
+            "description": "<div class=\"docs-md\"><p>Ensures multiple explicit inverses don&#39;t exist on the current model\nfor the given association.</p>\n<p>TODO: move this to compile-time check</p></div>",
+            "lineNumber": 270,
+            "access": "private",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_implicitInverseFor",
+            "description": "<div class=\"docs-md\"><p>Finds if there is an inverse for an association that does not\nexplicitly define one.</p></div>",
+            "lineNumber": 291,
+            "access": "private",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "hasInverseFor",
+            "description": "<div class=\"docs-md\"><p>Returns whether this model has an inverse association for the given\nmodel-type-association pair.</p></div>",
+            "lineNumber": 324,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "hasInverseFor"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": {
+              "type": "Boolean",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "modelName",
+                "description": "",
+                "type": "String"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "association",
+                "description": "",
+                "type": "ORM/Association"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "alreadyAssociatedWith",
+            "description": "<div class=\"docs-md\"><p>Used to check if models match each other. If models are saved, we check model type\nand id, since they could have other non-persisted properties that are different.</p></div>",
+            "lineNumber": 334,
+            "access": "public",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_setupAttrs",
+            "description": "<div class=\"docs-md\"><p>model.attrs represents the persistable attributes, i.e. your db\ntable fields.</p></div>",
+            "lineNumber": 399,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_setupAttrs"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attrs",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_definePlainAttribute",
+            "description": "<div class=\"docs-md\"><p>Define getter/setter for a plain attribute</p></div>",
+            "lineNumber": 431,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_definePlainAttribute"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attr",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_setupRelationships",
+            "description": "<div class=\"docs-md\"><p>Foreign keys get set on attrs directly (to avoid potential recursion), but\nmodel references use the setter.</p>\n<p>We validate foreign keys during instantiation.</p></div>",
+            "lineNumber": 466,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_setupRelationships"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attrs",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_validateAttrs",
+            "description": "",
+            "lineNumber": 498,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_validateAttrs"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_validateForeignKeyExistsInDatabase",
+            "description": "<div class=\"docs-md\"><p>Originally we validated this via association.setId method, but it triggered\nrecursion. That method is designed for updating an existing model&#39;s ID so\nthis method is needed during instantiation.</p></div>",
+            "lineNumber": 555,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_validateForeignKeyExistsInDatabase"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_saveAssociations",
+            "description": "<div class=\"docs-md\"><p>Update associated children when saving a collection</p></div>",
+            "lineNumber": 597,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_saveAssociations"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "toString",
+            "description": "<div class=\"docs-md\"><p>Simple string representation of the model and id.</p></div>",
+            "lineNumber": 845,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "toString"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": {
+              "type": "String",
+              "description": "",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "equals",
+            "description": "<div class=\"docs-md\"><p>Checks the equality of this model and the passed-in model</p></div>",
+            "lineNumber": 858,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "equals"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/model",
+            "returns": {
+              "type": "any",
+              "description": "boolean",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [
+          {
+            "name": "isSaving",
+            "description": null,
+            "lineNumber": 387,
+            "access": "public",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/model",
+            "type": "any",
+            "isStatic": false,
+            "decorators": [],
+            "hasGetter": true,
+            "hasSetter": false
+          }
+        ],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/orm/polymorphic-collection",
+    "file": "ember-cli-mirage/orm/polymorphic-collection",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/orm/polymorphic-collection~PolymorphicCollection",
+        "name": "PolymorphicCollection",
+        "file": "ember-cli-mirage/orm/polymorphic-collection",
+        "exportType": "default",
+        "description": "<div class=\"docs-md\"><p>An array of models, returned from one of the schema query\nmethods (all, find, where). Knows how to update and destroy its models.</p>\n<p>Identical to Collection except it can contain a heterogeneous array of\nmodels. Thus, it has no <code>modelName</code> property. This lets serializers and\nother parts of the system interact with it differently.</p></div>",
+        "lineNumber": 16,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [
+          {
+            "name": "class",
+            "value": "PolymorphicCollection"
+          },
+          {
+            "name": "constructor",
+            "value": ""
+          }
+        ],
+        "fields": [],
+        "methods": [
+          {
+            "name": "update",
+            "description": "<div class=\"docs-md\"><p>Updates each model in the collection (persisting immediately to the db).</p></div>",
+            "lineNumber": 40,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "update"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "key",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "val",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "destroy",
+            "description": "<div class=\"docs-md\"><p>Destroys the db record for all models in the collection.</p></div>",
+            "lineNumber": 52,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "destroy"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "save",
+            "description": "<div class=\"docs-md\"><p>Saves all models in the collection.</p></div>",
+            "lineNumber": 64,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "save"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "reload",
+            "description": "<div class=\"docs-md\"><p>Reloads each model in the collection.</p></div>",
+            "lineNumber": 76,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "reload"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "add",
+            "description": "<div class=\"docs-md\"><p>Adds a model to this collection</p></div>",
+            "lineNumber": 89,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "add"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "remove",
+            "description": "<div class=\"docs-md\"><p>Removes a model to this collection</p></div>",
+            "lineNumber": 102,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "remove"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "includes",
+            "description": "<div class=\"docs-md\"><p>Checks if the collection includes the model</p></div>",
+            "lineNumber": 119,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "includes"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "returns": {
+              "type": "any",
+              "description": "boolean",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "filter",
+            "description": "",
+            "lineNumber": 129,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "filter"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "returns": {
+              "type": "Collection",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "f",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "sort",
+            "description": "",
+            "lineNumber": 141,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "sort"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "returns": {
+              "type": "Collection",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "f",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "slice",
+            "description": "",
+            "lineNumber": 154,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "slice"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "returns": {
+              "type": "Collection",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "begin",
+                "description": "",
+                "type": "Integer"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "end",
+                "description": "",
+                "type": "Integer"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "mergeCollection",
+            "description": "",
+            "lineNumber": 166,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "mergeCollection"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "returns": {
+              "type": "any",
+              "description": "this",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "collection",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "toString",
+            "description": "<div class=\"docs-md\"><p>Simple string representation of the collection and id.</p></div>",
+            "lineNumber": 178,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "toString"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "returns": {
+              "type": "String",
+              "description": "",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [
+          {
+            "name": "length",
+            "description": "<div class=\"docs-md\"><p>Number of models in the collection.</p></div>",
+            "lineNumber": 28,
+            "access": "public",
+            "tags": [],
+            "file": "ember-cli-mirage/orm/polymorphic-collection",
+            "type": "any",
+            "isStatic": false,
+            "decorators": [],
+            "hasGetter": true,
+            "hasSetter": false
+          }
+        ],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/orm/schema",
+    "file": "ember-cli-mirage/orm/schema",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/orm/schema~Schema",
+        "name": "Schema",
+        "file": "ember-cli-mirage/orm/schema",
+        "exportType": "default",
+        "description": "",
+        "lineNumber": 15,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [
+          {
+            "name": "class",
+            "value": "Schema"
+          },
+          {
+            "name": "constructor",
+            "value": ""
+          }
+        ],
+        "fields": [],
+        "methods": [
+          {
+            "name": "registerModels",
+            "description": "",
+            "lineNumber": 32,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "registerModels"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "hash",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "registerModel",
+            "description": "",
+            "lineNumber": 44,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "registerModel"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "ModelClass",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "modelFor",
+            "description": "",
+            "lineNumber": 122,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "modelFor"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "new",
+            "description": "",
+            "lineNumber": 132,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "new"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attrs",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "create",
+            "description": "",
+            "lineNumber": 142,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "create"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attrs",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "all",
+            "description": "",
+            "lineNumber": 151,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "all"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "none",
+            "description": "",
+            "lineNumber": 162,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "none"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "find",
+            "description": "",
+            "lineNumber": 172,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "find"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "ids",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "findBy",
+            "description": "",
+            "lineNumber": 192,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "findBy"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attributeName",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "where",
+            "description": "",
+            "lineNumber": 205,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "where"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "query",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "first",
+            "description": "",
+            "lineNumber": 217,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "first"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_collectionForType",
+            "description": "",
+            "lineNumber": 287,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_collectionForType"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_addForeignKeyToRegistry",
+            "description": "",
+            "lineNumber": 303,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_addForeignKeyToRegistry"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "fk",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_instantiateModel",
+            "description": "",
+            "lineNumber": 318,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_instantiateModel"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "modelName",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attrs",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_modelFor",
+            "description": "",
+            "lineNumber": 330,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_modelFor"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "modelName",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_foreignKeysFor",
+            "description": "",
+            "lineNumber": 339,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_foreignKeysFor"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "modelName",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_hydrate",
+            "description": "<div class=\"docs-md\"><p>Takes a record and returns a model, or an array of records\nand returns a collection.</p></div>",
+            "lineNumber": 352,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_hydrate"
+              }
+            ],
+            "file": "ember-cli-mirage/orm/schema",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "records",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "modelName",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/response",
+    "file": "ember-cli-mirage/response",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/response~Response",
+        "name": "Response",
+        "file": "ember-cli-mirage/response",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 1,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/route-handler",
+    "file": "ember-cli-mirage/route-handler",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/route-handler~RouteHandler",
+        "name": "RouteHandler",
+        "file": "ember-cli-mirage/route-handler",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 45,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/route-handlers/base",
+    "file": "ember-cli-mirage/route-handlers/base",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/route-handlers/base~BaseRouteHandler",
+        "name": "BaseRouteHandler",
+        "file": "ember-cli-mirage/route-handlers/base",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 6,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/route-handlers/function",
+    "file": "ember-cli-mirage/route-handlers/function",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/route-handlers/function~FunctionRouteHandler",
+        "name": "FunctionRouteHandler",
+        "file": "ember-cli-mirage/route-handlers/function",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 3,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": "broccoli_persistent_filterdocs_filter-output_path-8HljdKuF.tmp/ember-cli-mirage/route-handlers/base.js~BaseRouteHandler"
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/route-handlers/object",
+    "file": "ember-cli-mirage/route-handlers/object",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/route-handlers/object~ObjectRouteHandler",
+        "name": "ObjectRouteHandler",
+        "file": "ember-cli-mirage/route-handlers/object",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 1,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/route-handlers/shorthands/base",
+    "file": "ember-cli-mirage/route-handlers/shorthands/base",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/route-handlers/shorthands/base~BaseShorthandRouteHandler",
+        "name": "BaseShorthandRouteHandler",
+        "file": "ember-cli-mirage/route-handlers/shorthands/base",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 4,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": "broccoli_persistent_filterdocs_filter-output_path-8HljdKuF.tmp/ember-cli-mirage/route-handlers/base.js~BaseRouteHandler"
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/route-handlers/shorthands/delete",
+    "file": "ember-cli-mirage/route-handlers/shorthands/delete",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/route-handlers/shorthands/delete~DeleteShorthandRouteHandler",
+        "name": "DeleteShorthandRouteHandler",
+        "file": "ember-cli-mirage/route-handlers/shorthands/delete",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 5,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": "broccoli_persistent_filterdocs_filter-output_path-8HljdKuF.tmp/ember-cli-mirage/route-handlers/shorthands/base.js~BaseShorthandRouteHandler"
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/route-handlers/shorthands/get",
+    "file": "ember-cli-mirage/route-handlers/shorthands/get",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/route-handlers/shorthands/get~GetShorthandRouteHandler",
+        "name": "GetShorthandRouteHandler",
+        "file": "ember-cli-mirage/route-handlers/shorthands/get",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 6,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": "broccoli_persistent_filterdocs_filter-output_path-8HljdKuF.tmp/ember-cli-mirage/route-handlers/shorthands/base.js~BaseShorthandRouteHandler"
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/route-handlers/shorthands/head",
+    "file": "ember-cli-mirage/route-handlers/shorthands/head",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/route-handlers/shorthands/head~HeadShorthandRouteHandler",
+        "name": "HeadShorthandRouteHandler",
+        "file": "ember-cli-mirage/route-handlers/shorthands/head",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 6,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": "broccoli_persistent_filterdocs_filter-output_path-8HljdKuF.tmp/ember-cli-mirage/route-handlers/shorthands/base.js~BaseShorthandRouteHandler"
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/route-handlers/shorthands/post",
+    "file": "ember-cli-mirage/route-handlers/shorthands/post",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/route-handlers/shorthands/post~PostShorthandRouteHandler",
+        "name": "PostShorthandRouteHandler",
+        "file": "ember-cli-mirage/route-handlers/shorthands/post",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 5,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": "broccoli_persistent_filterdocs_filter-output_path-8HljdKuF.tmp/ember-cli-mirage/route-handlers/shorthands/base.js~BaseShorthandRouteHandler"
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/route-handlers/shorthands/put",
+    "file": "ember-cli-mirage/route-handlers/shorthands/put",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/route-handlers/shorthands/put~PutShorthandRouteHandler",
+        "name": "PutShorthandRouteHandler",
+        "file": "ember-cli-mirage/route-handlers/shorthands/put",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 5,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": "broccoli_persistent_filterdocs_filter-output_path-8HljdKuF.tmp/ember-cli-mirage/route-handlers/shorthands/base.js~BaseShorthandRouteHandler"
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/serializer",
+    "file": "ember-cli-mirage/serializer",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/serializer~Serializer",
+        "name": "Serializer",
+        "file": "ember-cli-mirage/serializer",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 15,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [
+          {
+            "name": "serialize",
+            "description": "<div class=\"docs-md\"><p>Override this method to implement your own custom\nserialize function. <code>primaryResource</code> is whatever was returned\nfrom your route handler, and request is the Pretender\nrequest object. Returns a plain JavaScript object or\narray, which Mirage uses as the response data to your\nEmber app’s XHR request. You can also override this method,\ncall super, and manipulate the data before Mirage responds\nwith it. This is a great place to add metadata, or for\none-off operations that don’t fit neatly into any of\nMirage’s other abstractions.</p></div>",
+            "lineNumber": 39,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "serialize"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "response",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "request",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "keyForModel",
+            "description": "<div class=\"docs-md\"><p>Used to define a custom key when serializing a\nprimary model of modelName <code>modelName</code>.</p></div>",
+            "lineNumber": 216,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "keyForModel"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "modelName",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "keyForCollection",
+            "description": "<div class=\"docs-md\"><p>Used to customize the key when serializing a primary\ncollection. By default this pluralizes the return\nvalue of <code>keyForModel</code>.</p></div>",
+            "lineNumber": 228,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "keyForCollection"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "modelName",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_attrsForModel",
+            "description": "",
+            "lineNumber": 271,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_attrsForModel"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "model",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_maybeAddAssociationIds",
+            "description": "",
+            "lineNumber": 295,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_maybeAddAssociationIds"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "model",
+                "description": "",
+                "type": "any"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attrs",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "keyForAttribute",
+            "description": "<div class=\"docs-md\"><p>Used to customize how a model’s attribute is\nformatted in your JSON payload.</p></div>",
+            "lineNumber": 347,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "keyForAttribute"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attr",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "keyForRelationship",
+            "description": "<div class=\"docs-md\"><p>Use this hook to format the key for collections\nrelated to this model.</p>\n<p>For example, if you&#39;re serializing an author that\nside loads many <code>blogPosts</code>, you would get <code>blogPost</code>\nas an argument, and whatever you return would\nend up as the collection key in your JSON:</p>\n<p>keyForRelationship(type) {\n  return dasherize(type);\n}</p>\n<p>{\n  author: {...},\n  &#39;blog-posts&#39;: [...]\n}</p></div>",
+            "lineNumber": 372,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "keyForRelationship"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "modelName",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "keyForEmbeddedRelationship",
+            "description": "",
+            "lineNumber": 381,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "keyForEmbeddedRelationship"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attributeName",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "keyForRelationshipIds",
+            "description": "<div class=\"docs-md\"><p>Use this hook to format the key for relationship ids\nin this model&#39;s JSON representation.</p>\n<p>For example, if you&#39;re serializing an author that\nside loads many <code>blogPosts</code>, you would get <code>blogPost</code>\nas an argument, and whatever you return would\nend up as part of the <code>author</code> JSON:</p>\n<p>keyForRelationshipIds(type) {\n  return dasherize(type) + &#39;-ids&#39;;\n}</p>\n<p>{\n  author: {\n    ...,\n    &#39;blog-post-ids&#39;: [1, 2, 3]\n  },\n  &#39;blog-posts&#39;: [...]\n}</p></div>",
+            "lineNumber": 409,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "keyForRelationshipIds"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "modelName",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "normalize",
+            "description": "<div class=\"docs-md\"><p>This method is used by the POST and PUT shorthands. These shorthands\nexpect a valid JSON:API document as part of the request, so that\nthey know how to create or update the appropriate resouce. The normalize\nmethod allows you to transform your request body into a JSON:API\ndocument, which lets you take advantage of the shorthands when you\notherwise may not be able to.</p>\n<p>Note that this method is a noop if you’re using JSON:API already,\nsince request payloads sent along with POST and PUT requests will\nalready be in the correct format.</p></div>",
+            "lineNumber": 440,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "normalize"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "json",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "isModel",
+            "description": "",
+            "lineNumber": 450,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "isModel"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": {
+              "type": "Boolean",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "object",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "isCollection",
+            "description": "",
+            "lineNumber": 460,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "isCollection"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": {
+              "type": "Boolean",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "object",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "isModelOrCollection",
+            "description": "",
+            "lineNumber": 470,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "isModelOrCollection"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": {
+              "type": "Boolean",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "object",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "serializerFor",
+            "description": "",
+            "lineNumber": 479,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "serializerFor"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_formatAttributeKeys",
+            "description": "",
+            "lineNumber": 496,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "_formatAttributeKeys"
+              }
+            ],
+            "file": "ember-cli-mirage/serializer",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "attrs",
+                "description": "",
+                "type": "any"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [
+          {
+            "name": "schema",
+            "description": null,
+            "lineNumber": 487,
+            "access": "public",
+            "tags": [],
+            "file": "ember-cli-mirage/serializer",
+            "type": "any",
+            "isStatic": false,
+            "decorators": [],
+            "hasGetter": true,
+            "hasSetter": false
+          }
+        ],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/serializer-registry",
+    "file": "ember-cli-mirage/serializer-registry",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/serializer-registry~SerializerRegistry",
+        "name": "SerializerRegistry",
+        "file": "ember-cli-mirage/serializer-registry",
+        "exportType": "default",
+        "description": null,
+        "lineNumber": 11,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/serializers/json-api-serializer",
+    "file": "ember-cli-mirage/serializers/json-api-serializer",
+    "functions": [],
+    "variables": [
+      {
+        "name": "JSONAPISerializer",
+        "description": null,
+        "lineNumber": 7,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/serializers/json-api-serializer",
+        "type": "any",
+        "exportType": "default"
+      }
+    ],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/server",
+    "file": "ember-cli-mirage/server",
+    "functions": [],
+    "variables": [
+      {
+        "name": "defaultPassthroughs",
+        "description": null,
+        "lineNumber": 84,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/server",
+        "type": "any",
+        "exportType": "named"
+      }
+    ],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/server~Server",
+        "name": "Server",
+        "file": "ember-cli-mirage/server",
+        "exportType": "default",
+        "description": "<div class=\"docs-md\"><p>The Mirage server.</p>\n<p>Note that <code>this</code> within your config function in <code>mirage/config.js</code> refers to the server instance, which is the same instance that <code>server</code> refers to in your tests.</p></div>",
+        "lineNumber": 148,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [
+          {
+            "name": "class",
+            "value": "Server"
+          }
+        ],
+        "fields": [],
+        "methods": [
+          {
+            "name": "config",
+            "description": "<div class=\"docs-md\"><p>Set the base namespace used for all routes defined with <code>get</code>, <code>post</code>, <code>put</code> or <code>del</code>.</p>\n<p>For example,</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedjs\"><span class=\"hljs-comment\">// app/mirage/config.js</span>\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\"></span>) </span>{\n\n  <span class=\"hljs-keyword\">this</span>.namespace = <span class=\"hljs-string\">'/api'</span>;\n\n  <span class=\"hljs-comment\">// this route will handle the URL '/api/contacts'</span>\n  <span class=\"hljs-keyword\">this</span>.get(<span class=\"hljs-string\">'/contacts'</span>, <span class=\"hljs-string\">'contacts'</span>);\n};</code></pre>\n<p>Note that only routes defined after <code>this.namespace</code> are affected. This is useful if you have a few one-off routes that you don&#39;t want under your namespace:</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedjs\"><span class=\"hljs-comment\">// app/mirage/config.js</span>\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\"></span>) </span>{\n\n  <span class=\"hljs-comment\">// this route handles /auth</span>\n  <span class=\"hljs-keyword\">this</span>.get(<span class=\"hljs-string\">'/auth'</span>, <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\"></span>) </span>{ ...});\n\n  <span class=\"hljs-keyword\">this</span>.namespace = <span class=\"hljs-string\">'/api'</span>;\n  <span class=\"hljs-comment\">// this route will handle the URL '/api/contacts'</span>\n  <span class=\"hljs-keyword\">this</span>.get(<span class=\"hljs-string\">'/contacts'</span>, <span class=\"hljs-string\">'contacts'</span>);\n};</code></pre>\n<p>If your Ember app is loaded from the filesystem vs. a server (e.g. via Cordova or Electron vs. <code>ember s</code> or <code>https://yourhost.com/</code>), you will need to explicitly define a namespace. Likely values are <code>/</code> (if requests are made with relative paths) or <code>https://yourhost.com/api/...</code> (if requests are made to a defined server).</p>\n<p>For a sample implementation leveraging a configured API host &amp; namespace, check out <a href=\"https://github.com/samselikoff/ember-cli-mirage/issues/497#issuecomment-183458721\"  class=\"docs-md__a\">this issue comment</a></p></div>",
+            "lineNumber": 199,
+            "access": "public",
+            "tags": [],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "isTest",
+            "description": "<div class=\"docs-md\"><p>Determines if the current environment is the testing environment.</p></div>",
+            "lineNumber": 276,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "isTest"
+              }
+            ],
+            "file": "ember-cli-mirage/server",
+            "returns": {
+              "type": "Boolean",
+              "description": "True if the environment is 'test', false otherwise.",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "shouldLog",
+            "description": "<div class=\"docs-md\"><p>Determines if the server should log.</p></div>",
+            "lineNumber": 288,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "shouldLog"
+              }
+            ],
+            "file": "ember-cli-mirage/server",
+            "returns": {
+              "type": "any",
+              "description": "The value of this.logging if defined, or false if in the testing environment,\ntrue otherwise.",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "shouldTrackRequests",
+            "description": "<div class=\"docs-md\"><p>Determines if the server should track requests.</p></div>",
+            "lineNumber": 299,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "shouldTrackRequests"
+              }
+            ],
+            "file": "ember-cli-mirage/server",
+            "returns": {
+              "type": "any",
+              "description": "The value of this.trackRequests if defined, false otherwise.",
+              "properties": []
+            },
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "loadConfig",
+            "description": "<div class=\"docs-md\"><p>Load the configuration given, setting timing to 0 if in the test\nenvironment.</p></div>",
+            "lineNumber": 311,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "loadConfig"
+              }
+            ],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "config",
+                "description": "The configuration to load.",
+                "type": "Object"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "passthrough",
+            "description": "<div class=\"docs-md\"><p>Whitelist requests to the specified paths and allow them to pass through\nyour Mirage server to the actual network layer.</p></div>",
+            "lineNumber": 325,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "passthrough"
+              }
+            ],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": true,
+                "name": "...paths",
+                "description": "Any numer of paths to whitelist",
+                "type": "String"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "options",
+                "description": "Unused",
+                "type": "Array"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "loadFixtures",
+            "description": "<div class=\"docs-md\"><p>Load the all or only the specified fixtures into Mirage&#39;s database.</p></div>",
+            "lineNumber": 351,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "loadFixtures"
+              }
+            ],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": true,
+                "name": "...args",
+                "description": "The name of the fixture to load.",
+                "type": "String"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "loadFactories",
+            "description": "<div class=\"docs-md\"><p>Load factories into Mirage&#39;s database.</p></div>",
+            "lineNumber": 372,
+            "access": "public",
+            "tags": [
+              {
+                "name": "method",
+                "value": "loadFactories"
+              }
+            ],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "factoryMap",
+                "description": "",
+                "type": "Object"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "factoryFor",
+            "description": "<div class=\"docs-md\"><p>Get the factory for a given type.</p></div>",
+            "lineNumber": 391,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "factoryFor"
+              }
+            ],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "type",
+                "description": "",
+                "type": "String"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_defineRouteHandlerHelpers",
+            "description": "",
+            "lineNumber": 546,
+            "access": "private",
+            "tags": [],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_hasModulesOfType",
+            "description": "",
+            "lineNumber": 596,
+            "access": "private",
+            "tags": [],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_getFullPath",
+            "description": "<div class=\"docs-md\"><p>Builds a full path for Pretender to monitor based on the <code>path</code> and\nconfigured options (<code>urlPrefix</code> and <code>namespace</code>).</p></div>",
+            "lineNumber": 607,
+            "access": "private",
+            "tags": [],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_configureDefaultPassthroughs",
+            "description": "",
+            "lineNumber": 692,
+            "access": "private",
+            "tags": [],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_validateCreateType",
+            "description": "",
+            "lineNumber": 702,
+            "access": "private",
+            "tags": [],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_validateTraits",
+            "description": "",
+            "lineNumber": 714,
+            "access": "private",
+            "tags": [],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_mergeExtensions",
+            "description": "",
+            "lineNumber": 726,
+            "access": "private",
+            "tags": [],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "_mapAssociationsFromAttributes",
+            "description": "",
+            "lineNumber": 740,
+            "access": "private",
+            "tags": [],
+            "file": "ember-cli-mirage/server",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/start-mirage",
+    "file": "ember-cli-mirage/start-mirage",
+    "functions": [
+      {
+        "name": "startMirage",
+        "description": null,
+        "lineNumber": 18,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/start-mirage",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "default"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/test-support/setup-mirage",
+    "file": "ember-cli-mirage/test-support/setup-mirage",
+    "functions": [
+      {
+        "name": "setupMirage",
+        "description": null,
+        "lineNumber": 12,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/test-support/setup-mirage",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "default"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/trait",
+    "file": "ember-cli-mirage/trait",
+    "functions": [
+      {
+        "name": "trait",
+        "description": null,
+        "lineNumber": 1,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/trait",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "default"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/utils/ember-data",
+    "file": "ember-cli-mirage/utils/ember-data",
+    "functions": [
+      {
+        "name": "isDsModel",
+        "description": null,
+        "lineNumber": 12,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/utils/ember-data",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "named"
+      }
+    ],
+    "variables": [
+      {
+        "name": "hasEmberData",
+        "description": null,
+        "lineNumber": 10,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/utils/ember-data",
+        "type": "any",
+        "exportType": "named"
+      }
+    ],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/utils/extend",
+    "file": "ember-cli-mirage/utils/extend",
+    "functions": [
+      {
+        "name": "extend",
+        "description": null,
+        "lineNumber": 4,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/utils/extend",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "default"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/utils/is-association",
+    "file": "ember-cli-mirage/utils/is-association",
+    "functions": [
+      {
+        "name": "isassociation",
+        "description": null,
+        "lineNumber": 3,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/utils/is-association",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "default"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/utils/normalize-name",
+    "file": "ember-cli-mirage/utils/normalize-name",
+    "functions": [
+      {
+        "name": "toCollectionName",
+        "description": null,
+        "lineNumber": 8,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/utils/normalize-name",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "named"
+      },
+      {
+        "name": "toInternalCollectionName",
+        "description": null,
+        "lineNumber": 13,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/utils/normalize-name",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "named"
+      },
+      {
+        "name": "toModelName",
+        "description": null,
+        "lineNumber": 17,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/utils/normalize-name",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "named"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/utils/read-modules",
+    "file": "ember-cli-mirage/utils/read-modules",
+    "functions": [
+      {
+        "name": "readmodules",
+        "description": null,
+        "lineNumber": 15,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/utils/read-modules",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "default"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/utils/reference-sort",
+    "file": "ember-cli-mirage/utils/reference-sort",
+    "functions": [
+      {
+        "name": "referencesort",
+        "description": null,
+        "lineNumber": 5,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/utils/reference-sort",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "default"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "ember-cli-mirage/utils/uuid",
+    "file": "ember-cli-mirage/utils/uuid",
+    "functions": [
+      {
+        "name": "uuid",
+        "description": null,
+        "lineNumber": 4,
+        "access": "public",
+        "tags": [],
+        "file": "ember-cli-mirage/utils/uuid",
+        "returns": null,
+        "params": [],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "default"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  }
+]
