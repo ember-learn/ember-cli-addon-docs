@@ -80,8 +80,10 @@ export default Component.extend(EKMixin, {
         // Filter out modules that are not in the navigationIndex
         .filter(({ document }) => {
           if (document.type === 'module') {
-            let navigableModules = this.get('project.navigationIndex.modules').map(x => x.name);
-            return navigableModules.includes(document.title);
+            let navigableModules = this.get('project.navigationIndex').find(section => section.type === 'modules');
+            let navigableModuleIds = navigableModules ? navigableModules.items.map(item => item.id) : [];
+
+            return navigableModuleIds.includes(document.title);
           } else {
             return true;
           }

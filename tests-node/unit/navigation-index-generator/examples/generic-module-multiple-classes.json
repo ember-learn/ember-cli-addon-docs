@@ -1,0 +1,101 @@
+[
+  {
+    "id": "ember-cli-mirage/identity-manager",
+    "file": "ember-cli-mirage/identity-manager",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "ember-cli-mirage/identity-manager~IdentityManager",
+        "name": "IdentityManager",
+        "file": "ember-cli-mirage/identity-manager",
+        "exportType": "default",
+        "description": "<div class=\"docs-md\"><p>IdentityManager for a DbCollection</p></div>",
+        "lineNumber": 12,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [
+          {
+            "name": "class",
+            "value": "IdentityManager"
+          },
+          {
+            "name": "constructor",
+            "value": ""
+          }
+        ],
+        "fields": [],
+        "methods": [
+          {
+            "name": "get",
+            "description": "",
+            "lineNumber": 23,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "get"
+              }
+            ],
+            "file": "ember-cli-mirage/identity-manager",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [],
+        "parentClassId": null
+      },
+      {
+        "id": "ember-cli-mirage/identity-manager~IdentityManager2",
+        "name": "IdentityManager2",
+        "file": "ember-cli-mirage/identity-manager2",
+        "exportType": "default",
+        "description": "<div class=\"docs-md\"><p>IdentityManager2 for a DbCollection</p></div>",
+        "lineNumber": 12,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [
+          {
+            "name": "class",
+            "value": "IdentityManager2"
+          },
+          {
+            "name": "constructor",
+            "value": ""
+          }
+        ],
+        "fields": [],
+        "methods": [
+          {
+            "name": "get",
+            "description": "",
+            "lineNumber": 23,
+            "access": "private",
+            "tags": [
+              {
+                "name": "method",
+                "value": "get"
+              }
+            ],
+            "file": "ember-cli-mirage/identity-manager2",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [],
+        "parentClassId": null
+      }
+    ],
+    "components": []
+  }
+]

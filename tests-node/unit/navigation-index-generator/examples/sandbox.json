@@ -1,0 +1,639 @@
+[
+  {
+    "id": "sandbox/components/esdoc-component",
+    "file": "sandbox/components/esdoc-component",
+    "functions": [],
+    "variables": [],
+    "classes": [],
+    "components": [
+      {
+        "id": "sandbox/components/esdoc-component~ESDocComponent",
+        "name": "ESDocComponent",
+        "file": "sandbox/components/esdoc-component",
+        "exportType": "default",
+        "description": "<div class=\"docs-md\"><p>Pretty cool component, right?</p>\n<p>To use it, you could enter the following in your template:</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedhandlebars\"><span class=\"xml\"></span><span class=\"hljs-template-variable\">{{esdoc-component count=2}}</span><span class=\"xml\">\n\n</span><span class=\"hljs-template-tag\">{{#<span class=\"hljs-name\">esdoc-component</span> as |api|}}</span><span class=\"xml\">\n  </span><span class=\"hljs-template-variable\">{{api.count}}</span><span class=\"xml\">\n</span><span class=\"hljs-template-tag\">{{/<span class=\"hljs-name\">esdoc-component</span>}}</span><span class=\"xml\"></span></code></pre></div>",
+        "lineNumber": 26,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [
+          {
+            "name": "isESDocComponent",
+            "description": "<div class=\"docs-md\"><p>An awesome static value</p></div>",
+            "lineNumber": 44,
+            "access": "public",
+            "tags": [],
+            "file": "sandbox/components/esdoc-component",
+            "type": "any",
+            "isStatic": true,
+            "decorators": []
+          },
+          {
+            "name": "_privateField",
+            "description": "<div class=\"docs-md\"><p>PRIVATE DO NOT TOUCH</p></div>",
+            "lineNumber": 49,
+            "access": "private",
+            "tags": [],
+            "file": "sandbox/components/esdoc-component",
+            "type": "any",
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "methods": [
+          {
+            "name": "impressUser",
+            "description": "<div class=\"docs-md\"><p>The best method ever made, anywhere.</p></div>",
+            "lineNumber": 57,
+            "access": "public",
+            "tags": [],
+            "file": "sandbox/components/esdoc-component",
+            "returns": {
+              "type": "String",
+              "description": "the welcome message",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "features",
+                "description": "the features of the user",
+                "type": "Object"
+              },
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": false,
+                "name": "name",
+                "description": "the name of the user",
+                "type": "String"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "increment",
+            "description": "<div class=\"docs-md\"><p>Increments the count property</p></div>",
+            "lineNumber": 65,
+            "access": "public",
+            "tags": [],
+            "file": "sandbox/components/esdoc-component",
+            "returns": null,
+            "params": [],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": [
+              {
+                "name": "action",
+                "arguments": null
+              }
+            ]
+          }
+        ],
+        "accessors": [],
+        "parentClassId": "@ember/component~Component",
+        "arguments": [
+          {
+            "name": "count",
+            "description": "<div class=\"docs-md\"><p>The count</p></div>",
+            "lineNumber": 32,
+            "access": "public",
+            "tags": [],
+            "file": "sandbox/components/esdoc-component",
+            "type": "number",
+            "isStatic": false,
+            "decorators": [
+              {
+                "name": "argument",
+                "arguments": null
+              }
+            ]
+          },
+          {
+            "name": "onEvent",
+            "description": "<div class=\"docs-md\"><p>An action that sends on events</p></div>",
+            "lineNumber": 39,
+            "access": "public",
+            "tags": [],
+            "file": "sandbox/components/esdoc-component",
+            "type": "Action",
+            "isStatic": false,
+            "decorators": [
+              {
+                "name": "argument",
+                "arguments": null
+              }
+            ]
+          }
+        ],
+        "yields": [
+          {
+            "nullable": null,
+            "spread": false,
+            "optional": false,
+            "name": "api",
+            "description": "",
+            "type": "object"
+          },
+          {
+            "nullable": null,
+            "spread": false,
+            "optional": false,
+            "name": "api.count",
+            "description": "",
+            "type": "number"
+          },
+          {
+            "nullable": null,
+            "spread": false,
+            "optional": false,
+            "name": "api.increment",
+            "description": "",
+            "type": "Action"
+          }
+        ],
+        "parentClass": null
+      }
+    ]
+  },
+  {
+    "id": "sandbox/components/simple-list/component",
+    "file": "sandbox/components/simple-list/component",
+    "functions": [],
+    "variables": [],
+    "classes": [],
+    "components": [
+      {
+        "id": "sandbox/components/simple-list/component~SimpleList",
+        "name": "SimpleList",
+        "file": "sandbox/components/simple-list/component",
+        "exportType": "default",
+        "description": "<div class=\"docs-md\"><p>Pretty cool component, right?</p>\n<p>To use it, you could enter the following in your template:</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedhandlebars\"><span class=\"xml\"></span><span class=\"hljs-template-tag\">{{#<span class=\"hljs-name\">simple-list</span> items=(arr 1 2 3) as |item|}}</span><span class=\"xml\">\n  </span><span class=\"hljs-template-tag\">{{#<span class=\"hljs-name\">item</span> as |value|}}</span><span class=\"xml\">\n    </span><span class=\"hljs-template-variable\">{{value}}</span><span class=\"xml\">\n  </span><span class=\"hljs-template-tag\">{{/<span class=\"hljs-name\">item</span>}}</span><span class=\"xml\">\n</span><span class=\"hljs-template-tag\">{{/<span class=\"hljs-name\">simple-list</span>}}</span><span class=\"xml\"></span></code></pre></div>",
+        "lineNumber": 22,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": "@ember/component~Component",
+        "arguments": [
+          {
+            "name": "items",
+            "description": "<div class=\"docs-md\"><p>The items for the list</p></div>",
+            "lineNumber": 28,
+            "access": "public",
+            "tags": [],
+            "file": "sandbox/components/simple-list/component",
+            "type": "object",
+            "isStatic": false,
+            "decorators": [
+              {
+                "name": "argument",
+                "arguments": null
+              }
+            ]
+          }
+        ],
+        "yields": [
+          {
+            "nullable": null,
+            "spread": false,
+            "optional": false,
+            "name": "item",
+            "description": "",
+            "type": "SimpleListItem"
+          }
+        ],
+        "parentClass": null
+      }
+    ]
+  },
+  {
+    "id": "sandbox/components/simple-list/item/component",
+    "file": "sandbox/components/simple-list/item/component",
+    "functions": [],
+    "variables": [],
+    "classes": [],
+    "components": [
+      {
+        "id": "sandbox/components/simple-list/item/component~SimpleListItem",
+        "name": "SimpleListItem",
+        "file": "sandbox/components/simple-list/item/component",
+        "exportType": "default",
+        "description": "<div class=\"docs-md\"><p>Pretty cool component, right?</p>\n<p>To use it, you could enter the following in your template:</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedhandlebars\"><span class=\"xml\">  </span><span class=\"hljs-template-variable\">{{simple-list/item value=1}}</span><span class=\"xml\"></span></code></pre></div>",
+        "lineNumber": 18,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [],
+        "accessors": [],
+        "parentClassId": "@ember/component~Component",
+        "arguments": [
+          {
+            "name": "value",
+            "description": "<div class=\"docs-md\"><p>The count</p></div>",
+            "lineNumber": 24,
+            "access": "public",
+            "tags": [],
+            "file": "sandbox/components/simple-list/item/component",
+            "type": "object",
+            "isStatic": false,
+            "decorators": [
+              {
+                "name": "argument",
+                "arguments": null
+              }
+            ]
+          }
+        ],
+        "yields": [
+          {
+            "nullable": null,
+            "spread": false,
+            "optional": false,
+            "name": "value",
+            "description": "",
+            "type": "object"
+          }
+        ],
+        "parentClass": null
+      }
+    ]
+  },
+  {
+    "id": "sandbox/helpers/esdoc-class-helper",
+    "file": "sandbox/helpers/esdoc-class-helper",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "sandbox/helpers/esdoc-class-helper~ESDocClassHelper",
+        "name": "ESDocClassHelper",
+        "file": "sandbox/helpers/esdoc-class-helper",
+        "exportType": "default",
+        "description": "<div class=\"docs-md\"><p>A class based ESDoc helper</p></div>",
+        "lineNumber": 8,
+        "access": "public",
+        "isInterface": false,
+        "decorators": [],
+        "tags": [],
+        "fields": [],
+        "methods": [
+          {
+            "name": "compute",
+            "description": "<div class=\"docs-md\"><p>returns the absolute value of a number</p></div>",
+            "lineNumber": 15,
+            "access": "public",
+            "tags": [],
+            "file": "sandbox/helpers/esdoc-class-helper",
+            "returns": {
+              "type": "number",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "nullable": null,
+                "spread": false,
+                "optional": true,
+                "name": "number",
+                "description": "thepassed number",
+                "type": "number"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [],
+        "parentClassId": "@ember/component/helper~Helper",
+        "parentClass": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "sandbox/helpers/esdoc-helper",
+    "file": "sandbox/helpers/esdoc-helper",
+    "functions": [
+      {
+        "name": "esdocHelper",
+        "description": "<div class=\"docs-md\"><p>returns the absolute value of a number</p></div>",
+        "lineNumber": 11,
+        "access": "public",
+        "tags": [],
+        "file": "sandbox/helpers/esdoc-helper",
+        "returns": {
+          "type": "number",
+          "description": "",
+          "properties": []
+        },
+        "params": [
+          {
+            "nullable": null,
+            "spread": false,
+            "optional": true,
+            "name": "number",
+            "description": "the passed number",
+            "type": "number"
+          }
+        ],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "named"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "sandbox/utils/esdoc-module",
+    "file": "sandbox/utils/esdoc-module",
+    "functions": [
+      {
+        "name": "greet",
+        "description": "<div class=\"docs-md\"><p>Greet whoever you like!</p></div>",
+        "lineNumber": 16,
+        "access": "public",
+        "tags": [],
+        "file": "sandbox/utils/esdoc-module",
+        "returns": {
+          "type": "string",
+          "description": "A hand-crafted artisanal greeting just for your subject",
+          "properties": []
+        },
+        "params": [
+          {
+            "nullable": null,
+            "spread": false,
+            "optional": false,
+            "name": "subject",
+            "description": "The target of your greeting",
+            "type": "string"
+          }
+        ],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "named"
+      }
+    ],
+    "variables": [
+      {
+        "name": "GREETING",
+        "description": "<div class=\"docs-md\"><p>A first-class greeting for the people.</p></div>",
+        "lineNumber": 8,
+        "access": "public",
+        "tags": [],
+        "file": "sandbox/utils/esdoc-module",
+        "type": "string",
+        "exportType": "named"
+      }
+    ],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "sandbox/components/yuidoc-component",
+    "file": "sandbox/components/yuidoc-component",
+    "functions": [],
+    "variables": [],
+    "classes": [],
+    "components": [
+      {
+        "id": "sandbox/components/yuidoc-component~YUIDocComponent",
+        "name": "YUIDocComponent",
+        "file": "sandbox/components/yuidoc-component",
+        "description": "<div class=\"docs-md\"><p>Pretty cool component, right?</p>\n<p>To use it, you could enter the following in your template:</p>\n<pre class=\"docs-md__code\"><code class=\"undefinedhandlebars\"><span class=\"xml\"></span><span class=\"hljs-template-variable\">{{yuidoc-component foo='bar'}}</span><span class=\"xml\"></span></code></pre></div>",
+        "lineNumber": 5,
+        "access": "public",
+        "tags": [],
+        "isInterface": false,
+        "exportType": "default",
+        "decorators": [],
+        "fields": [
+          {
+            "name": "_privateField",
+            "file": "sandbox/components/yuidoc-component",
+            "description": "<div class=\"docs-md\"><p>PRIVATE DO NOT TOUCH</p></div>",
+            "lineNumber": 32,
+            "access": "private",
+            "tags": [],
+            "type": "number",
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "isYUIDocComponent",
+            "file": "sandbox/components/yuidoc-component",
+            "description": "<div class=\"docs-md\"><p>An awesome static value</p></div>",
+            "lineNumber": 56,
+            "access": "public",
+            "tags": [],
+            "type": "boolean",
+            "isStatic": true,
+            "decorators": []
+          }
+        ],
+        "methods": [
+          {
+            "name": "impressUser",
+            "file": "sandbox/components/yuidoc-component",
+            "description": "<div class=\"docs-md\"><p>The best method ever made, anywhere.</p></div>",
+            "lineNumber": 41,
+            "access": "public",
+            "tags": [],
+            "returns": {
+              "type": "string",
+              "description": "the welcome message",
+              "properties": []
+            },
+            "params": [
+              {
+                "name": "features",
+                "type": "object",
+                "description": "the features of the user"
+              },
+              {
+                "name": "name",
+                "type": "string",
+                "description": "the name of the user"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [],
+        "parentClassId": null,
+        "arguments": [
+          {
+            "name": "count",
+            "file": "sandbox/components/yuidoc-component",
+            "description": "<div class=\"docs-md\"><p>The count</p></div>",
+            "lineNumber": 18,
+            "access": "public",
+            "tags": [],
+            "type": "number",
+            "isStatic": false,
+            "decorators": []
+          },
+          {
+            "name": "onEvent",
+            "file": "sandbox/components/yuidoc-component",
+            "description": "<div class=\"docs-md\"><p>An action that sends on events</p></div>",
+            "lineNumber": 25,
+            "access": "public",
+            "tags": [],
+            "type": "Action",
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "yields": [],
+        "parentClass": null
+      }
+    ]
+  },
+  {
+    "id": "sandbox/helpers/yuidoc-class-helper",
+    "file": "sandbox/helpers/yuidoc-class-helper",
+    "functions": [],
+    "variables": [],
+    "classes": [
+      {
+        "id": "sandbox/helpers/yuidoc-class-helper~YUIDocClassHelper",
+        "name": "YUIDocClassHelper",
+        "file": "sandbox/helpers/yuidoc-class-helper",
+        "description": "<div class=\"docs-md\"><p>A class based YUIDoc helper</p></div>",
+        "lineNumber": 5,
+        "access": "public",
+        "tags": [],
+        "isInterface": false,
+        "exportType": "default",
+        "decorators": [],
+        "fields": [],
+        "methods": [
+          {
+            "name": "compute",
+            "file": "sandbox/helpers/yuidoc-class-helper",
+            "description": "<div class=\"docs-md\"><p>returns the absolute value of a number</p></div>",
+            "lineNumber": 11,
+            "access": "public",
+            "tags": [],
+            "returns": {
+              "type": "number",
+              "description": "",
+              "properties": []
+            },
+            "params": [
+              {
+                "name": "number",
+                "type": "number",
+                "description": "the passed number"
+              }
+            ],
+            "isAsync": false,
+            "isGenerator": false,
+            "isStatic": false,
+            "decorators": []
+          }
+        ],
+        "accessors": [],
+        "parentClassId": null,
+        "parentClass": null
+      }
+    ],
+    "components": []
+  },
+  {
+    "id": "sandbox/helpers/yuidoc-helper",
+    "file": "sandbox/helpers/yuidoc-helper",
+    "functions": [
+      {
+        "name": "yuidocHelper",
+        "file": "sandbox/helpers/yuidoc-helper",
+        "description": "<div class=\"docs-md\"><p>returns the absolute value of a number</p></div>",
+        "lineNumber": 5,
+        "access": "public",
+        "tags": [],
+        "returns": {
+          "type": "number",
+          "description": "",
+          "properties": []
+        },
+        "params": [
+          {
+            "name": "number",
+            "type": "number",
+            "description": "the passed number"
+          }
+        ],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "named"
+      }
+    ],
+    "variables": [],
+    "classes": [],
+    "components": []
+  },
+  {
+    "id": "sandbox/utils/yuidoc-module",
+    "file": "sandbox/utils/yuidoc-module",
+    "functions": [
+      {
+        "name": "greet",
+        "file": "sandbox/utils/yuidoc-module",
+        "description": "<div class=\"docs-md\"><p>Greet whoever you like!</p></div>",
+        "lineNumber": 11,
+        "access": "public",
+        "tags": [],
+        "returns": {
+          "type": "string",
+          "description": "A hand-crafted artisanal greeting just for your subject",
+          "properties": []
+        },
+        "params": [
+          {
+            "name": "subject",
+            "type": "string",
+            "description": "The target of your greeting"
+          }
+        ],
+        "isAsync": false,
+        "isGenerator": false,
+        "exportType": "named"
+      }
+    ],
+    "variables": [
+      {
+        "name": "GREETING",
+        "file": "sandbox/utils/yuidoc-module",
+        "description": "<div class=\"docs-md\"><p>A first-class greeting for the people.</p></div>",
+        "lineNumber": 3,
+        "access": "public",
+        "tags": [],
+        "type": "string",
+        "exportType": "named"
+      }
+    ],
+    "classes": [],
+    "components": []
+  }
+]

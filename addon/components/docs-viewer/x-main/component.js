@@ -25,7 +25,7 @@ export default Component.extend({
   tagName: 'main',
   classNames: [
     'docs-px-4', 'md:docs-px-8', 'lg:docs-px-20', 'docs-mx-auto', 'md:docs-mx-0', 'docs-mt-6',
-    'md:docs-mt-12', 'md:docs-min-w-0'
+    'md:docs-mt-12', 'md:docs-min-w-0', 'md:docs-flex-1'
   ],
 
   didInsertElement() {
