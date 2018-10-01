@@ -1,3 +1,3 @@
 import BaseAddonPage from './base';
 
-export default BaseAddonPage.create();
+export default new BaseAddonPage();

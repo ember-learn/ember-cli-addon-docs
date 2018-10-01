@@ -29,7 +29,7 @@ const ModulePage = BaseAddonPage.extend({
   // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
   editLink: {
     scope: '[data-test-edit-page-link]',
-    href: attribute('href', 'a'),
+    href: attribute('href', 'a')
   },
 
   // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
@@ -42,4 +42,4 @@ const ModulePage = BaseAddonPage.extend({
   }
 });
 
-export default ModulePage.create();
+export default new ModulePage();
