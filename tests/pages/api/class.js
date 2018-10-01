@@ -26,4 +26,4 @@ const ClassPage = BaseAddonPage.extend({
   })
 });
 
-export default ClassPage.create();
+export default new ClassPage();
