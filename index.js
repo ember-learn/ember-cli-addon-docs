@@ -185,11 +185,17 @@ module.exports = {
     ].filter(Boolean));
   },
 
-  treeForPublic() {
-    let parentAddon = this.parent.findAddonByName(this.parent.name());
-    let defaultTree = this._super.treeForPublic.apply(this, arguments);
+  getBroccoliBridge() {
+    if (!this._broccoliBridge) {
+      const Bridge = require('broccoli-bridge');
+      this._broccoliBridge = new Bridge();
+    }
+    return this._broccoliBridge;
+  },
 
-    if (!parentAddon) { return defaultTree; }
+  postprocessTree(type, tree) {
+    let parentAddon = this.parent.findAddonByName(this.parent.name());
+    if (!parentAddon || type !== 'all') { return tree; }
 
     let PluginRegistry = require('./lib/models/plugin-registry');
     let DocsCompiler = require('./lib/broccoli/docs-compiler');
@@ -227,15 +233,7 @@ module.exports = {
       config: this.project.config(EmberApp.env())
     });
 
-    return new MergeTrees([ defaultTree, docsTree, searchIndexTree ]);
-  },
-
-  getBroccoliBridge() {
-    if (!this._broccoliBridge) {
-      const Bridge = require('broccoli-bridge');
-      this._broccoliBridge = new Bridge();
-    }
-    return this._broccoliBridge;
+    return new MergeTrees([ tree, docsTree, searchIndexTree ]);
   },
 
   _lunrTree() {
