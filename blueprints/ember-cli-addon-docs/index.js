@@ -22,7 +22,7 @@ module.exports = {
     });
   },
 
-  afterInstall() {
+  afterInstall(options) {
     let configPath = require.resolve(this.project.configPath());
     let configContents = fs.readFileSync(configPath, 'utf-8');
 
@@ -63,9 +63,36 @@ module.exports = {
     }
 
     if (!hasPlugins) {
-      return this.addAddonsToProject({
-        packages: ['ember-cli-addon-docs-yuidoc']
-      });
+      return this._chooseAddonsToInstall()
+        .then((addon) => {
+          return this.addAddonsToProject({
+            packages: [addon],
+            blueprintOptions: {
+              save: options.save
+            }
+          });
+        });
     }
+  },
+
+  _chooseAddonsToInstall() {
+    // Ask which ember addon to install
+    return this.ui.prompt({
+      type: 'list',
+      name: 'addonToInstall',
+      message: 'Which documentation style would you like to use?',
+      choices: [
+        {
+          name: 'ESDoc',
+          value: { name: 'ember-cli-addon-docs-esdoc' }
+        },
+        {
+          name: 'YUIDoc',
+          value: { name: 'ember-cli-addon-docs-yuidoc' }
+        }
+      ]
+    }).then((selected) => {
+      return selected.addonToInstall;
+    });
   }
 };
