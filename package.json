@@ -98,7 +98,6 @@
     "ember-cli-inject-live-reload": "^1.8.2",
     "ember-cli-mirage": "^0.4.9",
     "ember-cli-qunit": "^4.3.2",
-    "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-uglify": "^2.1.0",
     "ember-disable-prototype-extensions": "^1.1.3",
