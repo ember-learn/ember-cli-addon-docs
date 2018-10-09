@@ -15,6 +15,16 @@ module.exports = function(defaults) {
   var app = new EmberAddon(defaults, {
     project,
     vendorFiles: { 'jquery.js': null, 'app-shims.js': null },
+
+    // Workaround for https://github.com/ember-cli/ember-cli/issues/8075
+    'ember-cli-uglify': {
+      uglify: {
+        compress: {
+          collapse_vars: false
+        }
+      }
+    },
+
     'ember-cli-addon-docs': {
       projects: {
         sandbox: new MergeTrees([
