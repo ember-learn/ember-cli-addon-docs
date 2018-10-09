@@ -11,7 +11,7 @@ const { projectName, projectDescription } = config['ember-cli-addon-docs'];
   ```hbs
   {{docs-hero
     prefix='Ember'
-    headding='SuperAddon'
+    heading='SuperAddon'
     byline='The best addon ever. Now playing in theaters.'}}
   ```
 
