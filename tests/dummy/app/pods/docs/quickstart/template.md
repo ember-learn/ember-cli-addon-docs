@@ -45,21 +45,17 @@ and make sure it contains the `DocsViewer` component and navigation items for
 all docs pages in your site.
 
   {{#docs-snippet name='quickstart-skeleton.hbs' title='tests/dummy/app/templates/docs.hbs'}}
-    {{#docs-viewer as |viewer|}}
+    {{docs-header}}
 
+    {{#docs-viewer as |viewer|}}
       {{#viewer.nav as |nav|}}
         {{nav.item 'Introduction' 'docs.index'}}
         {{nav.item 'Usage' 'docs.usage'}}
       {{/viewer.nav}}
 
       {{#viewer.main}}
-        <div class="docs-container">
-          <div class="docs-section">
-            {{outlet}}
-          </div>
-        </div>
+        {{outlet}}
       {{/viewer.main}}
-
     {{/docs-viewer}}
   {{/docs-snippet}}
 
@@ -111,10 +107,18 @@ create the associated template.
   {{/docs-snippet}}
 
   {{#docs-snippet name='quickstart-404.hbs' title='tests/dummy/app/templates/not-found.hbs'}}
-    <div class="docs-container">
-      <h1>Not found</h1>
-      <p>This page doesn't exist. {{#link-to 'index'}}Head home?{{/link-to}}</p>
-    </div>
+    {{docs-header}}
+
+    {{#docs-viewer as |viewer|}}
+      {{viewer.nav}}
+
+      {{#viewer.main}}
+        <div class="docs-container">
+          <h1>Not found</h1>
+          <p>This page doesn't exist. {{#link-to 'index'}}Head home?{{/link-to}}</p>
+        </div>
+      {{/viewer.main}}
+    {{/docs-viewer}}
   {{/docs-snippet}}
 
 8. **Launch your docs site**. Run `ember serve` and browse to
