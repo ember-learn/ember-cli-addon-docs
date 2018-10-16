@@ -14,7 +14,7 @@ To deploy your docs site to GitHub pages, you'll need to go through a few steps 
  4. Run `ember deploy production` and answer "yes" if prompted to create a `gh-pages` branch. **Note**: if your repo already has a `gh-pages` branch, you may want to manually archive the existing content there before deploying.
 
 Once the deploy completes and GitHub has a moment to publish your pages site, if all went well you should see your addon's dummy app live at
-<u>https://**[user]**.github.io/**[repo]**/**[current-branch]**</u>.
+<u>https://**[user]**.github.io/**[repo]**/versions/**[current-branch]**</u>.
 
 Now take a look at the `gh-pages` branch either locally or on GitHub. You should see a layout something like this:
 
@@ -43,7 +43,7 @@ Whenever you deploy your documentation site with Addon Docs, it places the compi
 
 When you run `ember deploy` at a commit that has a git tag associated with it, the app will wind up in a directory named after that tag. For example, if you've just published version 1.2.3 of your addon (creating tag `v1.2.3` in your git repository), your deployed site will be available at <u>https://**[user]**.github.io/**[repo]**/versions/v1.2.3</u>.
 
-By default, deploying from a tagged commit also places a copy of your app at the root of your `gh-pages` branch, so <u>https://**[user]**.github.io/**[repo]**</u> will always bring developers to the documentation for the most recent stable release of your addon.
+By default, deploying from a tagged commit also places a copy of your app at the root of your `gh-pages` branch, so <u>https://**[user]**.github.io/**[repo]**</u> will always bring developers to the documentation for the most recent stable release of your addon. If you deploy without a tagged release, <u>https://**[user]**.github.io/**[repo]**</u> will return a 404. 
 
 Note that this only applies to non-prerelease tags, so `v1.2.3` would update the root app, but `v2.0.0-beta.1` would not. Check out the documentation for [node-semver](https://github.com/npm/node-semver) for the exact details on what constitutes a prerelease version.
 
