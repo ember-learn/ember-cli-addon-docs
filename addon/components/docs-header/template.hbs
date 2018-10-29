@@ -23,8 +23,8 @@
 
       {{docs-header/search-box query=query on-input=(action (mut query))}}
 
-      {{#docs-header/link on-click=(action (toggle 'isShowingVersionSelector' this)) data-test-id='current-version'}}
-        <span data-version-selector class='docs-flex docs-items-center'>
+      {{#docs-header/link on-click=(action (toggle 'isShowingVersionSelector' this))}}
+        <span data-test-id="current-version" data-version-selector class='docs-flex docs-items-center'>
 
           {{#if (or (eq currentVersion.key latestVersionName))}}
             {{#if currentVersion.tag}}
