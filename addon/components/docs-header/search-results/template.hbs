@@ -5,20 +5,21 @@
     clickOutsideToClose=true
     onClose=(action 'clearSearch')
     targetAttachment='bottom left'
-    constraints=(array (hash to='window' attachment='together' pin=true))}}
-
-    <ul class="docs-w-76 docs-bg-white docs-shadow-md docs-list-reset" data-test-search-result-list>
-      {{#each (take 5 searchResults) as |result index|}}
+    constraints=(array (hash to='window' attachment='together' pin=true))
+  }}
+    <ul class="ecad__search-results-list" data-test-search-result-list>
+      {{#each searchResults as |result index|}}
         <li>
           {{docs-header/search-result
             result=result
             query=query
             selected=(eq index selectedIndex)
             on-mouse-enter=(action 'selectResult' index)
-            on-click=(action 'clearSearch')}}
+            on-click=(action 'clearSearch')
+          }}
         </li>
       {{else}}
-        <li class='docs-block docs-py-1 docs-px-3 docs-text-grey-dark docs-no-underline'>
+        <li class='ecad__search-result__empty'>
           No results.
         </li>
       {{/each}}

@@ -75,13 +75,11 @@ export default Component.extend({
       });
 
       return matches;
-    }, [])
-      .slice(0, 5)
-      .join(' &middot; ');
+    }, [])[0]
   }),
 
   _highlight(text, start, length) {
-    return `${text.slice(0, start)}<em class='docs-bg-yellow'>${text.slice(start, start + length)}</em>${text.slice(start + length)}`;
+    return `${text.slice(0, start)}<span class='ecad__search-result__highlight'>${text.slice(start, start + length)}</span>${text.slice(start + length)}`;
   },
 
   'data-test-search-result': true,

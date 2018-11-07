@@ -1,17 +1,11 @@
 {{#link-to
   params=linkArgs
-  class=(concat
-    "docs-block docs-py-2 docs-px-3 docs-text-black docs-no-underline hover:docs-bg-grey-lighter "
-    (if selected "docs-bg-grey-lighter")
-  )
+  class="ecad__search-result__link"
 }}
-  <div class="docs-flex docs-items-center">
-    {{svg-jar icon height=28 width=28 class="docs-mr-2 docs-flex-no-shrink"}}
-    <span class='docs-truncate'>
-      {{result.document.title}}
-    </span>
-  </div>
-  <small class='docs-text-grey-dark docs-inline-block'>
+  <h4 class="ecad__search-result__title">
+    {{result.document.title}}
+  </h4>
+  <p class='ecad__search-result__text'>
     {{{matches}}}
-  </small>
+  </p>
 {{/link-to}}
