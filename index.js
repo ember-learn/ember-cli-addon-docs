@@ -106,8 +106,11 @@ module.exports = {
     this.addonOptions = Object.assign({}, includer.options['ember-cli-addon-docs']);
     this.addonOptions.projects = Object.assign({}, this.addonOptions.projects);
 
+    this.isModuleUnification = !includer.modulePrefix;
+    this.srcPath = this.isModuleUnification ? 'tests/dummy/src' : 'tests/dummy/app';
+
     includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
-    includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
+    includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || [this.srcPath];
     includer.options.snippetRegexes = Object.assign({}, {
       begin: /{{#(?:docs-snippet|demo.example)\sname=(?:"|')(\S+)(?:"|')/,
       end: /{{\/(?:docs-snippet|demo.example)}}/,
@@ -163,7 +166,7 @@ module.exports = {
   },
 
   treeForAddon(tree) {
-    let dummyAppFiles = new FindDummyAppFiles([ 'tests/dummy/app' ]);
+    let dummyAppFiles = new FindDummyAppFiles([ this.srcPath ]);
     let addonFiles = new FindAddonFiles([ 'addon' ].filter(dir => fs.existsSync(dir)));
 
     return this._super(new MergeTrees([ tree, dummyAppFiles, addonFiles ]));
