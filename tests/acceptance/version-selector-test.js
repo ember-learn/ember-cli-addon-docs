@@ -105,11 +105,11 @@ module('Acceptance | Version selector test', function(hooks) {
     let oldPrimaryBranch;
     hooks.beforeEach(function() {
       oldPrimaryBranch = config.primaryBranch;
-      config.primaryBranch = 'develop';
+      config['ember-cli-addon-docs'].primaryBranch = 'develop';
     });
 
     hooks.afterEach(function() {
-      config.primaryBranch = oldPrimaryBranch;
+      config['ember-cli-addon-docs'].primaryBranch = oldPrimaryBranch;
     });
 
     test(`the version selector honors the primary branch`, async function(assert) {
