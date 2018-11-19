@@ -9,6 +9,7 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 const buildTailwind = require('ember-cli-tailwind/lib/build-tailwind');
+const isModuleUnification = require('./lib/utils/is-module-unification')
 
 const LATEST_VERSION_NAME = '-latest';
 
@@ -106,7 +107,7 @@ module.exports = {
     this.addonOptions = Object.assign({}, includer.options['ember-cli-addon-docs']);
     this.addonOptions.projects = Object.assign({}, this.addonOptions.projects);
 
-    this.isModuleUnification = !includer.modulePrefix;
+    this.isModuleUnification = isModuleUnification(includer);
     this.srcPath = this.isModuleUnification ? 'tests/dummy/src' : 'tests/dummy/app';
 
     includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
