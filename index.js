@@ -285,7 +285,7 @@ function generateDefaultProject(parentAddon) {
     })
   ];
 
-  let addonTreePath = path.join(parentAddon.root, parentAddon.treePaths['addon']);
+  let addonTreePath = path.join(parentAddon.root, parentAddon.treePaths[isModuleUnification(parentAddon) ? 'src' : 'addon']);
   let testSupportPath = path.join(parentAddon.root, parentAddon.treePaths['addon-test-support']);
 
   if (fs.existsSync(addonTreePath)) {
