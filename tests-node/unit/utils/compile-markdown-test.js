@@ -5,7 +5,7 @@ const stripIndent = require('common-tags').stripIndent;
 const compileMarkdown = require('../../../lib/utils/compile-markdown');
 
 QUnit.module('Unit | compile-markdown', function(hooks) {
-  test('compacting paragraphs', function(assert) {
+  test('compacting curly paragraphs', function(assert) {
     let input = stripIndent`
       {{#foo-bar}}
 
@@ -15,6 +15,24 @@ QUnit.module('Unit | compile-markdown', function(hooks) {
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
       <div class="docs-md"><p>{{#foo-bar}} {{/foo-bar}}</p></div>
+    `;
+
+    assert.equal(result, expected);
+  });
+
+  test('compacting angle bracket paragraphs', function(assert) {
+    let input = stripIndent`
+      <FooBar>
+
+      </FooBar>
+    `;
+
+    // TODO: there is a space left before the closing tag but build is not broken :)
+    let result = compileMarkdown(input, { targetHandlebars: true });
+    let expected = stripIndent`
+      <div class="docs-md"><FooBar>
+
+       </FooBar></div>
     `;
 
     assert.equal(result, expected);
