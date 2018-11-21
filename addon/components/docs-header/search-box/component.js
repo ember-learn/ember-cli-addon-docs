@@ -16,10 +16,11 @@ export default Component.extend(EKMixin, {
 
   query: null,
 
+  keyboardActivated: true,
+  
   didInsertElement() {
     this._super();
 
-    this.set('keyboardActivated', true);
     this.get('fetchProject').perform();
   },
 
