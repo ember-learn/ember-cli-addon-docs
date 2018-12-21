@@ -45,7 +45,7 @@
     "ember-href-to": "^1.15.1",
     "ember-keyboard": "^3.0.0",
     "ember-modal-dialog": "^2.4.1",
-    "ember-router-scroll": "^0.4.0",
+    "ember-router-scroll": "^1.0.1",
     "ember-svg-jar": "^0.12.0",
     "ember-truth-helpers": "^2.0.0",
     "execa": "^0.9.0",
