@@ -28,9 +28,14 @@
   {{#link-to route
     class=(concat
       'docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xxs
-      docs-font-bold docs-no-underline docs-text-grey-darkest '
-      (if (and (not isActive) (not (eq route 'index'))) 'hover:docs-text-brand')
-      (if (and isActive (not (eq route 'index'))) 'docs-text-brand')
+      docs-font-bold docs-no-underline '
+      (if (not (eq route 'index'))
+        (if isActive
+          'docs-text-brand'
+          'docs-text-grey-darkest hover:docs-text-brand'
+        )
+        'docs-text-grey-darkest'
+      )
     )
     data-test-id=data-test-id
   }}
