@@ -22,7 +22,7 @@ To do this, first mark up the source you want to display using comments that sta
 
 {{docs/components/docs-snippet/demo2}}
 
-Then in any of you templates, you can use the non-block form of `docs-snippet` to render your named snippet:
+Then in any of your templates, you can use the non-block form of `docs-snippet` to render your named snippet:
 
 {{docs/components/docs-snippet/demo3}}
 
