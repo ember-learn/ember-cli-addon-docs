@@ -59,6 +59,12 @@ all docs pages in your site.
     {{/docs-viewer}}
   {{/docs-snippet}}
 
+  {{#docs-snippet name='quickstart-skeleton.js' title='tests/dummy/app/routes/docs.js'}}
+    import BaseDocsRoute from 'ember-cli-addon-docs/routes/docs'
+
+    export default class DocsRoute extends BaseDocsRoute {}
+  {{/docs-snippet}}
+
 5. **Create your Markdown templates.** Markdown templates contain the actual
 documentation for your addon and live in the folder
 `tests/dummy/app/templates/docs`. Since Addon Docs supports Markdown out
