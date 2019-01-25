@@ -1,12 +1,15 @@
 <div class='docs-my-8'>
   {{#docs-snippet name='docs-snippet.hbs'}}
-    <div id='foo'>
-      {{#my-awesome-thing
-        some=true
-        options=false
-      }}
-        <p>Something old, something new</p>
-      {{/my-awesome-thing}}
-    </div>
+    {{!-- docs/components/docs-snippet/demo1 --}}
+    {{#docs-snippet name='your-snippet-name.hbs'}}
+      <div id='foo'>
+        {{#my-awesome-thing
+          some=true
+          options=false
+        }}
+          <p>Something old, something new</p>
+        {{/my-awesome-thing}}
+      </div>
+    {{/docs-snippet}}
   {{/docs-snippet}}
 </div>
