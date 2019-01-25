@@ -4,7 +4,7 @@ Easily render a code snippet with syntax highlighting and a copy-to-clipboard bu
 
 ## Handlebars
 
-To render a Handlebars snippet from one of your templates, wrap it in `{{#docs-snippet name="your-snippet-name.hbs"}}`.
+To render a Handlebars snippet from one of your templates, wrap it in `{{#docs-snippet name="your-snippet-name.hbs"}}{{/docs-snippet}}`.
 
 {{docs/components/docs-snippet/demo1}}
 
