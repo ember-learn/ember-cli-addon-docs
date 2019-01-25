@@ -8,6 +8,12 @@ To render a Handlebars snippet from one of your templates, wrap it in `{{#docs-s
 
 {{docs/components/docs-snippet/demo1}}
 
+All the snippets on this page are actually located in their own component. The above snippet is rendered like so:
+
+{{#docs-snippet name="snippet-demo1.hbs"}}
+  {{docs/components/docs-snippet/demo1}}
+{{/docs-snippet}}
+
 All snippets must have a globally unique name.
 
 Note that the block-form of `docs-snippet` won't actually execute your template code, it will just capture the static code and render the snippet. Think of it like Markdown code fences that you can use in your Handlebars templates.
@@ -37,5 +43,7 @@ By default, snippets will render with a button allowing readers to copy the snip
 You can override the detected language for syntax highlighting in your snippet by specifying a `language` property.
 
 Finally, you can use the `title` property to specify a header for your snippet, for instance to specify the file your snippet would be found in.
+
+Here's what that looks like:
 
 {{docs/components/docs-snippet/demo4}}
