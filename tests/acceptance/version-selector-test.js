@@ -99,6 +99,12 @@ module('Acceptance | Version selector test', function(hooks) {
 
     assert.dom('[data-test-id="version"]:nth-child(1)').includesText('Latest', 'latest is rendered first');
     assert.dom('[data-test-id="version"]:nth-child(1)').includesText('v0.1.0', 'latest renders a tag if present');
+
+    await click('[data-test-id="current-version"]'); // close it
+    await click('[data-test-id="current-version"]'); // open a scond time
+
+    assert.dom('[data-test-id="version"]:nth-child(1)').includesText('Latest', 'latest is rendered on second open');
+    assert.dom('[data-test-id="version"]:nth-child(2)').includesText('master', 'master is rendered on second open');
   });
 
   module('with a custom primary branch configured', function(hooks) {
