@@ -45,21 +45,17 @@ and make sure it contains the `DocsViewer` component and navigation items for
 all docs pages in your site.
 
   {{#docs-snippet name='quickstart-skeleton.hbs' title='tests/dummy/app/templates/docs.hbs'}}
-    {{#docs-viewer as |viewer|}}
+    {{docs-header}}
 
+    {{#docs-viewer as |viewer|}}
       {{#viewer.nav as |nav|}}
         {{nav.item 'Introduction' 'docs.index'}}
         {{nav.item 'Usage' 'docs.usage'}}
       {{/viewer.nav}}
 
       {{#viewer.main}}
-        <div class="docs-container">
-          <div class="docs-section">
-            {{outlet}}
-          </div>
-        </div>
+        {{outlet}}
       {{/viewer.main}}
-
     {{/docs-viewer}}
   {{/docs-snippet}}
 
@@ -111,10 +107,18 @@ create the associated template.
   {{/docs-snippet}}
 
   {{#docs-snippet name='quickstart-404.hbs' title='tests/dummy/app/templates/not-found.hbs'}}
-    <div class="docs-container">
-      <h1>Not found</h1>
-      <p>This page doesn't exist. {{#link-to 'index'}}Head home?{{/link-to}}</p>
-    </div>
+    {{docs-header}}
+
+    {{#docs-viewer as |viewer|}}
+      {{viewer.nav}}
+
+      {{#viewer.main}}
+        <div class="docs-container">
+          <h1>Not found</h1>
+          <p>This page doesn't exist. {{#link-to 'index'}}Head home?{{/link-to}}</p>
+        </div>
+      {{/viewer.main}}
+    {{/docs-viewer}}
   {{/docs-snippet}}
 
 8. **Launch your docs site**. Run `ember serve` and browse to
@@ -143,3 +147,14 @@ windows.
 3. **Better scrolling.** You may want to install
 [Ember Router Scroll](https://github.com/dollarshaveclub/ember-router-scroll)
 to enable "scroll to top with preserved browser history scroll position".
+
+4. **Optionally customize your brand.** The primary brand color is <span class='docs-text-brand'>`#E04E39`</span>. You can change this value by setting the `--brand-primary` CSS custom property in your dummy app's `app.css` file.
+
+  For example, to set your brand color as `#3490DC`
+
+  ```css
+  /* tests/dummy/app/styles/app.css */
+  :root {
+    --brand-primary: #3490DC;
+  }
+  ```

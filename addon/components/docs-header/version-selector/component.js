@@ -39,7 +39,7 @@ export default Component.extend({
     return [
       latest,
       primary,
-      ...versions.removeObjects([ latest, primary ]).sortBy('key')
+      ...A(versions.reject(v => [ latest, primary ].includes(v))).sortBy('key')
     ].filter(Boolean);
   }),
 

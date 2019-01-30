@@ -7,7 +7,7 @@ It's also an important part of your addon's testing story. If you write demos fo
 - They verify your addon's behavior
 - They ensure all of that behavior is working in your docs site, and up-to-date with your addon's actual APIs
 
-This saves you from ever having to remember that second step of "updating the docs" every time you change your libary.
+This saves you from ever having to remember that second step of "updating the docs" every time you change your library.
 
 Of course, if your addon's components have some edge cases that would muddle up your documentation site too much, you can fall back to using integration tests. But try to keep most of the behavior in the docs pages — that way your users will know about it.
 

@@ -4,9 +4,15 @@ Easily render a code snippet with syntax highlighting and a copy-to-clipboard bu
 
 ## Handlebars
 
-To render a Handlebars snippet from one of your templates, wrap it in `{{#docs-snippet name="your-snippet-name.hbs"}}`.
+To render a Handlebars snippet from one of your templates, wrap it in `{{#docs-snippet name="your-snippet-name.hbs"}}{{/docs-snippet}}`.
 
 {{docs/components/docs-snippet/demo1}}
+
+All the snippets on this page are actually located in their own component. The above snippet is rendered like so:
+
+{{#docs-snippet name="snippet-demo1.hbs"}}
+  {{docs/components/docs-snippet/demo1}}
+{{/docs-snippet}}
 
 All snippets must have a globally unique name.
 
@@ -22,7 +28,7 @@ To do this, first mark up the source you want to display using comments that sta
 
 {{docs/components/docs-snippet/demo2}}
 
-Then in any of you templates, you can use the non-block form of `docs-snippet` to render your named snippet:
+Then in any of your templates, you can use the non-block form of `docs-snippet` to render your named snippet:
 
 {{docs/components/docs-snippet/demo3}}
 
@@ -37,5 +43,7 @@ By default, snippets will render with a button allowing readers to copy the snip
 You can override the detected language for syntax highlighting in your snippet by specifying a `language` property.
 
 Finally, you can use the `title` property to specify a header for your snippet, for instance to specify the file your snippet would be found in.
+
+Here's what that looks like:
 
 {{docs/components/docs-snippet/demo4}}

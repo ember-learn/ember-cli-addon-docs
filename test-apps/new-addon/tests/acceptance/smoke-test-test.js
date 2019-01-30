@@ -11,12 +11,12 @@ module('Acceptance | boot test', function(hooks) {
     assert.equal(currentURL(), '/');
   });
 
-  test('styles are properly loaded', async function(assert) {
+  test('the --brand-primary css variable works', async function(assert) {
     await visit('/');
 
     let hero = find('.docs-bg-brand');
     let fontSize = window.getComputedStyle(hero).getPropertyValue("background-color");
 
-    assert.equal(fontSize, 'rgb(224, 78, 57)');
+    assert.equal(fontSize, 'rgb(0, 128, 0)');
   });
 });
