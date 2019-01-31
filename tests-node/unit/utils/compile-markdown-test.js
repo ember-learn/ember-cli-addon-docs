@@ -83,4 +83,36 @@ QUnit.module('Unit | compile-markdown', function(hooks) {
 
     assert.equal(result, expected);
   });
+
+  test('using opening curlies inside backticks shouldn\'t compact paragraphs', function(assert) {
+    let input = stripIndent`
+      Foo bar is \`{{#my-component}}\`.
+
+      Another paragraph.
+    `;
+
+    let result = compileMarkdown(input, { targetHandlebars: true });
+    let expected = stripIndent`
+      <div class="docs-md"><p>Foo bar is <code>&#123;&#123;#my-component&#125;&#125;</code>.</p>
+      <p>Another paragraph.</p></div>
+    `;
+
+    assert.equal(result, expected);
+  });
+
+  test('using opening angle brackets inside backticks shouldn\'t compact paragraphs', function(assert) {
+    let input = stripIndent`
+      Foo bar is \`<My component>\`.
+
+      Another paragraph.
+    `;
+
+    let result = compileMarkdown(input, { targetHandlebars: true });
+    let expected = stripIndent`
+      <div class="docs-md"><p>Foo bar is <code>&lt;My component&gt;</code>.</p>
+      <p>Another paragraph.</p></div>
+    `;
+
+    assert.equal(result, expected);
+  });
 });
