@@ -6,7 +6,7 @@
   )}}
 
   <div>
-    {{#if snippets}}
+    {{#if (and snippets (gt snippets.length 1))}}
       <nav class="docs-demo__snippets-nav docs-py-2 docs-px-4 docs-font-medium docs-bg-grey-lighter docs-tracking-tight">
         {{#each snippets as |snippet|}}
           <button {{action 'selectSnippet' snippet}}
