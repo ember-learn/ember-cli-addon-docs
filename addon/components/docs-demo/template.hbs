@@ -24,7 +24,7 @@
 
     {{#each snippets as |snippet|}}
       {{#if snippet.isActive}}
-        <div class="docs-demo__snippet-wrapper">
+        <div class="docs-demo__snippet-wrapper {{if (lte snippets.length 1) 'docs-border-t docs-border-grey-lighter'}}">
           {{docs-snippet name=snippet.name unindent=true language=snippet.language}}
         </div>
       {{/if}}
