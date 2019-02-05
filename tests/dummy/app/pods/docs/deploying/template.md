@@ -8,10 +8,10 @@ Once everything is set up, you'll be able to visit <u>https://**[user]**.github.
 
 To deploy your docs site to GitHub pages, you'll need to go through a few steps of first-time setup:
 
- 1. Run `ember g ember-cli-addon-docs` to set up the relevant deploy plugins (this is done automatically if you used `ember install` to install Addon Docs)
- 2. Set [the `repository` field](https://docs.npmjs.com/files/package.json#repository) of your `package.json`.
- 3. Commit any outstanding changes you've got on your current branch and push them to GitHub.
- 4. Run `ember deploy production` and answer "yes" if prompted to create a `gh-pages` branch. **Note**: if your repo already has a `gh-pages` branch, you may want to manually archive the existing content there before deploying.
+1.  Run `ember g ember-cli-addon-docs` to set up the relevant deploy plugins (this is done automatically if you used `ember install` to install Addon Docs)
+2.  Set [the `repository` field](https://docs.npmjs.com/files/package.json#repository) of your `package.json`.
+3.  Commit any outstanding changes you've got on your current branch and push them to GitHub.
+4.  Run `ember deploy production` and answer "yes" if prompted to create a `gh-pages` branch. **Note**: if your repo already has a `gh-pages` branch, you may want to manually archive the existing content there before deploying.
 
 Once the deploy completes and GitHub has a moment to publish your pages site, if all went well you should see your addon's dummy app live at
 <u>https://**[user]**.github.io/**[repo]**/versions/**[current-branch]**</u>.
@@ -29,9 +29,10 @@ Now take a look at the `gh-pages` branch either locally or on GitHub. You should
 ```
 
 Let's break down what each of those items is doing.
- - `404.html` contains [some smart redirect logic](https://github.com/rafrex/spa-github-pages) to keep you from having to use `locationType: 'hash'` in your dummy app
- - `versions.json` contains a manifest of the available versions of your documentation
- - `versions/[current-branch]` contains all the files from your built docs app
+
+- `404.html` contains [some smart redirect logic](https://github.com/rafrex/spa-github-pages) to keep you from having to use `locationType: 'hash'` in your dummy app
+- `versions.json` contains a manifest of the available versions of your documentation
+- `versions/[current-branch]` contains all the files from your built docs app
 
 If you were to make a change to your dummy app and run `ember deploy production` again right now, the entry for `[current-branch]` in `versions.json` and the entire contents of the `versions/[current-branch]` directory would be replaced with the updated version of your site. Next we'll talk about how to manage keeping published documentation around for multiple versions of your addon.
 
@@ -43,7 +44,7 @@ Whenever you deploy your documentation site with Addon Docs, it places the compi
 
 When you run `ember deploy` at a commit that has a git tag associated with it, the app will wind up in a directory named after that tag. For example, if you've just published version 1.2.3 of your addon (creating tag `v1.2.3` in your git repository), your deployed site will be available at <u>https://**[user]**.github.io/**[repo]**/versions/v1.2.3</u>.
 
-By default, deploying from a tagged commit also places a copy of your app at the root of your `gh-pages` branch, so <u>https://**[user]**.github.io/**[repo]**</u> will always bring developers to the documentation for the most recent stable release of your addon. If you deploy without a tagged release, <u>https://**[user]**.github.io/**[repo]**</u> will return a 404. 
+By default, deploying from a tagged commit also places a copy of your app at the root of your `gh-pages` branch, so <u>https://**[user]**.github.io/**[repo]**</u> will always bring developers to the documentation for the most recent stable release of your addon. If you deploy without a tagged release, <u>https://**[user]**.github.io/**[repo]**</u> will return a 404.
 
 Note that this only applies to non-prerelease tags, so `v1.2.3` would update the root app, but `v2.0.0-beta.1` would not. Check out the documentation for [node-semver](https://github.com/npm/node-semver) for the exact details on what constitutes a prerelease version.
 
@@ -73,7 +74,7 @@ This will produce two files in your current directory: `deploy_key` (the private
 
 On GitHub, open the page for your repo and navigate to _Settings_ -> _Deploy keys_ (or just directly visit <u>https://github.com/**[user]**/**[repo]**/settings/keys)</u> and click "Add deploy key".
 
-Enter a name for your key and then paste the contents of your public key (`id_rsa.pub`) into the big textarea. Make sure you check the **Allow write access** box, then click "Add key" and you're all set.
+Enter a name for your key and then paste the contents of your public key (`deploy_key.pub`) into the big textarea. Make sure you check the **Allow write access** box, then click "Add key" and you're all set.
 
 ### Configure the private key with Travis
 
@@ -90,7 +91,7 @@ All that's left now is to set up Travis to run your deploys for you. The simples
 ```yml
 after_success:
   - if [[ ($TRAVIS_BRANCH == master || -n $TRAVIS_TAG) && $EMBER_TRY_SCENARIO == ember-default ]]; then
-      node_modules/.bin/ember deploy production;
+    node_modules/.bin/ember deploy production;
     fi
 ```
 
