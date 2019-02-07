@@ -4,7 +4,7 @@ Easily render a code snippet with syntax highlighting and a copy-to-clipboard bu
 
 ## Handlebars
 
-To render a Handlebars snippet from one of your templates, wrap it in `{{#docs-snippet name="your-snippet-name.hbs"}}{{/docs-snippet}}`.
+To render a Handlebars snippet from one of your templates, wrap it in `DocsSnippet` component:
 
 {{docs/components/docs-snippet/demo1}}
 
@@ -16,7 +16,7 @@ All the snippets on this page are actually located in their own component. The a
 
 All snippets must have a globally unique name.
 
-Note that the block-form of `docs-snippet` won't actually execute your template code, it will just capture the static code and render the snippet. Think of it like Markdown code fences that you can use in your Handlebars templates.
+Note that the block-form of `DocsSnippet` won't actually execute your template code, it will just capture the static code and render the snippet. Think of it like Markdown code fences that you can use in your Handlebars templates.
 
 If you want the code to render and also show the snippet, check out the {{docs-link 'Docs Demo component' 'docs.components.docs-demo'}}.
 
