@@ -678,12 +678,13 @@
     ember-cli-babel "^6.16.0"
     ember-compatibility-helpers "^1.0.0"
 
-"@ember/test-helpers@^0.7.18":
-  version "0.7.25"
-  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-0.7.25.tgz#b4014c108b40ffaf74f3c4d5918800917541541d"
-  integrity sha1-tAFMEItA/69088TVkYgAkXVBVB0=
+"@ember/test-helpers@^0.7.26":
+  version "0.7.27"
+  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-0.7.27.tgz#c622cabd0cbb95b34efc1e1b6274ab5a14edc138"
+  integrity sha512-AQESk0FTFxRY6GyZ8PharR4SC7Fju0rXqNkfNYIntAjzefZ8xEqEM4iXDj5h7gAvfx/8dA69AQ9+p7ubc+KvJg==
   dependencies:
     broccoli-funnel "^2.0.1"
+    ember-assign-polyfill "~2.4.0"
     ember-cli-babel "^6.12.0"
     ember-cli-htmlbars-inline-precompile "^1.0.0"
 
@@ -975,6 +976,11 @@ aproba@^1.0.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
   integrity sha512-Y9J6ZjXtoYh8RnXVCMOU/ttDmk1aBjunq9vO0ta5x85WDQiQfUF9sIPBITdbiiIVcBo03Hi3jMxigBtsddlXRw==
+
+archy@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/archy/-/archy-1.0.0.tgz#f9c8c13757cc1dd7bc379ac77b2c62a5c2868c40"
+  integrity sha1-+cjBN1fMHde8N5rHeyxipcKGjEA=
 
 are-we-there-yet@~1.1.2:
   version "1.1.5"
@@ -3135,15 +3141,6 @@ cli-width@^2.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
   integrity sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
 
-clipboard@^1.7.1:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-1.7.1.tgz#360d6d6946e99a7a1fef395e42ba92b5e9b5a16b"
-  integrity sha1-Ng1taUbpmnof7zleQrqStem1oWs=
-  dependencies:
-    good-listener "^1.2.2"
-    select "^1.1.2"
-    tiny-emitter "^2.0.0"
-
 clipboard@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.1.tgz#a12481e1c13d8a50f5f036b0560fe5d16d74e46a"
@@ -3893,6 +3890,14 @@ ember-assign-polyfill@^2.5.0:
     ember-cli-babel "^6.6.0"
     ember-cli-version-checker "^2.0.0"
 
+ember-assign-polyfill@~2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/ember-assign-polyfill/-/ember-assign-polyfill-2.4.0.tgz#acb00466f7d674b3e6b030acfe255b3b1f6472e1"
+  integrity sha512-0SnGQb9CenRqbZdIa1KFsEjT+1ijGWfAbCSaDbg5uVa5l6HPdppuTzOXK6sfEQMsd2nbrp27QWFy7W5VX6l4Ag==
+  dependencies:
+    ember-cli-babel "^6.6.0"
+    ember-cli-version-checker "^2.0.0"
+
 ember-classy-page-object@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/ember-classy-page-object/-/ember-classy-page-object-0.5.0.tgz#42ffd395bb6045c1f3bd94d923e11f283d26d661"
@@ -3943,7 +3948,7 @@ ember-cli-babel-plugin-helpers@^1.0.0:
   resolved "https://registry.yarnpkg.com/ember-cli-babel-plugin-helpers/-/ember-cli-babel-plugin-helpers-1.0.0.tgz#19f3142a2272adb1cc61dfe0dce360e2909a0b07"
   integrity sha512-x7Nh9/ATLk0pArFDW9y0HJRiE1i8myoiQ+Xlq5aZKJX1uWNcOWMwfCZN5r1uRpcnbBXPwUjBmhR14YKN5qIzxg==
 
-ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
+ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
   version "6.17.2"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.17.2.tgz#f0d53d2fb95e70c15d8db84760d045f88f458f69"
   integrity sha512-9KcCvF1PcelEFTSiJ/Ld20tfuW9acMkwHC/xINLsmwqJVDbm3oEqWtiFDZ5ebaC278O5I0GqNJWJLYNoWMNZ8g==
@@ -4041,7 +4046,7 @@ ember-cli-broccoli-sane-watcher@^2.1.1:
     rsvp "^3.0.18"
     sane "^4.0.0"
 
-ember-cli-clipboard@^0.11.1:
+ember-cli-clipboard@^0.11.1, ember-cli-clipboard@^0.8.1:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/ember-cli-clipboard/-/ember-cli-clipboard-0.11.1.tgz#caa6aaae498f12922102555d6825ad81ad843d2a"
   integrity sha512-LAsrFpaOV8mgyI4MLR6R2BJFbzW8ac3GZkTKmAH+V5LeyidK/Inr4yZpY5nff/jKlQFT6E4991Z9mzldfKJZcg==
@@ -4049,17 +4054,6 @@ ember-cli-clipboard@^0.11.1:
     broccoli-funnel "^1.1.0"
     clipboard "^2.0.0"
     ember-cli-babel "^7.1.2"
-    ember-cli-htmlbars "^2.0.2"
-    fastboot-transform "0.1.1"
-
-ember-cli-clipboard@^0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/ember-cli-clipboard/-/ember-cli-clipboard-0.8.1.tgz#59f8eb6ba471a7668dff592fcebb7b06014240dd"
-  integrity sha1-Wfjra6Rxp2aN/1kvzrt7BgFCQN0=
-  dependencies:
-    broccoli-funnel "^1.1.0"
-    clipboard "^1.7.1"
-    ember-cli-babel "^6.8.0"
     ember-cli-htmlbars "^2.0.2"
     fastboot-transform "0.1.1"
 
@@ -4073,6 +4067,16 @@ ember-cli-dependency-checker@^3.0.0:
     is-git-url "^1.0.0"
     resolve "^1.5.0"
     semver "^5.3.0"
+
+ember-cli-dependency-lint@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/ember-cli-dependency-lint/-/ember-cli-dependency-lint-1.1.3.tgz#ece5a319734d0b0462c12fd7a93d322e1f9fe60f"
+  integrity sha512-v836nMZuYhnvZ7MvIwGkwJkFhx7gc7RrlNcD90IHdBpR7kWBXIljLgSNIae84qKn1V1UqHImBTMnJvJCe2qvQw==
+  dependencies:
+    archy "^1.0.0"
+    broccoli-plugin "^1.3.0"
+    chalk "^2.3.0"
+    semver "^5.5.0"
 
 ember-cli-deploy-build@^1.1.1:
   version "1.1.1"
@@ -4272,13 +4276,13 @@ ember-cli-preprocess-registry@^3.1.2:
     process-relative-require "^1.0.0"
     silent-error "^1.0.0"
 
-ember-cli-qunit@^4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/ember-cli-qunit/-/ember-cli-qunit-4.3.2.tgz#cfd89ad3b0dbc28a9c2223d532b52eeade7c602c"
-  integrity sha1-z9ia07DbwoqcIiPVMrUu6t58YCw=
+ember-cli-qunit@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-qunit/-/ember-cli-qunit-4.4.0.tgz#0edd7d651001d0d7ea200b9236a4733a5b7420f1"
+  integrity sha512-+gkx380AV4WXYjQeIuQi675STL9K12fHFtxs8B9u3EFbw45vJKrnYR4Vph3FujxhE/1pr/Je8kZEPAuezZAVLw==
   dependencies:
     ember-cli-babel "^6.11.0"
-    ember-qunit "^3.3.2"
+    ember-qunit "^3.5.0"
 
 ember-cli-sass@7.1.7:
   version "7.1.7"
@@ -4734,18 +4738,18 @@ ember-native-dom-helpers@^0.5.3:
     broccoli-funnel "^1.1.0"
     ember-cli-babel "^6.6.0"
 
-ember-qunit@^3.3.2:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/ember-qunit/-/ember-qunit-3.4.1.tgz#204a2d39a5d44d494c56bf17cf3fd12f06210359"
-  integrity sha512-WuWan6duE/HfygQHrgU77okTnt7B3lWcGn+N7NkBXR86pk2s+qxbX9p98uqSc0ISNt2Vg6Opz++RZn+fomHkBw==
+ember-qunit@^3.5.0:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/ember-qunit/-/ember-qunit-3.5.3.tgz#bfd0bff8298c78c77e870cca43fe0826e78a0d09"
+  integrity sha512-FmXsI1bGsZ5th25x4KEle2fLCVURTptsQODfBt+Pg8tk9rX7y79cqny91PrhtkhE+giZ8p029tnq94SdpJ4ojg==
   dependencies:
-    "@ember/test-helpers" "^0.7.18"
+    "@ember/test-helpers" "^0.7.26"
     broccoli-funnel "^2.0.1"
     broccoli-merge-trees "^2.0.0"
     common-tags "^1.4.0"
     ember-cli-babel "^6.8.2"
     ember-cli-test-loader "^2.2.0"
-    qunit "^2.5.0"
+    qunit "~2.6.0"
 
 ember-resolver@^5.0.1:
   version "5.0.1"
@@ -9312,7 +9316,7 @@ qunit-dom@^0.8.0:
     broccoli-funnel "^2.0.0"
     broccoli-merge-trees "^3.0.1"
 
-qunit@^2.5.0, qunit@^2.6.2:
+qunit@^2.6.2, qunit@~2.6.0:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/qunit/-/qunit-2.6.2.tgz#551210c5cf857258a4fe39a7fe15d9e14dfef22c"
   integrity sha512-PHbKulmd4rrDhFto7iHicIstDTX7oMRvAcI7loHstvU8J7AOGwzcchONmy+EG4KU8HDk0K90o7vO0GhlYyKlOg==
