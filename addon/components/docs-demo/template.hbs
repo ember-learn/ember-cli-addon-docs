@@ -7,13 +7,20 @@
 
   <div>
     {{#if (and snippets (gt snippets.length 1))}}
-      <nav class="docs-demo__snippets-nav docs-py-2 docs-px-4 docs-font-medium docs-bg-grey-lighter docs-tracking-tight">
+      <nav class="
+        docs-demo__snippets-nav docs-py-2 docs-px-4 docs-font-medium
+        docs-bg-black docs-tracking-tight docs-border-b
+        docs-border-grey-darkest
+      ">
         {{#each snippets as |snippet|}}
           <button {{action 'selectSnippet' snippet}}
             class='
               docs-mr-4 docs-text-xs docs-no-underline outline-none
-              hover:docs-text-grey-darkest
-              {{if snippet.isActive 'docs-text-grey-darkest' 'docs-text-grey-dark'}}
+              hover:docs-text-grey-lighter
+              {{if snippet.isActive
+                'docs-text-grey-lighter'
+                'docs-text-grey-dark'
+              }}
             '
           >
             {{snippet.label}}
