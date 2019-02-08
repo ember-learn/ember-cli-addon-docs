@@ -18,16 +18,6 @@ module.exports = {
   LATEST_VERSION_NAME,
 
   options: {
-    nodeAssets: {
-      'highlight.js': {
-        public: {
-          include: [ 'styles/monokai.css' ]
-        },
-        vendor: {
-          include: [ 'styles/monokai.css' ]
-        }
-      }
-    },
     svgJar: {
       sourceDirs: [
         'public',
@@ -112,17 +102,15 @@ module.exports = {
       begin: /{{#(?:docs-snippet|demo.example)\sname=(?:"|')(\S+)(?:"|')/,
       end: /{{\/(?:docs-snippet|demo.example)}}/,
     }, includer.options.snippetRegexes);
+    includer.options.includeHighlightJS = false;
+    includer.options.includeHighlightStyle = false;
+    includer.options.snippetExtensions = ['js', 'css', 'hbs', 'md', 'text', 'json', 'handlebars', 'htmlbars', 'html', 'diff'];
 
     let importer = findImporter(this);
 
     importer.import('vendor/lunr/lunr.js', {
       using: [{ transformation: 'amd', as: 'lunr' }]
     });
-
-    // importer.import('vendor/highlightjs-styles/default.css');
-    // importer.import('vendor/styles/highlightjs-styles/default.css');
-    // importer.import('vendor/highlight.js/styles/monokai.css');
-    // importer.import('vendor/highlightjs-styles/github.css');
   },
 
   createDeployPlugin() {
@@ -180,7 +168,7 @@ module.exports = {
   treeForVendor(vendor) {
     return new MergeTrees([
       vendor,
-      this._highlightJSTree(),
+      // this._highlightJSTree(),
       this._lunrTree()
     ].filter(Boolean));
   },

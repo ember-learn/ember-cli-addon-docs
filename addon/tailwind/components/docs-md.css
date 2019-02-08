@@ -39,19 +39,22 @@
   @apply docs-mb-4 docs-mt-6 docs-bg-grey-lightest docs-italic docs-px-4 docs-py-3 docs-text-xs;
 }
 
-/* mb-4 on pre interferes with docs-snippet and others, really want Renderer
-to generate its own class...
-pre {
-  @apply .docs-mb-4;
-} */
-
 .docs-md__blockquote {
   @apply docs-pl-4 docs-text-grey-dark docs-border-l-4;
 }
 
+/* Applied to inline code in compiled markdown */
+.docs-md :not(pre) > code {
+  @apply docs-bg-grey-lighter docs-px-1;
+}
+
 /* Applied to fenced code in compiled markdown */
 .docs-md__code {
-  @apply docs-bg-grey-lightest docs-my-8 docs-p-6 docs-overflow-x-scroll docs-text-xs;
+  @apply docs-my-8 docs-px-4 docs-py-3 docs-overflow-x-scroll docs-text-sm docs-rounded;
+
+  /* These values are copied from atom-one-dark theme, imported from highlight.js */
+  background: #282c34;
+  color: #abb2bf;
 }
 
 .docs-md__a {

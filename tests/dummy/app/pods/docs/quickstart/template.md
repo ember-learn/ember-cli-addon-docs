@@ -44,7 +44,7 @@ standard EmberRouter with the AddonDocsRouter:
 and make sure it contains the `DocsViewer` component and navigation items for
 all docs pages in your site.
 
-  {{#docs-snippet name='quickstart-skeleton.hbs' title='tests/dummy/app/templates/docs.hbs'}}
+  {{#docs-snippet name='quickstart-skeleton.hbs' language='htmlbars' title='tests/dummy/app/templates/docs.hbs'}}
     {{docs-header}}
 
     {{#docs-viewer as |viewer|}}
