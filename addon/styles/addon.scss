@@ -3,7 +3,7 @@ $site-container: 1400px;
 
 @import 'tailwind';
 @import 'pod-styles.scss';
-// @import 'syntax';
+@import 'syntax';
 
 // Figure out how to do this in tailwind
 .docs-fill-current {

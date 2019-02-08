@@ -81,6 +81,17 @@ module.exports = {
       throw new Error(`ember-cli-addon-docs only currently works with addons, not applications`);
     }
 
+    includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
+    includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
+    includer.options.snippetRegexes = Object.assign({}, {
+      begin: /{{#(?:docs-snippet|demo.example)\sname=(?:"|')(\S+)(?:"|')/,
+      end: /{{\/(?:docs-snippet|demo.example)}}/,
+    }, includer.options.snippetRegexes);
+    includer.options.includehighlightJS = false;
+    includer.options.includeHighlightStyle = false;
+    includer.options.snippetExtensions = ['js', 'css', 'hbs', 'md', 'text', 'json', 'handlebars', 'htmlbars', 'html', 'diff'];
+
+    // This must come after we add our own options above, or else other addons won't see them.
     this._super.included.apply(this, arguments);
 
     const hasPlugins = this.project.addons.some(function(addon) {
@@ -95,16 +106,6 @@ module.exports = {
 
     this.addonOptions = Object.assign({}, includer.options['ember-cli-addon-docs']);
     this.addonOptions.projects = Object.assign({}, this.addonOptions.projects);
-
-    includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
-    includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
-    includer.options.snippetRegexes = Object.assign({}, {
-      begin: /{{#(?:docs-snippet|demo.example)\sname=(?:"|')(\S+)(?:"|')/,
-      end: /{{\/(?:docs-snippet|demo.example)}}/,
-    }, includer.options.snippetRegexes);
-    includer.options.includeHighlightJS = false;
-    includer.options.includeHighlightStyle = false;
-    includer.options.snippetExtensions = ['js', 'css', 'hbs', 'md', 'text', 'json', 'handlebars', 'htmlbars', 'html', 'diff'];
 
     let importer = findImporter(this);
 
