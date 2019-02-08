@@ -1,4 +1,4 @@
-<div class="docs-rounded docs-border docs-my-8 {{class}}">
+<div class="docs-rounded docs-border docs-border-grey-lighter docs-my-8 {{class}}">
 
   {{yield (hash
     example=(component 'docs-demo/x-example')
@@ -24,7 +24,9 @@
 
     {{#each snippets as |snippet|}}
       {{#if snippet.isActive}}
-        <div class="docs-demo__snippet-wrapper {{if (lte snippets.length 1) 'docs-border-t docs-border-grey-lighter'}}">
+        <div class="
+          docs-demo__snippet-wrapper docs-bg-code-base docs-rounded-b
+        ">
           {{docs-snippet name=snippet.name unindent=true language=snippet.language}}
         </div>
       {{/if}}

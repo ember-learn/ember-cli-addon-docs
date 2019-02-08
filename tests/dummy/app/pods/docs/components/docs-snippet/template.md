@@ -4,27 +4,23 @@ Easily render a code snippet with syntax highlighting and a copy-to-clipboard bu
 
 ## Handlebars
 
-To render a Handlebars snippet from one of your templates, wrap it in `DocsSnippet` component:
+To render a Handlebars snippet from one of your templates, wrap it in a `DocsSnippet` component:
 
 {{docs/components/docs-snippet/demo1}}
-
-All the snippets on this page are actually located in their own component. The above snippet is rendered like so:
-
-{{#docs-snippet name="snippet-demo1.hbs"}}
-  {{docs/components/docs-snippet/demo1}}
-{{/docs-snippet}}
 
 All snippets must have a globally unique name.
 
 Note that the block-form of `DocsSnippet` won't actually execute your template code, it will just capture the static code and render the snippet. Think of it like Markdown code fences that you can use in your Handlebars templates.
 
-If you want the code to render and also show the snippet, check out the {{docs-link 'Docs Demo component' 'docs.components.docs-demo'}}.
+If you want the code to actually render and also show the snippet, check out the {{docs-link 'Docs Demo component' 'docs.components.docs-demo'}}.
 
 ## JavaScript and CSS
 
 You can also render snippets from other files in your app, like JavaScript and CSS files.
 
-To do this, first mark up the source you want to display using comments that start with BEGIN—SNIPPET and END—SNIPPET. BEGIN—SNIPPET should be followed by a name, which you can use to identify the snippet.
+To do this, first mark up the source you want to display using comments that start with `BEGIN—SNIPPET` and `END—SNIPPET`.
+
+`BEGIN—SNIPPET` should be followed by a name, which you can use to identify the snippet.
 
 {{docs/components/docs-snippet/demo2}}
 
@@ -34,7 +30,7 @@ Then in any of your templates, you can use the non-block form of `docs-snippet` 
 
 Be sure to include the file extension.
 
-Code snippets are provided by the `ember-code-snippet` addon and are made available to your app via the `dummy/snippets` importable ES6 module. If you ever want to debug which snippets are getting registered, you can open this module in your devtools (+O, dummy/snippet).
+Code snippets are provided by the [`ember-code-snippet`](https://github.com/ef4/ember-code-snippet) addon and are made available to your app via the `dummy/snippets` importable ES6 module. If you ever want to debug which snippets are getting registered, you can open this module in your devtools (+O, dummy/snippet).
 
 ## Customizing Snippets
 
