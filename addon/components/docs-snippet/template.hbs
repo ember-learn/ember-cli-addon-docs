@@ -1,18 +1,26 @@
 {{#if title}}
-  <div class='docs-bg-grey-lighter docs-text-xs docs-text-grey-darkest
-    docs-font-medium docs-py-2 docs-px-4'>
+  <div class='
+    docs-bg-black docs-text-grey-lighter docs-text-xs
+    docs-font-medium docs-py-2 docs-px-4 docs-rounded-t
+    docs-border-b docs-border-grey-darkest
+  '>
     {{title}}
   </div>
 {{/if}}
 
-<div class='docs-text-xs docs-p-4 docs-bg-grey-lightest docs-relative' data-test-id={{name}}>
+<div class='
+    docs-text-sm docs-px-2 docs-py-1 docs-bg-code-base docs-relative
+    {{if title "docs-rounded-b" "docs-rounded"}}
+  '
+  data-test-id={{name}}
+>
   {{#if showCopy}}
     {{#copy-button
       clipboardText=snippetText
       title='copy to clipboard'
       class='
         docs-absolute docs-pin-t docs-pin-r docs-bg-transparent hover:docs-bg-transparent
-        docs-border-none docs-opacity-50 hover:docs-opacity-100 docs-p-3
+        docs-border-none docs-opacity-50 hover:docs-opacity-100 docs-p-3 docs-text-white
       '
     }}
       Copy

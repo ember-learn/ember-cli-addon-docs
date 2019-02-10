@@ -1,87 +1,87 @@
+/*
+
+Original: Atom One Dark by Daniel Gamage
+Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+
+Modified for AddonDocs.
+*/
+
+$base:    #282c34;
+$mono-1:  #abb2bf;
+$mono-2:  #818896;
+$mono-3:  #5c6370;
+$hue-1:   #56b6c2;
+$hue-2:   #61aeee;
+$hue-3:   #c678dd;
+$hue-4:   #98c379;
+$hue-5:   #e06c75;
+$hue-5-2: #be5046;
+$hue-6:   #e06c75; // original #d19a66
+$hue-6-2: #e6c07b;
+
 .hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  color: #333;
-  background: inherit;
+  color: $mono-1;
+  background: $base;
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: #8795A1;
+  color: $mono-3;
   font-style: italic;
 }
 
+.hljs-doctag,
 .hljs-keyword,
-.hljs-selector-tag,
-.hljs-subst {
-  color: #333;
-  font-weight: bold;
+.hljs-formula {
+  color: $hue-3;
 }
 
-.hljs-number,
-.hljs-literal,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag .hljs-attr {
-  color: #008080;
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: $hue-5;
+}
+
+.hljs-literal {
+  color: $hue-1;
 }
 
 .hljs-string,
-.hljs-doctag {
-  color: #d14;
-}
-
-.hljs-title,
-.hljs-section,
-.hljs-selector-id {
-  color: #900;
-  font-weight: bold;
-}
-
-.hljs-subst {
-  font-weight: normal;
-}
-
-.hljs-type,
-.hljs-class .hljs-title {
-  color: #458;
-  font-weight: bold;
-}
-
-.hljs-tag,
-.hljs-name,
-.hljs-attribute {
-  color: #333;
-  font-weight: normal;
-}
-
 .hljs-regexp,
-.hljs-link {
-  color: #009926;
-}
-
-.hljs-symbol,
-.hljs-bullet {
-  color: #990073;
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+  color: $hue-4;
 }
 
 .hljs-built_in,
-.hljs-builtin-name {
-  color: #0086b3;
+.hljs-class .hljs-title {
+  color: $hue-6-2;
 }
 
-.hljs-meta {
-  color: #8795A1;
-  font-weight: bold;
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: $hue-6;
 }
 
-.hljs-deletion {
-  background: #fdd;
-}
-
-.hljs-addition {
-  background: #dfd;
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: $hue-2;
 }
 
 .hljs-emphasis {
@@ -92,30 +92,6 @@
   font-weight: bold;
 }
 
-
-/* My customizations*/
-.hljs-tag {
-  .hljs-name {
-    color: #22863a;
-  }
-  .hljs-attr {
-    color: #6f42c1;
-  }
-}
-.hljs-template-variable {
-  color: #005cc5;
-}
-.hljs-template-tag {
-  color: #005cc5;
-
-  .hljs-attr {
-    color: #e36209;
-  }
-}
-
-.hljs-string {
-  color: #032f62;
-}
-.hljs-name {
-  color: #005cc5;
+.hljs-link {
+  text-decoration: underline;
 }

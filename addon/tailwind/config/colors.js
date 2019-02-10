@@ -35,7 +35,9 @@ export default {
 
   'yellow': '#ffed4a',
 
-  // See the ntoe in tailwind/compnents/docs-brand-colors.css
+  'code-base': '#282c34',
+
+  // See the note in tailwind/compnents/docs-brand-colors.css
   'brand-var': 'var(--brand-primary, #E04E39)'
 
 };
