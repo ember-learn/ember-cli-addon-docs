@@ -3882,18 +3882,10 @@ ember-app-scheduler@^1.0.1:
   dependencies:
     ember-cli-babel "^6.3.0"
 
-ember-assign-polyfill@^2.5.0:
+ember-assign-polyfill@^2.5.0, ember-assign-polyfill@~2.4.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/ember-assign-polyfill/-/ember-assign-polyfill-2.5.0.tgz#0dc7079addbdbad7984ba3f35d970cf07a73f704"
   integrity sha512-oRGPg/jeo4SAIJX56PYUDcVcjcfkuZe6j9umkuSkjwuduMBQNtmyoC8qhcCBrn+qqrtAG6g3iSAdEu8DkUBIiQ==
-  dependencies:
-    ember-cli-babel "^6.6.0"
-    ember-cli-version-checker "^2.0.0"
-
-ember-assign-polyfill@~2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/ember-assign-polyfill/-/ember-assign-polyfill-2.4.0.tgz#acb00466f7d674b3e6b030acfe255b3b1f6472e1"
-  integrity sha512-0SnGQb9CenRqbZdIa1KFsEjT+1ijGWfAbCSaDbg5uVa5l6HPdppuTzOXK6sfEQMsd2nbrp27QWFy7W5VX6l4Ag==
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-cli-version-checker "^2.0.0"

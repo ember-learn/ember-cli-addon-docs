@@ -120,7 +120,8 @@
   },
   "resolutions": {
     "**/tough-cookie": "~2.4.0",
-    "ember-cli-clipboard": "^0.11.1"
+    "ember-cli-clipboard": "^0.11.1",
+    "ember-assign-polyfill": "^2.5.0"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
