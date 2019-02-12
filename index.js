@@ -9,6 +9,9 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 const buildTailwind = require('ember-cli-tailwind/lib/build-tailwind');
+// const foo = require('addon-docs-shared/foo');
+
+// foo();
 
 const LATEST_VERSION_NAME = '-latest';
 

@@ -30,3 +30,5 @@
 /bower.json.ember-try
 /package.json.ember-try
 /test-apps
+
+/addon-docs-shared/node_modules

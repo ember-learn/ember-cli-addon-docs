@@ -1,0 +1,9 @@
+{
+  "name": "addon-docs-shared",
+  "description": "Common code used at both build time and run time",
+  "version": "1.0.0",
+  "dependencies": {
+    "marked": "*",
+    "highlight.js": "*"
+  }
+}
