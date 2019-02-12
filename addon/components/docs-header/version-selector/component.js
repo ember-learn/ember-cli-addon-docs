@@ -35,11 +35,27 @@ export default Component.extend({
     let versions = A(this.get('projectVersion.versions'));
     let latest = versions.findBy('key', latestVersionName);
     let primary = versions.findBy('key', primaryBranch);
+    let otherTags = versions
+      .reject(v => [ latest, primary ].includes(v))
+      .sort((tagA, tagB) => {
+        let keyA = tagA.key;
+        let keyB = tagB.key;
+
+        if (keyA > keyB) {
+          return -1;
+        }
+        if (keyA < keyB) {
+          return 1;
+        }
+
+        // names must be equal
+        return 0;
+      });
 
     return [
       latest,
       primary,
-      ...A(versions.reject(v => [ latest, primary ].includes(v))).sortBy('key')
+      ...otherTags
     ].filter(Boolean);
   }),
 
