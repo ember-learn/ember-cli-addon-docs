@@ -7,6 +7,8 @@ const Router = AddonDocsRouter.extend({
 });
 
 Router.map(function() {
+  this.route('route-using-compile-markdown');
+
   docsRoute(this, function() {
 
   });
