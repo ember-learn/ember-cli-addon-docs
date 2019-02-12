@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "@glimmer/syntax": "^0.36.4",
-    "addon-docs-shared": "./addon-docs-shared",
     "broccoli-bridge": "^1.0.0",
     "broccoli-caching-writer": "^3.0.3",
     "broccoli-debug": "^0.6.4",
@@ -60,6 +59,7 @@
     "ember-svg-jar": "^1.2.2",
     "ember-tether": "^1.0.0-beta.2",
     "ember-truth-helpers": "^2.1.0",
+    "esm": "^3.2.4",
     "execa": "^1.0.0",
     "fs-extra": "^7.0.0",
     "git-repo-info": "^2.0.0",

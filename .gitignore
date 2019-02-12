@@ -22,5 +22,3 @@
 /.node_modules.ember-try/
 /bower.json.ember-try
 /package.json.ember-try
-
-/addon-docs-shared/node_modules

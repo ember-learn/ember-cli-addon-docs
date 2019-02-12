@@ -2,7 +2,7 @@
 
 const QUnit = require('qunit'), test = QUnit.test;
 const stripIndent = require('common-tags').stripIndent;
-const compileMarkdown = require('addon-docs-shared/compile-markdown');
+const compileMarkdown = require('../../../lib/utils/compile-markdown');
 
 QUnit.module('Unit | compile-markdown', function(hooks) {
   test('compacting curly paragraphs', function(assert) {

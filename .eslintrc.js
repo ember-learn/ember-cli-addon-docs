@@ -36,8 +36,7 @@ module.exports = {
         'config/**/*.js',
         'lib/**/*.js',
         'tests/dummy/config/**/*.js',
-        'tests-node/**/*.js',
-        'addon-docs-shared/**/*.js'
+        'tests-node/**/*.js'
       ],
       excludedFiles: [
         'addon/**',
