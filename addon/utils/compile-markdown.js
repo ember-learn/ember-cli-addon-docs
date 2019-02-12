@@ -25,6 +25,33 @@ function highlightCode(code, lang) {
   return hljs.getLanguage(lang) ? hljs.highlight(lang, code).value : code
 }
 
+/**
+  This is the function used by AddonDocs to compile Markdown into HTML, for
+  example when turning `template.md` files into `template.hbs`. It includes
+  some parsing options, as well as syntax highlighting for code blocks.
+
+  You can use it in your own code, so your Markdown-rendered content shares the
+  same styling & syntax highlighting as the content AddonDocs already handles.
+
+  For example, you can use it if your Ember App has Markdown data that is
+  fetched at runtime from an API:
+
+  ```js
+  import Component from '@ember/component';
+  import compileMarkdown from 'ember-cli-addon-docs/utils/compile-markdown';
+  import { htmlSafe } from '@ember/string';
+
+  export default Component.extend({
+    htmlBody: computed('post.body', function() {
+      return htmlSafe(compileMarkdown(this.post.body));
+    });
+  });
+  ```
+
+  @function
+  @param {string} source Markdown string representing the source content
+  @param {object} options? Options. Pass `targetHandlebars: true` if turning MD into HBS
+*/
 export default function compileMarkdown(source, config) {
   let tokens = marked.lexer(source);
   let markedOptions = {
