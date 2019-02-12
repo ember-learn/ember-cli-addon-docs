@@ -50,12 +50,24 @@ module('Acceptance | Version selector test', function(hooks) {
         "path": "master",
         "name": "master"
       },
+      "v0.2.x": {
+        "sha": "aca26720d930843dd084b508fce75b158ff0386e",
+        "tag": "v0.2.4",
+        "path": "versions/v0.2.x",
+        "name": "v0.2.x"
+      },
       "v0.1.0": {
         "sha": "d752437850bc9833ea3e354095b501473b0420ae",
         "tag": "v0.1.0",
         "path": "v0.1.0",
         "name": "v0.1.0"
-      }
+      },
+      "v0.3.0": {
+        "sha": "833a8aa00df5918b07d0574a28a0adc41d5ac2e6",
+        "tag": "v0.3.0",
+        "path": "v0.3.0",
+        "name": "v0.3.0"
+      },
     });
 
     await visit('/');
@@ -68,8 +80,14 @@ module('Acceptance | Version selector test', function(hooks) {
     assert.dom('[data-test-id="version"]:nth-child(2)').includesText('master', 'master is rendered secon');
     assert.dom('[data-test-id="version"]:nth-child(2)').includesText('53b73');
 
-    assert.dom('[data-test-id="version"]:nth-child(3)').includesText('v0.1.0', 'tags are rendered last');
-    assert.dom('[data-test-id="version"]:nth-child(3)').includesText('d7524');
+    assert.dom('[data-test-id="version"]:nth-child(3)').includesText('v0.3.0', 'tags are rendered last, in desc order');
+    assert.dom('[data-test-id="version"]:nth-child(3)').includesText('833a8');
+
+    assert.dom('[data-test-id="version"]:nth-child(4)').includesText('v0.2.x');
+    assert.dom('[data-test-id="version"]:nth-child(4)').includesText('aca26');
+
+    assert.dom('[data-test-id="version"]:nth-child(5)').includesText('v0.1.0');
+    assert.dom('[data-test-id="version"]:nth-child(5)').includesText('d7524');
   });
 
   test(`the version selector renders a tag for latest if present`, async function(assert) {
