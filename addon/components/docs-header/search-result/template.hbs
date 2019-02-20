@@ -8,10 +8,17 @@
   <div class="docs-flex docs-items-center">
     {{svg-jar icon height=28 width=28 class="docs-mr-2 docs-flex-no-shrink"}}
     <span class='docs-truncate'>
-      {{result.document.title}}
+      {{#if titleMatchesQuery}}
+        {{{highlightedTitle}}}
+      {{else}}
+        {{result.document.title}}
+      {{/if}}
     </span>
   </div>
-  <small class='docs-text-grey-dark docs-inline-block'>
-    {{{matches}}}
-  </small>
+
+  {{#if (not titleMatchesQuery)}}
+    <small class='docs-text-grey-dark docs-inline-block'>
+      {{{bestMatch}}}
+    </small>
+  {{/if}}
 {{/link-to}}
