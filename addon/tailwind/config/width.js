@@ -19,7 +19,7 @@
 */
 
 export default {
-  'site-container': '$site-container',
+  'site-container': '1400px',
 
   'auto': 'auto',
   'px': '1px',

@@ -1,5 +1,3 @@
-.hover\:docs-nudge-t {
-  &:hover {
-    transform: translateY(-1px);
-  }
+.hover\:docs-nudge-t:hover {
+  transform: translateY(-1px);
 }

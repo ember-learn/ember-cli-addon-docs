@@ -13,7 +13,7 @@
 |                                                                               |
 */
 export default {
-  'site-container': '$site-container',
+  'site-container': '1400px',
   'measure-byline': '12rem',
 
   'none': 'none',
