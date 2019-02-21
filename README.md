@@ -11,7 +11,7 @@ Easy documentation for Ember addons.
 
 Please open an issue and add a :+1: emoji reaction. We will use the number of reactions as votes to indicate community interest, which will in turn help us prioritize feature development.
 
-You can view the most-upvoted feature requests with [this link](https://github.com/ember-learn/ember-cli-addon-docs/issues?utf8=✓&q=is%3Aissue+is%3Aopen+label%3A%22Feature+%2F+Enhancement+%28votes+needed%29%22+sort%3Areactions-%2B1-desc).
+You can view the most-upvoted feature requests with [this link](https://github.com/ember-learn/ember-cli-addon-docs/issues?q=is%3Aopen+label%3A%22Feature+%2F+Enhancement%22+sort%3Areactions-%2B1-desc).
 
 ## Getting help
 
