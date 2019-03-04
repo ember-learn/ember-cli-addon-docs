@@ -228,4 +228,24 @@ QUnit.module('Unit | NavigationIndexGenerator', function(hooks) {
     ]);
   });
 
+  test('correctly handle _resolvedTypeForModule for module names containing type itself', function(assert) {
+    let testcases = [
+      [ 'ember-addon-helpers/unresolved-type', false ],
+      [ 'ember-addon-helpers/helpers', 'helpers' ],
+      [ 'ember-addon-components/helpers', 'helpers' ],
+      [ 'ember-addon-components/controllers', 'controllers' ],
+      [ 'ember-addon-services/controllers', 'controllers' ],
+      [ 'ember-addon-services/services', 'services' ],
+      [ 'ember-addon-services/helpers', 'helpers' ],
+      [ 'ember-addon-services', false ]
+    ];
+
+    testcases.forEach(([ testcase, expected ]) => {
+      let type = generator._resolvedTypeForModule({
+        file: testcase
+      });
+
+      assert.equal(type, expected);
+    })
+  });
 });
