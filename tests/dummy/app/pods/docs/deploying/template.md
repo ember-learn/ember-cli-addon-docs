@@ -65,7 +65,7 @@ The first step you'll need to take is to generate a _deploy key_. This is a spec
 To generate the public/private key pair on macOS or Linux, you'll use the [`ssh-keygen`](https://www.freebsd.org/cgi/man.cgi?query=ssh-keygen&sektion=1&manpath=OpenBSD+3.9) command line tool. On Windows, you can use [PuTTYGen](https://www.ssh.com/ssh/putty/windows/puttygen) instead.
 
 ```sh
-ssh-keygen -t rsa -b 4096 -N '' -f deploy_key
+ssh-keygen -t rsa -m PEM -b 4096 -N '' -f deploy_key
 ```
 
 This will produce two files in your current directory: `deploy_key` (the private key) and `deploy_key.pub` (the public key). **Do not commit these files to your repository.**
