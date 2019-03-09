@@ -27,7 +27,7 @@
   </h3>
 
   <p data-test-item-description>
-    {{{item.description}}}
+    {{api/x-description item}}
   </p>
 
   {{#if (or item.exportType shouldDisplayParams)}}
@@ -51,7 +51,7 @@
               <tr data-test-item-param>
                 <td><span class="docs-font-mono docs-font-bold docs-border-r docs-border-grey-light docs-pr-2">{{param.name}}</span></td>
                 <td><span class="docs-font-mono docs-border-r docs-border-grey-light docs-px-2">{{param.type}}</span></td>
-                <td class="docs-pl-2">{{param.description}}</td>
+                <td class="docs-pl-2">{{api/x-description param}}</td>
               </tr>
             {{/each}}
           </tbody>

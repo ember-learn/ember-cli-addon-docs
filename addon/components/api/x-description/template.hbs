@@ -1,0 +1,7 @@
+{{#if item}}
+  {{#if item.htmlbars}}
+    {{api/x-description layout=htmlbars}}
+  {{else}}
+    {{{item.description}}}
+  {{/if}}
+{{/if}}

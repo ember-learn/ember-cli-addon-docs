@@ -187,6 +187,8 @@ module.exports = {
 
   postprocessTree(type, tree) {
     let parentAddon = this.parent.findAddonByName(this.parent.name());
+    let parentHtmlbars = this.parent.findAddonByName('ember-cli-htmlbars');
+
     if (!parentAddon || type !== 'all') { return tree; }
 
     let PluginRegistry = require('./lib/models/plugin-registry');
@@ -195,6 +197,7 @@ module.exports = {
 
     let project = this.project;
     let docsTrees = [];
+    let parentHtmlbarsOptions = parentHtmlbars.htmlbarsOptions();
 
     this.addonOptions.projects.main = this.addonOptions.projects.main || generateDefaultProject(parentAddon);
 
@@ -212,7 +215,8 @@ module.exports = {
       docsTrees.push(
         new DocsCompiler(docsGenerators, {
           name: projectName === 'main' ? parentAddon.name : projectName,
-          project
+          project,
+          templateCompiler: parentHtmlbarsOptions.templateCompiler
         })
       );
     }
