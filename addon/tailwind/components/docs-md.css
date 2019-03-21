@@ -20,7 +20,7 @@
 .docs-h3,
 .docs-md__h3 a,
 .docs-h3 a {
-  @apply docs-pt-4 docs-mb-1 docs-text-grey-darkest docs-leading-tight docs-no-underline;
+  @apply docs-pt-4 docs-mb-1 docs-text-grey-darkest docs-leading-normal docs-no-underline;
 }
 
 .docs-md p {
