@@ -146,11 +146,7 @@ windows.
 `tests/dummy/public` folder. We recommend using using
  [Ember CLI Favicon](https://github.com/davewasmer/ember-cli-favicon).
 
-3. **Better scrolling.** You may want to install
-[Ember Router Scroll](https://github.com/dollarshaveclub/ember-router-scroll)
-to enable "scroll to top with preserved browser history scroll position".
-
-4. **Optionally customize your brand.** The primary brand color is <span class='docs-text-brand'>`#E04E39`</span>. You can change this value by setting the `--brand-primary` CSS custom property in your dummy app's `app.css` file.
+3. **Optionally customize your brand.** The primary brand color is <span class='docs-text-brand'>`#E04E39`</span>. You can change this value by setting the `--brand-primary` CSS custom property in your dummy app's `app.css` file.
 
   For example, to set your brand color as `#3490DC`
 
