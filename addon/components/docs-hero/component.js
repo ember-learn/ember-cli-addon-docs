@@ -44,5 +44,13 @@ export default Component.extend({
     @argument byline
     @type String
   */
-  byline: projectDescription
+  byline: projectDescription,
+
+  /**
+    Class to add to the wrapper element
+
+    @argument class
+    @type String
+  */
+  class: null
 });
