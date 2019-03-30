@@ -2,8 +2,8 @@
 const path = require('path');
 const fs = require('fs');
 const chalk = require('chalk');
-const stringUtil = require('ember-cli-string-utils');
 const EmberRouterGenerator = require('ember-router-generator');
+const stringUtil = require('ember-cli-string-utils');
 
 const DUMMY_APP_PATH = path.join('tests', 'dummy', 'app');
 
@@ -47,7 +47,10 @@ module.exports = {
   },
 
   afterInstall: function(options) {
+    // eslint-disable-next-line no-debugger
+    debugger;
     updateRouter.call(this, 'add', options);
+    updateDocsTemplate.call(this, options);
   },
 
   afterUninstall: function(options) {
@@ -87,4 +90,36 @@ function writeRoute(action, name, options) {
   let newRoutes = routes[action](name, options);
 
   fs.writeFileSync(routerPath, newRoutes.code());
+}
+
+function updateDocsTemplate(options) {
+  // add pods support
+
+  let routeName = options.entity.name;
+  let docsTemplatePath = path.join(DUMMY_APP_PATH, 'templates', 'docs.hbs');
+
+  if (fs.existsSync(docsTemplatePath)) {
+    let templateLines = fs
+      .readFileSync(docsTemplatePath, 'utf-8')
+      .toString()
+      .split('\n');
+
+    let closingViewerNavTag = templateLines.find(line =>
+      line.includes('{{/viewer.nav}}')
+    );
+
+    templateLines.splice(
+      templateLines.indexOf(closingViewerNavTag),
+      0,
+      `${''.padStart(
+        closingViewerNavTag.search(/\S/) * 2,
+        ' '
+      )}{{nav.item "${routeName}" "docs.${dedasherize(routeName)}"}}`
+    );
+
+    fs.writeFileSync(docsTemplatePath, templateLines.join('\n'));
+
+    this.ui.writeLine('updating docs.hbs');
+    this._writeStatusToUI(chalk.green, 'add nav item', 'docs.hbs');
+  }
 }
