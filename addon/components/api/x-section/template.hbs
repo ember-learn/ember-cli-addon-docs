@@ -16,10 +16,6 @@
         <strong>{{item.name}}</strong>
       {{/link-to}}
     {{else}}
-      {{#if (eq item.exportType 'default')}}
-        <span class="item-section__default-label">Default</span>
-      {{/if}}
-
       <a href="#{{item.name}}" class="heading-anchor">
         {{type-signature item}}
       </a>
