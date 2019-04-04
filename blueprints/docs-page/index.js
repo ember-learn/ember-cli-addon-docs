@@ -97,8 +97,6 @@ function writeRoute(action, name, options) {
 }
 
 function updateDocsTemplate(options) {
-  // add pods support
-
   let routeName = options.entity.name;
   let docsTemplatePath = options.pods
     ? path.join(DUMMY_APP_PATH, 'pods', 'docs', 'template.hbs')
