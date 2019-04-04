@@ -118,7 +118,7 @@ function updateDocsTemplate(options) {
       `${''.padStart(
         closingViewerNavTag.search(/\S/) * 2,
         ' '
-      )}{{nav.item "${routeName}" "docs.${dedasherize(routeName)}"}}`
+      )}{{nav.item "${dedasherize(routeName)}" "docs.${routeName}"}}`
     );
 
     fs.writeFileSync(docsTemplatePath, templateLines.join('\n'));
