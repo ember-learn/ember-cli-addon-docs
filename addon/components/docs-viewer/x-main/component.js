@@ -9,8 +9,6 @@ import { getOwner } from '@ember/application';
 
 import layout from './template';
 
-const { projectHref, primaryBranch } = config['ember-cli-addon-docs'];
-
 const tagToSize = { H2: 'xxs', H3: 'xxs' };
 const tagToIndent = { H2: '0', H3: '4' };
 const tagToMarginTop = { H2: '2', H3: '2' };
@@ -74,19 +72,23 @@ export default Component.extend({
 
     path = path.replace(/\./g, '/');
 
+    let { projectHref, projectPathInRepo, primaryBranch } = config['ember-cli-addon-docs'];
+    let projectPath = projectPathInRepo ? `/${projectPathInRepo}/` : '/';
+    let rootEditUrl = `${projectHref}/edit/${primaryBranch}${projectPath}`;
+
     if (path === 'docs/api/item') {
       let { path } = getOwner(this).lookup('route:application').paramsFor('docs.api.item');
       let file = addonFiles.find(f => f.match(path));
 
       if (file) {
-        return `${projectHref}/edit/${primaryBranch}/addon/${file}`;
+        return `${rootEditUrl}addon/${file}`;
       }
     } else {
       let file = appFiles
         .filter(file => file.match(/\.(hbs|md)$/))
         .find(file => file.match(path));
 
-      return `${projectHref}/edit/${primaryBranch}/tests/dummy/app/${file}`;
+      return `${rootEditUrl}tests/dummy/app/${file}`;
     }
   })
 

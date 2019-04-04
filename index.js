@@ -21,7 +21,7 @@ module.exports = {
     svgJar: {
       sourceDirs: [
         'public',
-        'node_modules/ember-cli-addon-docs/public',
+        `${__dirname}/public`,
         'tests/dummy/public'
       ],
       optimizer : {
@@ -47,6 +47,7 @@ module.exports = {
         projectDescription: this.parent.pkg.description,
         projectTag: this.parent.pkg.version,
         projectHref: info && info.browse(),
+        projectPathInRepo: path.relative(this._getRepoRoot(), this.project.root),
         primaryBranch: userConfig.getPrimaryBranch(),
         latestVersionName: LATEST_VERSION_NAME,
         deployVersion: 'ADDON_DOCS_DEPLOY_VERSION',
@@ -155,7 +156,7 @@ module.exports = {
   },
 
   treeForAddon(tree) {
-    let dummyAppFiles = new FindDummyAppFiles([ 'tests/dummy/app' ]);
+    let dummyAppFiles = new FindDummyAppFiles([ this.app.trees.app ]);
     let addonFiles = new FindAddonFiles([ 'addon' ].filter(dir => fs.existsSync(dir)));
 
     return this._super(new MergeTrees([ tree, dummyAppFiles, addonFiles ]));
@@ -246,6 +247,13 @@ module.exports = {
     }
 
     return this._userConfig;
+  },
+
+  _getRepoRoot() {
+    if (!this._repoRoot) {
+      this._repoRoot = require('git-repo-info')().root;
+    }
+    return this._repoRoot;
   }
 };
 

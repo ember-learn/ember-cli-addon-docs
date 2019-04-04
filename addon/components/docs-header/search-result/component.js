@@ -86,7 +86,7 @@ export default Component.extend({
   }),
 
   highlightedTitle: computed('result.document.title', 'query', function() {
-    let title = this.result.document.title;
+    let title = this.result.document.title || '';
     let match = title.match(new RegExp(this.query, 'i'));
 
     if (match) {
