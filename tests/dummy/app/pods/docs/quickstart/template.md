@@ -65,13 +65,34 @@ all docs pages in your site.
 documentation for your addon and live in the folder
 `tests/dummy/app/templates/docs`. Since Addon Docs supports Markdown out
 of the box we will create two `.md` files (one for your docs `index` and one
-for the `usage` page).
+for the `usage` page). Addon Docs includes a `docs-page` **blueprint** to make
+adding docs routes easier. The blueprint will generate:
+
+  - the **markdown file** in the `tests/dummy/app/templates/docs` directory
+  - the **nav item entry** in `tests/dummy/app/templates/docs.md` _if it exists_
+  - the **`route` entry** in `tests/dummy/app/router.js` _for non-`index` routes_
+
+  Generate an `index` route using the following:
+
+  ```bash
+  ember generate docs-page index
+  ```
+
+  This will generate the following markdown file.
 
   {{#docs-snippet name='quickstart-markdown-index.md' title='tests/dummy/app/templates/docs/index.md' language='markdown'}}
     # Introduction
 
     This is my new addon, and it rocks!
   {{/docs-snippet}}
+
+  Generate a `usage` route using the same blueprint as above.
+
+  ```bash
+  ember generate docs-page usage
+  ```
+
+  This will generate and modify the files for your `usage` docs page.
 
   {{#docs-snippet name='quickstart-markdown-subpage.md' title='tests/dummy/app/templates/docs/usage.md' language='markdown'}}
     # Usage

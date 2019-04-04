@@ -66,6 +66,10 @@ function updateRouter(action, options) {
   };
   let color = actionColorMap[action] || 'gray';
 
+  if (entity.name === 'index') {
+    return;
+  }
+
   writeRoute(action, entity.name, options);
 
   this.ui.writeLine('updating router');
@@ -96,7 +100,9 @@ function updateDocsTemplate(options) {
   // add pods support
 
   let routeName = options.entity.name;
-  let docsTemplatePath = path.join(DUMMY_APP_PATH, 'templates', 'docs.hbs');
+  let docsTemplatePath = options.pods
+    ? path.join(DUMMY_APP_PATH, 'pods', 'docs', 'template.hbs')
+    : path.join(DUMMY_APP_PATH, 'templates', 'docs.hbs');
 
   if (fs.existsSync(docsTemplatePath)) {
     let templateLines = fs
