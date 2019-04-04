@@ -1,1 +1,3 @@
 # <%= templateName %>
+
+<%= templateName => content

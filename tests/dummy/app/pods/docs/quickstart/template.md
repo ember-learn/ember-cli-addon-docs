@@ -81,9 +81,9 @@ adding docs routes easier. The blueprint will generate:
   This will generate the following markdown file.
 
   {{#docs-snippet name='quickstart-markdown-index.md' title='tests/dummy/app/templates/docs/index.md' language='markdown'}}
-    # Introduction
+    # Index
 
-    This is my new addon, and it rocks!
+    Index content
   {{/docs-snippet}}
 
   Generate a `usage` route using the same blueprint as above.
@@ -97,7 +97,7 @@ adding docs routes easier. The blueprint will generate:
   {{#docs-snippet name='quickstart-markdown-subpage.md' title='tests/dummy/app/templates/docs/usage.md' language='markdown'}}
     # Usage
 
-    So easy to use, sweet!
+    Usage content
   {{/docs-snippet}}
 
 6. **Create your marketing homepage**. Addon Docs comes with a set of
