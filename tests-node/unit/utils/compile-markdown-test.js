@@ -1,11 +1,11 @@
 'use strict';
 
-const QUnit = require('qunit'), test = QUnit.test;
+const assert = require('chai').assert;
 const stripIndent = require('common-tags').stripIndent;
 const compileMarkdown = require('../../../lib/utils/compile-markdown');
 
-QUnit.module('Unit | compile-markdown', function(hooks) {
-  test('compacting curly paragraphs', function(assert) {
+describe('Unit | compile-markdown', function(hooks) {
+  it('compacting curly paragraphs', function() {
     let input = stripIndent`
       {{#foo-bar}}
 
@@ -20,7 +20,7 @@ QUnit.module('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  test('compacting angle bracket paragraphs', function(assert) {
+  it('compacting angle bracket paragraphs', function() {
     let input = stripIndent`
       <FooBar>
 
@@ -38,7 +38,7 @@ QUnit.module('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  test('compacting implicit code blocks', function(assert) {
+  it('compacting implicit code blocks', function() {
     // Surrounding whitespace + 4-space indent = code block in MD
     let input = stripIndent`
       {{#foo-bar}}
@@ -56,7 +56,7 @@ QUnit.module('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  test('classic components remain unescaped', function(assert) {
+  it('classic components remain unescaped', function() {
     let input = stripIndent`
       {{#foo-bar prop="value" otherProp='value'}}
 
@@ -71,7 +71,7 @@ QUnit.module('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  test('angle bracket contextual components remain unescaped', function(assert) {
+  it('angle bracket contextual components remain unescaped', function() {
     let input = stripIndent`
       <foo.bar @prop={{value}}></foo.bar>
     `;
@@ -84,7 +84,7 @@ QUnit.module('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  test('using opening curlies inside backticks shouldn\'t compact paragraphs', function(assert) {
+  it('using opening curlies inside backticks shouldn\'t compact paragraphs', function() {
     let input = stripIndent`
       Foo bar is \`{{#my-component}}\`.
 
@@ -100,7 +100,7 @@ QUnit.module('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  test('using opening angle brackets inside backticks shouldn\'t compact paragraphs', function(assert) {
+  it('using opening angle brackets inside backticks shouldn\'t compact paragraphs', function() {
     let input = stripIndent`
       Foo bar is \`<My component>\`.
 

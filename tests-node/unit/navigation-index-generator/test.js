@@ -1,13 +1,13 @@
 'use strict';
 
-const QUnit = require('qunit'), test = QUnit.test;
+const assert = require('chai').assert;
 const NavigationIndexGenerator = require('../../../lib/broccoli/docs-compiler/navigation-index-generator');
 
 let generator = new NavigationIndexGenerator();
 
-QUnit.module('Unit | NavigationIndexGenerator', function(hooks) {
+describe('Unit | NavigationIndexGenerator', function(hooks) {
 
-  test('the correct navigation is generated for a component', function(assert) {
+  it('the correct navigation is generated for a component', function() {
     let modulesWithComponent = require('./examples/one-component.json');
     let navigationIndex = generator.generate(modulesWithComponent);
 
@@ -25,7 +25,7 @@ QUnit.module('Unit | NavigationIndexGenerator', function(hooks) {
     ]);
   });
 
-  test('it sorts modules by path', function(assert) {
+  it('it sorts modules by path', function() {
     let modulesWithComponent = require('./examples/multiple-components.json');
     let navigationIndex = generator.generate(modulesWithComponent);
 
@@ -48,7 +48,7 @@ QUnit.module('Unit | NavigationIndexGenerator', function(hooks) {
     ]);
   });
 
-  test('the correct navigation is generated for a generic module with multiple classes', function(assert) {
+  it('the correct navigation is generated for a generic module with multiple classes', function() {
     let modulesWithComponent = require('./examples/generic-module-multiple-classes.json');
     let navigationIndex = generator.generate(modulesWithComponent);
 
@@ -66,7 +66,7 @@ QUnit.module('Unit | NavigationIndexGenerator', function(hooks) {
     ]);
   });
 
-  test('it correctly handles modules with a single type', function(assert) {
+  it('it correctly handles modules with a single type', function() {
     let modulesWithComponent = require('./examples/generic-module-one-class.json');
     let navigationIndex = generator.generate(modulesWithComponent);
 
@@ -84,7 +84,7 @@ QUnit.module('Unit | NavigationIndexGenerator', function(hooks) {
     ]);
   });
 
-  test('sanity check: it handles addon-docs', function(assert) {
+  it('sanity check: it handles addon-docs', function() {
     let modules = require('./examples/addon-docs.json');
     let navigationIndex = generator.generate(modules);
 
@@ -157,7 +157,7 @@ QUnit.module('Unit | NavigationIndexGenerator', function(hooks) {
     ]);
   });
 
-  test('sanity check: it handles sandbox', function(assert) {
+  it('sanity check: it handles sandbox', function() {
     let modules = require('./examples/sandbox.json');
     let navigationIndex = generator.generate(modules);
 
@@ -228,7 +228,7 @@ QUnit.module('Unit | NavigationIndexGenerator', function(hooks) {
     ]);
   });
 
-  test('correctly handle _resolvedTypeForModule for module names containing type itself', function(assert) {
+  it('correctly handle _resolvedTypeForModule for module names containing type itself', function() {
     let testcases = [
       [ 'ember-addon-helpers/unresolved-type', false ],
       [ 'ember-addon-helpers/helpers', 'helpers' ],

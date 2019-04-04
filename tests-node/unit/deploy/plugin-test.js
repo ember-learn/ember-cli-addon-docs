@@ -1,17 +1,14 @@
 'use strict';
 
-const QUnit = require('qunit');
+const assert = require('chai').assert;
 const AddonDocsDeployPlugin = require('../../../lib/deploy/plugin');
 
-const qModule = QUnit.module;
-const test = QUnit.test;
-
-qModule('`deploy` | plugin test', hooks => {
-  hooks.beforeEach(function() {
+describe('`deploy` | plugin test', function() {
+  beforeEach(function() {
     this.pluginInstance = new AddonDocsDeployPlugin();
   });
 
-  test('_macroReplaceIndexContent', function(assert) {
+  it('_macroReplaceIndexContent', function() {
     const contents = `
       <!DOCTYPE html>
       <html>
