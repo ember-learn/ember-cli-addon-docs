@@ -122,7 +122,6 @@
     "eslint-plugin-node": "^7.0.1",
     "loader.js": "^4.7.0",
     "mocha": "^6.0.2",
-    "qunit": "^2.6.2",
     "qunit-dom": "^0.8.4"
   },
   "resolutions": {

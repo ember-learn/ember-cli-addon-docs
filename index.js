@@ -91,9 +91,6 @@ module.exports = {
     includer.options.includehighlightJS = false;
     includer.options.includeHighlightStyle = false;
     includer.options.snippetExtensions = ['js', 'css', 'scss', 'hbs', 'md', 'text', 'json', 'handlebars', 'htmlbars', 'html', 'diff'];
-    includer.options.autoImport = {
-      exclude: [ 'qunit' ]
-    };
 
     // This must come after we add our own options above, or else other addons won't see them.
     this._super.included.apply(this, arguments);
