@@ -69,10 +69,16 @@ module.exports = {
 
     // node test files
     {
+      globals: {
+        describe: true,
+        it: true,
+        beforeEach: true,
+        afterEach: true,
+      },
       files: ['tests-node/**/*.js'],
       rules: {
         'node/no-unpublished-require': 'off'
-      }
+      },
     }
   ]
 };

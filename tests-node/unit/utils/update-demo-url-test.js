@@ -1,19 +1,16 @@
 'use strict';
 
-const QUnit = require('qunit');
+const assert = require('chai').assert;
 const fs = require('fs-extra');
 const path = require('path');
 const updateDemoUrl = require('../../../lib/utils/update-demo-url');
 
-const qModule = QUnit.module;
-const test = QUnit.test;
-
-qModule('`updateDemoUrl` | fixture test', hooks => {
+describe('`updateDemoUrl` | fixture test', function() {
   const fixturesPath = path.join(__dirname, '../..', 'fixtures', 'update-demo-url');
 
   let inputCopyPath, outputPath, setupFixtureDirectory;
 
-  hooks.beforeEach(() => {
+  beforeEach(function() {
     setupFixtureDirectory = (dir) => {
       inputCopyPath = path.join(fixturesPath, dir, 'input--temp.json');
       outputPath = path.join(fixturesPath, dir, 'output.json');
@@ -21,14 +18,14 @@ qModule('`updateDemoUrl` | fixture test', hooks => {
     }
   });
 
-  hooks.afterEach(() => {
+  afterEach(function() {
     if (inputCopyPath) {
       fs.unlinkSync(inputCopyPath);
       inputCopyPath = '';
     }
   });
 
-  test('it leaves the `homepage` property if it already exists', assert => {
+  it('it leaves the `homepage` property if it already exists', function() {
     setupFixtureDirectory('has-existing-homepage');
 
     const result = updateDemoUrl(inputCopyPath);
@@ -40,7 +37,7 @@ qModule('`updateDemoUrl` | fixture test', hooks => {
     );
   });
 
-  test('it adds the `homepage` property based on git remote repository', assert => {
+  it('it adds the `homepage` property based on git remote repository', function() {
     const dir = 'has-git-repository';
     setupFixtureDirectory(dir);
 
@@ -55,7 +52,7 @@ qModule('`updateDemoUrl` | fixture test', hooks => {
     );
   });
 
-  test('it adds the `homepage` property based on package repository value', assert => {
+  it('it adds the `homepage` property based on package repository value', function() {
     setupFixtureDirectory('has-package-repository');
 
     const result = updateDemoUrl(inputCopyPath);
@@ -67,7 +64,7 @@ qModule('`updateDemoUrl` | fixture test', hooks => {
     );
   });
 
-  test('it adds the `homepage` property based on package repository url property', assert => {
+  it('it adds the `homepage` property based on package repository url property', function() {
     setupFixtureDirectory('has-git-repository-object');
 
     const result = updateDemoUrl(inputCopyPath);
@@ -79,7 +76,7 @@ qModule('`updateDemoUrl` | fixture test', hooks => {
     );
   });
 
-  test('it returns false when there is no repository to update', assert => {
+  it('it returns false when there is no repository to update', function() {
     const dir = 'missing-repository';
     setupFixtureDirectory(dir);
 
@@ -89,7 +86,7 @@ qModule('`updateDemoUrl` | fixture test', hooks => {
     assert.notOk(result);
   });
 
-  test('it returns false when the repository is not a git repo', assert => {
+  it('it returns false when the repository is not a git repo', function() {
     const dir = 'non-git-repository';
     setupFixtureDirectory(dir);
 

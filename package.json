@@ -20,7 +20,7 @@
     "start": "ember serve",
     "test": "ember try:each",
     "test:browser": "ember test --test-port=0",
-    "test:node": "qunit tests-node",
+    "test:node": "mocha tests-node/**/*-test.js",
     "test:test-apps": "cd test-apps/new-addon && yarn test",
     "prepare": "./scripts/link-them.sh"
   },
@@ -90,6 +90,7 @@
     "@ember/optional-features": "^0.7.0",
     "babel-eslint": "^10.0.1",
     "broccoli-asset-rev": "^3.0.0",
+    "chai": "^4.2.0",
     "common-tags": "^1.8.0",
     "ember-classy-page-object": "^0.5.0",
     "ember-cli": "~3.4.3",
@@ -120,6 +121,7 @@
     "eslint-plugin-ember": "^5.2.0",
     "eslint-plugin-node": "^7.0.1",
     "loader.js": "^4.7.0",
+    "mocha": "^6.0.2",
     "qunit": "^2.6.2",
     "qunit-dom": "^0.8.4"
   },
