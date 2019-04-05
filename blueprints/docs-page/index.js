@@ -47,8 +47,6 @@ module.exports = {
   },
 
   afterInstall: function(options) {
-    // eslint-disable-next-line no-debugger
-    debugger;
     updateRouter.call(this, 'add', options);
     updateDocsTemplate.call(this, options);
   },
@@ -98,7 +96,7 @@ function writeRoute(action, name, options) {
 
 function updateDocsTemplate(options) {
   let routeName = options.entity.name;
-  let docsTemplatePath = options.pods
+  let docsTemplatePath = options.pod
     ? path.join(DUMMY_APP_PATH, 'pods', 'docs', 'template.hbs')
     : path.join(DUMMY_APP_PATH, 'templates', 'docs.hbs');
 
