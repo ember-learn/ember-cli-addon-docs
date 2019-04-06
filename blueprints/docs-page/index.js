@@ -2,6 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 const chalk = require('chalk');
+const padStart = require('pad-start');
 const EmberRouterGenerator = require('ember-router-generator');
 const stringUtil = require('ember-cli-string-utils');
 
@@ -113,7 +114,8 @@ function updateDocsTemplate(options) {
     templateLines.splice(
       templateLines.indexOf(closingViewerNavTag),
       0,
-      `${''.padStart(
+      `${padStart(
+        '',
         closingViewerNavTag.search(/\S/) * 2,
         ' '
       )}{{nav.item "${dedasherize(routeName)}" "docs.${routeName}"}}`
