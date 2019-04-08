@@ -4238,7 +4238,7 @@ define("ember-cli-addon-docs/transitions/fade-and-drop",["exports","liquid-fire"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{duration:100}
 this.newElement&&this.newElement.css("margin-top","-10px")
 return(0,t.animate)(this.newElement,{opacity:1,"margin-top":"0px"},e)}}),define("ember-cli-addon-docs/utils/compile-markdown",["exports","marked","highlight.js/lib/highlight","highlight.js/lib/languages/javascript","highlight.js/lib/languages/css","highlight.js/lib/languages/handlebars","highlight.js/lib/languages/htmlbars","highlight.js/lib/languages/json","highlight.js/lib/languages/xml","highlight.js/lib/languages/diff","highlight.js/lib/languages/shell","highlight.js/lib/languages/typescript"],function(e,t,r,n,i,o,s,a,l,u,c,d){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e,r){var n=t.default.lexer(e),i={highlight:f,renderer:new y(r)}
+Object.defineProperty(e,"__esModule",{value:!0}),e.highlightCode=f,e.default=function(e,r){var n=t.default.lexer(e),i={highlight:f,renderer:new y(r)}
 r&&r.targetHandlebars&&(n=function(e){var t=[]
 t.links=e.links
 var r=0,n=!0,i=!1,o=void 0
