@@ -27,7 +27,43 @@ hljs.registerLanguage('sh', shell);
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('ts', typescript);
 
-function highlightCode(code, lang) {
+/**
+  This function is used when `compileMarkdown` encounters code blocks while
+  rendering Markdown source.
+
+  You can use this function on its own if you have code snippets you want
+  to highlight at run-time, for example snippets that change based on some
+  user interaction.
+
+  ```js
+  import Component from '@ember/component';
+  import dedent from 'dedent';
+  import { highlightCode } from 'ember-cli-addon-docs/utils/compile-markdown';
+
+  export default Component.extend({
+    snippet: dedent`
+      let { foo } = bar;
+    `,
+
+    highlightedSnippet: computed(function() {
+      return highlightCode(this.snippet, 'js');
+    })
+  });
+  ```
+
+  ```hbs
+  <div class='docs-bg-code-base text-grey overflow-x-scroll'>
+    <div class="p-4 w-full">
+      <pre>{{{highlightedSnippet}}}</pre>
+    </div>
+  </div>
+  ```
+
+  @function highlightCode
+  @param {string} snippet Snippet of code
+  @param {string} lang Language to use for syntax highlighting
+*/
+export function highlightCode(code, lang) {
   return hljs.getLanguage(lang) ? hljs.highlight(lang, code).value : code
 }
 
@@ -54,7 +90,8 @@ function highlightCode(code, lang) {
   });
   ```
 
-  @function
+  @function compileMarkdown
+  @export default
   @param {string} source Markdown string representing the source content
   @param {object} options? Options. Pass `targetHandlebars: true` if turning MD into HBS
 */
