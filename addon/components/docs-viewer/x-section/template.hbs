@@ -1,5 +1,11 @@
-<li class='docs-mt-8
-  {{if (eq style 'large') 'docs--mb-4 docs-text-xs docs-uppercase' 'docs-capitalize'}}
+<li class='
+  {{if (eq style 'regular') 'docs-mt-8 docs-capitalize'}}
+  {{if (eq style 'large') 'docs-mt-8 docs--mb-4 docs-text-xs docs-uppercase'}}
+  {{if (eq style 'subsection') 'docs-mt-2 docs-text-sm'}}
 '>
-  {{label}}
+  {{#if hasBlock}}
+    {{yield}}
+  {{else}}
+    {{label}}
+  {{/if}}
 </li>
