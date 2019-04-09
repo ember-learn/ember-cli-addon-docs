@@ -5,6 +5,7 @@ import { on } from '@ember/object/evented';
 import { task } from 'ember-concurrency';
 import config from 'dummy/config/environment';
 import { inject as service } from '@ember/service';
+import { formElementHasFocus } from 'ember-cli-addon-docs/keyboard-config';
 
 const projectName = config['ember-cli-addon-docs'].projectName;
 
@@ -33,7 +34,9 @@ export default Component.extend(EKMixin, {
   }),
 
   focusSearch: on(keyUp('Slash'), function() {
-    this.element.querySelector('input').focus();
+    if (!formElementHasFocus()) {
+      this.element.querySelector('input').focus();
+    }
   }),
 
   unfocusSearch: on(keyUp('Escape'), function() {
