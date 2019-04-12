@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "ember-cli-addon-docs": "*",
+    "ember-cli-addon-docs-yuidoc": "*",
     "broccoli-asset-rev": "*",
     "ember-cli": "*",
     "ember-cli-dependency-checker": "*",

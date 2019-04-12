@@ -27,4 +27,10 @@ module('Acceptance | sanity checks test', function(hooks) {
       backgroundColor: 'rgb(40, 44, 52)'
     });
   });
+
+  test('the docs route & viewer render', async function(assert) {
+    await visit('/docs');
+
+    assert.dom().includesText('Overview');
+  });
 });
