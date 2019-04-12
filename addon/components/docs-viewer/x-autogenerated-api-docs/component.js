@@ -58,30 +58,33 @@ export default Component.extend({
     ```
   */
   moduleIndex: computed(function() {
-    let modules = this.get('sections').filter(section => section.type === 'modules')[0].items;
+    let modulesSection = this.get('sections').filter(section => section.type === 'modules')[0];
+    
+    if (modulesSection) {
+      let modules = modulesSection.items;
 
-    /*
+      /*
       Intermediate data structure:
 
       ```
       {
-       '@ember-cli-addon-docs': {
-         'keyboard-config': {},
-         'router': {},
-         'utils': {
-           'compile-markdown': {}
-         }
-       }
+        '@ember-cli-addon-docs': {
+          'keyboard-config': {},
+          'router': {},
+          'utils': {
+            'compile-markdown': {}
+          }
+        }
       };
       ```
-    */
-    let index = {};
-    modules.forEach(module => {
-      let parts = module.id.split('/');
-      _set(index, parts, {});
-    });
+      */
+      let index = {};
+      modules.forEach(module => {
+        let parts = module.id.split('/');
+        _set(index, parts, {});
+      });
 
-    let transform = (obj, id) => Object.keys(obj)
+      let transform = (obj, id) => Object.keys(obj)
       .map(key => {
         let node = {
           name: key
@@ -96,7 +99,8 @@ export default Component.extend({
         return node;
       });
 
-    return transform(index)[0];
+      return transform(index)[0];
+    }
   })
 
 });
