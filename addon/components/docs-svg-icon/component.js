@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import layout from './template';
 
 /**
-  The standard icon class used in addon docs
+  The standard icon class used in AddonDocs
 
   @class DocsSvgIcon
   @public

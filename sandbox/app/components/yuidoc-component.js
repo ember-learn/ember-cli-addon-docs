@@ -20,7 +20,7 @@ let YUIDocComponent = Component.extend({
     @argument count
     @type number
   */
- count: 0,
+  count: 0,
 
   /**
     An action that sends on events
