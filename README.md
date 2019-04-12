@@ -1,4 +1,4 @@
-# Ember CLI Addon Docs
+# Ember CLI AddonDocs
 
 [![npm version](https://img.shields.io/npm/v/ember-cli-addon-docs.svg?style=flat-square)](http://badge.fury.io/js/ember-cli-addon-docs)
 [![Build Status](https://img.shields.io/travis/ember-learn/ember-cli-addon-docs.svg?style=flat-square)](https://travis-ci.org/ember-learn/ember-cli-addon-docs)

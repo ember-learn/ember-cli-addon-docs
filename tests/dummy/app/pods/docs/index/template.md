@@ -1,10 +1,10 @@
-# What is Addon Docs?
+# What is AddonDocs?
 
 Welcome addon author!
 
 This project was created to help you document and showcase your addon using the accumulated knowledge of the addon community. After surveying several popular project sites we saw that they had much in common, though addon authors have had no easy way to share these techniques.
 
-The app you're currently viewing is itself an example of an addon documented using Ember CLI Addon Docs (it is a fortunate dog-fooding position that we find ourselves in). This Ember application employs our thinking on best practices for layout, typography and design, and uses several features like
+The app you're currently viewing is itself an example of an addon documented using Ember CLI AddonDocs (it is a fortunate dog-fooding position that we find ourselves in). This Ember application employs our thinking on best practices for layout, typography and design, and uses several features like
 
 - Support for authoring pages in Markdown (this very page being an example – click *Edit this page* below to view the source)
 - Interactive {{#docs-link 'docs.components.docs-hero'}}component demos{{/docs-link}}

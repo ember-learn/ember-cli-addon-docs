@@ -58,9 +58,9 @@ Typography choices were made primarily for readability. Measure, a typographic t
 
 ## Versioning your docs
 
-Addon Docs provides versioned guides out of the box. You can see the version selector in the top-right part of this page. This is provided by the `<docs-header>` component, so your site will get this too assuming you use this component.
+AddonDocs provides versioned guides out of the box. You can see the version selector in the top-right part of this page. This is provided by the `<docs-header>` component, so your site will get this too assuming you use this component.
 
-If you look at the [`gh-pages`](https://github.com/ember-learn/ember-cli-addon-docs/tree/gh-pages) branch you'll see that this is where versioned builds of your docs app are stored. Versions are created at deploy time and Addon Docs manages this branch of your repository for you.
+If you look at the [`gh-pages`](https://github.com/ember-learn/ember-cli-addon-docs/tree/gh-pages) branch you'll see that this is where versioned builds of your docs app are stored. Versions are created at deploy time and AddonDocs manages this branch of your repository for you.
 
 New versions are created when a new tag is released. There is also a `master` version updated on every deployed commit, and a `Latest` alias that points to the most recent tag, unless it is force-updated to point to `master`.
 
@@ -68,7 +68,7 @@ See the next section on {{docs-link 'deploy guides' 'docs.deploying'}} for more 
 
 ## Hosting on GitHub Pages
 
-Addon Docs is built for open-source addons deploying their docs sites to GitHub Pages. Once you have this set up, you can even automate deployment as part of your Travis CI builds.
+AddonDocs is built for open-source addons deploying their docs sites to GitHub Pages. Once you have this set up, you can even automate deployment as part of your Travis CI builds.
 
 For more details, see the {{docs-link 'Deploying' 'docs.deploying'}} section of the guides.
 

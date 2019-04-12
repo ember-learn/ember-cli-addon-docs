@@ -1,6 +1,6 @@
 # Welcome
 
-Welcome to the Ember CLI Addon Docs Sandbox!
+Welcome to the Ember CLI AddonDocs Sandbox!
 
 This area of the site demonstrates the many different ways you can document your addon code.
 

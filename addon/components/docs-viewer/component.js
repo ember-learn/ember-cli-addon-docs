@@ -6,7 +6,7 @@ import { on } from '@ember/object/evented';
 import { formElementHasFocus } from '../../keyboard-config';
 
 /**
-  The main docs viewer component for Ember-CLI addon docs. This component must be placed
+  The main docs viewer component for EmberCLI AddonDocs. This component must be placed
 
 
   ```hbs

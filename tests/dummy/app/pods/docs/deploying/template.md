@@ -1,6 +1,6 @@
 # Deploying
 
-Deploying your documentation site can involve a lot of moving parts, but Ember CLI Addon Docs aims to streamline as much of the process as possible by providing a set of out-of-the-box conventions for deploying to GitHub Pages.
+Deploying your documentation site can involve a lot of moving parts, but Ember CLI AddonDocs aims to streamline as much of the process as possible by providing a set of out-of-the-box conventions for deploying to GitHub Pages.
 
 Once everything is set up, you'll be able to visit <u>https://**[user]**.github.io/**[repo]**</u> to see the docs for the latest release of your addon, and your CI builds will automatically keep it up to date.
 
@@ -8,7 +8,7 @@ Once everything is set up, you'll be able to visit <u>https://**[user]**.github.
 
 To deploy your docs site to GitHub pages, you'll need to go through a few steps of first-time setup:
 
-1.  Run `ember g ember-cli-addon-docs` to set up the relevant deploy plugins (this is done automatically if you used `ember install` to install Addon Docs)
+1.  Run `ember g ember-cli-addon-docs` to set up the relevant deploy plugins (this is done automatically if you used `ember install` to install AddonDocs)
 2.  Set [the `repository` field](https://docs.npmjs.com/files/package.json#repository) of your `package.json`.
 3.  Commit any outstanding changes you've got on your current branch and push them to GitHub.
 4.  Run `ember deploy production` and answer "yes" if prompted to create a `gh-pages` branch. **Note**: if your repo already has a `gh-pages` branch, you may want to manually archive the existing content there before deploying.
@@ -38,7 +38,7 @@ If you were to make a change to your dummy app and run `ember deploy production`
 
 ## Versioning your content
 
-Whenever you deploy your documentation site with Addon Docs, it places the compiled application in a subdirectory based on the current state of your git repository. All of this behavior [is customizable](#customizing-deploys), but we expect the out-of-the-box configuration should be a good place to get started.
+Whenever you deploy your documentation site with AddonDocs, it places the compiled application in a subdirectory based on the current state of your git repository. All of this behavior [is customizable](#customizing-deploys), but we expect the out-of-the-box configuration should be a good place to get started.
 
 ### Tag deploys
 
@@ -107,7 +107,7 @@ stages:
 
 ## Customizing deploys
 
-When you install Addon Docs, a `config/addon-docs.js` file will automatically be created for you that looks something like this:
+When you install AddonDocs, a `config/addon-docs.js` file will automatically be created for you that looks something like this:
 
 ```js
 const AddonDocsConfig = require('ember-cli-addon-docs/lib/config');
@@ -145,7 +145,7 @@ If instead, however, you want to [set up a CNAME for your project](https://help.
 
 ### `getPrimaryBranch()`
 
-This method determines what Addon Docs considers to be your primary branch, which is where links such as "edit this page" will point. By default, this branch is `master`, but you can override this method to choose a different branch instead, e.g. `develop`.
+This method determines what AddonDocs considers to be your primary branch, which is where links such as "edit this page" will point. By default, this branch is `master`, but you can override this method to choose a different branch instead, e.g. `develop`.
 
 ## Removing a deployed version
 
