@@ -153,7 +153,7 @@ Deploying a version of your documentation does two things: it copies the `dist` 
 
 First, you can run `git checkout gh-pages` to switch to your deploy branch. You may see a message indicating that that branch has already been checked out somewhere else by `git worktree`—if that's the case, you can just `cd` to that directory instead.
 
-Next, remove the item from `versions.json` for the version you want to get rid of, and delete the corresponding directory. For example, if you ran a deploy on a branch called `deploy-test` and wanted to remove the results of that after you finished testing it out, you could `git rm versions/deploy-test` to remove the deployed app, and then find the `deploy-test` key in `versions.json` and remove it:
+Next, remove the item from `versions.json` for the version you want to get rid of, and delete the corresponding directory. For example, if you ran a deploy on a branch called `deploy-test` and wanted to remove the results of that after you finished testing it out, you could `git rm -r versions/deploy-test` to remove the deployed app, and then find the `deploy-test` key in `versions.json` and remove it:
 
 ```js
 {
