@@ -77,5 +77,4 @@ jobs:
           repo: ember-learn/ember-cli-addon-docs
 
   allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
