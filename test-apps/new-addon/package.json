@@ -32,7 +32,7 @@
     "ember-cli-htmlbars": "*",
     "ember-cli-htmlbars-inline-precompile": "*",
     "ember-cli-inject-live-reload": "*",
-    "ember-cli-qunit": "*",
+    "ember-qunit": "*",
     "ember-cli-sri": "*",
     "ember-cli-uglify": "*",
     "ember-disable-prototype-extensions": "*",
