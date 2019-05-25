@@ -37,20 +37,17 @@ module.exports = {
         'config/**/*.js',
         'lib/**/*.js',
         'tests/dummy/config/**/*.js',
-        'tests-node/**/*.js',
-        'sandbox/.eslintrc.js',
-        'test-apps/new-addon/.eslintrc.js'
+        'tests-node/**/*.js'
       ],
       excludedFiles: [
         'addon/**',
         'addon-test-support/**',
         'app/**',
-        'tests/dummy/app/**',
-        'new-addon/**'
+        'tests/dummy/app/**'
       ],
       parserOptions: {
         sourceType: 'script',
-        ecmaVersion: 2015
+        ecmaVersion: 2017
       },
       env: {
         browser: false,
