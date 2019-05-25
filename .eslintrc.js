@@ -37,13 +37,16 @@ module.exports = {
         'config/**/*.js',
         'lib/**/*.js',
         'tests/dummy/config/**/*.js',
-        'tests-node/**/*.js'
+        'tests-node/**/*.js',
+        'sandbox/.eslintrc.js',
+        'test-apps/new-addon/.eslintrc.js'
       ],
       excludedFiles: [
         'addon/**',
         'addon-test-support/**',
         'app/**',
-        'tests/dummy/app/**'
+        'tests/dummy/app/**',
+        'new-addon/**'
       ],
       parserOptions: {
         sourceType: 'script',
