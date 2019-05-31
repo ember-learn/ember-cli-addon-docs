@@ -231,7 +231,7 @@ module.exports = {
   },
 
   _highlightJSTree() {
-    return new Funnel(path.dirname(require.resolve('highlightjs/package.json')), {
+    return new Funnel(path.dirname(require.resolve('highlightjs/package.json')), { // eslint-disable-line node/no-missing-require
       srcDir: 'styles',
       destDir: 'highlightjs-styles'
     });
