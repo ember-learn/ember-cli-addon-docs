@@ -196,6 +196,12 @@ module.exports = {
 
     this.addonOptions.projects.main = this.addonOptions.projects.main || generateDefaultProject(parentAddon);
 
+    const packageTrees = new MergeTrees(
+      this.addonOptions.packages.map(
+        pkg => new Funnel(path.resolve(pkg))
+      )
+    );
+
     for (let projectName in this.addonOptions.projects) {
       let addonSourceTree = this.addonOptions.projects[projectName];
 
@@ -204,7 +210,8 @@ module.exports = {
       let docsGenerators = pluginRegistry.createDocsGenerators(addonSourceTree, {
         destDir: 'docs',
         project,
-        parentAddon
+        parentAddon,
+        packageTrees,
       });
 
       docsTrees.push(
