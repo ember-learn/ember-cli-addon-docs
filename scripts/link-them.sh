@@ -10,6 +10,7 @@ for package in "new-addon"; do
     pushd ./test-apps/$package/node_modules > /dev/null
     rm -rf .bin
     ln -s ../../../node_modules/.bin .bin
+    rm -rf .bin/sha.js
     popd > /dev/null
 done
 
