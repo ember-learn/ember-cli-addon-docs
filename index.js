@@ -200,7 +200,7 @@ module.exports = {
     const packages = this.addonOptions.packages || []
     const packageTrees = new MergeTrees(
       packages.map(
-        pkg => new Funnel(path.join(parentAddon.root, 'node_modules', pkg), { destDir: pkg })
+        pkg => new Funnel(pkg, { destDir: pkg })
       )
     );
 
