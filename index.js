@@ -191,13 +191,15 @@ module.exports = {
     let DocsCompiler = require('./lib/broccoli/docs-compiler');
     let SearchIndexer = require('./lib/broccoli/search-indexer');
 
+
     let project = this.project;
     let docsTrees = [];
 
     this.addonOptions.projects.main = this.addonOptions.projects.main || generateDefaultProject(parentAddon);
 
+    const packages = this.addonOptions.packages || []
     const packageTrees = new MergeTrees(
-      this.addonOptions.packages.map(
+      packages.map(
         pkg => new Funnel(path.join(parentAddon.root, 'node_modules', pkg), { destDir: pkg })
       )
     );
