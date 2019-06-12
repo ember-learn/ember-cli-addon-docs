@@ -51,7 +51,8 @@ module.exports = {
         primaryBranch: userConfig.getPrimaryBranch(),
         latestVersionName: LATEST_VERSION_NAME,
         deployVersion: 'ADDON_DOCS_DEPLOY_VERSION',
-        searchTokenSeparator: "\\s+"
+        searchTokenSeparator: "\\s+",
+        showImportPaths: true
       },
       'ember-component-css': {
         namespacing: false

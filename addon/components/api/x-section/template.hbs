@@ -26,7 +26,7 @@
     {{{item.description}}}
   </p>
 
-  {{#if (or item.exportType shouldDisplayParams)}}
+  {{#if (or (and item.exportType showImportPaths) shouldDisplayParams)}}
     {{#api/x-meta-panel as |panel|}}
       {{#if item.exportType}}
         {{#panel.header}}
