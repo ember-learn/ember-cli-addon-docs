@@ -20,6 +20,38 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
+  it('compacting sequential curly bracket paragraphs - non-void angle bracket children', function() {
+    let input = stripIndent`
+      {{#foo-bar}}<Foo></Foo>{{/foo-bar}}
+
+      {{#foo-bar}}<Foo></Foo>{{/foo-bar}}
+    `;
+
+    let result = compileMarkdown(input, { targetHandlebars: true });
+    let expected = stripIndent`
+      <div class="docs-md"><p>{{#foo-bar}}<Foo></Foo>{{/foo-bar}}</p>
+      <p>{{#foo-bar}}<Foo></Foo>{{/foo-bar}}</p></div>
+    `;
+
+    assert.equal(result, expected);
+  });
+
+  it('compacting sequential curly bracket paragraphs - self-closing angle bracket children', function() {
+    let input = stripIndent`
+      {{#foo-bar}}<Foo/>{{/foo-bar}}
+
+      {{#foo-bar}}<Foo></Foo>{{/foo-bar}}
+    `;
+
+    let result = compileMarkdown(input, { targetHandlebars: true });
+    let expected = stripIndent`
+      <div class="docs-md"><p>{{#foo-bar}}<Foo/>{{/foo-bar}}</p>
+      <p>{{#foo-bar}}<Foo></Foo>{{/foo-bar}}</p></div>
+    `;
+
+    assert.equal(result, expected);
+  });
+
   it('compacting angle bracket paragraphs', function() {
     let input = stripIndent`
       <FooBar>
@@ -33,6 +65,38 @@ describe('Unit | compile-markdown', function(hooks) {
       <div class="docs-md"><FooBar>
 
        </FooBar></div>
+    `;
+
+    assert.equal(result, expected);
+  });
+
+  it('compacting sequential angle bracket paragraphs - non-void angle bracket children', function() {
+    let input = stripIndent`
+      <Baz><Foo></Foo></Baz>
+
+      <Baz><Foo></Foo></Baz>
+    `;
+
+    let result = compileMarkdown(input, { targetHandlebars: true });
+    let expected = stripIndent`
+      <div class="docs-md"><p><Baz><Foo></Foo></Baz></p>
+      <p><Baz><Foo></Foo></Baz></p></div>
+    `;
+
+    assert.equal(result, expected);
+  });
+
+  it('compacting sequential angle bracket paragraphs - self-closing angle bracket children', function() {
+    let input = stripIndent`
+      <Baz><Foo/></Baz>
+
+      <Baz><Foo></Foo></Baz>
+    `;
+
+    let result = compileMarkdown(input, { targetHandlebars: true });
+    let expected = stripIndent`
+      <div class="docs-md"><p><Baz><Foo/></Baz></p>
+      <p><Baz><Foo></Foo></Baz></p></div>
     `;
 
     assert.equal(result, expected);
