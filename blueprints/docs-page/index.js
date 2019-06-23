@@ -108,7 +108,7 @@ function updateDocsTemplate(options) {
       .split('\n');
 
     let closingViewerNavTag = templateLines.find(line =>
-      line.includes('{{/viewer.nav}}')
+      line.includes('{{/viewer.nav}}') || line.includes('</viewer.nav>')
     );
 
     templateLines.splice(
