@@ -5582,7 +5582,7 @@ e.default=n}),define("ember-cli-addon-docs/routes/docs/api/item",["exports","@ba
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var r=Ember.Route.extend({model:function(e){var r,n=e.path
 if(n.match(/^modules\//)){var i=n.replace(/^modules\//,""),o=i.split(/~|#/),a=(0,t.default)(o,1),s=a[0],u=this.store.peekRecord("module",s)
-r=u.get("components").findBy("id",i)||u.get("classes").findBy("id",i)||u}else{var l=n.match(/^(.*)s\//)[1],c=new RegExp("".concat(n,"(/").concat(l,")?$")),d=this.store.peekAll("module"),f=d.filter(function(e){return e.id.match(c)}),h=f[0]
+r=u.get("components").findBy("id",i)||u.get("classes").findBy("id",i)||u}else{var l=n.match(/^([\w-]*)s\//)[1],c=new RegExp("".concat(n,"(/").concat(l,")?$")),d=this.store.peekAll("module"),f=d.filter(function(e){return e.id.match(c)}),h=f[0]
 r=h.get("components").findBy("exportType","default")||h.get("classes").findBy("exportType","default")||h}return r}})
 e.default=r}),define("ember-cli-addon-docs/serializers/-addon-docs",["exports","ember-data"],function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
