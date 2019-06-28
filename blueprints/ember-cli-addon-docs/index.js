@@ -30,7 +30,7 @@ module.exports = {
       configContents = configContents.replace(/([ \t]+)if \(environment === 'production'\) {/, [
         '$&',
         '$1  // Allow ember-cli-addon-docs to update the rootURL in compiled assets',
-        '$1  ENV.rootURL = \'ADDON_DOCS_ROOT_URL\';'
+        '$1  // ENV.rootURL = \'ADDON_DOCS_ROOT_URL\';'
       ].join('\n'));
 
       if (configContents.indexOf('ADDON_DOCS_ROOT_URL') === -1) {
