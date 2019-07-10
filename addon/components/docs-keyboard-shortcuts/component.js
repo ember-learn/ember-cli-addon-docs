@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { on } from '@ember/object/evented';
-import { later } from "@ember/runloop";
+import { later } from '@ember/runloop';
 import layout from './template';
 import { EKMixin, keyUp } from 'ember-keyboard';
 import { inject as service } from '@ember/service';
@@ -52,6 +52,12 @@ export default Component.extend(EKMixin, {
   toggleKeyboardShortcuts: on(keyUp('shift+Slash'), function() {
     if (!formElementHasFocus()) {
       this.toggleProperty('isShowingKeyboardShortcuts');
+    }
+  }),
+
+  hideKeyboardShortcuts: on(keyUp('Escape'), function() {
+    if (!formElementHasFocus() && this.get('isShowingKeyboardShortcuts')) {
+      this.set('isShowingKeyboardShortcuts', false);
     }
   }),
 
