@@ -7,7 +7,7 @@ The component has three arguments. By default, these arguments are pulled from y
   - `prefix` and `heading` come from the `name` field
   - `byline` comes from the `description` field
 
-As long as these are present, you can just render `{{docs-demo}}` with no arguments:
+As long as these are present, you can just render `{{docs-hero}}` with no arguments:
 
 {{docs/components/docs-hero/demo-1}}
 
