@@ -39,11 +39,7 @@ export default Component.extend(EKMixin, {
 
   classNames: 'docs-viewer docs-flex docs-flex-1',
 
-  init() {
-    this._super();
-
-    this.set('keyboardActivated', true);
-  },
+  keyboardActivated: true,
 
   willDestroyElement() {
     this._super(...arguments);

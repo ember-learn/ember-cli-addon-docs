@@ -20,9 +20,7 @@ export default Component.extend(EKMixin, {
 
   isShowingKeyboardShortcuts: false,
 
-  activateKeyboard: on('init', function() {
-    this.set('keyboardActivated', true);
-  }),
+  keyboardActivated: true,
 
   goto: on(keyUp('KeyG'), function() {
     if (!formElementHasFocus()) {

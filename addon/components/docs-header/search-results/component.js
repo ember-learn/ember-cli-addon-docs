@@ -19,10 +19,10 @@ export default Component.extend(EKMixin, {
   query: null, // passed in
   selectedIndex: null,
 
+  keyboardActivated: true,
+  
   didInsertElement() {
     this._super();
-
-    this.set('keyboardActivated', true);
 
     // Start downloading the search index immediately
     this.get('docsSearch').loadSearchIndex();
