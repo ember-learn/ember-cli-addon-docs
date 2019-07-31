@@ -136,7 +136,7 @@ This will generate and modify the files for your `usage` docs page.
 
 Remember, the dummy site is a full Ember application and these components are just here to help you get going. Feel free to make other components to help you best document your library!
 
-## 8. An some API docs to a component, object or function
+## 8. Add some API docs to a component, object or function
 
 As you document the public objects in your addon, they'll automatically show up in the left-hand navigation of your `docs` route under the "API REFERENCE" section, assuming you added the `<DocsViewer />` component.
 
