@@ -5707,7 +5707,7 @@ try{for(var a,s=e[Symbol.iterator]();!(n=(a=s.next()).done);n=!0){var u=a.value
 if(0===r)t.push(u)
 else if(u.text){var l=t[t.length-1]
 l.text="".concat(l.text," ").concat(u.text)}var c=u.text||"",d=c.replace(/`[\s\S]*?`/g,"")
-r+=b(/{{#/g,d),r+=b(/<[A-Z]/g,d),r-=b(/{{\//g,d),r-=b(/<\/[A-Z]/g,d)}}catch(f){i=!0,o=f}finally{try{n||null==s.return||s.return()}finally{if(i)throw o}}return t}(r))
+r+=b(/{{#/g,d),r+=b(/<[A-Z]/g,d),r-=b(/[A-Z][^<>]+\/>/g,d),r-=b(/{{\//g,d),r-=b(/<\/[A-Z]/g,d)}}catch(f){i=!0,o=f}finally{try{n||null==s.return||s.return()}finally{if(i)throw o}}return t}(r))
 return'<div class="docs-md">'.concat(s.default.parser(r,n).trim(),"</div>")},u.default.registerLanguage("javascript",l.default),u.default.registerLanguage("js",l.default),u.default.registerLanguage("css",c.default),u.default.registerLanguage("handlebars",d.default),u.default.registerLanguage("htmlbars",f.default),u.default.registerLanguage("hbs",f.default),u.default.registerLanguage("json",h.default),u.default.registerLanguage("xml",p.default),u.default.registerLanguage("diff",m.default),u.default.registerLanguage("shell",v.default),u.default.registerLanguage("sh",v.default),u.default.registerLanguage("typescript",g.default),u.default.registerLanguage("ts",g.default)
 var _=function(e){function s(e){var r
 return(0,t.default)(this,s),r=(0,n.default)(this,(0,i.default)(s).call(this)),r.config=e||{},r}return(0,a.default)(s,e),(0,r.default)(s,[{key:"codespan",value:function(){return this._processCode((0,o.default)((0,i.default)(s.prototype),"codespan",this).apply(this,arguments))}},{key:"code",value:function(){var e=this._processCode((0,o.default)((0,i.default)(s.prototype),"code",this).apply(this,arguments))
