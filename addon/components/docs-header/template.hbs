@@ -26,7 +26,7 @@
       {{#docs-header/link on-click=(action (toggle 'isShowingVersionSelector' this))}}
         <span data-test-id='current-version' data-version-selector class='docs-flex docs-items-center'>
 
-          {{#if (or (eq currentVersion.key latestVersionName))}}
+          {{#if (eq currentVersion.key latestVersionName)}}
             {{#if currentVersion.tag}}
               {{currentVersion.tag}}
             {{else}}
