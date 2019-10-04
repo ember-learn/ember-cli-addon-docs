@@ -2,7 +2,7 @@ import Service, { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
 import { task } from 'ember-concurrency';
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 import { assign } from '@ember/polyfills';
 
 const { latestVersionName } = config['ember-cli-addon-docs'];

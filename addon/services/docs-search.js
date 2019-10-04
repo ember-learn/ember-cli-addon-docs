@@ -2,7 +2,7 @@ import Service, { inject as service } from '@ember/service';
 import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
 import lunr from 'lunr';
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 
 const { Index, Query } = lunr;
 

@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import layout from './template';
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 
 const { showImportPaths } = config['ember-cli-addon-docs'];
 

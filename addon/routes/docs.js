@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 
 const projectName = config['ember-cli-addon-docs'].projectName;
 

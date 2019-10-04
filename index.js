@@ -37,17 +37,35 @@ module.exports = {
   },
 
   config(env, baseConfig) {
-    let repo = this.parent.pkg.repository;
+    let pkg = this.parent.pkg;
+    if (this._documentingAddonAt()) {
+      pkg = require(path.join(this._documentingAddonAt(), 'package.json'));
+    }
+
+    let repo = pkg.repository;
     let info = require('hosted-git-info').fromUrl(repo.url || repo);
     let userConfig = this._readUserConfig();
 
+    let docsAppPathInRepo = path.relative(
+      this._getRepoRoot(),
+      path.join(
+        path.resolve(path.dirname(this.project.configPath()), '..'),
+        'app'
+      )
+    );
+
+    let addonPathInRepo = this._documentingAddonAt()
+      ? path.relative(this._getRepoRoot(), path.join(this._documentingAddonAt(), 'addon'))
+      : path.relative(this._getRepoRoot(), path.join(this.project.root, 'addon'));
+
     let config = {
       'ember-cli-addon-docs': {
-        projectName: this.parent.pkg.name,
-        projectDescription: this.parent.pkg.description,
-        projectTag: this.parent.pkg.version,
+        projectName: pkg.name,
+        projectDescription: pkg.description,
+        projectTag: pkg.version,
         projectHref: info && info.browse(),
-        projectPathInRepo: path.relative(this._getRepoRoot(), this.project.root),
+        docsAppPathInRepo,
+        addonPathInRepo,
         primaryBranch: userConfig.getPrimaryBranch(),
         latestVersionName: LATEST_VERSION_NAME,
         deployVersion: 'ADDON_DOCS_DEPLOY_VERSION',
@@ -80,11 +98,24 @@ module.exports = {
     if (includer.parent) {
       throw new Error(`ember-cli-addon-docs should be in your package.json's devDependencies`);
     } else if (includer.name === this.project.name()) {
-      throw new Error(`ember-cli-addon-docs only currently works with addons, not applications`);
+      if (this._documentingAddonAt()) {
+        // we're being used in a standalone documentation app that documents an
+        // addon but is not that addon's dummy app.
+      } else {
+        throw new Error(`to use ember-cli-addon-docs in an application (as opposed to an addon) you must set documentingAddonAt`);
+      }
     }
 
     includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
-    includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
+    if (!includer.options.snippetSearchPaths) {
+      if (this._documentingAddonAt()) {
+        // we are a standalone app, so our code is here
+        includer.options.snippetSearchPaths = ['app'];
+      } else {
+        // we are inside the addon, so our code is here
+        includer.options.snippetSearchPaths = ['tests/dummy/app'];
+      }
+    }
     includer.options.snippetRegexes = Object.assign({}, {
       begin: /{{#(?:docs-snippet|demo.example)\sname=(?:"|')(\S+)(?:"|')/,
       end: /{{\/(?:docs-snippet|demo.example)}}/,
@@ -155,8 +186,8 @@ module.exports = {
 
   treeForAddon(tree) {
     let dummyAppFiles = new FindDummyAppFiles([ this.app.trees.app ]);
-    let addonFiles = new FindAddonFiles([ 'addon' ].filter(dir => fs.existsSync(dir)));
-
+    let addonToDocument = this._documentingAddon();
+    let addonFiles = new FindAddonFiles([path.join(addonToDocument.root, 'addon')]);
     return this._super(new MergeTrees([ tree, dummyAppFiles, addonFiles ]));
   },
 
@@ -185,8 +216,8 @@ module.exports = {
   },
 
   postprocessTree(type, tree) {
-    let parentAddon = this.parent.findAddonByName(this.parent.name());
-    if (!parentAddon || type !== 'all') { return tree; }
+    let addonToDocument = this._documentingAddon();
+    if (!addonToDocument || type !== 'all') { return tree; }
 
     let PluginRegistry = require('./lib/models/plugin-registry');
     let DocsCompiler = require('./lib/broccoli/docs-compiler');
@@ -194,8 +225,7 @@ module.exports = {
 
     let project = this.project;
     let docsTrees = [];
-
-    this.addonOptions.projects.main = this.addonOptions.projects.main || generateDefaultProject(parentAddon);
+    this.addonOptions.projects.main = this.addonOptions.projects.main || generateDefaultProject(addonToDocument);
 
     for (let projectName in this.addonOptions.projects) {
       let addonSourceTree = this.addonOptions.projects[projectName];
@@ -205,12 +235,12 @@ module.exports = {
       let docsGenerators = pluginRegistry.createDocsGenerators(addonSourceTree, {
         destDir: 'docs',
         project,
-        parentAddon
+        parentAddon: addonToDocument
       });
 
       docsTrees.push(
         new DocsCompiler(docsGenerators, {
-          name: projectName === 'main' ? parentAddon.name : projectName,
+          name: projectName === 'main' ? addonToDocument.name : projectName,
           project
         })
       );
@@ -252,6 +282,33 @@ module.exports = {
       this._repoRoot = require('git-repo-info')().root;
     }
     return this._repoRoot;
+  },
+
+  // returns the absolute path to the addon we're documenting when
+  // ember-cli-addon-docs is being used by an *app* (not an addon) that has
+  // explicitly set `documentingAddonAt`.
+  _documentingAddonAt() {
+    if (this._cachedDocumentingAddonAt === undefined && this.app) {
+      if (this.app.options['ember-cli-addon-docs'] && this.app.options['ember-cli-addon-docs'].documentingAddonAt) {
+        this._cachedDocumentingAddonAt = path.resolve(this.project.root, this.app.options['ember-cli-addon-docs'].documentingAddonAt);
+      } else {
+        this._cachedDocumentingAddonAt = null;
+      }
+    }
+    return this._cachedDocumentingAddonAt;
+  },
+
+  _documentingAddon() {
+    let addon;
+    if (this._documentingAddonAt()) {
+      addon = this.project.addons.find(a => a.root === this._documentingAddonAt())
+      if (!addon) {
+        throw new Error(`You set documentingAddonAt to point at ${this._documentingAddonAt()} but that addon does not appear to be present in this app.`);
+      }
+    } else {
+      addon = this.parent.findAddonByName(this.parent.name());
+    }
+    return addon;
   }
 };
 

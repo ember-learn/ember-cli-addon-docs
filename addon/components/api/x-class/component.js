@@ -3,7 +3,7 @@ import { computed } from '@ember/object';
 import { or } from '@ember/object/computed';
 import { capitalize } from '@ember/string';
 import { memberFilter }  from '../../../utils/computed';
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 
 const { showImportPaths } = config['ember-cli-addon-docs'];
 

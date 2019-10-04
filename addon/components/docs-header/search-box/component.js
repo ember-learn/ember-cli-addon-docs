@@ -3,7 +3,7 @@ import layout from './template';
 import { EKMixin, keyUp } from 'ember-keyboard';
 import { on } from '@ember/object/evented';
 import { task } from 'ember-concurrency';
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 import { inject as service } from '@ember/service';
 import { formElementHasFocus } from 'ember-cli-addon-docs/keyboard-config';
 
@@ -18,7 +18,7 @@ export default Component.extend(EKMixin, {
   query: null,
 
   keyboardActivated: true,
-  
+
   didInsertElement() {
     this._super();
 
