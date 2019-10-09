@@ -58,6 +58,7 @@
     "ember-href-to": "^1.15.1",
     "ember-keyboard": "^4.0.0",
     "ember-modal-dialog": "^3.0.0-beta.4",
+    "ember-named-arguments-polyfill": "^1.0.0",
     "ember-responsive": "^3.0.5",
     "ember-router-generator": "^2.0.0",
     "ember-router-scroll": "^1.2.1",
