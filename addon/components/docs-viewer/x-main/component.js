@@ -89,7 +89,7 @@ export default Component.extend({
     if (path === 'docs/api/item') {
       let { projectName } = config['ember-cli-addon-docs'];
       let model = getOwner(this).lookup('route:application').modelFor('docs.api.item');
-      let filename = model.file.replace(new RegExp(`^${projectName}/`), '');
+      let filename = model.get('file').replace(new RegExp(`^${projectName}/`), '');
       let file = addonFiles.find(f => f.match(filename));
       if (file) {
         return { file, inTree: 'addon' };
