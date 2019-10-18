@@ -179,4 +179,46 @@ describe('Unit | compile-markdown', function(hooks) {
 
     assert.equal(result, expected);
   });
+
+  it('using code block simple case', function() {
+    let input = stripIndent`
+      \`\`\`hbs
+        <FooBar>Hello</FooBar>
+      \`\`\`
+
+      This is after code block
+    `;
+
+    let result = compileMarkdown(input, { targetHandlebars: true });
+    let expected = stripIndent`
+      <div class="docs-md"><pre class="docs-md__code"><code class="undefinedhbs"><span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">FooBar</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-name">FooBar</span>&gt;</span></span></code></pre>
+      <p>This is after code block</p></div>
+    `;
+
+    assert.equal(result, expected);
+  });
+
+  it('using code block with self-closing tag inside', function() {
+    let input = stripIndent`
+      \`\`\`hbs
+      <form.Text
+        @fieldName="name.first"
+        @label="First Name"
+      />
+      \`\`\`
+
+      This is after code block
+    `;
+
+    let result = compileMarkdown(input, { targetHandlebars: true });
+    let expected = stripIndent`
+      <div class="docs-md"><pre class="docs-md__code"><code class="undefinedhbs"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form.Text</span>
+        @<span class="hljs-attr">fieldName</span>=<span class="hljs-string">"name.first"</span>
+        @<span class="hljs-attr">label</span>=<span class="hljs-string">"First Name"</span>
+      /&gt;</span></span></code></pre>
+      <p>This is after code block</p></div>
+    `;
+
+    assert.equal(result, expected);
+  });
 });
