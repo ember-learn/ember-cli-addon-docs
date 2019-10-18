@@ -1,28 +1,23 @@
 module.exports = {
   globals: {
-    server: true,
+    server: true
   },
   root: true,
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: [
-    'ember'
-  ],
-  extends: [
-    'eslint:recommended',
-    'plugin:ember/recommended'
-  ],
+  plugins: ['ember'],
+  extends: ['eslint:recommended', 'plugin:ember/recommended'],
   env: {
     browser: true
   },
   rules: {
-    'no-unused-vars': ["error", { "args": "none" }],
-    'no-console': ["error", { allow: ["warn", "error"] }],
+    'no-unused-vars': ['error', { args: 'none' }],
+    'no-console': ['error', { allow: ['warn', 'error'] }],
 
     // ember-keyboard uses events
-    'ember/no-on-calls-in-components': 'off',
+    'ember/no-on-calls-in-components': 'off'
   },
   overrides: [
     // node files
@@ -31,6 +26,7 @@ module.exports = {
         '.eslintrc.js',
         '.template-lintrc.js',
         'ember-cli-build.js',
+        'addon/styles/tailwind.js',
         'index.js',
         'testem.js',
         'blueprints/*/index.js',
@@ -53,9 +49,13 @@ module.exports = {
         node: true
       },
       plugins: ['node'],
-      rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
-        // add your custom rules and overrides for node files here
-      })
+      rules: Object.assign(
+        {},
+        require('eslint-plugin-node').configs.recommended.rules,
+        {
+          // add your custom rules and overrides for node files here
+        }
+      )
     },
 
     // test files
@@ -73,12 +73,12 @@ module.exports = {
         describe: true,
         it: true,
         beforeEach: true,
-        afterEach: true,
+        afterEach: true
       },
       files: ['tests-node/**/*.js'],
       rules: {
         'node/no-unpublished-require': 'off'
-      },
+      }
     }
   ]
 };

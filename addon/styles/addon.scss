@@ -1,13 +1,26 @@
 // Global settings
 $site-container: 1400px;
 
-@import 'tailwind';
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;
+
+@import './components/docs-brand-colors';
+@import './components/docs-btn';
+@import './components/docs-container';
+@import './components/docs-md';
+
+@import './utilities/masks';
+@import './utilities/nudge';
+@import './utilities/overflow-momentum';
+
 @import 'pod-styles.scss';
 @import 'syntax';
 
 // Figure out how to do this in tailwind
 .docs-fill-current {
-  &, & * {
+  &,
+  & * {
     fill: currentColor;
   }
 }
@@ -17,31 +30,31 @@ $site-container: 1400px;
 }
 
 html {
-  @extend .docs-min-h-screen;
-  @extend .docs-flex;
-  @extend .docs-flex-col;
+  @apply .docs-min-h-screen;
+  @apply .docs-flex;
+  @apply .docs-flex-col;
 }
 
 body {
-  @extend .docs-antialiased;
-  @extend .docs-font-sans;
-  @extend .docs-text-base;
-  @extend .docs-leading-normal;
-  @extend .docs-text-grey-darkest;
-  @extend .docs-bg-brand;
+  @apply .docs-antialiased;
+  @apply .docs-font-sans;
+  @apply .docs-text-base;
+  @apply .docs-leading-normal;
+  @apply .docs-text-grey-darkest;
+  @apply .docs-bg-brand;
 
-  @extend .docs-flex-1;
-  @extend .docs-flex;
-  @extend .docs-flex-col;
+  @apply .docs-flex-1;
+  @apply .docs-flex;
+  @apply .docs-flex-col;
 }
 
 body > .ember-view {
-  @extend .docs-flex-1;
-  @extend .docs-flex;
-  @extend .docs-flex-col;
+  @apply .docs-flex-1;
+  @apply .docs-flex;
+  @apply .docs-flex-col;
 
-  @extend .docs-mt-1;
-  @extend .docs-bg-white;
+  @apply .docs-mt-1;
+  @apply .docs-bg-white;
 }
 
 pre {

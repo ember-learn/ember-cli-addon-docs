@@ -1,0 +1,34 @@
+/*
+  We use CSS Custom Properties so addons can customize their brand theme, but we need to provide a fallback for browsers that don't support them yet (IE). This is the way we do it.
+
+  If we get access to the PostCSS pipeline in the future we could use a plugin like this: https://github.com/postcss/postcss-custom-properties
+*/
+.docs-bg-brand {
+  @apply docs-bg-brand-var;
+}
+.hover\:docs-bg-brand:hover {
+  @apply docs-bg-brand-var ;
+}
+.focus\:docs-bg-brand:focus {
+  @apply docs-bg-brand-var;
+}
+
+.docs-text-brand {
+  @apply docs-text-brand-var;
+}
+.hover\:docs-text-brand:hover {
+  @apply docs-text-brand-var;
+}
+.focus\:docs-text-brand:focus {
+  @apply docs-text-brand-var;
+}
+
+.docs-border-brand {
+  @apply docs-border-brand-var;
+}
+.hover\:docs-border-brand:hover {
+  @apply docs-border-brand-var;
+}
+.focus\:docs-border-brand:focus {
+  @apply docs-border-brand-var;
+}
