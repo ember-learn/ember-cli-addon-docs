@@ -46,7 +46,7 @@
     "ember-cli-htmlbars": "^4.0.7",
     "ember-cli-postcss": "^5.0.0",
     "ember-cli-sass": "10.0.1",
-    "ember-cli-string-helpers": "^1.9.0",
+    "ember-cli-string-helpers": "^4.0.5",
     "ember-cli-string-utils": "^1.1.0",
     "ember-code-snippet": "^2.4.1",
     "ember-component-css": "^0.7.4",
