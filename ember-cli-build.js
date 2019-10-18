@@ -34,7 +34,17 @@ module.exports = function(defaults) {
           })
         ])
       }
-    }
+    },
+    postcssOptions: {
+      compile: {
+        enabled: false,
+      },
+
+      filter: {
+        enabled: false,
+        plugins: []
+      },
+    },
   });
 
   return app.toTree();

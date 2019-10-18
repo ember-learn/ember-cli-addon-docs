@@ -45,6 +45,7 @@
     "ember-cli-clipboard": "^0.11.1",
     "ember-cli-htmlbars": "^3.0.1",
     "ember-cli-htmlbars-inline-precompile": "^2.1.0",
+    "ember-cli-postcss": "^5.0.0",
     "ember-cli-sass": "10.0.0",
     "ember-cli-string-helpers": "^1.9.0",
     "ember-cli-string-utils": "^1.1.0",
@@ -86,6 +87,7 @@
     "sass": "^1.22.10",
     "semver": "^5.5.1",
     "striptags": "^3.1.1",
+    "tailwindcss": "0.7.4",
     "walk-sync": "^0.3.3",
     "yuidocjs": "^0.10.2"
   },

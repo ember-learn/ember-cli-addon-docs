@@ -10,6 +10,8 @@ const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 
 const LATEST_VERSION_NAME = '-latest';
+const styleDir = path.join( __dirname, 'addon', 'styles');
+
 
 module.exports = {
   name: 'ember-cli-addon-docs',
@@ -17,6 +19,21 @@ module.exports = {
   LATEST_VERSION_NAME,
 
   options: {
+    postcssOptions: {
+
+      compile: {
+        enabled: false,
+      },
+
+      filter: {
+        enabled: true,
+        includePaths: [styleDir],
+        plugins: [
+          require('tailwindcss')(path.join( __dirname, 'addon', 'styles', 'tailwind.js'))
+        ]
+      },
+    },
+
     svgJar: {
       sourceDirs: [
         'public',

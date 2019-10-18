@@ -1,12 +1,26 @@
 // Global settings
 $site-container: 1400px;
 
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;
+
+@import './components/docs-brand-colors';
+@import './components/docs-btn';
+@import './components/docs-container';
+@import './components/docs-md';
+
+@import './utilities/masks';
+@import './utilities/nudge';
+@import './utilities/overflow-momentum';
+
 @import 'pod-styles.scss';
 @import 'syntax';
 
 // Figure out how to do this in tailwind
 .docs-fill-current {
-  &, & * {
+  &,
+  & * {
     fill: currentColor;
   }
 }
