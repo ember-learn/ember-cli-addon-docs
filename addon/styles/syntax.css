@@ -6,37 +6,24 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
 Modified for AddonDocs.
 */
 
-$base:    #282c34;
-$mono-1:  #abb2bf;
-$mono-2:  #818896;
-$mono-3:  #5c6370;
-$hue-1:   #56b6c2;
-$hue-2:   #61aeee;
-$hue-3:   #c678dd;
-$hue-4:   #98c379;
-$hue-5:   #e06c75;
-$hue-5-2: #be5046;
-$hue-6:   #e06c75; // original #d19a66
-$hue-6-2: #e6c07b;
-
 .hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  color: $mono-1;
-  background: $base;
+  color: #abb2bf;
+  background: #282c34;
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: $mono-3;
+  color: #5c6370;
   font-style: italic;
 }
 
 .hljs-doctag,
 .hljs-keyword,
 .hljs-formula {
-  color: $hue-3;
+  color: #c678dd;
 }
 
 .hljs-section,
@@ -44,11 +31,11 @@ $hue-6-2: #e6c07b;
 .hljs-selector-tag,
 .hljs-deletion,
 .hljs-subst {
-  color: $hue-5;
+  color: #e06c75;
 }
 
 .hljs-literal {
-  color: $hue-1;
+  color: #56b6c2;
 }
 
 .hljs-string,
@@ -56,12 +43,12 @@ $hue-6-2: #e6c07b;
 .hljs-addition,
 .hljs-attribute,
 .hljs-meta-string {
-  color: $hue-4;
+  color: #98c379;
 }
 
 .hljs-built_in,
 .hljs-class .hljs-title {
-  color: $hue-6-2;
+  color: #e6c07b;
 }
 
 .hljs-attr,
@@ -72,7 +59,7 @@ $hue-6-2: #e6c07b;
 .hljs-selector-attr,
 .hljs-selector-pseudo,
 .hljs-number {
-  color: $hue-6;
+  color: #e06c75;
 }
 
 .hljs-symbol,
@@ -81,7 +68,7 @@ $hue-6-2: #e6c07b;
 .hljs-meta,
 .hljs-selector-id,
 .hljs-title {
-  color: $hue-2;
+  color: #61aeee;
 }
 
 .hljs-emphasis {

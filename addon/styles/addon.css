@@ -1,20 +1,20 @@
-@tailwind preflight;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/preflight";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-@import './components/docs-brand-colors';
-@import './components/docs-btn';
-@import './components/docs-container';
-@import './components/docs-md';
+@import './components/docs-brand-colors.css';
+@import './components/docs-btn.css';
+@import './components/docs-container.css';
+@import './components/docs-md.css';
 
-@import './utilities/masks';
-@import './utilities/nudge';
-@import './utilities/overflow-momentum';
+@import './utilities/masks.css';
+@import './utilities/nudge.css';
+@import './utilities/overflow-momentum.css';
+@import './syntax.css';
 
-@import 'pod-styles';
-@import 'syntax';
+@import 'pod-styles.css';
 
-// Figure out how to do this in tailwind
+/* Figure out how to do this in tailwind */
 .docs-fill-current {
   &,
   & * {

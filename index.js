@@ -20,17 +20,23 @@ module.exports = {
 
   options: {
     postcssOptions: {
-
       compile: {
-        enabled: false,
-      },
-
-      filter: {
         enabled: true,
         includePaths: [styleDir],
         plugins: [
-          require('tailwindcss')(path.join( __dirname, 'addon', 'styles', 'tailwind.js'))
+          {
+            module: require('postcss-import'),
+            options: {
+              path: [path.join(__dirname, 'node_modules')]
+            }
+          },
+          require('tailwindcss')(path.join(styleDir, 'tailwind.js'))
         ]
+      },
+
+      filter: {
+        enabled: false,
+        plugins: []
       },
     },
 

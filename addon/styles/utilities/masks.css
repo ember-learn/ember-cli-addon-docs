@@ -2,12 +2,12 @@
 .docs-mask-image {
   /* Autoprefixer is in dependencies but not working on host apps */
   -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black 90%, transparent);
-          mask-image: linear-gradient(to right, transparent, black 20px, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20px, black 90%, transparent);
 }
 
 @media (min-width: 768px) {
   .md\:docs-no-mask-image {
     -webkit-mask-image: none;
-            mask-image: none;
+    mask-image: none;
   }
 }

@@ -1,4 +1,4 @@
-// BEGIN-SNIPPET docs-logo-ember-data-styles.scss
+/* BEGIN-SNIPPET docs-logo-ember-data-styles.css */
 .my-ember-data-addon-logo {
   background: #2196F3;
   color: white;
@@ -7,4 +7,4 @@
   margin: 0 auto;
   padding: 20px;
 }
-// END-SNIPPET
+/* END-SNIPPET */

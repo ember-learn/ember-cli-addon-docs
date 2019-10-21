@@ -35,14 +35,24 @@ module.exports = function(defaults) {
         ])
       }
     },
+
+    'ember-component-css': {
+      namespacing: false
+    },
+
     postcssOptions: {
       compile: {
-        enabled: false,
+        enabled: true,
+        plugins: [{
+          module: require('postcss-import'),
+        }]
       },
 
       filter: {
         enabled: false,
-        plugins: []
+        plugins: [{
+          module: require('postcss-import'),
+        }]
       },
     },
   });
