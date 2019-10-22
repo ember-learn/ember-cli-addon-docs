@@ -1,5 +1,5 @@
+import { hbs } from 'ember-cli-htmlbars';
 import Component from '@ember/component';
-import hbs from 'htmlbars-inline-precompile'
 
 export default Component.extend({
   tagName: 'ul',

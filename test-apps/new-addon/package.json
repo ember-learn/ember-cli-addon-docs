@@ -30,7 +30,6 @@
     "ember-cli-dependency-checker": "*",
     "ember-cli-eslint": "*",
     "ember-cli-htmlbars": "*",
-    "ember-cli-htmlbars-inline-precompile": "*",
     "ember-cli-inject-live-reload": "*",
     "ember-qunit": "*",
     "ember-cli-sri": "*",
