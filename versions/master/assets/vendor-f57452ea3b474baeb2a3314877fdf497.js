@@ -6668,10 +6668,9 @@ e.default=i})),define("ember-cli-addon-docs/initializers/inject-media",["exports
 function t(e){e.inject("component","media","service:media"),e.inject("controller","media","service:media")}Object.defineProperty(e,"__esModule",{value:!0}),e.initialize=t,e.default=void 0
 var r={initialize:t}
 e.default=r})),define("ember-cli-addon-docs/initializers/route-anchor-jump",["exports"],(function(e){"use strict"
-function t(){Ember.Route.reopen({afterModel:function(){this._super.apply(this,arguments)
-var e=location,t=e.hash
+function t(){}Object.defineProperty(e,"__esModule",{value:!0}),e.initialize=t,e.default=void 0,Ember.Route.reopen({afterModel:function(){if("undefined"!=typeof location){var e=location,t=e.hash
 t&&t.length&&Ember.run.scheduleOnce("afterRender",null,(function(){var e=document.querySelector('a[href="'.concat(t,'"'))
-e&&e.scrollIntoView()}))}})}Object.defineProperty(e,"__esModule",{value:!0}),e.initialize=t,e.default=void 0
+e&&e.scrollIntoView()}))}return this._super.apply(this,arguments)}})
 var r={initialize:t}
 e.default=r})),define("ember-cli-addon-docs/keyboard-config",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.formElementHasFocus=function(){return t.includes(document.activeElement.tagName)}
