@@ -1,11 +1,9 @@
 import Route from '@ember/routing/route';
 import { scheduleOnce } from '@ember/runloop';
 
-export function initialize() {
-  Route.reopen({
-    afterModel() {
-      this._super(...arguments);
-
+Route.reopen({
+  afterModel() {
+    if (typeof location !== 'undefined') {
       const { hash } = location;
       if (hash && hash.length) {
         scheduleOnce('afterRender', null, () => {
@@ -16,9 +14,13 @@ export function initialize() {
         });
       }
     }
-  })
-}
+
+    return this._super(...arguments);
+  }
+});
+
+export function initialize() {}
 
 export default {
-  initialize
+  initialize,
 };
