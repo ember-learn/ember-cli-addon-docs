@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('usage');
     this.route('quickstart');
     this.route('patterns');
+    this.route('build-options');
     this.route('deploying');
 
     this.route('components', function() {
