@@ -98,8 +98,8 @@ module.exports = {
     includer.options.includeFileExtensionInSnippetNames = includer.options.includeFileExtensionInSnippetNames || false;
     includer.options.snippetSearchPaths = includer.options.snippetSearchPaths || ['tests/dummy/app'];
     includer.options.snippetRegexes = Object.assign({}, {
-      begin: /{{#(?:docs-snippet|demo.example)\sname=(?:"|')(\S+)(?:"|')/,
-      end: /{{\/(?:docs-snippet|demo.example)}}/,
+      begin: /(?:{{#|<)(?:DocsSnippet|docs-snippet|demo\.example)\s@?name=['"](\S*)['"]/,
+      end: /(?:{{|<)\/(?:DocsSnippet|docs-snippet|demo\.example)(?:}}|>)/,
     }, includer.options.snippetRegexes);
     includer.options.includehighlightJS = false;
     includer.options.includeHighlightStyle = false;
