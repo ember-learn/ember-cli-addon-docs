@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import layout from './template';
 import { reads } from '@ember/object/computed';
-// import config from 'dummy/config/environment';
+// import config from 'ember-get-config';
 import { computed } from '@ember/object';
 import { A } from '@ember/array';
 import { getOwner } from '@ember/application';

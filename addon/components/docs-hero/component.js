@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import layout from './template';
 import { addonPrefix, unprefixedAddonName } from 'ember-cli-addon-docs/utils/computed';
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 import { classify } from '@ember/string';
 const { projectName, projectDescription } = config['ember-cli-addon-docs'];
 

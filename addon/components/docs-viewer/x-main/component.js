@@ -4,7 +4,7 @@ import { bind } from '@ember/runloop';
 import { computed } from '@ember/object';
 import appFiles from 'ember-cli-addon-docs/app-files';
 import addonFiles from 'ember-cli-addon-docs/addon-files';
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 import { getOwner } from '@ember/application';
 
 import layout from './template';
@@ -70,26 +70,38 @@ export default Component.extend({
       return;
     }
 
+    let match = this._locateFile(path);
+    if (match) {
+      let { projectHref, addonPathInRepo, docsAppPathInRepo, primaryBranch } = config['ember-cli-addon-docs'];
+      let parts = [projectHref, 'edit', primaryBranch];
+      if (match.inTree === 'addon') {
+        parts.push(addonPathInRepo);
+      } else {
+        parts.push(docsAppPathInRepo);
+      }
+      parts.push(match.file);
+      return parts.filter(Boolean).join('/');
+    }
+  }),
+
+  _locateFile(path) {
     path = path.replace(/\./g, '/');
-
-    let { projectHref, projectPathInRepo, primaryBranch } = config['ember-cli-addon-docs'];
-    let projectPath = projectPathInRepo ? `/${projectPathInRepo}/` : '/';
-    let rootEditUrl = `${projectHref}/edit/${primaryBranch}${projectPath}`;
-
     if (path === 'docs/api/item') {
-      let { path } = getOwner(this).lookup('route:application').paramsFor('docs.api.item');
-      let file = addonFiles.find(f => f.match(path));
-
+      let { projectName } = config['ember-cli-addon-docs'];
+      let model = getOwner(this).lookup('route:application').modelFor('docs.api.item');
+      let filename = model.get('file').replace(new RegExp(`^${projectName}/`), '');
+      let file = addonFiles.find(f => f.match(filename));
       if (file) {
-        return `${rootEditUrl}addon/${file}`;
+        return { file, inTree: 'addon' };
       }
     } else {
       let file = appFiles
         .filter(file => file.match(/\.(hbs|md)$/))
         .find(file => file.match(path));
-
-      return `${rootEditUrl}tests/dummy/app/${file}`;
+      if (file) {
+        return { file, inTree: 'app' };
+      }
     }
-  })
+  }
 
 });

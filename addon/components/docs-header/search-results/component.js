@@ -5,7 +5,7 @@ import { EKMixin, keyUp, keyDown } from 'ember-keyboard';
 import { on } from '@ember/object/evented';
 import { computed } from '@ember/object';
 import { task } from 'ember-concurrency';
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 
 const projectName = config['ember-cli-addon-docs'].projectName;
 
@@ -20,7 +20,7 @@ export default Component.extend(EKMixin, {
   selectedIndex: null,
 
   keyboardActivated: true,
-  
+
   didInsertElement() {
     this._super();
 

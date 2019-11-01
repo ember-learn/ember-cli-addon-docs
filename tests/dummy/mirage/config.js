@@ -1,4 +1,4 @@
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 const projectTag = config['ember-cli-addon-docs'].projectTag;
 
 export default function() {

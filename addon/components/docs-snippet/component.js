@@ -1,7 +1,8 @@
 import { computed } from '@ember/object';
 import Component from '@ember/component';
 import layout from './template';
-import Snippets from "dummy/snippets";
+import config from 'ember-get-config';
+import require from 'require';
 
 /**
   A snippet component for demonstrating some code
@@ -80,8 +81,10 @@ export default Component.extend({
       name += '.hbs';
     }
 
+    let snippet = require(config.modulePrefix + "/snippets")[name] || "";
+
     return this._unindent(
-      (Snippets[name] || "")
+      snippet
         .replace(/^(\s*\n)*/, '')
         .replace(/\s*$/, '')
     );

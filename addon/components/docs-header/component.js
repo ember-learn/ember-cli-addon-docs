@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import layout from './template';
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 import { computed } from '@ember/object';
 import { classify } from '@ember/string';
 import { addonLogo, addonPrefix } from 'ember-cli-addon-docs/utils/computed';

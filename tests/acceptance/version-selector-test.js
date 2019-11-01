@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { visit, click } from '@ember/test-helpers';
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 
 module('Acceptance | Version selector test', function(hooks) {
   setupApplicationTest(hooks);

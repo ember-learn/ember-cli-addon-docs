@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-import config from 'dummy/config/environment';
+import config from 'ember-get-config';
 import { inject as service } from '@ember/service';
 
 export default DS.Adapter.extend({
