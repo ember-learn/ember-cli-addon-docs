@@ -8,6 +8,7 @@ const Router = AddonDocsRouter.extend({
 
 Router.map(function() {
   this.route('route-using-compile-markdown');
+  this.route('snippets');
 
   docsRoute(this, function() {
 
