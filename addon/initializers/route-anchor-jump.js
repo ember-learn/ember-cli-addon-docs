@@ -19,6 +19,10 @@ Route.reopen({
   }
 });
 
+/**
+  @function initialize
+  @hide
+*/
 export function initialize() {}
 
 export default {
