@@ -219,7 +219,7 @@ module.exports = {
   treeForAddon(tree) {
     let dummyAppFiles = new FindDummyAppFiles([ this.app.trees.app ]);
     let addonToDocument = this._documentingAddon();
-    let addonFiles = new FindAddonFiles([path.join(addonToDocument.root, 'addon')]);
+    let addonFiles = new FindAddonFiles([path.join(addonToDocument.root, 'addon')].filter(dir => fs.existsSync(dir)));
     return this._super(new MergeTrees([ tree, dummyAppFiles, addonFiles ]));
   },
 
