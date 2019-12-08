@@ -6560,7 +6560,7 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var i=Ember.Component.extend({tagName:"",layout:t.default,name:null,language:null,title:null,showCopy:!0,unindent:!1,_unindent:function(e){if(!this.get("unindent"))return e
 for(var t,r,n=e.split("\n").filter((function(e){return""!==e})),i=0;i<n.length;i++)t=/^[ \t]*/.exec(n[i]),t&&(void 0===r||r>t[0].length)&&(r=t[0].length)
 return void 0!==r&&r>0&&(e=e.replace(new RegExp("^[ \t]{"+r+"}","gm"),"")),e},snippetText:Ember.computed("name",(function(){var e=this.get("name");/\..+/.test(e)||(e+=".hbs")
-var t=(0,n.default)(r.default.modulePrefix+"/snippets")[e]||""
+var t=(0,n.default)(r.default.modulePrefix+"/snippets").default[e]||""
 return this._unindent(t.replace(/^(\s*\n)*/,"").replace(/\s*$/,""))}))})
 e.default=i})),define("ember-cli-addon-docs/components/docs-snippet/template",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
