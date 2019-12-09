@@ -1,10 +1,10 @@
-<header class='docs-shadow docs-relative docs-z-40 docs-bg-white'>
-  <div class='docs-flex docs-items-center docs-max-w-site-container docs-mx-auto md:docs-px-2'>
+<header class="docs-shadow docs-relative docs-z-40 docs-bg-white">
+  <div class="docs-flex docs-items-center docs-max-w-site-container docs-mx-auto md:docs-px-2">
 
-    {{#docs-header/link 'index'}}
-      <span class='docs-leading-none docs-font-title docs-text-large-2 docs-font-normal docs-normal-case docs-block docs-mr-6'>
+    {{#docs-header/link "index"}}
+      <span class="docs-leading-none docs-font-title docs-text-large-2 docs-font-normal docs-normal-case docs-block docs-mr-6">
         {{#if prefix}}
-          <div class='docs-text-xxs'>
+          <div class="docs-text-xxs">
             {{prefix}}
           </div>
         {{/if}}
@@ -12,19 +12,19 @@
       </span>
     {{/docs-header/link}}
 
-    <div class='docs-flex-1 docs-flex docs-items-center docs-overflow-auto docs-overflow-momentum docs-mask-image md:docs-no-mask-image'>
-      {{#docs-header/link 'docs'}}
+    <div class="docs-flex-1 docs-flex docs-items-center docs-overflow-auto docs-overflow-momentum docs-mask-image md:docs-no-mask-image">
+      {{#docs-header/link "docs"}}
         Documentation
       {{/docs-header/link}}
 
       {{yield (hash
-        link=(component 'docs-header/link')
+        link=(component "docs-header/link")
       )}}
 
       {{docs-header/search-box query=query on-input=(action (mut query))}}
 
-      {{#docs-header/link on-click=(action (toggle 'isShowingVersionSelector' this))}}
-        <span data-test-id='current-version' data-version-selector class='docs-flex docs-items-center'>
+      {{#docs-header/link on-click=(action (toggle "isShowingVersionSelector" this))}}
+        <span data-test-id="current-version" data-version-selector class="docs-flex docs-items-center">
 
           {{#if (eq currentVersion.key latestVersionName)}}
             {{#if currentVersion.tag}}
@@ -36,26 +36,26 @@
             {{currentVersion.name}}
           {{/if}}
 
-          {{svg-jar 'caret' height=12 width=12}}
+          {{svg-jar "caret" height=12 width=12}}
         </span>
       {{/docs-header/link}}
 
       {{#if projectHref}}
         {{#docs-header/link href=projectHref}}
-          <span class='docs-flex'>
-            {{svg-jar 'github' width=24 height=24}}
+          <span class="docs-flex">
+            {{svg-jar "github" width=24 height=24}}
           </span>
         {{/docs-header/link}}
       {{/if}}
 
       {{!-- Something to take up space on mobile, so the scrolling nav isn't hugging the edge --}}
-      <div class='docs-h-px docs-px-3 sm:docs-hidden'></div>
+      <div class="docs-h-px docs-px-3 sm:docs-hidden"></div>
     </div>
   </div>
 </header>
 
 {{#if query}}
-  {{docs-header/search-results query=query on-visit=(action 'didVisitPage')}}
+  {{docs-header/search-results query=query on-visit=(action "didVisitPage")}}
 {{/if}}
 
 {{#if isShowingVersionSelector}}

@@ -10,9 +10,9 @@
       {{#each pageIndex as |item|}}
         <li class="
           docs-leading-tight docs-tracking-tight
-          {{if item.indent (concat 'docs-ml-' item.indent)}}
-          {{if item.marginTop (concat 'docs-mt-' item.marginTop)}}
-          {{if item.marginBottom (concat 'docs-mt-' item.marginBottom)}}
+          {{if item.indent (concat "docs-ml-" item.indent)}}
+          {{if item.marginTop (concat "docs-mt-" item.marginTop)}}
+          {{if item.marginBottom (concat "docs-mt-" item.marginBottom)}}
         "
 
         data-test-index-item
@@ -22,7 +22,7 @@
             class="docs-text-grey-dark docs-font-semibold docs-no-underline hover:docs-underline docs-text-{{item.size}}"
           >
             {{item.text}}
-            </a>
+          </a>
         </li>
       {{/each}}
     </ul>

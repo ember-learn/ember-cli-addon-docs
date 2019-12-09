@@ -1,11 +1,11 @@
 {{#if href}}
 
   <a href={{href}}
-    class='
+    class="
       docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xxs docs-font-bold
       docs-text-grey-darkest docs-no-underline hover:docs-text-brand
-      {{if push 'docs-ml-auto'}}
-    '
+      {{if push "docs-ml-auto"}}
+    "
     data-test-id={{data-test-id}}>
     {{yield}}
   </a>
@@ -13,12 +13,12 @@
 {{else if on-click}}
 
   <a {{action on-click}}
-    href='#'
-    class='
+    href="#"
+    class="
       docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xxs docs-font-bold
       docs-text-grey-darkest docs-no-underline hover:docs-text-brand
-      {{if push 'docs-ml-auto'}}
-    '
+      {{if push "docs-ml-auto"}}
+    "
     data-test-id={{data-test-id}}>
     {{yield}}
   </a>
@@ -27,14 +27,14 @@
 
   {{#link-to route
     class=(concat
-      'docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xxs
-      docs-font-bold docs-no-underline '
-      (if (not (eq route 'index'))
+      "docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xxs
+      docs-font-bold docs-no-underline "
+      (if (not (eq route "index"))
         (if isActive
-          'docs-text-brand'
-          'docs-text-grey-darkest hover:docs-text-brand'
+          "docs-text-brand"
+          "docs-text-grey-darkest hover:docs-text-brand"
         )
-        'docs-text-grey-darkest'
+        "docs-text-grey-darkest"
       )
     )
     data-test-id=data-test-id

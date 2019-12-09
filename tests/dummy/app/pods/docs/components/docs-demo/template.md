@@ -19,7 +19,7 @@ Let's look at a basic example:
 
 Here's the code that rendered the above demo (you can copy-paste this block to get going in your own app):
 
-{{docs-snippet name='docs-demo-basic-src.hbs'}}
+{{docs-snippet name="docs-demo-basic-src.hbs"}}
 
 To explain,
 

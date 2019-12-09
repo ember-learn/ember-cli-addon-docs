@@ -1,4 +1,4 @@
-<h1 class='docs-h1' data-test-component-name>{{component.name}}</h1>
+<h1 class="docs-h1" data-test-component-name>{{component.name}}</h1>
 
 {{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
 <div data-test-component-name>{{{component.description}}}</div>
@@ -19,7 +19,7 @@
           deprecated=(if component.hasDeprecated showDeprecated)
         )
 
-        onToggle=(action 'updateFilter')
+        onToggle=(action "updateFilter")
       }}
     {{/if}}
   {{/api/x-meta-panel}}
