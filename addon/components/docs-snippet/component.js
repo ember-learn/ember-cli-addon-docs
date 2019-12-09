@@ -81,7 +81,7 @@ export default Component.extend({
       name += '.hbs';
     }
 
-    let snippet = require(config.modulePrefix + "/snippets")[name] || "";
+    let snippet = require(config.modulePrefix + "/snippets").default[name] || "";
 
     return this._unindent(
       snippet
