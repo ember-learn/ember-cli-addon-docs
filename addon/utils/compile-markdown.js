@@ -197,19 +197,19 @@ class HBSRenderer extends marked.Renderer {
 
   heading(text, level) {
     let id = text.toLowerCase().replace(/<\/?.*?>/g, '').replace(/[^\w]+/g, '-');
-    let inner = level === 1 ? text : `<a href='#${id}' class='heading-anchor'>${text}</a>`;
+    let inner = level === 1 ? text : `<a href="#${id}" class="heading-anchor">${text}</a>`;
 
     return `
-      <h${level} id='${id}' class='docs-md__h${level}'>${inner}</h${level}>
+      <h${level} id="${id}" class="docs-md__h${level}">${inner}</h${level}>
     `;
   }
 
   hr() {
-    return `<hr class='docs-md__hr'>`;
+    return `<hr class="docs-md__hr">`;
   }
 
   blockquote(text) {
-    return `<blockquote class='docs-md__blockquote'>${text}</blockquote>`;
+    return `<blockquote class="docs-md__blockquote">${text}</blockquote>`;
   }
 
   link(href, title, text) {

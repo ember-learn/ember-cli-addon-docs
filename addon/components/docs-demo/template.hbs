@@ -1,8 +1,8 @@
 <div class="docs-rounded docs-border docs-border-grey-lighter docs-my-8 {{class}}">
 
   {{yield (hash
-    example=(component 'docs-demo/x-example')
-    snippet=(component 'docs-demo/x-snippet' did-init=(action 'registerSnippet') activeSnippet=activeSnippet)
+    example=(component "docs-demo/x-example")
+    snippet=(component "docs-demo/x-snippet" did-init=(action "registerSnippet") activeSnippet=activeSnippet)
   )}}
 
   <div>
@@ -13,15 +13,15 @@
         docs-border-grey-darkest
       ">
         {{#each snippets as |snippet|}}
-          <button {{action 'selectSnippet' snippet}}
-            class='
+          <button {{action "selectSnippet" snippet}}
+            class="
               docs-mr-4 docs-text-xs docs-no-underline outline-none
               hover:docs-text-grey-lighter
               {{if snippet.isActive
-                'docs-text-grey-lighter'
-                'docs-text-grey-dark'
+                "docs-text-grey-lighter"
+                "docs-text-grey-dark"
               }}
-            '
+            "
           >
             {{snippet.label}}
           </button>

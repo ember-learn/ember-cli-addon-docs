@@ -1,18 +1,18 @@
 <div data-test-item class="docs-pb-8">
   <h3
     id={{item.name}}
-    data-text="{{item.name}}"
+    data-text={{item.name}}
     data-test-item-header
     class="docs-h3 docs-font-mono docs-font-normal"
   >
-    {{#if (eq item.exportType 'default')}}
+    {{#if (eq item.exportType "default")}}
       <span class="docs-border docs-border-grey-light docs-align-text-top docs-leading-loose docs-text-xxs docs-pl-2 docs-mr-2 docs-py-1 docs-rounded">
         Default
       </span>
     {{/if}}
 
     {{#if (or item.isClass item.isComponent)}}
-      {{#link-to 'docs.api.item' (concat 'modules/' item.id) class='hover:underline'}}
+      {{#link-to "docs.api.item" (concat "modules/" item.id) class="hover:underline"}}
         <strong>{{item.name}}</strong>
       {{/link-to}}
     {{else}}

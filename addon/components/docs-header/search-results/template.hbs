@@ -1,11 +1,11 @@
 {{#if (and trimmedQuery search.isIdle)}}
   {{#modal-dialog
-    tetherTarget='[data-search-box]'
-    attachment='top left'
+    tetherTarget="[data-search-box]"
+    attachment="top left"
     clickOutsideToClose=true
-    onClose=(action 'clearSearch')
-    targetAttachment='bottom left'
-    constraints=(array (hash to='window' attachment='together' pin=true))}}
+    onClose=(action "clearSearch")
+    targetAttachment="bottom left"
+    constraints=(array (hash to="window" attachment="together" pin=true))}}
 
     <ul class="docs-w-76 docs-bg-white docs-shadow-md docs-list-reset" data-test-search-result-list>
       {{#each (take 5 searchResults) as |result index|}}
@@ -14,11 +14,11 @@
             result=result
             query=query
             selected=(eq index selectedIndex)
-            on-mouse-enter=(action 'selectResult' index)
-            on-click=(action 'clearSearch')}}
+            on-mouse-enter=(action "selectResult" index)
+            on-click=(action "clearSearch")}}
         </li>
       {{else}}
-        <li class='docs-block docs-py-1 docs-px-3 docs-text-grey-dark docs-no-underline'>
+        <li class="docs-block docs-py-1 docs-px-3 docs-text-grey-dark docs-no-underline">
           No results.
         </li>
       {{/each}}

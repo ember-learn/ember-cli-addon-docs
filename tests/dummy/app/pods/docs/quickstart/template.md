@@ -52,7 +52,7 @@ AddonDocs uses your addon's dummy application, which is a full-fledged Ember app
 
 So let's start with the application template:
 
-{{#docs-snippet name='quickstart-application.hbs' title='tests/dummy/app/templates/application.hbs'}}
+{{#docs-snippet name="quickstart-application.hbs" title="tests/dummy/app/templates/application.hbs"}}
   {{docs-header}}
 
   {{outlet}}
@@ -66,12 +66,12 @@ At this point, fire up `ember s` and you should see your new docs site & header 
 
 AddonDocs comes with some components to help you showcase your addon. Let's add them to your dummy app's index template:
 
-{{#docs-snippet name='quickstart-marketing-index.hbs' title='tests/dummy/app/templates/index.hbs'}}
+{{#docs-snippet name="quickstart-marketing-index.hbs" title="tests/dummy/app/templates/index.hbs"}}
   {{docs-hero}}
 
-  <div class='container'>
+  <div class="container">
     {{#docs-demo as |demo|}}
-      {{#demo.example name='my-demo.hbs'}}
+      {{#demo.example name="my-demo.hbs"}}
         <p>Make sure to read up on the DocsDemo component before building out this page.</p>
       {{/demo.example}}
     {{/docs-demo}}
@@ -88,10 +88,10 @@ AddonDocs is unopinionated about how you style your application, so you can use 
 
 The `docs` route is the entry point for your guides and API docs. Create a new `docs/template.hbs` file for the `docs` route and add the `<DocsViewer />` component:
 
-  {{#docs-snippet name='quickstart-skeleton.hbs' language='htmlbars' title='tests/dummy/app/templates/docs.hbs'}}
+  {{#docs-snippet name="quickstart-skeleton.hbs" language="htmlbars" title="tests/dummy/app/templates/docs.hbs"}}
     {{#docs-viewer as |viewer|}}
       {{#viewer.nav as |nav|}}
-        {{nav.item 'Introduction' 'docs.index'}}
+        {{nav.item "Introduction" "docs.index"}}
       {{/viewer.nav}}
 
       {{#viewer.main}}
@@ -128,7 +128,7 @@ ember generate docs-page usage
 
 This will generate and modify the files for your `usage` docs page.
 
-{{#docs-snippet name='quickstart-markdown-subpage.md' title='tests/dummy/app/templates/docs/usage.md' language='markdown'}}
+{{#docs-snippet name="quickstart-markdown-subpage.md" title="tests/dummy/app/templates/docs/usage.md" language="markdown"}}
   # Usage
 
   Usage content
@@ -148,14 +148,14 @@ Just as with any Ember app, it's a good idea to add a 404 route for unmatched UR
 
 Add the following route to the end of your router and create the associated template.
 
-{{#docs-snippet name='quickstart-404.js' title='tests/dummy/app/router.js'}}
+{{#docs-snippet name="quickstart-404.js" title="tests/dummy/app/router.js"}}
   this.route('not-found', { path: '/*path' });
 {{/docs-snippet}}
 
-{{#docs-snippet name='quickstart-404.hbs' title='tests/dummy/app/templates/not-found.hbs'}}
+{{#docs-snippet name="quickstart-404.hbs" title="tests/dummy/app/templates/not-found.hbs"}}
   <div class="container">
     <h1>Not found</h1>
-    <p>This page doesn't exist. {{#docs-link 'index'}}Head home?{{/docs-link}}</p>
+    <p>This page doesn't exist. {{#docs-link "index"}}Head home?{{/docs-link}}</p>
   </div>
 {{/docs-snippet}}
 
