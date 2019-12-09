@@ -25,7 +25,7 @@ export default Component.extend({
   /**
     The prefix to show, tyipcally of: 'Ember', 'EmberCLI', or 'EmberData'
 
-    @argument logo
+    @argument prefix
     @type String
   */
   prefix: addonPrefix(projectName),
