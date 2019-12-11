@@ -69,7 +69,7 @@ AddonDocs comes with some components to help you showcase your addon. Let's add 
 {{#docs-snippet name="quickstart-marketing-index.hbs" title="tests/dummy/app/templates/index.hbs"}}
   {{docs-hero}}
 
-  <div class="container">
+  <div style="max-width: 40rem; margin: 0 auto; padding: 0 1.5rem">
     {{#docs-demo as |demo|}}
       {{#demo.example name="my-demo.hbs"}}
         <p>Make sure to read up on the DocsDemo component before building out this page.</p>
@@ -153,7 +153,7 @@ Add the following route to the end of your router and create the associated temp
 {{/docs-snippet}}
 
 {{#docs-snippet name="quickstart-404.hbs" title="tests/dummy/app/templates/not-found.hbs"}}
-  <div class="container">
+  <div style="max-width: 40rem; margin: 0 auto; padding: 0 1.5rem">
     <h1>Not found</h1>
     <p>This page doesn't exist. {{#docs-link "index"}}Head home?{{/docs-link}}</p>
   </div>
