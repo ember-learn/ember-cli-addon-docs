@@ -1,7 +1,7 @@
 .docs-container {
   @apply docs-px-4 docs-max-w-site-container docs-mx-auto;
 }
-@media (min-width: config('screens.md')) {
+@media (min-width: theme('screens.md')) {
   .docs-container {
     @apply docs-px-6;
   }
