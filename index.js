@@ -29,7 +29,7 @@ module.exports = {
         enabled: true,
         includePaths: [styleDir],
         plugins: [
-          require('tailwindcss')(path.join( __dirname, 'addon', 'styles', 'tailwind.js'))
+          require('tailwindcss')(path.join( __dirname, 'addon', 'styles', 'tailwind.config.js'))
         ]
       },
     },
