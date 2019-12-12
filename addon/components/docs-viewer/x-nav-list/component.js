@@ -1,10 +1,8 @@
-import { hbs } from 'ember-cli-htmlbars';
 import Component from '@ember/component';
+import { hbs } from 'ember-cli-htmlbars';
 
 export default Component.extend({
   tagName: 'ul',
-
-  classNames: ['docs-list-reset'],
 
   layout: hbs`
     {{yield (hash
