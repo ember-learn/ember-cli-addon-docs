@@ -1,8 +1,5 @@
-import { computed } from '@ember/object';
 import Component from '@ember/component';
 import layout from './template';
-import config from 'ember-get-config';
-import require from 'require';
 
 /**
   A snippet component for demonstrating some code
@@ -56,37 +53,5 @@ export default Component.extend({
     @argument unindent
     @type Boolean
   */
-  unindent: false,
-
-  _unindent: function(src) {
-    if (!this.get('unindent')) {
-      return src;
-    }
-    var match, min, lines = src.split("\n").filter(l => l !== '');
-    for (var i = 0; i < lines.length; i++) {
-      match = /^[ \t]*/.exec(lines[i]);
-      if (match && (typeof min === 'undefined' || min > match[0].length)) {
-        min = match[0].length;
-      }
-    }
-    if (typeof min !== 'undefined' && min > 0) {
-      src = src.replace(new RegExp("^[ \t]{" + min + "}", 'gm'), "");
-    }
-    return src;
-  },
-
-  snippetText: computed('name', function(){
-    let name = this.get('name');
-    if (!/\..+/.test(name)) {
-      name += '.hbs';
-    }
-
-    let snippet = require(config.modulePrefix + "/snippets").default[name] || "";
-
-    return this._unindent(
-      snippet
-        .replace(/^(\s*\n)*/, '')
-        .replace(/\s*$/, '')
-    );
-  }),
+  unindent: true,
 });
