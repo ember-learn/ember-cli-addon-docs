@@ -132,8 +132,6 @@ module.exports = {
       begin: /(?:{{#|<)(?:DocsSnippet|docs-snippet|demo\.example)\s@?name=['"](\S*)['"]/,
       end: /(?:{{|<)\/(?:DocsSnippet|docs-snippet|demo\.example)(?:}}|>)/,
     }, includer.options.snippetRegexes);
-    includer.options.includehighlightJS = false;
-    includer.options.includeHighlightStyle = false;
 
     let snippetExtensions = includer.options.snippetExtensions;
 
@@ -226,7 +224,6 @@ module.exports = {
   treeForVendor(vendor) {
     return new MergeTrees([
       vendor,
-      // this._highlightJSTree(),
       this._lunrTree()
     ].filter(Boolean));
   },
@@ -283,13 +280,6 @@ module.exports = {
 
   _lunrTree() {
     return new Funnel(path.dirname(require.resolve('lunr/package.json')), { destDir: 'lunr' });
-  },
-
-  _highlightJSTree() {
-    return new Funnel(path.dirname(require.resolve('highlightjs/package.json')), { // eslint-disable-line node/no-missing-require
-      srcDir: 'styles',
-      destDir: 'highlightjs-styles'
-    });
   },
 
   _readUserConfig() {

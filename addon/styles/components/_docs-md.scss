@@ -50,7 +50,7 @@
 
 /* Applied to fenced code in compiled markdown */
 .docs-md__code {
-  @apply docs-my-8 docs-px-4 docs-py-3 docs-overflow-x-scroll docs-text-sm docs-rounded;
+  @apply docs-my-8 docs-px-4 docs-py-3 docs-overflow-x-scroll docs-text-xs docs-rounded docs-subpixel-antialiased;
 
   /* These values are copied from atom-one-dark theme, imported from highlight.js */
   background: #282c34;

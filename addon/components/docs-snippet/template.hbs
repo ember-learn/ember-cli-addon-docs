@@ -3,29 +3,33 @@
     docs-bg-black docs-text-grey-lighter docs-text-xs
     docs-font-medium docs-py-2 docs-px-4 docs-rounded-t
     docs-border-b docs-border-grey-darkest
+    docs-subpixel-antialiased
   ">
     {{title}}
   </div>
 {{/if}}
 
 <div class="
-    docs-text-sm docs-px-2 docs-py-1 docs-bg-code-base docs-relative
+    docs-text-xs docs-px-2 docs-py-1 docs-bg-code-base
+    docs-relative docs-subpixel-antialiased
     {{if title "docs-rounded-b" "docs-rounded"}}
   "
   data-test-id={{name}}
 >
-  {{#if showCopy}}
-    {{#copy-button
-      clipboardText=snippetText
-      title="copy to clipboard"
-      class="
-        docs-absolute docs-top-0 docs-right-0 docs-bg-transparent hover:docs-bg-transparent
-        docs-border-none docs-opacity-50 hover:docs-opacity-100 docs-p-3 docs-text-white
-      "
-    }}
-      Copy
-    {{/copy-button}}
-  {{/if}}
+  {{#with (get-code-snippet name unindent=unindent) as |snippet|}}
+    {{#if showCopy}}
+      {{#copy-button
+        clipboardText=snippet.source
+        title="copy to clipboard"
+        class="
+          docs-absolute docs-top-0 docs-right-0 docs-bg-transparent hover:docs-bg-transparent
+          docs-border-none docs-opacity-50 hover:docs-opacity-100 docs-p-3 docs-text-white
+        "
+      }}
+        Copy
+      {{/copy-button}}
+    {{/if}}
 
-  {{code-snippet name=name language=language}}
+    <DocsCodeHighlight @language={{language}}>{{snippet.source}}</DocsCodeHighlight>
+  {{/with}}
 </div>
