@@ -14,7 +14,7 @@
     docs-relative docs-subpixel-antialiased
     {{if title "docs-rounded-b" "docs-rounded"}}
   "
-  data-test-id={{name}}
+  data-test-id={{or data-test-id name}}
 >
   {{#with (get-code-snippet name unindent=unindent) as |snippet|}}
     {{#if showCopy}}

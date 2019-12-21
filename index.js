@@ -128,10 +128,19 @@ module.exports = {
         includer.options.snippetSearchPaths = ['tests/dummy/app'];
       }
     }
-    includer.options.snippetRegexes = Object.assign({}, {
-      begin: /(?:{{#|<)(?:DocsSnippet|docs-snippet|demo\.example)\s@?name=['"](\S*)['"]/,
-      end: /(?:{{|<)\/(?:DocsSnippet|docs-snippet|demo\.example)(?:}}|>)/,
-    }, includer.options.snippetRegexes);
+
+    if (!includer.options.snippetRegexes) {
+      includer.options.snippetRegexes = [
+        {
+          begin: /{{#(?:docs-snippet|demo\.example)\sname=['"](\S*)['"]/,
+          end: /{{\/(?:docs-snippet|demo\.example)}}/,
+        },
+        {
+          begin: /<(?:DocsSnippet|demo\.example)\s@name=['"](\S*)['"][^/]*>/,
+          end: /<\/(?:DocsSnippet|demo\.example)>/
+        }
+      ];
+    }
 
     let snippetExtensions = includer.options.snippetExtensions;
 

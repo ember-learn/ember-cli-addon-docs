@@ -2,13 +2,18 @@ import { module, test } from 'qunit';
 import { visit, fillIn } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
-const snippetIds = ['your-snippet-name.hbs', 'your-angle-bracket-snippet-name.hbs'];
+const snippetIds = [
+  'your-snippet-name.hbs',
+  'your-angle-bracket-snippet-name.hbs',
+  'standalone-curlies',
+  'standalone-angle-brackets'
+];
 
 module('Acceptance | snippets', function(hooks) {
   setupApplicationTest(hooks);
 
   test('snippets support both classic & angle bracket invocation', async function(assert) {
-    assert.expect(13);
+    assert.expect(17);
 
     await visit('/snippets');
 
