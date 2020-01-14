@@ -75,6 +75,7 @@ module.exports = {
       : path.relative(this._getRepoRoot(), path.join(this.project.root, 'addon'));
 
     let config = {
+      rootURL: this._getRootURL(),
       'ember-cli-addon-docs': {
         projectName: pkg.name,
         projectDescription: pkg.description,
@@ -104,6 +105,28 @@ module.exports = {
     }, updatedConfig);
 
     return updatedConfig;
+  },
+
+  _getDeployVersion() {
+    let userConfig = this._readUserConfig()
+    if (process.env.ADDON_DOCS_BUILD_VERSION !== 'latest') {
+      return userConfig._currentDeployVersion();
+    }
+
+    return userConfig._latestDeployVersion();
+  },
+
+  _getRootURL() {
+    if (!process.env.DEPLOY_ENV) {
+      return '/';
+    }
+
+    let userConfig = this._readUserConfig();
+    let urlParts = [userConfig.getRootURL()];
+    if (process.env.ADDON_DOCS_BUILD_VERSION !== 'latest') {
+      urlParts.push(`versions/${userConfig.getVersionPath()}`);
+    }
+    return urlParts.filter(Boolean).join('/') || '/';
   },
 
   included(includer) {
@@ -191,6 +214,11 @@ module.exports = {
     }
   },
 
+  serverMiddleware(app) {
+    let StagedVersionMiddleware = require('./lib/middleware/staged-versions');
+    new StagedVersionMiddleware(this.project, this._readUserConfig()).attach(app);
+  },
+
   contentFor(type) {
     if (type === 'body') {
       return fs.readFileSync(`${__dirname}/vendor/ember-cli-addon-docs/github-spa.html`, 'utf-8');
@@ -243,6 +271,7 @@ module.exports = {
     let PluginRegistry = require('./lib/models/plugin-registry');
     let DocsCompiler = require('./lib/broccoli/docs-compiler');
     let SearchIndexer = require('./lib/broccoli/search-indexer');
+    let StageVersions = require('./lib/broccoli/stage-versions');
 
     let project = this.project;
     let docsTrees = [];
@@ -275,7 +304,14 @@ module.exports = {
       config: this.project.config(EmberApp.env())
     });
 
-    return new MergeTrees([ tree, docsTree, searchIndexTree ]);
+    let merged = new MergeTrees([ tree, docsTree, searchIndexTree ]);
+
+    let userConfig = this._readUserConfig();
+    if (userConfig.shouldPlaceVersion()) {
+      merged = new StageVersions(merged, userConfig);
+    }
+
+    return merged;
   },
 
   _lunrTree() {

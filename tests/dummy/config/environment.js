@@ -5,7 +5,6 @@ module.exports = function(environment) {
     modulePrefix: 'dummy',
     podModulePrefix: 'dummy/pods',
     environment,
-    rootURL: '/',
     locationType: 'router-scroll',
     historySupportMiddleware: true,
     EmberENV: {
@@ -43,11 +42,6 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
-  }
-
-  if (environment === 'production') {
-    // Allow ember-cli-addon-docs to update the rootURL in compiled assets
-    ENV.rootURL = 'ADDON_DOCS_ROOT_URL';
   }
 
   return ENV;
