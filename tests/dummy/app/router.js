@@ -14,6 +14,7 @@ Router.map(function() {
     this.route('patterns');
     this.route('build-options');
     this.route('deploying');
+    this.route('standalone-apps');
 
     this.route('components', function() {
       this.route('docs-hero');
