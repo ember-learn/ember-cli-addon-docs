@@ -88,17 +88,17 @@ AddonDocs is unopinionated about how you style your application, so you can use 
 
 The `docs` route is the entry point for your guides and API docs. Create a new `docs/template.hbs` file for the `docs` route and add the `<DocsViewer />` component:
 
-  {{#docs-snippet name="quickstart-skeleton.hbs" language="htmlbars" title="tests/dummy/app/templates/docs.hbs"}}
-    {{#docs-viewer as |viewer|}}
-      {{#viewer.nav as |nav|}}
-        {{nav.item "Introduction" "docs.index"}}
-      {{/viewer.nav}}
+{{#docs-snippet name="quickstart-skeleton.hbs" language="htmlbars" title="tests/dummy/app/templates/docs.hbs"}}
+  {{#docs-viewer as |viewer|}}
+    {{#viewer.nav as |nav|}}
+      {{nav.item "Introduction" "docs.index"}}
+    {{/viewer.nav}}
 
-      {{#viewer.main}}
-        {{outlet}}
-      {{/viewer.main}}
-    {{/docs-viewer}}
-  {{/docs-snippet}}
+    {{#viewer.main}}
+      {{outlet}}
+    {{/viewer.main}}
+  {{/docs-viewer}}
+{{/docs-snippet}}
 
 If you visit `/docs` or click the Documentation link in the header, you should see the viewer's nav on the left-hand side and an area in the center where your guides content will go.
 
