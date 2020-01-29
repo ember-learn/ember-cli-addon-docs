@@ -13,6 +13,10 @@ Note that your addon can still support older versions of Ember – it's just th
 ember install ember-cli-addon-docs
 ```
 
+## Visual Studio Code integration
+
+To get AddonDocs autocomplete in your projects, install [els-addon-docs](https://github.com/lifeart/els-addon-docs) for [Unstable Ember Language Server](https://marketplace.visualstudio.com/items?itemName=lifeart.vscode-ember-unstable) as `devDependency` for your project. 
+
 <!-- ## New addons
 
 
