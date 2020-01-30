@@ -48,6 +48,7 @@
     "ember-cli-sass": "10.0.1",
     "ember-cli-string-helpers": "^4.0.5",
     "ember-cli-string-utils": "^1.1.0",
+    "ember-cli-version-checker": "^3.1.0",
     "ember-code-snippet": "^3.0.0",
     "ember-component-css": "^0.7.4",
     "ember-composable-helpers": "^2.3.1",
@@ -141,6 +142,7 @@
     "configPath": "tests/dummy/config",
     "before": [
       "ember-cli-htmlbars",
+      "ember-composable-helpers",
       "ember-svg-jar",
       "ember-code-snippet"
     ],
