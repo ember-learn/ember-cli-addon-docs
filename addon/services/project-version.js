@@ -42,22 +42,27 @@ export default Service.extend({
     return rootURL.replace(`/${this.get('currentVersion.path')}/`, '/');
   }),
 
-  currentVersion: computed(function() {
-    let config = getOwner(this).resolveRegistration('config:environment')['ember-cli-addon-docs'];
-    let currentVersion = config.deployVersion;
+  currentVersion: computed({
+    get() {
+      let config = getOwner(this).resolveRegistration('config:environment')['ember-cli-addon-docs'];
+      let currentVersion = config.deployVersion;
 
-    // In development, this token won't have been replaced replaced
-    if (currentVersion === 'ADDON_DOCS_DEPLOY_VERSION') {
-      currentVersion = {
-        key: latestVersionName,
-        name: latestVersionName,
-        tag: config.projectTag,
-        path: '',
-        sha: 'abcde'
-      };
+      // In development, this token won't have been replaced replaced
+      if (currentVersion === 'ADDON_DOCS_DEPLOY_VERSION') {
+        currentVersion = {
+          key: latestVersionName,
+          name: latestVersionName,
+          tag: config.projectTag,
+          path: '',
+          sha: 'abcde'
+        };
+      }
+
+      return currentVersion;
+    },
+
+    set(key, val) {
+      return val;
     }
-
-    return currentVersion;
   })
-
 });
