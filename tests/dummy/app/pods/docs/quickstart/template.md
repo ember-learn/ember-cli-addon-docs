@@ -91,7 +91,7 @@ The `docs` route is the entry point for your guides and API docs. Create a new `
 {{#docs-snippet name="quickstart-skeleton.hbs" language="htmlbars" title="tests/dummy/app/templates/docs.hbs"}}
   {{#docs-viewer as |viewer|}}
     {{#viewer.nav as |nav|}}
-      {{nav.item "Introduction" "docs.index"}}
+      {{nav.section "Introduction" "docs.index"}}
     {{/viewer.nav}}
 
     {{#viewer.main}}
