@@ -3,6 +3,18 @@
 [![npm version](https://img.shields.io/npm/v/ember-cli-addon-docs.svg?style=flat-square)](http://badge.fury.io/js/ember-cli-addon-docs)
 [![Build Status](https://img.shields.io/travis/ember-learn/ember-cli-addon-docs.svg?style=flat-square)](https://travis-ci.org/ember-learn/ember-cli-addon-docs)
 
+---
+
+**2/28/20 Update: AddonDocs is in Maintenace Mode.**
+
+AddonDocs is still actively being used by many addons, but is effectively in maintenance mode as the original authors are no longer working on this project.
+
+So, there's lots of good stuff in here, but use it at your own risk!
+
+If you run into parts of the guides that are confusing or out-of-date, check the issues/PRs, or hop into the #ec-addon-docs channel in Discord.
+
+---
+
 Easy documentation for Ember addons.
 
 [View the docs here](https://ember-learn.github.io/ember-cli-addon-docs/).
