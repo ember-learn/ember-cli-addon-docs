@@ -14,7 +14,7 @@ const styleDir = path.join( __dirname, 'addon', 'styles');
 
 
 module.exports = {
-  name: 'ember-cli-addon-docs',
+  name: require('./package').name,
 
   LATEST_VERSION_NAME,
 

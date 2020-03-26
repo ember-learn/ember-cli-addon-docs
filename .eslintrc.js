@@ -1,21 +1,34 @@
+'use strict';
+
 module.exports = {
   globals: {
     server: true
   },
   root: true,
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module'
+    sourceType: 'module',
+    ecmaFeatures: {
+      legacyDecorators: true
+    }
   },
-  plugins: ['ember'],
-  extends: ['eslint:recommended', 'plugin:ember/recommended'],
+  plugins: [
+    'ember'
+  ],
+  extends: [
+    'eslint:recommended',
+    'plugin:ember/recommended'
+  ],
   env: {
     browser: true
   },
   rules: {
     'no-unused-vars': ['error', { args: 'none' }],
     'no-console': ['error', { allow: ['warn', 'error'] }],
-
+    'ember/no-incorrect-calls-with-inline-anonymous-functions': 'off',
+    'ember/require-return-from-computed': 'off',
+    'ember/no-jquery': 'error',
     // ember-keyboard uses events
     'ember/no-on-calls-in-components': 'off'
   },
