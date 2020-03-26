@@ -27,7 +27,13 @@ export default Component.extend({
   /*
     This is overwritten for the Sandbox.
   */
-  project: computed(function() {
-    return this.get('store').peekRecord('project', projectName);
+  project: computed({
+    get() {
+      return this.get('store').peekRecord('project', projectName);
+    },
+
+    set(key, val) {
+      return val;
+    }
   })
 });
