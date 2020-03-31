@@ -7,8 +7,8 @@ export default Component.extend({
   layout,
 
   result: null,
-  'on-click'() {},
-  'on-mouse-enter'() {},
+  onClick() {},
+  onMouseEnter() {},
 
   linkArgs: computed('result.document', function() {
     let args = [];
@@ -22,13 +22,6 @@ export default Component.extend({
 
     return args;
   }),
-
-  click() {
-    this.get('on-click')();
-  },
-  mouseEnter() {
-    this.get('on-mouse-enter')();
-  },
 
   icon: computed(function() {
     if (this.get('result.document.type') === 'template') {

@@ -52,13 +52,16 @@ jobs:
       script: yarn test:test-apps
 
     - stage: versioned tests
-      env: EMBER_TRY_SCENARIO=ember-lts-2.12
-    - env: EMBER_TRY_SCENARIO=ember-lts-2.18
+      env: EMBER_TRY_SCENARIO=ember-lts-2.18
     - env: EMBER_TRY_SCENARIO=ember-lts-3.4
     - env: EMBER_TRY_SCENARIO=ember-lts-3.8
+    - env: EMBER_TRY_SCENARIO=ember-lts-3.12
+    - env: EMBER_TRY_SCENARIO=ember-lts-3.16
     - env: EMBER_TRY_SCENARIO=ember-release
     - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+    - env: EMBER_TRY_SCENARIO=ember-classic
 
     - stage: deploy
       if: (branch = master OR tag IS present) AND type = push
