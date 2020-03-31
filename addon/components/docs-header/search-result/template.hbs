@@ -1,24 +1,26 @@
-{{#link-to
-  params=linkArgs
-  class=(concat
-    "docs-block docs-py-2 docs-px-3 docs-text-black docs-no-underline hover:docs-bg-grey-lighter "
-    (if selected "docs-bg-grey-lighter")
-  )
-}}
-  <div class="docs-flex docs-items-center">
-    {{svg-jar icon height=28 width=28 class="docs-mr-2 docs-flex-no-shrink"}}
-    <span class="docs-truncate">
-      {{#if titleMatchesQuery}}
-        {{{highlightedTitle}}}
-      {{else}}
-        {{result.document.title}}
-      {{/if}}
-    </span>
-  </div>
-
-  {{#if (not titleMatchesQuery)}}
-    <small class="docs-text-grey-dark docs-inline-block">
-      {{{bestMatch}}}
-    </small>
-  {{/if}}
-{{/link-to}}
+<div {{on "click" this.onClick}} {{on "mouseenter" this.onMouseEnter}}>
+  {{#link-to
+    params=linkArgs
+    class=(concat
+      "docs-block docs-py-2 docs-px-3 docs-text-black docs-no-underline hover:docs-bg-grey-lighter "
+      (if selected "docs-bg-grey-lighter")
+    )
+  }}
+    <div class="docs-flex docs-items-center">
+      {{svg-jar icon height=28 width=28 class="docs-mr-2 docs-flex-no-shrink"}}
+      <span class="docs-truncate">
+        {{#if titleMatchesQuery}}
+          {{{highlightedTitle}}}
+        {{else}}
+          {{result.document.title}}
+        {{/if}}
+      </span>
+    </div>
+  
+    {{#if (not titleMatchesQuery)}}
+      <small class="docs-text-grey-dark docs-inline-block">
+        {{{bestMatch}}}
+      </small>
+    {{/if}}
+  {{/link-to}}
+</div>
