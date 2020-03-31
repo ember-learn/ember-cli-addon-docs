@@ -64,6 +64,7 @@
     "ember-keyboard": "^4.0.0",
     "ember-modal-dialog": "^3.0.0-beta.4",
     "ember-named-arguments-polyfill": "^1.0.0",
+    "ember-on-modifier": "^1.0.0",
     "ember-responsive": "^3.0.5",
     "ember-router-generator": "^2.0.0",
     "ember-router-scroll": "^1.3.3",
