@@ -797,6 +797,7 @@ module.exports = {
     position: ['responsive'],
     inset: ['responsive'],
     resize: ['responsive'],
+    tableLayout: ['responsive', 'hover', 'focus'],
     boxShadow: ['responsive', 'hover'],
     fill: [],
     stroke: [],

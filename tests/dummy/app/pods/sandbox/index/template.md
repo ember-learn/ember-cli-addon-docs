@@ -11,3 +11,10 @@ This is a subsection
 ### Sub-subsection
 
 This is a sub-subsection
+
+### Table
+
+| Dependency Name | Engine A | Host |
+|-----------------|----------|------|
+| Foo             | v2       | v1   |
+| Bar             | v1       | N\A  |
