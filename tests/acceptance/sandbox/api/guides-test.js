@@ -16,7 +16,7 @@ module('Acceptance | Sandbox | API | Guides', function(hooks) {
 
     let indexItems = modulePage.index.items.map(i => i.text);
 
-    assert.equal(indexItems.length, 2, 'correct number of items rendered');
+    assert.equal(indexItems.length, 3, 'correct number of items rendered');
     assert.ok(indexItems.includes('Subsection') && indexItems.includes('Sub-subsection'), 'correct sections rendered');
   });
 });
