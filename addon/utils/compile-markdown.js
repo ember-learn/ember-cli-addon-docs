@@ -208,6 +208,29 @@ class HBSRenderer extends marked.Renderer {
     `;
   }
 
+  table(header, body) {
+    if (body) body = '<tbody>' + body + '</tbody>';
+
+    return '<table class="docs-table-auto">\n'
+      + '<thead>\n'
+      + header
+      + '</thead>\n'
+      + body
+      + '</table>\n';
+  }
+
+  tablerow(content) {
+    return '<tr class="docs-table-row">\n' + content + '</tr>\n';
+  }
+
+  tablecell(content, flags) {
+    const type = flags.header ? 'th' : 'td';
+    const tag = flags.align
+      ? '<' + type + ' align="' + flags.align + '" class="docs-border docs-px-4 docs-py-2">'
+      : '<' + type + ' class="docs-border docs-px-4 docs-py-2">';
+    return tag + content + '</' + type + '>\n';
+  }
+
   hr() {
     return `<hr class="docs-md__hr">`;
   }
