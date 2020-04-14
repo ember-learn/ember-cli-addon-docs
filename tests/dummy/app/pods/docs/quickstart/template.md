@@ -117,7 +117,7 @@ Since most guides contain written prose, the majority of your guides pages will 
 The generator should have created
 
   - the **markdown file** in the `tests/dummy/app/templates/docs` directory
-  - the **nav item entry** in `tests/dummy/app/templates/docs.md`
+  - the **nav item entry** in `tests/dummy/app/templates/docs.hbs`
   - the **`route` entry** in `tests/dummy/app/router.js` _for non-`index` routes_
 
 You can generate additional pages as you build out your docs site:
