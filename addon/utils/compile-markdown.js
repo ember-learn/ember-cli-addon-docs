@@ -208,6 +208,18 @@ class HBSRenderer extends marked.Renderer {
     `;
   }
 
+  list(text, ordered) {
+    if (ordered) {
+      return `
+        <ol class="docs-list-decimal">${text}</ol>
+      `;
+    } else {
+      return `
+        <ul class="docs-list-disc">${text}</ul>
+      `;
+    }
+  }
+
   table(header, body) {
     if (body) body = '<tbody>' + body + '</tbody>';
 
