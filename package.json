@@ -18,14 +18,18 @@
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
+    "prepare": "./scripts/link-them.sh",
     "start": "ember serve",
     "test": "npm-run-all lint:* test:*",
+    "test:browser": "ember test --test-port=0",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
-    "test:browser": "ember test --test-port=0",
     "test:node": "mocha tests-node --recursive",
-    "test:test-apps": "cd test-apps/new-addon && yarn test",
-    "prepare": "./scripts/link-them.sh"
+    "test:test-apps": "cd test-apps/new-addon && yarn test"
+  },
+  "resolutions": {
+    "**/tough-cookie": "~2.4.0",
+    "ember-assign-polyfill": "^2.6.0"
   },
   "dependencies": {
     "@glimmer/syntax": "^0.42.2",
@@ -137,14 +141,15 @@
     "loader.js": "^4.7.0",
     "mocha": "^6.2.3",
     "npm-run-all": "^4.1.5",
-    "qunit-dom": "^1.1.0"
-  },
-  "resolutions": {
-    "**/tough-cookie": "~2.4.0",
-    "ember-assign-polyfill": "^2.6.0"
+    "qunit-dom": "^1.1.0",
+    "release-it": "^13.5.7",
+    "release-it-lerna-changelog": "^2.3.0"
   },
   "engines": {
     "node": "10.* || >= 12"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
@@ -157,5 +162,20 @@
     "after": [
       "ember-modal-dialog"
     ]
+  },
+  "release-it": {
+    "plugins": {
+      "release-it-lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": true
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    }
   }
 }
