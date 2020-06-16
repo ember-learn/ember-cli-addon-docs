@@ -87,10 +87,7 @@ module.exports = {
         deployVersion: 'ADDON_DOCS_DEPLOY_VERSION',
         searchTokenSeparator: "\\s+",
         showImportPaths: true
-      },
-      'ember-component-css': {
-        namespacing: false
-      },
+      }
     };
 
     let updatedConfig = Object.assign({}, baseConfig, config);

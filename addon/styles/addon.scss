@@ -5,15 +5,21 @@ $site-container: 1400px;
 @tailwind components;
 @tailwind utilities;
 
-@import './components/docs-brand-colors';
-@import './components/docs-btn';
-@import './components/docs-container';
-@import './components/docs-md';
+@import './tailwind/components/docs-brand-colors';
+@import './tailwind/components/docs-btn';
+@import './tailwind/components/docs-container';
+@import './tailwind/components/docs-md';
 
 @import './utilities/masks';
 @import './utilities/nudge';
 
-@import 'pod-styles.scss';
+@import './components/docs-header-search-box';
+@import './components/docs-hero';
+@import './components/docs-keyboard-shortcuts';
+@import './components/docs-viewer-x-current-page-index';
+@import './components/docs-viewer-x-nav';
+@import './components/modal-dialog';
+
 @import 'syntax';
 
 // Figure out how to do this in tailwind
