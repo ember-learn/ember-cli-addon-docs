@@ -63,11 +63,11 @@ export function memberFilter(classKey, memberType) {
     'showDeprecated',
     function() {
       let klass = this.get(classKey);
-      let showInternal = this.get('showInternal');
-      let showInherited = this.get('showInherited');
-      let showProtected = this.get('showProtected');
-      let showPrivate = this.get('showPrivate');
-      let showDeprecated = this.get('showDeprecated');
+      let showInternal = this.showInternal;
+      let showInherited = this.showInherited;
+      let showProtected = this.showProtected;
+      let showPrivate = this.showPrivate;
+      let showDeprecated = this.showDeprecated;
 
       let members = [];
 

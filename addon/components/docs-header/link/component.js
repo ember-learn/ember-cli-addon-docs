@@ -11,7 +11,7 @@ export default Component.extend({
 
   isActive: computed('router.currentRouteName', 'route', function() {
     // Naive isActive check. Replace with router service when updated.
-    return this.get('router.currentRouteName').indexOf(this.get('route')) === 0;
+    return this.get('router.currentRouteName').indexOf(this.route) === 0;
   })
 
 }).reopenClass({

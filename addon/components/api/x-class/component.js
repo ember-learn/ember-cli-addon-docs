@@ -33,7 +33,7 @@ export default Component.extend({
 
   hasContents: computed('class', {
     get() {
-      let klass = this.get('class');
+      let klass = this.class;
 
       return klass.get('allFields.length') > 0
         || klass.get('allAccessors.length') > 0

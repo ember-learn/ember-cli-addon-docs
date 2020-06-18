@@ -44,13 +44,13 @@ export default Component.extend(EKMixin, {
   willDestroyElement() {
     this._super(...arguments);
 
-    this.get('docsRoutes').resetState();
+    this.docsRoutes.resetState();
   },
 
   nextPage: on(keyDown('KeyJ'), keyDown('ArrowRight'), function() {
     if (!formElementHasFocus()) {
       if (this.get('docsRoutes.next')) {
-        this.get('router').transitionTo(...this.get('docsRoutes.next.route'));
+        this.router.transitionTo(...this.get('docsRoutes.next.route'));
       }
     }
   }),
@@ -58,7 +58,7 @@ export default Component.extend(EKMixin, {
   previousPage: on(keyDown('KeyK'), keyDown('ArrowLeft'), function() {
     if (!formElementHasFocus()) {
       if (this.get('docsRoutes.previous')) {
-        this.get('router').transitionTo(...this.get('docsRoutes.previous.route'));
+        this.router.transitionTo(...this.get('docsRoutes.previous.route'));
       }
     }
   }),

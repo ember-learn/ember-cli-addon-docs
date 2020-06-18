@@ -1,12 +1,10 @@
-import DS from 'ember-data';
+import { attr } from '@ember-data/model';
 import { filterBy, or } from '@ember/object/computed';
 import { dasherize } from '@ember/string';
 import { computed } from '@ember/object';
 
 import Class from './class';
 import { memberUnion, hasMemberType } from '../utils/computed';
-
-const { attr } = DS;
 
 export default Class.extend({
   isComponent: true,
@@ -73,7 +71,7 @@ export default Class.extend({
     Possible refactoring is to always link by actual ID, and implement redirects.
   */
   routingId: computed('name', function() {
-    return `components/${dasherize(this.get('name'))}`;
+    return `components/${dasherize(this.name)}`;
   })
 
 });

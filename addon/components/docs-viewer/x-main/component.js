@@ -49,7 +49,7 @@ export default Component.extend({
       target.querySelectorAll('.docs-h2, .docs-h3, .docs-md__h2, .docs-md__h3')
     );
 
-    this.get('onReindex')(
+    this.onReindex(
       headers.map((header) => {
         return {
           id: header.id,

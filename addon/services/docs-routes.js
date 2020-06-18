@@ -19,7 +19,7 @@ export default Service.extend({
 
   // Each routeParam is [ routeName, model ] where model is optional
   routes: computed('items.[]', function() {
-    return this.get('items').map(item => {
+    return this.items.map(item => {
       let routeParams = [ item.route ];
       if (item.model) {
         routeParams.push(item.model);
@@ -30,7 +30,7 @@ export default Service.extend({
   }),
 
   routeUrls: computed('routes.[]', function() {
-    return this.get('routes').map(route => {
+    return this.routes.map(route => {
       return hrefTo.apply(null, [this, ...route]);
     });
   }),
@@ -41,7 +41,7 @@ export default Service.extend({
       let currentURL = router.get('rootURL') + router.get('url');
       currentURL = currentURL.replace('//', '/')   // dedup slashes
       let longestIndex, longestPrefix;
-      this.get('routeUrls').forEach((url, index) => {
+      this.routeUrls.forEach((url, index) => {
         if (currentURL.indexOf(url) === 0 && (!longestPrefix || url.length > longestPrefix.length)) {
           longestIndex = index;
           longestPrefix = url;
@@ -52,30 +52,30 @@ export default Service.extend({
     }
   }),
 
-  next: computed('currentRouteIndex', 'routes.[]', function() {
-    let currentIndex = this.get('currentRouteIndex');
+  next: computed('currentRouteIndex', 'items', 'routes.[]', function() {
+    let currentIndex = this.currentRouteIndex;
 
     if (currentIndex < (this.get('routes.length') - 1)) {
       let nextRouteIndex = currentIndex + 1;
-      let route = this.get('routes')[(nextRouteIndex)];
+      let route = this.routes[(nextRouteIndex)];
 
       return {
         route,
-        label: this.get('items').objectAt(nextRouteIndex).get('label')
+        label: this.items.objectAt(nextRouteIndex).get('label')
       };
     }
   }),
 
-  previous: computed('currentRouteIndex', 'routes.[]', function() {
-    let currentIndex = this.get('currentRouteIndex');
+  previous: computed('currentRouteIndex', 'items', 'routes.[]', function() {
+    let currentIndex = this.currentRouteIndex;
 
     if (currentIndex > 0) {
       let previousRouteIndex = currentIndex - 1;
-      let route = this.get('routes')[(previousRouteIndex)];
+      let route = this.routes[(previousRouteIndex)];
 
       return {
         route,
-        label: this.get('items').objectAt(previousRouteIndex).get('label')
+        label: this.items.objectAt(previousRouteIndex).get('label')
       };
     }
   })

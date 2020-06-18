@@ -30,7 +30,11 @@ module.exports = {
     'ember/require-return-from-computed': 'off',
     'ember/no-jquery': 'error',
     // ember-keyboard uses events
-    'ember/no-on-calls-in-components': 'off'
+    'ember/no-on-calls-in-components': 'off',
+
+    // TODO: enable these rules
+    'ember/no-get': 'off',
+    'ember/no-private-routing-service': 'off'
   },
   overrides: [
     // node files

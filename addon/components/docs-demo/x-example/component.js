@@ -8,6 +8,6 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    this.set('elementId', 'example-' + this.get('name'));
+    this.set('elementId', 'example-' + this.name);
   }
 });
