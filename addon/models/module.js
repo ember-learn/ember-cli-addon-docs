@@ -1,9 +1,7 @@
-import DS from 'ember-data';
+import Model, { attr, hasMany } from '@ember-data/model';
 import { computed } from '@ember/object';
 
-const { attr, hasMany } = DS;
-
-export default DS.Model.extend({
+export default Model.extend({
   file: attr(),
   variables: attr(),
   functions: attr(),
@@ -19,7 +17,6 @@ export default DS.Model.extend({
     Possible refactoring is to always link by actual ID, and implement redirects.
   */
   routingId: computed('id', function() {
-    return `modules/${this.get('id')}`;
+    return `modules/${this.id}`;
   })
-
 });

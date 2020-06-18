@@ -33,7 +33,7 @@ export default Component.extend({
 
   hasContents: computed('component', {
     get() {
-      let component = this.get('component');
+      let component = this.component;
 
       return component.get('overloadedYields.length') > 0
         || component.get('arguments.length') > 0

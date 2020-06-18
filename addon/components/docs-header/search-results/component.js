@@ -25,41 +25,41 @@ export default Component.extend(EKMixin, {
     this._super();
 
     // Start downloading the search index immediately
-    this.get('docsSearch').loadSearchIndex();
+    this.docsSearch.loadSearchIndex();
   },
 
   didReceiveAttrs() {
     this._super(...arguments);
 
-    this.get('search').perform();
+    this.search.perform();
   },
 
   project: computed(function() {
-    return this.get('store').peekRecord('project', projectName);
+    return this.store.peekRecord('project', projectName);
   }),
 
   trimmedQuery: computed('query', function() {
-    return this.get('query').trim();
+    return this.query.trim();
   }),
 
   search: task(function*() {
     let results;
 
-    if (this.get('trimmedQuery')) {
-      results = yield this.get('docsSearch').search(this.get('trimmedQuery'));
+    if (this.trimmedQuery) {
+      results = yield this.docsSearch.search(this.trimmedQuery);
     }
 
     this.set('selectedIndex', (results.length ? 0 : null));
     this.set('rawSearchResults', results);
   }).restartable(),
 
-  searchResults: computed('rawSearchResults.[]', function() {
-    let rawSearchResults = this.get('rawSearchResults');
-    let router = this.get('router');
+  searchResults: computed('project.navigationIndex', 'rawSearchResults.[]', function() {
+    let rawSearchResults = this.rawSearchResults;
+    let router = this.router;
     let routerMicrolib = router._router._routerMicrolib || router._router.router;
 
     if (rawSearchResults) {
-      return this.get('rawSearchResults')
+      return this.rawSearchResults
         // If the doc has a route, ensure it exists
         .filter(({ document }) => {
           if (document.route) {
@@ -93,7 +93,7 @@ export default Component.extend(EKMixin, {
         .map(searchResult => {
           let { document } = searchResult;
           if (document.type !== 'template') {
-            let store = this.get('store');
+            let store = this.store;
             searchResult.model = store.peekRecord(document.type, document.item.id)
           }
 
@@ -103,12 +103,12 @@ export default Component.extend(EKMixin, {
   }),
 
   gotoSelectedItem: on(keyUp('Enter'), function() {
-    if (this.get('selectedIndex') !== null) {
-      let selectedResult = this.get('searchResults')[this.get('selectedIndex')];
+    if (this.selectedIndex !== null) {
+      let selectedResult = this.searchResults[this.selectedIndex];
       if (selectedResult.document.type === 'template') {
-        this.get('router').transitionTo(selectedResult.document.route);
+        this.router.transitionTo(selectedResult.document.route);
       } else {
-        this.get('router').transitionTo('docs.api.item', selectedResult.model.get('routingId'));
+        this.router.transitionTo('docs.api.item', selectedResult.model.get('routingId'));
       }
     }
 
@@ -117,7 +117,7 @@ export default Component.extend(EKMixin, {
 
   nextSearchResult: on(keyDown('ctrl+KeyN'), keyDown('ArrowDown'), function() {
     let hasSearchResults = this.get('searchResults.length');
-    let lastResultIsSelected = (this.get('selectedIndex') + 1 === this.get('searchResults.length'));
+    let lastResultIsSelected = (this.selectedIndex + 1 === this.get('searchResults.length'));
 
     if (hasSearchResults && !lastResultIsSelected) {
       this.incrementProperty('selectedIndex');
@@ -126,7 +126,7 @@ export default Component.extend(EKMixin, {
 
   previousSearchResult: on(keyDown('ctrl+KeyP'), keyDown('ArrowUp'), function() {
     let hasSearchResults = this.get('searchResults.length');
-    let firstResultIsSelected = (this.get('selectedIndex') === 0);
+    let firstResultIsSelected = (this.selectedIndex === 0);
 
     if (hasSearchResults && !firstResultIsSelected) {
       this.decrementProperty('selectedIndex');

@@ -22,7 +22,7 @@ export default Component.extend(EKMixin, {
   didInsertElement() {
     this._super();
 
-    this.get('fetchProject').perform();
+    this.fetchProject.perform();
   },
 
   // TODO: The searchbox doesn't work without the project being fetched.
@@ -31,7 +31,7 @@ export default Component.extend(EKMixin, {
   // I think it's fine if our Docs-* components assume there is a single global
   // project.
   fetchProject: task(function*() {
-    yield this.get('store').findRecord('project', projectName);
+    yield this.store.findRecord('project', projectName);
   }),
 
   focusSearch: on(keyUp('Slash'), function() {

@@ -11,12 +11,12 @@ export default Service.extend({
   docsFetch: service(),
 
   _loadAvailableVersions: task(function*() {
-    let response = yield this.get('docsFetch').fetch({ url: `${this.get('root')}versions.json` }).response();
+    let response = yield this.docsFetch.fetch({ url: `${this.root}versions.json` }).response();
     let json;
     if(response.ok){
       json = yield response.json();
     }else{
-      json = { [latestVersionName]: assign({}, this.get('currentVersion')) };
+      json = { [latestVersionName]: assign({}, this.currentVersion) };
     }
 
 
@@ -30,11 +30,11 @@ export default Service.extend({
   }),
 
   redirectTo(version) {
-    window.location.href = `${this.get('root')}${version.path}`;
+    window.location.href = `${this.root}${version.path}`;
   },
 
   loadAvailableVersions() {
-    return this.get('_loadAvailableVersions').perform();
+    return this._loadAvailableVersions.perform();
   },
 
   root: computed('currentVersion.path', function() {

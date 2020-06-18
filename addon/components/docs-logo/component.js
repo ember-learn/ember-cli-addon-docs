@@ -30,7 +30,7 @@ export default Component.extend({
   didReceiveAttrs() {
     this._super(...arguments);
 
-    let logo = this.get('logo');
+    let logo = this.logo;
     let validLogos = ['ember', 'ember-cli', 'ember-data'];
     assert(`You passed "${logo}" to the docs-logo component, but the only valid options are [${validLogos}].`, validLogos.includes(logo));
   },

@@ -41,7 +41,7 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
 
-    this.get('projectVersion').loadAvailableVersions();
+    this.projectVersion.loadAvailableVersions();
   },
 
   logo: classify(addonLogo(projectName)),

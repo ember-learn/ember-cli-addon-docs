@@ -12,7 +12,7 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    let model = this.get('model');
+    let model = this.model;
 
     if (typeof model === 'string' && model.includes('#')) {
       return;

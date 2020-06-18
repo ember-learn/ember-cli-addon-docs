@@ -33,16 +33,16 @@ export default Component.extend(EKMixin, {
 
   gotoDocs: on(keyUp('KeyD'), function() {
     if (!formElementHasFocus()) {
-      if (this.get('isGoingTo')) {
-        this.get('router').transitionTo('docs');
+      if (this.isGoingTo) {
+        this.router.transitionTo('docs');
       }
     }
   }),
 
   gotoHome: on(keyUp('KeyH'), function() {
     if (!formElementHasFocus()) {
-      if (this.get('isGoingTo')) {
-        this.get('router').transitionTo('index');
+      if (this.isGoingTo) {
+        this.router.transitionTo('index');
       }
     }
   }),
@@ -54,7 +54,7 @@ export default Component.extend(EKMixin, {
   }),
 
   hideKeyboardShortcuts: on(keyUp('Escape'), function() {
-    if (!formElementHasFocus() && this.get('isShowingKeyboardShortcuts')) {
+    if (!formElementHasFocus() && this.isShowingKeyboardShortcuts) {
       this.set('isShowingKeyboardShortcuts', false);
     }
   }),

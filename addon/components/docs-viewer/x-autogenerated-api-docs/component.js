@@ -19,8 +19,8 @@ export default Component.extend({
 
     These are the sections for the resolved types.
   */
-  resolvedTypeSections: computed(function() {
-    return this.get('sections').filter(section => section.type !== 'modules');
+  resolvedTypeSections: computed('sections', function() {
+    return this.sections.filter(section => section.type !== 'modules');
   }),
 
   /*
@@ -57,8 +57,8 @@ export default Component.extend({
     };
     ```
   */
-  moduleIndex: computed(function() {
-    let modulesSection = this.get('sections').filter(section => section.type === 'modules')[0];
+  moduleIndex: computed('sections', function() {
+    let modulesSection = this.sections.filter(section => section.type === 'modules')[0];
     
     if (modulesSection) {
       let modules = modulesSection.items;

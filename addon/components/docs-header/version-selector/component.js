@@ -30,8 +30,8 @@ export default Component.extend({
   currentVersion: reads('projectVersion.currentVersion'),
 
   sortedVersions: computed('projectVersion.versions', 'latestVersionName', 'primaryBranch', function() {
-    let latestVersionName = this.get('latestVersionName');
-    let primaryBranch = this.get('primaryBranch');
+    let latestVersionName = this.latestVersionName;
+    let primaryBranch = this.primaryBranch;
     let versions = A(this.get('projectVersion.versions'));
     let latest = versions.findBy('key', latestVersionName);
     let primary = versions.findBy('key', primaryBranch);
@@ -61,7 +61,7 @@ export default Component.extend({
 
   actions: {
     changeVersion(version) {
-      this.get('projectVersion').redirectTo(version);
+      this.projectVersion.redirectTo(version);
     }
   }
 

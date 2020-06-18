@@ -10,7 +10,7 @@ export default Component.extend({
   onClick() {},
   onMouseEnter() {},
 
-  linkArgs: computed('result.document', function() {
+  linkArgs: computed('result.document.{route,type}', 'result.model.routingId', function() {
     let args = [];
     let type = this.get('result.document.type');
     if (type === 'template') {
@@ -23,7 +23,7 @@ export default Component.extend({
     return args;
   }),
 
-  icon: computed(function() {
+  icon: computed('result.document.type', function() {
     if (this.get('result.document.type') === 'template') {
       return 'guide';
     } else {
@@ -31,13 +31,13 @@ export default Component.extend({
     }
   }),
 
-  matches: computed(function() {
+  matches: computed('query', 'result.document.{keywords,text}', 'result.resultInfo.matchData.metadata', function() {
     let metadata = this.get('result.resultInfo.matchData.metadata');
 
     return Object.keys(metadata)
       .reduce((matches, term) => {
         let match = metadata[term];
-        let query = this.get('query');
+        let query = this.query;
         let normalizedQuery = query.toLowerCase();
         Object.keys(match).forEach((key) => {
           if (key === 'text') {
@@ -78,7 +78,7 @@ export default Component.extend({
     return this.matches[0];
   }),
 
-  highlightedTitle: computed('result.document.title', 'query', function() {
+  highlightedTitle: computed('query.length', 'result.document.title', function() {
     let title = this.result.document.title || '';
     let match = title.match(new RegExp(this.query, 'i'));
 

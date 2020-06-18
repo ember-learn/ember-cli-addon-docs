@@ -1,4 +1,4 @@
-import DS from 'ember-data';
+import Model, { attr, belongsTo } from '@ember-data/model';
 import {
   filterBy,
   or,
@@ -6,9 +6,7 @@ import {
 } from '@ember/object/computed';
 import { memberUnion, hasMemberType } from '../utils/computed';
 
-const { attr, belongsTo } = DS;
-
-export default DS.Model.extend({
+export default Model.extend({
   parentClass: belongsTo('class', { async: false, inverse: null }),
 
   isClass: true,

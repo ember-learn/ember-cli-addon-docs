@@ -19,7 +19,7 @@ export default Component.extend({
   addonLogo: addonLogo(projectName),
 
   addonTitle: computed('addonLogo', function() {
-    let logo = this.get('addonLogo');
+    let logo = this.addonLogo;
 
     return classify(projectName.replace(`${logo}-`, ''));
   }),
@@ -29,7 +29,7 @@ export default Component.extend({
   */
   project: computed({
     get() {
-      return this.get('store').peekRecord('project', projectName);
+      return this.store.peekRecord('project', projectName);
     },
 
     set(key, val) {

@@ -1,6 +1,6 @@
-import DS from 'ember-data';
+import Serializer from '@ember-data/serializer';
 
-export default DS.Serializer.extend({
+export default Serializer.extend({
   normalizeResponse(store, primaryModelClass, payload) {
     return payload;
   }

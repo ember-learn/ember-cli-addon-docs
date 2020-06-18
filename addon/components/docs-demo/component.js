@@ -55,9 +55,9 @@ export default Component.extend({
     @readOnly
    */
   snippets: computed('activeSnippet', 'snippetRegistrations.[]', function() {
-    let activeSnippet = this.get('activeSnippet');
+    let activeSnippet = this.activeSnippet;
 
-    return this.get('snippetRegistrations')
+    return this.snippetRegistrations
       .map(({ name, label, language }) => {
         let defaults = this.defaultsFromName(name);
         return {
@@ -113,7 +113,7 @@ export default Component.extend({
       @param {Object} snippet
     */
     registerSnippet(snippet) {
-      this.get('snippetRegistrations').pushObject(snippet);
+      this.snippetRegistrations.pushObject(snippet);
 
       if (this.get('snippetRegistrations.length') === 1) {
         this.set('activeSnippet', snippet.name);
