@@ -1,3 +1,12 @@
+## v0.8.0 (2020-08-01)
+
+#### :boom: Breaking Change
+* [#475](https://github.com/ember-learn/ember-cli-addon-docs/pull/475) ember-cli 3.18, some lint fixes ([@rwwagner90](https://github.com/rwwagner90))
+* [#474](https://github.com/ember-learn/ember-cli-addon-docs/pull/474) Remove ember-component-css, drop Ember 2.18 support ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 1
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+
 ## v0.7.0 (2020-05-05)
 
 #### :boom: Breaking Change
