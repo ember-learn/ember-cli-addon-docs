@@ -835,7 +835,9 @@ module.exports = {
   plugins: [],
 
   corePlugins: {
-    container: false
-  },
-
+    container: false,
+    // @ifdef NO_BASE_STYLES
+    preflight: false
+    // @endif
+  }
 };

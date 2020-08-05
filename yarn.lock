@@ -4180,6 +4180,18 @@ broccoli-postcss@^5.0.0:
     object-assign "^4.1.1"
     postcss "^7.0.5"
 
+broccoli-preprocess-tree@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/broccoli-preprocess-tree/-/broccoli-preprocess-tree-0.4.0.tgz#54440e29d829f721443ccfb6169520f6b73cf507"
+  integrity sha1-VEQOKdgp9yFEPM+2FpUg9rc89Qc=
+  dependencies:
+    broccoli-writer "^0.1.1"
+    copy-dereference "^1.0.0"
+    fs-extra "^0.30.0"
+    glob "^5.0.10"
+    lodash-node "^3.9.3"
+    preprocess "^2.1.1"
+
 broccoli-replace@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/broccoli-replace/-/broccoli-replace-0.12.0.tgz#36460a984c45c61731638c53068b0ab12ea8fdb7"
@@ -10397,6 +10409,11 @@ lodash-es@^4.17.11:
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
   integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
 
+lodash-node@^3.9.3:
+  version "3.10.2"
+  resolved "https://registry.yarnpkg.com/lodash-node/-/lodash-node-3.10.2.tgz#2598d5b1b54e6a68b4cb544e5c730953cbf632f7"
+  integrity sha1-JZjVsbVOami0y1ROXHMJU8v2Mvc=
+
 lodash._baseassign@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/lodash._baseassign/-/lodash._baseassign-3.2.0.tgz#8c38a099500f215ad09e59f1722fd0c52bfe0a4e"
@@ -12500,6 +12517,11 @@ prepend-http@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
+
+preprocess@^2.1.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/preprocess/-/preprocess-2.3.1.tgz#bda3022e623e9b599d4c0828186d85bd9f12c500"
+  integrity sha1-vaMCLmI+m1mdTAgoGG2FvZ8SxQA=
 
 pretender@3.1.0:
   version "3.1.0"

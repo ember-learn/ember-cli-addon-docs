@@ -4,6 +4,7 @@ const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 const Project = require('ember-cli/lib/models/project');
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
+const preprocess = require('broccoli-preprocess-tree');
 
 module.exports = function(defaults) {
   let project = Project.closestSync(process.cwd());
@@ -43,9 +44,24 @@ module.exports = function(defaults) {
       filter: {
         enabled: false,
         plugins: []
-      },
-    },
+      }
+    }
   });
 
-  return app.toTree();
+  let appTree = new Funnel(app.toTree(), {
+    exclude: ['addon/styles']
+  });
+
+  let styles = preprocess('addon/styles', {
+    context: {
+      NO_BASE_STYLES: true
+    },
+    destDir: 'addon/styles'
+  });
+
+  styles = new Funnel(styles, { destDir: 'addon/styles' });
+
+  appTree = new MergeTrees([appTree, styles]);
+
+  return appTree;
 };
