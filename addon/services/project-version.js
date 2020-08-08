@@ -11,7 +11,6 @@ const { latestVersionName } = config['ember-cli-addon-docs'];
 export default Service.extend({
   _loadAvailableVersions: task(function*() {
     let response = yield fetch(`${this.root}versions.json`);
-    debugger;
     let json;
     if(response.ok){
       json = yield response.json();

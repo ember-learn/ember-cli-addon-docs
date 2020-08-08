@@ -74,10 +74,7 @@ export default Service.extend({
 
   loadSearchIndex() {
     if (!this._searchIndex) {
-      this._searchIndex = fetch(this._indexURL).then((response) => {
-        debugger;
-        return response.json()
-      })
+      this._searchIndex = fetch(this._indexURL).then((response) => response.json())
         .then(json => {
           return {
             index: Index.load(json.index),
