@@ -1,14 +1,13 @@
-import Service, { inject as service } from '@ember/service';
+import Service from '@ember/service';
 import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
 import lunr from 'lunr';
 import config from 'ember-get-config';
+import fetch from 'fetch';
 
 const { Index, Query } = lunr;
 
 export default Service.extend({
-  docsFetch: service(),
-
   search(phrase) {
     return this.loadSearchIndex()
       .then(({ index, documents }) => {
@@ -75,7 +74,7 @@ export default Service.extend({
 
   loadSearchIndex() {
     if (!this._searchIndex) {
-      this._searchIndex = this.docsFetch.fetch({ url: this._indexURL }).json()
+      this._searchIndex = fetch(this._indexURL).then((response) => response.json())
         .then(json => {
           return {
             index: Index.load(json.index),

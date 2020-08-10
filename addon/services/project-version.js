@@ -1,17 +1,16 @@
-import Service, { inject as service } from '@ember/service';
+import Service from '@ember/service';
 import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
 import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
 import { assign } from '@ember/polyfills';
+import fetch from 'fetch';
 
 const { latestVersionName } = config['ember-cli-addon-docs'];
 
 export default Service.extend({
-  docsFetch: service(),
-
   _loadAvailableVersions: task(function*() {
-    let response = yield this.docsFetch.fetch({ url: `${this.root}versions.json` }).response();
+    let response = yield fetch(`${this.root}versions.json`);
     let json;
     if(response.ok){
       json = yield response.json();
