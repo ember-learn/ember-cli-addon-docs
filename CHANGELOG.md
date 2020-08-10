@@ -1,3 +1,15 @@
+## v0.9.0 (2020-08-10)
+
+#### :boom: Breaking Change
+* [#495](https://github.com/ember-learn/ember-cli-addon-docs/pull/495) Ember 3.20, update ember-fetch, bump deps ([@rwwagner90](https://github.com/rwwagner90))
+
+#### :rocket: Enhancement
+* [#496](https://github.com/ember-learn/ember-cli-addon-docs/pull/496) Update ember-cli-clipboard ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 2
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v0.8.0 (2020-08-01)
 
 #### :boom: Breaking Change
