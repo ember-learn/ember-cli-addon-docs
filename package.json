@@ -47,7 +47,7 @@
     "ember-angle-bracket-invocation-polyfill": "^2.0.2",
     "ember-assign-polyfill": "^2.6.0",
     "ember-auto-import": "^1.6.0",
-    "ember-cli-autoprefixer": "^0.8.1",
+    "ember-cli-autoprefixer": "^1.0.2",
     "ember-cli-babel": "^7.21.0",
     "ember-cli-clipboard": "^0.15.0",
     "ember-cli-htmlbars": "^5.2.0",
