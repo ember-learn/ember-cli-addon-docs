@@ -8353,7 +8353,7 @@ e.default=n})),define("ember-resolver/resolvers/classic/index",["exports","ember
 function r(e,t){for(var r=0;r<t.length;r++){var n=t[r]
 n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}Object.defineProperty(e,"__esModule",{value:!0}),e.default=e.ModuleRegistry=void 0,void 0===requirejs.entries&&(requirejs.entries=requirejs._eak_seen)
 var n=function(){function e(t){(function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")})(this,e),this._entries=t||requirejs.entries}var t,n,i
-return t=e,n=[{key:"moduleNames",value:function(){return Object.keys(this._entries)}},{key:"has",value:function(e){return require.has(e)}},{key:"get",value:function(e){return require(e)}}],n&&r(t.prototype,n),i&&r(t,i),e}()
+return t=e,n=[{key:"moduleNames",value:function(){return Object.keys(this._entries)}},{key:"has",value:function(e){return e in this._entries}},{key:"get",value:function(e){return require(e)}}],n&&r(t.prototype,n),i&&r(t,i),e}()
 e.ModuleRegistry=n
 var i=Ember.Object.extend({resolveOther:function(e){var r=this.findModuleName(e)
 if(r){var n=this._extractDefaultExport(r,e)
