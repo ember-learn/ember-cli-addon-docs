@@ -5954,7 +5954,7 @@ ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0,
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.3, ember-cli-babel@^7.1.4, ember-cli-babel@^7.10.0, ember-cli-babel@^7.11.0, ember-cli-babel@^7.11.1, ember-cli-babel@^7.12.0, ember-cli-babel@^7.18.0, ember-cli-babel@^7.19.0, ember-cli-babel@^7.20.2, ember-cli-babel@^7.20.5, ember-cli-babel@^7.21.0, ember-cli-babel@^7.22.1, ember-cli-babel@^7.4.1, ember-cli-babel@^7.5.0, ember-cli-babel@^7.7.3:
+ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cli-babel@^7.1.4, ember-cli-babel@^7.10.0, ember-cli-babel@^7.11.0, ember-cli-babel@^7.11.1, ember-cli-babel@^7.12.0, ember-cli-babel@^7.18.0, ember-cli-babel@^7.19.0, ember-cli-babel@^7.20.2, ember-cli-babel@^7.20.5, ember-cli-babel@^7.21.0, ember-cli-babel@^7.22.1, ember-cli-babel@^7.4.1, ember-cli-babel@^7.5.0, ember-cli-babel@^7.7.3:
   version "7.22.1"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.22.1.tgz#cad28b89cf0e184c93b863d09bc5ba4ce1d2e453"
   integrity sha512-kCT8WbC1AYFtyOpU23ESm22a+gL6fWv8Nzwe8QFQ5u0piJzM9MEudfbjADEaoyKTrjMQTDsrWwEf3yjggDsOng==
@@ -6934,13 +6934,13 @@ ember-test-waiters@^2.0.0:
     ember-cli-version-checker "^5.1.1"
     semver "^7.1.3"
 
-ember-tether@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-tether/-/ember-tether-1.0.0.tgz#6117ea7351927887cb74fa5d46097dd300280c2d"
-  integrity sha1-YRfqc1GSeIfLdPpdRgl90wAoDC0=
+ember-tether@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ember-tether/-/ember-tether-2.0.0.tgz#4fcb88749e8c11d3795173e96e894089328005b4"
+  integrity sha512-07QCzYE5VZsQ53SQQBDbP47E1s2qs6A9p1q6kOQjca693TVKxz0ZKTAKCXoSXOujG1n92hc1hRdA9rOSoxcBJw==
   dependencies:
-    ember-cli-babel "^6.6.0"
-    ember-cli-node-assets "^0.2.2"
+    ember-auto-import "^1.2.19"
+    ember-cli-babel "^7.1.2"
     tether "^1.4.0"
 
 ember-truth-helpers@^2.1.0:
