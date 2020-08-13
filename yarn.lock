@@ -3811,18 +3811,18 @@ broccoli-plugin@1.1.0:
     rimraf "^2.3.4"
     symlink-or-copy "^1.0.1"
 
-"broccoli-plugin@1.5.1 - 3", broccoli-plugin@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/broccoli-plugin/-/broccoli-plugin-3.1.0.tgz#54ba6dd90a42ec3db5624063292610e326b1e542"
-  integrity sha512-7w7FP8WJYjLvb0eaw27LO678TGGaom++49O1VYIuzjhXjK5kn2+AMlDm7CaUFw4F7CLGoVQeZ84d8gICMJa4lA==
+"broccoli-plugin@1.5.1 - 5", broccoli-plugin@^4.0.1, broccoli-plugin@^4.0.2, broccoli-plugin@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/broccoli-plugin/-/broccoli-plugin-4.0.3.tgz#9dcfbfb6a1b27a37cc22e65c071719ce9f92bc1e"
+  integrity sha512-CtAIEYq5K+4yQv8c/BHymOteuyjDAJfvy/asu4LudIWcMSS7dTn3yGI5gNBkwHG+qlRangYkHJNVAcDZMQbSVQ==
   dependencies:
     broccoli-node-api "^1.6.0"
-    broccoli-output-wrapper "^2.0.0"
-    fs-merger "^3.0.1"
+    broccoli-output-wrapper "^3.2.1"
+    fs-merger "^3.1.0"
     promise-map-series "^0.2.1"
     quick-temp "^0.1.3"
-    rimraf "^2.3.4"
-    symlink-or-copy "^1.1.8"
+    rimraf "^3.0.0"
+    symlink-or-copy "^1.3.0"
 
 broccoli-plugin@^1.0.0, broccoli-plugin@^1.1.0, broccoli-plugin@^1.2.0, broccoli-plugin@^1.2.1, broccoli-plugin@^1.3.0, broccoli-plugin@^1.3.1:
   version "1.3.1"
@@ -3844,18 +3844,18 @@ broccoli-plugin@^2.0.0, broccoli-plugin@^2.1.0:
     rimraf "^2.3.4"
     symlink-or-copy "^1.1.8"
 
-broccoli-plugin@^4.0.1, broccoli-plugin@^4.0.2, broccoli-plugin@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/broccoli-plugin/-/broccoli-plugin-4.0.3.tgz#9dcfbfb6a1b27a37cc22e65c071719ce9f92bc1e"
-  integrity sha512-CtAIEYq5K+4yQv8c/BHymOteuyjDAJfvy/asu4LudIWcMSS7dTn3yGI5gNBkwHG+qlRangYkHJNVAcDZMQbSVQ==
+broccoli-plugin@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/broccoli-plugin/-/broccoli-plugin-3.1.0.tgz#54ba6dd90a42ec3db5624063292610e326b1e542"
+  integrity sha512-7w7FP8WJYjLvb0eaw27LO678TGGaom++49O1VYIuzjhXjK5kn2+AMlDm7CaUFw4F7CLGoVQeZ84d8gICMJa4lA==
   dependencies:
     broccoli-node-api "^1.6.0"
-    broccoli-output-wrapper "^3.2.1"
-    fs-merger "^3.1.0"
+    broccoli-output-wrapper "^2.0.0"
+    fs-merger "^3.0.1"
     promise-map-series "^0.2.1"
     quick-temp "^0.1.3"
-    rimraf "^3.0.0"
-    symlink-or-copy "^1.3.0"
+    rimraf "^2.3.4"
+    symlink-or-copy "^1.1.8"
 
 broccoli-postcss-single@^3.0.0:
   version "3.0.0"
