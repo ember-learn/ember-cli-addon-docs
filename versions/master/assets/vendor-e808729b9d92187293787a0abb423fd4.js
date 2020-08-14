@@ -6618,23 +6618,16 @@ Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"defaul
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("ember-cli-addon-docs/serializers/module",["exports","ember-cli-addon-docs/serializers/-addon-docs"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("ember-cli-addon-docs/serializers/project",["exports","ember-cli-addon-docs/serializers/-addon-docs"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("ember-cli-addon-docs/services/docs-routes",["exports","ember-href-to/helpers/href-to"],(function(e,t){"use strict"
-function r(e){return function(e){if(Array.isArray(e))return n(e)}(e)||function(e){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e))return Array.from(e)}(e)||function(e,t){if(!e)return
-if("string"==typeof e)return n(e,t)
-var r=Object.prototype.toString.call(e).slice(8,-1)
-"Object"===r&&e.constructor&&(r=e.constructor.name)
-if("Map"===r||"Set"===r)return Array.from(e)
-if("Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r))return n(e,t)}(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function n(e,t){(null==t||t>e.length)&&(t=e.length)
-for(var r=0,n=new Array(t);r<t;r++)n[r]=e[r]
-return n}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var i=Ember.Service.extend({router:Ember.inject.service("-routing"),init:function(){this._super.apply(this,arguments),this.resetState()},resetState:function(){this.set("items",Ember.A())},routes:Ember.computed("items.[]",(function(){return this.items.map((function(e){var t=[e.route]
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+var r=Ember.Service.extend({router:Ember.inject.service("-routing"),init:function(){this._super.apply(this,arguments),this.resetState()},resetState:function(){this.set("items",Ember.A())},routes:Ember.computed("items.[]",(function(){return this.items.map((function(e){var t=[e.route]
 return e.model&&t.push(e.model),t}))})),routeUrls:Ember.computed("routes.[]",(function(){var e=this
-return this.routes.map((function(n){return t.hrefTo.apply(null,[e].concat(r(n)))}))})),currentRouteIndex:Ember.computed("router.router.url","routeUrls.[]",(function(){if(this.get("routeUrls.length")){var e,t,r=this.get("router.router"),n=r.get("rootURL")+r.get("url")
+return this.routes.map((function(r){return(0,t.hrefTo)(e.router,r)}))})),currentRouteIndex:Ember.computed("router.router.url","routeUrls.[]",(function(){if(this.get("routeUrls.length")){var e,t,r=this.get("router.router"),n=r.get("rootURL")+r.get("url")
 return n=n.replace("//","/"),this.routeUrls.forEach((function(r,i){0===n.indexOf(r)&&(!t||r.length>t.length)&&(e=i,t=r)})),e}})),next:Ember.computed("currentRouteIndex","items","routes.[]",(function(){var e=this.currentRouteIndex
 if(e<this.get("routes.length")-1){var t=e+1,r=this.routes[t]
 return{route:r,label:this.items.objectAt(t).get("label")}}})),previous:Ember.computed("currentRouteIndex","items","routes.[]",(function(){var e=this.currentRouteIndex
 if(e>0){var t=e-1,r=this.routes[t]
 return{route:r,label:this.items.objectAt(t).get("label")}}}))})
-e.default=i})),define("ember-cli-addon-docs/services/docs-search",["exports","lunr","ember-get-config","fetch"],(function(e,t,r,n){"use strict"
+e.default=r})),define("ember-cli-addon-docs/services/docs-search",["exports","lunr","ember-get-config","fetch"],(function(e,t,r,n){"use strict"
 function i(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){if("undefined"==typeof Symbol||!(Symbol.iterator in Object(e)))return
 var r=[],n=!0,i=!1,o=void 0
 try{for(var a,s=e[Symbol.iterator]();!(n=(a=s.next()).done)&&(r.push(a.value),!t||r.length!==t);n=!0);}catch(u){i=!0,o=u}finally{try{n||null==s.return||s.return()}finally{if(i)throw o}}return r}(e,t)||a(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function o(e,t){var r
@@ -7863,20 +7856,41 @@ else for(c in s)e(c,s[c])
 return i}("",e).join("&").replace(/%20/g,"+")}function o(e,t,r){void 0!==r&&(null===r&&(r=""),r="function"==typeof r?r():r,e[e.length]="".concat(encodeURIComponent(t),"=").concat(encodeURIComponent(r)))}var a=i
 e.default=a})),define("ember-get-config/index",["exports","dummy/config/environment"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("ember-href-to/helpers/href-to",["exports"],(function(e){"use strict"
-function t(e){if(Array.isArray(e)){for(var t=0,r=Array(e.length);t<e.length;t++)r[t]=e[t]
-return r}return Array.from(e)}function r(e,t){var r=Ember.getOwner(e).lookup("service:router")
-if(void 0!==r){for(var n=arguments.length,i=Array(n>2?n-2:0),o=2;o<n;o++)i[o-2]=arguments[o]
-var a=i[i.length-1],s={}
-a&&a.isQueryParams&&(s=i.pop())
-var u=[t]
-return u.push.apply(u,i),u.push({queryParams:s.values}),r.urlFor.apply(r,u)}}Object.defineProperty(e,"__esModule",{value:!0}),e.hrefTo=r,e.default=Ember.Helper.extend({compute:function(e,n){var i,o=(i=e,Array.isArray(i)?i:Array.from(i)),a=o[0],s=o.slice(1)
-return n.params?r.apply(void 0,[this].concat(t(n.params))):r.apply(void 0,[this,a].concat(t(s)))}})})),define("ember-href-to/href-to",["exports"],(function(e){"use strict"
-function t(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(e,"__esModule",{value:!0})
-var r=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r]
-n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),n=function(){function e(r,n){var i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:n.target
+function t(e){return t="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},t(e)}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function n(e,t){for(var r=0;r<t.length;r++){var n=t[r]
+n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function i(e,t,r){return i="undefined"!=typeof Reflect&&Reflect.get?Reflect.get:function(e,t,r){var n=function(e,t){for(;!Object.prototype.hasOwnProperty.call(e,t)&&(e=u(e),null!==e););return e}(e,t)
+if(n){var i=Object.getOwnPropertyDescriptor(n,t)
+return i.get?i.get.call(r):i.value}},i(e,t,r||e)}function o(e,t){return o=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e},o(e,t)}function a(e){var t=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1
+if(Reflect.construct.sham)return!1
+if("function"==typeof Proxy)return!0
+try{return Date.prototype.toString.call(Reflect.construct(Date,[],(function(){}))),!0}catch(e){return!1}}()
+return function(){var r,n=u(e)
+if(t){var i=u(this).constructor
+r=Reflect.construct(n,arguments,i)}else r=n.apply(this,arguments)
+return s(this,r)}}function s(e,r){return!r||"object"!==t(r)&&"function"!=typeof r?function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called")
+return e}(e):r}function u(e){return u=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)},u(e)}function l(e){return function(e){if(Array.isArray(e))return c(e)}(e)||function(e){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e))return Array.from(e)}(e)||function(e,t){if(!e)return
+if("string"==typeof e)return c(e,t)
+var r=Object.prototype.toString.call(e).slice(8,-1)
+"Object"===r&&e.constructor&&(r=e.constructor.name)
+if("Map"===r||"Set"===r)return Array.from(e)
+if("Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r))return c(e,t)}(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function c(e,t){(null==t||t>e.length)&&(t=e.length)
+for(var r=0,n=new Array(t);r<t;r++)n[r]=e[r]
+return n}function d(e,t){return e.generateURL.apply(e,l(function(e){e=e.slice()
+var t,r=e.shift(),n=e[e.length-1]
+t=n&&n.isQueryParams?e.pop().values:{}
+var i=e
+return[r,i,t]}(t)))}Object.defineProperty(e,"__esModule",{value:!0}),e.hrefTo=d,e.default=void 0
+var f=function(e){(function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function")
+e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&o(e,t)})(f,e)
+var t,s,l,c=a(f)
+function f(){return r(this,f),c.apply(this,arguments)}return t=f,s=[{key:"init",value:function(){i(u(f.prototype),"init",this).call(this),this.router.on("routeDidChange",this.recompute.bind(this))}},{key:"compute",value:function(e,t){return t.params?d(this.routing,t.params):d(this.routing,e)}},{key:"routing",get:function(){return Ember.getOwner(this).lookup("service:-routing")}},{key:"router",get:function(){return Ember.getOwner(this).lookup("service:router")}}],s&&n(t.prototype,s),l&&n(t,l),f}(Ember.Helper)
+e.default=f})),define("ember-href-to/href-to",["exports"],(function(e){"use strict"
+function t(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function r(e,t){for(var r=0;r<t.length;r++){var n=t[r]
+n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+var n=function(){function e(r,n){var i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:n.target
 t(this,e),this.applicationInstance=r,this.event=n,this.target=i
 var o=this.target.attributes.href
-this.url=o&&o.value}return r(e,[{key:"maybeHandle",value:function(){this.shouldHandle()&&this.handle()}},{key:"shouldHandle",value:function(){return this.isUnmodifiedLeftClick()&&this.isNotIgnored()&&this.hasNoTargetBlank()&&this.hasNoActionHelper()&&this.hasNoDownload()&&this.isNotLinkComponent()&&this.recognizeUrl()}},{key:"handle",value:function(){var e=this._getRouter()
+this.url=o&&o.value}var n,i,o
+return n=e,i=[{key:"maybeHandle",value:function(){this.shouldHandle()&&this.handle()}},{key:"shouldHandle",value:function(){return this.isUnmodifiedLeftClick()&&this.isNotIgnored()&&this.hasNoTargetBlank()&&this.hasNoActionHelper()&&this.hasNoDownload()&&this.isNotLinkComponent()&&this.recognizeUrl()}},{key:"handle",value:function(){var e=this._getRouter()
 e.transitionTo(this.getUrlWithoutRoot()),this.event.preventDefault()}},{key:"isUnmodifiedLeftClick",value:function(){var e=this.event
 return!(void 0!==e.which&&1!==e.which||e.ctrlKey||e.metaKey)}},{key:"hasNoTargetBlank",value:function(){var e=this.target.attributes.target
 return!e||"_blank"!==e.value}},{key:"isNotIgnored",value:function(){return!this.target.attributes["data-href-to-ignore"]}},{key:"hasNoActionHelper",value:function(){return!this.target.attributes["data-ember-action"]}},{key:"hasNoDownload",value:function(){return!this.target.attributes.download}},{key:"isNotLinkComponent",value:function(){var e=!1,t=this.target.id
@@ -7885,7 +7899,7 @@ e=r&&r instanceof Ember.LinkComponent}return!e}},{key:"recognizeUrl",value:funct
 if(e){var r=this._getRouter(),n=this._getRootUrl(),i=0===e.indexOf(n),o=this.getUrlWithoutRoot(),a=r._router._routerMicrolib||r._router.router
 t=i&&a.recognizer.recognize(o)}return t}},{key:"getUrlWithoutRoot",value:function(){var e=this.url,t=this._getRootUrl()
 return e.substr(t.length-1)}},{key:"_getRouter",value:function(){return this.applicationInstance.lookup("service:router")}},{key:"_getRootUrl",value:function(){var e=this._getRouter(),t=e.get("rootURL")
-return"/"!==t.charAt(t.length-1)&&(t+="/"),t}}]),e}()
+return"/"!==t.charAt(t.length-1)&&(t+="/"),t}}],i&&r(n.prototype,i),o&&r(n,o),e}()
 e.default=n})),define("ember-ignore-children-helper/helpers/ignore-children",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.ignoreChildren=r
 var t=function(e,t){if(Array.isArray(e))return e
