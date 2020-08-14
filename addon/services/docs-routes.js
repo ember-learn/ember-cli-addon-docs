@@ -5,7 +5,6 @@ import { hrefTo } from 'ember-href-to/helpers/href-to';
 import { assert } from '@ember/debug';
 
 export default Service.extend({
-
   router: service('-routing'),
 
   init() {
@@ -31,7 +30,7 @@ export default Service.extend({
 
   routeUrls: computed('routes.[]', function() {
     return this.routes.map(route => {
-      return hrefTo.apply(null, [this, ...route]);
+      return hrefTo(this.router, route);
     });
   }),
 
