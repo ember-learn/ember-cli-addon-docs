@@ -63,7 +63,7 @@
     "ember-fetch": "^8.0.2",
     "ember-get-config": "^0.2.4",
     "ember-href-to": "^4.0.0",
-    "ember-keyboard": "^5.0.0",
+    "ember-keyboard": "^6.0.0",
     "ember-modal-dialog": "^3.0.0-beta.4",
     "ember-named-arguments-polyfill": "^1.0.0",
     "ember-on-modifier": "^1.0.0",
