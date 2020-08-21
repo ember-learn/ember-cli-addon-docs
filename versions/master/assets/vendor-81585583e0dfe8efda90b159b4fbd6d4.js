@@ -4719,10 +4719,10 @@ if(!e){var t,r=document.createElement("style"),n=document.getElementsByTagName("
 r.type="text/css",r.id="matchmediajs-test",n.parentNode.insertBefore(r,n),t="getComputedStyle"in window&&window.getComputedStyle(r,null)||r.currentStyle,e={matchMedium:function(e){var n="@media "+e+"{ #matchmediajs-test { width: 1px; } }"
 return r.styleSheet?r.styleSheet.cssText=n:r.textContent=n,"1px"===t.width}}}return function(t){return{matches:e.matchMedium(t||"all"),media:t||"all"}}}())),function(e){(function(){var t,r,n,i,o,a,s,u,l,c,d,f,p,h,m,v,y,g,b,_,E,w,x,O,R,k,S,A=function(e){var t=new A.Builder
 return t.pipeline.add(A.trimmer,A.stopWordFilter,A.stemmer),t.searchPipeline.add(A.stemmer),e.call(t,t),t.build()}
-A.version="2.3.8"
+A.version="2.3.9"
 /*!
  * lunr.utils
- * Copyright (C) 2019 Oliver Nightingale
+ * Copyright (C) 2020 Oliver Nightingale
  */,A.utils={},A.utils.warn=function(e){return function(t){e.console&&console.warn&&console.warn(t)}}(this),A.utils.asString=function(e){return null==e?"":e.toString()},A.utils.clone=function(e){if(null==e)return e
 for(var t=Object.create(null),r=Object.keys(e),n=0;n<r.length;n++){var i=r[n],o=e[i]
 if(Array.isArray(o))t[i]=o.slice()
@@ -4733,9 +4733,9 @@ var r=e.slice(0,t),n=e.slice(t+1)
 return new A.FieldRef(n,r,e)},A.FieldRef.prototype.toString=function(){return null==this._stringValue&&(this._stringValue=this.fieldName+A.FieldRef.joiner+this.docRef),this._stringValue}
 /*!
  * lunr.Set
- * Copyright (C) 2019 Oliver Nightingale
+ * Copyright (C) 2020 Oliver Nightingale
  */,A.Set=function(e){if(this.elements=Object.create(null),e){this.length=e.length
-for(var t=0;t<this.length;t++)this.elements[e[t]]=!0}else this.length=0},A.Set.complete={intersect:function(e){return e},union:function(e){return e},contains:function(){return!0}},A.Set.empty={intersect:function(){return this},union:function(e){return e},contains:function(){return!1}},A.Set.prototype.contains=function(e){return!!this.elements[e]},A.Set.prototype.intersect=function(e){var t,r,n,i=[]
+for(var t=0;t<this.length;t++)this.elements[e[t]]=!0}else this.length=0},A.Set.complete={intersect:function(e){return e},union:function(){return this},contains:function(){return!0}},A.Set.empty={intersect:function(){return this},union:function(e){return e},contains:function(){return!1}},A.Set.prototype.contains=function(e){return!!this.elements[e]},A.Set.prototype.intersect=function(e){var t,r,n,i=[]
 if(e===A.Set.complete)return this
 if(e===A.Set.empty)return e
 this.length<e.length?(t=this,r=e):(t=e,r=this),n=Object.keys(t.elements)
@@ -4746,7 +4746,7 @@ var i=(t-r+.5)/(r+.5)
 return Math.log(1+Math.abs(i))},A.Token=function(e,t){this.str=e||"",this.metadata=t||{}},A.Token.prototype.toString=function(){return this.str},A.Token.prototype.update=function(e){return this.str=e(this.str,this.metadata),this},A.Token.prototype.clone=function(e){return e=e||function(e){return e},new A.Token(e(this.str,this.metadata),this.metadata)}
 /*!
  * lunr.tokenizer
- * Copyright (C) 2019 Oliver Nightingale
+ * Copyright (C) 2020 Oliver Nightingale
  */,A.tokenizer=function(e,t){if(null==e||null==e)return[]
 if(Array.isArray(e))return e.map((function(e){return new A.Token(A.utils.asString(e).toLowerCase(),A.utils.clone(t))}))
 for(var r=e.toString().toLowerCase(),n=r.length,i=[],o=0,a=0;o<=n;o++){var s=r.charAt(o),u=o-a
@@ -4754,7 +4754,7 @@ if(s.match(A.tokenizer.separator)||o==n){if(u>0){var l=A.utils.clone(t)||{}
 l.position=[a,u],l.index=i.length,i.push(new A.Token(r.slice(a,o),l))}a=o+1}}return i},A.tokenizer.separator=/[\s\-]+/
 /*!
  * lunr.Pipeline
- * Copyright (C) 2019 Oliver Nightingale
+ * Copyright (C) 2020 Oliver Nightingale
  */,A.Pipeline=function(){this._stack=[]},A.Pipeline.registeredFunctions=Object.create(null),A.Pipeline.registerFunction=function(e,t){t in this.registeredFunctions&&A.utils.warn("Overwriting existing registered function: "+t),e.label=t,A.Pipeline.registeredFunctions[e.label]=e},A.Pipeline.warnIfFunctionNotRegistered=function(e){var t=e.label&&e.label in this.registeredFunctions
 t||A.utils.warn("Function is not registered with pipeline. This may cause problems when serialising the index.\n",e)},A.Pipeline.load=function(e){var t=new A.Pipeline
 return e.forEach((function(e){var r=A.Pipeline.registeredFunctions[e]
@@ -4773,7 +4773,7 @@ else i.push(a)}e=i}return e},A.Pipeline.prototype.runString=function(e,t){var r=
 return this.run([r]).map((function(e){return e.toString()}))},A.Pipeline.prototype.reset=function(){this._stack=[]},A.Pipeline.prototype.toJSON=function(){return this._stack.map((function(e){return A.Pipeline.warnIfFunctionNotRegistered(e),e.label}))}
 /*!
  * lunr.Vector
- * Copyright (C) 2019 Oliver Nightingale
+ * Copyright (C) 2020 Oliver Nightingale
  */,A.Vector=function(e){this._magnitude=0,this.elements=e||[]},A.Vector.prototype.positionForIndex=function(e){if(0==this.elements.length)return 0
 for(var t=0,r=this.elements.length/2,n=r-t,i=Math.floor(n/2),o=this.elements[2*i];n>1&&(o<e&&(t=i),o>e&&(r=i),o!=e);)n=r-t,i=t+Math.floor(n/2),o=this.elements[2*i]
 return o==e||o>e?2*i:o<e?2*(i+1):void 0},A.Vector.prototype.insert=function(e,t){this.upsert(e,t,(function(){throw"duplicate index"}))},A.Vector.prototype.upsert=function(e,t,r){this._magnitude=0
@@ -4785,7 +4785,7 @@ return t},A.Vector.prototype.similarity=function(e){return this.dot(e)/this.magn
 return e},A.Vector.prototype.toJSON=function(){return this.elements}
 /*!
  * lunr.stemmer
- * Copyright (C) 2019 Oliver Nightingale
+ * Copyright (C) 2020 Oliver Nightingale
  * Includes code from - http://tartarus.org/~martin/PorterStemmer/js.txt
  */,A.stemmer=(t={ational:"ate",tional:"tion",enci:"ence",anci:"ance",izer:"ize",bli:"ble",alli:"al",entli:"ent",eli:"e",ousli:"ous",ization:"ize",ation:"ate",ator:"ate",alism:"al",iveness:"ive",fulness:"ful",ousness:"ous",aliti:"al",iviti:"ive",biliti:"ble",logi:"log"},r={icate:"ic",ative:"",alize:"al",iciti:"ic",ical:"ic",ful:"",ness:""},n="[aeiouy]",i="[^aeiou][^aeiouy]*",o=new RegExp("^([^aeiou][^aeiouy]*)?[aeiouy][aeiou]*[^aeiou][^aeiouy]*"),a=new RegExp("^([^aeiou][^aeiouy]*)?[aeiouy][aeiou]*[^aeiou][^aeiouy]*[aeiouy][aeiou]*[^aeiou][^aeiouy]*"),s=new RegExp("^([^aeiou][^aeiouy]*)?[aeiouy][aeiou]*[^aeiou][^aeiouy]*([aeiouy][aeiou]*)?$"),u=new RegExp("^([^aeiou][^aeiouy]*)?[aeiouy]"),l=/^(.+?)(ss|i)es$/,c=/^(.+?)([^s])s$/,d=/^(.+?)eed$/,f=/^(.+?)(ed|ing)$/,p=/.$/,h=/(at|bl|iz)$/,m=new RegExp("([^aeiouylsz])\\1$"),v=new RegExp("^"+i+n+"[^aeiouwxy]$"),y=/^(.+?[^aeiou])y$/,g=/^(.+?)(ational|tional|enci|anci|izer|bli|alli|entli|eli|ousli|ization|ation|ator|alism|iveness|fulness|ousness|aliti|iviti|biliti|logi)$/,b=/^(.+?)(icate|ative|alize|iciti|ical|ful|ness)$/,_=/^(.+?)(al|ance|ence|er|ic|able|ible|ant|ement|ment|ent|ou|ism|ate|iti|ous|ive|ize)$/,E=/^(.+?)(s|t)(ion)$/,w=/^(.+?)e$/,x=/ll$/,O=new RegExp("^"+i+n+"[^aeiouwxy]$"),R=function(e){var n,i,R,k,S,A,P
 if(e.length<3)return e
@@ -4794,16 +4794,16 @@ k=o,k.test(T[1])&&(k=p,e=e.replace(k,""))}else S.test(e)&&(T=S.exec(e),n=T[1],S=
 return k=y,k.test(e)&&(T=k.exec(e),n=T[1],e=n+"i"),k=g,k.test(e)&&(T=k.exec(e),n=T[1],i=T[2],k=o,k.test(n)&&(e=n+t[i])),k=b,k.test(e)&&(T=k.exec(e),n=T[1],i=T[2],k=o,k.test(n)&&(e=n+r[i])),k=_,S=E,k.test(e)?(T=k.exec(e),n=T[1],k=a,k.test(n)&&(e=n)):S.test(e)&&(T=S.exec(e),n=T[1]+T[2],S=a,S.test(n)&&(e=n)),k=w,k.test(e)&&(T=k.exec(e),n=T[1],k=a,S=s,A=O,(k.test(n)||S.test(n)&&!A.test(n))&&(e=n)),k=x,S=a,k.test(e)&&S.test(e)&&(k=p,e=e.replace(k,"")),"y"==R&&(e=R.toLowerCase()+e.substr(1)),e},function(e){return e.update(R)}),A.Pipeline.registerFunction(A.stemmer,"stemmer")
 /*!
  * lunr.stopWordFilter
- * Copyright (C) 2019 Oliver Nightingale
+ * Copyright (C) 2020 Oliver Nightingale
  */,A.generateStopWordFilter=function(e){var t=e.reduce((function(e,t){return e[t]=t,e}),{})
 return function(e){if(e&&t[e.toString()]!==e.toString())return e}},A.stopWordFilter=A.generateStopWordFilter(["a","able","about","across","after","all","almost","also","am","among","an","and","any","are","as","at","be","because","been","but","by","can","cannot","could","dear","did","do","does","either","else","ever","every","for","from","get","got","had","has","have","he","her","hers","him","his","how","however","i","if","in","into","is","it","its","just","least","let","like","likely","may","me","might","most","must","my","neither","no","nor","not","of","off","often","on","only","or","other","our","own","rather","said","say","says","she","should","since","so","some","than","that","the","their","them","then","there","these","they","this","tis","to","too","twas","us","wants","was","we","were","what","when","where","which","while","who","whom","why","will","with","would","yet","you","your"]),A.Pipeline.registerFunction(A.stopWordFilter,"stopWordFilter")
 /*!
  * lunr.trimmer
- * Copyright (C) 2019 Oliver Nightingale
+ * Copyright (C) 2020 Oliver Nightingale
  */,A.trimmer=function(e){return e.update((function(e){return e.replace(/^\W+/,"").replace(/\W+$/,"")}))},A.Pipeline.registerFunction(A.trimmer,"trimmer")
 /*!
  * lunr.TokenSet
- * Copyright (C) 2019 Oliver Nightingale
+ * Copyright (C) 2020 Oliver Nightingale
  */,A.TokenSet=function(){this.final=!1,this.edges={},this.id=A.TokenSet._nextId,A.TokenSet._nextId+=1},A.TokenSet._nextId=1,A.TokenSet.fromArray=function(e){for(var t=new A.TokenSet.Builder,r=0,n=e.length;r<n;r++)t.insert(e[r])
 return t.finish(),t.root},A.TokenSet.fromClause=function(e){return"editDistance"in e?A.TokenSet.fromFuzzyString(e.term,e.editDistance):A.TokenSet.fromString(e.term)},A.TokenSet.fromFuzzyString=function(e,t){for(var r=new A.TokenSet,n=[{node:r,editsRemaining:t,str:e}];n.length;){var i=n.pop()
 if(i.str.length>0){var o,a=i.str.charAt(0)
@@ -4833,11 +4833,11 @@ t.edges[o]=i,this.uncheckedNodes.push({parent:t,char:o,child:i}),t=i}t.final=!0,
 n in this.minimizedNodes?r.parent.edges[r.char]=this.minimizedNodes[n]:(r.child._str=n,this.minimizedNodes[n]=r.child),this.uncheckedNodes.pop()}}
 /*!
  * lunr.Index
- * Copyright (C) 2019 Oliver Nightingale
+ * Copyright (C) 2020 Oliver Nightingale
  */,A.Index=function(e){this.invertedIndex=e.invertedIndex,this.fieldVectors=e.fieldVectors,this.tokenSet=e.tokenSet,this.fields=e.fields,this.pipeline=e.pipeline},A.Index.prototype.search=function(e){return this.query((function(t){var r=new A.QueryParser(e,t)
 r.parse()}))},A.Index.prototype.query=function(e){for(var t=new A.Query(this.fields),r=Object.create(null),n=Object.create(null),i=Object.create(null),o=Object.create(null),a=Object.create(null),s=0;s<this.fields.length;s++)n[this.fields[s]]=new A.Vector
 e.call(t,t)
-for(s=0;s<t.clauses.length;s++){var u=t.clauses[s],l=null,c=A.Set.complete
+for(s=0;s<t.clauses.length;s++){var u=t.clauses[s],l=null,c=A.Set.empty
 l=u.usePipeline?this.pipeline.runString(u.term,{fields:u.fields}):[u.term]
 for(var d=0;d<l.length;d++){var f=l[d]
 u.term=f
@@ -4868,7 +4868,7 @@ var f=l[0],p=l[1]
 a.insert(f),i[f]=p}return a.finish(),t.fields=e.fields,t.fieldVectors=r,t.invertedIndex=i,t.tokenSet=a.root,t.pipeline=s,new A.Index(t)}
 /*!
  * lunr.Builder
- * Copyright (C) 2019 Oliver Nightingale
+ * Copyright (C) 2020 Oliver Nightingale
  */,A.Builder=function(){this._ref="id",this._fields=Object.create(null),this._documents=Object.create(null),this.invertedIndex=Object.create(null),this.fieldTermFrequencies={},this.fieldLengths={},this.tokenizer=A.tokenizer,this.pipeline=new A.Pipeline,this.searchPipeline=new A.Pipeline,this.documentCount=0,this._b=.75,this._k1=1.2,this.termIndex=0,this.metadataWhitelist=[]},A.Builder.prototype.ref=function(e){this._ref=e},A.Builder.prototype.field=function(e,t){if(/\//.test(e))throw new RangeError("Field '"+e+"' contains illegal character '/'")
 this._fields[e]=t||{}},A.Builder.prototype.b=function(e){this._b=e<0?0:e>1?1:e},A.Builder.prototype.k1=function(e){this._k1=e},A.Builder.prototype.add=function(e,t){var r=e[this._ref],n=Object.keys(this._fields)
 this._documents[r]=t||{},this.documentCount+=1
@@ -9828,10 +9828,10 @@ return this.__actions__.length&&(t=new jr(this)),(t=t.reverse()).__actions__.pus
 "object"==i(r(5))&&r(5)?($e._=$t,void 0===(n=function(){return $t}.call(t,r,t,e))||(e.exports=n)):We?((We.exports=$t)._=$t,Qe._=$t):$e._=$t}).call(this)}).call(this,r(4)(e))},function(e,t,r){var n,i
 !function(){var o,a,s,u,l,c,d,f,p,h,m,v,y,g,b,_,E,w,x,O,R,k,S,A,P,T=function e(t){var r=new e.Builder
 return r.pipeline.add(e.trimmer,e.stopWordFilter,e.stemmer),r.searchPipeline.add(e.stemmer),t.call(r,r),r.build()}
-T.version="2.3.8",
+T.version="2.3.9",
 /*!
    * lunr.utils
-   * Copyright (C) 2019 Oliver Nightingale
+   * Copyright (C) 2020 Oliver Nightingale
    */(T.utils={}).warn=function(e){return function(t){e.console&&console.warn&&console.warn(t)}}(this),T.utils.asString=function(e){return null==e?"":e.toString()},T.utils.clone=function(e){if(null==e)return e
 for(var t=Object.create(null),r=Object.keys(e),n=0;n<r.length;n++){var i=r[n],o=e[i]
 if(Array.isArray(o))t[i]=o.slice()
@@ -9842,9 +9842,9 @@ var r=e.slice(0,t),n=e.slice(t+1)
 return new T.FieldRef(n,r,e)},T.FieldRef.prototype.toString=function(){return null==this._stringValue&&(this._stringValue=this.fieldName+T.FieldRef.joiner+this.docRef),this._stringValue},
 /*!
    * lunr.Set
-   * Copyright (C) 2019 Oliver Nightingale
+   * Copyright (C) 2020 Oliver Nightingale
    */(T.Set=function(e){if(this.elements=Object.create(null),e){this.length=e.length
-for(var t=0;t<this.length;t++)this.elements[e[t]]=!0}else this.length=0}).complete={intersect:function(e){return e},union:function(e){return e},contains:function(){return!0}},T.Set.empty={intersect:function(){return this},union:function(e){return e},contains:function(){return!1}},T.Set.prototype.contains=function(e){return!!this.elements[e]},T.Set.prototype.intersect=function(e){var t,r,n,i=[]
+for(var t=0;t<this.length;t++)this.elements[e[t]]=!0}else this.length=0}).complete={intersect:function(e){return e},union:function(){return this},contains:function(){return!0}},T.Set.empty={intersect:function(){return this},union:function(e){return e},contains:function(){return!1}},T.Set.prototype.contains=function(e){return!!this.elements[e]},T.Set.prototype.intersect=function(e){var t,r,n,i=[]
 if(e===T.Set.complete)return this
 if(e===T.Set.empty)return e
 this.length<e.length?(t=this,r=e):(t=e,r=this),n=Object.keys(t.elements)
@@ -9855,7 +9855,7 @@ var i=(t-r+.5)/(r+.5)
 return Math.log(1+Math.abs(i))},(T.Token=function(e,t){this.str=e||"",this.metadata=t||{}}).prototype.toString=function(){return this.str},T.Token.prototype.update=function(e){return this.str=e(this.str,this.metadata),this},T.Token.prototype.clone=function(e){return new T.Token((e=e||function(e){return e})(this.str,this.metadata),this.metadata)},
 /*!
    * lunr.tokenizer
-   * Copyright (C) 2019 Oliver Nightingale
+   * Copyright (C) 2020 Oliver Nightingale
    */(T.tokenizer=function(e,t){if(null==e||null==e)return[]
 if(Array.isArray(e))return e.map((function(e){return new T.Token(T.utils.asString(e).toLowerCase(),T.utils.clone(t))}))
 for(var r=e.toString().toLowerCase(),n=r.length,i=[],o=0,a=0;o<=n;o++){var s=o-a
@@ -9863,7 +9863,7 @@ if(r.charAt(o).match(T.tokenizer.separator)||o==n){if(s>0){var u=T.utils.clone(t
 u.position=[a,s],u.index=i.length,i.push(new T.Token(r.slice(a,o),u))}a=o+1}}return i}).separator=/[\s\-]+/,
 /*!
    * lunr.Pipeline
-   * Copyright (C) 2019 Oliver Nightingale
+   * Copyright (C) 2020 Oliver Nightingale
    */(T.Pipeline=function(){this._stack=[]}).registeredFunctions=Object.create(null),T.Pipeline.registerFunction=function(e,t){t in this.registeredFunctions&&T.utils.warn("Overwriting existing registered function: "+t),e.label=t,T.Pipeline.registeredFunctions[e.label]=e},T.Pipeline.warnIfFunctionNotRegistered=function(e){e.label&&e.label in this.registeredFunctions||T.utils.warn("Function is not registered with pipeline. This may cause problems when serialising the index.\n",e)},T.Pipeline.load=function(e){var t=new T.Pipeline
 return e.forEach((function(e){var r=T.Pipeline.registeredFunctions[e]
 if(!r)throw new Error("Cannot load unregistered function: "+e)
@@ -9880,7 +9880,7 @@ else i.push(a)}e=i}return e},T.Pipeline.prototype.runString=function(e,t){var r=
 return this.run([r]).map((function(e){return e.toString()}))},T.Pipeline.prototype.reset=function(){this._stack=[]},T.Pipeline.prototype.toJSON=function(){return this._stack.map((function(e){return T.Pipeline.warnIfFunctionNotRegistered(e),e.label}))},
 /*!
    * lunr.Vector
-   * Copyright (C) 2019 Oliver Nightingale
+   * Copyright (C) 2020 Oliver Nightingale
    */(T.Vector=function(e){this._magnitude=0,this.elements=e||[]}).prototype.positionForIndex=function(e){if(0==this.elements.length)return 0
 for(var t=0,r=this.elements.length/2,n=r-t,i=Math.floor(n/2),o=this.elements[2*i];n>1&&(o<e&&(t=i),o>e&&(r=i),o!=e);)n=r-t,i=t+Math.floor(n/2),o=this.elements[2*i]
 return o==e||o>e?2*i:o<e?2*(i+1):void 0},T.Vector.prototype.insert=function(e,t){this.upsert(e,t,(function(){throw"duplicate index"}))},T.Vector.prototype.upsert=function(e,t,r){this._magnitude=0
@@ -9892,7 +9892,7 @@ return t},T.Vector.prototype.similarity=function(e){return this.dot(e)/this.magn
 return e},T.Vector.prototype.toJSON=function(){return this.elements},
 /*!
    * lunr.stemmer
-   * Copyright (C) 2019 Oliver Nightingale
+   * Copyright (C) 2020 Oliver Nightingale
    * Includes code from - http://tartarus.org/~martin/PorterStemmer/js.txt
    */
 T.stemmer=(o={ational:"ate",tional:"tion",enci:"ence",anci:"ance",izer:"ize",bli:"ble",alli:"al",entli:"ent",eli:"e",ousli:"ous",ization:"ize",ation:"ate",ator:"ate",alism:"al",iveness:"ive",fulness:"ful",ousness:"ous",aliti:"al",iviti:"ive",biliti:"ble",logi:"log"},a={icate:"ic",ative:"",alize:"al",iciti:"ic",ical:"ic",ful:"",ness:""},s="[aeiouy]",u="[^aeiou][^aeiouy]*",l=new RegExp("^([^aeiou][^aeiouy]*)?[aeiouy][aeiou]*[^aeiou][^aeiouy]*"),c=new RegExp("^([^aeiou][^aeiouy]*)?[aeiouy][aeiou]*[^aeiou][^aeiouy]*[aeiouy][aeiou]*[^aeiou][^aeiouy]*"),d=new RegExp("^([^aeiou][^aeiouy]*)?[aeiouy][aeiou]*[^aeiou][^aeiouy]*([aeiouy][aeiou]*)?$"),f=new RegExp("^([^aeiou][^aeiouy]*)?[aeiouy]"),p=/^(.+?)(ss|i)es$/,h=/^(.+?)([^s])s$/,m=/^(.+?)eed$/,v=/^(.+?)(ed|ing)$/,y=/.$/,g=/(at|bl|iz)$/,b=new RegExp("([^aeiouylsz])\\1$"),_=new RegExp("^"+u+s+"[^aeiouwxy]$"),E=/^(.+?[^aeiou])y$/,w=/^(.+?)(ational|tional|enci|anci|izer|bli|alli|entli|eli|ousli|ization|ation|ator|alism|iveness|fulness|ousness|aliti|iviti|biliti|logi)$/,x=/^(.+?)(icate|ative|alize|iciti|ical|ful|ness)$/,O=/^(.+?)(al|ance|ence|er|ic|able|ible|ant|ement|ment|ent|ou|ism|ate|iti|ous|ive|ize)$/,R=/^(.+?)(s|t)(ion)$/,k=/^(.+?)e$/,S=/ll$/,A=new RegExp("^"+u+s+"[^aeiouwxy]$"),P=function(e){var t,r,n,i,s,u,P
@@ -9901,18 +9901,18 @@ if("y"==(n=e.substr(0,1))&&(e=n.toUpperCase()+e.substr(1)),s=h,(i=p).test(e)?e=e
 return(i=E).test(e)&&(e=(t=(T=i.exec(e))[1])+"i"),(i=w).test(e)&&(t=(T=i.exec(e))[1],r=T[2],(i=l).test(t)&&(e=t+o[r])),(i=x).test(e)&&(t=(T=i.exec(e))[1],r=T[2],(i=l).test(t)&&(e=t+a[r])),s=R,(i=O).test(e)?(t=(T=i.exec(e))[1],(i=c).test(t)&&(e=t)):s.test(e)&&(t=(T=s.exec(e))[1]+T[2],(s=c).test(t)&&(e=t)),(i=k).test(e)&&(t=(T=i.exec(e))[1],s=d,u=A,((i=c).test(t)||s.test(t)&&!u.test(t))&&(e=t)),s=c,(i=S).test(e)&&s.test(e)&&(i=y,e=e.replace(i,"")),"y"==n&&(e=n.toLowerCase()+e.substr(1)),e},function(e){return e.update(P)}),T.Pipeline.registerFunction(T.stemmer,"stemmer"),
 /*!
    * lunr.stopWordFilter
-   * Copyright (C) 2019 Oliver Nightingale
+   * Copyright (C) 2020 Oliver Nightingale
    */
 T.generateStopWordFilter=function(e){var t=e.reduce((function(e,t){return e[t]=t,e}),{})
 return function(e){if(e&&t[e.toString()]!==e.toString())return e}},T.stopWordFilter=T.generateStopWordFilter(["a","able","about","across","after","all","almost","also","am","among","an","and","any","are","as","at","be","because","been","but","by","can","cannot","could","dear","did","do","does","either","else","ever","every","for","from","get","got","had","has","have","he","her","hers","him","his","how","however","i","if","in","into","is","it","its","just","least","let","like","likely","may","me","might","most","must","my","neither","no","nor","not","of","off","often","on","only","or","other","our","own","rather","said","say","says","she","should","since","so","some","than","that","the","their","them","then","there","these","they","this","tis","to","too","twas","us","wants","was","we","were","what","when","where","which","while","who","whom","why","will","with","would","yet","you","your"]),T.Pipeline.registerFunction(T.stopWordFilter,"stopWordFilter"),
 /*!
    * lunr.trimmer
-   * Copyright (C) 2019 Oliver Nightingale
+   * Copyright (C) 2020 Oliver Nightingale
    */
 T.trimmer=function(e){return e.update((function(e){return e.replace(/^\W+/,"").replace(/\W+$/,"")}))},T.Pipeline.registerFunction(T.trimmer,"trimmer"),
 /*!
    * lunr.TokenSet
-   * Copyright (C) 2019 Oliver Nightingale
+   * Copyright (C) 2020 Oliver Nightingale
    */(T.TokenSet=function(){this.final=!1,this.edges={},this.id=T.TokenSet._nextId,T.TokenSet._nextId+=1})._nextId=1,T.TokenSet.fromArray=function(e){for(var t=new T.TokenSet.Builder,r=0,n=e.length;r<n;r++)t.insert(e[r])
 return t.finish(),t.root},T.TokenSet.fromClause=function(e){return"editDistance"in e?T.TokenSet.fromFuzzyString(e.term,e.editDistance):T.TokenSet.fromString(e.term)},T.TokenSet.fromFuzzyString=function(e,t){for(var r=new T.TokenSet,n=[{node:r,editsRemaining:t,str:e}];n.length;){var i=n.pop()
 if(i.str.length>0){var o,a=i.str.charAt(0)
@@ -9940,9 +9940,9 @@ t.edges[o]=i,this.uncheckedNodes.push({parent:t,char:o,child:i}),t=i}t.final=!0,
 n in this.minimizedNodes?r.parent.edges[r.char]=this.minimizedNodes[n]:(r.child._str=n,this.minimizedNodes[n]=r.child),this.uncheckedNodes.pop()}},
 /*!
    * lunr.Index
-   * Copyright (C) 2019 Oliver Nightingale
+   * Copyright (C) 2020 Oliver Nightingale
    */(T.Index=function(e){this.invertedIndex=e.invertedIndex,this.fieldVectors=e.fieldVectors,this.tokenSet=e.tokenSet,this.fields=e.fields,this.pipeline=e.pipeline}).prototype.search=function(e){return this.query((function(t){new T.QueryParser(e,t).parse()}))},T.Index.prototype.query=function(e){for(var t=new T.Query(this.fields),r=Object.create(null),n=Object.create(null),i=Object.create(null),o=Object.create(null),a=Object.create(null),s=0;s<this.fields.length;s++)n[this.fields[s]]=new T.Vector
-for(e.call(t,t),s=0;s<t.clauses.length;s++){var u,l=t.clauses[s],c=T.Set.complete
+for(e.call(t,t),s=0;s<t.clauses.length;s++){var u,l=t.clauses[s],c=T.Set.empty
 u=l.usePipeline?this.pipeline.runString(l.term,{fields:l.fields}):[l.term]
 for(var d=0;d<u.length;d++){var f=u[d]
 l.term=f
@@ -9968,7 +9968,7 @@ r[l]=new T.Vector(c)}for(u=0;u<o.length;u++){var d,f=(d=o[u])[0],p=d[1]
 a.insert(f),i[f]=p}return a.finish(),t.fields=e.fields,t.fieldVectors=r,t.invertedIndex=i,t.tokenSet=a.root,t.pipeline=s,new T.Index(t)},
 /*!
    * lunr.Builder
-   * Copyright (C) 2019 Oliver Nightingale
+   * Copyright (C) 2020 Oliver Nightingale
    */(T.Builder=function(){this._ref="id",this._fields=Object.create(null),this._documents=Object.create(null),this.invertedIndex=Object.create(null),this.fieldTermFrequencies={},this.fieldLengths={},this.tokenizer=T.tokenizer,this.pipeline=new T.Pipeline,this.searchPipeline=new T.Pipeline,this.documentCount=0,this._b=.75,this._k1=1.2,this.termIndex=0,this.metadataWhitelist=[]}).prototype.ref=function(e){this._ref=e},T.Builder.prototype.field=function(e,t){if(/\//.test(e))throw new RangeError("Field '"+e+"' contains illegal character '/'")
 this._fields[e]=t||{}},T.Builder.prototype.b=function(e){this._b=e<0?0:e>1?1:e},T.Builder.prototype.k1=function(e){this._k1=e},T.Builder.prototype.add=function(e,t){var r=e[this._ref],n=Object.keys(this._fields)
 this._documents[r]=t||{},this.documentCount+=1
