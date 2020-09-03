@@ -1194,10 +1194,10 @@
   dependencies:
     "@simple-dom/interface" "^1.4.0"
 
-"@glimmer/interfaces@^0.60.0":
-  version "0.60.0"
-  resolved "https://registry.yarnpkg.com/@glimmer/interfaces/-/interfaces-0.60.0.tgz#cb2d28bb0441743b5b7b0b23b64e754fd4ca06ed"
-  integrity sha512-gEraOjACkSlgNr3GeH9GU370DLW+uwaxCStq6BGk0ShxkQI9BuhwWYC6gqsPkbiRI24L+UrpPo8qajFew/2Nrg==
+"@glimmer/interfaces@^0.61.2":
+  version "0.61.2"
+  resolved "https://registry.yarnpkg.com/@glimmer/interfaces/-/interfaces-0.61.2.tgz#c8760d9aab6469d4a3bde923f129fb86a3b70262"
+  integrity sha512-i4qTGFKXWD1Bjr3V6HVxTRWj8DzAhXQ0W0pvsymDRY/r386crH11sTclp8ZFyEiybA8JBlsUvadX8lUD7Oc0TA==
   dependencies:
     "@simple-dom/interface" "^1.4.0"
 
@@ -1211,13 +1211,13 @@
     handlebars "^4.7.4"
     simple-html-tokenizer "^0.5.9"
 
-"@glimmer/syntax@^0.60.0":
-  version "0.60.0"
-  resolved "https://registry.yarnpkg.com/@glimmer/syntax/-/syntax-0.60.0.tgz#309a683efb41c171ea82dbf8e3845bea591686eb"
-  integrity sha512-Q4W1Ly8bjjAe8DY0cj23PC2Q//+XEFdrBXhOqNVjtAjJHBd3Vm/sIokKhuUCrqHEppsn2/xYZFRf1qEUAib1lA==
+"@glimmer/syntax@^0.61.2":
+  version "0.61.2"
+  resolved "https://registry.yarnpkg.com/@glimmer/syntax/-/syntax-0.61.2.tgz#a8c381872354ebf441e23cfd6fd27caacdb5356b"
+  integrity sha512-YiXP/saSy/JWVf6AiSWWZemCnYn6z9b4mAifqdba2D/3wrH5TScEiS01mDLlGi2HNhCXffcWf9aOAkEUbnOtFw==
   dependencies:
-    "@glimmer/interfaces" "^0.60.0"
-    "@glimmer/util" "^0.60.0"
+    "@glimmer/interfaces" "^0.61.2"
+    "@glimmer/util" "^0.61.2"
     handlebars "^4.7.4"
     simple-html-tokenizer "^0.5.9"
 
@@ -1243,13 +1243,13 @@
     "@glimmer/interfaces" "^0.54.2"
     "@simple-dom/interface" "^1.4.0"
 
-"@glimmer/util@^0.60.0":
-  version "0.60.0"
-  resolved "https://registry.yarnpkg.com/@glimmer/util/-/util-0.60.0.tgz#dc9cffd7b327430ecd8fdb1570e01fe727e0583c"
-  integrity sha512-qJp+X9x1E7WZRAND1SxyrkQuXE/ptutHDpoZJB2uqhaeFPe6FupBkFHjF/leF7H6Zzg/i4uo+vLmM6S50Hc1Zg==
+"@glimmer/util@^0.61.2":
+  version "0.61.2"
+  resolved "https://registry.yarnpkg.com/@glimmer/util/-/util-0.61.2.tgz#c1d7ccfdd38f97c828e218c6d8e237c0c96ff724"
+  integrity sha512-xel7wbNldpHzDOmC4GJ1je4UnSmehy5MGzPp/rEON9OcSggCrl2v8cEP413TMfyRGDQJ5Houkr0R4zpvs8aqOg==
   dependencies:
     "@glimmer/env" "0.1.7"
-    "@glimmer/interfaces" "^0.60.0"
+    "@glimmer/interfaces" "^0.61.2"
     "@simple-dom/interface" "^1.4.0"
 
 "@glimmer/validator@^0.44.0":
