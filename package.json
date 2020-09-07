@@ -143,6 +143,7 @@
     "release-it-lerna-changelog": "^2.3.0"
   },
   "peerDependencies": {
+    "ember-data": "2.x - 3.x",
     "ember-fetch": "^8.0.2"
   },
   "engines": {
