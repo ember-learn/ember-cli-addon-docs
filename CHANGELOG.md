@@ -1,3 +1,14 @@
+## v0.10.0 (2020-09-08)
+
+#### :rocket: Enhancement
+* [#552](https://github.com/ember-learn/ember-cli-addon-docs/pull/552) Add ember-data as a peer dep ([@snewcomer](https://github.com/snewcomer))
+* [#516](https://github.com/ember-learn/ember-cli-addon-docs/pull/516) ember-href-to 4.0.0 ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 3
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- Scott Newcomer ([@snewcomer](https://github.com/snewcomer))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v0.9.0 (2020-08-10)
 
 #### :boom: Breaking Change
