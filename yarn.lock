@@ -6768,9 +6768,9 @@ ember-resolver@^8.0.0:
     resolve "^1.17.0"
 
 ember-responsive@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/ember-responsive/-/ember-responsive-4.0.0.tgz#d78cdb66b3725a91b86859ac2e9e5e1f0095bb38"
-  integrity sha512-/oUNRgfYs/EXePyrCPbLZREx7GV42n7cO8CpF0G9BTz392MqIfsQDpFpdVvFacfp9TB4gtDVFniaXpaGsQI5JQ==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/ember-responsive/-/ember-responsive-4.0.1.tgz#4833870c23ed309b6a7daa9c61b6254330f0edd6"
+  integrity sha512-/RfaacbIgYQf7fkbsxu72YZVFdsiMhKJ7YFGiDOFLaBmOxPSrz2YylmEXED81qw2TdudzWeVFuilpzUoWB1Jkg==
   dependencies:
     ember-cli-babel "^7.19.0"
 
