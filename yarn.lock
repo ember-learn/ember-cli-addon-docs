@@ -5873,9 +5873,9 @@ ember-app-scheduler@^5.0.1:
     ember-test-waiters "^2.0.0"
 
 ember-assign-polyfill@^2.5.0, ember-assign-polyfill@^2.6.0:
-  version "2.7.1"
-  resolved "https://registry.yarnpkg.com/ember-assign-polyfill/-/ember-assign-polyfill-2.7.1.tgz#6c60c035d6a5362492649172a720126cfe83bef0"
-  integrity sha512-ICFipta+t7EX/IdEA8TWXZfWgwCUzHq/4UFOFkk0Xbh3h632E9bxD1Dxuwv58831+6hJOGaAfKkGA7C/BWuM5Q==
+  version "2.7.2"
+  resolved "https://registry.yarnpkg.com/ember-assign-polyfill/-/ember-assign-polyfill-2.7.2.tgz#58f6f60235126cb23df248c846008fa9a3245fc1"
+  integrity sha512-hDSaKIZyFS0WRQsWzxUgO6pJPFfmcpfdM7CbGoMgYGriYbvkKn+k8zTXSKpTFVGehhSmsLE9YPqisQ9QpPisfA==
   dependencies:
     ember-cli-babel "^7.20.5"
     ember-cli-version-checker "^2.0.0"
