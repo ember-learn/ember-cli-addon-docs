@@ -127,7 +127,7 @@
     "ember-maybe-import-regenerator-for-testing": "^1.0.0",
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^8.0.0",
-    "ember-source": "~3.21.0",
+    "ember-source": "~3.22.0",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^2.9.1",
     "ember-test-selectors": "^5.0.0",
