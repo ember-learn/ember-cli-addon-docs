@@ -44,7 +44,7 @@
     "broccoli-source": "^3.0.0",
     "broccoli-stew": "^3.0.0",
     "chalk": "^4.1.0",
-    "ember-angle-bracket-invocation-polyfill": "^2.0.2",
+    "ember-angle-bracket-invocation-polyfill": "^3.0.0",
     "ember-assign-polyfill": "^2.6.0",
     "ember-auto-import": "^1.6.0",
     "ember-cli-autoprefixer": "^1.0.2",
