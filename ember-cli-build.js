@@ -17,8 +17,8 @@ module.exports = function(defaults) {
     vendorFiles: { 'jquery.js': null, 'app-shims.js': null },
 
     // Workaround for https://github.com/ember-cli/ember-cli/issues/8075
-    'ember-cli-uglify': {
-      uglify: {
+    'ember-cli-terser': {
+      terser: {
         compress: {
           collapse_vars: false
         }

@@ -34,7 +34,7 @@
     "ember-fetch": "*",
     "ember-qunit": "*",
     "ember-cli-sri": "*",
-    "ember-cli-uglify": "*",
+    "ember-cli-terser": "*",
     "ember-disable-prototype-extensions": "*",
     "ember-export-application-global": "*",
     "ember-load-initializers": "*",
