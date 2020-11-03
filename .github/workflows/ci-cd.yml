@@ -1,6 +1,6 @@
 name: CI/CD
 
-on: 
+on:
   push:
     branches:
       - master
@@ -53,9 +53,9 @@ jobs:
       fail-fast: true
       matrix:
         script-name:
-          - ember
-          - node
-          - test-apps
+          - 'ember'
+          - 'node'
+          - 'test-apps'
     timeout-minutes: 7
     steps:
       - name: Check out a copy of the repo
