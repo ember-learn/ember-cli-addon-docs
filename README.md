@@ -2,7 +2,7 @@ ember-cli-addon-docs
 ==============================================================================
 
 [![npm version](https://img.shields.io/npm/v/ember-cli-addon-docs.svg?style=flat-square)](http://badge.fury.io/js/ember-cli-addon-docs)
-[![Build Status](https://img.shields.io/travis/ember-learn/ember-cli-addon-docs.svg?style=flat-square)](https://travis-ci.org/ember-learn/ember-cli-addon-docs)
+[![This project uses GitHub Actions for continuous integration and continuous deployment.](https://github.com/ember-learn/ember-cli-addon-docs/workflows/CI/CD/badge.svg)](https://github.com/ember-learn/ember-cli-addon-docs/actions?query=workflow%3ACI%2FCD)
 
 ---
 
