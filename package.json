@@ -85,7 +85,7 @@
     "liquid-fire": "^0.29.5 || ^0.30.0 || ^0.31.0",
     "lodash": "^4.17.15",
     "lunr": "^2.3.7",
-    "marked": "^0.8.2",
+    "marked": "^1.2.3",
     "pad-start": "^1.0.2",
     "parse-git-config": "^3.0.0",
     "quick-temp": "^0.1.8",
