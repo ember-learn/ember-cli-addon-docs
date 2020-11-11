@@ -1372,6 +1372,13 @@
   dependencies:
     "@simple-dom/interface" "^1.4.0"
 
+"@glimmer/interfaces@0.63.5":
+  version "0.63.5"
+  resolved "https://registry.yarnpkg.com/@glimmer/interfaces/-/interfaces-0.63.5.tgz#ac614608ea618022b61b5d09e66089ceffc26e6e"
+  integrity sha512-ogozdIFOSxJ2QBU2NE0pk993qbb/zY1wF4BFL1ZN2GrfDDdaYC5vmDSs+RpbbF6JAjrt4kADXlOocs7dBiX4iQ==
+  dependencies:
+    "@simple-dom/interface" "^1.4.0"
+
 "@glimmer/interfaces@^0.42.2":
   version "0.42.2"
   resolved "https://registry.yarnpkg.com/@glimmer/interfaces/-/interfaces-0.42.2.tgz#9cf8d6f8f5eee6bfcfa36919ca68ae716e1f78db"
@@ -1421,13 +1428,23 @@
     handlebars "^4.0.13"
     simple-html-tokenizer "^0.5.8"
 
-"@glimmer/syntax@^0.62.1", "@glimmer/syntax@^0.62.3":
+"@glimmer/syntax@^0.62.3":
   version "0.62.4"
   resolved "https://registry.yarnpkg.com/@glimmer/syntax/-/syntax-0.62.4.tgz#9d5ec15584fed85d807762992a1879fe7fe15ae8"
   integrity sha512-c/c+tqv1Ob+IaiVYe3DfHsLQwk/DZ3RA14gVcrE8Bbqrr7RtmjdKPfgNswiQhx7b+1ygcUhvYUfxfI8nCVswIw==
   dependencies:
     "@glimmer/interfaces" "0.62.4"
     "@glimmer/util" "0.62.4"
+    "@handlebars/parser" "^1.1.0"
+    simple-html-tokenizer "^0.5.10"
+
+"@glimmer/syntax@^0.63.5":
+  version "0.63.5"
+  resolved "https://registry.yarnpkg.com/@glimmer/syntax/-/syntax-0.63.5.tgz#38ef6e41d9da3474ebc5d704c0e9743367de728e"
+  integrity sha512-w0/X7jQ5tzO6KevzeP1QBEfS2qjc897JlQa+9eMcFkxRxZCH4IVUjyxeRuu9cY0uV16ByVBTFh9fcGPfgaYULQ==
+  dependencies:
+    "@glimmer/interfaces" "0.63.5"
+    "@glimmer/util" "0.63.5"
     "@handlebars/parser" "^1.1.0"
     simple-html-tokenizer "^0.5.10"
 
@@ -1446,6 +1463,15 @@
   dependencies:
     "@glimmer/env" "0.1.7"
     "@glimmer/interfaces" "0.62.4"
+    "@simple-dom/interface" "^1.4.0"
+
+"@glimmer/util@0.63.5":
+  version "0.63.5"
+  resolved "https://registry.yarnpkg.com/@glimmer/util/-/util-0.63.5.tgz#8f2ed10269fcf6ccaf4cc0338915cc618ed845d0"
+  integrity sha512-9eTXOx3l6N1YySBMe1Vb/F+SGuztgObQCoEVtvxUZ7VB37xTaaUEoZfQVQJyBizFIKIAOvXBhPYCT+cERvN7kw==
+  dependencies:
+    "@glimmer/env" "0.1.7"
+    "@glimmer/interfaces" "0.63.5"
     "@simple-dom/interface" "^1.4.0"
 
 "@glimmer/util@^0.42.2":
