@@ -32,7 +32,7 @@
     "ember-assign-polyfill": "^2.6.0"
   },
   "dependencies": {
-    "@glimmer/syntax": "^0.62.1",
+    "@glimmer/syntax": "^0.63.5",
     "broccoli-bridge": "^1.0.0",
     "broccoli-caching-writer": "^3.0.3",
     "broccoli-debug": "^0.6.5",
