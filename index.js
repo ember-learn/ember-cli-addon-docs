@@ -30,7 +30,7 @@ module.exports = {
               includePaths: [styleDir]
             }
           },
-          require('tailwindcss')('./tailwind.config.js')
+          require('tailwindcss')(path.join( __dirname, 'addon', 'styles', 'tailwind.config.js'))
         ]
       }
     },
