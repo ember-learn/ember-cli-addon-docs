@@ -35,7 +35,7 @@ hljs.registerLanguage('ts', typescript);
 @templateLayout(layout)
 export default class DocsCodeHighlight extends Component {
   didInsertElement() {
-    this._super.apply(this, arguments);
+    super.didInsertElement(...arguments);
 
     hljs.highlightBlock(this.element);
   }

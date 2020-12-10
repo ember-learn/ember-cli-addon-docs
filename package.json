@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@csstools/postcss-sass": "^4.0.0",
-    "@glimmer/syntax": "^0.69.0",
+    "@glimmer/syntax": "^0.69.1",
     "broccoli-bridge": "^1.0.0",
     "broccoli-caching-writer": "^3.0.3",
     "broccoli-debug": "^0.6.5",
@@ -105,7 +105,7 @@
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "@glimmer/component": "^1.0.2",
     "@glimmer/tracking": "^1.0.2",
-    "babel-eslint": "^8.0.0",
+    "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "chai": "^4.2.0",
     "common-tags": "^1.8.0",

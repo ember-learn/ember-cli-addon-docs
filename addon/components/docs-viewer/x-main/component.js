@@ -79,7 +79,7 @@ export default class XMain extends Component {
     let path = this.get('router.currentRouteName');
     if (!path) {
       // `router` doesn't exist for old ember versions via ember-try
-      return;
+      return null;
     }
 
     let match = this._locateFile(path);
@@ -94,6 +94,8 @@ export default class XMain extends Component {
       parts.push(match.file);
       return parts.filter(Boolean).join('/');
     }
+
+    return null;
   }
 
   _locateFile(path) {
