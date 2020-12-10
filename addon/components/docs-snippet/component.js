@@ -1,3 +1,5 @@
+import classic from 'ember-classic-decorator';
+import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
 import layout from './template';
 
@@ -11,17 +13,17 @@ import layout from './template';
   @class DocsSnippet
   @public
 */
-export default Component.extend({
-  tagName: '',
-  layout,
-
+@classic
+@tagName('')
+@templateLayout(layout)
+export default class DocsSnippet extends Component {
   /**
     The name of the snippet
 
     @argument name
     @type String?
   */
-  name: null,
+  name = null;
 
   /**
     The language of the snippet
@@ -29,7 +31,7 @@ export default Component.extend({
     @argument language
     @type String?
   */
-  language: null,
+  language = null;
 
   /**
     The title of the snippet
@@ -37,7 +39,7 @@ export default Component.extend({
     @argument title
     @type String?
   */
-  title: null,
+  title = null;
 
   /**
     Whether or not to show the copy button for this snippet
@@ -45,7 +47,7 @@ export default Component.extend({
     @argument showCopy
     @type Boolean
   */
-  showCopy: true,
+  showCopy = true;
 
   /**
     Whether or not the snippet should be unindented
@@ -53,5 +55,5 @@ export default Component.extend({
     @argument unindent
     @type Boolean
   */
-  unindent: true,
-});
+  unindent = true;
+}

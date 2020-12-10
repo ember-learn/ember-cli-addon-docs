@@ -1,3 +1,5 @@
+import classic from 'ember-classic-decorator';
+import { classNames } from '@ember-decorators/component';
 import LinkComponent from '@ember/routing/link-component';
 
 /**
@@ -10,8 +12,6 @@ import LinkComponent from '@ember/routing/link-component';
   @class DocsLink
   @public
 */
-export default LinkComponent.extend({
-
-  classNames: 'docs-md__a'
-
-});
+@classic
+@classNames('docs-md__a')
+export default class DocsLink extends LinkComponent {}

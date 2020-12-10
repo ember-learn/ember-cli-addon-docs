@@ -1,13 +1,14 @@
+import classic from 'ember-classic-decorator';
+import { classNames, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
 import layout from './template';
 
-export default Component.extend({
-  layout,
-
-  classNames: 'docs-p-4',
-
+@classic
+@templateLayout(layout)
+@classNames('docs-p-4')
+export default class XExample extends Component {
   init() {
-    this._super(...arguments);
+    super.init(...arguments);
     this.set('elementId', 'example-' + this.name);
   }
-});
+}

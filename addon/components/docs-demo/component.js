@@ -1,4 +1,6 @@
-import { computed } from '@ember/object';
+import classic from 'ember-classic-decorator';
+import { tagName, layout as templateLayout } from '@ember-decorators/component';
+import { action, computed } from '@ember/object';
 import { A } from '@ember/array';
 import Component from '@ember/component';
 import layout from './template';
@@ -27,15 +29,15 @@ import layout from './template';
   @yield {Component} demo.snippet
   @yield {Component} demo.liveExample
 */
-export default Component.extend({
-  layout,
-  tagName: '',
-
+@classic
+@templateLayout(layout)
+@tagName('')
+export default class DocsDemo extends Component {
   init() {
-    this._super(...arguments);
+    super.init(...arguments);
 
     this.set('snippetRegistrations', A());
-  },
+  }
 
   /**
     The snippets registered with this demo component
@@ -43,7 +45,7 @@ export default Component.extend({
     @field snippetRegistrations
     @type Array<Object>
   */
-  snippetRegistrations: null,
+  snippetRegistrations = null;
 
   /**
     The finalized snippets complete with name (or default), language,
@@ -54,7 +56,8 @@ export default Component.extend({
     @type Array<Object>
     @readOnly
    */
-  snippets: computed('activeSnippet', 'snippetRegistrations.[]', function() {
+  @computed('activeSnippet', 'snippetRegistrations.[]')
+  get snippets() {
     let activeSnippet = this.activeSnippet;
 
     return this.snippetRegistrations
@@ -67,7 +70,7 @@ export default Component.extend({
           language: language || defaults.language
         };
       })
-  }),
+  }
 
   /**
     Returns the default label and language based on snippet file name
@@ -102,32 +105,32 @@ export default Component.extend({
     }
 
     return { label, language };
-  },
+  }
 
-  actions: {
-    /**
-      Registers snippets with the demo component and sets it to the active
-      snippet if it's the only one
+  /**
+    Registers snippets with the demo component and sets it to the active
+    snippet if it's the only one
 
-      @action registerSnippet
-      @param {Object} snippet
-    */
-    registerSnippet(snippet) {
-      this.snippetRegistrations.pushObject(snippet);
+    @action registerSnippet
+    @param {Object} snippet
+  */
+  @action
+  registerSnippet(snippet) {
+    this.snippetRegistrations.pushObject(snippet);
 
-      if (this.get('snippetRegistrations.length') === 1) {
-        this.set('activeSnippet', snippet.name);
-      }
-    },
-
-    /**
-      Sets the active snippet
-
-      @action selectSnippet
-      @param {Object} snippet
-    */
-    selectSnippet(snippet) {
+    if (this.get('snippetRegistrations.length') === 1) {
       this.set('activeSnippet', snippet.name);
     }
   }
-});
+
+  /**
+    Sets the active snippet
+
+    @action selectSnippet
+    @param {Object} snippet
+  */
+  @action
+  selectSnippet(snippet) {
+    this.set('activeSnippet', snippet.name);
+  }
+}
