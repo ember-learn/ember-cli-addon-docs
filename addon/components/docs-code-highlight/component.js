@@ -1,3 +1,5 @@
+import classic from 'ember-classic-decorator';
+import { classNameBindings, tagName, layout as templateLayout } from '@ember-decorators/component';
 import Component from '@ember/component';
 import layout from './template';
 import hljs from 'highlight.js/lib/core';
@@ -27,13 +29,14 @@ hljs.registerLanguage('sh', shell);
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('ts', typescript);
 
-export default Component.extend({
-  tagName: 'pre',
-  classNameBindings: ['language'],
-  layout,
+@classic
+@tagName('pre')
+@classNameBindings('language')
+@templateLayout(layout)
+export default class DocsCodeHighlight extends Component {
   didInsertElement() {
-    this._super.apply(this, arguments);
+    super.didInsertElement(...arguments);
 
     hljs.highlightBlock(this.element);
   }
-});
+}

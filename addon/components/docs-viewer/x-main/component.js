@@ -1,7 +1,9 @@
-import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import { bind } from '@ember/runloop';
+import classic from 'ember-classic-decorator';
+import { classNames, tagName, layout as templateLayout } from '@ember-decorators/component';
 import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
+import { bind } from '@ember/runloop';
 import appFiles from 'ember-cli-addon-docs/app-files';
 import addonFiles from 'ember-cli-addon-docs/addon-files';
 import config from 'ember-get-config';
@@ -14,20 +16,29 @@ const tagToIndent = { H2: '0', H3: '4' };
 const tagToMarginTop = { H2: '2', H3: '2' };
 const tagToMarginBottom = { H2: '0', H3: '0' };
 
-export default Component.extend({
-  layout,
+@classic
+@templateLayout(layout)
+@tagName('main')
+@classNames(
+  'docs-px-4',
+  'md:docs-px-8',
+  'lg:docs-px-20',
+  'docs-mx-auto',
+  'md:docs-mx-0',
+  'docs-mt-6',
+  'md:docs-mt-12',
+  'md:docs-min-w-0',
+  'md:docs-flex-1'
+)
+export default class XMain extends Component {
+  @service
+  router;
 
-  router: service(),
-  docsRoutes: service(),
-
-  tagName: 'main',
-  classNames: [
-    'docs-px-4', 'md:docs-px-8', 'lg:docs-px-20', 'docs-mx-auto', 'md:docs-mx-0', 'docs-mt-6',
-    'md:docs-mt-12', 'md:docs-min-w-0', 'md:docs-flex-1'
-  ],
+  @service
+  docsRoutes;
 
   didInsertElement() {
-    this._super(...arguments);
+    super.didInsertElement(...arguments);
 
     let target = this.element.querySelector('[data-current-page-index-target]')
 
@@ -36,13 +47,13 @@ export default Component.extend({
     this._mutationObserver.observe(target, { subtree: true, childList: true });
 
     this.reindex(target);
-  },
+  }
 
   willDestroyElement() {
-    this._super(...arguments);
+    super.willDestroyElement(...arguments);
 
     this._mutationObserver.disconnect();
-  },
+  }
 
   reindex(target) {
     let headers = Array.from(
@@ -61,13 +72,14 @@ export default Component.extend({
         };
       })
     );
-  },
+  }
 
-  editCurrentPageUrl: computed('router.currentRouteName', function() {
+  @computed('router.currentRouteName')
+  get editCurrentPageUrl() {
     let path = this.get('router.currentRouteName');
     if (!path) {
       // `router` doesn't exist for old ember versions via ember-try
-      return;
+      return null;
     }
 
     let match = this._locateFile(path);
@@ -82,7 +94,9 @@ export default Component.extend({
       parts.push(match.file);
       return parts.filter(Boolean).join('/');
     }
-  }),
+
+    return null;
+  }
 
   _locateFile(path) {
     path = path.replace(/\./g, '/');
@@ -103,5 +117,4 @@ export default Component.extend({
       }
     }
   }
-
-});
+}
