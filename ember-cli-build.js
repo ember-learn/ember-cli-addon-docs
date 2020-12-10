@@ -37,7 +37,14 @@ module.exports = function(defaults) {
     },
     postcssOptions: {
       compile: {
-        enabled: false,
+        extension: 'scss',
+        enabled: true,
+        parser: require('postcss-scss'),
+        plugins: [
+          {
+            module: require('@csstools/postcss-sass')
+          }
+        ]
       },
 
       filter: {
