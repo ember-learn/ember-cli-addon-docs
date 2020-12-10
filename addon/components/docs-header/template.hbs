@@ -21,9 +21,9 @@
         link=(component "docs-header/link")
       )}}
 
-      {{docs-header/search-box query=query on-input=(action (mut query))}}
+      <DocsHeader::SearchBox @query={{query}} @on-input={{action (mut query)}} />
 
-      {{#docs-header/link on-click=(action (toggle "isShowingVersionSelector" this))}}
+      <DocsHeader::Link @on-click={{action (toggle "isShowingVersionSelector" this)}}>
         <span data-test-id="current-version" data-version-selector class="docs-flex docs-items-center">
 
           {{#if (eq currentVersion.key latestVersionName)}}
@@ -38,14 +38,14 @@
 
           {{svg-jar "caret" height=12 width=12}}
         </span>
-      {{/docs-header/link}}
+      </DocsHeader::Link>
 
       {{#if projectHref}}
-        {{#docs-header/link href=projectHref}}
+        <DocsHeader::Link @href={{projectHref}}>
           <span class="docs-flex">
             {{svg-jar "github" width=24 height=24}}
           </span>
-        {{/docs-header/link}}
+        </DocsHeader::Link>
       {{/if}}
 
       {{!-- Something to take up space on mobile, so the scrolling nav isn't hugging the edge --}}
@@ -55,9 +55,9 @@
 </header>
 
 {{#if query}}
-  {{docs-header/search-results query=query on-visit=(action "didVisitPage")}}
+  <DocsHeader::SearchResults @query={{query}} @on-visit={{action "didVisitPage"}} />
 {{/if}}
 
 {{#if isShowingVersionSelector}}
-  {{docs-header/version-selector on-close=(action (mut isShowingVersionSelector false))}}
+  <DocsHeader::VersionSelector @on-close={{action (mut isShowingVersionSelector false)}} />
 {{/if}}

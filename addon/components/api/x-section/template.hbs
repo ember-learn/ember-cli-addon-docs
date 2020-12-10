@@ -12,9 +12,9 @@
     {{/if}}
 
     {{#if (or item.isClass item.isComponent)}}
-      {{#link-to "docs.api.item" (concat "modules/" item.id) class="hover:underline"}}
+      <LinkTo @route="docs.api.item" @model={{concat "modules/" item.id}} class="hover:underline">
         <strong>{{item.name}}</strong>
-      {{/link-to}}
+      </LinkTo>
     {{else}}
       <a href="#{{item.name}}" class="heading-anchor">
         {{type-signature item}}
@@ -27,19 +27,19 @@
   </p>
 
   {{#if (or (and item.exportType showImportPaths) shouldDisplayParams)}}
-    {{#api/x-meta-panel as |panel|}}
+    <Api::XMetaPanel as |panel|>
       {{#if item.exportType}}
-        {{#panel.header}}
+        <panel.header>
           Import Path
-        {{/panel.header}}
+        </panel.header>
 
-        {{api/x-import-path item=item}}
+        <Api::XImportPath @item={{item}} />
       {{/if}}
 
       {{#if shouldDisplayParams}}
-        {{#panel.header}}
+        <panel.header>
           Params
-        {{/panel.header}}
+        </panel.header>
 
         <table class="docs-mb-6" data-test-item-params>
           <tbody>
@@ -53,6 +53,6 @@
           </tbody>
         </table>
       {{/if}}
-    {{/api/x-meta-panel}}
+    </Api::XMetaPanel>
   {{/if}}
 </div>

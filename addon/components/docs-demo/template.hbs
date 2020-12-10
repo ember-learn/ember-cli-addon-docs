@@ -34,7 +34,7 @@
         <div class="
           docs-demo__snippet-wrapper docs-bg-code-base docs-rounded-b
         ">
-          {{docs-snippet name=snippet.name unindent=true language=snippet.language}}
+          <DocsSnippet @name={{snippet.name}} @unindent={{true}} @language={{snippet.language}} />
         </div>
       {{/if}}
     {{/each}}

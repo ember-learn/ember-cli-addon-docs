@@ -4,41 +4,37 @@
 <div data-test-class-description>{{{class.description}}}</div>
 
 {{#if (or (and class.exportType showImportPaths) hasToggles)}}
-  {{#api/x-meta-panel as |panel|}}
+  <Api::XMetaPanel as |panel|>
     {{#if class.exportType}}
-      {{#panel.header}}
+      <panel.header>
         Import Path
-      {{/panel.header}}
+      </panel.header>
 
-      {{api/x-import-path item=class}}
+      <Api::XImportPath @item={{class}} />
     {{/if}}
 
     {{#if hasToggles}}
-      {{#panel.header}}
+      <panel.header>
         Show
-      {{/panel.header}}
+      </panel.header>
 
       {{#if hasToggles}}
-        {{api/x-toggles
-          toggles=(hash
+        <Api::XToggles @toggles={{hash
             inherited=(if class.hasInherited showInherited)
             protected=(if class.hasProtected showProtected)
             private=(if class.hasPrivate showPrivate)
             deprecated=(if class.hasDeprecated showDeprecated)
-          )
-        }}
+          }} />
       {{/if}}
     {{/if}}
-  {{/api/x-meta-panel}}
+  </Api::XMetaPanel>
 {{/if}}
 
 {{#if hasContents}}
-  {{api/x-sections
-    sections=(hash
+  <Api::XSections @sections={{hash
       constructors=class.constructors
       fields=class.fields
       accessors=class.accessors
       methods=class.methods
-    )
-  }}
+    }} />
 {{/if}}
