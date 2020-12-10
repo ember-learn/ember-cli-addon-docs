@@ -8,8 +8,6 @@ const Funnel = require('broccoli-funnel');
 const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-line node/no-unpublished-require
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
-const CssImport = require('postcss-import');
-const PresetEnv = require('postcss-preset-env');
 
 const LATEST_VERSION_NAME = '-latest';
 const styleDir = path.join(__dirname, 'addon', 'styles');
@@ -23,18 +21,14 @@ module.exports = {
     postcssOptions: {
       compile: {
         extension: 'scss',
-        enabled: false,
-        parser: require('postcss-scss'),
-      },
-
-      filter: {
-        extension: 'scss',
         enabled: true,
         parser: require('postcss-scss'),
-        includePaths: [styleDir],
         plugins: [
           {
-            module: require('@csstools/postcss-sass')
+            module: require('@csstools/postcss-sass'),
+            options: {
+              includePaths: [styleDir]
+            }
           },
           require('tailwindcss')('./tailwind.config.js')
         ]
@@ -127,19 +121,6 @@ module.exports = {
         );
       }
     }
-
-    includer.options.postcssOptions = {
-      compile: {
-        enabled: true,
-        plugins: [
-          { module: CssImport },
-          {
-            module: PresetEnv,
-            options: { stage: 3 }
-          }
-        ]
-      }
-    };
 
     includer.options.includeFileExtensionInSnippetNames =
       includer.options.includeFileExtensionInSnippetNames || false;

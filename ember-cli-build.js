@@ -5,6 +5,9 @@ const Project = require('ember-cli/lib/models/project');
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
 
+const path = require('path');
+const styleDir = path.join(__dirname, 'addon', 'styles');
+
 module.exports = function(defaults) {
   let project = Project.closestSync(process.cwd());
 
@@ -42,15 +45,13 @@ module.exports = function(defaults) {
         parser: require('postcss-scss'),
         plugins: [
           {
-            module: require('@csstools/postcss-sass')
+            module: require('@csstools/postcss-sass'),
+            options: {
+              includePaths: [styleDir],
+            }
           }
         ]
-      },
-
-      filter: {
-        enabled: false,
-        plugins: []
-      },
+      }
     },
   });
 
