@@ -1,40 +1,34 @@
-<h1 class="docs-h1" data-test-component-name>{{component.name}}</h1>
+<h1 class="docs-h1" data-test-component-name>{{@component.name}}</h1>
 
 {{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
-<div data-test-component-name>{{{component.description}}}</div>
+<div data-test-component-name>{{{@component.description}}}</div>
 
 {{#if hasToggles}}
-  {{#api/x-meta-panel as |panel|}}
-    {{#panel.header}}
+  <Api::XMetaPanel as |panel|>
+    <panel.header>
       Show
-    {{/panel.header}}
+    </panel.header>
 
     {{#if hasToggles}}
-      {{api/x-toggles
-        toggles=(hash
+      <Api::XToggles @toggles={{hash
           inherited=(if component.hasInherited showInherited)
           internal=(if component.hasInternal showInternal)
           protected=(if component.hasProtected showProtected)
           private=(if component.hasPrivate showPrivate)
           deprecated=(if component.hasDeprecated showDeprecated)
-        )
-
-        onToggle=(action "updateFilter")
-      }}
+        }} @onToggle={{action "updateFilter"}} />
     {{/if}}
-  {{/api/x-meta-panel}}
+  </Api::XMetaPanel>
 {{/if}}
 
 
 {{#if hasContents}}
-  {{api/x-sections
-    sections=(hash
+  <Api::XSections @sections={{hash
       constructors=constructors
       yields=yields
       arguments=arguments
       fields=fields
       accessors=accessors
       methods=methods
-    )
-  }}
+    }} />
 {{/if}}

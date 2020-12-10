@@ -3,8 +3,8 @@ import { module, test } from 'qunit';
 
 module('Unit | Utility | compile-markdown', function(hooks) {
   test('should be able to highlight javascript', function(assert) {
-    let result = highlightCode(`let foo = 'bar';`, 'js');
-    assert.equal(result, `<span class="hljs-keyword">let</span> foo = <span class="hljs-string">'bar'</span>;`);
+    let result = highlightCode(`let foo = 'bar';`, 'javascript');
+    assert.equal(result, `<span class="hljs-keyword">let</span> foo = <span class="hljs-string">&#x27;bar&#x27;</span>;`);
   });
 
   test('should render a table', function(assert) {

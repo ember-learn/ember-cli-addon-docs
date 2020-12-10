@@ -6,9 +6,11 @@
 .docs-bg-brand {
   @apply docs-bg-brand-var;
 }
+
 .hover\:docs-bg-brand:hover {
-  @apply docs-bg-brand-var ;
+  @apply docs-bg-brand-var;
 }
+
 .focus\:docs-bg-brand:focus {
   @apply docs-bg-brand-var;
 }
@@ -16,9 +18,11 @@
 .docs-text-brand {
   @apply docs-text-brand-var;
 }
+
 .hover\:docs-text-brand:hover {
   @apply docs-text-brand-var;
 }
+
 .focus\:docs-text-brand:focus {
   @apply docs-text-brand-var;
 }
@@ -26,9 +30,11 @@
 .docs-border-brand {
   @apply docs-border-brand-var;
 }
+
 .hover\:docs-border-brand:hover {
   @apply docs-border-brand-var;
 }
+
 .focus\:docs-border-brand:focus {
   @apply docs-border-brand-var;
 }

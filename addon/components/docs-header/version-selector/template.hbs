@@ -1,9 +1,4 @@
-{{#modal-dialog
-  tetherTarget="[data-version-selector]"
-  attachment="top right"
-  clickOutsideToClose=true
-  onClose=(action on-close)
-  targetAttachment="bottom right"}}
+<ModalDialog @tetherTarget="[data-version-selector]" @attachment="top right" @clickOutsideToClose={{true}} @onClose={{action on-close}} @targetAttachment="bottom right">
   <ul class="docs-mt-2 docs-bg-white docs-shadow-md docs-text-xs docs-rounded docs-z-10">
     {{#each sortedVersions as |version|}}
       <li data-test-id="version">
@@ -46,4 +41,4 @@
       </li>
     {{/each}}
   </ul>
-{{/modal-dialog}}
+</ModalDialog>

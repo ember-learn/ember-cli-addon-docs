@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import layout from './template';
-import hljs from 'highlight.js/lib/highlight';
+import hljs from 'highlight.js/lib/core';
 
 // Installed languages
 import javascript from 'highlight.js/lib/languages/javascript';

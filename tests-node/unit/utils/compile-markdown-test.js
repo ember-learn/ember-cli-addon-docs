@@ -213,8 +213,8 @@ describe('Unit | compile-markdown', function(hooks) {
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
       <div class="docs-md"><pre class="docs-md__code"><code class="undefinedhbs"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form.Text</span>
-        @<span class="hljs-attr">fieldName</span>=<span class="hljs-string">"name.first"</span>
-        @<span class="hljs-attr">label</span>=<span class="hljs-string">"First Name"</span>
+        @<span class="hljs-attr">fieldName</span>=<span class="hljs-string">&quot;name.first&quot;</span>
+        @<span class="hljs-attr">label</span>=<span class="hljs-string">&quot;First Name&quot;</span>
       /&gt;</span></span></code></pre>
       <p>This is after code block</p></div>
     `;
