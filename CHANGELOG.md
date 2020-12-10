@@ -1,3 +1,20 @@
+## v1.0.0 (2020-12-10)
+
+#### :boom: Breaking Change
+* [#668](https://github.com/ember-learn/ember-cli-addon-docs/pull/668) Use postcss for sass, convert to angle brackets, update highlight.js ([@rwwagner90](https://github.com/rwwagner90))
+* [#553](https://github.com/ember-learn/ember-cli-addon-docs/pull/553) Minimum 3.x series for ember-data addon ([@snewcomer](https://github.com/snewcomer))
+
+#### :house: Internal
+* [#671](https://github.com/ember-learn/ember-cli-addon-docs/pull/671) Start converting to native classes ([@rwwagner90](https://github.com/rwwagner90))
+* [#585](https://github.com/ember-learn/ember-cli-addon-docs/pull/585) Add test for both ember-concurrency v1 and v2 ([@maxfierke](https://github.com/maxfierke))
+
+#### Committers: 5
+- Isaac Lee ([@ijlee2](https://github.com/ijlee2))
+- Max Fierke ([@maxfierke](https://github.com/maxfierke))
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- Scott Newcomer ([@snewcomer](https://github.com/snewcomer))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v0.10.0 (2020-09-08)
 
 #### :rocket: Enhancement
