@@ -89,7 +89,7 @@
     "pad-start": "^1.0.2",
     "parse-git-config": "^3.0.0",
     "postcss": "^8.2.1",
-    "postcss-import": "^13.0.0",
+    "postcss-import": "^14.0.0",
     "postcss-nested": "^5.0.3",
     "postcss-scss": "^3.0.4",
     "quick-temp": "^0.1.8",
