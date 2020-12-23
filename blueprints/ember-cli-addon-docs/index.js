@@ -14,6 +14,7 @@ module.exports = {
   beforeInstall() {
     return this.addAddonsToProject({
       packages: [
+        'ember-cli-addon-docs-yuidoc',
         'ember-cli-deploy',
         'ember-cli-deploy-build',
         'ember-cli-deploy-git',
@@ -46,12 +47,6 @@ module.exports = {
       this.insertIntoFile('.npmignore', '/config/addon-docs.js');
     }
 
-    const hasPlugins = this.project.addons.some(function(addon) {
-      const isPlugin = addon.pkg.keywords.indexOf('ember-cli-addon-docs-plugin') !== -1;
-      const isPluginPack = addon.pkg.keywords.indexOf('ember-cli-addon-docs-plugin-pack') !== -1;
-      return isPlugin || isPluginPack;
-    });
-
     const packageJsonPath = path.join(this.project.root, 'package.json');
     const updatedDemoUrl = updateDemoUrl(packageJsonPath);
 
@@ -61,38 +56,5 @@ module.exports = {
         `including a link on Ember Observer, set it to https://{ORGANIZATION}.github.io/{REPO}`
       );
     }
-
-    if (!hasPlugins) {
-      return this._chooseAddonsToInstall()
-        .then((addon) => {
-          return this.addAddonsToProject({
-            packages: [addon],
-            blueprintOptions: {
-              save: options.save
-            }
-          });
-        });
-    }
-  },
-
-  _chooseAddonsToInstall() {
-    // Ask which ember addon to install
-    return this.ui.prompt({
-      type: 'list',
-      name: 'addonToInstall',
-      message: 'Which documentation style would you like to use?',
-      choices: [
-        {
-          name: 'ESDoc',
-          value: { name: 'ember-cli-addon-docs-esdoc' }
-        },
-        {
-          name: 'YUIDoc',
-          value: { name: 'ember-cli-addon-docs-yuidoc' }
-        }
-      ]
-    }).then((selected) => {
-      return selected.addonToInstall;
-    });
   }
 };
