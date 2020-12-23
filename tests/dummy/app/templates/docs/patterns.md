@@ -71,7 +71,3 @@ See the next section on {{docs-link 'deploy guides' 'docs.deploying'}} for more 
 AddonDocs is built for open-source addons deploying their docs sites to GitHub Pages. Once you have this set up, you can even automate deployment as part of your Travis CI builds.
 
 For more details, see the {{docs-link 'Deploying' 'docs.deploying'}} section of the guides.
-
-## Miscellaneous
-
-- **Pods vs classic app layout.** You are free to use either classic or pods layout. This app is built using pods, in case you'd like to use it as a reference.

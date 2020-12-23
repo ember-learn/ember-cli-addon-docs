@@ -1,5 +1,11 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+{{#docs-header as |header|}}
+  {{#header.link "sandbox"}}
+    Sandbox
+  {{/header.link}}
+{{/docs-header}}
 
+{{! BEGIN-SNIPPET docs-demo-application-template.hbs }}
 {{outlet}}
+
+{{docs-keyboard-shortcuts}}
+{{! END-SNIPPET }}

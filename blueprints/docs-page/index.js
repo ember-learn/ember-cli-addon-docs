@@ -21,21 +21,9 @@ module.exports = {
   fileMapTokens: function() {
     return {
       __templatepath__: function(options) {
-        if (options.pod) {
-          return path.join(
-            DUMMY_APP_PATH,
-            'pods',
-            'docs',
-            options.dasherizedModuleName
-          );
-        } else {
           return path.join(DUMMY_APP_PATH, 'templates', 'docs');
-        }
       },
       __templatename__: function(options) {
-        if (options.pod) {
-          return 'template';
-        }
         return options.dasherizedModuleName;
       }
     };
@@ -97,9 +85,7 @@ function writeRoute(action, name, options) {
 
 function updateDocsTemplate(options) {
   let routeName = options.entity.name;
-  let docsTemplatePath = options.pod
-    ? path.join(DUMMY_APP_PATH, 'pods', 'docs', 'template.hbs')
-    : path.join(DUMMY_APP_PATH, 'templates', 'docs.hbs');
+  let docsTemplatePath = path.join(DUMMY_APP_PATH, 'templates', 'docs.hbs');
 
   if (fs.existsSync(docsTemplatePath)) {
     let templateLines = fs
