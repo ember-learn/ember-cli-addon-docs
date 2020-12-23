@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
-import { currentURL, visit, waitUntil } from '@ember/test-helpers';
+import { currentURL, visit } from '@ember/test-helpers';
 import config from 'ember-get-config';
 
 import modulePage from '../../../pages/api/module';
