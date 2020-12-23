@@ -11,7 +11,7 @@ module('Acceptance | Sandbox | API | helpers', function(hooks) {
   setupMirage(hooks);
 
   module('standard helpers', function() {
-    for (let documenter of ['esdoc', 'yuidoc']) {
+    for (let documenter of ['yuidoc']) {
       let helperName = `${documenter}Helper`;
       let kebabName = `${documenter}-helper`;
 
@@ -47,7 +47,7 @@ module('Acceptance | Sandbox | API | helpers', function(hooks) {
   });
 
   module('class helpers', function() {
-    for (let documenter of ['ESDoc', 'YUIDoc']) {
+    for (let documenter of ['YUIDoc']) {
       let helperName = `${documenter}ClassHelper`;
       let kebabName = `${documenter.toLowerCase()}-class-helper`;
 
