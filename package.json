@@ -119,7 +119,7 @@
     "ember-cli-deploy-build": "^2.0.0",
     "ember-cli-deploy-git": "^1.3.4",
     "ember-cli-inject-live-reload": "^2.0.2",
-    "ember-cli-mirage": "^1.1.6",
+    "ember-cli-mirage": "^2.0.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.0",
     "ember-component-css": "^0.7.4",
