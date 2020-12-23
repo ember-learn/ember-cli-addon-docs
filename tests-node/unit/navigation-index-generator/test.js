@@ -166,11 +166,6 @@ describe('Unit | NavigationIndexGenerator', function(hooks) {
         "type": "components",
         "items": [
           {
-            "id": "sandbox/components/esdoc-component",
-            "path": "components/esdoc-component",
-            "name": "{{esdoc-component}}"
-          },
-          {
             "id": "sandbox/components/simple-list/item/component",
             "path": "components/simple-list/item",
             "name": "{{simple-list/item}}"
@@ -191,16 +186,6 @@ describe('Unit | NavigationIndexGenerator', function(hooks) {
         "type": "helpers",
         "items": [
           {
-            "id": "sandbox/helpers/esdoc-class-helper",
-            "path": "helpers/esdoc-class-helper",
-            "name": "{{esdoc-class-helper}}"
-          },
-          {
-            "id": "sandbox/helpers/esdoc-helper",
-            "path": "helpers/esdoc-helper",
-            "name": "{{esdoc-helper}}"
-          },
-          {
             "id": "sandbox/helpers/yuidoc-class-helper",
             "path": "helpers/yuidoc-class-helper",
             "name": "{{yuidoc-class-helper}}"
@@ -214,10 +199,6 @@ describe('Unit | NavigationIndexGenerator', function(hooks) {
       },
       {    "type": "modules",
         "items": [
-          {
-            "id": "sandbox/utils/esdoc-module",
-            "path": "modules/sandbox/utils/esdoc-module",
-            "name": "sandbox/utils/esdoc-module"      },
           {
             "id": "sandbox/utils/yuidoc-module",
             "path": "modules/sandbox/utils/yuidoc-module",

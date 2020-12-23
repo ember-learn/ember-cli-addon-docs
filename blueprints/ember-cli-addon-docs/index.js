@@ -83,11 +83,11 @@ module.exports = {
       message: 'Which documentation style would you like to use?',
       choices: [
         {
-          name: 'ESDoc',
+          name: 'ESDoc (deprecated)',
           value: { name: 'ember-cli-addon-docs-esdoc' }
         },
         {
-          name: 'YUIDoc',
+          name: 'YUIDoc (recommended)',
           value: { name: 'ember-cli-addon-docs-yuidoc' }
         }
       ]
