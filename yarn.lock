@@ -6455,9 +6455,9 @@ ember-cli-lodash-subset@^2.0.1:
   integrity sha1-IMtop5D+D94kiN39jvu332/nZvI=
 
 ember-cli-mirage@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-mirage/-/ember-cli-mirage-2.0.0.tgz#b3a012e8115463899c46a9942dec55300bca5b42"
-  integrity sha512-rfM1PG3gTqTIg1pO40n+g8TOjhK1SAnPe4j7EfOrbmv1Ov81+CGhcPSJchkiShSGnOoTLnHXV6U9nEd+psc6jw==
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-mirage/-/ember-cli-mirage-2.0.1.tgz#3851c3691f66769ab55c13a2557e69c85ad66b23"
+  integrity sha512-zOepXLwuV4G+DZHQE3h62QQGARtwvgG+Glry+fySQ8VbCo3v/jh8l1JJIluUpPkEVyEyuGHIbjKqi/yQsSjm4Q==
   dependencies:
     "@embroider/macros" "^0.33.0"
     broccoli-file-creator "^2.1.1"
@@ -6465,7 +6465,7 @@ ember-cli-mirage@^2.0.0:
     broccoli-merge-trees "^4.2.0"
     ember-auto-import "^1.2.19"
     ember-cli-babel "^7.5.0"
-    ember-get-config "^0.3.0"
+    ember-get-config "^0.2.4 || ^0.3.0"
     ember-inflector "^2.0.0 || ^3.0.0"
     lodash-es "^4.17.11"
     miragejs "^0.1.31"
@@ -6896,7 +6896,7 @@ ember-fetch@^8.0.2:
     node-fetch "^2.6.0"
     whatwg-fetch "^3.4.0"
 
-ember-get-config@^0.3.0:
+"ember-get-config@^0.2.4 || ^0.3.0", ember-get-config@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/ember-get-config/-/ember-get-config-0.3.0.tgz#a73a1a87b48d9dde4c66a0e52ed5260b8a48cfbd"
   integrity sha512-0e2pKzwW5lBZ4oJnvu9qHOht4sP1MWz/m3hyz8kpSoMdrlZVf62LDKZ6qfKgy8drcv5YhCMYE6QV7MhnqlrzEQ==
