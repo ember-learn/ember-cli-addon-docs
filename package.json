@@ -68,7 +68,7 @@
     "ember-on-modifier": "^1.0.0",
     "ember-responsive": "^4.0.0",
     "ember-router-generator": "^2.0.0",
-    "ember-router-scroll": "^3.3.3",
+    "ember-router-scroll": "^4.0.0",
     "ember-svg-jar": "^2.2.3",
     "ember-tether": "^2.0.0",
     "ember-truth-helpers": "^3.0.0",
