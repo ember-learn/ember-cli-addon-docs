@@ -78,7 +78,7 @@
     "git-repo-info": "^2.1.1",
     "highlight.js": "^10.4.0",
     "hosted-git-info": "^3.0.4",
-    "html-entities": "^1.2.1",
+    "html-entities": "^2.0.4",
     "inflected": "^2.0.3",
     "jsdom": "^16.4.0",
     "json-api-serializer": "^2.2.1",
