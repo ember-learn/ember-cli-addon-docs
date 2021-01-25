@@ -10140,9 +10140,9 @@ json-api-serializer@^1.11.0:
     unique-stream "^2.2.1"
 
 json-api-serializer@^2.2.1, json-api-serializer@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/json-api-serializer/-/json-api-serializer-2.6.0.tgz#6624e2b4af12085350ec39a91ecfe372a2674dbe"
-  integrity sha512-4pLbIVXUtQ5gqvLu4k+55p4l8dQK4MZJ9zoq0T7uE7DzVvDuAFM+pvvw/bdZttkMogFJRZlRRZkZKc9X78DJdQ==
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/json-api-serializer/-/json-api-serializer-2.6.1.tgz#717f68da57b4970ef7ba2b41d3eb3c455f05239c"
+  integrity sha512-hOtPsrtNnFy2sCLdsN/PEH+FWhdj0CoVbn7iRfw5DtPzXVwSzSN6SxRwGTkxbtauST7QlC2LkmWKhZFlcTnZbw==
   dependencies:
     setimmediate "^1.0.5"
 
