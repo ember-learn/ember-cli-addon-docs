@@ -6233,7 +6233,7 @@ ember-cli-babel-plugin-helpers@^1.0.0, ember-cli-babel-plugin-helpers@^1.1.0, em
   resolved "https://registry.yarnpkg.com/ember-cli-babel-plugin-helpers/-/ember-cli-babel-plugin-helpers-1.1.1.tgz#5016b80cdef37036c4282eef2d863e1d73576879"
   integrity sha512-sKvOiPNHr5F/60NLd7SFzMpYPte/nnGkq/tMIfXejfKHIhaiIkYFqX8Z9UFTKWLLn+V7NOaby6niNPZUdvKCRw==
 
-ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
+ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.18.0.tgz#3f6435fd275172edeff2b634ee7b29ce74318957"
   integrity sha512-7ceC8joNYxY2wES16iIBlbPSxwKDBhYwC8drU3ZEvuPDMwVv1KzxCNu1fvxyFEBWhwaRNTUxSCsEVoTd9nosGA==
@@ -6857,13 +6857,15 @@ ember-composable-helpers@^4.4.1:
     resolve "^1.10.0"
 
 "ember-concurrency@>=0.9.0 <3":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-1.3.0.tgz#66f90fb792687470bcee1172adc0ebf33f5e8b9c"
-  integrity sha512-DwGlfWFpYyAkTwsedlEtK4t1DznJSculAW6Vq5S1C0shVPc5b6tTpHB2FFYisannSYkm+wpm1f1Pd40qiNPtOQ==
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-2.0.1.tgz#4326d6ed90241d8009c5035916dab1ebe58c6f9e"
+  integrity sha512-5cT1Id1n8I1F1d7xqtxD8LnqLfyxxlAbDxHazODmncwEyevkuLHxAMtw7HrcoDx8wr4zO59t3R2c+dnWJHNmsw==
   dependencies:
-    ember-cli-babel "^7.7.3"
+    "@glimmer/tracking" "^1.0.2"
+    ember-cli-babel "^7.22.1"
+    ember-cli-htmlbars "^5.3.1"
     ember-compatibility-helpers "^1.2.0"
-    ember-maybe-import-regenerator "^0.1.6"
+    ember-destroyable-polyfill "^2.0.2"
 
 ember-data@~3.25.0:
   version "3.25.0"
@@ -7009,16 +7011,6 @@ ember-maybe-import-regenerator-for-testing@^1.0.0:
   dependencies:
     broccoli-funnel "^1.0.1"
     ember-cli-babel "^6.6.0"
-    regenerator-runtime "^0.9.5"
-
-ember-maybe-import-regenerator@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/ember-maybe-import-regenerator/-/ember-maybe-import-regenerator-0.1.6.tgz#35d41828afa6d6a59bc0da3ce47f34c573d776ca"
-  integrity sha1-NdQYKK+m1qWbwNo85H80xXPXdso=
-  dependencies:
-    broccoli-funnel "^1.0.1"
-    broccoli-merge-trees "^1.0.0"
-    ember-cli-babel "^6.0.0-beta.4"
     regenerator-runtime "^0.9.5"
 
 ember-modal-dialog@^3.0.0-beta.4:
