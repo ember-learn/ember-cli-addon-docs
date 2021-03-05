@@ -81,7 +81,7 @@ export function highlightCode(code, lang) {
   ```js
   import Component from '@ember/component';
   import compileMarkdown from 'ember-cli-addon-docs/utils/compile-markdown';
-  import { htmlSafe } from '@ember/string';
+  import { htmlSafe } from '@ember/template';
 
   export default Component.extend({
     htmlBody: computed('post.body', function() {
