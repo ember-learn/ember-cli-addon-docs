@@ -38,7 +38,7 @@
     "ember-disable-prototype-extensions": "*",
     "ember-export-application-global": "*",
     "ember-load-initializers": "*",
-    "ember-maybe-import-regenerator": "*",
+    "ember-maybe-import-regenerator-for-testing": "*",
     "ember-resolver": "*",
     "ember-source": "*",
     "ember-source-channel-url": "*",
