@@ -1,6 +1,6 @@
 /** @documenter yuidoc */
 
-import EmberRouterScroll from 'ember-router-scroll';
+import EmberRouter from '@ember/routing/router';
 
 /**
   The AddonDocsRouter, which adds some extra functionality. This should be used
@@ -19,7 +19,7 @@ import EmberRouterScroll from 'ember-router-scroll';
   @class AddonDocsRouter
   @extends EmberRouter
 */
-export default class AddonDocsRouter extends EmberRouterScroll {}
+export default class AddonDocsRouter extends EmberRouter {}
 
 /**
   Creates the docs route and api docs routes. Can receive a callback with the
