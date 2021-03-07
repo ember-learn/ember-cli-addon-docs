@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import compileMarkdown from 'ember-cli-addon-docs/utils/compile-markdown';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 
 export default Controller.extend({
 

@@ -1,6 +1,6 @@
 import { assert } from '@ember/debug';
 import { helper } from '@ember/component/helper';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 
 function escape(text) {
   return text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
