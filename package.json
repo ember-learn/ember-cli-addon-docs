@@ -102,7 +102,7 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
-    "@fullhuman/postcss-purgecss": "^3.0.0",
+    "@fullhuman/postcss-purgecss": "^4.0.2",
     "@glimmer/component": "^1.0.2",
     "@glimmer/tracking": "^1.0.2",
     "babel-eslint": "^10.1.0",
