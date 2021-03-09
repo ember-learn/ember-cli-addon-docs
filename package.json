@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@csstools/postcss-sass": "^4.0.0",
-    "@glimmer/syntax": "^0.75.0",
+    "@glimmer/syntax": "^0.77.1",
     "broccoli-bridge": "^1.0.0",
     "broccoli-caching-writer": "^3.0.3",
     "broccoli-debug": "^0.6.5",
