@@ -1316,10 +1316,10 @@
   dependencies:
     "@simple-dom/interface" "^1.4.0"
 
-"@glimmer/interfaces@0.77.1":
-  version "0.77.1"
-  resolved "https://registry.yarnpkg.com/@glimmer/interfaces/-/interfaces-0.77.1.tgz#845a62ff6dc6a3646642cfbeec84b13a8a66ea1c"
-  integrity sha512-Dp0hebviZpcqEPjuNA5kGa/gl5nfYv+XEI0e9ozF5d1FD5yGPdvwQ9D+sQ4Dn888XCCmTWzKME4iRsVHK5aJoA==
+"@glimmer/interfaces@0.77.3":
+  version "0.77.3"
+  resolved "https://registry.yarnpkg.com/@glimmer/interfaces/-/interfaces-0.77.3.tgz#cd0523147da72d8901950a24c3be7aa4e38d8d09"
+  integrity sha512-i/2YmyjFKhKNheEfvajQbbQr9AWbahNV71oakipz8b+qWx0nni5cjM/m/Z0nhnwrsa2cNFIt5kNknD6rh18AHg==
   dependencies:
     "@simple-dom/interface" "^1.4.0"
 
@@ -1394,13 +1394,13 @@
     simple-html-tokenizer "^0.5.10"
 
 "@glimmer/syntax@^0.77.1":
-  version "0.77.1"
-  resolved "https://registry.yarnpkg.com/@glimmer/syntax/-/syntax-0.77.1.tgz#155109c2e62a3dc94cf0ae7ccf2e840fe8875c7c"
-  integrity sha512-Jbfr34s0D70OlXeGzHzzK0aTRoXR0KtC6klVw5IQQlxvJIrHlZuRDpIueByL5sxhyYh9KQc13lMcHXUFaIPEtA==
+  version "0.77.3"
+  resolved "https://registry.yarnpkg.com/@glimmer/syntax/-/syntax-0.77.3.tgz#219bd46687147f10cf3893f81ebfd6ac7733ac07"
+  integrity sha512-C5sMmRyiDnhYHkdogcEpBuSbiFrClAwGg1tBk61dMkYmXlInjlwpAj5SfgtSzcgXjUM/60uZo+DvMacyZsx9Nw==
   dependencies:
-    "@glimmer/interfaces" "0.77.1"
-    "@glimmer/util" "0.77.1"
-    "@handlebars/parser" "^2.0.0"
+    "@glimmer/interfaces" "0.77.3"
+    "@glimmer/util" "0.77.3"
+    "@handlebars/parser" "~2.0.0"
     simple-html-tokenizer "^0.5.10"
 
 "@glimmer/tracking@^1.0.2":
@@ -1420,13 +1420,13 @@
     "@glimmer/interfaces" "0.65.1"
     "@simple-dom/interface" "^1.4.0"
 
-"@glimmer/util@0.77.1":
-  version "0.77.1"
-  resolved "https://registry.yarnpkg.com/@glimmer/util/-/util-0.77.1.tgz#9dfa721a3e3d06d7ec84488ef2e1a0107ea7cf3f"
-  integrity sha512-9BHDbmc/z7wzre+esFI+UPR2bx2Z+NYS5SxH10zgdYMDaN7qAQ63lIt+20AasQjC49JH4GxoPTettSknMQ6F1A==
+"@glimmer/util@0.77.3":
+  version "0.77.3"
+  resolved "https://registry.yarnpkg.com/@glimmer/util/-/util-0.77.3.tgz#c91fc3b61743ddea3e4470cf1ed8378f88cc863f"
+  integrity sha512-pqkU2b4BOkmSehRPSbS4bIw1zk8K6dVkVbXdXRqVz4oKqM7c0zYR/5fV2Sjayd3gEElt71lAef5uBr+7WddDlA==
   dependencies:
     "@glimmer/env" "0.1.7"
-    "@glimmer/interfaces" "0.77.1"
+    "@glimmer/interfaces" "0.77.3"
     "@simple-dom/interface" "^1.4.0"
 
 "@glimmer/util@^0.42.2":
@@ -1480,7 +1480,7 @@
   resolved "https://registry.yarnpkg.com/@handlebars/parser/-/parser-1.1.0.tgz#d6dbc7574774b238114582410e8fee0dc3532bdf"
   integrity sha512-rR7tJoSwJ2eooOpYGxGGW95sLq6GXUaS1UtWvN7pei6n2/okYvCGld9vsUTvkl2migxbkszsycwtMf/GEc1k1A==
 
-"@handlebars/parser@^2.0.0":
+"@handlebars/parser@~2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@handlebars/parser/-/parser-2.0.0.tgz#5e8b7298f31ff8f7b260e6b7363c7e9ceed7d9c5"
   integrity sha512-EP9uEDZv/L5Qh9IWuMUGJRfwhXJ4h1dqKTT4/3+tY0eu7sPis7xh23j61SYUnNF4vqCQvvUXpDo9Bh/+q1zASA==
