@@ -11,7 +11,7 @@ module('Acceptance | Sandbox | API | Guides', function(hooks) {
 
   test('page index works', async function(assert) {
     await visit('/sandbox');
-
+debugger;
     assert.equal(currentURL(), `/sandbox`, 'correct url');
 
     let indexItems = modulePage.index.items.map(i => i.text);

@@ -3,7 +3,7 @@
 {{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
 <div data-test-component-name>{{{@component.description}}}</div>
 
-{{#if hasToggles}}
+{{#if this.hasToggles}}
   <Api::XMetaPanel as |panel|>
     <panel.header>
       Show
@@ -11,11 +11,11 @@
 
     {{#if hasToggles}}
       <Api::XToggles @toggles={{hash
-          inherited=(if component.hasInherited showInherited)
-          internal=(if component.hasInternal showInternal)
-          protected=(if component.hasProtected showProtected)
-          private=(if component.hasPrivate showPrivate)
-          deprecated=(if component.hasDeprecated showDeprecated)
+          inherited=(if @component.hasInherited this.showInherited)
+          internal=(if @component.hasInternal this.showInternal)
+          protected=(if @component.hasProtected this.showProtected)
+          private=(if @component.hasPrivate this.showPrivate)
+          deprecated=(if @component.hasDeprecated this.showDeprecated)
         }} @onToggle={{action "updateFilter"}} />
     {{/if}}
   </Api::XMetaPanel>
@@ -24,11 +24,11 @@
 
 {{#if hasContents}}
   <Api::XSections @sections={{hash
-      constructors=constructors
-      yields=yields
-      arguments=arguments
-      fields=fields
-      accessors=accessors
-      methods=methods
+      constructors=this.constructors
+      yields=this.yields
+      arguments=this.arguments
+      fields=this.fields
+      accessors=this.accessors
+      methods=this.methods
     }} />
 {{/if}}
