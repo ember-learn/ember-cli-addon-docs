@@ -13,10 +13,6 @@ const LATEST_VERSION_NAME = '-latest';
 const styleDir = path.join(__dirname, 'addon', 'styles');
 
 module.exports = {
-  isDevelopingAddon: function () {
-    return true;
-  },
-
   name: require('./package').name,
 
   LATEST_VERSION_NAME,
