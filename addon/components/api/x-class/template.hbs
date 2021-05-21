@@ -1,40 +1,40 @@
-<h1 class="docs-h1" data-test-class-name>{{class.name}}</h1>
+<h1 class="docs-h1" data-test-class-name>{{@class.name}}</h1>
 
 {{! wrapping in a div seems to work around https://github.com/ember-learn/ember-cli-addon-docs/issues/7 }}
-<div data-test-class-description>{{{class.description}}}</div>
+<div data-test-class-description>{{{@class.description}}}</div>
 
-{{#if (or (and class.exportType showImportPaths) hasToggles)}}
+{{#if (or (and @class.exportType @showImportPaths) this.hasToggles)}}
   <Api::XMetaPanel as |panel|>
-    {{#if class.exportType}}
+    {{#if @class.exportType}}
       <panel.header>
         Import Path
       </panel.header>
 
-      <Api::XImportPath @item={{class}} />
+      <Api::XImportPath @item={{@class}} />
     {{/if}}
 
-    {{#if hasToggles}}
+    {{#if @hasToggles}}
       <panel.header>
         Show
       </panel.header>
 
-      {{#if hasToggles}}
+      {{#if @hasToggles}}
         <Api::XToggles @toggles={{hash
-            inherited=(if class.hasInherited showInherited)
-            protected=(if class.hasProtected showProtected)
-            private=(if class.hasPrivate showPrivate)
-            deprecated=(if class.hasDeprecated showDeprecated)
+            inherited=(if @class.hasInherited this.showInherited)
+            protected=(if @class.hasProtected this.showProtected)
+            private=(if @class.hasPrivate this.showPrivate)
+            deprecated=(if @class.hasDeprecated this.showDeprecated)
           }} />
       {{/if}}
     {{/if}}
   </Api::XMetaPanel>
 {{/if}}
 
-{{#if hasContents}}
+{{#if this.hasContents}}
   <Api::XSections @sections={{hash
-      constructors=class.constructors
-      fields=class.fields
-      accessors=class.accessors
-      methods=class.methods
+      constructors=@class.constructors
+      fields=@class.fields
+      accessors=@class.accessors
+      methods=@class.methods
     }} />
 {{/if}}

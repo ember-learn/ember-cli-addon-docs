@@ -2,17 +2,17 @@
 
   {{yield (hash
     example=(component "docs-demo/x-example")
-    snippet=(component "docs-demo/x-snippet" did-init=(action "registerSnippet") activeSnippet=activeSnippet)
+    snippet=(component "docs-demo/x-snippet" did-init=(action "registerSnippet") activeSnippet=this.activeSnippet)
   )}}
 
   <div>
-    {{#if (and snippets (gt snippets.length 1))}}
+    {{#if (and this.snippets (gt this.snippets.length 1))}}
       <nav class="
         docs-demo__snippets-nav docs-py-2 docs-px-4 docs-font-medium
         docs-bg-black docs-tracking-tight docs-border-b
         docs-border-grey-darkest
       ">
-        {{#each snippets as |snippet|}}
+        {{#each this.snippets as |snippet|}}
           <button {{action "selectSnippet" snippet}}
             class="
               docs-mr-4 docs-text-xs docs-no-underline outline-none
@@ -29,7 +29,7 @@
       </nav>
     {{/if}}
 
-    {{#each snippets as |snippet|}}
+    {{#each this.snippets as |snippet|}}
       {{#if snippet.isActive}}
         <div class="
           docs-demo__snippet-wrapper docs-bg-code-base docs-rounded-b

@@ -1,11 +1,11 @@
 <ul class="docs-mb-6">
-  {{#each-in toggles as |key toggle|}}
+  {{#each-in @toggles as |key toggle|}}
     {{#if (not-eq toggle undefined)}}
       <li class="docs-inline docs-ml-4">
         <label data-test-toggle>
           <input type="checkbox"
             checked={{toggle}}
-            onclick={{action onToggle key}}
+            onclick={{action @onToggle key}}
             class="docs-mr-1"
           >
 

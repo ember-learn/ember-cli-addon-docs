@@ -7,10 +7,10 @@
     so we stick with the dumb html element. Maybe there's a way to disable them
     and get the convenient two-way binding.
    --}}
-  <input oninput={{action on-input value="target.value"}}
-    value={{query}}
+  <input oninput={{action @on-input value="target.value"}}
+    value={{@query}}
     type="text"
-    disabled={{fetchProject.isRunning}}
+    disabled={{this.fetchProject.isRunning}}
     placeholder="SEARCH"
     class="docs-w-24 docs-text-xxs docs-p-2 docs-pl-6 docs-rounded focus:docs-bg-grey-lighter outline-none"
     data-search-box-input

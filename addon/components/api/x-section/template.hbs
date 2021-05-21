@@ -1,49 +1,49 @@
 <div data-test-item class="docs-pb-8">
   <h3
-    id={{item.name}}
-    data-text={{item.name}}
+    id={{@item.name}}
+    data-text={{@item.name}}
     data-test-item-header
     class="docs-h3 docs-font-mono docs-font-normal"
   >
-    {{#if (eq item.exportType "default")}}
+    {{#if (eq @item.exportType "default")}}
       <span class="docs-border docs-border-grey-light docs-align-text-top docs-leading-loose docs-text-xxs docs-pl-2 docs-mr-2 docs-py-1 docs-rounded">
         Default
       </span>
     {{/if}}
 
-    {{#if (or item.isClass item.isComponent)}}
-      <LinkTo @route="docs.api.item" @model={{concat "modules/" item.id}} class="hover:underline">
-        <strong>{{item.name}}</strong>
+    {{#if (or @item.isClass item.isComponent)}}
+      <LinkTo @route="docs.api.item" @model={{concat "modules/" @item.id}} class="hover:underline">
+        <strong>{{@item.name}}</strong>
       </LinkTo>
     {{else}}
-      <a href="#{{item.name}}" class="heading-anchor">
-        {{type-signature item}}
+      <a href="#{{@item.name}}" class="heading-anchor">
+        {{type-signature @item}}
       </a>
     {{/if}}
   </h3>
 
   <p data-test-item-description>
-    {{{item.description}}}
+    {{{@item.description}}}
   </p>
 
-  {{#if (or (and item.exportType showImportPaths) shouldDisplayParams)}}
+  {{#if (or (and @item.exportType this.showImportPaths) this.shouldDisplayParams)}}
     <Api::XMetaPanel as |panel|>
-      {{#if item.exportType}}
+      {{#if @item.exportType}}
         <panel.header>
           Import Path
         </panel.header>
 
-        <Api::XImportPath @item={{item}} />
+        <Api::XImportPath @item={{@item}} />
       {{/if}}
 
-      {{#if shouldDisplayParams}}
+      {{#if this.shouldDisplayParams}}
         <panel.header>
           Params
         </panel.header>
 
         <table class="docs-mb-6" data-test-item-params>
           <tbody>
-            {{#each item.params as |param|}}
+            {{#each @item.params as |param|}}
               <tr data-test-item-param>
                 <td><span class="docs-font-mono docs-font-bold docs-border-r docs-border-grey-light docs-pr-2">{{param.name}}</span></td>
                 <td><span class="docs-font-mono docs-border-r docs-border-grey-light docs-px-2">{{param.type}}</span></td>

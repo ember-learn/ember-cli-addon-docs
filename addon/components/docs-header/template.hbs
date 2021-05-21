@@ -3,12 +3,12 @@
 
     {{#docs-header/link "index"}}
       <span class="docs-leading-none docs-font-title docs-text-large-2 docs-font-normal docs-normal-case docs-block docs-mr-6">
-        {{#if prefix}}
+        {{#if this.prefix}}
           <div class="docs-text-xxs">
-            {{prefix}}
+            {{this.prefix}}
           </div>
         {{/if}}
-        {{name}}
+        {{this.name}}
       </span>
     {{/docs-header/link}}
 
@@ -21,27 +21,27 @@
         link=(component "docs-header/link")
       )}}
 
-      <DocsHeader::SearchBox @query={{query}} @on-input={{action (mut query)}} />
+      <DocsHeader::SearchBox @query={{this.query}} @on-input={{action (mut this.query)}} />
 
       <DocsHeader::Link @on-click={{action (toggle "isShowingVersionSelector" this)}}>
         <span data-test-id="current-version" data-version-selector class="docs-flex docs-items-center">
 
-          {{#if (eq currentVersion.key latestVersionName)}}
-            {{#if currentVersion.tag}}
-              {{currentVersion.tag}}
+          {{#if (eq this.currentVersion.key this.latestVersionName)}}
+            {{#if this.currentVersion.tag}}
+              {{this.currentVersion.tag}}
             {{else}}
               Latest
             {{/if}}
           {{else}}
-            {{currentVersion.name}}
+            {{this.currentVersion.name}}
           {{/if}}
 
           {{svg-jar "caret" height=12 width=12}}
         </span>
       </DocsHeader::Link>
 
-      {{#if projectHref}}
-        <DocsHeader::Link @href={{projectHref}}>
+      {{#if this.projectHref}}
+        <DocsHeader::Link @href={{this.projectHref}}>
           <span class="docs-flex">
             {{svg-jar "github" width=24 height=24}}
           </span>
@@ -54,10 +54,10 @@
   </div>
 </header>
 
-{{#if query}}
-  <DocsHeader::SearchResults @query={{query}} @on-visit={{action "didVisitPage"}} />
+{{#if this.query}}
+  <DocsHeader::SearchResults @query={{this.query}} @on-visit={{action "didVisitPage"}} />
 {{/if}}
 
-{{#if isShowingVersionSelector}}
-  <DocsHeader::VersionSelector @on-close={{action (mut isShowingVersionSelector false)}} />
+{{#if this.isShowingVersionSelector}}
+  <DocsHeader::VersionSelector @on-close={{action (mut this.isShowingVersionSelector false)}} />
 {{/if}}

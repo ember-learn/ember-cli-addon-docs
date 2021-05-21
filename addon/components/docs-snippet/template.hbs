@@ -1,23 +1,23 @@
-{{#if title}}
+{{#if @title}}
   <div class="
     docs-bg-black docs-text-grey-lighter docs-text-xs
     docs-font-medium docs-py-2 docs-px-4 docs-rounded-t
     docs-border-b docs-border-grey-darkest
     docs-subpixel-antialiased
   ">
-    {{title}}
+    {{@title}}
   </div>
 {{/if}}
 
 <div class="
     docs-text-xs docs-px-2 docs-py-1 docs-bg-code-base
     docs-relative docs-subpixel-antialiased
-    {{if title "docs-rounded-b" "docs-rounded"}}
+    {{if @title "docs-rounded-b" "docs-rounded"}}
   "
-  data-test-id={{or data-test-id name}}
+  data-test-id={{or this.data-test-id @name}}
 >
-  {{#with (get-code-snippet name unindent=unindent) as |snippet|}}
-    {{#if showCopy}}
+  {{#let (get-code-snippet @name unindent=this.unindent) as |snippet|}}
+    {{#if this.showCopy}}
       <CopyButton
         @clipboardText={{snippet.source}}
         @title="copy to clipboard"
@@ -31,5 +31,5 @@
     {{/if}}
 
     <DocsCodeHighlight @language={{language}}>{{snippet.source}}</DocsCodeHighlight>
-  {{/with}}
+  {{/let}}
 </div>

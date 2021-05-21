@@ -5,12 +5,12 @@
     {{index/index-content}}
 
     <div class="docs-my-16 docs-text-right">
-      {{#link-to
-        "docs"
+      <LinkTo
+        @route="docs"
         class="docs-bg-grey-darkest hover:docs-bg-black docs-text-white docs-py-2 docs-px-4 docs-no-underline docs-rounded"
-      }}
+      >
         Read the docs →
-      {{/link-to}}
+      </LinkTo>
     </div>
   </section>
 </div>
