@@ -7283,9 +7283,9 @@ ember-maybe-import-regenerator-for-testing@^1.0.0:
     regenerator-runtime "^0.9.5"
 
 ember-modal-dialog@^3.0.0-beta.4:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/ember-modal-dialog/-/ember-modal-dialog-3.0.2.tgz#16efeed0e4f8dda04d78e0e6af35987537fd874c"
-  integrity sha512-+pKD/XQHVXaLPXvnVRrJqr4ok/GpMswmr2tahg+MTS9B0ZOOGJUo8/oKmxBvRoKKoPhuvqF/XIQ6UvlwpvDwHg==
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/ember-modal-dialog/-/ember-modal-dialog-3.0.3.tgz#4dd1c699fef02953f21e2b2b290cca380a6317dd"
+  integrity sha512-a3WHPIZMbnM4GDZdyNseClUIKWcI6AZuhXdNpw0XbfKzpocW2vAqhwLmQ17Fo+W5mCwQXU131DAROFWeOP68xQ==
   dependencies:
     ember-cli-babel "^7.23.0"
     ember-cli-htmlbars "^3.0.0"
