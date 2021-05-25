@@ -1,3 +1,25 @@
+## v2.0.0 (2021-05-25)
+
+#### :boom: Breaking Change
+* [#842](https://github.com/ember-learn/ember-cli-addon-docs/pull/842) ember-modal-dialog 4.0.0-alpha.0, Drop support for <=Ember 3.19, Node 10 ([@elwayman02](https://github.com/elwayman02))
+* [#693](https://github.com/ember-learn/ember-cli-addon-docs/pull/693) Remove pods support ([@rwwagner90](https://github.com/rwwagner90))
+* [#692](https://github.com/ember-learn/ember-cli-addon-docs/pull/692) Remove ESDoc support ([@rwwagner90](https://github.com/rwwagner90))
+
+#### :rocket: Enhancement
+* [#767](https://github.com/ember-learn/ember-cli-addon-docs/pull/767) Update to ember-router-scroll v4 ([@Windvis](https://github.com/Windvis))
+* [#747](https://github.com/ember-learn/ember-cli-addon-docs/pull/747) Remove brand bg color ([@rwwagner90](https://github.com/rwwagner90))
+
+#### :house: Internal
+* [#831](https://github.com/ember-learn/ember-cli-addon-docs/pull/831) Fixed deprecations this.property-fallback, with, and positional linkt… ([@bgantzler](https://github.com/bgantzler))
+* [#727](https://github.com/ember-learn/ember-cli-addon-docs/pull/727) Update html-entities ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 5
+- Jordan Hawker ([@elwayman02](https://github.com/elwayman02))
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- Sam Van Campenhout ([@Windvis](https://github.com/Windvis))
+- [@bgantzler](https://github.com/bgantzler)
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v1.0.0 (2020-12-10)
 
 #### :boom: Breaking Change
