@@ -6500,7 +6500,7 @@ ember-cli-babel-plugin-helpers@^1.0.0, ember-cli-babel-plugin-helpers@^1.1.0, em
   resolved "https://registry.yarnpkg.com/ember-cli-babel-plugin-helpers/-/ember-cli-babel-plugin-helpers-1.1.1.tgz#5016b80cdef37036c4282eef2d863e1d73576879"
   integrity sha512-sKvOiPNHr5F/60NLd7SFzMpYPte/nnGkq/tMIfXejfKHIhaiIkYFqX8Z9UFTKWLLn+V7NOaby6niNPZUdvKCRw==
 
-ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
+ember-cli-babel@^6.11.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.18.0.tgz#3f6435fd275172edeff2b634ee7b29ce74318957"
   integrity sha512-7ceC8joNYxY2wES16iIBlbPSxwKDBhYwC8drU3ZEvuPDMwVv1KzxCNu1fvxyFEBWhwaRNTUxSCsEVoTd9nosGA==
@@ -6651,16 +6651,6 @@ ember-cli-htmlbars-inline-precompile@^2.1.0:
     hash-for-dep "^1.2.3"
     heimdalljs-logger "^0.1.9"
     silent-error "^1.1.0"
-
-ember-cli-htmlbars@^2.0.1:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-2.0.5.tgz#b5a105429a6bce4f7c9c97b667e3b8926e31397f"
-  integrity sha512-3f3PAxdnQ/fhQa8XP/3z4RLRgLHxV8j4Ln75aHbRdemOCjBa048KxL9l+acRLhCulbGQCMnLiIUIC89PAzLrcA==
-  dependencies:
-    broccoli-persistent-filter "^1.4.3"
-    hash-for-dep "^1.2.3"
-    json-stable-stringify "^1.0.0"
-    strip-bom "^3.0.0"
 
 ember-cli-htmlbars@^3.0.0, ember-cli-htmlbars@^3.0.1:
   version "3.1.0"
@@ -7282,16 +7272,16 @@ ember-maybe-import-regenerator-for-testing@^1.0.0:
     ember-cli-babel "^6.6.0"
     regenerator-runtime "^0.9.5"
 
-ember-modal-dialog@^3.0.0-beta.4:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/ember-modal-dialog/-/ember-modal-dialog-3.0.3.tgz#4dd1c699fef02953f21e2b2b290cca380a6317dd"
-  integrity sha512-a3WHPIZMbnM4GDZdyNseClUIKWcI6AZuhXdNpw0XbfKzpocW2vAqhwLmQ17Fo+W5mCwQXU131DAROFWeOP68xQ==
+ember-modal-dialog@^4.0.0-alpha.0:
+  version "4.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/ember-modal-dialog/-/ember-modal-dialog-4.0.0-alpha.0.tgz#587507e2f544778b424d8997714ea2ff65d7cd35"
+  integrity sha512-uDRZAkUJdUNz4oFL/BIOZTsZA8aiXuBBNoTjKRLqXq5nRoCzhoUTrqkt64xvIZrR70Yme9FBoC5cjz8Jk9YacA==
   dependencies:
     ember-cli-babel "^7.23.0"
     ember-cli-htmlbars "^3.0.0"
     ember-cli-version-checker "^2.1.0"
     ember-ignore-children-helper "^1.0.1"
-    ember-wormhole "^0.5.5"
+    ember-wormhole "^0.6.0"
 
 ember-modifier-manager-polyfill@^1.1.0, ember-modifier-manager-polyfill@^1.2.0:
   version "1.2.0"
@@ -7570,13 +7560,13 @@ ember-try@^1.4.0:
     rsvp "^4.7.0"
     walk-sync "^1.1.3"
 
-ember-wormhole@^0.5.5:
-  version "0.5.5"
-  resolved "https://registry.yarnpkg.com/ember-wormhole/-/ember-wormhole-0.5.5.tgz#db417ff748cb21e574cd5f233889897bc27096cb"
-  integrity sha512-z8l3gpoKmRA2BnTwvnYRk4jKVcETKHpddsD6kpS+EJ4EfyugadFS3zUqBmRDuJhFbNP8BVBLXlbbATj+Rk1Kgg==
+ember-wormhole@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/ember-wormhole/-/ember-wormhole-0.6.0.tgz#1f9143aa05c0f0abdf14a97ff22520ebaf85eca0"
+  integrity sha512-b7RrRxkwCBEJxM2zR34dEzIET81BOZWTcYNJtkidLycLQvdbxPys5QJEjJ/IfDikT/z5HuQBdZRKBhXI0vZNXQ==
   dependencies:
-    ember-cli-babel "^6.10.0"
-    ember-cli-htmlbars "^2.0.1"
+    ember-cli-babel "^7.22.1"
+    ember-cli-htmlbars "^5.3.1"
 
 emit-function@0.0.2:
   version "0.0.2"
