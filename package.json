@@ -150,7 +150,7 @@
     "ember-fetch": "^8.0.2"
   },
   "engines": {
-    "node": "10.* || >= 12"
+    "node": "12.* || >= 14.*"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
