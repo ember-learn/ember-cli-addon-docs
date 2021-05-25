@@ -63,7 +63,7 @@
     "ember-get-config": "^0.3.0",
     "ember-href-to": "^4.0.0",
     "ember-keyboard": "^6.0.2",
-    "ember-modal-dialog": "^3.0.0-beta.4",
+    "ember-modal-dialog": "^4.0.0-alpha.0",
     "ember-named-arguments-polyfill": "^1.0.0",
     "ember-on-modifier": "^1.0.0",
     "ember-responsive": "^4.0.0",
@@ -150,7 +150,7 @@
     "ember-fetch": "^8.0.2"
   },
   "engines": {
-    "node": "10.* || >= 12"
+    "node": "12.* || >= 14.*"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
