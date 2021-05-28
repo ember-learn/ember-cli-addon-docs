@@ -1,5 +1,10 @@
 <div class="docs-relative docs-text-grey-darkest" data-search-box>
-  {{svg-jar "search" width=12 height=12 class="docs-absolute docs-top-0 docs-h-full docs-ml-1"}}
+  {{svg-jar
+    "search"
+    width=12
+    height=12
+    class="docs-absolute docs-top-0 docs-h-full docs-ml-1"
+  }}
 
   {{!--
     This is a dumb input - so why not use the {{input}} helper? Because apparently
@@ -7,7 +12,8 @@
     so we stick with the dumb html element. Maybe there's a way to disable them
     and get the convenient two-way binding.
    --}}
-  <input oninput={{action @on-input value="target.value"}}
+  <input
+    oninput={{action @on-input value="target.value"}}
     value={{@query}}
     type="text"
     disabled={{this.fetchProject.isRunning}}
@@ -15,5 +21,9 @@
     class="docs-w-24 docs-text-xxs docs-p-2 docs-pl-6 docs-rounded focus:docs-bg-grey-lighter outline-none"
     data-search-box-input
     data-test-search-box-input
-    aria-label="search">
+    aria-label="search"
+  />
 </div>
+
+{{on-key "/" this.focusSearch event="keyup"}}
+{{on-key "Escape" this.unfocusSearch event="keyup"}}
