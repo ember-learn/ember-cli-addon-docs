@@ -1,8 +1,6 @@
-/** @documenter esdoc */
+/** @documenter yuidoc */
 
 import Component from '@ember/component';
-import { argument } from '@ember-decorators/argument';
-import { type } from '@ember-decorators/argument/type';
 
 /**
   Pretty cool component, right?
@@ -13,13 +11,15 @@ import { type } from '@ember-decorators/argument/type';
     {{simple-list/item value=1}}
   ```
 
+  @class SimpleListItem
+  @public
   @yield {object} value
 */
 export default class SimpleListItem extends Component {
   /**
-    The count
-  */
-  @argument
-  @type('object')
+   * The count
+   * @argument value
+   * @type object
+   */
   value;
 }
