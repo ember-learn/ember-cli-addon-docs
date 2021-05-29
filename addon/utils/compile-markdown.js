@@ -64,7 +64,7 @@ hljs.registerLanguage('ts', typescript);
   @param {string} lang Language to use for syntax highlighting
 */
 export function highlightCode(code, lang) {
-  return hljs.getLanguage(lang) ? hljs.highlight(lang, code).value : code
+  return hljs.getLanguage(lang) ? hljs.highlight(lang, code).value : code;
 }
 
 /**
@@ -99,14 +99,16 @@ export default function compileMarkdown(source, config) {
   let tokens = marked.lexer(source);
   let markedOptions = {
     highlight: highlightCode,
-    renderer: new HBSRenderer(config)
+    renderer: new HBSRenderer(config),
   };
 
   if (config && config.targetHandlebars) {
     tokens = compactParagraphs(tokens);
   }
 
-  return `<div class="docs-md">${marked.parser(tokens, markedOptions).trim()}</div>`;
+  return `<div class="docs-md">${marked
+    .parser(tokens, markedOptions)
+    .trim()}</div>`;
 }
 
 // Whitespace can imply paragraphs in Markdown, which can result
@@ -134,7 +136,7 @@ function compactParagraphs(tokens) {
     let textWithoutCode = tokenText.replace(/`[\s\S]*?`/g, '');
 
     if (token.type === 'code') {
-      textWithoutCode = ''
+      textWithoutCode = '';
     }
 
     balance += count(/{{#/g, textWithoutCode);
@@ -179,7 +181,7 @@ class HBSRenderer extends marked.Renderer {
         .replace(/&lt;/g, '<')
         .replace(/&gt;/g, '>')
         .replace(/&quot;|&#34;/g, '"')
-        .replace(/&apos;|&#39;/g, '\'');
+        .replace(/&apos;|&#39;/g, "'");
     }
     return text;
   }
@@ -194,14 +196,18 @@ class HBSRenderer extends marked.Renderer {
   }
 
   _escapeCurlies(string) {
-    return string
-      .replace(/{{/g, '&#123;&#123;')
-      .replace(/}}/g, '&#125;&#125;');
+    return string.replace(/{{/g, '&#123;&#123;').replace(/}}/g, '&#125;&#125;');
   }
 
   heading(text, level) {
-    let id = text.toLowerCase().replace(/<\/?.*?>/g, '').replace(/[^\w]+/g, '-');
-    let inner = level === 1 ? text : `<a href="#${id}" class="heading-anchor">${text}</a>`;
+    let id = text
+      .toLowerCase()
+      .replace(/<\/?.*?>/g, '')
+      .replace(/[^\w]+/g, '-');
+    let inner =
+      level === 1
+        ? text
+        : `<a href="#${id}" class="heading-anchor">${text}</a>`;
 
     return `
       <h${level} id="${id}" class="docs-md__h${level}">${inner}</h${level}>
@@ -223,12 +229,14 @@ class HBSRenderer extends marked.Renderer {
   table(header, body) {
     if (body) body = '<tbody>' + body + '</tbody>';
 
-    return '<table class="docs-table-auto">\n'
-      + '<thead>\n'
-      + header
-      + '</thead>\n'
-      + body
-      + '</table>\n';
+    return (
+      '<table class="docs-table-auto">\n' +
+      '<thead>\n' +
+      header +
+      '</thead>\n' +
+      body +
+      '</table>\n'
+    );
   }
 
   tablerow(content) {
@@ -238,7 +246,11 @@ class HBSRenderer extends marked.Renderer {
   tablecell(content, flags) {
     const type = flags.header ? 'th' : 'td';
     const tag = flags.align
-      ? '<' + type + ' align="' + flags.align + '" class="docs-border docs-px-4 docs-py-2">'
+      ? '<' +
+        type +
+        ' align="' +
+        flags.align +
+        '" class="docs-border docs-px-4 docs-py-2">'
       : '<' + type + ' class="docs-border docs-px-4 docs-py-2">';
     return tag + content + '</' + type + '>\n';
   }

@@ -6,26 +6,34 @@ import { currentURL, visit } from '@ember/test-helpers';
 import modulePage from '../../../pages/api/module';
 import classPage from '../../../pages/api/class';
 
-module('Acceptance | Sandbox | API | helpers', function(hooks) {
+module('Acceptance | Sandbox | API | helpers', function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  module('standard helpers', function() {
+  module('standard helpers', function () {
     for (let documenter of ['yuidoc']) {
       let helperName = `${documenter}Helper`;
       let kebabName = `${documenter}-helper`;
 
-      test(`{{${kebabName}}}`, async function(assert) {
+      test(`{{${kebabName}}}`, async function (assert) {
         await visit('/sandbox');
         await modulePage.navItems.findOne({ text: `{{${kebabName}}}` }).click();
 
-        assert.equal(currentURL(), `/sandbox/api/helpers/${kebabName}`, 'correct url');
+        assert.equal(
+          currentURL(),
+          `/sandbox/api/helpers/${kebabName}`,
+          'correct url'
+        );
 
-        let functionsSection = modulePage.sections.findOne({ header: 'Functions' });
+        let functionsSection = modulePage.sections.findOne({
+          header: 'Functions',
+        });
 
         assert.ok(functionsSection.isPresent, 'Renders the functions section');
 
-        let helperItem = functionsSection.items.findOne(i => i.header.includes(helperName));
+        let helperItem = functionsSection.items.findOne((i) =>
+          i.header.includes(helperName)
+        );
 
         assert.ok(helperItem.isPresent, 'Renders the helper item');
 
@@ -46,24 +54,34 @@ module('Acceptance | Sandbox | API | helpers', function(hooks) {
     }
   });
 
-  module('class helpers', function() {
+  module('class helpers', function () {
     for (let documenter of ['YUIDoc']) {
       let helperName = `${documenter}ClassHelper`;
       let kebabName = `${documenter.toLowerCase()}-class-helper`;
 
-      test(`{{${kebabName}}}`, async function(assert) {
+      test(`{{${kebabName}}}`, async function (assert) {
         await visit('/sandbox');
         await classPage.navItems.findOne({ text: `{{${kebabName}}}` }).click();
 
-        assert.equal(currentURL(), `/sandbox/api/helpers/${kebabName}`, 'correct url');
+        assert.equal(
+          currentURL(),
+          `/sandbox/api/helpers/${kebabName}`,
+          'correct url'
+        );
 
-        assert.equal(classPage.title, helperName, 'Renders the class title correctly');
+        assert.equal(
+          classPage.title,
+          helperName,
+          'Renders the class title correctly'
+        );
 
         let methodsSection = modulePage.sections.findOne({ header: 'Methods' });
 
         assert.ok(methodsSection.isPresent, 'Renders the methods section');
 
-        let computeItem = methodsSection.items.findOne(i => i.header.includes('compute'));
+        let computeItem = methodsSection.items.findOne((i) =>
+          i.header.includes('compute')
+        );
 
         assert.ok(computeItem.isPresent, 'Renders the helper item');
 
@@ -73,7 +91,11 @@ module('Acceptance | Sandbox | API | helpers', function(hooks) {
           'renders the type signature of the helper correctly'
         );
 
-        assert.equal(computeItem.params.length, 1, 'renders the item parameter');
+        assert.equal(
+          computeItem.params.length,
+          1,
+          'renders the item parameter'
+        );
       });
     }
   });

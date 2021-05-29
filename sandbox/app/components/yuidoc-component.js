@@ -1,3 +1,4 @@
+/* eslint-disable */
 /** @documenter yuidoc */
 
 import Component from '@ember/component';

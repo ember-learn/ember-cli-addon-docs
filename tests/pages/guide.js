@@ -9,9 +9,9 @@ const GuidePage = BaseAddonPage.extend({
     scope: '[data-test-current-page-index]',
 
     items: collection({
-      scope: '[data-test-index-item]'
-    })
-  }
+      scope: '[data-test-index-item]',
+    }),
+  },
 });
 
 export default GuidePage.create();

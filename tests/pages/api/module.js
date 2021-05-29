@@ -5,7 +5,7 @@ const ModulePage = BaseAddonPage.extend({
   navItems: collection({ scope: '[data-test-id="nav-item"]' }),
 
   toggles: collection({
-    scope: '[data-test-toggle]'
+    scope: '[data-test-toggle]',
   }),
 
   sections: collection({
@@ -21,15 +21,15 @@ const ModulePage = BaseAddonPage.extend({
       description: text('[data-test-item-description]'),
 
       params: collection({
-        scope: '[data-test-item-params] [data-test-item-param]'
-      })
-    })
+        scope: '[data-test-item-params] [data-test-item-param]',
+      }),
+    }),
   }),
 
   // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
   editLink: {
     scope: '[data-test-edit-page-link]',
-    href: attribute('href', 'a')
+    href: attribute('href', 'a'),
   },
 
   // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
@@ -37,9 +37,9 @@ const ModulePage = BaseAddonPage.extend({
     scope: '[data-test-current-page-index]',
 
     items: collection({
-      scope: '[data-test-index-item]'
-    })
-  }
+      scope: '[data-test-index-item]',
+    }),
+  },
 });
 
 export default new ModulePage();

@@ -1,5 +1,9 @@
 import classic from 'ember-classic-decorator';
-import { classNames, tagName, layout as templateLayout } from '@ember-decorators/component';
+import {
+  classNames,
+  tagName,
+  layout as templateLayout,
+} from '@ember-decorators/component';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
@@ -40,9 +44,11 @@ export default class XMain extends Component {
   didInsertElement() {
     super.didInsertElement(...arguments);
 
-    let target = this.element.querySelector('[data-current-page-index-target]')
+    let target = this.element.querySelector('[data-current-page-index-target]');
 
-    this._mutationObserver = new MutationObserver(bind(this, this.reindex, target))
+    this._mutationObserver = new MutationObserver(
+      bind(this, this.reindex, target)
+    );
 
     this._mutationObserver.observe(target, { subtree: true, childList: true });
 
@@ -84,7 +90,8 @@ export default class XMain extends Component {
 
     let match = this._locateFile(path);
     if (match) {
-      let { projectHref, addonPathInRepo, docsAppPathInRepo, primaryBranch } = config['ember-cli-addon-docs'];
+      let { projectHref, addonPathInRepo, docsAppPathInRepo, primaryBranch } =
+        config['ember-cli-addon-docs'];
       let parts = [projectHref, 'edit', primaryBranch];
       if (match.inTree === 'addon') {
         parts.push(addonPathInRepo);
@@ -102,16 +109,20 @@ export default class XMain extends Component {
     path = path.replace(/\./g, '/');
     if (path === 'docs/api/item') {
       let { projectName } = config['ember-cli-addon-docs'];
-      let model = getOwner(this).lookup('route:application').modelFor('docs.api.item');
-      let filename = model.get('file').replace(new RegExp(`^${projectName}/`), '');
-      let file = addonFiles.find(f => f.match(filename));
+      let model = getOwner(this)
+        .lookup('route:application')
+        .modelFor('docs.api.item');
+      let filename = model
+        .get('file')
+        .replace(new RegExp(`^${projectName}/`), '');
+      let file = addonFiles.find((f) => f.match(filename));
       if (file) {
         return { file, inTree: 'addon' };
       }
     } else {
       let file = appFiles
-        .filter(file => file.match(/\.(hbs|md)$/))
-        .find(file => file.match(path));
+        .filter((file) => file.match(/\.(hbs|md)$/))
+        .find((file) => file.match(path));
       if (file) {
         return { file, inTree: 'app' };
       }

@@ -16,7 +16,7 @@ Route.reopen({
     }
 
     return this._super(...arguments);
-  }
+  },
 });
 
 /**

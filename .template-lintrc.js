@@ -9,6 +9,6 @@ module.exports = {
     'no-invalid-interactive': false,
     'no-negated-condition': false,
     'no-triple-curlies': false,
-    'require-button-type': false
-  }
+    'require-button-type': false,
+  },
 };

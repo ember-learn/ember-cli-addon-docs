@@ -1,4 +1,7 @@
-import AddonDocsRouter, { docsRoute, apiRoute } from 'ember-cli-addon-docs/router';
+import AddonDocsRouter, {
+  docsRoute,
+  apiRoute,
+} from 'ember-cli-addon-docs/router';
 import config from 'dummy/config/environment';
 
 const Router = AddonDocsRouter.extend({
@@ -6,9 +9,8 @@ const Router = AddonDocsRouter.extend({
   rootURL: config.rootURL,
 });
 
-Router.map(function() {
-
-  docsRoute(this, function() {
+Router.map(function () {
+  docsRoute(this, function () {
     this.route('usage');
     this.route('quickstart');
     this.route('patterns');
@@ -16,7 +18,7 @@ Router.map(function() {
     this.route('deploying');
     this.route('standalone-apps');
 
-    this.route('components', function() {
+    this.route('components', function () {
       this.route('docs-hero');
       this.route('docs-logo');
       this.route('docs-header');
@@ -26,10 +28,10 @@ Router.map(function() {
     });
   });
 
-  this.route('sandbox', function() {
+  this.route('sandbox', function () {
     apiRoute(this);
-    docsRoute(this, function() {
-      this.route('one', function() {
+    docsRoute(this, function () {
+      this.route('one', function () {
         this.route('child');
       });
       this.route('two');

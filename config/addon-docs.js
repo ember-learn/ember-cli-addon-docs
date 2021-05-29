@@ -3,6 +3,4 @@
 
 const AddonDocsConfig = require('../lib/config');
 
-module.exports = class extends AddonDocsConfig {
-
-}
+module.exports = class extends AddonDocsConfig {};

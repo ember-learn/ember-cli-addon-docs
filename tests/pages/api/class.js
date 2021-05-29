@@ -20,10 +20,10 @@ const ClassPage = BaseAddonPage.extend({
       description: text('[data-test-item-description]'),
 
       params: collection({
-        scope: '[data-test-item-params] [data-test-item-param]'
-      })
-    })
-  })
+        scope: '[data-test-item-params] [data-test-item-param]',
+      }),
+    }),
+  }),
 });
 
 export default new ClassPage();

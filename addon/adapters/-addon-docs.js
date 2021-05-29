@@ -16,9 +16,11 @@ export default Adapter.extend({
 
   findRecord(store, modelClass, id, snapshot) {
     if (modelClass.modelName === 'project') {
-      return fetch(`${this.namespace}/${id}.json`).then((response) => response.json());
+      return fetch(`${this.namespace}/${id}.json`).then((response) =>
+        response.json()
+      );
     } else {
       return store.peekRecord(modelClass.modelName, id);
     }
-  }
+  },
 });

@@ -8,7 +8,7 @@ const Funnel = require('broccoli-funnel');
 const path = require('path');
 const styleDir = path.join(__dirname, 'addon', 'styles');
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   let project = Project.closestSync(process.cwd());
 
   project.pkg['ember-addon'].paths = ['sandbox'];
@@ -23,9 +23,9 @@ module.exports = function(defaults) {
     'ember-cli-terser': {
       terser: {
         compress: {
-          collapse_vars: false
-        }
-      }
+          collapse_vars: false,
+        },
+      },
     },
 
     'ember-cli-addon-docs': {
@@ -33,10 +33,10 @@ module.exports = function(defaults) {
         sandbox: new MergeTrees([
           new Funnel('sandbox/app', { destDir: 'sandbox' }),
           new Funnel('sandbox', {
-            include: ['package.json', 'README.md']
-          })
-        ])
-      }
+            include: ['package.json', 'README.md'],
+          }),
+        ]),
+      },
     },
     postcssOptions: {
       compile: {
@@ -48,12 +48,13 @@ module.exports = function(defaults) {
             module: require('@csstools/postcss-sass'),
             options: {
               includePaths: [styleDir],
-            }
-          }
-        ]
-      }
+            },
+          },
+        ],
+      },
     },
   });
 
-  return app.toTree();
+  const { maybeEmbroider } = require('@embroider/test-setup');
+  return maybeEmbroider(app);
 };

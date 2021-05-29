@@ -8,13 +8,13 @@ import { registerWarnHandler } from '@ember/debug';
 const App = Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
-  Resolver
+  Resolver,
 });
 // END-SNIPPET
 
 loadInitializers(App, config.modulePrefix);
 
-registerWarnHandler(function(message, { id }, next) {
+registerWarnHandler(function (message, { id }, next) {
   if (id !== 'ember-test-selectors.empty-tag-name') {
     next(...arguments);
   }

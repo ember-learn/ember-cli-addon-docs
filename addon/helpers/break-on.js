@@ -8,7 +8,7 @@ import { helper } from '@ember/component/helper';
   @hide
 */
 export function breakOn([string, breakChar]) {
-  return string.replace(new RegExp(breakChar, 'g'), `${breakChar}\u200B`)
+  return string.replace(new RegExp(breakChar, 'g'), `${breakChar}\u200B`);
 }
 
 export default helper(breakOn);

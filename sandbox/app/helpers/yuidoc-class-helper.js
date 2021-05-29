@@ -7,7 +7,7 @@ import Helper from '@ember/component/helper';
 
   @class YUIDocClassHelper
  */
-const YUIDocClassHelper = Helper.extend({
+export default class YUIDocClassHelper extends Helper {
   /**
     returns the absolute value of a number
 
@@ -18,6 +18,4 @@ const YUIDocClassHelper = Helper.extend({
   compute([number]) {
     return Math.abs(number);
   }
-});
-
-export default YUIDocClassHelper;
+}

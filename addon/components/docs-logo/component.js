@@ -34,7 +34,10 @@ export default class DocsLogo extends Component {
 
     let logo = this.logo;
     let validLogos = ['ember', 'ember-cli', 'ember-data'];
-    assert(`You passed "${logo}" to the docs-logo component, but the only valid options are [${validLogos}].`, validLogos.includes(logo));
+    assert(
+      `You passed "${logo}" to the docs-logo component, but the only valid options are [${validLogos}].`,
+      validLogos.includes(logo)
+    );
   }
 
   @equal('logo', 'ember')

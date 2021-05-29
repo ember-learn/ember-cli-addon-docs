@@ -4,9 +4,7 @@ import layout from './template';
 export default Component.extend({
   layout,
   tagName: '',
-  style: 'regular'
+  style: 'regular',
 }).reopenClass({
-
-  positionalParams: [ 'label' ]
-
+  positionalParams: ['label'],
 });

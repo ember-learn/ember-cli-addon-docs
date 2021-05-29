@@ -6,26 +6,30 @@ import { capitalize } from '@ember/string';
   @hide
 */
 export function memberUnion(parentMembersKey, childMembersKey) {
-  return computed(`${parentMembersKey}.[]`, `${childMembersKey}.[]`, function() {
-    let parentMembers = this.get(parentMembersKey);
-    let childMembers = this.get(childMembersKey);
+  return computed(
+    `${parentMembersKey}.[]`,
+    `${childMembersKey}.[]`,
+    function () {
+      let parentMembers = this.get(parentMembersKey);
+      let childMembers = this.get(childMembersKey);
 
-    if (!parentMembers) {
-      return childMembers;
+      if (!parentMembers) {
+        return childMembers;
+      }
+
+      let union = {};
+
+      for (let member of parentMembers) {
+        union[member.name] = member;
+      }
+
+      for (let member of childMembers) {
+        union[member.name] = member;
+      }
+
+      return Object.values(union);
     }
-
-    let union = {};
-
-    for (let member of parentMembers) {
-      union[member.name] = member;
-    }
-
-    for (let member of childMembers) {
-      union[member.name] = member;
-    }
-
-    return Object.values(union);
-  });
+  );
 }
 
 function memberSort(a, b) {
@@ -36,13 +40,14 @@ function memberSort(a, b) {
   }
 
   if (
-    a.access === 'public' && b.access !== 'public'
-    || b.access === 'private' && a.access !== 'private'
+    (a.access === 'public' && b.access !== 'public') ||
+    (b.access === 'private' && a.access !== 'private')
   ) {
     return -1;
   } else if (
-    a.access === 'private' && b.access !== 'private'
-    || b.access === 'public' && a.access !== 'public') {
+    (a.access === 'private' && b.access !== 'private') ||
+    (b.access === 'public' && a.access !== 'public')
+  ) {
     return 1;
   }
 
@@ -61,7 +66,7 @@ export function memberFilter(classKey, memberType) {
     'showProtected',
     'showPrivate',
     'showDeprecated',
-    function() {
+    function () {
       let klass = this.get(classKey);
       let showInternal = this.showInternal;
       let showInherited = this.showInherited;
@@ -77,10 +82,15 @@ export function memberFilter(classKey, memberType) {
 
       let capitalKey = capitalize(memberType);
 
-
-      let publicMembers = showInherited ? klass.get(`allPublic${capitalKey}`) : klass.get(`public${capitalKey}`);
-      let privateMembers = showInherited ? klass.get(`allPrivate${capitalKey}`) : klass.get(`private${capitalKey}`);
-      let protectedMembers = showInherited ? klass.get(`allProtected${capitalKey}`) : klass.get(`protected${capitalKey}`);
+      let publicMembers = showInherited
+        ? klass.get(`allPublic${capitalKey}`)
+        : klass.get(`public${capitalKey}`);
+      let privateMembers = showInherited
+        ? klass.get(`allPrivate${capitalKey}`)
+        : klass.get(`private${capitalKey}`);
+      let protectedMembers = showInherited
+        ? klass.get(`allProtected${capitalKey}`)
+        : klass.get(`protected${capitalKey}`);
 
       members.push(...publicMembers);
 
@@ -94,7 +104,7 @@ export function memberFilter(classKey, memberType) {
 
       if (!showDeprecated) {
         members = members.filter((m) => {
-          return !m.tags || !m.tags.find(t => t.name === 'deprecated');
+          return !m.tags || !m.tags.find((t) => t.name === 'deprecated');
         });
       }
 
@@ -110,12 +120,12 @@ export function memberFilter(classKey, memberType) {
 export function hasMemberType(...memberKeys) {
   let filter = memberKeys.pop();
 
-  return computed(...memberKeys.map(k => `${k}.[]`), {
+  return computed(...memberKeys.map((k) => `${k}.[]`), {
     get() {
       return memberKeys.some((memberKey) => {
         return this.get(memberKey).some((member) => filter(member, memberKey));
       });
-    }
+    },
   });
 }
 
@@ -140,7 +150,7 @@ export function addonLogo(name) {
 let prefixMap = {
   'ember-cli': 'EmberCLI',
   'ember-data': 'EmberData',
-  'ember': 'Ember',
+  ember: 'Ember',
 };
 /**
   @function initialize
@@ -155,5 +165,5 @@ export function addonPrefix(name) {
   @hide
 */
 export function unprefixedAddonName(name) {
-  return name.replace(/ember-(cli-|data-)?/, "");
+  return name.replace(/ember-(cli-|data-)?/, '');
 }

@@ -21,9 +21,7 @@ export default Component.extend({
     next(() => {
       this.get('docsRoutes.items').addObject(this);
     });
-  }
+  },
 }).reopenClass({
-
-  positionalParams: ['label', 'route', 'model']
-
+  positionalParams: ['label', 'route', 'model'],
 });

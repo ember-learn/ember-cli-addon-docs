@@ -9,30 +9,42 @@ function escape(text) {
 function functionSignature(fn) {
   // Functions may have { params, typeParams, returns } directly on them, or they
   // may have a `signatures` array of hashes each with those properties.
-  let signatures = (fn.signatures || [fn]).map(({ params, typeParams, returns }) => {
-    let paramSignature = params.filter(p => !p.name.includes('.')).map(({ name, type, isRest, isOptional }) => {
-      let prefix = isRest ? '...' : '';
-      let suffix = isOptional ? '?' : '';
-      return `${prefix}<strong>${name}</strong>${suffix}: <em>${type}</em>`;
-    }).join(', ');
+  let signatures = (fn.signatures || [fn]).map(
+    ({ params, typeParams, returns }) => {
+      let paramSignature = params
+        .filter((p) => !p.name.includes('.'))
+        .map(({ name, type, isRest, isOptional }) => {
+          let prefix = isRest ? '...' : '';
+          let suffix = isOptional ? '?' : '';
+          return `${prefix}<strong>${name}</strong>${suffix}: <em>${type}</em>`;
+        })
+        .join(', ');
 
-    let typeParamSignature = '';
-    if (typeParams && typeParams.length) {
-      typeParamSignature = `&lt;${typeParams.map(p => `<em>${p}</em>`).join(', ')}&gt;`;
+      let typeParamSignature = '';
+      if (typeParams && typeParams.length) {
+        typeParamSignature = `&lt;${typeParams
+          .map((p) => `<em>${p}</em>`)
+          .join(', ')}&gt;`;
+      }
+
+      let returnType = returns ? returns.type : 'any';
+
+      return `<strong>${fn.name}</strong>${typeParamSignature}(${paramSignature}): <em>${returnType}</em>`;
     }
-
-    let returnType = returns ? returns.type : 'any';
-
-    return `<strong>${fn.name}</strong>${typeParamSignature}(${paramSignature}): <em>${returnType}</em>`;
-  });
+  );
 
   return signatures.join('<br>');
 }
 
 function accessorSignature({ name, type, hasGetter, hasSetter }) {
-  let accessorPrefixes = [hasGetter && 'get', hasSetter && 'set'].filter(a => a).join('/');
+  let accessorPrefixes = [hasGetter && 'get', hasSetter && 'set']
+    .filter((a) => a)
+    .join('/');
 
-  assert(`accessors must have either a getter or setter, but '${name}' had neither`, accessorPrefixes);
+  assert(
+    `accessors must have either a getter or setter, but '${name}' had neither`,
+    accessorPrefixes
+  );
 
   return `${accessorPrefixes} ${variableSignature({ name, type })}`;
 }
