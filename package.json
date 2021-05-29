@@ -111,7 +111,7 @@
     "common-tags": "^1.8.0",
     "ember-classy-page-object": "^0.6.1",
     "ember-cli": "~3.22.0",
-    "ember-cli-addon-docs-esdoc": "^0.3.0",
+    "ember-cli-addon-docs-esdoc": "^0.2.3",
     "ember-cli-addon-docs-yuidoc": "^1.0.0",
     "ember-cli-blueprint-test-helpers": "^0.19.2",
     "ember-cli-dependency-checker": "^3.2.0",

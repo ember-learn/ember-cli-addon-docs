@@ -1,8 +1,8 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
-import layout from './template';
-import { EKMixin, keyDown } from 'ember-keyboard';
-import { on } from '@ember/object/evented';
+import template from './template';
+import { keyResponder, onKey } from 'ember-keyboard';
+import { classNames, layout } from '@ember-decorators/component';
 import { formElementHasFocus } from '../../keyboard-config';
 
 /**
@@ -32,35 +32,36 @@ import { formElementHasFocus } from '../../keyboard-config';
   @public
 */
 
-export default Component.extend(EKMixin, {
-  layout,
-  docsRoutes: service(),
-  router: service(),
-
-  classNames: 'docs-viewer docs-flex docs-flex-1',
-
-  keyboardActivated: true,
+@classNames('docs-viewer docs-flex docs-flex-1')
+@layout(template)
+@keyResponder
+export default class DocsViewerComponent extends Component {
+  @service docsRoutes;
+  @service router;
 
   willDestroyElement() {
-    this._super(...arguments);
+    super.willDestroyElement(...arguments);
 
     this.docsRoutes.resetState();
-  },
+  }
 
-  nextPage: on(keyDown('KeyJ'), keyDown('ArrowRight'), function() {
+  @onKey('KeyJ')
+  @onKey('ArrowRight')
+  nextPage() {
     if (!formElementHasFocus()) {
       if (this.get('docsRoutes.next')) {
         this.router.transitionTo(...this.get('docsRoutes.next.route'));
       }
     }
-  }),
+  }
 
-  previousPage: on(keyDown('KeyK'), keyDown('ArrowLeft'), function() {
+  @onKey('KeyK')
+  @onKey('ArrowLeft')
+  previousPage() {
     if (!formElementHasFocus()) {
       if (this.get('docsRoutes.previous')) {
         this.router.transitionTo(...this.get('docsRoutes.previous.route'));
       }
     }
-  }),
-
-});
+  }
+}

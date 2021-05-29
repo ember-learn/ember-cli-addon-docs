@@ -1,17 +1,33 @@
 {{#if (and this.trimmedQuery this.search.isIdle)}}
-  <ModalDialog @tetherTarget="[data-search-box]" @attachment="top left" @clickOutsideToClose={{true}} @onClose={{action "clearSearch"}} @targetAttachment="bottom left" @constraints={{array (hash to="window" attachment="together" pin=true)}}>
-
-    <ul class="docs-w-76 docs-bg-white docs-shadow-md" data-test-search-result-list>
+  <ModalDialog
+    @tetherTarget="[data-search-box]"
+    @attachment="top left"
+    @clickOutsideToClose={{true}}
+    @onClose={{this.clearSearch}}
+    @targetAttachment="bottom left"
+    @constraints={{array (hash to="window" attachment="together" pin=true)}}
+  >
+    <ul
+      class="docs-w-76 docs-bg-white docs-shadow-md"
+      data-test-search-result-list
+    >
       {{#each (take 5 this.searchResults) as |result index|}}
         <li>
-          <DocsHeader::SearchResult @result={{result}} @query={{@query}} @selected={{eq index this.selectedIndex}} @onMouseEnter={{action "selectResult" index}} @onClick={{action "clearSearch"}} />
+          <DocsHeader::SearchResult
+            @result={{result}}
+            @query={{@query}}
+            @selected={{eq index this.selectedIndex}}
+            @onMouseEnter={{fn this.selectResult index}}
+            @onClick={{this.clearSearch}}
+          />
         </li>
       {{else}}
-        <li class="docs-block docs-py-1 docs-px-3 docs-text-grey-dark docs-no-underline">
+        <li
+          class="docs-block docs-py-1 docs-px-3 docs-text-grey-dark docs-no-underline"
+        >
           No results.
         </li>
       {{/each}}
     </ul>
-
   </ModalDialog>
 {{/if}}

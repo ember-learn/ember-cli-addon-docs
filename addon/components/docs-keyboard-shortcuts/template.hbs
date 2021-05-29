@@ -1,10 +1,20 @@
 {{#if this.sShowingKeyboardShortcuts}}
-  <ModalDialog @animatable={{true}} @overlay={{true}} @wrapperClass="docs-fullscreen-modal docs-keyboard-shortcuts-modal modal-fade" @clickOutsideToClose={{true}} @onClose={{action "toggleKeyboardShortcuts"}}>
+  <ModalDialog
+    @animatable={{true}}
+    @overlay={{true}}
+    @wrapperClass="docs-fullscreen-modal docs-keyboard-shortcuts-modal modal-fade"
+    @clickOutsideToClose={{true}}
+    @onClose={{this.toggleKeyboardShortcuts}}
+  >
     <div class="docs-fullscreen-modal__header">
-      <h2 class="docs-fullscreen-modal__title">Keyboard shortcuts</h2>
-      <a {{action "toggleKeyboardShortcuts"}}
+      <h2 class="docs-fullscreen-modal__title">
+        Keyboard shortcuts
+      </h2>
+      <a
         href="#"
-        class="docs-fullscreen-modal__close-button">
+        class="docs-fullscreen-modal__close-button"
+        {{on "click" this.toggleKeyboardShortcuts}}
+      >
         &times;
       </a>
     </div>
@@ -15,13 +25,19 @@
           <tr>
             <th></th>
             <th>
-              <h3 class="docs-fullscreen-modal__subtitle">Site wide shortcuts</h3>
+              <h3 class="docs-fullscreen-modal__subtitle">
+                Site wide shortcuts
+              </h3>
             </th>
           </tr>
           <tr>
             <td>
-              <code class="docs__keyboard-key">g</code>
-              <code class="docs__keyboard-key">h</code>
+              <code class="docs__keyboard-key">
+                g
+              </code>
+              <code class="docs__keyboard-key">
+                h
+              </code>
             </td>
             <td>
               Go to Home
@@ -29,8 +45,12 @@
           </tr>
           <tr>
             <td>
-              <code class="docs__keyboard-key">g</code>
-              <code class="docs__keyboard-key">d</code>
+              <code class="docs__keyboard-key">
+                g
+              </code>
+              <code class="docs__keyboard-key">
+                d
+              </code>
             </td>
             <td>
               Go to Docs
@@ -38,7 +58,9 @@
           </tr>
           <tr>
             <td>
-              <code class="docs__keyboard-key">?</code>
+              <code class="docs__keyboard-key">
+                ?
+              </code>
             </td>
             <td>
               Bring up this help dialog
@@ -46,7 +68,9 @@
           </tr>
           <tr>
             <td>
-              <code class="docs__keyboard-key">esc</code>
+              <code class="docs__keyboard-key">
+                esc
+              </code>
             </td>
             <td>
               Hide this help dialog
@@ -56,14 +80,20 @@
           <tr>
             <th></th>
             <th>
-              <h3 class="docs-fullscreen-modal__subtitle">Docs search</h3>
+              <h3 class="docs-fullscreen-modal__subtitle">
+                Docs search
+              </h3>
             </th>
           </tr>
           <tr>
             <td>
-              <code class="docs__keyboard-key">/</code>
+              <code class="docs__keyboard-key">
+                /
+              </code>
               or
-              <code class="docs__keyboard-key">s</code>
+              <code class="docs__keyboard-key">
+                s
+              </code>
             </td>
             <td>
               Focus search bar
@@ -71,10 +101,16 @@
           </tr>
           <tr>
             <td>
-              <code class="docs__keyboard-key">ctrl</code>
-              <code class="docs__keyboard-key">n</code>
+              <code class="docs__keyboard-key">
+                ctrl
+              </code>
+              <code class="docs__keyboard-key">
+                n
+              </code>
               or
-              <code class="docs__keyboard-key">↓</code>
+              <code class="docs__keyboard-key">
+                ↓
+              </code>
             </td>
             <td>
               Select next search result
@@ -82,10 +118,16 @@
           </tr>
           <tr>
             <td>
-              <code class="docs__keyboard-key">ctrl</code>
-              <code class="docs__keyboard-key">p</code>
+              <code class="docs__keyboard-key">
+                ctrl
+              </code>
+              <code class="docs__keyboard-key">
+                p
+              </code>
               or
-              <code class="docs__keyboard-key">↑</code>
+              <code class="docs__keyboard-key">
+                ↑
+              </code>
             </td>
             <td>
               Select previous search result
@@ -93,7 +135,9 @@
           </tr>
           <tr>
             <td>
-              <code class="docs__keyboard-key">enter</code>
+              <code class="docs__keyboard-key">
+                enter
+              </code>
             </td>
             <td>
               Navigate to selected search result
@@ -103,14 +147,20 @@
           <tr>
             <th></th>
             <th>
-              <h3 class="docs-fullscreen-modal__subtitle">Docs nav</h3>
+              <h3 class="docs-fullscreen-modal__subtitle">
+                Docs nav
+              </h3>
             </th>
           </tr>
           <tr>
             <td>
-              <code class="docs__keyboard-key">j</code>
+              <code class="docs__keyboard-key">
+                j
+              </code>
               or
-              <code class="docs__keyboard-key">→</code>
+              <code class="docs__keyboard-key">
+                →
+              </code>
             </td>
             <td>
               Navigate to next page
@@ -118,9 +168,13 @@
           </tr>
           <tr>
             <td>
-              <code class="docs__keyboard-key">k</code>
+              <code class="docs__keyboard-key">
+                k
+              </code>
               or
-              <code class="docs__keyboard-key">←</code>
+              <code class="docs__keyboard-key">
+                ←
+              </code>
             </td>
             <td>
               Navigate to previous page
