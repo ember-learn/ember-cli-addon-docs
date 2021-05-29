@@ -118,6 +118,8 @@ export default class DocsHeaderSearchResultsComponent extends Component {
           })
       );
     }
+
+    return undefined;
   }
 
   @onKey('Enter', { event: 'keyup' })
