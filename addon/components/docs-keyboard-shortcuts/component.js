@@ -1,8 +1,9 @@
 import Component from '@ember/component';
-import { on } from '@ember/object/evented';
+import { action } from '@ember/object';
 import { later } from '@ember/runloop';
-import layout from './template';
-import { EKMixin, keyUp } from 'ember-keyboard';
+import template from './template';
+import { keyResponder, onKey } from 'ember-keyboard';
+import { layout } from '@ember-decorators/component';
 import { inject as service } from '@ember/service';
 import { formElementHasFocus } from '../../keyboard-config';
 
@@ -13,55 +14,57 @@ import { formElementHasFocus } from '../../keyboard-config';
   @public
 */
 
-export default Component.extend(EKMixin, {
-  layout,
+@layout(template)
+@keyResponder
+export default class DocsKeyboardShortcutsComponent extends Component {
+  @service router;
 
-  router: service(),
+  isShowingKeyboardShortcuts = false;
 
-  isShowingKeyboardShortcuts: false,
-
-  keyboardActivated: true,
-
-  goto: on(keyUp('KeyG'), function() {
+  @onKey('KeyG', { event: 'keyup' })
+  goto() {
     if (!formElementHasFocus()) {
       this.set('isGoingTo', true);
       later(() => {
         this.set('isGoingTo', false);
       }, 500);
     }
-  }),
+  }
 
-  gotoDocs: on(keyUp('KeyD'), function() {
+  @onKey('KeyD', { event: 'keyup' })
+  gotoDocs() {
     if (!formElementHasFocus()) {
       if (this.isGoingTo) {
         this.router.transitionTo('docs');
       }
     }
-  }),
+  }
 
-  gotoHome: on(keyUp('KeyH'), function() {
+  @onKey('KeyH', { event: 'keyup' })
+  gotoHome() {
     if (!formElementHasFocus()) {
       if (this.isGoingTo) {
         this.router.transitionTo('index');
       }
     }
-  }),
+  }
 
-  toggleKeyboardShortcuts: on(keyUp('shift+Slash'), function() {
+  @onKey('shift+Slash', { event: 'keyup' })
+  toggleKeyboardShortcutsWithKeyboard() {
     if (!formElementHasFocus()) {
       this.toggleProperty('isShowingKeyboardShortcuts');
     }
-  }),
+  }
 
-  hideKeyboardShortcuts: on(keyUp('Escape'), function() {
+  @onKey('Escape', { event: 'keyup' })
+  hideKeyboardShortcuts() {
     if (!formElementHasFocus() && this.isShowingKeyboardShortcuts) {
       this.set('isShowingKeyboardShortcuts', false);
     }
-  }),
-
-  actions: {
-    toggleKeyboardShortcuts() {
-      this.toggleProperty('isShowingKeyboardShortcuts');
-    }
   }
-});
+
+  @action
+  toggleKeyboardShortcuts() {
+    this.toggleProperty('isShowingKeyboardShortcuts');
+  }
+}

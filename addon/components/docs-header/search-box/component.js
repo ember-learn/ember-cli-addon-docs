@@ -1,46 +1,46 @@
 import Component from '@ember/component';
-import layout from './template';
-import { EKMixin, keyUp } from 'ember-keyboard';
-import { on } from '@ember/object/evented';
+import template from './template';
 import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { classNames, layout } from '@ember-decorators/component';
 import { formElementHasFocus } from 'ember-cli-addon-docs/keyboard-config';
 
 const projectName = config['ember-cli-addon-docs'].projectName;
 
-export default Component.extend(EKMixin, {
-  layout,
-  store: service(),
+@classNames('docs-ml-auto')
+@layout(template)
+export default class DocsHeaderSearchBoxComponent extends Component {
+  @service store;
 
-  classNames: 'docs-ml-auto',
-
-  query: null,
-
-  keyboardActivated: true,
+  query = null;
 
   didInsertElement() {
-    this._super();
+    super.didInsertElement(...arguments);
 
     this.fetchProject.perform();
-  },
+  }
 
   // TODO: The searchbox doesn't work without the project being fetched.
   // We should move this logic (and everywhere else in the code that's fetching
   // the project) within a new addonDocs service that wires all that up together.
   // I think it's fine if our Docs-* components assume there is a single global
   // project.
-  fetchProject: task(function*() {
+  @task
+  *fetchProject() {
     yield this.store.findRecord('project', projectName);
-  }),
+  }
 
-  focusSearch: on(keyUp('Slash'), function() {
+  @action
+  focusSearch() {
     if (!formElementHasFocus()) {
       this.element.querySelector('input').focus();
     }
-  }),
+  }
 
-  unfocusSearch: on(keyUp('Escape'), function() {
+  @action
+  unfocusSearch() {
     this.get('on-input')(null);
-  })
-});
+  }
+}
