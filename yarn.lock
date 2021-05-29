@@ -9552,9 +9552,9 @@ html-encoding-sniffer@^2.0.1:
     whatwg-encoding "^1.0.5"
 
 html-entities@^2.0.6:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.1.1.tgz#faa5fc521e2d18499627835d22be3554c202208f"
-  integrity sha512-HjNLgm9Ba8zKd6NDMkXa0mMPn3eDUxOUnEIm/qy2Rm6rnqRHgI9DpMYIv1Fndu8haUmfMQHNYNrlNKmdU8GMnQ==
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.3.2.tgz#760b404685cb1d794e4f4b744332e3b00dcfe488"
+  integrity sha512-c3Ab/url5ksaT0WyleslpBEthOzWhrjQbg75y7XUsfSzi3Dgzt0l8w5e7DylRn15MTlMMD58dTfzddNS2kcAjQ==
 
 html-tags@^3.1.0:
   version "3.1.0"
