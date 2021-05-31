@@ -10558,9 +10558,9 @@ jsesc@~0.5.0:
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
 
 json-api-serializer@^2.2.1, json-api-serializer@^2.6.0:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/json-api-serializer/-/json-api-serializer-2.6.2.tgz#8eb28ed8c8c49f61e8b206ab15c6b729cbf3e1e8"
-  integrity sha512-fag2eFRyTV6VvXBPEbH4gCmCsNTyfqMJ9ayg/s+tbPttaaNPRfhm8LwGJZRdZbAhRCkcDCOHPoF8/smNAAR4rw==
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/json-api-serializer/-/json-api-serializer-2.6.3.tgz#28682cda4be2ed8cbded90c56087726a6f83d099"
+  integrity sha512-8PW+nifKo/bJrYsrcEXpqqIquuvfEHj0+Yq7wycAy19XT2ZQ30JLlbF6pef9hLBe5tdYMsUO1CW17By7yirKrQ==
   dependencies:
     setimmediate "^1.0.5"
 
