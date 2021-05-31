@@ -1,3 +1,19 @@
+Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
+Deprecated as of 10.7.0. Please use highlight(code, options) instead.
+https://github.com/highlightjs/highlight.js/issues/2277
+
+## v3.0.0 (2021-05-31)
+
+#### :boom: Breaking Change
+* [#854](https://github.com/ember-learn/ember-cli-addon-docs/pull/854) Drop ember-concurrency 1.x support, fix ember-keyboard deprecations ([@rwwagner90](https://github.com/rwwagner90))
+
+#### :house: Internal
+* [#855](https://github.com/ember-learn/ember-cli-addon-docs/pull/855) Ember 3.26 ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 2
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v2.0.0 (2021-05-25)
 
 #### :boom: Breaking Change
