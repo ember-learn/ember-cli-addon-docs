@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { or } from '@ember/object/computed';
 import { capitalize } from '@ember/string';
-import { memberFilter }  from '../../../utils/computed';
+import { memberFilter } from '../../../utils/computed';
 import config from 'ember-get-config';
 
 const { showImportPaths } = config['ember-cli-addon-docs'];
@@ -28,22 +28,24 @@ export default Component.extend({
     'component.hasInherited',
     'component.hasProtected',
     'component.hasPrivate',
-    'component.hasDeprecated',
+    'component.hasDeprecated'
   ),
 
   hasContents: computed('class', {
     get() {
       let klass = this.class;
 
-      return klass.get('allFields.length') > 0
-        || klass.get('allAccessors.length') > 0
-        || klass.get('allMethods.length') > 0;
-    }
+      return (
+        klass.get('allFields.length') > 0 ||
+        klass.get('allAccessors.length') > 0 ||
+        klass.get('allMethods.length') > 0
+      );
+    },
   }),
 
   actions: {
     updateFilter(filter, { target: { checked } }) {
       this.set(`show${capitalize(filter)}`, checked);
-    }
-  }
+    },
+  },
 });

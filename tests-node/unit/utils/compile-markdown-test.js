@@ -4,8 +4,8 @@ const assert = require('chai').assert;
 const stripIndent = require('common-tags').stripIndent;
 const compileMarkdown = require('../../../lib/utils/compile-markdown');
 
-describe('Unit | compile-markdown', function(hooks) {
-  it('compacting curly paragraphs', function() {
+describe('Unit | compile-markdown', function (hooks) {
+  it('compacting curly paragraphs', function () {
     let input = stripIndent`
       {{#foo-bar}}
 
@@ -20,7 +20,7 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  it('compacting sequential curly bracket paragraphs - non-void angle bracket children', function() {
+  it('compacting sequential curly bracket paragraphs - non-void angle bracket children', function () {
     let input = stripIndent`
       {{#foo-bar}}<Foo></Foo>{{/foo-bar}}
 
@@ -36,7 +36,7 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  it('compacting sequential curly bracket paragraphs - self-closing angle bracket children', function() {
+  it('compacting sequential curly bracket paragraphs - self-closing angle bracket children', function () {
     let input = stripIndent`
       {{#foo-bar}}<Foo/>{{/foo-bar}}
 
@@ -52,7 +52,7 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  it('compacting angle bracket paragraphs', function() {
+  it('compacting angle bracket paragraphs', function () {
     let input = stripIndent`
       <FooBar>
 
@@ -70,7 +70,7 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  it('compacting sequential angle bracket paragraphs - non-void angle bracket children', function() {
+  it('compacting sequential angle bracket paragraphs - non-void angle bracket children', function () {
     let input = stripIndent`
       <Baz><Foo></Foo></Baz>
 
@@ -86,7 +86,7 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  it('compacting sequential angle bracket paragraphs - self-closing angle bracket children', function() {
+  it('compacting sequential angle bracket paragraphs - self-closing angle bracket children', function () {
     let input = stripIndent`
       <Baz><Foo/></Baz>
 
@@ -102,7 +102,7 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  it('compacting implicit code blocks', function() {
+  it('compacting implicit code blocks', function () {
     // Surrounding whitespace + 4-space indent = code block in MD
     let input = stripIndent`
       {{#foo-bar}}
@@ -120,7 +120,7 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  it('classic components remain unescaped', function() {
+  it('classic components remain unescaped', function () {
     let input = stripIndent`
       {{#foo-bar prop="value" otherProp='value'}}
 
@@ -135,7 +135,7 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  it('angle bracket contextual components remain unescaped', function() {
+  it('angle bracket contextual components remain unescaped', function () {
     let input = stripIndent`
       <foo.bar @prop={{value}}></foo.bar>
     `;
@@ -148,7 +148,7 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  it('using opening curlies inside backticks shouldn\'t compact paragraphs', function() {
+  it("using opening curlies inside backticks shouldn't compact paragraphs", function () {
     let input = stripIndent`
       Foo bar is \`{{#my-component}}\`.
 
@@ -164,7 +164,7 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  it('using opening angle brackets inside backticks shouldn\'t compact paragraphs', function() {
+  it("using opening angle brackets inside backticks shouldn't compact paragraphs", function () {
     let input = stripIndent`
       Foo bar is \`<My component>\`.
 
@@ -180,7 +180,7 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  it('using code block simple case', function() {
+  it('using code block simple case', function () {
     let input = stripIndent`
       \`\`\`hbs
         <FooBar>Hello</FooBar>
@@ -198,7 +198,7 @@ describe('Unit | compile-markdown', function(hooks) {
     assert.equal(result, expected);
   });
 
-  it('using code block with self-closing tag inside', function() {
+  it('using code block with self-closing tag inside', function () {
     let input = stripIndent`
       \`\`\`hbs
       <form.Text

@@ -1,11 +1,11 @@
 /* eslint-env node */
 
-module.exports = function(deployTarget) {
+module.exports = function (deployTarget) {
   let ENV = {
     build: {},
     git: {
-      repo: 'https://github.com/ember-learn/ember-cli-addon-docs.git'
-    }
+      repo: 'https://github.com/ember-learn/ember-cli-addon-docs.git',
+    },
   };
 
   if (deployTarget === 'development') {

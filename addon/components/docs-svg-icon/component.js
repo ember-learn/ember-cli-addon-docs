@@ -30,7 +30,5 @@ export default Component.extend({
   */
   width: 16,
 }).reopenClass({
-
-  positionalParams: [ 'icon' ]
-
+  positionalParams: ['icon'],
 });

@@ -5,5 +5,5 @@ export default Model.extend({
   githubUrl: attr(),
   version: attr(),
   navigationIndex: attr(),
-  modules: hasMany('module', { async: false })
+  modules: hasMany('module', { async: false }),
 });

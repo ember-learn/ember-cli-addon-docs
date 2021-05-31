@@ -11,12 +11,12 @@ let emberGenerateDestroy = blueprintHelpers.emberGenerateDestroy;
 const expect = require('ember-cli-blueprint-test-helpers/chai').expect;
 const file = require('ember-cli-blueprint-test-helpers/chai').file;
 
-describe('Blueprints | non-pods docs page test', function() {
+describe('Blueprints | non-pods docs page test', function () {
   setupTestHooks(this);
 
-  it('it generates a docs page and updates router with no docs.hbs present', function() {
+  it('it generates a docs page and updates router with no docs.hbs present', function () {
     return emberNew({ target: 'addon' }).then(() => {
-      return emberGenerateDestroy(['docs-page', 'foo-bar'], _file => {
+      return emberGenerateDestroy(['docs-page', 'foo-bar'], (_file) => {
         expect(_file('tests/dummy/app/templates/docs/foo-bar.md'))
           .to.exist.to.contain('# Foo bar')
           .to.contain('Foo bar content');
@@ -30,7 +30,7 @@ describe('Blueprints | non-pods docs page test', function() {
     });
   });
 
-  it('it generates a docs page, updates router, and adds nav item to docs.hbs', function() {
+  it('it generates a docs page, updates router, and adds nav item to docs.hbs', function () {
     return emberNew({ target: 'addon' })
       .then(() =>
         copyFixtureFile(
@@ -39,7 +39,7 @@ describe('Blueprints | non-pods docs page test', function() {
         )
       )
       .then(() => {
-        return emberGenerateDestroy(['docs-page', 'foo-bar'], _file => {
+        return emberGenerateDestroy(['docs-page', 'foo-bar'], (_file) => {
           expect(_file('tests/dummy/app/templates/docs/foo-bar.md'))
             .to.exist.to.contain('# Foo bar')
             .to.contain('Foo bar content');
@@ -55,7 +55,7 @@ describe('Blueprints | non-pods docs page test', function() {
       });
   });
 
-  it('it generates a docs page, updates router, and adds nav item to docs.hbs when subnav present', function() {
+  it('it generates a docs page, updates router, and adds nav item to docs.hbs when subnav present', function () {
     return emberNew({ target: 'addon' })
       .then(() =>
         copyFixtureFile(
@@ -64,7 +64,7 @@ describe('Blueprints | non-pods docs page test', function() {
         )
       )
       .then(() => {
-        return emberGenerateDestroy(['docs-page', 'foo-bar'], _file => {
+        return emberGenerateDestroy(['docs-page', 'foo-bar'], (_file) => {
           expect(_file('tests/dummy/app/templates/docs/foo-bar.md'))
             .to.exist.to.contain('# Foo bar')
             .to.contain('Foo bar content');

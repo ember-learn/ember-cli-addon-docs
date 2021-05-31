@@ -18,9 +18,18 @@ export default Class.extend({
   privateArguments: filterBy('arguments', 'access', 'private'),
   protectedArguments: filterBy('arguments', 'access', 'protected'),
 
-  allPublicArguments: memberUnion('parentClass.allPublicArguments', 'publicArguments'),
-  allPrivateArguments: memberUnion('parentClass.allPrivateArguments', 'privateArguments'),
-  allProtectedArguments: memberUnion('parentClass.allProtectedArguments', 'protectedArguments'),
+  allPublicArguments: memberUnion(
+    'parentClass.allPublicArguments',
+    'publicArguments'
+  ),
+  allPrivateArguments: memberUnion(
+    'parentClass.allPrivateArguments',
+    'privateArguments'
+  ),
+  allProtectedArguments: memberUnion(
+    'parentClass.allProtectedArguments',
+    'protectedArguments'
+  ),
 
   allArguments: memberUnion('parentClass.allArguments', 'arguments'),
 
@@ -58,8 +67,8 @@ export default Class.extend({
     'allMethods',
     'allFields',
 
-    function(member) {
-      return member.tags && member.tags.find(t => t.name === 'deprecated');
+    function (member) {
+      return member.tags && member.tags.find((t) => t.name === 'deprecated');
     }
   ),
 
@@ -70,8 +79,7 @@ export default Class.extend({
 
     Possible refactoring is to always link by actual ID, and implement redirects.
   */
-  routingId: computed('name', function() {
+  routingId: computed('name', function () {
     return `components/${dasherize(this.name)}`;
-  })
-
+  }),
 });

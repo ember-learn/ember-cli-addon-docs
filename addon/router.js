@@ -38,7 +38,7 @@ export default class AddonDocsRouter extends EmberRouter {}
   @function docsRoute
 */
 export function docsRoute(router, callback) {
-  router.route('docs', function() {
+  router.route('docs', function () {
     callback.apply(this);
 
     apiRoute(this);
@@ -46,7 +46,7 @@ export function docsRoute(router, callback) {
 }
 
 export function apiRoute(router) {
-  router.route('api', function() {
+  router.route('api', function () {
     this.route('item', { path: '/*path' });
   });
 }

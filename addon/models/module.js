@@ -6,8 +6,8 @@ export default Model.extend({
   variables: attr(),
   functions: attr(),
 
-  classes: hasMany('class', { async: false, }),
-  components: hasMany('class', { async: false, }),
+  classes: hasMany('class', { async: false }),
+  components: hasMany('class', { async: false }),
 
   /*
     This gives us a way to link to a model, since we don't always link by the actual ID:
@@ -16,7 +16,7 @@ export default Model.extend({
 
     Possible refactoring is to always link by actual ID, and implement redirects.
   */
-  routingId: computed('id', function() {
+  routingId: computed('id', function () {
     return `modules/${this.id}`;
-  })
+  }),
 });

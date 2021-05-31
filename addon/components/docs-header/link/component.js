@@ -9,13 +9,10 @@ export default Component.extend({
 
   router: service(),
 
-  isActive: computed('router.currentRouteName', 'route', function() {
+  isActive: computed('router.currentRouteName', 'route', function () {
     // Naive isActive check. Replace with router service when updated.
     return this.get('router.currentRouteName').indexOf(this.route) === 0;
-  })
-
+  }),
 }).reopenClass({
-
-  positionalParams: [ 'route' ]
-
+  positionalParams: ['route'],
 });

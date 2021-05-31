@@ -18,38 +18,38 @@ module.exports = {
   name: 'docs-page',
   description: 'Generates an ember-cli-addon-docs doc page',
 
-  fileMapTokens: function() {
+  fileMapTokens: function () {
     return {
-      __templatepath__: function(options) {
-          return path.join(DUMMY_APP_PATH, 'templates', 'docs');
+      __templatepath__: function (options) {
+        return path.join(DUMMY_APP_PATH, 'templates', 'docs');
       },
-      __templatename__: function(options) {
+      __templatename__: function (options) {
         return options.dasherizedModuleName;
-      }
+      },
     };
   },
 
-  locals: function(options) {
+  locals: function (options) {
     return {
-      templateName: dedasherize(options.entity.name)
+      templateName: dedasherize(options.entity.name),
     };
   },
 
-  afterInstall: function(options) {
+  afterInstall: function (options) {
     updateRouter.call(this, 'add', options);
     updateDocsTemplate.call(this, options);
   },
 
-  afterUninstall: function(options) {
+  afterUninstall: function (options) {
     updateRouter.call(this, 'remove', options);
-  }
+  },
 };
 
 function updateRouter(action, options) {
   let entity = options.entity;
   let actionColorMap = {
     add: 'green',
-    remove: 'red'
+    remove: 'red',
   };
   let color = actionColorMap[action] || 'gray';
 
@@ -67,7 +67,7 @@ function findRouter(options) {
   let routerPathParts = [].concat([
     options.project.root,
     DUMMY_APP_PATH,
-    'router.js'
+    'router.js',
   ]);
 
   return routerPathParts;
@@ -93,8 +93,9 @@ function updateDocsTemplate(options) {
       .toString()
       .split('\n');
 
-    let closingViewerNavTag = templateLines.find(line =>
-      line.includes('{{/viewer.nav}}') || line.includes('</viewer.nav>')
+    let closingViewerNavTag = templateLines.find(
+      (line) =>
+        line.includes('{{/viewer.nav}}') || line.includes('</viewer.nav>')
     );
 
     templateLines.splice(

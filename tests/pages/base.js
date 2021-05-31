@@ -7,9 +7,9 @@ const DefaultPage = PageObject.extend({
   searchResults: {
     scope: '[data-test-search-result-list]',
     items: collection({
-      scope: '[data-test-search-result]'
-    })
-  }
+      scope: '[data-test-search-result]',
+    }),
+  },
 });
 
 export default DefaultPage;

@@ -18,7 +18,7 @@ export default Component.extend({
 
   addonLogo: addonLogo(projectName),
 
-  addonTitle: computed('addonLogo', function() {
+  addonTitle: computed('addonLogo', function () {
     let logo = this.addonLogo;
 
     return classify(projectName.replace(`${logo}-`, ''));
@@ -34,6 +34,6 @@ export default Component.extend({
 
     set(key, val) {
       return val;
-    }
-  })
+    },
+  }),
 });

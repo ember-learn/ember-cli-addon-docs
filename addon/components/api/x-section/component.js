@@ -22,9 +22,9 @@ export default Component.extend({
    * @function
    * @hide
    */
-  shouldDisplayParams: computed('item.params.[]', function() {
+  shouldDisplayParams: computed('item.params.[]', function () {
     let params = this.get('item.params') || [];
 
-    return params.some(p => p.description || p.name.includes('.'));
+    return params.some((p) => p.description || p.name.includes('.'));
   }),
 });

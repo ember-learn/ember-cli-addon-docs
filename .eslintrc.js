@@ -2,7 +2,7 @@
 
 module.exports = {
   globals: {
-    server: true
+    server: true,
   },
   root: true,
   parser: 'babel-eslint',
@@ -10,18 +10,17 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
-      legacyDecorators: true
-    }
+      legacyDecorators: true,
+    },
   },
-  plugins: [
-    'ember'
-  ],
+  plugins: ['ember'],
   extends: [
     'eslint:recommended',
-    'plugin:ember/recommended'
+    'plugin:ember/recommended',
+    'plugin:prettier/recommended',
   ],
   env: {
-    browser: true
+    browser: true,
   },
   rules: {
     'no-unused-vars': ['error', { args: 'none' }],
@@ -29,12 +28,18 @@ module.exports = {
     'ember/no-incorrect-calls-with-inline-anonymous-functions': 'off',
     'ember/require-return-from-computed': 'off',
     'ember/no-jquery': 'error',
-    // ember-keyboard uses events
-    'ember/no-on-calls-in-components': 'off',
 
     // TODO: enable these rules
+    'ember/classic-decorator-no-classic-methods': 'off',
+    'ember/no-actions-hash': 'off',
+    'ember/no-classic-classes': 'off',
+    'ember/no-classic-components': 'off',
+    'ember/no-component-lifecycle-hooks': 'off',
+    'ember/no-computed-properties-in-native-classes': 'off',
     'ember/no-get': 'off',
-    'ember/no-private-routing-service': 'off'
+    'ember/no-private-routing-service': 'off',
+    'ember/no-string-prototype-extensions': 'off',
+    'ember/require-tagless-components': 'off',
   },
   overrides: [
     // node files
@@ -51,23 +56,23 @@ module.exports = {
         'config/**/*.js',
         'lib/**/*.js',
         'tests/dummy/config/**/*.js',
-        'tests-node/**/*.js'
+        'tests-node/**/*.js',
       ],
       excludedFiles: [
         'addon/**',
         'addon-test-support/**',
         'app/**',
-        'tests/dummy/app/**'
+        'tests/dummy/app/**',
       ],
       parserOptions: {
-        sourceType: 'script'
+        sourceType: 'script',
       },
       env: {
         browser: false,
-        node: true
+        node: true,
       },
       plugins: ['node'],
-      extends: ['plugin:node/recommended']
+      extends: ['plugin:node/recommended'],
     },
 
     // node test files
@@ -76,12 +81,12 @@ module.exports = {
         describe: true,
         it: true,
         beforeEach: true,
-        afterEach: true
+        afterEach: true,
       },
       files: ['tests-node/**/*.js'],
       rules: {
-        'node/no-unpublished-require': 'off'
-      }
-    }
-  ]
+        'node/no-unpublished-require': 'off',
+      },
+    },
+  ],
 };

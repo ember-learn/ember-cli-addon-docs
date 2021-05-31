@@ -1,9 +1,5 @@
 import Model, { attr, belongsTo } from '@ember-data/model';
-import {
-  filterBy,
-  or,
-  union
-} from '@ember/object/computed';
+import { filterBy, or, union } from '@ember/object/computed';
 import { memberUnion, hasMemberType } from '../utils/computed';
 
 export default Model.extend({
@@ -35,20 +31,52 @@ export default Model.extend({
   protectedMethods: filterBy('methods', 'access', 'protected'),
   protectedFields: filterBy('fields', 'access', 'protected'),
 
-  allPublicAccessors: memberUnion('parentClass.allPublicAccessors', 'publicAccessors'),
-  allPublicMethods: memberUnion('parentClass.allPublicMethods', 'publicMethods'),
+  allPublicAccessors: memberUnion(
+    'parentClass.allPublicAccessors',
+    'publicAccessors'
+  ),
+  allPublicMethods: memberUnion(
+    'parentClass.allPublicMethods',
+    'publicMethods'
+  ),
   allPublicFields: memberUnion('parentClass.allPublicFields', 'publicFields'),
 
-  allPrivateAccessors: memberUnion('parentClass.allPrivateAccessors', 'privateAccessors'),
-  allPrivateMethods: memberUnion('parentClass.allPrivateMethods', 'privateMethods'),
-  allPrivateFields: memberUnion('parentClass.allPrivateFields', 'privateFields'),
+  allPrivateAccessors: memberUnion(
+    'parentClass.allPrivateAccessors',
+    'privateAccessors'
+  ),
+  allPrivateMethods: memberUnion(
+    'parentClass.allPrivateMethods',
+    'privateMethods'
+  ),
+  allPrivateFields: memberUnion(
+    'parentClass.allPrivateFields',
+    'privateFields'
+  ),
 
-  allProtectedAccessors: memberUnion('parentClass.allProtectedAccessors', 'protectedAccessors'),
-  allProtectedMethods: memberUnion('parentClass.allProtectedMethods', 'protectedMethods'),
-  allProtectedFields: memberUnion('parentClass.allProtectedFields', 'protectedFields'),
+  allProtectedAccessors: memberUnion(
+    'parentClass.allProtectedAccessors',
+    'protectedAccessors'
+  ),
+  allProtectedMethods: memberUnion(
+    'parentClass.allProtectedMethods',
+    'protectedMethods'
+  ),
+  allProtectedFields: memberUnion(
+    'parentClass.allProtectedFields',
+    'protectedFields'
+  ),
 
-  allAccessors: union('allPublicAccessors', 'allPrivateAccessors', 'allProtectedAccessors'),
-  allMethods: union('allPublicMethods', 'allPrivateMethods', 'allProtectedMethods'),
+  allAccessors: union(
+    'allPublicAccessors',
+    'allPrivateAccessors',
+    'allProtectedAccessors'
+  ),
+  allMethods: union(
+    'allPublicMethods',
+    'allPrivateMethods',
+    'allProtectedMethods'
+  ),
   allFields: union('allPublicFields', 'allPrivateFields', 'allProtectedFields'),
 
   hasInherited: or(
@@ -74,8 +102,8 @@ export default Model.extend({
     'allAccessors',
     'allMethods',
 
-    function(member) {
-      return member.tags && member.tags.find(t => t.name === 'deprecated');
+    function (member) {
+      return member.tags && member.tags.find((t) => t.name === 'deprecated');
     }
-  )
+  ),
 });

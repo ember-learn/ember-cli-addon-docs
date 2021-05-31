@@ -27,12 +27,14 @@ module.exports = {
           {
             module: require('@csstools/postcss-sass'),
             options: {
-              includePaths: [styleDir]
-            }
+              includePaths: [styleDir],
+            },
           },
-          require('tailwindcss')(path.join( __dirname, 'addon', 'styles', 'tailwind.config.js'))
-        ]
-      }
+          require('tailwindcss')(
+            path.join(__dirname, 'addon', 'styles', 'tailwind.config.js')
+          ),
+        ],
+      },
     },
 
     svgJar: {
@@ -41,12 +43,12 @@ module.exports = {
         plugins: [
           {
             removeAttrs: {
-              attrs: ['fill']
-            }
-          }
-        ]
-      }
-    }
+              attrs: ['fill'],
+            },
+          },
+        ],
+      },
+    },
   },
 
   config(env, baseConfig) {
@@ -89,8 +91,8 @@ module.exports = {
         latestVersionName: LATEST_VERSION_NAME,
         deployVersion: 'ADDON_DOCS_DEPLOY_VERSION',
         searchTokenSeparator: '\\s+',
-        showImportPaths: true
-      }
+        showImportPaths: true,
+      },
     };
 
     let updatedConfig = Object.assign({}, baseConfig, config);
@@ -138,12 +140,12 @@ module.exports = {
       includer.options.snippetRegexes = [
         {
           begin: /{{#(?:docs-snippet|demo\.example)\sname=['"](\S*)['"]/,
-          end: /{{\/(?:docs-snippet|demo\.example)}}/
+          end: /{{\/(?:docs-snippet|demo\.example)}}/,
         },
         {
           begin: /<(?:DocsSnippet|demo\.example)\s@name=['"](\S*)['"][^/]*>/,
-          end: /<\/(?:DocsSnippet|demo\.example)>/
-        }
+          end: /<\/(?:DocsSnippet|demo\.example)>/,
+        },
       ];
     }
 
@@ -162,7 +164,7 @@ module.exports = {
         'handlebars',
         'htmlbars',
         'html',
-        'diff'
+        'diff',
       ];
     }
 
@@ -178,7 +180,7 @@ module.exports = {
 
       // exclude from ember-cli-addon-docs
       this.options['ember-composable-helpers'] = {
-        except: ['array']
+        except: ['array'],
       };
 
       // exclude from the app using ember-cli-addon-docs
@@ -222,7 +224,7 @@ module.exports = {
     let importer = findImporter(this);
 
     importer.import('vendor/lunr/lunr.js', {
-      using: [{ transformation: 'amd', as: 'lunr' }]
+      using: [{ transformation: 'amd', as: 'lunr' }],
     });
   },
 
@@ -258,7 +260,7 @@ module.exports = {
 
     let addonPath = this.project.findAddonByName(this.name).root;
     let addonTree = new Funnel(path.join(addonPath, 'addon'), {
-      include: ['**/*.js']
+      include: ['**/*.js'],
     });
     let autoExportedAddonTree = new AutoExportAddonToApp([addonTree]);
     trees.push(autoExportedAddonTree);
@@ -315,28 +317,27 @@ module.exports = {
         {
           destDir: 'docs',
           project,
-          parentAddon: addonToDocument
+          parentAddon: addonToDocument,
         }
       );
 
       docsTrees.push(
         new DocsCompiler(docsGenerators, {
           name: projectName === 'main' ? addonToDocument.name : projectName,
-          project
+          project,
         })
       );
     }
 
     let docsTree = new MergeTrees(docsTrees);
 
-    let templateContentsTree = this.getBroccoliBridge().placeholderFor(
-      'template-contents'
-    );
+    let templateContentsTree =
+      this.getBroccoliBridge().placeholderFor('template-contents');
     let searchIndexTree = new SearchIndexer(
       new MergeTrees([docsTree, templateContentsTree]),
       {
         outputFile: 'ember-cli-addon-docs/search-index.json',
-        config: this.project.config(EmberApp.env())
+        config: this.project.config(EmberApp.env()),
       }
     );
 
@@ -345,7 +346,7 @@ module.exports = {
 
   _lunrTree() {
     return new Funnel(path.dirname(require.resolve('lunr/package.json')), {
-      destDir: 'lunr'
+      destDir: 'lunr',
     });
   },
 
@@ -400,7 +401,7 @@ module.exports = {
       addon = this.parent.findAddonByName(this.parent.name());
     }
     return addon;
-  }
+  },
 };
 
 function findImporter(addon) {
@@ -423,8 +424,8 @@ function generateDefaultProject(parentAddon) {
     // We need to be very careful to avoid triggering a watch on the addon root here
     // because of https://github.com/nodejs/node/issues/15683
     new Funnel(new UnwatchedDir(parentAddon.root), {
-      include: ['package.json', 'README.md']
-    })
+      include: ['package.json', 'README.md'],
+    }),
   ];
 
   let addonTreePath = path.join(
@@ -439,7 +440,7 @@ function generateDefaultProject(parentAddon) {
   if (fs.existsSync(addonTreePath)) {
     includeFunnels.push(
       new Funnel(addonTreePath, {
-        destDir: parentAddon.name
+        destDir: parentAddon.name,
       })
     );
   }
@@ -447,7 +448,7 @@ function generateDefaultProject(parentAddon) {
   if (fs.existsSync(testSupportPath)) {
     includeFunnels.push(
       new Funnel(testSupportPath, {
-        destDir: `${parentAddon.name}/test-support`
+        destDir: `${parentAddon.name}/test-support`,
       })
     );
   }
@@ -487,7 +488,7 @@ class AutoExportAddonToApp extends Plugin {
 
     // Components
     walkSync(path.join(addonPath, 'components'), {
-      directories: false
+      directories: false,
     }).forEach((addonFile) => {
       let module = addonFile.replace('/component.js', '');
       let file = path.join(this.outputPath, 'components', `${module}.js`);
@@ -507,7 +508,7 @@ class AutoExportAddonToApp extends Plugin {
       'routes',
       'serializers',
       'services',
-      'transitions'
+      'transitions',
     ].forEach((moduleType) => {
       let addonFullPath = path.join(addonPath, moduleType);
       if (!fs.existsSync(addonFullPath)) {

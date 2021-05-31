@@ -9,23 +9,25 @@ import fetch from 'fetch';
 const { latestVersionName } = config['ember-cli-addon-docs'];
 
 export default Service.extend({
-  _loadAvailableVersions: task(function*() {
+  _loadAvailableVersions: task(function* () {
     let response = yield fetch(`${this.root}versions.json`);
     let json;
-    if(response.ok){
+    if (response.ok) {
       json = yield response.json();
-    }else{
+    } else {
       json = { [latestVersionName]: assign({}, this.currentVersion) };
     }
 
+    this.set(
+      'versions',
+      Object.keys(json).map((key) => {
+        let version = json[key];
+        version.truncatedSha = version.sha.substr(0, 5);
+        version.key = key;
 
-    this.set('versions', Object.keys(json).map(key => {
-      let version = json[key];
-      version.truncatedSha = version.sha.substr(0,5);
-      version.key = key;
-
-      return version;
-    }));
+        return version;
+      })
+    );
   }),
 
   redirectTo(version) {
@@ -36,14 +38,18 @@ export default Service.extend({
     return this._loadAvailableVersions.perform();
   },
 
-  root: computed('currentVersion.path', function() {
-    let rootURL = getOwner(this).resolveRegistration('config:environment').rootURL;
+  root: computed('currentVersion.path', function () {
+    let rootURL =
+      getOwner(this).resolveRegistration('config:environment').rootURL;
     return rootURL.replace(`/${this.get('currentVersion.path')}/`, '/');
   }),
 
   currentVersion: computed({
     get() {
-      let config = getOwner(this).resolveRegistration('config:environment')['ember-cli-addon-docs'];
+      let config =
+        getOwner(this).resolveRegistration('config:environment')[
+          'ember-cli-addon-docs'
+        ];
       let currentVersion = config.deployVersion;
 
       // In development, this token won't have been replaced replaced
@@ -53,7 +59,7 @@ export default Service.extend({
           name: latestVersionName,
           tag: config.projectTag,
           path: '',
-          sha: 'abcde'
+          sha: 'abcde',
         };
       }
 
@@ -62,6 +68,6 @@ export default Service.extend({
 
     set(key, val) {
       return val;
-    }
-  })
+    },
+  }),
 });

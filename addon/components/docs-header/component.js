@@ -7,7 +7,8 @@ import { addonLogo, addonPrefix } from 'ember-cli-addon-docs/utils/computed';
 import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
 
-const { projectName, projectHref, latestVersionName } = config['ember-cli-addon-docs'];
+const { projectName, projectHref, latestVersionName } =
+  config['ember-cli-addon-docs'];
 
 /**
   Render a header showing a link to your documentation, your project logo, a
@@ -72,7 +73,7 @@ export default Component.extend({
     @argument name
     @type String?
   */
-  name: computed(function() {
+  name: computed(function () {
     let name = projectName;
     name = name.replace('ember-data-', '');
     name = name.replace('ember-cli-', '');
@@ -88,7 +89,6 @@ export default Component.extend({
       this.set('query', null);
       let search = document.querySelector('[data-search-box-input]');
       search.blur();
-    }
-  }
-
+    },
+  },
 });

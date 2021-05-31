@@ -1,6 +1,6 @@
 /** @documenter yuidoc */
 
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
 /**
   Pretty cool component, right?

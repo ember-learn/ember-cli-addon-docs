@@ -60,16 +60,15 @@ export default class DocsDemo extends Component {
   get snippets() {
     let activeSnippet = this.activeSnippet;
 
-    return this.snippetRegistrations
-      .map(({ name, label, language }) => {
-        let defaults = this.defaultsFromName(name);
-        return {
-          name,
-          isActive: activeSnippet === name,
-          label: label || defaults.label,
-          language: language || defaults.language
-        };
-      })
+    return this.snippetRegistrations.map(({ name, label, language }) => {
+      let defaults = this.defaultsFromName(name);
+      return {
+        name,
+        isActive: activeSnippet === name,
+        label: label || defaults.label,
+        language: language || defaults.language,
+      };
+    });
   }
 
   /**
