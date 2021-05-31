@@ -77,6 +77,14 @@ module.exports = async function () {
       },
       embroiderSafe(),
       embroiderOptimized(),
+      {
+        name: 'ember-concurrency-2.x',
+        npm: {
+          dependencies: {
+            'ember-concurrency': '^2.0.0',
+          },
+        },
+      },
     ],
   };
 };
