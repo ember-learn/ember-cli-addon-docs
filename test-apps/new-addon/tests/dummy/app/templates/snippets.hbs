@@ -10,7 +10,8 @@
 {{/docs-snippet}}
 
 <DocsSnippet @name="your-angle-bracket-snippet-name.hbs">
-  <div id="bar">
+  {{!-- template-lint-disable no-duplicate-id --}}
+  <div id="foo">
     {{#my-awesome-thing
       some=true
       options=false
