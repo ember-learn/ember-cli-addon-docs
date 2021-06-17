@@ -1,6 +1,6 @@
 {{#if @media.isMobile}}
   <div class="docs-text-right docs-px-4 md:docs-px-6 docs-mt-4">
-    <button {{action (toggle "isShowingMenu" this)}}
+    <button {{on "click" (toggle "isShowingMenu" this)}}
       class="docs-text-grey-darkest docs-py-2 docs-text-xs docs-rounded docs-uppercase docs-font-medium">
       ☰ Menu
     </button>
@@ -8,7 +8,7 @@
 {{/if}}
 
 <div class="AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink">
-  <nav onclick={{action (mut this.isShowingMenu) false}}
+  <nav onclick={{set this "isShowingMenu" false}}
     class="
       docs-absolute docs-right-0 md:docs-relative docs-shadow-lg md:docs-shadow-none docs-mr-2 md:docs-mr-0 md:docs-pl-2
       docs-max-w-xs docs-w-90% md:docs-w-72 docs-z-10 docs-transition md:docs-sticky md:docs-top-0
@@ -19,7 +19,7 @@
     <div class="docs-pt-px docs-mb-8 docs-px-3 md:docs-px-4 md:docs-max-h-screen md:docs-overflow-y-scroll">
       {{#if @media.isMobile}}
         <div class="docs-text-right">
-          <button onclick={{action (mut thisisShowingMenu) false}}
+          <button onclick={{set this "isShowingMenu" false}}
             class="docs-text-grey-darkest docs-opacity-50 hover:docs-opacity-100 docs-text-large-5 docs-py-2 docs-no-underline">
             &times;
           </button>
