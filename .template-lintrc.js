@@ -6,8 +6,6 @@ module.exports = {
     // TODO: fix these and enable octane
     'no-action': false,
     'no-curly-component-invocation': false,
-    'no-duplicate-id': false,
-    'no-extra-mut-helper-argument': false,
     'no-implicit-this': false,
     'no-inline-styles': false,
     'no-invalid-interactive': false,
