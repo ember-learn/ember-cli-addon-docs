@@ -84,7 +84,6 @@
     "inflected": "^2.0.3",
     "jsdom": "^16.4.0",
     "json-api-serializer": "^2.2.1",
-    "liquid-fire": "^0.29.5 || ^0.30.0 || ^0.31.0",
     "lodash": "^4.17.15",
     "lunr": "^2.3.7",
     "marked": "^0.8.2",
