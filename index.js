@@ -508,7 +508,6 @@ class AutoExportAddonToApp extends Plugin {
       'routes',
       'serializers',
       'services',
-      'transitions',
     ].forEach((moduleType) => {
       let addonFullPath = path.join(addonPath, moduleType);
       if (!fs.existsSync(addonFullPath)) {
