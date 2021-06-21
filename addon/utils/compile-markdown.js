@@ -63,8 +63,10 @@ hljs.registerLanguage('ts', typescript);
   @param {string} snippet Snippet of code
   @param {string} lang Language to use for syntax highlighting
 */
-export function highlightCode(code, lang) {
-  return hljs.getLanguage(lang) ? hljs.highlight(lang, code).value : code;
+export function highlightCode(code, language) {
+  return hljs.getLanguage(language)
+    ? hljs.highlight(code, { language }).value
+    : code;
 }
 
 /**
