@@ -78,7 +78,7 @@
     "execa": "^5.0.0",
     "fs-extra": "^10.0.0",
     "git-repo-info": "^2.1.1",
-    "highlight.js": "^10.7.2",
+    "highlight.js": "^11.1.0",
     "hosted-git-info": "^4.0.2",
     "html-entities": "^2.3.2",
     "inflected": "^2.0.3",
