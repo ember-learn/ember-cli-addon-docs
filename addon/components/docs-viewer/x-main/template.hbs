@@ -1,13 +1,11 @@
-{{! template-lint-disable no-unknown-arguments-for-builtin-components }}
 <div data-current-page-index-target>
   {{yield}}
 
   {{#if this.editCurrentPageUrl}}
-    <div class='docs-mt-16 docs-mb-8' data-test-edit-page-link>
+    <div class="docs-mt-16 docs-mb-8" data-test-edit-page-link>
       <a
         href={{this.editCurrentPageUrl}}
-        class='docs-transition docs-text-grey-darkest docs-opacity-50 docs-text-xs
-        hover:docs-opacity-75 docs-no-underline docs-border-b docs-border-grey hover:docs-border-grey-darkest'
+        class="docs-transition docs-text-grey-darkest docs-opacity-50 docs-text-xs hover:docs-opacity-75 docs-no-underline docs-border-b docs-border-grey hover:docs-border-grey-darkest"
       >
         Edit this page
       </a>
@@ -16,35 +14,33 @@
 </div>
 
 <div
-  class='docs-mt-16 docs-pb-16 docs-border-t docs-border-grey-lighter docs-pt-4 docs-flex'
+  class="docs-mt-16 docs-pb-16 docs-border-t docs-border-grey-lighter docs-pt-4 docs-flex"
 >
-  <div class='docs-w-1/2'>
+  <div class="docs-w-1/2">
     {{#if this.docsRoutes.previous}}
-      <div class='docs-text-xs docs-text-grey-dark'>
+      <div class="docs-text-xs docs-text-grey-dark">
         Previous
       </div>
-      <LinkTo
-        class='docs-text-grey-darkest docs-text-large-4 docs-font-light docs-no-underline
-        docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition'
-        @params={{this.docsRoutes.previous.route}}
-      >
+      {{#link-to
+        params=this.docsRoutes.previous.route
+        class="docs-text-grey-darkest docs-text-large-4 docs-font-light docs-no-underline docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition"
+      }}
         {{this.docsRoutes.previous.label}}
-      </LinkTo>
+      {{/link-to}}
     {{/if}}
   </div>
 
-  <div class='docs-w-1/2 docs-text-right' data-test-next-link>
+  <div class="docs-w-1/2 docs-text-right" data-test-next-link>
     {{#if this.docsRoutes.next}}
-      <div class='docs-text-xs docs-text-grey-dark'>
+      <div class="docs-text-xs docs-text-grey-dark">
         Next
       </div>
-      <LinkTo
-        class='docs-text-grey-darkest docs-text-large-4 docs-font-light docs-no-underline
-        docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition'
-        @params={{this.docsRoutes.next.route}}
-      >
+      {{#link-to
+        params=this.docsRoutes.next.route
+        class="docs-text-grey-darkest docs-text-large-4 docs-font-light docs-no-underline docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition"
+      }}
         {{this.docsRoutes.next.label}}
-      </LinkTo>
+      {{/link-to}}
     {{/if}}
   </div>
 </div>
