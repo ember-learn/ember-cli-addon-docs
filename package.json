@@ -112,7 +112,7 @@
     "broccoli-asset-rev": "^3.0.0",
     "chai": "^4.2.0",
     "common-tags": "^1.8.0",
-    "ember-classy-page-object": "rwwagner90/ember-classy-page-object#f4bf85ac96cf76f5c90f48171bb6ae980bd568f6",
+    "ember-classy-page-object": "rwwagner90/ember-classy-page-object#08d305c1cabdb8ede091c4fc7fee86dc4778746d",
     "ember-cli": "~3.28.0",
     "ember-cli-addon-docs-yuidoc": "^1.0.0",
     "ember-cli-blueprint-test-helpers": "^0.19.2",
