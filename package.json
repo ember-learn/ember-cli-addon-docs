@@ -67,7 +67,7 @@
     "ember-keyboard": "^6.0.3",
     "ember-modal-dialog": "^4.0.0-alpha.0",
     "ember-on-modifier": "^1.0.0",
-    "ember-responsive": "^4.0.0",
+    "ember-responsive": "^4.0.2",
     "ember-router-generator": "^2.0.0",
     "ember-router-scroll": "^4.0.2",
     "ember-set-helper": "^2.0.1",
@@ -89,9 +89,9 @@
     "marked": "^0.8.2",
     "pad-start": "^1.0.2",
     "parse-git-config": "^3.0.0",
-    "postcss": "^8.3.5",
+    "postcss": "^8.3.6",
     "postcss-import": "^14.0.0",
-    "postcss-nested": "^5.0.3",
+    "postcss-nested": "^5.0.6",
     "postcss-scss": "^4.0.0",
     "quick-temp": "^0.1.8",
     "resolve": "^1.12.0",
@@ -104,7 +104,7 @@
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.2.8",
-    "@embroider/test-setup": "^0.43.0",
+    "@embroider/test-setup": "^0.44.1",
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
@@ -138,22 +138,22 @@
     "ember-template-lint": "^3.5.0",
     "ember-test-selectors": "^5.0.0",
     "ember-try": "^1.4.0",
-    "eslint": "^7.23.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-ember": "^10.5.0",
+    "eslint-plugin-ember": "^10.5.4",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "loader.js": "^4.7.0",
-    "mocha": "^9.0.1",
+    "mocha": "^9.1.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.2.1",
+    "prettier": "^2.4.0",
     "qunit-dom": "^1.6.0",
     "release-it": "^14.0.2",
     "release-it-lerna-changelog": "^3.1.0"
   },
   "peerDependencies": {
     "ember-data": ">= 3.0.0",
-    "ember-fetch": "^8.0.2"
+    "ember-fetch": "^8.1.1"
   },
   "engines": {
     "node": "12.* || >= 14.*"
