@@ -40,13 +40,13 @@ In addition to authoring normal Markdown content, you can
   Here's an example of an aside.
 </aside>
 
-- Use Handlebars helpers. For example, you can use `<LinkTo/>` to render a link to {{docs-link 'the home page' 'index'}}, or you can even render a component.
+- Use Handlebars helpers. For example, you can use `<LinkTo/>` to render a link to <DocsLink  @route="index">the home page</DocsLink>, or you can even render a component.
 
 ## Design for your audience
 
 The design of your docs site should meet the needs of your users — other busy software developers. It needs to explain what problems your library solves and the principles behind your approach, but also serve as a quick reference for developers who are already familiar with your addon, and are just looking up an API.
 
-We've included a {{docs-link 'Docs Viewer' 'docs.components.docs-viewer'}}  component to help you with your site's design and functionality. The entire layout of the current page comes from this component. It's an opinionated setup intended to be used with a dedicated `docs` route.
+We've included a <DocsLink @route="docs.components.docs-viewer">Docs Viewer</DocsLink>  component to help you with your site's design and functionality. The entire layout of the current page comes from this component. It's an opinionated setup intended to be used with a dedicated `docs` route.
 
 It features the nav area you see on the left and a main area for the content in the middle, with both sections filling up the available height and independently scrollable. This is a nice pattern used by many other online documentation viewers that gives your users easy access to navigation while also letting them focus on individual pieces of content without getting overwhelmed.
 
@@ -64,10 +64,10 @@ If you look at the [`gh-pages`](https://github.com/ember-learn/ember-cli-addon-d
 
 New versions are created when a new tag is released. There is also a `master` version updated on every deployed commit, and a `Latest` alias that points to the most recent tag, unless it is force-updated to point to `master`.
 
-See the next section on {{docs-link 'deploy guides' 'docs.deploying'}} for more information about deploys.
+See the next section on <DocsLink @route="docs.deploying">deploy guides</DocsLink> for more information about deploys.
 
 ## Hosting on GitHub Pages
 
 AddonDocs is built for open-source addons deploying their docs sites to GitHub Pages. Once you have this set up, you can even automate deployment as part of your Travis CI builds.
 
-For more details, see the {{docs-link 'Deploying' 'docs.deploying'}} section of the guides.
+For more details, see the <DocsLink @route='docs.deploying'>Deploying</DocsLink> section of the guides.

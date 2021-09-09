@@ -8,14 +8,14 @@ export default Component.extend({
       <pre class="docs-md__code docs-whitespace-no-wrap">
         <span class="hljs-keyword">import</span>
 
-        {{#if (eq item.exportType "default")}}
-          {{item.name}}
+        {{#if (eq @item.exportType "default")}}
+          {{@item.name}}
         {{else}}
-        { {{item.name}} }
+        { {{@item.name}} }
         {{/if}}
 
         <span class="hljs-keyword">from</span>
-        <span class="hljs-string">'{{item.file}}'</span>;
+        <span class="hljs-string">'{{@item.file}}'</span>;
       </pre>
     </div>
   `,

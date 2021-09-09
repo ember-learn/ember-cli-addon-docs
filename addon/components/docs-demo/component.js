@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import { action, computed } from '@ember/object';
 import { A } from '@ember/array';
@@ -29,10 +28,11 @@ import layout from './template';
   @yield {Component} demo.snippet
   @yield {Component} demo.liveExample
 */
-@classic
+
 @templateLayout(layout)
 @tagName('')
 export default class DocsDemo extends Component {
+  // eslint-disable-next-line ember/classic-decorator-hooks
   init() {
     super.init(...arguments);
 

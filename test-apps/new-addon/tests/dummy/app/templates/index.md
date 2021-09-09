@@ -6,4 +6,4 @@
 
 # Home
 
-Testing a {{docs-link 'link' 'index'}}.
+Testing a <DocsLink @route="index">link</DocsLink>.

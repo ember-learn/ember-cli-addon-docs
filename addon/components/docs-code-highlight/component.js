@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import {
   classNameBindings,
   tagName,
@@ -33,7 +32,6 @@ hljs.registerLanguage('sh', shell);
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('ts', typescript);
 
-@classic
 @tagName('pre')
 @classNameBindings('language')
 @templateLayout(layout)

@@ -4,7 +4,7 @@
   Motivation
 </h2>
 
-<aside>Looking for the quickstart? {{docs-link 'Click here' 'docs.quickstart'}}.</aside>
+<aside>Looking for the quickstart? <DocsLink @route="docs.quickstart">Click here</DocsLink>.</aside>
 
 Documenting software libraries has gotten easier. We have nicely-formatted README.md files, the ability to host custom sites for free on GitHub Pages, and even dedicated tools like [GitBook](https://www.gitbook.com/) and [ReadTheDocs](https://readthedocs.org/). But even though these tools have come a long way, modern developers have high expectations, and library authors can quickly find themselves juggling more tasks than they can manage.
 

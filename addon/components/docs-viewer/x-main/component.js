@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import {
   classNames,
   tagName,
@@ -20,7 +19,6 @@ const tagToIndent = { H2: '0', H3: '4' };
 const tagToMarginTop = { H2: '2', H3: '2' };
 const tagToMarginBottom = { H2: '0', H3: '0' };
 
-@classic
 @templateLayout(layout)
 @tagName('main')
 @classNames(
