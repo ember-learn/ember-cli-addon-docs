@@ -6656,9 +6656,9 @@ ember-maybe-import-regenerator-for-testing@^1.0.0:
     ember-cli-babel "^6.6.0"
     regenerator-runtime "^0.9.5"
 
-ember-modal-dialog@rwwagner90/ember-modal-dialog#5d23489c05f91d55ed5792379121324a704ba061:
+ember-modal-dialog@yapplabs/ember-modal-dialog#8b32b500ab0dd897211318e27c5c79018842956d:
   version "4.0.0-alpha.1"
-  resolved "https://codeload.github.com/rwwagner90/ember-modal-dialog/tar.gz/5d23489c05f91d55ed5792379121324a704ba061"
+  resolved "https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/8b32b500ab0dd897211318e27c5c79018842956d"
   dependencies:
     ember-cli-babel "^7.26.6"
     ember-cli-htmlbars "^5.7.1"
@@ -6880,10 +6880,10 @@ ember-test-selectors@^6.0.0:
     ember-cli-babel "^7.26.4"
     ember-cli-version-checker "^5.1.2"
 
-ember-tether@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ember-tether/-/ember-tether-2.0.0.tgz#4fcb88749e8c11d3795173e96e894089328005b4"
-  integrity sha512-07QCzYE5VZsQ53SQQBDbP47E1s2qs6A9p1q6kOQjca693TVKxz0ZKTAKCXoSXOujG1n92hc1hRdA9rOSoxcBJw==
+ember-tether@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ember-tether/-/ember-tether-2.0.1.tgz#29cab1463c43ebc22c836887b25d9b5106231366"
+  integrity sha512-ECjmFVqo58YK6SmrBW77hmp1wE76n9azl3H6oMvYOXLA4FraOB4xhuk/VCV/XPbG0p1bArKepGjxM8Qbu8g0Lw==
   dependencies:
     ember-auto-import "^1.2.19"
     ember-cli-babel "^7.1.2"

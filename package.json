@@ -32,6 +32,7 @@
   },
   "resolutions": {
     "**/ember-cli-babel": "^7.26.6",
+    "**/ember-tether": "^2.0.1",
     "**/tough-cookie": "~2.4.0"
   },
   "dependencies": {
@@ -65,13 +66,13 @@
     "ember-get-config": "^0.3.0",
     "ember-href-to": "^4.0.0",
     "ember-keyboard": "^6.0.3",
-    "ember-modal-dialog": "rwwagner90/ember-modal-dialog#5d23489c05f91d55ed5792379121324a704ba061",
+    "ember-modal-dialog": "yapplabs/ember-modal-dialog#8b32b500ab0dd897211318e27c5c79018842956d",
     "ember-responsive": "^4.0.2",
     "ember-router-generator": "^2.0.0",
     "ember-router-scroll": "^4.0.2",
     "ember-set-helper": "^2.0.1",
     "ember-svg-jar": "^2.2.3",
-    "ember-tether": "^2.0.0",
+    "ember-tether": "^2.0.1",
     "ember-truth-helpers": "^3.0.0",
     "esm": "^3.2.25",
     "execa": "^5.0.0",

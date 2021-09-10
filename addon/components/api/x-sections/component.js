@@ -4,7 +4,7 @@ import Component from '@ember/component';
 export default Component.extend({
   tagName: '',
   layout: hbs`
-    {{#each-in sections as |sectionName items|}}
+    {{#each-in @sections as |sectionName items|}}
       {{#if items}}
         <section data-test-api-section class="item-section">
           <h2 data-test-section-header={{sectionName}} class="docs-h2">

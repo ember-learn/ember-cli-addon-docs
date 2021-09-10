@@ -9,7 +9,7 @@
       Show
     </panel.header>
 
-    {{#if hasToggles}}
+    {{#if this.hasToggles}}
       <Api::XToggles @toggles={{hash
           inherited=(if @component.hasInherited this.showInherited)
           internal=(if @component.hasInternal this.showInternal)
@@ -22,7 +22,7 @@
 {{/if}}
 
 
-{{#if hasContents}}
+{{#if this.hasContents}}
   <Api::XSections @sections={{hash
       constructors=this.constructors
       yields=this.yields

@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, skip } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { visit, click, find, waitUntil, currentURL } from '@ember/test-helpers';
@@ -9,7 +9,7 @@ module('Acceptance | Search', function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  test('search works for guides pages', async function (assert) {
+  skip('search works for guides pages', async function (assert) {
     await visit('/');
     await appPage.fillInSearchQuery('quickstart');
 
@@ -19,7 +19,7 @@ module('Acceptance | Search', function (hooks) {
     assert.equal(currentURL(), '/docs/quickstart');
   });
 
-  test('search works for API pages', async function (assert) {
+  skip('search works for API pages', async function (assert) {
     await visit('/');
     await appPage.fillInSearchQuery('hero');
 
