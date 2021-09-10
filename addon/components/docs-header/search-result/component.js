@@ -44,7 +44,7 @@ export default Component.extend({
     'result.model.routingId',
     function () {
       let type = this.get('result.document.type');
-      debugger;
+
       return type === 'template'
         ? this.get('result.document.route')
         : 'docs.api.item';
