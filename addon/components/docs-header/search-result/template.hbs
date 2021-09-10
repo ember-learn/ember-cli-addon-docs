@@ -1,67 +1,33 @@
+{{! template-lint-disable no-unknown-arguments-for-builtin-components }}
 <div {{on 'click' this.onClick}} {{on 'mouseenter' this.onMouseEnter}}>
-  {{! No idea why LinkTo does not work correctly here. Passing anything, even undefined, to model breaks things }}
-  {{#if this.model}}
-    <LinkTo
-      class={{
-        concat
-        'docs-block docs-py-2 docs-px-3 docs-text-black docs-no-underline hover:docs-bg-grey-lighter '
-        (if @selected 'docs-bg-grey-lighter')
+  <LinkTo
+    class={{
+      concat
+      'docs-block docs-py-2 docs-px-3 docs-text-black docs-no-underline hover:docs-bg-grey-lighter '
+      (if @selected 'docs-bg-grey-lighter')
+    }}
+    @params={{this.linkArgs}}
+  >
+    <div class='docs-flex docs-items-center'>
+      {{svg-jar
+        this.icon
+        height=28
+        width=28
+        class='docs-mr-2 docs-flex-no-shrink'
       }}
-      @model={{this.model}}
-      @route={{this.route}}
-    >
-      <div class='docs-flex docs-items-center'>
-        {{svg-jar
-          this.icon
-          height=28
-          width=28
-          class='docs-mr-2 docs-flex-no-shrink'
-        }}
-        <span class='docs-truncate'>
-          {{#if this.titleMatchesQuery}}
-            {{{this.highlightedTitle}}}
-          {{else}}
-            {{this.result.document.title}}
-          {{/if}}
-        </span>
-      </div>
+      <span class='docs-truncate'>
+        {{#if this.titleMatchesQuery}}
+          {{{this.highlightedTitle}}}
+        {{else}}
+          {{this.result.document.title}}
+        {{/if}}
+      </span>
+    </div>
 
-      {{#if (not this.titleMatchesQuery)}}
-        <small class='docs-text-grey-dark docs-inline-block'>
-          {{{this.bestMatch}}}
-        </small>
-      {{/if}}
-    </LinkTo>
-  {{else}}
-    <LinkTo
-      class={{
-        concat
-        'docs-block docs-py-2 docs-px-3 docs-text-black docs-no-underline hover:docs-bg-grey-lighter '
-        (if @selected 'docs-bg-grey-lighter')
-      }}
-      @route={{this.route}}
-    >
-      <div class='docs-flex docs-items-center'>
-        {{svg-jar
-          this.icon
-          height=28
-          width=28
-          class='docs-mr-2 docs-flex-no-shrink'
-        }}
-        <span class='docs-truncate'>
-          {{#if this.titleMatchesQuery}}
-            {{{this.highlightedTitle}}}
-          {{else}}
-            {{this.result.document.title}}
-          {{/if}}
-        </span>
-      </div>
-
-      {{#if (not this.titleMatchesQuery)}}
-        <small class='docs-text-grey-dark docs-inline-block'>
-          {{{this.bestMatch}}}
-        </small>
-      {{/if}}
-    </LinkTo>
-  {{/if}}
+    {{#if (not this.titleMatchesQuery)}}
+      <small class='docs-text-grey-dark docs-inline-block'>
+        {{{this.bestMatch}}}
+      </small>
+    {{/if}}
+  </LinkTo>
 </div>

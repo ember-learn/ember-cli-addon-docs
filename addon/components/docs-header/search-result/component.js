@@ -21,33 +21,8 @@ export default Component.extend({
       } else {
         args = ['docs.api.item', this.get('result.model.routingId')];
       }
+
       return args;
-    }
-  ),
-
-  model: computed(
-    'result.document.{route,type}',
-    'result.model.routingId',
-    function () {
-      let type = this.get('result.document.type');
-
-      if (type !== 'template') {
-        return this.get('result.model.routingId');
-      }
-
-      return undefined;
-    }
-  ),
-
-  route: computed(
-    'result.document.{route,type}',
-    'result.model.routingId',
-    function () {
-      let type = this.get('result.document.type');
-
-      return type === 'template'
-        ? this.get('result.document.route')
-        : 'docs.api.item';
     }
   ),
 

@@ -23,6 +23,7 @@
     "ember-cli-babel": "*"
   },
   "devDependencies": {
+    "@ember/test-helpers": "*",
     "ember-cli-addon-docs": "*",
     "ember-cli-addon-docs-yuidoc": "*",
     "broccoli-asset-rev": "*",
@@ -47,6 +48,7 @@
     "eslint-plugin-ember": "*",
     "eslint-plugin-node": "*",
     "loader.js": "*",
+    "qunit": "*",
     "qunit-dom": "*"
   },
   "engines": {
