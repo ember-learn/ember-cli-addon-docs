@@ -1,3 +1,4 @@
+{{! template-lint-disable no-unknown-arguments-for-builtin-components }}
 <div data-current-page-index-target>
   {{yield}}
 
@@ -25,7 +26,7 @@
       <LinkTo
         class='docs-text-grey-darkest docs-text-large-4 docs-font-light docs-no-underline
         docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition'
-        @route={{get this.docsRoutes.previous.route "0"}}
+        @params={{this.docsRoutes.previous.route}}
       >
         {{this.docsRoutes.previous.label}}
       </LinkTo>
@@ -40,7 +41,7 @@
       <LinkTo
         class='docs-text-grey-darkest docs-text-large-4 docs-font-light docs-no-underline
         docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition'
-        @route={{get this.docsRoutes.next.route "0"}}
+        @params={{this.docsRoutes.next.route}}
       >
         {{this.docsRoutes.next.label}}
       </LinkTo>
