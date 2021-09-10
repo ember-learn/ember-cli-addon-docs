@@ -67,7 +67,7 @@
     "ember-get-config": "^0.3.0",
     "ember-href-to": "^4.0.0",
     "ember-keyboard": "^6.0.3",
-    "ember-modal-dialog": "yapplabs/ember-modal-dialog#8b32b500ab0dd897211318e27c5c79018842956d",
+    "ember-modal-dialog": "rwwagner90/ember-modal-dialog#b2a4f386fe7483ddb5533b152980ae20e2058af9",
     "ember-responsive": "^4.0.2",
     "ember-router-generator": "^2.0.0",
     "ember-router-scroll": "^4.0.2",
