@@ -2,7 +2,6 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import layout from './template';
 import { reads } from '@ember/object/computed';
-// import config from 'ember-get-config';
 import { computed } from '@ember/object';
 import { A } from '@ember/array';
 import { getOwner } from '@ember/application';
@@ -10,27 +9,20 @@ import { getOwner } from '@ember/application';
 // const { latestVersionName, primaryBranch } = config['ember-cli-addon-docs'];
 //
 export default Component.extend({
+  projectVersion: service(),
+
   layout,
 
-  latestVersionName: computed(function () {
-    let config =
+  init() {
+    this._super(...arguments);
+    const config =
       getOwner(this).resolveRegistration('config:environment')[
         'ember-cli-addon-docs'
       ];
+    this.set('latestVersionName', config.latestVersionName);
+    this.set('primaryBranch', config.primaryBranch);
+  },
 
-    return config.latestVersionName;
-  }),
-
-  primaryBranch: computed(function () {
-    let config =
-      getOwner(this).resolveRegistration('config:environment')[
-        'ember-cli-addon-docs'
-      ];
-
-    return config.primaryBranch;
-  }),
-
-  projectVersion: service(),
   'on-close'() {},
 
   currentVersion: reads('projectVersion.currentVersion'),
