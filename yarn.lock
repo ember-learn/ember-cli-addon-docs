@@ -1352,12 +1352,12 @@
     ember-cli-babel "^7.22.1"
     ember-compatibility-helpers "^1.1.1"
 
-"@ember/render-modifiers@^1.0.1":
+"@ember/render-modifiers@^1.0.1", "@ember/render-modifiers@cibernox/ember-render-modifiers#e3574ed03409ef7a048d7716b8bea361ed6cd6e2":
   version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@ember/render-modifiers/-/render-modifiers-1.0.2.tgz#2e87c48db49d922ce4850d707215caaac60d8444"
-  integrity sha512-6tEnHl5+62NTSAG2mwhGMFPhUrJQjoVqV+slsn+rlTknm2Zik+iwxBQEbwaiQOU1FUYxkS8RWcieovRNMR8inQ==
+  resolved "https://codeload.github.com/cibernox/ember-render-modifiers/tar.gz/e3574ed03409ef7a048d7716b8bea361ed6cd6e2"
   dependencies:
     ember-cli-babel "^7.10.0"
+    ember-compatibility-helpers "^1.2.4"
     ember-modifier-manager-polyfill "^1.1.0"
 
 "@ember/string@^1.0.0":
