@@ -6169,7 +6169,7 @@ ember-cli-lodash-subset@^2.0.1:
   resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-2.0.1.tgz#20cb68a790fe0fde2488ddfd8efbb7df6fe766f2"
   integrity sha1-IMtop5D+D94kiN39jvu332/nZvI=
 
-ember-cli-mirage@^2.0.0:
+ember-cli-mirage@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/ember-cli-mirage/-/ember-cli-mirage-2.2.0.tgz#38f4ec02536dd50ecdb265da2abbf7986d66b091"
   integrity sha512-w+DrFEGuuLyHzJwOVkG0yOLvgwYezaMBNvvZJQzQkv1W3CsdhllkY1ZauYgL0dhrmYJwRFtp8DnaPQwBTDCSfA==
@@ -6694,8 +6694,6 @@ ember-modal-dialog@rwwagner90/ember-modal-dialog#012e8772a5581fbf318606b769b8890
   version "4.0.0-alpha.1"
   resolved "https://codeload.github.com/rwwagner90/ember-modal-dialog/tar.gz/012e8772a5581fbf318606b769b88908cdceba2e"
   dependencies:
-    "@embroider/macros" "^0.43.5"
-    "@embroider/util" "^0.43.5"
     ember-cli-babel "^7.26.6"
     ember-cli-htmlbars "^5.7.1"
     ember-cli-version-checker "^2.1.0"
