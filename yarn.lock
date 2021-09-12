@@ -1454,19 +1454,7 @@
     resolve "^1.8.1"
     semver "^7.3.2"
 
-"@embroider/macros@^0.40.0":
-  version "0.40.0"
-  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-0.40.0.tgz#f58763b4cfb9b4089679b478a28627595341bc5a"
-  integrity sha512-ygChvFoebSi/N8b+A+XFncd454gLYBYHancrtY0AE/h6Y1HouoqQvji/IfaLisGoeuwUWuI9rCBv97COweu/rA==
-  dependencies:
-    "@embroider/shared-internals" "0.40.0"
-    assert-never "^1.1.0"
-    ember-cli-babel "^7.23.0"
-    lodash "^4.17.10"
-    resolve "^1.8.1"
-    semver "^7.3.2"
-
-"@embroider/macros@^0.43.5":
+"@embroider/macros@0.43.5", "@embroider/macros@^0.43.5":
   version "0.43.5"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-0.43.5.tgz#f846bb883482436611a58a3512c687d4f9fddfad"
   integrity sha512-WmLa0T3dyG2XyN5Gr7k1RINDirFzAzh6CRvykRMcuahq1rCrav8ADrWgQzKpPWxdR6DgQCuoyimopJhLbYOpgQ==
@@ -1477,6 +1465,18 @@
     find-up "^5.0.0"
     lodash "^4.17.21"
     resolve "^1.20.0"
+    semver "^7.3.2"
+
+"@embroider/macros@^0.40.0":
+  version "0.40.0"
+  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-0.40.0.tgz#f58763b4cfb9b4089679b478a28627595341bc5a"
+  integrity sha512-ygChvFoebSi/N8b+A+XFncd454gLYBYHancrtY0AE/h6Y1HouoqQvji/IfaLisGoeuwUWuI9rCBv97COweu/rA==
+  dependencies:
+    "@embroider/shared-internals" "0.40.0"
+    assert-never "^1.1.0"
+    ember-cli-babel "^7.23.0"
+    lodash "^4.17.10"
+    resolve "^1.8.1"
     semver "^7.3.2"
 
 "@embroider/shared-internals@0.40.0":
@@ -1511,6 +1511,15 @@
   dependencies:
     lodash "^4.17.21"
     resolve "^1.20.0"
+
+"@embroider/util@^0.43.5":
+  version "0.43.5"
+  resolved "https://registry.yarnpkg.com/@embroider/util/-/util-0.43.5.tgz#d3acc98b3f92fbb26fa9265cff4f245ca8e6b61e"
+  integrity sha512-jSIYx671RB957jbhh4T4kN3StTyA/Q+XReRlYIqgJmUW/u5+UEreqtXASSVKY6mJdPTjXY3zn1EY0vZKMbj9gw==
+  dependencies:
+    "@embroider/macros" "0.43.5"
+    broccoli-funnel "^3.0.5"
+    ember-cli-babel "^7.23.1"
 
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
@@ -6681,11 +6690,12 @@ ember-maybe-import-regenerator-for-testing@^1.0.0:
     ember-cli-babel "^6.6.0"
     regenerator-runtime "^0.9.5"
 
-ember-modal-dialog@rwwagner90/ember-modal-dialog#d62d07f587a5f6f5f9c72eff8d8e119f7f1c6bc7:
+ember-modal-dialog@rwwagner90/ember-modal-dialog#012e8772a5581fbf318606b769b88908cdceba2e:
   version "4.0.0-alpha.1"
-  resolved "https://codeload.github.com/rwwagner90/ember-modal-dialog/tar.gz/d62d07f587a5f6f5f9c72eff8d8e119f7f1c6bc7"
+  resolved "https://codeload.github.com/rwwagner90/ember-modal-dialog/tar.gz/012e8772a5581fbf318606b769b88908cdceba2e"
   dependencies:
     "@embroider/macros" "^0.43.5"
+    "@embroider/util" "^0.43.5"
     ember-cli-babel "^7.26.6"
     ember-cli-htmlbars "^5.7.1"
     ember-cli-version-checker "^2.1.0"
