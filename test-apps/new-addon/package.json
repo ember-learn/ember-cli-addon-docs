@@ -20,7 +20,8 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "*"
+    "ember-cli-babel": "*",
+    "ember-auto-import": "*"
   },
   "devDependencies": {
     "@ember/test-helpers": "*",
@@ -49,7 +50,8 @@
     "eslint-plugin-node": "*",
     "loader.js": "*",
     "qunit": "*",
-    "qunit-dom": "*"
+    "qunit-dom": "*",
+    "webpack": "*"
   },
   "engines": {
     "node": "12.* || >= 14.*"
