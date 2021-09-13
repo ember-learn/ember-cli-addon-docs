@@ -51,7 +51,7 @@
     "broccoli-source": "^3.0.0",
     "broccoli-stew": "^3.0.0",
     "chalk": "^4.1.0",
-    "ember-auto-import": "^1.11.3",
+    "ember-auto-import": "^2.2.0",
     "ember-cli-autoprefixer": "^1.0.2",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-clipboard": "jkusa/ember-cli-clipboard#e27143fe91c486baa4fe2abf654f73ef594b5216",
