@@ -32,13 +32,12 @@
   },
   "resolutions": {
     "**/ember-cli-babel": "^7.26.6",
-    "**/@ember/string": "^3.0.0",
     "**/@ember/render-modifiers": "cibernox/ember-render-modifiers#e3574ed03409ef7a048d7716b8bea361ed6cd6e2",
-    "**/ember-tether": "^2.0.1",
-    "**/tough-cookie": "~2.4.0"
+    "**/ember-tether": "^2.0.1"
   },
   "dependencies": {
     "@csstools/postcss-sass": "^4.0.0",
+    "@ember/render-modifiers": "cibernox/ember-render-modifiers#e3574ed03409ef7a048d7716b8bea361ed6cd6e2",
     "@glimmer/syntax": "^0.80.0",
     "broccoli-bridge": "^1.0.0",
     "broccoli-caching-writer": "^3.0.3",
