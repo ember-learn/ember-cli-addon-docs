@@ -12,7 +12,7 @@ All snippets must have a globally unique name.
 
 Note that the block-form of `DocsSnippet` won't actually execute your template code, it will just capture the static code and render the snippet. Think of it like Markdown code fences that you can use in your Handlebars templates.
 
-If you want the code to actually render and also show the snippet, check out the {{docs-link 'Docs Demo component' 'docs.components.docs-demo'}}.
+If you want the code to actually render and also show the snippet, check out the <DocsLink  @route="docs.components.docs-demo">Docs Demo component</DocsLink>.
 
 ## JavaScript and CSS
 

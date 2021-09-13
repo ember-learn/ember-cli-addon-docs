@@ -1,7 +1,7 @@
-{{#if model.isComponent}}
-  {{api/x-component component=model}}
-{{else if model.isClass}}
-  {{api/x-class class=model}}
+{{#if this.model.isComponent}}
+  <Api::XComponent @component={{this.model}} />
+{{else if this.model.isClass}}
+  <Api::XClass @class={{this.model}} />
 {{else}}
-  {{api/x-module module=model}}
+  <Api::XModule @module={{this.model}} />
 {{/if}}

@@ -11,7 +11,7 @@
       </span>
     {{/if}}
 
-    {{#if (or @item.isClass item.isComponent)}}
+    {{#if (or @item.isClass @item.isComponent)}}
       <LinkTo @route="docs.api.item" @model={{concat "modules/" @item.id}} class="hover:underline">
         <strong>{{@item.name}}</strong>
       </LinkTo>

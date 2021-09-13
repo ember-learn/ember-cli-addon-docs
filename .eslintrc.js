@@ -45,24 +45,18 @@ module.exports = {
     // node files
     {
       files: [
-        '.eslintrc.js',
-        '.prettierrc.js',
-        '.template-lintrc.js',
-        'ember-cli-build.js',
-        'addon/styles/tailwind.js',
-        'index.js',
-        'testem.js',
-        'blueprints/*/index.js',
-        'config/**/*.js',
-        'lib/**/*.js',
-        'tests/dummy/config/**/*.js',
-        'tests-node/**/*.js',
-      ],
-      excludedFiles: [
-        'addon/**',
-        'addon-test-support/**',
-        'app/**',
-        'tests/dummy/app/**',
+        './.eslintrc.js',
+        './.prettierrc.js',
+        './.template-lintrc.js',
+        './ember-cli-build.js',
+        './index.js',
+        './testem.js',
+        './addon/styles/tailwind.js',
+        './blueprints/*/index.js',
+        './config/**/*.js',
+        './lib/**/*.js',
+        './tests/dummy/config/**/*.js',
+        './tests-node/**/*.js',
       ],
       parserOptions: {
         sourceType: 'script',
@@ -74,7 +68,6 @@ module.exports = {
       plugins: ['node'],
       extends: ['plugin:node/recommended'],
     },
-
     // node test files
     {
       globals: {
@@ -87,6 +80,11 @@ module.exports = {
       rules: {
         'node/no-unpublished-require': 'off',
       },
+    },
+    {
+      // Test files:
+      files: ['tests/**/*-test.{js,ts}'],
+      extends: ['plugin:qunit/recommended'],
     },
   ],
 };

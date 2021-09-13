@@ -13,7 +13,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
       type: 'string',
     });
 
-    await render(hbs`{{type-signature item}}`);
+    await render(hbs`{{type-signature this.item}}`);
 
     assert.equal(this.element.innerText, 'get foo: string');
   });
@@ -25,12 +25,12 @@ module('Integration | Helpers | type-signature', function (hooks) {
       type: 'string',
     });
 
-    await render(hbs`{{type-signature item}}`);
+    await render(hbs`{{type-signature this.item}}`);
 
     assert.equal(this.element.innerText, 'set foo: string');
   });
 
-  test('renders a simple getter signature', async function (assert) {
+  test('renders a simple getter/setter signature', async function (assert) {
     this.set('item', {
       name: 'foo',
       hasGetter: true,
@@ -38,7 +38,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
       type: 'string',
     });
 
-    await render(hbs`{{type-signature item}}`);
+    await render(hbs`{{type-signature this.item}}`);
 
     assert.equal(this.element.innerText, 'get/set foo: string');
   });
@@ -46,7 +46,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
   test('renders a simple variable', async function (assert) {
     this.set('item', { name: 'foo', type: 'string' });
 
-    await render(hbs`{{type-signature item}}`);
+    await render(hbs`{{type-signature this.item}}`);
 
     assert.equal(this.element.innerText, 'foo: string');
   });
@@ -54,7 +54,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
   test('renders a simple function signature', async function (assert) {
     this.set('item', { name: 'foo', params: [], returns: { type: 'string' } });
 
-    await render(hbs`{{type-signature item}}`);
+    await render(hbs`{{type-signature this.item}}`);
 
     assert.equal(this.element.innerText, 'foo(): string');
   });
@@ -67,7 +67,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
       access: 'private',
     });
 
-    await render(hbs`{{type-signature item}}`);
+    await render(hbs`{{type-signature this.item}}`);
 
     assert.equal(this.element.innerText, 'private static foo: string');
   });
@@ -82,7 +82,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
       ],
     });
 
-    await render(hbs`{{type-signature item}}`);
+    await render(hbs`{{type-signature this.item}}`);
 
     assert.equal(
       this.element.innerText,
@@ -98,7 +98,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
       returns: { type: 'T' },
     });
 
-    await render(hbs`{{type-signature item}}`);
+    await render(hbs`{{type-signature this.item}}`);
 
     assert.equal(
       this.element.innerText,
@@ -122,7 +122,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
       ],
     });
 
-    await render(hbs`{{type-signature item}}`);
+    await render(hbs`{{type-signature this.item}}`);
 
     assert.equal(
       this.element.innerText,

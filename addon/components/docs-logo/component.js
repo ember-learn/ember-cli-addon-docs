@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { tagName, layout as templateLayout } from '@ember-decorators/component';
 import { equal } from '@ember/object/computed';
 import { assert } from '@ember/debug';
@@ -11,7 +10,7 @@ import layout from './template';
   @class DocsLogo
   @public
 */
-@classic
+
 @templateLayout(layout)
 @tagName('')
 export default class DocsLogo extends Component {
@@ -29,6 +28,15 @@ export default class DocsLogo extends Component {
   */
   logo = 'ember';
 
+  @equal('logo', 'ember')
+  showEmber;
+
+  @equal('logo', 'ember-cli')
+  showEmberCli;
+
+  @equal('logo', 'ember-data')
+  showEmberData;
+
   didReceiveAttrs() {
     super.didReceiveAttrs(...arguments);
 
@@ -39,13 +47,4 @@ export default class DocsLogo extends Component {
       validLogos.includes(logo)
     );
   }
-
-  @equal('logo', 'ember')
-  showEmber;
-
-  @equal('logo', 'ember-cli')
-  showEmberCli;
-
-  @equal('logo', 'ember-data')
-  showEmberData;
 }

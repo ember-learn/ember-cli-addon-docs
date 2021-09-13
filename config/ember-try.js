@@ -8,18 +8,18 @@ module.exports = async function () {
     useYarn: true,
     scenarios: [
       {
-        name: 'ember-lts-3.16',
-        npm: {
-          devDependencies: {
-            'ember-source': '~3.16.0',
-          },
-        },
-      },
-      {
         name: 'ember-lts-3.20',
         npm: {
           devDependencies: {
             'ember-source': '~3.20.5',
+          },
+        },
+      },
+      {
+        name: 'ember-lts-3.24',
+        npm: {
+          devDependencies: {
+            'ember-source': '~3.24.3',
           },
         },
       },
@@ -77,14 +77,6 @@ module.exports = async function () {
       },
       embroiderSafe(),
       embroiderOptimized(),
-      {
-        name: 'ember-concurrency-2.x',
-        npm: {
-          dependencies: {
-            'ember-concurrency': '^2.0.0',
-          },
-        },
-      },
     ],
   };
 };

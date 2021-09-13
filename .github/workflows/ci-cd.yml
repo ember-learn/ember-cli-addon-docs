@@ -123,14 +123,15 @@ jobs:
       fail-fast: true
       matrix:
         scenario:
-          - 'ember-lts-3.16'
           - 'ember-lts-3.20'
+          - 'ember-lts-3.24'
           - 'ember-release'
           - 'ember-beta'
           - 'ember-canary'
           - 'ember-default-with-jquery'
           - 'ember-classic'
-          - 'ember-concurrency-2.x'
+          # - 'embroider-safe'
+          # - 'embroider-optimized'
     timeout-minutes: 7
     steps:
       - name: Check out a copy of the repo

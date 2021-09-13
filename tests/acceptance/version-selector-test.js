@@ -2,11 +2,16 @@ import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { visit, click } from '@ember/test-helpers';
-import config from 'ember-get-config';
+
+let config;
 
 module('Acceptance | Version selector test', function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
+
+  hooks.beforeEach(async function () {
+    config = this.owner.resolveRegistration('config:environment');
+  });
 
   test('if the current version is latest and latest has a tag, it displays the tag', async function (assert) {
     this.owner.lookup('service:project-version').set('currentVersion', {
