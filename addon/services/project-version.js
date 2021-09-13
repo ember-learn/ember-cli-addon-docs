@@ -3,7 +3,6 @@ import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
 import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
-import { assign } from '@ember/polyfills';
 import fetch from 'fetch';
 
 const { latestVersionName } = config['ember-cli-addon-docs'];
@@ -15,7 +14,7 @@ export default Service.extend({
     if (response.ok) {
       json = yield response.json();
     } else {
-      json = { [latestVersionName]: assign({}, this.currentVersion) };
+      json = { [latestVersionName]: Object.assign({}, this.currentVersion) };
     }
 
     this.set(
