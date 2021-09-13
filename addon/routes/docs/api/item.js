@@ -1,7 +1,10 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 import { assert } from '@ember/debug';
 
-export default Route.extend({
+export default class DocsApiRoute extends Route {
+  @service store;
+
   model({ path }) {
     let item;
 
@@ -43,5 +46,5 @@ export default Route.extend({
     assert(`item not found for path '${path}'`, item);
 
     return item;
-  },
-});
+  }
+}
