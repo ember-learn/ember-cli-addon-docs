@@ -1,29 +1,45 @@
-import { module, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
-import { visit, click, find, waitUntil, currentURL } from '@ember/test-helpers';
-
-import appPage from '../pages/app';
+import {
+  click,
+  currentURL,
+  fillIn,
+  find,
+  findAll,
+  visit,
+  waitUntil,
+} from '@ember/test-helpers';
 
 module('Acceptance | Search', function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  skip('search works for guides pages', async function (assert) {
+  test('search works for guides pages', async function (assert) {
     await visit('/');
-    await appPage.fillInSearchQuery('quickstart');
+    await fillIn('[data-test-search-box-input]', 'quickstart');
 
-    await waitUntil(() => appPage.searchResults.items.length > 0);
+    await waitUntil(
+      function () {
+        return findAll('[data-test-search-result]').length > 0;
+      },
+      { timeout: 2000 }
+    );
 
     await click(find('[data-test-search-result] a'));
     assert.equal(currentURL(), '/docs/quickstart');
   });
 
-  skip('search works for API pages', async function (assert) {
+  test('search works for API pages', async function (assert) {
     await visit('/');
-    await appPage.fillInSearchQuery('hero');
+    await fillIn('[data-test-search-box-input]', 'hero');
 
-    await waitUntil(() => appPage.searchResults.items.length > 0);
+    await waitUntil(
+      function () {
+        return findAll('[data-test-search-result]').length > 0;
+      },
+      { timeout: 2000 }
+    );
 
     await click(find('[data-test-search-result] a'));
     assert.equal(currentURL(), '/docs/api/components/docs-hero');

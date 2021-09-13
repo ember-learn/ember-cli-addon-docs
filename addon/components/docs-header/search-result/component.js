@@ -132,6 +132,4 @@ export default Component.extend({
       start + length
     )}</span>${text.slice(start + length)}`;
   },
-
-  'data-test-search-result': true,
 });
