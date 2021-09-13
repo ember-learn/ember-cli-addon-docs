@@ -1,4 +1,4 @@
-{{#if @media.isMobile}}
+{{#if this.media.isMobile}}
   <div class="docs-text-right docs-px-4 md:docs-px-6 docs-mt-4">
     <button {{on "click" (toggle "isShowingMenu" this)}}
       class="docs-text-grey-darkest docs-py-2 docs-text-xs docs-rounded docs-uppercase docs-font-medium">
@@ -12,13 +12,13 @@
     class="
       docs-absolute docs-right-0 md:docs-relative docs-shadow-lg md:docs-shadow-none docs-mr-2 md:docs-mr-0 md:docs-pl-2
       docs-max-w-xs docs-w-90% md:docs-w-72 docs-z-10 docs-transition md:docs-sticky md:docs-top-0
-      {{if @media.isMobile
-        (if @isShowingMenu "docs-opacity-100 docs-bg-white" "docs-opacity-0 docs-pointer-events-none")
+      {{if this.media.isMobile
+        (if this.isShowingMenu "docs-opacity-100 docs-bg-white" "docs-opacity-0 docs-pointer-events-none")
       }}
     ">
     <div class="docs-pt-px docs-mb-8 docs-px-3 md:docs-px-4 md:docs-max-h-screen md:docs-overflow-y-scroll">
-      {{#if @media.isMobile}}
-        <div class="docs-text-right">
+      {{#if this.media.isMobile}}
+        <div class="absolute top-0 docs-text-right right-4">
           <button onclick={{set this "isShowingMenu" false}}
             class="docs-text-grey-darkest docs-opacity-50 hover:docs-opacity-100 docs-text-large-5 docs-py-2 docs-no-underline">
             &times;
@@ -38,8 +38,7 @@
 
       <div class="docs-mt-16 lg:docs-mb-16 docs-mr-2 docs-text-xxs docs-rounded">
         <a href="https://github.com/ember-learn/ember-cli-addon-docs"
-          class="docs-opacity-50 hover:docs-opacity-100 docs-transition docs-no-underline
-          docs-text-inherit docs-flex docs-items-center docs-text-grey-darkest">
+          class="docs-opacity-50 hover:docs-opacity-100 docs-transition docs-no-underline docs-text-inherit docs-flex docs-items-center docs-text-grey-darkest">
           {{svg-jar "addon-docs-pen" width=22 height=16 class="docs-mr-2"}}
           <div>
             Powered by

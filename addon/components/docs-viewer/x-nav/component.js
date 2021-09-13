@@ -15,6 +15,7 @@ export default Component.extend({
   root: 'docs',
 
   store: service(),
+  media: service(),
 
   addonLogo: addonLogo(projectName),
 
