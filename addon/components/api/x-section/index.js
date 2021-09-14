@@ -1,6 +1,8 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { getOwner } from '@ember/application';
+import config from 'ember-get-config';
+
+const { showImportPaths } = config['ember-cli-addon-docs'];
 
 /**
   @class Api/XSection
@@ -9,17 +11,7 @@ import { getOwner } from '@ember/application';
 export default Component.extend({
   tagName: '',
 
-  init() {
-    this._super(...arguments);
-
-    const config =
-      getOwner(this).resolveRegistration('config:environment')[
-        'ember-cli-addon-docs'
-      ];
-    const { showImportPaths } = config;
-
-    this.set('showImportPaths', showImportPaths);
-  },
+  showImportPaths,
 
   /**
    * Params shouldn't be displayed when there are no descriptions and no subparams,

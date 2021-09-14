@@ -1,12 +1,16 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { getOwner } from '@ember/application';
 import { or } from '@ember/object/computed';
 import { capitalize } from '@ember/string';
 import { memberFilter } from '../../../utils/computed';
+import config from 'ember-get-config';
+
+const { showImportPaths } = config['ember-cli-addon-docs'];
 
 export default Component.extend({
   tagName: '',
+
+  showImportPaths,
 
   showInherited: false,
   showProtected: false,
@@ -35,18 +39,6 @@ export default Component.extend({
       );
     },
   }),
-
-  init() {
-    this._super(...arguments);
-
-    const config =
-      getOwner(this).resolveRegistration('config:environment')[
-        'ember-cli-addon-docs'
-      ];
-    const { showImportPaths } = config;
-
-    this.set('showImportPaths', showImportPaths);
-  },
 
   actions: {
     updateFilter(filter, { target: { checked } }) {

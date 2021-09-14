@@ -2,29 +2,19 @@ import Service from '@ember/service';
 import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';
 import { task } from 'ember-concurrency';
+import config from 'ember-get-config';
 import fetch from 'fetch';
 
+const { latestVersionName } = config['ember-cli-addon-docs'];
+
 export default Service.extend({
-  init() {
-    this._super(...arguments);
-
-    const config =
-      getOwner(this).resolveRegistration('config:environment')[
-        'ember-cli-addon-docs'
-      ];
-    const { deployVersion, latestVersionName, projectTag } = config;
-
-    this.setProperties({ deployVersion, latestVersionName, projectTag });
-  },
   _loadAvailableVersions: task(function* () {
     let response = yield fetch(`${this.root}versions.json`);
     let json;
     if (response.ok) {
       json = yield response.json();
     } else {
-      json = {
-        [this.latestVersionName]: Object.assign({}, this.currentVersion),
-      };
+      json = { [latestVersionName]: Object.assign({}, this.currentVersion) };
     }
 
     this.set(
@@ -53,16 +43,20 @@ export default Service.extend({
     return rootURL.replace(`/${this.get('currentVersion.path')}/`, '/');
   }),
 
-  currentVersion: computed('deployVersion', 'latestVersionName', 'projectTag', {
+  currentVersion: computed({
     get() {
-      let currentVersion = this.deployVersion;
+      let config =
+        getOwner(this).resolveRegistration('config:environment')[
+          'ember-cli-addon-docs'
+        ];
+      let currentVersion = config.deployVersion;
 
       // In development, this token won't have been replaced replaced
       if (currentVersion === 'ADDON_DOCS_DEPLOY_VERSION') {
         currentVersion = {
-          key: this.latestVersionName,
-          name: this.latestVersionName,
-          tag: this.projectTag,
+          key: latestVersionName,
+          name: latestVersionName,
+          tag: config.projectTag,
           path: '',
           sha: 'abcde',
         };
