@@ -1,1 +1,1 @@
-export { default } from 'ember-cli-addon-docs/components/x-snippet';
+export { default } from 'ember-cli-addon-docs/components/docs-demo/x-snippet';

@@ -1,1 +1,1 @@
-export { default } from 'ember-cli-addon-docs/components/x-meta-panel/header';
+export { default } from 'ember-cli-addon-docs/components/api/x-meta-panel/header';

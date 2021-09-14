@@ -11,7 +11,7 @@ export default class AddonDocsAdapter extends Adapter {
         'ember-cli-addon-docs'
       ];
 
-    const rootURL = config?.rootURL ?? '/';
+    const rootURL = config?.rootURL ?? '';
 
     return `${rootURL.replace(/\/$/, '')}/docs`;
   }

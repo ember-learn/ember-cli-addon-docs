@@ -1,1 +1,1 @@
-export { default } from 'ember-cli-addon-docs/components/x-import-path';
+export { default } from 'ember-cli-addon-docs/components/api/x-import-path';

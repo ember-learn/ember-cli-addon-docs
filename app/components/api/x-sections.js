@@ -1,1 +1,1 @@
-export { default } from 'ember-cli-addon-docs/components/x-sections';
+export { default } from 'ember-cli-addon-docs/components/api/x-sections';
