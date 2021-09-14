@@ -1,10 +1,18 @@
 import Adapter from '@ember-data/adapter';
-import config from 'ember-get-config';
+import { getOwner } from '@ember/application';
 import fetch from 'fetch';
 
 export default Adapter.extend({
   defaultSerializer: '-addon-docs',
-  namespace: `${config.rootURL.replace(/\/$/, '')}/docs`,
+
+  init() {
+    this._super(...arguments);
+    const config =
+      getOwner(this).resolveRegistration('config:environment')[
+        'ember-cli-addon-docs'
+      ];
+    this.set('namespace', `${config.rootURL.replace(/\/$/, '')}/docs`);
+  },
 
   shouldBackgroundReloadAll() {
     return false;

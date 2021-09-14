@@ -1,18 +1,32 @@
 import Service from '@ember/service';
 import { getOwner } from '@ember/application';
-import { computed } from '@ember/object';
 import lunr from 'lunr';
-import config from 'ember-get-config';
 import fetch from 'fetch';
 
 const { Index, Query } = lunr;
 
 export default Service.extend({
+  init() {
+    this._super(...arguments);
+
+    const config =
+      getOwner(this).resolveRegistration('config:environment')[
+        'ember-cli-addon-docs'
+      ];
+
+    this.set(
+      '_indexURL',
+      `${config.rootURL}ember-cli-addon-docs/search-index.json`
+    );
+
+    this.set('searchTokenSeparator', config.searchTokenSeparator);
+  },
+
   search(phrase) {
     return this.loadSearchIndex().then(({ index, documents }) => {
       let words = phrase
         .toLowerCase()
-        .split(new RegExp(config['ember-cli-addon-docs'].searchTokenSeparator));
+        .split(new RegExp(this.searchTokenSeparator));
       let results = index.query((query) => {
         // In the future we could boost results based on the field they come from
         for (let word of words) {
@@ -100,11 +114,6 @@ export default Service.extend({
 
     return this._searchIndex;
   },
-
-  _indexURL: computed(function () {
-    let config = getOwner(this).resolveRegistration('config:environment');
-    return `${config.rootURL}ember-cli-addon-docs/search-index.json`;
-  }),
 });
 
 function logSnippet(doc, key, position) {

@@ -1,13 +1,11 @@
 import Component from '@ember/component';
 import template from './template';
 import { task } from 'ember-concurrency';
-import config from 'ember-get-config';
+import { getOwner } from '@ember/application';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { classNames, layout } from '@ember-decorators/component';
 import { formElementHasFocus } from 'ember-cli-addon-docs/keyboard-config';
-
-const projectName = config['ember-cli-addon-docs'].projectName;
 
 @classNames('docs-ml-auto')
 @layout(template)
@@ -15,6 +13,18 @@ export default class DocsHeaderSearchBoxComponent extends Component {
   @service store;
 
   query = null;
+
+  constructor() {
+    super(...arguments);
+
+    const config =
+      getOwner(this).resolveRegistration('config:environment')[
+        'ember-cli-addon-docs'
+      ];
+    const { projectName } = config;
+
+    this.set('projectName', projectName);
+  }
 
   didInsertElement() {
     super.didInsertElement(...arguments);
@@ -29,7 +39,7 @@ export default class DocsHeaderSearchBoxComponent extends Component {
   // project.
   @task
   *fetchProject() {
-    yield this.store.findRecord('project', projectName);
+    yield this.store.findRecord('project', this.projectName);
   }
 
   @action

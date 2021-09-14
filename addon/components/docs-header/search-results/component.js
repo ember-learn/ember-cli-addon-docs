@@ -6,10 +6,7 @@ import { keyResponder, onKey } from 'ember-keyboard';
 import { layout } from '@ember-decorators/component';
 import { computed } from '@ember/object';
 import { task } from 'ember-concurrency';
-import config from 'ember-get-config';
-
-const projectName = config['ember-cli-addon-docs'].projectName;
-
+import { getOwner } from '@ember/application';
 @keyResponder
 @layout(template)
 export default class DocsHeaderSearchResultsComponent extends Component {
@@ -19,6 +16,18 @@ export default class DocsHeaderSearchResultsComponent extends Component {
 
   query = null; // passed in
   selectedIndex = null;
+
+  constructor() {
+    super(...arguments);
+
+    const config =
+      getOwner(this).resolveRegistration('config:environment')[
+        'ember-cli-addon-docs'
+      ];
+    const { projectName } = config;
+
+    this.set('projectName', projectName);
+  }
 
   didInsertElement() {
     super.didInsertElement(...arguments);
@@ -34,7 +43,7 @@ export default class DocsHeaderSearchResultsComponent extends Component {
   }
 
   get project() {
-    return this.store.peekRecord('project', projectName);
+    return this.store.peekRecord('project', this.projectName);
   }
 
   @computed('query')
