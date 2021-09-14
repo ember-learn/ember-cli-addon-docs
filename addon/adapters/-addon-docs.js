@@ -2,25 +2,27 @@ import Adapter from '@ember-data/adapter';
 import { getOwner } from '@ember/application';
 import fetch from 'fetch';
 
-export default Adapter.extend({
-  defaultSerializer: '-addon-docs',
+export default class AddonDocsAdapter extends Adapter {
+  defaultSerializer = '-addon-docs';
 
-  init() {
-    this._super(...arguments);
+  get namespace() {
     const config =
       getOwner(this).resolveRegistration('config:environment')[
         'ember-cli-addon-docs'
       ];
-    this.set('namespace', `${config.rootURL.replace(/\/$/, '')}/docs`);
-  },
+
+    const rootURL = config?.rootURL ?? '/';
+
+    return `${rootURL.replace(/\/$/, '')}/docs`;
+  }
 
   shouldBackgroundReloadAll() {
     return false;
-  },
+  }
 
   shouldBackgroundReloadRecord() {
     return false;
-  },
+  }
 
   findRecord(store, modelClass, id, snapshot) {
     if (modelClass.modelName === 'project') {
@@ -30,5 +32,5 @@ export default Adapter.extend({
     } else {
       return store.peekRecord(modelClass.modelName, id);
     }
-  },
-});
+  }
+}
