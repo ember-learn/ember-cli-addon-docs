@@ -5,10 +5,7 @@ import { or } from '@ember/object/computed';
 import { capitalize } from '@ember/string';
 import { memberFilter } from '../../../utils/computed';
 
-import layout from './template';
-
 export default Component.extend({
-  layout,
   tagName: '',
 
   showInherited: false,

@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import layout from './template';
 import { getOwner } from '@ember/application';
 
 /**
@@ -8,7 +7,6 @@ import { getOwner } from '@ember/application';
   @hide
 */
 export default Component.extend({
-  layout,
   tagName: '',
 
   init() {

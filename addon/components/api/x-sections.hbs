@@ -1,0 +1,13 @@
+{{#each-in @sections as |sectionName items|}}
+  {{#if items}}
+    <section data-test-api-section class="item-section">
+      <h2 data-test-section-header={{sectionName}} class="docs-h2">
+        {{capitalize sectionName}}
+      </h2>
+
+      {{#each items as |item|}}
+        <Api::XSection @item={{item}} />
+      {{/each}}
+    </section>
+  {{/if}}
+{{/each-in}}
