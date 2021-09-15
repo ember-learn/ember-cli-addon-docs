@@ -255,19 +255,6 @@ module.exports = {
     }
   },
 
-  treeForApp(app) {
-    let trees = [app];
-
-    let addonPath = this.project.findAddonByName(this.name).root;
-    let addonTree = new Funnel(path.join(addonPath, 'addon'), {
-      include: ['**/*.js'],
-    });
-    let autoExportedAddonTree = new AutoExportAddonToApp([addonTree]);
-    trees.push(autoExportedAddonTree);
-
-    return new MergeTrees(trees);
-  },
-
   treeForAddon(tree) {
     let dummyAppFiles = new FindDummyAppFiles([this.app.trees.app]);
     let addonToDocument = this._documentingAddon();
@@ -480,59 +467,4 @@ class FindAddonFiles extends Plugin {
       `export default ${pathsString};`
     );
   }
-}
-
-class AutoExportAddonToApp extends Plugin {
-  build() {
-    let addonPath = this.inputPaths[0];
-
-    // Components
-    walkSync(path.join(addonPath, 'components'), {
-      directories: false,
-    }).forEach((addonFile) => {
-      let module = addonFile.replace('/component.js', '');
-      let file = path.join(this.outputPath, 'components', `${module}.js`);
-      ensureDirectoryExistence(file);
-      fs.writeFileSync(
-        file,
-        `export { default } from 'ember-cli-addon-docs/components/${module}/component';`
-      );
-    });
-
-    // Non-pods modules (slightly different logic)
-    [
-      'adapters',
-      'controllers',
-      'helpers',
-      'models',
-      'routes',
-      'serializers',
-      'services',
-    ].forEach((moduleType) => {
-      let addonFullPath = path.join(addonPath, moduleType);
-      if (!fs.existsSync(addonFullPath)) {
-        return;
-      }
-      let addonFiles = walkSync(addonFullPath, { directories: false });
-
-      addonFiles.forEach((addonFile) => {
-        let module = addonFile.replace('.js', '');
-        let file = path.join(this.outputPath, moduleType, `${module}.js`);
-        ensureDirectoryExistence(file);
-        fs.writeFileSync(
-          file,
-          `export { default } from 'ember-cli-addon-docs/${moduleType}/${module}';`
-        );
-      });
-    });
-  }
-}
-
-function ensureDirectoryExistence(filePath) {
-  var dirname = path.dirname(filePath);
-  if (fs.existsSync(dirname)) {
-    return true;
-  }
-  ensureDirectoryExistence(dirname);
-  fs.mkdirSync(dirname);
 }
