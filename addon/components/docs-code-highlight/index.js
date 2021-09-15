@@ -1,8 +1,4 @@
-import {
-  classNameBindings,
-  tagName,
-  layout as templateLayout,
-} from '@ember-decorators/component';
+import { classNameBindings, tagName } from '@ember-decorators/component';
 import Component from '@ember/component';
 import hljs from 'highlight.js/lib/core';
 
