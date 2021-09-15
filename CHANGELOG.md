@@ -2,6 +2,30 @@ Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
 Deprecated as of 10.7.0. Please use highlight(code, options) instead.
 https://github.com/highlightjs/highlight.js/issues/2277
 
+## v4.0.0 (2021-09-15)
+
+#### :boom: Breaking Change
+* [#933](https://github.com/ember-learn/ember-cli-addon-docs/pull/933) Require ember-auto-import 2 ([@rwwagner90](https://github.com/rwwagner90))
+
+#### :rocket: Enhancement
+* [#932](https://github.com/ember-learn/ember-cli-addon-docs/pull/932) Ember 4 support ([@rwwagner90](https://github.com/rwwagner90))
+* [#923](https://github.com/ember-learn/ember-cli-addon-docs/pull/923) Bump some deps, update Ember to 3.28 ([@rwwagner90](https://github.com/rwwagner90))
+* [#890](https://github.com/ember-learn/ember-cli-addon-docs/pull/890) Remove liquid fire ([@rwwagner90](https://github.com/rwwagner90))
+
+#### :bug: Bug Fix
+* [#921](https://github.com/ember-learn/ember-cli-addon-docs/pull/921) Resolve issue with sidebar showing incorrectly on mobile ([@jkeen](https://github.com/jkeen))
+
+#### :house: Internal
+* [#934](https://github.com/ember-learn/ember-cli-addon-docs/pull/934) Use colocated components ([@rwwagner90](https://github.com/rwwagner90))
+* [#891](https://github.com/ember-learn/ember-cli-addon-docs/pull/891) Fix highlightjs deprecation ([@rwwagner90](https://github.com/rwwagner90))
+* [#887](https://github.com/ember-learn/ember-cli-addon-docs/pull/887) Bump some deps, fix some lint ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 4
+- Jeff Keen ([@jkeen](https://github.com/jkeen))
+- Nathanaël Dekeister ([@ndekeister-us](https://github.com/ndekeister-us))
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v3.0.0 (2021-05-31)
 
 #### :boom: Breaking Change
