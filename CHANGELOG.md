@@ -2,6 +2,14 @@ Deprecated as of 10.7.0. highlight(lang, code, ...args) has been deprecated.
 Deprecated as of 10.7.0. Please use highlight(code, options) instead.
 https://github.com/highlightjs/highlight.js/issues/2277
 
+## v4.0.1 (2021-09-17)
+
+#### :bug: Bug Fix
+* [#939](https://github.com/ember-learn/ember-cli-addon-docs/pull/939) fix: move @glimmer/component and @glimmer/tracking in dependencies ([@ndekeister-us](https://github.com/ndekeister-us))
+
+#### Committers: 1
+- Nathanaël Dekeister ([@ndekeister-us](https://github.com/ndekeister-us))
+
 ## v4.0.0 (2021-09-15)
 
 #### :boom: Breaking Change
