@@ -83,7 +83,6 @@
     "highlight.js": "^10.7.2",
     "hosted-git-info": "^4.0.2",
     "html-entities": "^2.3.2",
-    "inflected": "^2.0.3",
     "jsdom": "^16.4.0",
     "json-api-serializer": "^2.2.1",
     "lodash": "^4.17.15",
