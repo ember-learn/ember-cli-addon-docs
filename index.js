@@ -11,9 +11,10 @@ const walkSync = require('walk-sync');
 
 const LATEST_VERSION_NAME = '-latest';
 const styleDir = path.join(__dirname, 'addon', 'styles');
+const name = require('./package').name;
 
 module.exports = {
-  name: require('./package').name,
+  name,
 
   LATEST_VERSION_NAME,
 
@@ -33,6 +34,27 @@ module.exports = {
           require('tailwindcss')(
             path.join(__dirname, 'addon', 'styles', 'tailwind.config.js')
           ),
+          {
+            module: require('@fullhuman/postcss-purgecss'), // eslint-disable-line node/no-unpublished-require
+            options: {
+              content: [
+                path.join(
+                  __dirname,
+                  '{addon,app,tests/dummy/app}',
+                  '{**/,}*.{js,hbs,html,md,ts}'
+                ),
+                path.join(
+                  __dirname,
+                  'node_modules',
+                  name,
+                  'addon',
+                  '**/*.{js,hbs}'
+                ),
+              ],
+              defaultExtractor: (content) =>
+                content.match(/[A-Za-z0-9-_:/]+/g) || [],
+            },
+          },
         ],
       },
     },
