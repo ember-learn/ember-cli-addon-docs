@@ -34,27 +34,6 @@ module.exports = {
           require('tailwindcss')(
             path.join(__dirname, 'addon', 'styles', 'tailwind.config.js')
           ),
-          {
-            module: require('@fullhuman/postcss-purgecss'), // eslint-disable-line node/no-unpublished-require
-            options: {
-              content: [
-                path.join(
-                  __dirname,
-                  '{addon,app,tests/dummy/app}',
-                  '{**/,}*.{js,hbs,html,md,ts}'
-                ),
-                path.join(
-                  __dirname,
-                  'node_modules',
-                  name,
-                  'addon',
-                  '**/*.{js,hbs}'
-                ),
-              ],
-              defaultExtractor: (content) =>
-                content.match(/[A-Za-z0-9-_:/]+/g) || [],
-            },
-          },
         ],
       },
     },
@@ -248,6 +227,35 @@ module.exports = {
     importer.import('vendor/lunr/lunr.js', {
       using: [{ transformation: 'amd', as: 'lunr' }],
     });
+
+    if (EmberApp.env() === 'production') {
+      this.options['postcssOptions'].compile.plugins.push({
+        module: require('@fullhuman/postcss-purgecss'), // eslint-disable-line node/no-unpublished-require
+        options: {
+          content: [
+            path.join(
+              __dirname,
+              '{addon,app,tests/dummy/app}',
+              '{**/,}*.{js,hbs,html,md,ts}'
+            ),
+            ...(this.project.name() !== 'ember-cli-addon-docs'
+              ? [
+                  path.join(
+                    __dirname,
+                    'node_modules',
+                    name,
+                    'addon',
+                    '**/*.{js,hbs}'
+                  ),
+                ]
+              : []),
+          ],
+          css: [styleDir],
+          defaultExtractor: (content) =>
+            content.match(/[A-Za-z0-9-_:/]+/g) || [],
+        },
+      });
+    }
   },
 
   createDeployPlugin() {
