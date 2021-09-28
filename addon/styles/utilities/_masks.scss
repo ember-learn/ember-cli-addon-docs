@@ -1,3 +1,5 @@
+/*! purgecss start ignore */
+
 /* Need to learn how to use Tailwind to generate the responsive stuff for this automatically */
 .docs-mask-image {
   /* Autoprefixer is in dependencies but not working on host apps */
@@ -23,3 +25,5 @@
     mask-image: none;
   }
 }
+
+/*! purgecss end ignore */

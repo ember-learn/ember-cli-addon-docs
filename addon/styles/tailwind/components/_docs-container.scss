@@ -1,3 +1,5 @@
+/*! purgecss start ignore */
+
 .docs-container {
   @apply docs-px-4 docs-max-w-site-container docs-mx-auto;
 }
@@ -7,3 +9,5 @@
     @apply docs-px-6;
   }
 }
+
+/*! purgecss end ignore */

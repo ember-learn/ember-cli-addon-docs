@@ -1,3 +1,5 @@
+/*! purgecss start ignore */
+
 .docs-md {
   -webkit-font-smoothing: antialiased;
 }
@@ -68,3 +70,5 @@
 .docs-md__hr {
   @apply docs-py-0 docs-my-8 docs-h-px docs-border-b;
 }
+
+/*! purgecss end ignore */

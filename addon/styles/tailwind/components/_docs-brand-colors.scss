@@ -1,3 +1,5 @@
+/*! purgecss start ignore */
+
 /*
   We use CSS Custom Properties so addons can customize their brand theme, but we need to provide a fallback for browsers that don't support them yet (IE). This is the way we do it.
 
@@ -38,3 +40,5 @@
 .focus\:docs-border-brand:focus {
   @apply docs-border-brand-var;
 }
+
+/*! purgecss end ignore */

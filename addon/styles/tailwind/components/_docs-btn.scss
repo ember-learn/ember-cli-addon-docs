@@ -1,3 +1,5 @@
+/*! purgecss start ignore */
+
 .docs-btn {
   @apply docs-bg-grey-light docs-border-b-2 docs-border-grey-dark docs-py-2 docs-px-4 docs-outline-none;
 }
@@ -9,3 +11,5 @@
 .docs-btn:focus {
   @apply docs-outline-none;
 }
+
+/*! purgecss end ignore */
