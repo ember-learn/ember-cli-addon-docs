@@ -233,21 +233,9 @@ module.exports = {
         module: require('@fullhuman/postcss-purgecss'), // eslint-disable-line node/no-unpublished-require
         options: {
           content: [
-            path.join(
-              __dirname,
-              '{addon,app,tests/dummy/app}',
-              '{**/,}*.{js,hbs,html,md,ts}'
-            ),
-            ...(this.project.name() !== 'ember-cli-addon-docs'
-              ? [
-                  path.join(
-                    __dirname,
-                    'node_modules',
-                    name,
-                    'addon',
-                    '**/*.{js,hbs}'
-                  ),
-                ]
+            '{addon,app,tests/dummy/app}/{**/,}*.{js,hbs,html,md,ts}',
+            ...(this.project.name() !== name
+              ? [`node_modules/${name}/addon/{**/,}*.{js,hbs}`]
               : []),
           ],
           css: [styleDir],
