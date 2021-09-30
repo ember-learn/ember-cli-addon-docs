@@ -40,7 +40,7 @@
     "@ember/render-modifiers": "cibernox/ember-render-modifiers#e3574ed03409ef7a048d7716b8bea361ed6cd6e2",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
-    "@glimmer/syntax": "^0.80.0",
+    "@glimmer/syntax": "^0.81.0",
     "broccoli-bridge": "^1.0.0",
     "broccoli-caching-writer": "^3.0.3",
     "broccoli-filter": "^1.3.0",
