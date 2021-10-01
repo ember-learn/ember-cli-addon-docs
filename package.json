@@ -35,6 +35,7 @@
     "**/@embroider/macros": "^0.49.0",
     "**/@embroider/util": "^0.49.0",
     "**/ember-auto-import": "^2.2.4",
+    "**/@ember/test-waiters": "^3.0.0",
     "**/ember-cli-babel": "^7.26.6",
     "**/ember-tether": "^2.0.1"
   },
