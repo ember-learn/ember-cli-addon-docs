@@ -59,7 +59,7 @@ export default class ProjectVersionService extends Service {
       currentVersion = {
         key: latestVersionName,
         name: latestVersionName,
-        tag: config.projectTag,
+        tag: config?.projectTag,
         path: '',
         sha: 'abcde',
       };
