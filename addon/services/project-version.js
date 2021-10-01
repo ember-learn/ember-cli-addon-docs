@@ -56,7 +56,7 @@ export default Service.extend({
         currentVersion = {
           key: latestVersionName,
           name: latestVersionName,
-          tag: config.projectTag,
+          tag: config?.projectTag,
           path: '',
           sha: 'abcde',
         };
