@@ -3,6 +3,8 @@ Deprecated as of 10.7.0. Please use highlight(code, options) instead.
 https://github.com/highlightjs/highlight.js/issues/2277
 
 
+## v4.0.3 (2021-10-07)
+
 ## v4.0.2 (2021-09-20)
 
 #### :bug: Bug Fix
