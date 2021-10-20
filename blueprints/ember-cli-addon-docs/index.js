@@ -33,14 +33,14 @@ module.exports = {
         [
           '$&',
           '$1  // Allow ember-cli-addon-docs to update the rootURL in compiled assets',
-          "$1  ENV.rootURL = 'ADDON_DOCS_ROOT_URL';",
+          "$1  ENV.rootURL = '/ADDON_DOCS_ROOT_URL/';",
         ].join('\n')
       );
 
       if (configContents.indexOf('ADDON_DOCS_ROOT_URL') === -1) {
         this.ui.writeWarnLine(
           `Unable to update rootURL configuration. You should update ${configPath} so that your rootURL is ` +
-            `the string 'ADDON_DOCS_ROOT_URL' in production.`
+            `the string '/ADDON_DOCS_ROOT_URL/' in production.`
         );
       }
     }
