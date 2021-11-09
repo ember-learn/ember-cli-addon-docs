@@ -55,7 +55,7 @@
     "ember-cli-autoprefixer": "^1.0.2",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-clipboard": "jkusa/ember-cli-clipboard#e27143fe91c486baa4fe2abf654f73ef594b5216",
-    "ember-cli-htmlbars": "^5.7.1",
+    "ember-cli-htmlbars": "^6.0.0",
     "ember-cli-postcss": "^7.0.2",
     "ember-cli-string-helpers": "^6.1.0",
     "ember-cli-string-utils": "^1.1.0",
