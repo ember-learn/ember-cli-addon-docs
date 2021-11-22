@@ -1,7 +1,6 @@
 import { computed } from '@ember/object';
 import { A } from '@ember/array';
 import Service, { inject as service } from '@ember/service';
-import { hrefTo } from 'ember-href-to/helpers/href-to';
 import { assert } from '@ember/debug';
 
 export default Service.extend({
@@ -29,8 +28,8 @@ export default Service.extend({
   }),
 
   routeUrls: computed('routes.[]', function () {
-    return this.routes.map((route) => {
-      return hrefTo(this.router, route);
+    return this.routes.map(([routeName, model]) => {
+      return this.router.generateURL(routeName, model ? [model] : []);
     });
   }),
 
