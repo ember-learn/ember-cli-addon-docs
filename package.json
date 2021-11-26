@@ -40,7 +40,7 @@
     "@ember/legacy-built-in-components": "^0.4.0",
     "@ember/render-modifiers": "^2.0.0",
     "@glimmer/component": "^1.0.4",
-    "@glimmer/syntax": "^0.81.0",
+    "@glimmer/syntax": "^0.83.1",
     "@glimmer/tracking": "^1.0.4",
     "broccoli-bridge": "^1.0.0",
     "broccoli-caching-writer": "^3.0.3",
