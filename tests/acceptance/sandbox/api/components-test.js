@@ -12,7 +12,7 @@ module('Acceptance | Sandbox | API | components', function (hooks) {
 
   test('nested components work', async function (assert) {
     await visit('/sandbox');
-    await modulePage.navItems.findOne({ text: '{{simple-list}}' }).click();
+    await modulePage.navItems.findOne({ text: '<SimpleList/\u200B>' }).click();
 
     assert.equal(
       currentURL(),
@@ -21,7 +21,7 @@ module('Acceptance | Sandbox | API | components', function (hooks) {
     );
 
     await modulePage.navItems
-      .findOne({ text: '{{simple-list/\u200Bitem}}' })
+      .findOne({ text: '<SimpleList::Item/\u200B>' })
       .click();
 
     assert.equal(
