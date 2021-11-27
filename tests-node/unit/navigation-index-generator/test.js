@@ -17,7 +17,7 @@ describe('Unit | NavigationIndexGenerator', function (hooks) {
           {
             id: 'ember-cli-addon-docs/components/docs-demo/component',
             path: 'components/docs-demo',
-            name: '{{docs-demo}}',
+            name: '<DocsDemo/>',
           },
         ],
       },
@@ -35,12 +35,12 @@ describe('Unit | NavigationIndexGenerator', function (hooks) {
           {
             id: 'ember-cli-addon-docs/components/docs-demo/component',
             path: 'components/docs-demo',
-            name: '{{docs-demo}}',
+            name: '<DocsDemo/>',
           },
           {
             id: 'ember-cli-addon-docs/components/docs-header/component',
             path: 'components/docs-header',
-            name: '{{docs-header}}',
+            name: '<DocsHeader/>',
           },
         ],
       },
@@ -94,47 +94,47 @@ describe('Unit | NavigationIndexGenerator', function (hooks) {
           {
             id: 'ember-cli-addon-docs/components/docs-demo/component',
             path: 'components/docs-demo',
-            name: '{{docs-demo}}',
+            name: '<DocsDemo/>',
           },
           {
             id: 'ember-cli-addon-docs/components/docs-header/component',
             path: 'components/docs-header',
-            name: '{{docs-header}}',
+            name: '<DocsHeader/>',
           },
           {
             id: 'ember-cli-addon-docs/components/docs-hero/component',
             path: 'components/docs-hero',
-            name: '{{docs-hero}}',
+            name: '<DocsHero/>',
           },
           {
             id: 'ember-cli-addon-docs/components/docs-keyboard-shortcuts/component',
             path: 'components/docs-keyboard-shortcuts',
-            name: '{{docs-keyboard-shortcuts}}',
+            name: '<DocsKeyboardShortcuts/>',
           },
           {
             id: 'ember-cli-addon-docs/components/docs-link/component',
             path: 'components/docs-link',
-            name: '{{docs-link}}',
+            name: '<DocsLink/>',
           },
           {
             id: 'ember-cli-addon-docs/components/docs-logo/component',
             path: 'components/docs-logo',
-            name: '{{docs-logo}}',
+            name: '<DocsLogo/>',
           },
           {
             id: 'ember-cli-addon-docs/components/docs-snippet/component',
             path: 'components/docs-snippet',
-            name: '{{docs-snippet}}',
+            name: '<DocsSnippet/>',
           },
           {
             id: 'ember-cli-addon-docs/components/docs-svg-icon/component',
             path: 'components/docs-svg-icon',
-            name: '{{docs-svg-icon}}',
+            name: '<DocsSvgIcon/>',
           },
           {
             id: 'ember-cli-addon-docs/components/docs-viewer/component',
             path: 'components/docs-viewer',
-            name: '{{docs-viewer}}',
+            name: '<DocsViewer/>',
           },
         ],
       },
@@ -165,19 +165,19 @@ describe('Unit | NavigationIndexGenerator', function (hooks) {
         type: 'components',
         items: [
           {
-            id: 'sandbox/components/simple-list/item/component',
-            path: 'components/simple-list/item',
-            name: '{{simple-list/item}}',
-          },
-          {
             id: 'sandbox/components/simple-list/component',
             path: 'components/simple-list',
-            name: '{{simple-list}}',
+            name: '<SimpleList/>',
+          },
+          {
+            id: 'sandbox/components/simple-list/item/component',
+            path: 'components/simple-list/item',
+            name: '<SimpleList::Item/>',
           },
           {
             id: 'sandbox/components/yuidoc-component',
             path: 'components/yuidoc-component',
-            name: '{{yuidoc-component}}',
+            name: '<YuidocComponent/>',
           },
         ],
       },
