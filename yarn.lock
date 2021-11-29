@@ -6492,7 +6492,7 @@ ember-code-snippet@^3.0.0:
     es6-promise "^1.0.0"
     glob "^7.1.3"
 
-ember-compatibility-helpers@^1.1.2, ember-compatibility-helpers@^1.2.0, ember-compatibility-helpers@^1.2.1, ember-compatibility-helpers@^1.2.4, ember-compatibility-helpers@^1.2.5:
+ember-compatibility-helpers@^1.1.2, ember-compatibility-helpers@^1.2.0, ember-compatibility-helpers@^1.2.1, ember-compatibility-helpers@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/ember-compatibility-helpers/-/ember-compatibility-helpers-1.2.5.tgz#b8363b1d5b8725afa9a4fe2b2986ac28626c6f23"
   integrity sha512-7cddkQQp8Rs2Mqrj0xqZ0uO7eC9tBCKyZNcP2iE1RxQqOGPv8fiPkj1TUeidUB/Qe80lstoVXWMEuqqhW7Yy9A==
@@ -6654,14 +6654,13 @@ ember-getowner-polyfill@^2.2.0:
   dependencies:
     ember-cli-babel "^7.26.5"
 
-ember-keyboard@^6.0.4:
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-6.0.4.tgz#396e1be4c815b2972e2a6973dcc45acbc6701e4a"
-  integrity sha512-Mkg5TG6KBTtxjOUBdyLADajyj/mJo3ua2mSHw20UtG2MxKxMyO+Bs4tttMlEmmrR3XMrQ9qVBLkq2dIuuQku3w==
+ember-keyboard@^7.0.0-beta.0:
+  version "7.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-7.0.0-beta.0.tgz#b00d40cb4f4af20150a9e05ef8038d2295f0a605"
+  integrity sha512-xHdzk7doUJFHZ3Jf/w5tSj7shc1002c6ZHe9tEKkzjMWTrD48kg0BNf6jwQ9a1yG7hQtvtodRKDw2dTmHVdw/Q==
   dependencies:
     ember-cli-babel "^7.26.6"
     ember-cli-htmlbars "^5.7.1"
-    ember-compatibility-helpers "^1.2.4"
     ember-modifier "^2.1.2 || ^3.0.0"
     ember-modifier-manager-polyfill "^1.2.0"
 
