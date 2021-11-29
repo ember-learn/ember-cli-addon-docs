@@ -85,7 +85,7 @@ jobs:
     name: Test compatibility
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         scenario:
           - 'ember-lts-3.20'
