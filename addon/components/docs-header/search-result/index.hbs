@@ -1,4 +1,3 @@
-{{! template-lint-disable no-unknown-arguments-for-builtin-components }}
 <div {{on 'click' this.onClick}} {{on 'mouseenter' this.onMouseEnter}} data-test-search-result>
   <LinkTo
     class={{
@@ -6,7 +5,8 @@
       'docs-block docs-py-2 docs-px-3 docs-text-black docs-no-underline hover:docs-bg-grey-lighter '
       (if @selected 'docs-bg-grey-lighter')
     }}
-    @params={{this.linkArgs}}
+    @route={{this.linkArgs.route}}
+    @models={{this.linkArgs.models}}
   >
     <div class='docs-flex docs-items-center'>
       {{svg-jar
