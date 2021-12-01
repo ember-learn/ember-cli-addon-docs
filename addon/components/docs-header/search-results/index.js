@@ -1,3 +1,4 @@
+/* eslint-disable ember/require-computed-property-dependencies */
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import { action } from '@ember/object';
