@@ -11,15 +11,18 @@ export default Component.extend({
     'result.document.{route,type}',
     'result.model.routingId',
     function () {
-      let args = [];
       let type = this.get('result.document.type');
       if (type === 'template') {
-        args = [this.get('result.document.route')];
+        return {
+          route: this.get('result.document.route'),
+          models: [],
+        };
       } else {
-        args = ['docs.api.item', this.get('result.model.routingId')];
+        return {
+          route: 'docs.api.item',
+          models: [this.get('result.model.routingId')],
+        };
       }
-
-      return args;
     }
   ),
 

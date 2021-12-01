@@ -61,11 +61,12 @@ export default Service.extend({
 
     if (currentIndex < this.get('routes.length') - 1) {
       let nextRouteIndex = currentIndex + 1;
-      let route = this.routes[nextRouteIndex];
+      let route = this.items.objectAt(nextRouteIndex);
 
       return {
-        route,
-        label: this.items.objectAt(nextRouteIndex).get('label'),
+        route: route.get('route'),
+        models: route.get('model') ? [route.get('model')] : [],
+        label: route.get('label'),
       };
     }
   }),
@@ -75,11 +76,12 @@ export default Service.extend({
 
     if (currentIndex > 0) {
       let previousRouteIndex = currentIndex - 1;
-      let route = this.routes[previousRouteIndex];
+      let route = this.items.objectAt(previousRouteIndex);
 
       return {
-        route,
-        label: this.items.objectAt(previousRouteIndex).get('label'),
+        route: route.get('route'),
+        models: route.get('model') ? [route.get('model')] : [],
+        label: route.get('label'),
       };
     }
   }),

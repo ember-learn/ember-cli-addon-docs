@@ -26,7 +26,8 @@
       <LinkTo
         class='docs-text-grey-darkest docs-text-large-4 docs-font-light docs-no-underline
         docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition'
-        @params={{this.docsRoutes.previous.route}}
+        @route={{this.docsRoutes.previous.route}}
+        @models={{this.docsRoutes.previous.models}}
       >
         {{this.docsRoutes.previous.label}}
       </LinkTo>
@@ -41,7 +42,8 @@
       <LinkTo
         class='docs-text-grey-darkest docs-text-large-4 docs-font-light docs-no-underline
         docs-border-b docs-border-grey hover:docs-border-grey-darkest docs-transition'
-        @params={{this.docsRoutes.next.route}}
+        @route={{this.docsRoutes.next.route}}
+        @models={{this.docsRoutes.next.models}}
       >
         {{this.docsRoutes.next.label}}
       </LinkTo>

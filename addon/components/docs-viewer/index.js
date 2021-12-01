@@ -48,7 +48,8 @@ export default class DocsViewerComponent extends Component {
   nextPage() {
     if (!formElementHasFocus()) {
       if (this.get('docsRoutes.next')) {
-        this.router.transitionTo(...this.get('docsRoutes.next.route'));
+        const { route, model } = this.get('docsRoutes.next');
+        this.router.transitionTo(route, model);
       }
     }
   }
@@ -58,7 +59,8 @@ export default class DocsViewerComponent extends Component {
   previousPage() {
     if (!formElementHasFocus()) {
       if (this.get('docsRoutes.previous')) {
-        this.router.transitionTo(...this.get('docsRoutes.previous.route'));
+        const { route, model } = this.get('docsRoutes.previous');
+        this.router.transitionTo(route, model);
       }
     }
   }
