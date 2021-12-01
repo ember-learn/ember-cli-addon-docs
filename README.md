@@ -13,7 +13,7 @@ Compatibility
 * Ember CLI v3.20 or above
 * Node.js v12 or above
 
-**2/28/20 Update: AddonDocs is in Maintenace Mode.**
+**2/28/20 Update: AddonDocs is in Maintenance Mode.**
 
 AddonDocs is still actively being used by many addons, but is effectively in maintenance mode as the original authors are no longer working on this project.
 
