@@ -3,6 +3,29 @@ Deprecated as of 10.7.0. Please use highlight(code, options) instead.
 https://github.com/highlightjs/highlight.js/issues/2277
 
 
+
+## v4.1.0 (2021-12-01)
+
+#### :bug: Bug Fix
+* [#1021](https://github.com/ember-learn/ember-cli-addon-docs/pull/1021) Fix LinkTo usage and explicitly provide `@route` and `@models` arguments ([@SergeAstapov](https://github.com/SergeAstapov))
+* [#978](https://github.com/ember-learn/ember-cli-addon-docs/pull/978) Fixes broken deployment with ember-auto-import@2 ([@scalvert](https://github.com/scalvert))
+
+#### :memo: Documentation
+* [#1017](https://github.com/ember-learn/ember-cli-addon-docs/pull/1017) Fix typo in addon status callout ([@SergeAstapov](https://github.com/SergeAstapov))
+* [#981](https://github.com/ember-learn/ember-cli-addon-docs/pull/981) Fix typo at navigation ([@brkn](https://github.com/brkn))
+
+#### :house: Internal
+* [#1010](https://github.com/ember-learn/ember-cli-addon-docs/pull/1010) Update linting, bump deps ([@rwwagner90](https://github.com/rwwagner90))
+* [#1015](https://github.com/ember-learn/ember-cli-addon-docs/pull/1015) chore: import LinkComponent from `ember/legacy-built-in-components` ([@gilest](https://github.com/gilest))
+* [#1006](https://github.com/ember-learn/ember-cli-addon-docs/pull/1006) chore(deps): drop ember-href-to ([@gilest](https://github.com/gilest))
+
+#### Committers: 5
+- Berkan Ünal ([@brkn](https://github.com/brkn))
+- Giles Thompson ([@gilest](https://github.com/gilest))
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+- Steve Calvert ([@scalvert](https://github.com/scalvert))
+
 ## v4.0.3 (2021-10-07)
 
 ## v4.0.2 (2021-09-20)
