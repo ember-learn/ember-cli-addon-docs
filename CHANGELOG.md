@@ -4,6 +4,19 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+
+## v4.2.0 (2021-12-02)
+
+#### :rocket: Enhancement
+* [#1016](https://github.com/ember-learn/ember-cli-addon-docs/pull/1016) Closes [#195](https://github.com/ember-learn/ember-cli-addon-docs/issues/195) use angle bracket component names ([@miguelcobain](https://github.com/miguelcobain))
+
+#### :house: Internal
+* [#1031](https://github.com/ember-learn/ember-cli-addon-docs/pull/1031) Add babel.config.js to .npmignore ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 2
+- Miguel Andrade ([@miguelcobain](https://github.com/miguelcobain))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## v4.1.0 (2021-12-01)
 
 #### :bug: Bug Fix
