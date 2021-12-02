@@ -6793,10 +6793,9 @@ ember-source-channel-url@^3.0.0:
   dependencies:
     node-fetch "^2.6.0"
 
-ember-source@~3.28.0:
-  version "3.28.6"
-  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-3.28.6.tgz#ed0f200fa6cb76dffabe3cce73417d7b290d6e98"
-  integrity sha512-CW92R8qa6x6fedJcIl71QvR8vj1c4f0I5LgAKB5eXoFhdDXD+peRtPPuc1i+C+1/ojvaWfDO3RpFcxkiXqvSQA==
+"ember-source@file:./ember-source-3.28.7-mixonic-explicit-injection-not-deprecated+ae15deb1.tgz":
+  version "3.28.7-mixonic-explicit-injection-not-deprecated"
+  resolved "file:./ember-source-3.28.7-mixonic-explicit-injection-not-deprecated+ae15deb1.tgz#b7d3f5a51e6ff2f2f6d825f745665666dbdf2574"
   dependencies:
     "@babel/helper-module-imports" "^7.8.3"
     "@babel/plugin-transform-block-scoping" "^7.8.3"
