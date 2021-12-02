@@ -14,7 +14,7 @@ module('Acceptance | Sandbox | API | components', function (hooks) {
     await visit('/sandbox');
     await modulePage.navItems.findOne({ text: '<SimpleList/\u200B>' }).click();
 
-    assert.equal(
+    assert.strictEqual(
       currentURL(),
       '/sandbox/api/components/simple-list',
       'correct url'
@@ -24,7 +24,7 @@ module('Acceptance | Sandbox | API | components', function (hooks) {
       .findOne({ text: '<SimpleList::Item/\u200B>' })
       .click();
 
-    assert.equal(
+    assert.strictEqual(
       currentURL(),
       '/sandbox/api/components/simple-list/item',
       'correct url'
@@ -36,7 +36,7 @@ module('Acceptance | Sandbox | API | components', function (hooks) {
 
     const editThisPageLinkHref = await modulePage.editLink.href;
 
-    assert.equal(
+    assert.strictEqual(
       editThisPageLinkHref,
       'https://github.com/ember-learn/ember-cli-addon-docs/edit/master/tests/dummy/app/pods/sandbox/index/template.md'
     );
@@ -57,7 +57,7 @@ module('Acceptance | Sandbox | API | components', function (hooks) {
 
       const editThisPageLinkHref = await modulePage.editLink.href;
 
-      assert.equal(
+      assert.strictEqual(
         editThisPageLinkHref,
         'https://github.com/ember-learn/ember-cli-addon-docs/edit/master/packages/foo-bar/tests/dummy/app/pods/sandbox/index/template.md'
       );

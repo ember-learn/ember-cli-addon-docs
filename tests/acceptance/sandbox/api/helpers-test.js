@@ -19,7 +19,7 @@ module('Acceptance | Sandbox | API | helpers', function (hooks) {
         await visit('/sandbox');
         await modulePage.navItems.findOne({ text: `{{${kebabName}}}` }).click();
 
-        assert.equal(
+        assert.strictEqual(
           currentURL(),
           `/sandbox/api/helpers/${kebabName}`,
           'correct url'
@@ -37,19 +37,23 @@ module('Acceptance | Sandbox | API | helpers', function (hooks) {
 
         assert.ok(helperItem.isPresent, 'Renders the helper item');
 
-        assert.equal(
+        assert.strictEqual(
           helperItem.header,
           `${helperName}(number: number): number`,
           'renders the type signature of the helper correctly'
         );
 
-        assert.equal(
+        assert.strictEqual(
           helperItem.importPath,
           `import { ${helperName} } from 'sandbox/helpers/${kebabName}';`,
           'renders the import path correctly'
         );
 
-        assert.equal(helperItem.params.length, 1, 'renders the item parameter');
+        assert.strictEqual(
+          helperItem.params.length,
+          1,
+          'renders the item parameter'
+        );
       });
     }
   });
@@ -63,13 +67,13 @@ module('Acceptance | Sandbox | API | helpers', function (hooks) {
         await visit('/sandbox');
         await classPage.navItems.findOne({ text: `{{${kebabName}}}` }).click();
 
-        assert.equal(
+        assert.strictEqual(
           currentURL(),
           `/sandbox/api/helpers/${kebabName}`,
           'correct url'
         );
 
-        assert.equal(
+        assert.strictEqual(
           classPage.title,
           helperName,
           'Renders the class title correctly'
@@ -85,13 +89,13 @@ module('Acceptance | Sandbox | API | helpers', function (hooks) {
 
         assert.ok(computeItem.isPresent, 'Renders the helper item');
 
-        assert.equal(
+        assert.strictEqual(
           computeItem.header,
           'compute(number: number): number',
           'renders the type signature of the helper correctly'
         );
 
-        assert.equal(
+        assert.strictEqual(
           computeItem.params.length,
           1,
           'renders the item parameter'

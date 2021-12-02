@@ -15,7 +15,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
 
     await render(hbs`{{type-signature this.item}}`);
 
-    assert.equal(this.element.innerText, 'get foo: string');
+    assert.strictEqual(this.element.innerText, 'get foo: string');
   });
 
   test('renders a simple setter signature', async function (assert) {
@@ -27,7 +27,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
 
     await render(hbs`{{type-signature this.item}}`);
 
-    assert.equal(this.element.innerText, 'set foo: string');
+    assert.strictEqual(this.element.innerText, 'set foo: string');
   });
 
   test('renders a simple getter/setter signature', async function (assert) {
@@ -40,7 +40,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
 
     await render(hbs`{{type-signature this.item}}`);
 
-    assert.equal(this.element.innerText, 'get/set foo: string');
+    assert.strictEqual(this.element.innerText, 'get/set foo: string');
   });
 
   test('renders a simple variable', async function (assert) {
@@ -48,7 +48,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
 
     await render(hbs`{{type-signature this.item}}`);
 
-    assert.equal(this.element.innerText, 'foo: string');
+    assert.strictEqual(this.element.innerText, 'foo: string');
   });
 
   test('renders a simple function signature', async function (assert) {
@@ -56,7 +56,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
 
     await render(hbs`{{type-signature this.item}}`);
 
-    assert.equal(this.element.innerText, 'foo(): string');
+    assert.strictEqual(this.element.innerText, 'foo(): string');
   });
 
   test('renders static and access modifiers', async function (assert) {
@@ -69,7 +69,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
 
     await render(hbs`{{type-signature this.item}}`);
 
-    assert.equal(this.element.innerText, 'private static foo: string');
+    assert.strictEqual(this.element.innerText, 'private static foo: string');
   });
 
   test('renders functions with optional and rest params', async function (assert) {
@@ -84,7 +84,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
 
     await render(hbs`{{type-signature this.item}}`);
 
-    assert.equal(
+    assert.strictEqual(
       this.element.innerText,
       'foo(a: number, b?: string, ...c: any[]): any'
     );
@@ -100,7 +100,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
 
     await render(hbs`{{type-signature this.item}}`);
 
-    assert.equal(
+    assert.strictEqual(
       this.element.innerText,
       'foo<T, U extends PromiseLike<T>>(value: U): T'
     );
@@ -124,7 +124,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
 
     await render(hbs`{{type-signature this.item}}`);
 
-    assert.equal(
+    assert.strictEqual(
       this.element.innerText,
       'foo(): Promise<void>\nfoo<T>(value: T): Promise<T>'
     );

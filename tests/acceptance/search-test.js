@@ -14,7 +14,7 @@ module('Acceptance | Search', function (hooks) {
     await waitFor('[data-test-search-result]', { timeout: 2000 });
 
     await click('[data-test-search-result] a');
-    assert.equal(currentURL(), '/docs/quickstart');
+    assert.strictEqual(currentURL(), '/docs/quickstart');
   });
 
   test('search works for API pages', async function (assert) {
@@ -24,6 +24,6 @@ module('Acceptance | Search', function (hooks) {
     await waitFor('[data-test-search-result]', { timeout: 2000 });
 
     await click('[data-test-search-result] a');
-    assert.equal(currentURL(), '/docs/api/components/docs-hero');
+    assert.strictEqual(currentURL(), '/docs/api/components/docs-hero');
   });
 });

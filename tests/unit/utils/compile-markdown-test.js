@@ -7,7 +7,7 @@ import { module, test } from 'qunit';
 module('Unit | Utility | compile-markdown', function (hooks) {
   test('should be able to highlight javascript', function (assert) {
     let result = highlightCode(`let foo = 'bar';`, 'javascript');
-    assert.equal(
+    assert.strictEqual(
       result,
       `<span class="hljs-keyword">let</span> foo = <span class="hljs-string">&#x27;bar&#x27;</span>;`
     );
@@ -21,7 +21,7 @@ module('Unit | Utility | compile-markdown', function (hooks) {
       | Foo             | v2       | v1   |
     `.trim()
     );
-    assert.equal(
+    assert.strictEqual(
       result,
       `<div class="docs-md"><table class="docs-table-auto">
 <thead>
