@@ -57,6 +57,7 @@ module.exports = {
         './lib/**/*.js',
         './tests/dummy/config/**/*.js',
         './tests-node/**/*.js',
+        'babel.config.js',
       ],
       parserOptions: {
         sourceType: 'script',
