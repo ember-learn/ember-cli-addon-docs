@@ -7,6 +7,9 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 ## v4.2.1 (2021-12-02)
 
+#### :rocket: Enhancement
+* [#1018](https://github.com/ember-learn/ember-cli-addon-docs/pull/1018) Bump ember-keyboard from 6.0.3 to 7.0.0-beta.0 ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## v4.2.0 (2021-12-02)
 
 #### :rocket: Enhancement
