@@ -106,7 +106,7 @@
     "@babel/preset-env": "^7.16.4",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.4.2",
-    "@embroider/test-setup": "^0.47.2",
+    "@embroider/test-setup": "^0.48.1",
     "@fullhuman/postcss-purgecss": "^4.0.3",
     "broccoli-asset-rev": "^3.0.0",
     "chai": "^4.2.0",
