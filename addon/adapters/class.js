@@ -1,2 +1,2 @@
 import BaseAdapter from './-addon-docs';
-export default BaseAdapter.extend();
+export default class ClassAdapter extends BaseAdapter {}
