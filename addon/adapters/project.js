@@ -1,2 +1,1 @@
-import BaseAdapter from './-addon-docs';
-export default class ProjectAdapter extends BaseAdapter {}
+export { default } from './-addon-docs';
