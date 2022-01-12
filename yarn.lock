@@ -2782,12 +2782,7 @@ acorn@^7.0.0, acorn@^7.1.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
 
-acorn@^8.2.4, acorn@^8.4.1, acorn@^8.5.0:
-  version "8.6.0"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.6.0.tgz#e3692ba0eb1a0c83eaa4f37f5fa7368dd7142895"
-  integrity sha512-U1riIR+lBSNi3IbxtaHOIKdH8sLFv3NYfNv8sg7ZsNhcfl4HF2++BfqqrNAxoCLQW1iiylOj76ecnaUxz+z9yw==
-
-acorn@^8.7.0:
+acorn@^8.2.4, acorn@^8.4.1, acorn@^8.5.0, acorn@^8.7.0:
   version "8.7.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.7.0.tgz#90951fde0f8f09df93549481e5fc141445b791cf"
   integrity sha512-V/LGr1APy+PXIwKebEWrkZPwoeoF+w1jiOBUmuxuiUIaOHtob8Qc9BTrYo7VuI5fR8tqsy+buA2WFooR5olqvQ==
@@ -6298,7 +6293,7 @@ ember-cli-htmlbars@^5.0.0, ember-cli-htmlbars@^5.2.0, ember-cli-htmlbars@^5.3.1,
     strip-bom "^4.0.0"
     walk-sync "^2.2.0"
 
-ember-cli-htmlbars@^6.0.0:
+ember-cli-htmlbars@^6.0.0, ember-cli-htmlbars@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-6.0.1.tgz#5487831d477e61682bc867fd138808269e5d2152"
   integrity sha512-IDsl9uty+MXtMfp/BUTEc/Q36EmlHYj8ZdPekcoRa8hmdsigHnK4iokfaB7dJFktlf6luruei+imv7JrJrBQPQ==
@@ -6852,12 +6847,12 @@ ember-getowner-polyfill@^2.2.0:
     ember-cli-babel "^7.26.5"
 
 ember-keyboard@^7.0.0-beta.0:
-  version "7.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-7.0.0-beta.0.tgz#b00d40cb4f4af20150a9e05ef8038d2295f0a605"
-  integrity sha512-xHdzk7doUJFHZ3Jf/w5tSj7shc1002c6ZHe9tEKkzjMWTrD48kg0BNf6jwQ9a1yG7hQtvtodRKDw2dTmHVdw/Q==
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-7.0.0.tgz#97b0675650c11333d440161752abb71630dbdd5d"
+  integrity sha512-NuFZqIU1SahX0dFWqBJ8rD30cQF92RbuVPwbHTYU0SJFhVltYen6G66b3u2PkshK/WpdGHDL8XS+hZvpsoP2DA==
   dependencies:
     ember-cli-babel "^7.26.6"
-    ember-cli-htmlbars "^5.7.1"
+    ember-cli-htmlbars "^6.0.1"
     ember-modifier "^2.1.2 || ^3.0.0"
     ember-modifier-manager-polyfill "^1.2.0"
 
@@ -7022,9 +7017,9 @@ ember-source@~3.28.8:
     silent-error "^1.1.1"
 
 ember-svg-jar@^2.2.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/ember-svg-jar/-/ember-svg-jar-2.3.3.tgz#aede3f23e58bdcacc0e59a297c1ebad71a472e31"
-  integrity sha512-Obs8vEMKPfS2R48bKBAfNSLphFsDwUMRqi8TVKtlLE6okTXC8NebGg7pA/IutIGnakqJRAz4/dWAZyI74duDuQ==
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/ember-svg-jar/-/ember-svg-jar-2.3.4.tgz#ed80aa137db8440e51448f58f09afb6c140e9b5f"
+  integrity sha512-EkY7fGeDevLROkDRsN+654THJT2b3cBVi8YH0v9mDofiASPBOlP3NgDs9q1WA1hU6cP68m08vXk/E40ayIVZzQ==
   dependencies:
     broccoli-caching-writer "^3.0.3"
     broccoli-concat "^3.7.4"
@@ -7036,7 +7031,8 @@ ember-svg-jar@^2.2.3:
     broccoli-svg-optimizer "2.0.0"
     cheerio "^0.22.0"
     console-ui "^3.1.1"
-    ember-cli-babel "^7.7.3"
+    ember-cli-babel "^7.26.6"
+    ember-cli-htmlbars "^5.7.1"
     json-stable-stringify "^1.0.1"
     lodash "^4.17.15"
     mkdirp "^0.5.1"
@@ -8683,10 +8679,10 @@ got@^9.6.0:
     to-readable-stream "^1.0.0"
     url-parse-lax "^3.0.0"
 
-graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.3, graceful-fs@^4.1.6, graceful-fs@^4.1.9, graceful-fs@^4.2.0, graceful-fs@^4.2.4:
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.8.tgz#e412b8d33f5e006593cbd3cee6df9f2cebbe802a"
-  integrity sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==
+graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.3, graceful-fs@^4.1.6, graceful-fs@^4.1.9, graceful-fs@^4.2.0, graceful-fs@^4.2.4, graceful-fs@^4.2.9:
+  version "4.2.9"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.9.tgz#041b05df45755e587a24942279b9d113146e1c96"
+  integrity sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==
 
 "graceful-readlink@>= 1.0.0":
   version "1.0.1"
@@ -15289,9 +15285,9 @@ webpack@^4.43.0:
     webpack-sources "^1.4.1"
 
 webpack@^5.65.0:
-  version "5.65.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.65.0.tgz#ed2891d9145ba1f0d318e4ea4f89c3fa18e6f9be"
-  integrity sha512-Q5or2o6EKs7+oKmJo7LaqZaMOlDWQse9Tm5l1WAfU/ujLGN5Pb0SqGeVkN/4bpPmEqEP5RnVhiqsOtWtUVwGRw==
+  version "5.66.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.66.0.tgz#789bf36287f407fc92b3e2d6f978ddff1bfc2dbb"
+  integrity sha512-NJNtGT7IKpGzdW7Iwpn/09OXz9inIkeIQ/ibY6B+MdV1x6+uReqz/5z1L89ezWnpPDWpXF0TY5PCYKQdWVn8Vg==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.50"
@@ -15307,7 +15303,7 @@ webpack@^5.65.0:
     eslint-scope "5.1.1"
     events "^3.2.0"
     glob-to-regexp "^0.4.1"
-    graceful-fs "^4.2.4"
+    graceful-fs "^4.2.9"
     json-parse-better-errors "^1.0.2"
     loader-runner "^4.2.0"
     mime-types "^2.1.27"
