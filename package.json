@@ -68,7 +68,7 @@
     "ember-concurrency": "^2.0.0",
     "ember-decorators": "^6.1.1",
     "ember-fetch": "^8.1.1",
-    "ember-get-config": "^0.5.0",
+    "ember-get-config": "^1.0.0",
     "ember-keyboard": "^7.0.0-beta.0",
     "ember-modal-dialog": "yapplabs/ember-modal-dialog#31ffee4c657ebe96b1f80adbc39c0339b52236e2",
     "ember-responsive": "^4.0.2",
