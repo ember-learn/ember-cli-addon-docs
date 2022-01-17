@@ -33,6 +33,7 @@
   "resolutions": {
     "**/@ember/render-modifiers": "^2.0.0",
     "**/@embroider/macros": "0.50.2",
+    "**/ember-auto-import": "^2.2.4",
     "**/ember-cli-babel": "^7.26.6",
     "**/ember-tether": "^2.0.1"
   },
@@ -69,7 +70,7 @@
     "ember-fetch": "^8.1.1",
     "ember-get-config": "^0.5.0",
     "ember-keyboard": "^7.0.0-beta.0",
-    "ember-modal-dialog": "yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71",
+    "ember-modal-dialog": "yapplabs/ember-modal-dialog#31ffee4c657ebe96b1f80adbc39c0339b52236e2",
     "ember-responsive": "^4.0.2",
     "ember-router-generator": "^2.0.0",
     "ember-router-scroll": "^4.1.2",
