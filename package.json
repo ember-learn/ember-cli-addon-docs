@@ -33,6 +33,7 @@
   "resolutions": {
     "**/@ember/render-modifiers": "^2.0.0",
     "**/@embroider/macros": "0.50.2",
+    "**/@embroider/util": "0.50.2",
     "**/ember-auto-import": "^2.2.4",
     "**/ember-cli-babel": "^7.26.6",
     "**/ember-tether": "^2.0.1"
