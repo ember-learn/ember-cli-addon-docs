@@ -170,34 +170,6 @@ module.exports = {
 
     includer.options.snippetExtensions = snippetExtensions;
 
-    const VersionChecker = require('ember-cli-version-checker');
-    const checker = new VersionChecker(this.project);
-    const ember = checker.for('ember-source');
-
-    if (ember.gte('3.8.0')) {
-      // array helper is built into ember as of 3.8.
-      // ember 3.17 starts erroring when overwritting built in helpers
-
-      // exclude from ember-cli-addon-docs
-      this.options['ember-composable-helpers'] = {
-        except: ['array'],
-      };
-
-      // exclude from the app using ember-cli-addon-docs
-      if (!includer.options['ember-composable-helpers']) {
-        includer.options['ember-composable-helpers'] = {};
-      }
-
-      const echOptions = includer.options['ember-composable-helpers'];
-      if (!echOptions.only) {
-        if (!echOptions.except) {
-          echOptions.except = ['array'];
-        } else if (echOptions.except.indexOf('array') === -1) {
-          echOptions.except.push('array');
-        }
-      }
-    }
-
     // This must come after we add our own options above, or else other addons won't see them.
     this._super.included.apply(this, arguments);
 
