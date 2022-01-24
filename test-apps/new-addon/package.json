@@ -24,6 +24,7 @@
     "ember-auto-import": "*"
   },
   "devDependencies": {
+    "@ember/optional-features": "*",
     "@ember/test-helpers": "*",
     "ember-cli-addon-docs": "*",
     "ember-cli-addon-docs-yuidoc": "*",
