@@ -5873,9 +5873,9 @@ ember-maybe-import-regenerator-for-testing@^1.0.0:
     ember-cli-babel "^6.6.0"
     regenerator-runtime "^0.9.5"
 
-ember-modal-dialog@yapplabs/ember-modal-dialog#31ffee4c657ebe96b1f80adbc39c0339b52236e2:
+ember-modal-dialog@yapplabs/ember-modal-dialog#a43767b65f7f52b4549c5dd0136aa36372f90a1d:
   version "4.0.0-alpha.1"
-  resolved "https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/31ffee4c657ebe96b1f80adbc39c0339b52236e2"
+  resolved "https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/a43767b65f7f52b4549c5dd0136aa36372f90a1d"
   dependencies:
     ember-cli-babel "^7.26.6"
     ember-cli-htmlbars "^5.7.1"
