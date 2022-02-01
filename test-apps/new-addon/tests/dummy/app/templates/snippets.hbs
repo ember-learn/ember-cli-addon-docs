@@ -25,18 +25,6 @@
 
 <DocsSnippet @name="your-angle-bracket-snippet-name.hbs" @data-test-id="standalone-angle-brackets" />
 
-{{#docs-demo data-test-id="docs-demo-basic.hbs" as |demo|}}
-  {{#demo.example name="docs-demo-basic.hbs"}}
-    <p>I am a <strong>handlebars</strong> template!</p>
-    <p>The value is: {{this.val}}</p>
-    <div>
-      {{input value=this.val class="docs-border"}}
-    </div>
-  {{/demo.example}}
-
-  {{demo.snippet "docs-demo-basic.hbs"}}
-{{/docs-demo}}
-
 <DocsDemo as |demo|>
   <demo.example @name="docs-demo-angle-brackets-basic.hbs">
     <p>I am a <strong>handlebars</strong> template!</p>
