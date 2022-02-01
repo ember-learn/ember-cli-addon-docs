@@ -114,7 +114,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Test
-        run: yarn test:ember-compatibility ${{ matrix.scenario }}
+        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
 
   deploy-app:
     name: Deploy app
