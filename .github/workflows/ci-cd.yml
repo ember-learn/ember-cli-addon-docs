@@ -90,7 +90,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        scenario:
+        try-scenario:
           - 'ember-lts-3.24'
           - 'ember-release'
           - 'ember-beta'
