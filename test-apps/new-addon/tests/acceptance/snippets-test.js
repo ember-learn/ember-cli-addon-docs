@@ -13,7 +13,7 @@ module('Acceptance | snippets', function(hooks) {
   setupApplicationTest(hooks);
 
   test('snippets support angle bracket invocation', async function(assert) {
-    assert.expect(17);
+    assert.expect(12);
 
     await visit('/snippets');
 
