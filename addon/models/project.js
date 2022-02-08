@@ -1,9 +1,18 @@
 import Model, { attr, hasMany } from '@ember-data/model';
 
-export default Model.extend({
-  name: attr(),
-  githubUrl: attr(),
-  version: attr(),
-  navigationIndex: attr(),
-  modules: hasMany('module', { async: false }),
-});
+export default class Project extends Model {
+  @attr
+  name;
+
+  @attr
+  githubUrl;
+
+  @attr
+  version;
+
+  @attr
+  navigationIndex;
+
+  @hasMany('module', { async: false })
+  modules;
+}
