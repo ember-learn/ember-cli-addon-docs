@@ -44,6 +44,10 @@ export default class ProjectVersionService extends Service {
   }
 
   get currentVersion() {
+    if (this._currentVersion) {
+      return this._currentVersion;
+    }
+
     let config =
       getOwner(this).resolveRegistration('config:environment')[
         'ember-cli-addon-docs'
@@ -62,5 +66,10 @@ export default class ProjectVersionService extends Service {
     }
 
     return currentVersion;
+  }
+
+  // only used for tests
+  set currentVersion(val) {
+    this._currentVersion = val;
   }
 }
