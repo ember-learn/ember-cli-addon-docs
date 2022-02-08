@@ -3,9 +3,9 @@ import { computed } from '@ember/object';
 import compileMarkdown from 'ember-cli-addon-docs/utils/compile-markdown';
 import { htmlSafe } from '@ember/template';
 
-export default Controller.extend({
+export default class RouteUsingCompileMarkdown extends Controller {
 
-  body: `In the beginning, we could only use
+  body = `In the beginning, we could only use
 
 \`\`\`js
 function foo() {
@@ -20,10 +20,10 @@ const foo = () => {
   console.log('bar');
 });
 \`\`\`
-`,
+`;
 
-  htmlBody: computed('body', function() {
+  get htmlBody() {
     return htmlSafe(compileMarkdown(this.body));
-  })
+  }
 
-});
+}
