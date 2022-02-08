@@ -1,67 +1,72 @@
 import { attr } from '@ember-data/model';
 import { filterBy, or } from '@ember/object/computed';
 import { dasherize } from '@ember/string';
-import { computed } from '@ember/object';
 
 import Class from './class';
 import { memberUnion, hasMemberType } from '../utils/computed';
 
-export default Class.extend({
-  isComponent: true,
+export default class Component extends Class {
+  isComponent = true;
 
-  yields: attr(),
-  arguments: attr(),
+  @attr()
+  yields;
 
-  overloadedYields: or('yields', 'inheritedYields'),
+  @attr()
+  arguments;
 
-  publicArguments: filterBy('arguments', 'access', 'public'),
-  privateArguments: filterBy('arguments', 'access', 'private'),
-  protectedArguments: filterBy('arguments', 'access', 'protected'),
+  @or('yields', 'inheritedYields')
+  overloadedYields;
 
-  allPublicArguments: memberUnion(
-    'parentClass.allPublicArguments',
-    'publicArguments'
-  ),
-  allPrivateArguments: memberUnion(
-    'parentClass.allPrivateArguments',
-    'privateArguments'
-  ),
-  allProtectedArguments: memberUnion(
-    'parentClass.allProtectedArguments',
-    'protectedArguments'
-  ),
+  @filterBy('arguments', 'access', 'public')
+  publicArguments;
 
-  allArguments: memberUnion('parentClass.allArguments', 'arguments'),
+  @filterBy('arguments', 'access', 'private')
+  privateArguments;
 
-  hasInherited: or(
+  @filterBy('arguments', 'access', 'protected')
+  protectedArguments;
+
+  @memberUnion('parentClass.allPublicArguments', 'publicArguments')
+  allPublicArguments;
+
+  @memberUnion('parentClass.allPrivateArguments', 'privateArguments')
+  allPrivateArguments;
+
+  @memberUnion('parentClass.allProtectedArguments', 'protectedArguments')
+  allProtectedArguments;
+
+  @memberUnion('parentClass.allArguments', 'arguments')
+  allArguments;
+
+  @or(
     'parentClass.overloadedYields.length',
     'parentClass.allArguments.length',
     'parentClass.allAccessors.length',
     'parentClass.allMethods.length',
     'parentClass.allFields.length'
-  ),
+  )
+  hasInherited;
 
-  hasInternal: or(
-    'allAccessors.length',
-    'allMethods.length',
-    'allFields.length'
-  ),
+  @or('allAccessors.length', 'allMethods.length', 'allFields.length')
+  hasInternal;
 
-  hasPrivate: or(
+  @or(
     'allPrivateAccessors.length',
     'allPrivateArguments.length',
     'allPrivateMethods.length',
     'allPrivateFields.length'
-  ),
+  )
+  hasPrivate;
 
-  hasProtected: or(
+  @or(
     'allProtectedAccessors.length',
     'allProtectedArguments.length',
     'allProtectedMethods.length',
     'allProtectedFields.length'
-  ),
+  )
+  hasProtected;
 
-  hasDeprecated: hasMemberType(
+  @hasMemberType(
     'allAccessors',
     'allArguments',
     'allMethods',
@@ -70,7 +75,8 @@ export default Class.extend({
     function (member) {
       return member.tags && member.tags.find((t) => t.name === 'deprecated');
     }
-  ),
+  )
+  hasDeprecated;
 
   /*
     This gives us a way to link to a model, since we don't always link by the actual ID:
@@ -79,7 +85,7 @@ export default Class.extend({
 
     Possible refactoring is to always link by actual ID, and implement redirects.
   */
-  routingId: computed('name', function () {
+  get routingId() {
     return `components/${dasherize(this.name)}`;
-  }),
-});
+  }
+}
