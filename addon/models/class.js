@@ -8,34 +8,34 @@ export default class Class extends Model {
 
   isClass = true;
 
-  @attr()
+  @attr
   name;
 
-  @attr()
+  @attr
   file;
 
-  @attr()
+  @attr
   exportType;
 
-  @attr()
+  @attr
   description;
 
-  @attr()
+  @attr
   lineNumber;
 
-  @attr()
+  @attr
   access;
 
-  @attr()
+  @attr
   accessors;
 
-  @attr()
+  @attr
   methods;
 
-  @attr()
+  @attr
   fields;
 
-  @attr()
+  @attr
   tags;
 
   @filterBy('accessors', 'access', 'public')

@@ -8,10 +8,10 @@ import { memberUnion, hasMemberType } from '../utils/computed';
 export default class Component extends Class {
   isComponent = true;
 
-  @attr()
+  @attr
   yields;
 
-  @attr()
+  @attr
   arguments;
 
   @or('yields', 'inheritedYields')

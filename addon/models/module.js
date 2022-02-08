@@ -1,13 +1,13 @@
 import Model, { attr, hasMany } from '@ember-data/model';
 
 export default class Module extends Model {
-  @attr()
+  @attr
   file;
 
-  @attr()
+  @attr
   variables;
 
-  @attr()
+  @attr
   functions;
 
   @hasMany('class', { async: false })

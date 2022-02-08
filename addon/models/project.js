@@ -1,16 +1,16 @@
 import Model, { attr, hasMany } from '@ember-data/model';
 
 export default class Project extends Model {
-  @attr()
+  @attr
   name;
 
-  @attr()
+  @attr
   githubUrl;
 
-  @attr()
+  @attr
   version;
 
-  @attr()
+  @attr
   navigationIndex;
 
   @hasMany('module', { async: false })
