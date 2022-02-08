@@ -26,7 +26,6 @@ export default class Class extends Model {
   @attr()
   access;
 
-
   @attr()
   accessors;
 
@@ -39,7 +38,6 @@ export default class Class extends Model {
   @attr()
   tags;
 
-
   @filterBy('accessors', 'access', 'public')
   publicAccessors;
 
@@ -48,7 +46,6 @@ export default class Class extends Model {
 
   @filterBy('fields', 'access', 'public')
   publicFields;
-
 
   @filterBy('accessors', 'access', 'private')
   privateAccessors;
@@ -59,7 +56,6 @@ export default class Class extends Model {
   @filterBy('fields', 'access', 'private')
   privateFields;
 
-
   @filterBy('accessors', 'access', 'protected')
   protectedAccessors;
 
@@ -69,69 +65,37 @@ export default class Class extends Model {
   @filterBy('fields', 'access', 'protected')
   protectedFields;
 
-  @memberUnion(
-    'parentClass.allPublicAccessors',
-    'publicAccessors'
-  )
+  @memberUnion('parentClass.allPublicAccessors', 'publicAccessors')
   allPublicAccessors;
 
-  @memberUnion(
-    'parentClass.allPublicMethods',
-    'publicMethods'
-  )
+  @memberUnion('parentClass.allPublicMethods', 'publicMethods')
   allPublicMethods;
 
   @memberUnion('parentClass.allPublicFields', 'publicFields')
   allPublicFields;
 
-  @memberUnion(
-    'parentClass.allPrivateAccessors',
-    'privateAccessors'
-  )
+  @memberUnion('parentClass.allPrivateAccessors', 'privateAccessors')
   allPrivateAccessors;
 
-  @memberUnion(
-    'parentClass.allPrivateMethods',
-    'privateMethods'
-  )
+  @memberUnion('parentClass.allPrivateMethods', 'privateMethods')
   allPrivateMethods;
 
-  @memberUnion(
-    'parentClass.allPrivateFields',
-    'privateFields'
-  )
+  @memberUnion('parentClass.allPrivateFields', 'privateFields')
   allPrivateFields;
 
-  @memberUnion(
-    'parentClass.allProtectedAccessors',
-    'protectedAccessors'
-  )
+  @memberUnion('parentClass.allProtectedAccessors', 'protectedAccessors')
   allProtectedAccessors;
 
-  @memberUnion(
-    'parentClass.allProtectedMethods',
-    'protectedMethods'
-  )
+  @memberUnion('parentClass.allProtectedMethods', 'protectedMethods')
   allProtectedMethods;
 
-  @memberUnion(
-    'parentClass.allProtectedFields',
-    'protectedFields'
-  )
+  @memberUnion('parentClass.allProtectedFields', 'protectedFields')
   allProtectedFields;
 
-  @union(
-    'allPublicAccessors',
-    'allPrivateAccessors',
-    'allProtectedAccessors'
-  )
+  @union('allPublicAccessors', 'allPrivateAccessors', 'allProtectedAccessors')
   allAccessors;
 
-  @union(
-    'allPublicMethods',
-    'allPrivateMethods',
-    'allProtectedMethods'
-  )
+  @union('allPublicMethods', 'allPrivateMethods', 'allProtectedMethods')
   allMethods;
 
   @union('allPublicFields', 'allPrivateFields', 'allProtectedFields')
