@@ -1,22 +1,24 @@
-import { computed } from '@ember/object';
 import { A } from '@ember/array';
 import Service, { inject as service } from '@ember/service';
 import { assert } from '@ember/debug';
+import { tracked } from '@glimmer/tracking';
 
-export default Service.extend({
-  router: service('-routing'),
+export default class DocsRoutesService extends Service {
+  @service('-routing') router;
 
-  init() {
-    this._super(...arguments);
+  @tracked items;
+
+  constructor() {
+    super(...arguments);
     this.resetState();
-  },
+  }
 
   resetState() {
-    this.set('items', A());
-  },
+    this.items = A();
+  }
 
   // Each routeParam is [ routeName, model ] where model is optional
-  routes: computed('items.[]', function () {
+  get routes() {
     return this.items.map((item) => {
       let routeParams = [item.route];
       if (item.model) {
@@ -25,18 +27,18 @@ export default Service.extend({
 
       return routeParams;
     });
-  }),
+  }
 
-  routeUrls: computed('routes.[]', function () {
+  get routeUrls() {
     return this.routes.map(([routeName, model]) => {
       return this.router.generateURL(routeName, model ? [model] : []);
     });
-  }),
+  }
 
-  currentRouteIndex: computed('router.router.url', 'routeUrls.[]', function () {
-    if (this.get('routeUrls.length')) {
-      let router = this.get('router.router');
-      let currentURL = router.get('rootURL') + router.get('url');
+  get currentRouteIndex() {
+    if (this.routeUrls.length) {
+      let router = this.router.router;
+      let currentURL = router.rootURL + router.url;
       currentURL = currentURL.replace('//', '/'); // dedup slashes
       let longestIndex, longestPrefix;
       this.routeUrls.forEach((url, index) => {
@@ -54,24 +56,28 @@ export default Service.extend({
       );
       return longestIndex;
     }
-  }),
 
-  next: computed('currentRouteIndex', 'items', 'routes.[]', function () {
+    return null;
+  }
+
+  get next() {
     let currentIndex = this.currentRouteIndex;
 
-    if (currentIndex < this.get('routes.length') - 1) {
+    if (currentIndex < this.routes.length - 1) {
       let nextRouteIndex = currentIndex + 1;
       let route = this.items.objectAt(nextRouteIndex);
 
       return {
-        route: route.get('route'),
-        models: route.get('model') ? [route.get('model')] : [],
-        label: route.get('label'),
+        route: route.route,
+        models: route.model ? [route.model] : [],
+        label: route.label,
       };
     }
-  }),
 
-  previous: computed('currentRouteIndex', 'items', 'routes.[]', function () {
+    return null;
+  }
+
+  get previous() {
     let currentIndex = this.currentRouteIndex;
 
     if (currentIndex > 0) {
@@ -79,10 +85,12 @@ export default Service.extend({
       let route = this.items.objectAt(previousRouteIndex);
 
       return {
-        route: route.get('route'),
-        models: route.get('model') ? [route.get('model')] : [],
-        label: route.get('label'),
+        route: route.route,
+        models: route.model ? [route.model] : [],
+        label: route.label,
       };
     }
-  }),
-});
+
+    return null;
+  }
+}
