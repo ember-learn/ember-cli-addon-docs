@@ -1,50 +1,55 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 import { alias, or } from '@ember/object/computed';
 import { capitalize } from '@ember/string';
 import { memberFilter } from '../../../utils/computed';
 
-export default Component.extend({
-  tagName: '',
+export default class XComponent extends Component {
+  @tracked showInherited = false;
+  @tracked showInternal = false;
+  @tracked showProtected = false;
+  @tracked showPrivate = false;
+  @tracked showDeprecated = false;
 
-  showInherited: false,
-  showInternal: false,
-  showProtected: false,
-  showPrivate: false,
-  showDeprecated: false,
+  @alias('args.component.overloadedYields')
+  yields;
 
-  yields: alias('component.overloadedYields'),
+  @memberFilter('args.component', 'arguments')
+  arguments;
 
-  arguments: memberFilter('component', 'arguments'),
-  accessors: memberFilter('component', 'accessors'),
-  methods: memberFilter('component', 'methods'),
-  fields: memberFilter('component', 'fields'),
+  @memberFilter('args.component', 'accessors')
+  accessors;
 
-  hasToggles: or(
-    'component.hasInherited',
-    'component.hasInternal',
-    'component.hasProtected',
-    'component.hasPrivate',
-    'component.hasDeprecated'
-  ),
+  @memberFilter('args.component', 'methods')
+  methods;
 
-  hasContents: computed('component', {
-    get() {
-      let component = this.component;
+  @memberFilter('args.component', 'fields')
+  fields;
 
-      return (
-        component.get('overloadedYields.length') > 0 ||
-        component.get('arguments.length') > 0 ||
-        component.get('fields.length') > 0 ||
-        component.get('accessors.length') > 0 ||
-        component.get('methods.length') > 0
-      );
-    },
-  }),
+  @or(
+    'args.component.hasInherited',
+    'args.component.hasInternal',
+    'args.component.hasProtected',
+    'args.component.hasPrivate',
+    'args.component.hasDeprecated'
+  )
+  hasToggles;
 
-  actions: {
-    updateFilter(filter, { target: { checked } }) {
-      this.set(`show${capitalize(filter)}`, checked);
-    },
-  },
-});
+  get hasContents() {
+    let component = this.args.component;
+
+    return (
+      component.overloadedYields.length > 0 ||
+      component.arguments.length > 0 ||
+      component.fields.length > 0 ||
+      component.accessors.length > 0 ||
+      component.methods.length > 0
+    );
+  }
+
+  @action
+  updateFilter(filter, { target: { checked } }) {
+    this[`show${capitalize(filter)}`] = checked;
+  }
+}

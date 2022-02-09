@@ -1,5 +1,5 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { or } from '@ember/object/computed';
 import { capitalize } from '@ember/string';
 import { memberFilter } from '../../../utils/computed';
@@ -7,42 +7,42 @@ import config from 'ember-get-config';
 
 const { showImportPaths } = config['ember-cli-addon-docs'];
 
-export default Component.extend({
-  tagName: '',
+export default class XClass extends Component {
+  showImportPaths = showImportPaths;
 
-  showImportPaths,
+  @tracked showInherited = false;
+  @tracked showProtected = false;
+  @tracked showPrivate = false;
+  @tracked showDeprecated = false;
 
-  showInherited: false,
-  showProtected: false,
-  showPrivate: false,
-  showDeprecated: false,
+  @memberFilter('args.class', 'accessors')
+  accessors;
 
-  accessors: memberFilter('class', 'accessors'),
-  methods: memberFilter('class', 'methods'),
-  fields: memberFilter('class', 'fields'),
+  @memberFilter('args.class', 'methods')
+  methods;
 
-  hasToggles: or(
+  @memberFilter('args.class', 'fields')
+  fields;
+
+  @or(
     'component.hasInherited',
     'component.hasProtected',
     'component.hasPrivate',
     'component.hasDeprecated'
-  ),
+  )
+  hasToggles;
 
-  hasContents: computed('class', {
-    get() {
-      let klass = this.class;
+  get hasContents() {
+    let klass = this.args.class;
 
-      return (
-        klass.get('allFields.length') > 0 ||
-        klass.get('allAccessors.length') > 0 ||
-        klass.get('allMethods.length') > 0
-      );
-    },
-  }),
+    return (
+      klass.allFields.length > 0 ||
+      klass.allAccessors.length > 0 ||
+      klass.allMethods.length > 0
+    );
+  }
 
-  actions: {
-    updateFilter(filter, { target: { checked } }) {
-      this.set(`show${capitalize(filter)}`, checked);
-    },
-  },
-});
+  updateFilter(filter, { target: { checked } }) {
+    this[`show${capitalize(filter)}`] = checked;
+  }
+}

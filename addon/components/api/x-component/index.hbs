@@ -16,7 +16,7 @@
           protected=(if @component.hasProtected this.showProtected)
           private=(if @component.hasPrivate this.showPrivate)
           deprecated=(if @component.hasDeprecated this.showDeprecated)
-        }} @onToggle={{action "updateFilter"}} />
+        }} @onToggle={{this.updateFilter}} />
     {{/if}}
   </Api::XMetaPanel>
 {{/if}}

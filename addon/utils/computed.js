@@ -1,4 +1,4 @@
-import { computed } from '@ember/object';
+import { computed, get } from '@ember/object';
 import { capitalize } from '@ember/string';
 
 /**
@@ -10,8 +10,8 @@ export function memberUnion(parentMembersKey, childMembersKey) {
     `${parentMembersKey}.[]`,
     `${childMembersKey}.[]`,
     function () {
-      let parentMembers = this.get(parentMembersKey);
-      let childMembers = this.get(childMembersKey);
+      let parentMembers = get(this, parentMembersKey);
+      let childMembers = get(this, childMembersKey);
 
       if (!parentMembers) {
         return childMembers;
@@ -67,7 +67,7 @@ export function memberFilter(classKey, memberType) {
     'showPrivate',
     'showDeprecated',
     function () {
-      let klass = this.get(classKey);
+      let klass = get(this, classKey);
       let showInternal = this.showInternal;
       let showInherited = this.showInherited;
       let showProtected = this.showProtected;
@@ -123,7 +123,7 @@ export function hasMemberType(...memberKeys) {
   return computed(...memberKeys.map((k) => `${k}.[]`), {
     get() {
       return memberKeys.some((memberKey) => {
-        return this.get(memberKey).some((member) => filter(member, memberKey));
+        return get(this, memberKey).some((member) => filter(member, memberKey));
       });
     },
   });

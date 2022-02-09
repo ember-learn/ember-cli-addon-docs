@@ -36,23 +36,23 @@ hljs.registerLanguage('ts', typescript);
   user interaction.
 
   ```js
-  import Component from '@ember/component';
+  import Component from '@glimmer/component';
   import dedent from 'dedent';
   import { highlightCode } from 'ember-cli-addon-docs/utils/compile-markdown';
 
-  export default Component.extend({
-    snippet: dedent`
+  export default class MyComponent extends Component {
+    snippet = dedent`
       let { foo } = bar;
-    `,
+    `;
 
-    highlightedSnippet: computed(function() {
+    get highlightedSnippet() {
       return highlightCode(this.snippet, 'js');
-    })
-  });
+    }
+  }
   ```
 
   ```hbs
-  <div class='docs-bg-code-base text-grey overflow-x-scroll'>
+  <div class="docs-bg-code-base text-grey overflow-x-scroll">
     <div class="p-4 w-full">
       <pre>{{{highlightedSnippet}}}</pre>
     </div>
@@ -81,15 +81,15 @@ export function highlightCode(code, language) {
   fetched at runtime from an API:
 
   ```js
-  import Component from '@ember/component';
+  import Component from '@glimmer/component';
   import compileMarkdown from 'ember-cli-addon-docs/utils/compile-markdown';
   import { htmlSafe } from '@ember/template';
 
-  export default Component.extend({
-    htmlBody: computed('post.body', function() {
+  export default class MyComponent extends Component {
+    get htmlBody() {
       return htmlSafe(compileMarkdown(this.post.body));
-    });
-  });
+    }
+  }
   ```
 
   @function compileMarkdown

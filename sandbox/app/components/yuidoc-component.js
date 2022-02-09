@@ -1,7 +1,7 @@
 /* eslint-disable */
 /** @documenter yuidoc */
 
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
 /**
   Pretty cool component, right?
@@ -15,20 +15,20 @@ import Component from '@ember/component';
   @class YUIDocComponent
   @public
 */
-let YUIDocComponent = Component.extend({
+export default class YUIDocComponent extends Component {
   /**
     The count
     @argument count
     @type number
   */
-  count: 0,
+  count = 0;
 
   /**
     An action that sends on events
     @argument onEvent
     @type Action
   */
-  onEvent: null,
+  onEvent = null;
 
   /**
     PRIVATE DO NOT TOUCH
@@ -37,7 +37,7 @@ let YUIDocComponent = Component.extend({
     @private
     @type number
   */
-  _privateField: 123,
+  #privateField = 123;
 
   /**
     The best method ever made, anywhere.
@@ -51,9 +51,6 @@ let YUIDocComponent = Component.extend({
     return `${name} has features ${features}`;
   }
 
-});
-
-YUIDocComponent.reopenClass({
   /**
     An awesome static value
 
@@ -61,7 +58,5 @@ YUIDocComponent.reopenClass({
     @static
     @type boolean
   */
-  isYUIDocComponent: true
-});
-
-export default YUIDocComponent;
+  static isYUIDocComponent = true;
+}

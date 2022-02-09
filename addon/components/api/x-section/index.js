@@ -1,5 +1,4 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 import config from 'ember-get-config';
 
 const { showImportPaths } = config['ember-cli-addon-docs'];
@@ -8,10 +7,8 @@ const { showImportPaths } = config['ember-cli-addon-docs'];
   @class Api/XSection
   @hide
 */
-export default Component.extend({
-  tagName: '',
-
-  showImportPaths,
+export default class XSection extends Component {
+  showImportPaths = showImportPaths;
 
   /**
    * Params shouldn't be displayed when there are no descriptions and no subparams,
@@ -20,9 +17,9 @@ export default Component.extend({
    * @function
    * @hide
    */
-  shouldDisplayParams: computed('item.params.[]', function () {
-    let params = this.get('item.params') || [];
+  get shouldDisplayParams() {
+    let params = this.args.item?.params || [];
 
     return params.some((p) => p.description || p.name.includes('.'));
-  }),
-});
+  }
+}
