@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
 /**
   An autodocumented component.
@@ -6,7 +6,6 @@ import Component from '@ember/component';
   @class SomeComponent
   @public
 */
-export default Component.extend({
-  
+export default class SomeComponent extends Component {
 
-});
+}

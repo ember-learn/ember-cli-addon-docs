@@ -73,7 +73,7 @@ Here's what that looks like:
 
 <div class="docs-my-8">
   <DocsSnippet @name="docs-snippet-title-example.hbs" @title="app/components/my-component.js" @showCopy=false @language="javascript">
-    import Component from '@ember/component';
+    import Component from '@glimmer/component';
 
     export default class MyComponent extends Component {
       // ...
