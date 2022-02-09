@@ -1,5 +1,4 @@
-import { classNameBindings, tagName } from '@ember-decorators/component';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import hljs from 'highlight.js/lib/core';
 
 // Installed languages
@@ -27,12 +26,8 @@ hljs.registerLanguage('sh', shell);
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('ts', typescript);
 
-@tagName('pre')
-@classNameBindings('language')
 export default class DocsCodeHighlight extends Component {
-  didInsertElement() {
-    super.didInsertElement(...arguments);
-
-    hljs.highlightBlock(this.element);
+  setupElement(element) {
+    hljs.highlightBlock(element);
   }
 }

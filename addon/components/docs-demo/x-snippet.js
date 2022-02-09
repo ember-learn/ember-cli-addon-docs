@@ -1,14 +1,16 @@
 import { scheduleOnce } from '@ember/runloop';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  init() {
-    this._super(...arguments);
+export default class XSnippet extends Component {
+  constructor() {
+    super(...arguments);
 
     scheduleOnce('afterRender', () => {
-      this.get('did-init')(this.getProperties('name', 'label', 'language'));
+      this.args.didInit({
+        name: this.args.name,
+        label: this.args.label,
+        language: this.args.language,
+      });
     });
-  },
-}).reopenClass({
-  positionalParams: ['name'],
-});
+  }
+}

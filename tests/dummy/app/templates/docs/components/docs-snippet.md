@@ -7,25 +7,25 @@ Easily render a code snippet with syntax highlighting and a copy-to-clipboard bu
 To render a Handlebars snippet from one of your templates, wrap it in a `DocsSnippet` component:
 
 <div class="docs-my-8">
-  {{#docs-snippet name="docs-snippet.hbs"}}
-    {{#docs-snippet name="your-snippet-name.hbs"}}
+  <DocsSnippet @name="docs-snippet.hbs">
+    <DocsSnippet @name="your-snippet-name.hbs">
       <div id="foo">
-        {{#my-awesome-thing
-          some=true
-          options=false
-        }}
+        <MyAwesomeThing
+          @some={{true}}
+          @options={{false}}
+        >
           <p>Something old, something new</p>
-        {{/my-awesome-thing}}
+        </MyAwesomeThing>
       </div>
-    {{/docs-snippet}}
-  {{/docs-snippet}}
+    </DocsSnippet>
+  </DocsSnippet>
 </div>
 
 All snippets must have a globally unique name.
 
 Note that the block-form of `DocsSnippet` won't actually execute your template code, it will just capture the static code and render the snippet. Think of it like Markdown code fences that you can use in your Handlebars templates.
 
-If you want the code to actually render and also show the snippet, check out the <DocsLink  @route="docs.components.docs-demo">Docs Demo component</DocsLink>.
+If you want the code to actually render and also show the snippet, check out the <DocsLink @route="docs.components.docs-demo">Docs Demo component</DocsLink>.
 
 ## JavaScript and CSS
 
@@ -36,23 +36,25 @@ To do this, first mark up the source you want to display using comments that sta
 `BEGIN—SNIPPET` should be followed by a name, which you can use to identify the snippet.
 
 <div class="docs-my-8">
-  {{#docs-snippet name="my-snippet-src.hbs"}}
+  <DocsSnippet @name="my-snippet-src.hbs">
     // BEGIN-SNIPPET my-snippet.js
-    App = Ember.Application.extend({
-      modulePrefix: config.modulePrefix,
-      podModulePrefix: config.podModulePrefix,
-      Resolver
-    });
+    export default class App extends Application {
+      modulePrefix = config.modulePrefix;
+      podModulePrefix = config.podModulePrefix;
+      Resolver = Resolver;
+    }
     // END-SNIPPET
-  {{/docs-snippet}}
+  </DocsSnippet>
 </div>
 
-Then in any of your templates, you can use the non-block form of `docs-snippet` to render your named snippet:
+Then in any of your templates, you can use the non-block form of `<DocsSnippet/>` to render your named snippet:
 
 <div class="docs-my-8">
-  {{#docs-snippet name="my-snippet-src2.hbs"}}
-    {{docs-snippet name="my-snippet.js"}}
-  {{/docs-snippet}}
+  <DocsSnippet @name="my-snippet-src2.hbs">
+
+      <DocsSnippet @name="my-snippet.js"/>
+
+  </DocsSnippet>
 </div>
 
 Be sure to include the file extension.
@@ -61,19 +63,20 @@ Code snippets are provided by the [`ember-code-snippet`](https://github.com/ef4/
 
 ## Customizing Snippets
 
-By default, snippets will render with a button allowing readers to copy the snippet's contents to their clipboard. You can turn this off by passing `showCopy=false` to `{{docs-snippet}}`
+By default, snippets will render with a button allowing readers to copy the snippet's contents to their clipboard. You can turn this off by passing `@showCopy={{false}}` to `<DocsSnippet/>`.
 
-You can override the detected language for syntax highlighting in your snippet by specifying a `language` property.
+You can override the detected language for syntax highlighting in your snippet by specifying a `@language` argument.
 
-Finally, you can use the `title` property to specify a header for your snippet, for instance to specify the file your snippet would be found in.
+Finally, you can use the `@title` argument to specify a header for your snippet, for instance to specify the file your snippet would be found in.
 
 Here's what that looks like:
 
 <div class="docs-my-8">
-  {{#docs-snippet name="docs-snippet-title-example.hbs" title="app/components/my-component.js" showCopy=false language="javascript"}}
+  <DocsSnippet @name="docs-snippet-title-example.hbs" @title="app/components/my-component.js" @showCopy=false @language="javascript">
     import Component from '@ember/component';
-    export default Component.extend({
+
+    export default class MyComponent extends Component {
       // ...
-    });
-  {{/docs-snippet}}
+    }
+  </DocsSnippet>
 </div>

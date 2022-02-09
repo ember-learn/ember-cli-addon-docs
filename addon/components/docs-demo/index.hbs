@@ -1,8 +1,8 @@
-<div class="docs-rounded docs-border docs-border-grey-lighter docs-my-8 {{@class}}">
+<div class="docs-rounded docs-border docs-border-grey-lighter docs-my-8" ...attributes>
 
   {{yield (hash
     example=(component "docs-demo/x-example")
-    snippet=(component "docs-demo/x-snippet" did-init=(action "registerSnippet") activeSnippet=this.activeSnippet)
+    snippet=(component "docs-demo/x-snippet" didInit=this.registerSnippet activeSnippet=this.activeSnippet)
   )}}
 
   <div>

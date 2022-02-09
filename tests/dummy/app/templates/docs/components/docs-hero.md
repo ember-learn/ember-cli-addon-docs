@@ -9,25 +9,25 @@ The component has three arguments. By default, these arguments are pulled from y
 
 As long as these are present, you can just render `{{docs-hero}}` with no arguments:
 
-{{#docs-demo as |demo|}}
-  {{#demo.example name="docs-hero-1.hbs"}}
+<DocsDemo as |demo|>
+  <demo.example @name="docs-hero-1.hbs">
     {{docs-hero}}
-  {{/demo.example}}
+  </demo.example>
 
-  {{demo.snippet "docs-hero-1.hbs"}}
-{{/docs-demo}}
+  <demo.snippet @name="docs-hero-1.hbs"/>
+</DocsDemo>
 
 You can also override any of the args if necessary:
 
-{{#docs-demo as |demo|}}
-  {{#demo.example name="docs-hero-2.hbs"}}
+<DocsDemo as |demo|>
+  <demo.example @name="docs-hero-2.hbs">
     {{docs-hero
       prefix="EmberData"
       heading="Something"
       byline="The best addon ever. Now playing in theaters."
       class="some-custom-class"
     }}
-  {{/demo.example}}
+  </demo.example>
 
-  {{demo.snippet "docs-hero-2.hbs"}}
-{{/docs-demo}}
+  <demo.snippet @name="docs-hero-2.hbs"/>
+</DocsDemo>

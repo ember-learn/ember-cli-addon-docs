@@ -1,18 +1,17 @@
-import { tagName } from '@ember-decorators/component';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { localCopy } from 'tracked-toolbox';
 
 /**
   A snippet component for demonstrating some code
 
   ```hbs
-  {{docs-snippet name=snippet.name unindent=true language=snippet.language}}
+  <DocsSnippet @name={{snippet.name}} @unindent={{true}} @language={{snippet.language}} />
   ```
 
   @class DocsSnippet
   @public
 */
 
-@tagName('')
 export default class DocsSnippet extends Component {
   /**
     The name of the snippet
@@ -20,7 +19,6 @@ export default class DocsSnippet extends Component {
     @argument name
     @type String?
   */
-  name = null;
 
   /**
     The language of the snippet
@@ -28,7 +26,6 @@ export default class DocsSnippet extends Component {
     @argument language
     @type String?
   */
-  language = null;
 
   /**
     The title of the snippet
@@ -36,21 +33,24 @@ export default class DocsSnippet extends Component {
     @argument title
     @type String?
   */
-  title = null;
 
   /**
     Whether or not to show the copy button for this snippet
 
     @argument showCopy
     @type Boolean
+    @default true
   */
-  showCopy = true;
+  @localCopy('args.showCopy', true)
+  showCopy;
 
   /**
     Whether or not the snippet should be unindented
 
     @argument unindent
     @type Boolean
+    @default true
   */
-  unindent = true;
+  @localCopy('args.unindent', true)
+  unindent;
 }

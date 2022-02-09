@@ -1,24 +1,24 @@
-import { tagName } from '@ember-decorators/component';
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import { A } from '@ember/array';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
 /**
   A demo component that can be used to demonstrate code samples. Comes
   with built in snippet handling, so you don't have to write code twice!
 
   ```hbs
-  {{#docs-demo as |demo|}}
-    {{#demo.example name='docs-demo-basic.hbs'}}
+  <DocsDemo as |demo|>
+    <demo.example @name="docs-demo-basic.hbs">
       <p>I am a <strong>handlebars</strong> template!</p>
       <p>The value is: {{val}}</p>
       <div>
         {{input value=val}}
       </div>
-    {{/demo.example}}
+    </demo.example>
 
-    {{demo.snippet 'docs-demo-basic.hbs'}}
-  {{/docs-demo}}
+    <demo.snippet @name="docs-demo-basic.hbs"/>
+  </DocsDemo>
   ```
 
   @class DocsDemo
@@ -28,14 +28,8 @@ import Component from '@ember/component';
   @yield {Component} demo.liveExample
 */
 
-@tagName('')
 export default class DocsDemo extends Component {
-  // eslint-disable-next-line ember/classic-decorator-hooks
-  init() {
-    super.init(...arguments);
-
-    this.set('snippetRegistrations', A());
-  }
+  @tracked activeSnippet;
 
   /**
     The snippets registered with this demo component
@@ -43,7 +37,7 @@ export default class DocsDemo extends Component {
     @field snippetRegistrations
     @type Array<Object>
   */
-  snippetRegistrations = null;
+  snippetRegistrations = A();
 
   /**
     The finalized snippets complete with name (or default), language,
@@ -54,7 +48,6 @@ export default class DocsDemo extends Component {
     @type Array<Object>
     @readOnly
    */
-  @computed('activeSnippet', 'snippetRegistrations.[]')
   get snippets() {
     let activeSnippet = this.activeSnippet;
 
@@ -115,8 +108,8 @@ export default class DocsDemo extends Component {
   registerSnippet(snippet) {
     this.snippetRegistrations.pushObject(snippet);
 
-    if (this.get('snippetRegistrations.length') === 1) {
-      this.set('activeSnippet', snippet.name);
+    if (this.snippetRegistrations.length === 1) {
+      this.activeSnippet = snippet.name;
     }
   }
 
@@ -128,6 +121,6 @@ export default class DocsDemo extends Component {
   */
   @action
   selectSnippet(snippet) {
-    this.set('activeSnippet', snippet.name);
+    this.activeSnippet = snippet.name;
   }
 }

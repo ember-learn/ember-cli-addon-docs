@@ -22,21 +22,21 @@ You can see an example of {{docs-link 'an autodocumented YUIDoc component' 'sand
 
 Open `tests/dummy/app/router.js` and replace the standard EmberRouter with the AddonDocsRouter:
 
-{{#docs-snippet name='quickstart-router.js' title='tests/dummy/app/router.js'}}
-  import AddonDocsRouter, { docsRoute } from 'ember-cli-addon-docs/router';
-  import config from './config/environment';
+<DocsSnippet @name="quickstart-router.js" @title="tests/dummy/app/router.js">
+    import AddonDocsRouter, { docsRoute } from 'ember-cli-addon-docs/router';
+    import config from './config/environment';
 
-  const Router = AddonDocsRouter.extend({
-    location: config.locationType,
-    rootURL: config.rootURL,
-  });
+    const Router = AddonDocsRouter.extend({
+      location: config.locationType,
+      rootURL: config.rootURL,
+    });
 
-  Router.map(function() {
-    docsRoute(this, function() { /* Your docs routes go here */ });
-  });
+    Router.map(function() {
+      docsRoute(this, function() { /_ Your docs routes go here _/ });
+    });
 
-  export default Router;
-{{/docs-snippet}}
+    export default Router;
+</DocsSnippet>
 
 ## 4. Start developing your dummy app
 
@@ -44,11 +44,11 @@ AddonDocs uses your addon's dummy application, which is a full-fledged Ember app
 
 So let's start with the application template:
 
-{{#docs-snippet name="quickstart-application.hbs" title="tests/dummy/app/templates/application.hbs"}}
-  {{docs-header}}
+<DocsSnippet @name="quickstart-application.hbs" @title="tests/dummy/app/templates/application.hbs">
+    <DocsHeader/>
 
-  {{outlet}}
-{{/docs-snippet}}
+    {{outlet}}
+</DocsSnippet>
 
 `<DocsHeader />` is an AddonDocs component that renders a header using data from your addon's `package.json`. It renders a homepage link, documentation link, version selector, search bar, and link to your GitHub repository. Check out {{docs-link 'the guide' 'docs.components.docs-header'}} for more on the header.
 
@@ -58,39 +58,39 @@ At this point, fire up `ember s` and you should see your new docs site & header 
 
 AddonDocs comes with some components to help you showcase your addon. Let's add them to your dummy app's index template:
 
-{{#docs-snippet name="quickstart-marketing-index.hbs" title="tests/dummy/app/templates/index.hbs"}}
-  {{docs-hero}}
+<DocsSnippet @name="quickstart-marketing-index.hbs" @title="tests/dummy/app/templates/index.hbs">
+    <DocsHero/>
 
-  <div style="max-width: 40rem; margin: 0 auto; padding: 0 1.5rem">
-    {{#docs-demo as |demo|}}
-      {{#demo.example name="my-demo.hbs"}}
-        <p>Make sure to read up on the DocsDemo component before building out this page.</p>
-      {{/demo.example}}
-    {{/docs-demo}}
-  </div>
+    <div style="max-width: 40rem; margin: 0 auto; padding: 0 1.5rem">
+      <DocsDemo as |demo|>
+        <demo.example @name="my-demo.hbs">
+          <p>Make sure to read up on the DocsDemo component before building out this page.</p>
+        </demo.example>
+      </DocsDemo>
+    </div>
 
-{{/docs-snippet}}
+</DocsSnippet>
 
 `<DocsHero />` renders a homepage banner, and `<DocsDemo />` can be used to show an interactive code examples.
 
 AddonDocs is unopinionated about how you style your application, so you can use whatever approach you like. (AddonDocs' own components are styled with a customized version of Tailwind CSS. At this time, these classes, prefixed with `docs-*`, should be considered private.)
 
-
 ## 6. Create your docs skeleton
 
 The `docs` route is the entry point for your guides and API docs. Create a new `docs.hbs` file for the `docs` route and add the `<DocsViewer />` component:
 
-{{#docs-snippet name="quickstart-skeleton.hbs" language="htmlbars" title="tests/dummy/app/templates/docs.hbs"}}
-  {{#docs-viewer as |viewer|}}
-    {{#viewer.nav as |nav|}}
-      {{nav.section "Introduction"}}
-    {{/viewer.nav}}
+<DocsSnippet @name="quickstart-skeleton.hbs" @language="htmlbars" @title="tests/dummy/app/templates/docs.hbs">
+    <DocsViewer as |viewer|>
+      <viewer.nav as |nav|>
+        <nav.section @label="Introduction"/>
+      </viewer.nav>
 
-    {{#viewer.main}}
-      {{outlet}}
-    {{/viewer.main}}
-  {{/docs-viewer}}
-{{/docs-snippet}}
+      <viewer.main>
+        {{outlet}}
+      </viewer.main>
+
+    </DocsViewer>
+</DocsSnippet>
 
 If you visit `/docs` or click the Documentation link in the header, you should see the viewer's nav on the left-hand side and an area in the center where your guides content will go.
 
@@ -108,9 +108,9 @@ Since most guides contain written prose, the majority of your guides pages will 
 
 The generator should have created
 
-  - the **markdown file** in the `tests/dummy/app/templates/docs` directory
-  - the **nav item entry** in `tests/dummy/app/templates/docs.hbs`
-  - the **`route` entry** in `tests/dummy/app/router.js` _for non-`index` routes_
+- the **markdown file** in the `tests/dummy/app/templates/docs` directory
+- the **nav item entry** in `tests/dummy/app/templates/docs.hbs`
+- the **`route` entry** in `tests/dummy/app/router.js` _for non-`index` routes_
 
 You can generate additional pages as you build out your docs site:
 
@@ -120,11 +120,12 @@ ember generate docs-page usage
 
 This will generate and modify the files for your `usage` docs page.
 
-{{#docs-snippet name="quickstart-markdown-subpage.md" title="tests/dummy/app/templates/docs/usage.md" language="markdown"}}
-  # Usage
+<DocsSnippet @name="quickstart-markdown-subpage.md" @title="tests/dummy/app/templates/docs/usage.md" @language="markdown">
 
-  Usage content
-{{/docs-snippet}}
+    # Usage
+
+    Usage content
+</DocsSnippet>
 
 Remember, the dummy site is a full Ember application and these components are just here to help you get going. Feel free to make other components to help you best document your library!
 
@@ -140,16 +141,16 @@ Just as with any Ember app, it's a good idea to add a 404 route for unmatched UR
 
 Add the following route to the end of your router and create the associated template.
 
-{{#docs-snippet name="quickstart-404.js" title="tests/dummy/app/router.js"}}
-  this.route('not-found', { path: '/*path' });
-{{/docs-snippet}}
+<DocsSnippet @name="quickstart-404.js" @title="tests/dummy/app/router.js">
+    this.route('not-found', { path: '/\*path' });
+</DocsSnippet>
 
-{{#docs-snippet name="quickstart-404.hbs" title="tests/dummy/app/templates/not-found.hbs"}}
-  <div style="max-width: 40rem; margin: 0 auto; padding: 0 1.5rem">
-    <h1>Not found</h1>
-    <p>This page doesn't exist. {{#docs-link "index"}}Head home?{{/docs-link}}</p>
-  </div>
-{{/docs-snippet}}
+<DocsSnippet @name="quickstart-404.hbs" @title="tests/dummy/app/templates/not-found.hbs">
+    <div style="max-width: 40rem; margin: 0 auto; padding: 0 1.5rem">
+      <h1>Not found</h1>
+      <p>This page doesn't exist. {{#docs-link "index"}}Head home?{{/docs-link}}</p>
+    </div>
+</DocsSnippet>
 
 ---
 
@@ -158,23 +159,23 @@ You've now got a bootstrapped docs site ready to share with the world! Keep work
 ## Optional steps
 
 1. **Keyboard navigation.** You may want to enable keyboard navigation for your
-docs site by adding the `DocsKeyboardShortcuts` component to your dummy
-application template. Once enabled you can use `?` to show the navigation help
-windows.
+   docs site by adding the `DocsKeyboardShortcuts` component to your dummy
+   application template. Once enabled you can use `?` to show the navigation help
+   windows.
 
-  {{docs-snippet name="docs-demo-application-template.hbs" title="tests/dummy/app/templates/application.hbs"}}
+<DocsSnippet @name="docs-demo-application-template.hbs" @title="tests/dummy/app/templates/application.hbs"/>
 
 2. **Add a favicon.** You may want to place a favicon in the
-`tests/dummy/public` folder. We recommend using using
- [Ember CLI Favicon](https://github.com/davewasmer/ember-cli-favicon).
+   `tests/dummy/public` folder. We recommend using using
+   [Ember CLI Favicon](https://github.com/davewasmer/ember-cli-favicon).
 
 3. **Optionally customize your brand.** The primary brand color is <span class='docs-text-brand'>`#E04E39`</span>. You can change this value by setting the `--brand-primary` CSS custom property in your dummy app's `app.css` file.
 
-  For example, to set your brand color as `#3490DC`:
+For example, to set your brand color as `#3490DC`:
 
-  ```css
-  /* tests/dummy/app/styles/app.css */
-  :root {
-    --brand-primary: #3490DC;
-  }
-  ```
+```css
+/* tests/dummy/app/styles/app.css */
+:root {
+  --brand-primary: #3490dc;
+}
+```

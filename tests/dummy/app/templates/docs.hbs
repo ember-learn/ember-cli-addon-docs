@@ -1,4 +1,4 @@
-{{!-- BEGIN-SNIPPET docs-viewer.hbs --}}
+{{! BEGIN-SNIPPET docs-viewer.hbs }}
 {{#docs-viewer as |viewer|}}
   {{#viewer.nav as |nav|}}
     {{nav.section "Introduction"}}
@@ -9,6 +9,7 @@
     {{nav.item "Build options" "docs.build-options"}}
     {{nav.item "Deploying" "docs.deploying"}}
     {{nav.item "Standalone Apps" "docs.standalone-apps"}}
+    {{nav.item "Upgrade to v5" "docs.upgrade-to-5"}}
 
     {{nav.section "Components"}}
     {{nav.item "Header" "docs.components.docs-header"}}
@@ -24,4 +25,4 @@
   {{/viewer.main}}
 
 {{/docs-viewer}}
-{{!-- END-SNIPPET --}}
+{{! END-SNIPPET }}
