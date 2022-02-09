@@ -13,4 +13,4 @@ The large main area is also useful for addons that need more space to illustrate
 
 To use the Docs Viewer, create a <code>docs</code> route and put your docs-viewer there. Here's how we're using it in this app:
 
-{{docs-snippet name="docs-viewer.hbs"}}
+<DocsSnippet @name="docs-viewer.hbs"/>

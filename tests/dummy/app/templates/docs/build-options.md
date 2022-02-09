@@ -12,7 +12,7 @@ Override the default file extensions where [ember-code-snippet](https://github.c
 
 ### How to use it
 
-{{#docs-snippet name='build-options-snippet-extensions.js' title='app/ember-cli-build.js'}}
+<DocsSnippet @name="build-options-snippet-extensions.js" @title="app/ember-cli-build.js">
   /* global require, module */
   const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
@@ -27,7 +27,7 @@ Override the default file extensions where [ember-code-snippet](https://github.c
 
     return app.toTree();
   };
-{{/docs-snippet}}
+</DocsSnippet>
 
 
 

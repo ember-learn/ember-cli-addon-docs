@@ -17,6 +17,7 @@ Router.map(function () {
     this.route('build-options');
     this.route('deploying');
     this.route('standalone-apps');
+    this.route('upgrade-to-5');
 
     this.route('components', function () {
       this.route('docs-hero');

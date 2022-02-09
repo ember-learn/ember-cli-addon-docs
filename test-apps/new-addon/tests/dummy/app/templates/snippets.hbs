@@ -1,16 +1,4 @@
-{{#docs-snippet name="your-snippet-name.hbs"}}
-  <div id="foo">
-    {{#my-awesome-thing
-      some=true
-      options=false
-    }}
-      <p>Something old, something new</p>
-    {{/my-awesome-thing}}
-  </div>
-{{/docs-snippet}}
-
 <DocsSnippet @name="your-angle-bracket-snippet-name.hbs">
-  {{!-- template-lint-disable no-duplicate-id --}}
   <div id="foo">
     {{#my-awesome-thing
       some=true
@@ -21,23 +9,9 @@
   </div>
 </DocsSnippet>
 
-{{docs-snippet name="your-snippet-name.hbs" data-test-id="standalone-curlies"}}
-
 <DocsSnippet @name="your-angle-bracket-snippet-name.hbs" @data-test-id="standalone-angle-brackets" />
 
-{{#docs-demo data-test-id="docs-demo-basic.hbs" as |demo|}}
-  {{#demo.example name="docs-demo-basic.hbs"}}
-    <p>I am a <strong>handlebars</strong> template!</p>
-    <p>The value is: {{this.val}}</p>
-    <div>
-      {{input value=this.val class="docs-border"}}
-    </div>
-  {{/demo.example}}
-
-  {{demo.snippet "docs-demo-basic.hbs"}}
-{{/docs-demo}}
-
-<DocsDemo as |demo|>
+<DocsDemo data-test-id="docs-demo-angle-brackets" as |demo|>
   <demo.example @name="docs-demo-angle-brackets-basic.hbs">
     <p>I am a <strong>handlebars</strong> template!</p>
     <p>The value is: {{this.otherVal}}</p>

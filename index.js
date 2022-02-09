@@ -139,11 +139,12 @@ module.exports = {
     if (!includer.options.snippetRegexes) {
       includer.options.snippetRegexes = [
         {
-          begin: /{{#(?:docs-snippet|demo\.example)\sname=['"](\S*)['"]/,
+          begin: /{{#(?:docs-snippet|demo\.example)\s+name=['"](\S+)['"]/,
           end: /{{\/(?:docs-snippet|demo\.example)}}/,
         },
         {
-          begin: /<(?:DocsSnippet|demo\.example)\s@name=['"](\S*)['"][^/]*>/,
+          begin:
+            /<(?:DocsSnippet|demo\.example)\s+@name=['"](\S+)['"].*(?<!\/)>/,
           end: /<\/(?:DocsSnippet|demo\.example)>/,
         },
       ];
