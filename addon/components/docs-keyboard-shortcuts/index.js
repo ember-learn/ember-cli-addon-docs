@@ -1,4 +1,5 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { later } from '@ember/runloop';
 import { keyResponder, onKey } from 'ember-keyboard';
@@ -16,7 +17,7 @@ import { formElementHasFocus } from '../../keyboard-config';
 export default class DocsKeyboardShortcutsComponent extends Component {
   @service router;
 
-  isShowingKeyboardShortcuts = false;
+  @tracked isShowingKeyboardShortcuts = false;
 
   @onKey('KeyG', { event: 'keyup' })
   goto() {
@@ -49,19 +50,19 @@ export default class DocsKeyboardShortcutsComponent extends Component {
   @onKey('shift+Slash', { event: 'keyup' })
   toggleKeyboardShortcutsWithKeyboard() {
     if (!formElementHasFocus()) {
-      this.toggleProperty('isShowingKeyboardShortcuts');
+      this.isShowingKeyboardShortcuts = !this.isShowingKeyboardShortcuts;
     }
   }
 
   @onKey('Escape', { event: 'keyup' })
   hideKeyboardShortcuts() {
     if (!formElementHasFocus() && this.isShowingKeyboardShortcuts) {
-      this.set('isShowingKeyboardShortcuts', false);
+      this.isShowingKeyboardShortcuts = false;
     }
   }
 
   @action
   toggleKeyboardShortcuts() {
-    this.toggleProperty('isShowingKeyboardShortcuts');
+    this.isShowingKeyboardShortcuts = !this.isShowingKeyboardShortcuts;
   }
 }
