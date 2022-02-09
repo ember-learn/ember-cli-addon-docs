@@ -1,8 +1,8 @@
-{{docs-hero
-  logo='ember'
-  slimHeading='New'
-  strongHeading='Addon'
-  byline='A simple addon.'}}
+<DocsHero
+  @logo="ember"
+  @slimHeading="New"
+  @strongHeading="Addon"
+  @byline="A simple addon."/>
 
 # Home
 
