@@ -1,2 +1,1 @@
-import BaseAdapter from './-addon-docs';
-export default BaseAdapter.extend();
+export { default } from './-addon-docs';

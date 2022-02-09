@@ -2,102 +2,127 @@ import Model, { attr, belongsTo } from '@ember-data/model';
 import { filterBy, or, union } from '@ember/object/computed';
 import { memberUnion, hasMemberType } from '../utils/computed';
 
-export default Model.extend({
-  parentClass: belongsTo('class', { async: false, inverse: null }),
+export default class Class extends Model {
+  @belongsTo('class', { async: false, inverse: null })
+  parentClass;
 
-  isClass: true,
+  isClass = true;
 
-  name: attr(),
-  file: attr(),
-  exportType: attr(),
-  description: attr(),
-  lineNumber: attr(),
-  access: attr(),
+  @attr
+  name;
 
-  accessors: attr(),
-  methods: attr(),
-  fields: attr(),
-  tags: attr(),
+  @attr
+  file;
 
-  publicAccessors: filterBy('accessors', 'access', 'public'),
-  publicMethods: filterBy('methods', 'access', 'public'),
-  publicFields: filterBy('fields', 'access', 'public'),
+  @attr
+  exportType;
 
-  privateAccessors: filterBy('accessors', 'access', 'private'),
-  privateMethods: filterBy('methods', 'access', 'private'),
-  privateFields: filterBy('fields', 'access', 'private'),
+  @attr
+  description;
 
-  protectedAccessors: filterBy('accessors', 'access', 'protected'),
-  protectedMethods: filterBy('methods', 'access', 'protected'),
-  protectedFields: filterBy('fields', 'access', 'protected'),
+  @attr
+  lineNumber;
 
-  allPublicAccessors: memberUnion(
-    'parentClass.allPublicAccessors',
-    'publicAccessors'
-  ),
-  allPublicMethods: memberUnion(
-    'parentClass.allPublicMethods',
-    'publicMethods'
-  ),
-  allPublicFields: memberUnion('parentClass.allPublicFields', 'publicFields'),
+  @attr
+  access;
 
-  allPrivateAccessors: memberUnion(
-    'parentClass.allPrivateAccessors',
-    'privateAccessors'
-  ),
-  allPrivateMethods: memberUnion(
-    'parentClass.allPrivateMethods',
-    'privateMethods'
-  ),
-  allPrivateFields: memberUnion(
-    'parentClass.allPrivateFields',
-    'privateFields'
-  ),
+  @attr
+  accessors;
 
-  allProtectedAccessors: memberUnion(
-    'parentClass.allProtectedAccessors',
-    'protectedAccessors'
-  ),
-  allProtectedMethods: memberUnion(
-    'parentClass.allProtectedMethods',
-    'protectedMethods'
-  ),
-  allProtectedFields: memberUnion(
-    'parentClass.allProtectedFields',
-    'protectedFields'
-  ),
+  @attr
+  methods;
 
-  allAccessors: union(
-    'allPublicAccessors',
-    'allPrivateAccessors',
-    'allProtectedAccessors'
-  ),
-  allMethods: union(
-    'allPublicMethods',
-    'allPrivateMethods',
-    'allProtectedMethods'
-  ),
-  allFields: union('allPublicFields', 'allPrivateFields', 'allProtectedFields'),
+  @attr
+  fields;
 
-  hasInherited: or(
+  @attr
+  tags;
+
+  @filterBy('accessors', 'access', 'public')
+  publicAccessors;
+
+  @filterBy('methods', 'access', 'public')
+  publicMethods;
+
+  @filterBy('fields', 'access', 'public')
+  publicFields;
+
+  @filterBy('accessors', 'access', 'private')
+  privateAccessors;
+
+  @filterBy('methods', 'access', 'private')
+  privateMethods;
+
+  @filterBy('fields', 'access', 'private')
+  privateFields;
+
+  @filterBy('accessors', 'access', 'protected')
+  protectedAccessors;
+
+  @filterBy('methods', 'access', 'protected')
+  protectedMethods;
+
+  @filterBy('fields', 'access', 'protected')
+  protectedFields;
+
+  @memberUnion('parentClass.allPublicAccessors', 'publicAccessors')
+  allPublicAccessors;
+
+  @memberUnion('parentClass.allPublicMethods', 'publicMethods')
+  allPublicMethods;
+
+  @memberUnion('parentClass.allPublicFields', 'publicFields')
+  allPublicFields;
+
+  @memberUnion('parentClass.allPrivateAccessors', 'privateAccessors')
+  allPrivateAccessors;
+
+  @memberUnion('parentClass.allPrivateMethods', 'privateMethods')
+  allPrivateMethods;
+
+  @memberUnion('parentClass.allPrivateFields', 'privateFields')
+  allPrivateFields;
+
+  @memberUnion('parentClass.allProtectedAccessors', 'protectedAccessors')
+  allProtectedAccessors;
+
+  @memberUnion('parentClass.allProtectedMethods', 'protectedMethods')
+  allProtectedMethods;
+
+  @memberUnion('parentClass.allProtectedFields', 'protectedFields')
+  allProtectedFields;
+
+  @union('allPublicAccessors', 'allPrivateAccessors', 'allProtectedAccessors')
+  allAccessors;
+
+  @union('allPublicMethods', 'allPrivateMethods', 'allProtectedMethods')
+  allMethods;
+
+  @union('allPublicFields', 'allPrivateFields', 'allProtectedFields')
+  allFields;
+
+  @or(
     'parentClass.allAccessors.length',
     'parentClass.allMethods.length',
     'parentClass.allFields.length'
-  ),
+  )
+  hasInherited;
 
-  hasPrivate: or(
+  @or(
     'allPrivateAccessors.length',
     'allPrivateMethods.length',
     'allPrivateFields.length'
-  ),
+  )
+  hasPrivate;
 
-  hasProtected: or(
+  @or(
     'allProtectedAccessors.length',
     'allProtectedMethods.length',
     'allProtectedFields.length'
-  ),
+  )
+  hasProtected;
 
-  hasDeprecated: hasMemberType(
+  @hasMemberType(
     'allFields',
     'allAccessors',
     'allMethods',
@@ -105,5 +130,6 @@ export default Model.extend({
     function (member) {
       return member.tags && member.tags.find((t) => t.name === 'deprecated');
     }
-  ),
-});
+  )
+  hasDeprecated;
+}

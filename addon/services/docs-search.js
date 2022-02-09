@@ -1,33 +1,32 @@
 import Service from '@ember/service';
 import { getOwner } from '@ember/application';
-import { computed } from '@ember/object';
 import lunr from 'lunr';
 import config from 'ember-get-config';
 import fetch from 'fetch';
+import { enqueueTask } from 'ember-concurrency';
 
 const { Index, Query } = lunr;
 
-export default Service.extend({
-  search(phrase) {
-    return this.loadSearchIndex().then(({ index, documents }) => {
-      let words = phrase
-        .toLowerCase()
-        .split(new RegExp(config['ember-cli-addon-docs'].searchTokenSeparator));
-      let results = index.query((query) => {
-        // In the future we could boost results based on the field they come from
-        for (let word of words) {
-          query.term(index.pipeline.runString(word)[0], {
-            wildcard: Query.wildcard.LEADING | Query.wildcard.TRAILING,
-          });
-        }
-      });
-
-      return results.map((resultInfo) => {
-        let document = documents[resultInfo.ref];
-        return { resultInfo, document };
-      });
+export default class DocsSearch extends Service {
+  async search(phrase) {
+    let { index, documents } = await this.loadSearchIndex();
+    let words = phrase
+      .toLowerCase()
+      .split(new RegExp(config['ember-cli-addon-docs'].searchTokenSeparator));
+    let results = index.query((query) => {
+      // In the future we could boost results based on the field they come from
+      for (let word of words) {
+        query.term(index.pipeline.runString(word)[0], {
+          wildcard: Query.wildcard.LEADING | Query.wildcard.TRAILING,
+        });
+      }
     });
-  },
+
+    return results.map((resultInfo) => {
+      let document = documents[resultInfo.ref];
+      return { resultInfo, document };
+    });
+  }
 
   // temporary; just useful for tuning search config for now
   searchAndLog(phrase) {
@@ -84,28 +83,32 @@ export default Service.extend({
       console.groupEnd();
     });
     /* eslint-enable no-console */
-  },
+  }
 
   loadSearchIndex() {
+    return this._loadSearchIndex.perform();
+  }
+
+  @enqueueTask
+  *_loadSearchIndex() {
     if (!this._searchIndex) {
-      this._searchIndex = fetch(this._indexURL)
-        .then((response) => response.json())
-        .then((json) => {
-          return {
-            index: Index.load(json.index),
-            documents: json.documents,
-          };
-        });
+      let response = yield fetch(this._indexURL);
+      let json = yield response.json();
+
+      this._searchIndex = {
+        index: Index.load(json.index),
+        documents: json.documents,
+      };
     }
 
     return this._searchIndex;
-  },
+  }
 
-  _indexURL: computed(function () {
+  get _indexURL() {
     let config = getOwner(this).resolveRegistration('config:environment');
     return `${config.rootURL}ember-cli-addon-docs/search-index.json`;
-  }),
-});
+  }
+}
 
 function logSnippet(doc, key, position) {
   let field = doc[key];

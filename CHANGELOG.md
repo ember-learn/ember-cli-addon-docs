@@ -5,6 +5,25 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+
+## v4.2.2 (2022-02-08)
+
+#### :bug: Bug Fix
+* [#1108](https://github.com/ember-learn/ember-cli-addon-docs/pull/1108) Fix no implicit this deprecation in docs-demo component ([@nickschot](https://github.com/nickschot))
+* [#1045](https://github.com/ember-learn/ember-cli-addon-docs/pull/1045) Fix typo in <DocsKeyboardShortcuts /> component ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### :memo: Documentation
+* [#1083](https://github.com/ember-learn/ember-cli-addon-docs/pull/1083) Consolidate some docs ([@rwwagner90](https://github.com/rwwagner90))
+
+#### :house: Internal
+* [#1084](https://github.com/ember-learn/ember-cli-addon-docs/pull/1084) ember-get-config 1.0.0, force embroider < 0.50 ([@rwwagner90](https://github.com/rwwagner90))
+* [#1019](https://github.com/ember-learn/ember-cli-addon-docs/pull/1019) Set default CI config blueprints to run all builds ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 3
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## v4.2.1 (2021-12-02)
 
 ## v4.2.0 (2021-12-02)
