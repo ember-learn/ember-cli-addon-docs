@@ -1,7 +1,7 @@
-import { tagName } from '@ember-decorators/component';
 import { equal } from '@ember/object/computed';
 import { assert } from '@ember/debug';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { localCopy } from 'tracked-toolbox';
 
 /**
   A simple component to render an Ember, Ember CLI or Ember Data logo.
@@ -10,7 +10,6 @@ import Component from '@ember/component';
   @public
 */
 
-@tagName('')
 export default class DocsLogo extends Component {
   /**
     Render either the 'ember', 'ember-cli' or 'ember-data' logo:
@@ -24,7 +23,8 @@ export default class DocsLogo extends Component {
     @argument logo
     @type String
   */
-  logo = 'ember';
+  @localCopy('args.logo', 'ember')
+  logo;
 
   @equal('logo', 'ember')
   showEmber;
@@ -35,8 +35,8 @@ export default class DocsLogo extends Component {
   @equal('logo', 'ember-data')
   showEmberData;
 
-  didReceiveAttrs() {
-    super.didReceiveAttrs(...arguments);
+  constructor() {
+    super(...arguments);
 
     let logo = this.logo;
     let validLogos = ['ember', 'ember-cli', 'ember-data'];

@@ -68,3 +68,23 @@ Example:
       <demo.snippet @name="docs-demo-basic.hbs"/>
     </DocsDemo>
 </DocsSnippet>
+
+
+### Logo
+
+`<DocsLogo/>` is now a glimmer component.
+
+#### Actions:
+1. Use angle bracket invocation syntax
+
+Example:
+
+<DocsSnippet @name="upgrade-to-v5-logo-before.hbs" @title="Before">
+
+    {{docs-logo logo="ember-cli"}}
+</DocsSnippet>
+
+<DocsSnippet @name="upgrade-to-v5-logo-after.hbs" @title="After">
+
+    <DocsLogo @logo="ember-cli"/>
+</DocsSnippet>
