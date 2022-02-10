@@ -58,7 +58,7 @@ Typography choices were made primarily for readability. Measure, a typographic t
 
 ## Versioning your docs
 
-AddonDocs provides versioned guides out of the box. You can see the version selector in the top-right part of this page. This is provided by the `<docs-header>` component, so your site will get this too assuming you use this component.
+AddonDocs provides versioned guides out of the box. You can see the version selector in the top-right part of this page. This is provided by the `<DocsHeader/>` component, so your site will get this too assuming you use this component.
 
 If you look at the [`gh-pages`](https://github.com/ember-learn/ember-cli-addon-docs/tree/gh-pages) branch you'll see that this is where versioned builds of your docs app are stored. Versions are created at deploy time and AddonDocs manages this branch of your repository for you.
 

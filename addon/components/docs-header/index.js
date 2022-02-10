@@ -1,10 +1,12 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import config from 'ember-get-config';
-import { computed } from '@ember/object';
 import { classify } from '@ember/string';
-import { addonLogo, addonPrefix } from 'ember-cli-addon-docs/utils/computed';
+import { addonPrefix } from 'ember-cli-addon-docs/utils/computed';
 import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
+import { action } from '@ember/object';
+import { localCopy } from 'tracked-toolbox';
 
 const { projectName, projectHref, latestVersionName } =
   config['ember-cli-addon-docs'];
@@ -17,11 +19,11 @@ const { projectName, projectHref, latestVersionName } =
   header links.
 
   ```hbs
-  {{#docs-header as |header|}}
-    {{#header.link 'sandbox'}}
+  <DocsHeader as |header|>
+    <header.link @route="sandbox">
       Sandbox
-    {{/header.link}}
-  {{/docs-header}}
+    </header.link>
+  </DocsHeader>
   ```
 
   @class DocsHeader
@@ -29,21 +31,19 @@ const { projectName, projectHref, latestVersionName } =
   @yield {Hash} header
   @yield {Component} header.link
 */
-export default Component.extend({
-  tagName: '',
+export default class DocsHeader extends Component {
+  @service projectVersion;
 
-  projectVersion: service(),
+  projectHref = projectHref;
+  latestVersionName = latestVersionName;
 
-  projectHref,
-  latestVersionName,
+  @tracked query;
 
-  didInsertElement() {
-    this._super(...arguments);
+  constructor() {
+    super(...arguments);
 
     this.projectVersion.loadAvailableVersions();
-  },
-
-  logo: classify(addonLogo(projectName)),
+  }
 
   /**
     The prefix of your project, typically "Ember", "EmberCLI" or "EmberData".
@@ -51,13 +51,14 @@ export default Component.extend({
     By default the prefix will be autodiscovered from the `name` field of your addon's package.json.
 
     ```hbs
-    {{docs-header prefix='EmberData'}}
+    <DocsHeader @prefix="EmberData"/>
     ```
 
     @argument prefix
     @type String?
   */
-  prefix: addonPrefix(projectName),
+  @localCopy('args.prefix', addonPrefix(projectName))
+  prefix;
 
   /**
     The name of your project (without the "ember", "ember-cli" or "ember-data" prefix).
@@ -65,28 +66,32 @@ export default Component.extend({
     By default the name will be autodiscovered from the `name` field of your addon's package.json.
 
     ```hbs
-    {{docs-header name='MyProject'}}
+    <DocsHeader @name="MyProject"/>
     ```
 
     @argument name
     @type String?
   */
-  name: computed(function () {
-    let name = projectName;
-    name = name.replace('ember-data-', '');
-    name = name.replace('ember-cli-', '');
-    name = name.replace('ember-', '');
+  get name() {
+    if (this.args.name) {
+      return this.args.name;
+    } else {
+      let name = projectName;
+      name = name.replace('ember-data-', '');
+      name = name.replace('ember-cli-', '');
+      name = name.replace('ember-', '');
 
-    return classify(name);
-  }),
+      return classify(name);
+    }
+  }
 
-  currentVersion: reads('projectVersion.currentVersion'),
+  @reads('projectVersion.currentVersion')
+  currentVersion;
 
-  actions: {
-    didVisitPage() {
-      this.set('query', null);
-      let search = document.querySelector('[data-search-box-input]');
-      search.blur();
-    },
-  },
-});
+  @action
+  didVisitPage() {
+    this.query = null;
+    let search = document.querySelector('[data-search-box-input]');
+    search.blur();
+  }
+}

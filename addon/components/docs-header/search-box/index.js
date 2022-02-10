@@ -1,16 +1,12 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { task } from 'ember-concurrency';
 import { getOwner } from '@ember/application';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { classNames } from '@ember-decorators/component';
 import { formElementHasFocus } from 'ember-cli-addon-docs/keyboard-config';
 
-@classNames('docs-ml-auto')
-export default class DocsHeaderSearchBoxComponent extends Component {
+export default class DocsHeaderSearchBox extends Component {
   @service store;
-
-  query = null;
 
   constructor() {
     super(...arguments);
@@ -21,12 +17,7 @@ export default class DocsHeaderSearchBoxComponent extends Component {
       ];
     const { projectName } = config;
 
-    this.set('projectName', projectName);
-  }
-
-  didInsertElement() {
-    super.didInsertElement(...arguments);
-
+    this.projectName = projectName;
     this.fetchProject.perform();
   }
 
@@ -49,6 +40,11 @@ export default class DocsHeaderSearchBoxComponent extends Component {
 
   @action
   unfocusSearch() {
-    this.get('on-input')(null);
+    this.args.onInput?.(null);
+  }
+
+  @action
+  handleInput(event) {
+    this.args.onInput?.(event.target.value);
   }
 }
