@@ -88,3 +88,26 @@ Example:
 
     <DocsLogo @logo="ember-cli"/>
 </DocsSnippet>
+
+### Link
+
+`<DocsLink/>` is now a glimmer component.
+
+#### Actions:
+1. Use angle bracket invocation syntax
+2. Replace the `{{docs-link}}` positional argument with named `@route` and/or `@model` argument
+3. blockless usage is *not* supported
+
+Example:
+
+<DocsSnippet @name="upgrade-to-v5-link-before.hbs" @title="Before">
+
+    {{docs-link 'go to post' 'post' post.id}}
+</DocsSnippet>
+
+<DocsSnippet @name="upgrade-to-v5-link-after.hbs" @title="After">
+
+    <DocsLink @route="sandbox" @model={{post.id}}>
+      Sandbox
+    </DocsLink>
+</DocsSnippet>

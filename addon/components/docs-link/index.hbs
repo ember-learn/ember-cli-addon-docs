@@ -1,0 +1,27 @@
+{{#let
+  (if
+    this.isRouteOnly
+    (component "link-to" route=@route)
+    (if
+      this.isRouteAndModelOnly
+      (component "link-to" route=@route model=@model)
+      (if
+        this.isRouteAndModelsOnly
+        (component "link-to" route=@route models=@models)
+        (component "link-to")
+      )
+    )
+  )
+  as |DocsLinkTo|
+}}
+  <DocsLinkTo
+    class="docs-md__a"
+    @query={{@query}}
+    @disabled={{@disabled}}
+    @activeClass={{@activeClass}}
+    @current-when={{@current-when}}
+    ...attributes
+  >
+    {{yield}}
+  </DocsLinkTo>
+{{/let}}
