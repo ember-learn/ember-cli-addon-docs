@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@ember/test-helpers": "*",
+    "@ember/optional-features": "*",
     "ember-cli-addon-docs": "*",
     "ember-cli-addon-docs-yuidoc": "*",
     "broccoli-asset-rev": "*",
@@ -58,5 +59,8 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
+  },
+  "ember": {
+    "edition": "octane"
   }
 }

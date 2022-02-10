@@ -16,7 +16,7 @@
 }}
   <DocsLinkTo
     class="docs-md__a"
-    @query={{@query}}
+    @query={{or @query (hash)}}
     @disabled={{@disabled}}
     @activeClass={{@activeClass}}
     @current-when={{@current-when}}
