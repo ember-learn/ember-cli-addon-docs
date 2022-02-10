@@ -107,7 +107,7 @@ Example:
 
 <DocsSnippet @name="upgrade-to-v5-link-after.hbs" @title="After">
 
-    <DocsLink @route="sandbox" @model={{post.id}}>
-      Sandbox
+    <DocsLink @route="post" @model={{post.id}}>
+      go to post
     </DocsLink>
 </DocsSnippet>
