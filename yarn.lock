@@ -1185,16 +1185,6 @@
   resolved "https://registry.yarnpkg.com/@ember/edition-utils/-/edition-utils-1.2.0.tgz#a039f542dc14c8e8299c81cd5abba95e2459cfa6"
   integrity sha512-VmVq/8saCaPdesQmftPqbFtxJWrzxNGSQ+e8x8LLe3Hjm36pJ04Q8LeORGZkAeOhldoUX9seLGmSaHeXkIqoog==
 
-"@ember/legacy-built-in-components@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@ember/legacy-built-in-components/-/legacy-built-in-components-0.4.0.tgz#23d61c9220c04d3590644ffe427cc987db4880a7"
-  integrity sha512-nm0tTe9d7aYpPa8sk85M4AZ3iDfuVQ4/7M4D4IdI7frkAOGpy6gAKS9nR/UR8mJDW06CLz9NYEKWIlLopEu/Og==
-  dependencies:
-    "@embroider/macros" "^0.47.1"
-    ember-cli-babel "^7.26.6"
-    ember-cli-htmlbars "^5.7.1"
-    ember-cli-typescript "^4.1.0"
-
 "@ember/optional-features@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@ember/optional-features/-/optional-features-2.0.0.tgz#c809abd5a27d5b0ef3c6de3941334ab6153313f0"
@@ -1245,7 +1235,7 @@
     ember-cli-version-checker "^5.1.2"
     semver "^7.3.5"
 
-"@embroider/macros@0.49.0", "@embroider/macros@^0.41.0", "@embroider/macros@^0.47.1", "@embroider/macros@^0.49.0", "@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0":
+"@embroider/macros@0.49.0", "@embroider/macros@^0.41.0", "@embroider/macros@^0.49.0", "@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0":
   version "0.49.0"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-0.49.0.tgz#65b4ed734d1266013a452aed2a3adb8694832112"
   integrity sha512-4VsvlE0h8l1LPI6V2VufQimf7LGkSXd9AJLsrGs4/W8SqqdJHv4oY2DGzX1c0Te4VcD61lIzCkeOkzN2PMV3WQ==

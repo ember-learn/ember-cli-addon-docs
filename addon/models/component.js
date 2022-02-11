@@ -81,7 +81,9 @@ export default class Component extends Class {
   /*
     This gives us a way to link to a model, since we don't always link by the actual ID:
 
-      {{link-to 'item' model.routingId}}
+      <LinkTo @route="item" @model={{model.routingId}}>
+        Go to item
+      </LinkTo>
 
     Possible refactoring is to always link by actual ID, and implement redirects.
   */

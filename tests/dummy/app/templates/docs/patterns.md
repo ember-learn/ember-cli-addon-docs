@@ -40,7 +40,7 @@ In addition to authoring normal Markdown content, you can
   Here's an example of an aside.
 </aside>
 
-- Use Handlebars helpers. For example, you can use `<LinkTo/>` to render a link to <DocsLink  @route="index">the home page</DocsLink>, or you can even render a component.
+- Use Handlebars helpers. For example, you can use `<LinkTo/>` to render a link to <DocsLink @route="index">the home page</DocsLink>, or you can even render a component.
 
 ## Design for your audience
 
