@@ -6,8 +6,7 @@ module.exports = function (environment) {
     podModulePrefix: 'dummy/pods',
     environment,
     rootURL: '/',
-    locationType: 'auto',
-    historySupportMiddleware: true,
+    locationType: 'history',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
