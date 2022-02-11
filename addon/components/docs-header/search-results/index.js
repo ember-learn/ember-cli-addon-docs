@@ -1,20 +1,19 @@
-/* eslint-disable ember/require-computed-property-dependencies */
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { keyResponder, onKey } from 'ember-keyboard';
-import { computed } from '@ember/object';
-import { task } from 'ember-concurrency';
+import { restartableTask } from 'ember-concurrency';
 import { getOwner } from '@ember/application';
 
 @keyResponder
-export default class DocsHeaderSearchResultsComponent extends Component {
+export default class DocsHeaderSearchResults extends Component {
   @service docsSearch;
   @service router;
   @service store;
 
-  query = null; // passed in
-  selectedIndex = null;
+  @tracked selectedIndex = null;
+  @tracked rawSearchResults = [];
 
   constructor() {
     super(...arguments);
@@ -25,32 +24,21 @@ export default class DocsHeaderSearchResultsComponent extends Component {
       ];
     const { projectName } = config;
 
-    this.set('projectName', projectName);
-  }
-
-  didInsertElement() {
-    super.didInsertElement(...arguments);
+    this.projectName = projectName;
 
     // Start downloading the search index immediately
     this.docsSearch.loadSearchIndex();
-  }
-
-  didReceiveAttrs() {
-    super.didReceiveAttrs(...arguments);
-
-    this.search.perform();
   }
 
   get project() {
     return this.store.peekRecord('project', this.projectName);
   }
 
-  @computed('query')
   get trimmedQuery() {
-    return this.query.trim();
+    return this.args.query.trim();
   }
 
-  @task({ restartable: true })
+  @restartableTask
   *search() {
     let results;
 
@@ -58,11 +46,10 @@ export default class DocsHeaderSearchResultsComponent extends Component {
       results = yield this.docsSearch.search(this.trimmedQuery);
     }
 
-    this.set('selectedIndex', results.length ? 0 : null);
-    this.set('rawSearchResults', results);
+    this.selectedIndex = results.length ? 0 : null;
+    this.rawSearchResults = results;
   }
 
-  @computed('project.navigationIndex', 'rawSearchResults.[]')
   get searchResults() {
     let rawSearchResults = this.rawSearchResults;
     let router = this.router;
@@ -98,7 +85,7 @@ export default class DocsHeaderSearchResultsComponent extends Component {
           // Filter out modules that are not in the navigationIndex
           .filter(({ document }) => {
             if (document.type === 'module') {
-              let navigableModules = this.get('project.navigationIndex').find(
+              let navigableModules = this.project.navigationIndex.find(
                 (section) => section.type === 'modules'
               );
               let navigableModuleIds = navigableModules
@@ -139,44 +126,39 @@ export default class DocsHeaderSearchResultsComponent extends Component {
       } else {
         this.router.transitionTo(
           'docs.api.item',
-          selectedResult.model.get('routingId')
+          selectedResult.model.routingId
         );
       }
     }
 
-    this.get('on-visit')();
+    this.args.onVisit?.();
   }
 
   @onKey('ctrl+KeyN')
   @onKey('ArrowDown')
   nextSearchResult() {
-    let hasSearchResults = this.get('searchResults.length');
+    let hasSearchResults = this.searchResults.length;
     let lastResultIsSelected =
-      this.selectedIndex + 1 === this.get('searchResults.length');
+      this.selectedIndex + 1 === this.searchResults.length;
 
     if (hasSearchResults && !lastResultIsSelected) {
-      this.incrementProperty('selectedIndex');
+      this.selectedIndex = this.selectedIndex + 1;
     }
   }
 
   @onKey('ctrl+KeyP')
   @onKey('ArrowUp')
   previousSearchResult() {
-    let hasSearchResults = this.get('searchResults.length');
+    let hasSearchResults = this.searchResults.length;
     let firstResultIsSelected = this.selectedIndex === 0;
 
     if (hasSearchResults && !firstResultIsSelected) {
-      this.decrementProperty('selectedIndex');
+      this.selectedIndex = this.selectedIndex - 1;
     }
   }
 
   @action
-  clearSearch() {
-    this.set('query', null);
-  }
-
-  @action
   selectResult(index) {
-    this.set('selectedIndex', index);
+    this.selectedIndex = index;
   }
 }

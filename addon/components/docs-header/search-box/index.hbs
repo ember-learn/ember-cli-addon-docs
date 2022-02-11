@@ -1,28 +1,30 @@
-<div class="docs-relative docs-text-grey-darkest" data-search-box>
-  {{svg-jar
-    "search"
-    width=12
-    height=12
-    class="docs-absolute docs-top-0 docs-h-full docs-ml-1"
-  }}
+<div class="docs-ml-auto" ...attributes>
+  <div class="docs-relative docs-text-grey-darkest" data-search-box>
+    {{svg-jar
+      "search"
+      width=12
+      height=12
+      class="docs-absolute docs-top-0 docs-h-full docs-ml-1"
+    }}
 
-  {{!--
-    This is a dumb input - so why not use the {{input}} helper? Because apparently
-    it takes over enter and ctrl+n/p keys. We are using those for our own shortcuts
-    so we stick with the dumb html element. Maybe there's a way to disable them
-    and get the convenient two-way binding.
-   --}}
-  <input
-    oninput={{action @on-input value="target.value"}}
-    value={{@query}}
-    type="text"
-    disabled={{this.fetchProject.isRunning}}
-    placeholder="SEARCH"
-    class="docs-w-24 docs-text-xxs docs-p-2 docs-pl-6 docs-rounded focus:docs-bg-grey-lighter outline-none"
-    data-search-box-input
-    data-test-search-box-input
-    aria-label="search"
-  />
+    {{!--
+      This is a dumb input - so why not use the {{input}} helper? Because apparently
+      it takes over enter and ctrl+n/p keys. We are using those for our own shortcuts
+      so we stick with the dumb html element. Maybe there's a way to disable them
+      and get the convenient two-way binding.
+    --}}
+    <input
+      {{on "input" this.handleInput}}
+      value={{@query}}
+      type="text"
+      disabled={{this.fetchProject.isRunning}}
+      placeholder="SEARCH"
+      class="outline-none docs-w-24 docs-text-xxs docs-p-2 docs-pl-6 docs-rounded focus:docs-bg-grey-lighter"
+      data-search-box-input
+      data-test-search-box-input
+      aria-label="search"
+    />
+  </div>
 </div>
 
 {{on-key "/" this.focusSearch event="keyup"}}

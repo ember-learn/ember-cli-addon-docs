@@ -89,6 +89,34 @@ Example:
     <DocsLogo @logo="ember-cli"/>
 </DocsSnippet>
 
+### Header
+
+`<DocsHeader/>` is now a glimmer component.
+
+#### Actions:
+1. Use angle bracket invocation syntax
+1. Replace the `header.link` positional argument with a named `@route` argument
+
+Example:
+
+<DocsSnippet @name="upgrade-to-v5-header-before.hbs" @title="Before">
+
+    {{#docs-header githubUrl="https://github.com/ember-learn/ember-cli-addon-docs" as |header|}}
+      {{#header.link "index"}}
+         Another route
+      {{/header.link}}
+    {{/docs-header}}
+</DocsSnippet>
+
+<DocsSnippet @name="upgrade-to-v5-header-after.hbs" @title="After">
+
+    <DocsHeader @githubUrl="https://github.com/ember-learn/ember-cli-addon-docs" as |header|>
+      <header.link @route="index">
+         Another route
+      </header.link>
+    </DocsHeader>
+</DocsSnippet>
+
 ### Link
 
 `<DocsLink/>` is now a glimmer component.

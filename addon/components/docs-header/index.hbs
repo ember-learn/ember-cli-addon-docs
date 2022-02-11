@@ -1,7 +1,7 @@
-<header class="docs-shadow docs-relative docs-z-40 docs-bg-white">
+<header class="docs-shadow docs-relative docs-z-40 docs-bg-white" ...attributes>
   <div class="docs-flex docs-items-center docs-max-w-site-container docs-mx-auto md:docs-px-2">
 
-    {{#docs-header/link "index"}}
+    <DocsHeader::Link @route="index">
       <span class="docs-leading-none docs-font-title docs-text-large-2 docs-font-normal docs-normal-case docs-block docs-mr-6">
         {{#if this.prefix}}
           <div class="docs-text-xxs">
@@ -10,20 +10,20 @@
         {{/if}}
         {{this.name}}
       </span>
-    {{/docs-header/link}}
+    </DocsHeader::Link>
 
     <div class="docs-flex-1 docs-flex docs-items-center docs-overflow-auto docs-scrolling-touch docs-mask-image md:docs-no-mask-image">
-      {{#docs-header/link "docs"}}
+      <DocsHeader::Link @route="docs">
         Documentation
-      {{/docs-header/link}}
+      </DocsHeader::Link>
 
       {{yield (hash
         link=(component "docs-header/link")
       )}}
 
-      <DocsHeader::SearchBox @query={{this.query}} @on-input={{set this "query"}} />
+      <DocsHeader::SearchBox @query={{this.query}} @onInput={{set this "query"}} />
 
-      <DocsHeader::Link @on-click={{toggle "isShowingVersionSelector" this}}>
+      <DocsHeader::Link @onClick={{toggle "isShowingVersionSelector" this}}>
         <span data-test-id="current-version" data-version-selector class="docs-flex docs-items-center">
 
           {{#if (eq this.currentVersion.key this.latestVersionName)}}
@@ -55,9 +55,9 @@
 </header>
 
 {{#if this.query}}
-  <DocsHeader::SearchResults @query={{this.query}} @on-visit={{action "didVisitPage"}} />
+  <DocsHeader::SearchResults @query={{this.query}} @onClose={{set this "query" null}} @onVisit={{this.didVisitPage}} />
 {{/if}}
 
 {{#if this.isShowingVersionSelector}}
-  <DocsHeader::VersionSelector @on-close={{set this "isShowingVersionSelector" false}} />
+  <DocsHeader::VersionSelector @onClose={{set this "isShowingVersionSelector" false}} />
 {{/if}}
