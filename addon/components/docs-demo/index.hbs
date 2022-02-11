@@ -1,4 +1,5 @@
 <div class="docs-rounded docs-border docs-border-grey-lighter docs-my-8" ...attributes>
+
   {{yield (hash
     example=(component "docs-demo/x-example")
     snippet=(component "docs-demo/x-snippet" didInit=this.registerSnippet activeSnippet=this.activeSnippet)
@@ -6,21 +7,21 @@
 
   <div>
     {{#if (and this.snippets (gt this.snippets.length 1))}}
-      <nav
-        class="[object Object],docs-demo__snippets-nav docs-py-2 docs-px-4 docs-font-medium
+      <nav class="
+        docs-demo__snippets-nav docs-py-2 docs-px-4 docs-font-medium
         docs-bg-black docs-tracking-tight docs-border-b
-        docs-border-grey-darkest,[object Object]"
-      >
+        docs-border-grey-darkest
+      ">
         {{#each this.snippets as |snippet|}}
-          <button
+          <button {{action "selectSnippet" snippet}}
             class="
-            docs-mr-4 docs-text-xs docs-no-underline outline-none
+              docs-mr-4 docs-text-xs docs-no-underline outline-none
               hover:docs-text-grey-lighter
-            {{
-              if snippet.isActive "docs-text-grey-lighter" "docs-text-grey-dark"
-            }}
+              {{if snippet.isActive
+                "docs-text-grey-lighter"
+                "docs-text-grey-dark"
+              }}
             "
-            {{action "selectSnippet" snippet}}
           >
             {{snippet.label}}
           </button>
@@ -30,16 +31,13 @@
 
     {{#each this.snippets as |snippet|}}
       {{#if snippet.isActive}}
-        <div
-          class="[object Object],docs-demo__snippet-wrapper docs-bg-code-base docs-rounded-b,[object Object]"
-        >
-          <DocsSnippet
-            @name={{snippet.name}}
-            @unindent={{true}}
-            @language={{snippet.language}}
-          />
+        <div class="
+          docs-demo__snippet-wrapper docs-bg-code-base docs-rounded-b
+        ">
+          <DocsSnippet @name={{snippet.name}} @unindent={{true}} @language={{snippet.language}} />
         </div>
       {{/if}}
     {{/each}}
   </div>
+
 </div>
