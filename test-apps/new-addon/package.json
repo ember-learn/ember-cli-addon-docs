@@ -24,6 +24,7 @@
     "ember-auto-import": "*"
   },
   "devDependencies": {
+    "@ember/optional-features": "*",
     "@ember/test-helpers": "*",
     "@ember/optional-features": "*",
     "ember-cli-addon-docs": "*",
@@ -56,6 +57,9 @@
   },
   "engines": {
     "node": "12.* || >= 14.*"
+  },
+  "ember": {
+    "edition": "octane"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"

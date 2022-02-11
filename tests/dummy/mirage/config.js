@@ -1,5 +1,5 @@
 import config from 'ember-get-config';
-const projectTag = config['ember-cli-addon-docs'].projectTag;
+const projectTag = config['ember-cli-addon-docs']?.projectTag;
 import { createServer } from 'miragejs';
 
 export default function (config) {
