@@ -1,28 +1,28 @@
 {{! BEGIN-SNIPPET docs-viewer.hbs }}
-{{#docs-viewer as |viewer|}}
-  {{#viewer.nav as |nav|}}
-    {{nav.section "Introduction"}}
-    {{nav.item "What is AddonDocs?" "docs.index"}}
-    {{nav.item "Usage" "docs.usage"}}
-    {{nav.item "Quickstart" "docs.quickstart"}}
-    {{nav.item "Patterns" "docs.patterns"}}
-    {{nav.item "Build options" "docs.build-options"}}
-    {{nav.item "Deploying" "docs.deploying"}}
-    {{nav.item "Standalone Apps" "docs.standalone-apps"}}
-    {{nav.item "Upgrade to v5" "docs.upgrade-to-5"}}
+<DocsViewer as |viewer|>
+  <viewer.nav as |nav|>
+    <nav.section @label="Introduction" />
+    <nav.item @label="What is AddonDocs?" @route="docs.index" />
+    <nav.item @label="Usage" @route="docs.usage" />
+    <nav.item @label="Quickstart" @route="docs.quickstart" />
+    <nav.item @label="Patterns" @route="docs.patterns" />
+    <nav.item @label="Build options" @route="docs.build-options" />
+    <nav.item @label="Deploying" @route="docs.deploying" />
+    <nav.item @label="Standalone Apps" @route="docs.standalone-apps" />
+    <nav.item @label="Upgrade to v5" @route="docs.upgrade-to-5" />
 
-    {{nav.section "Components"}}
-    {{nav.item "Header" "docs.components.docs-header"}}
-    {{nav.item "Hero" "docs.components.docs-hero"}}
-    {{nav.item "Viewer" "docs.components.docs-viewer"}}
-    {{nav.item "Snippet" "docs.components.docs-snippet"}}
-    {{nav.item "Demo" "docs.components.docs-demo"}}
-    {{nav.item "Logo" "docs.components.docs-logo"}}
-  {{/viewer.nav}}
+    <nav.section @label="Components" />
+    <nav.item @label="Header" @route="docs.components.docs-header" />
+    <nav.item @label="Hero" @route="docs.components.docs-hero" />
+    <nav.item @label="Viewer" @route="docs.components.docs-viewer" />
+    <nav.item @label="Snippet" @route="docs.components.docs-snippet" />
+    <nav.item @label="Demo" @route="docs.components.docs-demo" />
+    <nav.item @label="Logo" @route="docs.components.docs-logo" />
+  </viewer.nav>
 
-  {{#viewer.main}}
+  <viewer.main>
     {{outlet}}
-  {{/viewer.main}}
+  </viewer.main>
 
-{{/docs-viewer}}
+</DocsViewer>
 {{! END-SNIPPET }}

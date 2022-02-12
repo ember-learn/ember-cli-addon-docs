@@ -50,7 +50,9 @@ describe('Blueprints | non-pods docs page test', function () {
 
           expect(
             file('tests/dummy/app/templates/docs.hbs')
-          ).to.exist.to.contain('{{nav.item "Foo bar" "docs.foo-bar"}}');
+          ).to.exist.to.contain(
+            '<nav.item @label="Foo bar" @route="docs.foo-bar" />'
+          );
         });
       });
   });
@@ -75,7 +77,9 @@ describe('Blueprints | non-pods docs page test', function () {
 
           expect(
             file('tests/dummy/app/templates/docs.hbs')
-          ).to.exist.to.contain('{{nav.item "Foo bar" "docs.foo-bar"}}');
+          ).to.exist.to.contain(
+            '<nav.item @label="Foo bar" @route="docs.foo-bar" />'
+          );
         });
       });
   });

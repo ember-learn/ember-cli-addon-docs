@@ -19,9 +19,9 @@ Let's look at a basic example:
 <DocsDemo as |demo|>
   <demo.example @name="docs-demo-basic.hbs">
     <p>I am a <strong>handlebars</strong> template!</p>
-    <p>The value is: {{val}}</p>
+    <p>The value is: {{this.val}}</p>
     <div>
-      {{input value=val class="docs-border"}}
+      <Input @value={{this.val}} class="docs-border"/>
     </div>
   </demo.example>
 

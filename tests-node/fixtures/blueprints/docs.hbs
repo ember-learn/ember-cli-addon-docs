@@ -1,12 +1,12 @@
 <DocsHeader />
 
-{{#docs-viewer as |viewer|}}
-  {{#viewer.nav as |nav|}}
-    {{nav.item "Introduction" "docs.index"}}
-    {{nav.item "Usage" "docs.usage"}}
-  {{/viewer.nav}}
+<DocsViewer as |viewer|>
+  <viewer.nav as |nav|>
+    <nav.item @label="Introduction" @route="docs.index" />
+    <nav.item @label="Usage" @route="docs.usage" />
+  </viewer.nav>
 
-  {{#viewer.main}}
+  <viewer.main>
     {{outlet}}
-  {{/viewer.main}}
-{{/docs-viewer}}
+  </viewer.main>
+</DocsViewer>

@@ -4,10 +4,10 @@ import AddonDocsRouter, {
 } from 'ember-cli-addon-docs/router';
 import config from 'dummy/config/environment';
 
-const Router = AddonDocsRouter.extend({
-  location: config.locationType,
-  rootURL: config.rootURL,
-});
+export default class Router extends AddonDocsRouter {
+  location = config.locationType;
+  rootURL = config.rootURL;
+}
 
 Router.map(function () {
   docsRoute(this, function () {
@@ -41,5 +41,3 @@ Router.map(function () {
 
   this.route('not-found', { path: '/*path' });
 });
-
-export default Router;

@@ -1,38 +1,35 @@
-import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { localCopy } from 'tracked-toolbox';
 import config from 'ember-get-config';
 import { classify } from '@ember/string';
 import { addonLogo } from 'ember-cli-addon-docs/utils/computed';
 
 const projectName = config['ember-cli-addon-docs'].projectName;
 
-export default Component.extend({
-  tagName: '',
+export default class XNav extends Component {
+  @localCopy('args.root', 'docs')
+  root;
 
-  root: 'docs',
+  @service store;
+  @service media;
 
-  store: service(),
-  media: service(),
+  @tracked isShowingMenu;
 
-  addonLogo: addonLogo(projectName),
+  addonLogo = addonLogo(projectName);
 
-  addonTitle: computed('addonLogo', function () {
+  get addonTitle() {
     let logo = this.addonLogo;
 
     return classify(projectName.replace(`${logo}-`, ''));
-  }),
+  }
 
-  /*
-    This is overwritten for the Sandbox.
-  */
-  project: computed({
-    get() {
-      return this.store.peekRecord('project', projectName);
-    },
+  get project() {
+    if (this.args.project) {
+      return this.args.project;
+    }
 
-    set(key, val) {
-      return val;
-    },
-  }),
-});
+    return this.store.peekRecord('project', projectName);
+  }
+}
