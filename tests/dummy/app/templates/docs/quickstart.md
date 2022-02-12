@@ -79,7 +79,7 @@ AddonDocs is unopinionated about how you style your application, so you can use 
 
 The `docs` route is the entry point for your guides and API docs. Create a new `docs.hbs` file for the `docs` route and add the `<DocsViewer />` component:
 
-<DocsSnippet @name="quickstart-skeleton.hbs" @language="htmlbars" @title="tests/dummy/app/templates/docs.hbs">
+<DocsSnippet @name="quickstart-skeleton.hbs" @language="handlebars" @title="tests/dummy/app/templates/docs.hbs">
     <DocsViewer as |viewer|>
       <viewer.nav as |nav|>
         <nav.section @label="Introduction"/>

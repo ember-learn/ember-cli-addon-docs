@@ -5,7 +5,6 @@ import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import css from 'highlight.js/lib/languages/css';
 import handlebars from 'highlight.js/lib/languages/handlebars';
-import htmlbars from 'highlight.js/lib/languages/htmlbars';
 import json from 'highlight.js/lib/languages/json';
 import xml from 'highlight.js/lib/languages/xml';
 import diff from 'highlight.js/lib/languages/diff';
@@ -16,8 +15,8 @@ hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('js', javascript);
 hljs.registerLanguage('css', css);
 hljs.registerLanguage('handlebars', handlebars);
-hljs.registerLanguage('htmlbars', htmlbars);
-hljs.registerLanguage('hbs', htmlbars);
+hljs.registerLanguage('htmlbars', handlebars);
+hljs.registerLanguage('hbs', handlebars);
 hljs.registerLanguage('json', json);
 hljs.registerLanguage('xml', xml);
 hljs.registerLanguage('diff', diff);
@@ -28,6 +27,6 @@ hljs.registerLanguage('ts', typescript);
 
 export default class DocsCodeHighlight extends Component {
   setupElement(element) {
-    hljs.highlightBlock(element);
+    hljs.highlightElement(element);
   }
 }

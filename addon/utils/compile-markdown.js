@@ -1,4 +1,7 @@
-import marked from 'marked';
+import { marked } from 'marked';
+import { parse as htmlParse } from 'node-html-parser';
+import { parse as hbsParse } from '@handlebars/parser';
+import lineColumn from 'line-column';
 
 import hljs from 'highlight.js/lib/core';
 
@@ -6,7 +9,6 @@ import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import css from 'highlight.js/lib/languages/css';
 import handlebars from 'highlight.js/lib/languages/handlebars';
-import htmlbars from 'highlight.js/lib/languages/htmlbars';
 import json from 'highlight.js/lib/languages/json';
 import xml from 'highlight.js/lib/languages/xml';
 import diff from 'highlight.js/lib/languages/diff';
@@ -17,8 +19,8 @@ hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('js', javascript);
 hljs.registerLanguage('css', css);
 hljs.registerLanguage('handlebars', handlebars);
-hljs.registerLanguage('htmlbars', htmlbars);
-hljs.registerLanguage('hbs', htmlbars);
+hljs.registerLanguage('hbs', handlebars);
+hljs.registerLanguage('htmlbars', handlebars);
 hljs.registerLanguage('json', json);
 hljs.registerLanguage('xml', xml);
 hljs.registerLanguage('diff', diff);
@@ -26,6 +28,90 @@ hljs.registerLanguage('shell', shell);
 hljs.registerLanguage('sh', shell);
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('ts', typescript);
+
+const htmlComponent = {
+  name: 'htmlComponent',
+  level: 'block',
+  start(src) {
+    // stop text tokenizer at the next potential match.
+    // we're only interested in html blocks that begin in a new line
+    let match = src.match(/\n<[^/^\s>]/);
+    return match && match.index;
+  },
+  tokenizer(src) {
+    let openingRule = /^<([^/^\s>]+)\s?[\s\S]*?>/;
+    let openingMatch = openingRule.exec(src);
+
+    if (openingMatch) {
+      let openingTag = openingMatch[1];
+
+      let root = htmlParse(src);
+
+      for (let el of root.childNodes) {
+        if (el.rawTagName === openingTag) {
+          let finalMatch = src.substring(el.range[0], el.range[1]);
+
+          return {
+            type: 'htmlComponent',
+            raw: finalMatch,
+            text: finalMatch,
+            tokens: [],
+          };
+        }
+      }
+    }
+  },
+  renderer(token) {
+    return `\n<p>${token.text}</p>\n`;
+  },
+};
+
+const hbsComponent = {
+  name: 'hbsComponent',
+  level: 'block',
+  start(src) {
+    // stop text tokenizer at the next potential match.
+    // we're only interested in hbs blocks that begin in a new line
+    let match = src.match(/\n{{#\S/);
+    return match && match.index;
+  },
+  tokenizer(src) {
+    let openingRule = /^{{#([A-Za-z-]+)[\S\s]+?}}/;
+    let openingMatch = openingRule.exec(src);
+
+    if (openingMatch) {
+      let openingTag = openingMatch[1];
+
+      let root = hbsParse(src);
+
+      for (let el of root.body) {
+        if (el.path && el.path.original === openingTag) {
+          let start = lineColumn(src).toIndex([
+            el.loc.start.line,
+            el.loc.start.column,
+          ]);
+          let end = lineColumn(src).toIndex([
+            el.loc.end.line,
+            el.loc.end.column,
+          ]);
+          let finalMatch = src.substring(start, end + 1);
+
+          return {
+            type: 'hbsComponent',
+            raw: finalMatch,
+            text: finalMatch,
+            tokens: [],
+          };
+        }
+      }
+    }
+  },
+  renderer(token) {
+    return `\n<p>${token.text}</p>\n`;
+  },
+};
+
+marked.use({ extensions: [htmlComponent, hbsComponent] });
 
 /**
   This function is used when `compileMarkdown` encounters code blocks while
@@ -98,63 +184,12 @@ export function highlightCode(code, language) {
   @param {object} options? Options. Pass `targetHandlebars: true` if turning MD into HBS
 */
 export default function compileMarkdown(source, config) {
-  let tokens = marked.lexer(source);
   let markedOptions = {
     highlight: highlightCode,
     renderer: new HBSRenderer(config),
   };
 
-  if (config && config.targetHandlebars) {
-    tokens = compactParagraphs(tokens);
-  }
-
-  return `<div class="docs-md">${marked
-    .parser(tokens, markedOptions)
-    .trim()}</div>`;
-}
-
-// Whitespace can imply paragraphs in Markdown, which can result
-// in interleaving between <p> tags and block component invocations,
-// so this scans the Marked tokens to turn things like this:
-//    <p>{{#my-component}}<p>
-//    <p>{{/my-component}}</p>
-// Into this:
-//    <p>{{#my-component}} {{/my-component}}</p>
-function compactParagraphs(tokens) {
-  let compacted = [];
-
-  compacted.links = tokens.links;
-
-  let balance = 0;
-  for (let token of tokens) {
-    if (balance === 0) {
-      compacted.push(token);
-    } else if (token.text) {
-      let last = compacted[compacted.length - 1];
-      last.text = `${last.text} ${token.text}`;
-    }
-
-    let tokenText = token.text || '';
-    let textWithoutCode = tokenText.replace(/`[\s\S]*?`/g, '');
-
-    if (token.type === 'code') {
-      textWithoutCode = '';
-    }
-
-    balance += count(/{{#/g, textWithoutCode);
-    balance += count(/<[A-Z]/g, textWithoutCode);
-    balance -= count(/[A-Z][^<>]+\/>/g, textWithoutCode);
-    balance -= count(/{{\//g, textWithoutCode);
-    balance -= count(/<\/[A-Z]/g, textWithoutCode);
-  }
-
-  return compacted;
-}
-
-function count(regex, string) {
-  let total = 0;
-  while (regex.exec(string)) total++;
-  return total;
+  return `<div class="docs-md">${marked.parse(source, markedOptions)}</div>`;
 }
 
 class HBSRenderer extends marked.Renderer {
@@ -246,8 +281,8 @@ class HBSRenderer extends marked.Renderer {
   }
 
   tablecell(content, flags) {
-    const type = flags.header ? 'th' : 'td';
-    const tag = flags.align
+    let type = flags.header ? 'th' : 'td';
+    let tag = flags.align
       ? '<' +
         type +
         ' align="' +
@@ -266,7 +301,7 @@ class HBSRenderer extends marked.Renderer {
   }
 
   link(href, title, text) {
-    const titleAttribute = title ? `title="${title}"` : '';
+    let titleAttribute = title ? `title="${title}"` : '';
     return `<a href="${href}" ${titleAttribute} class="docs-md__a">${text}</a>`;
   }
 }

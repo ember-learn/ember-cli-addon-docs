@@ -16,9 +16,9 @@ module('Unit | Utility | compile-markdown', function (hooks) {
   test('should render a table', function (assert) {
     let result = compileMarkdown(
       `
-      | Dependency Name | Engine A | Host |
-      |-----------------|----------|------|
-      | Foo             | v2       | v1   |
+| Dependency Name | Engine A | Host |
+|-----------------|----------|------|
+| Foo             | v2       | v1   |
     `.trim()
     );
     assert.strictEqual(
@@ -36,7 +36,8 @@ module('Unit | Utility | compile-markdown', function (hooks) {
 <td class="docs-border docs-px-4 docs-py-2">v2</td>
 <td class="docs-border docs-px-4 docs-py-2">v1</td>
 </tr>
-</tbody></table></div>`
+</tbody></table>
+</div>`
     );
   });
 });
