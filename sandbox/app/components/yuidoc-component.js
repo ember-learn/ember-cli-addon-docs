@@ -9,7 +9,7 @@ import Component from '@glimmer/component';
   To use it, you could enter the following in your template:
 
   ```handlebars
-  {{yuidoc-component foo='bar'}}
+  {{yuidoc-component foo="bar"}}
   ```
 
   @class YUIDocComponent

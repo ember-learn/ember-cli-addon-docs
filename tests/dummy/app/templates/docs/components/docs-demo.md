@@ -21,7 +21,7 @@ Let's look at a basic example:
     <p>I am a <strong>handlebars</strong> template!</p>
     <p>The value is: {{this.val}}</p>
     <div>
-      {{input value=this.val class="docs-border"}}
+      <Input @value={{this.val}} class="docs-border"/>
     </div>
   </demo.example>
 

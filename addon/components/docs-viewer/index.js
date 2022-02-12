@@ -1,7 +1,7 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { keyResponder, onKey } from 'ember-keyboard';
-import { classNames } from '@ember-decorators/component';
 import { formElementHasFocus } from '../../keyboard-config';
 
 /**
@@ -9,19 +9,19 @@ import { formElementHasFocus } from '../../keyboard-config';
 
 
   ```hbs
-  {{#docs-viewer as |viewer|}}
-    {{#viewer.nav as |nav|}}
-      {{nav.item 'Introduction' 'docs.index'}}
+  <DocsViewer as |viewer|>
+    <viewer.nav as |nav|>
+      <nav.item @label="Introduction" @route="docs.index"/>
 
-      {{#nav.subnav as |nav|}}
-        {{nav.item 'Subitem' 'docs.items.subitem'}}
-      {{/nav.subnav}}
-    {{/viewer.nav}}
+      <nav.subnav as |nav|>
+        <nav.item @label="Subitem" @route="docs.items.subitem"/>
+      </nav.subnav>
+    </viewer.nav>
 
-    {{#viewer.main}}
+    <viewer.main>
       {{outlet}}
-    {{/viewer.main}}
-  {{/docs-viewer}}
+    </viewer.main>
+  </DocsViewer>
   ```
 
   @class DocsViewer
@@ -30,16 +30,20 @@ import { formElementHasFocus } from '../../keyboard-config';
   @yield {Component} viewer.main
   @public
 */
-
-@classNames('docs-viewer docs-flex docs-flex-1')
 @keyResponder
 export default class DocsViewerComponent extends Component {
   @service docsRoutes;
   @service router;
 
-  willDestroyElement() {
-    super.willDestroyElement(...arguments);
+  @tracked pageIndex;
 
+  constructor() {
+    super(...arguments);
+
+    // for some reason the glimmer willDestroy hook was not
+    // being ran when switching to the sandbox app but the contructor was.
+    // If we're rendering a new docs-viewer, it's safe to assume we want
+    // to reset the doc routes
     this.docsRoutes.resetState();
   }
 
@@ -47,8 +51,8 @@ export default class DocsViewerComponent extends Component {
   @onKey('ArrowRight')
   nextPage() {
     if (!formElementHasFocus()) {
-      if (this.get('docsRoutes.next')) {
-        const { route, model } = this.get('docsRoutes.next');
+      if (this.docsRoutes.next) {
+        const { route, model } = this.docsRoutes.next;
         this.router.transitionTo(route, model);
       }
     }
@@ -58,8 +62,8 @@ export default class DocsViewerComponent extends Component {
   @onKey('ArrowLeft')
   previousPage() {
     if (!formElementHasFocus()) {
-      if (this.get('docsRoutes.previous')) {
-        const { route, model } = this.get('docsRoutes.previous');
+      if (this.docsRoutes.previous) {
+        const { route, model } = this.docsRoutes.previous;
         this.router.transitionTo(route, model);
       }
     }

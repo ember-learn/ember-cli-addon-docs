@@ -8,11 +8,11 @@ import Component from '@glimmer/component';
   To use it, you could enter the following in your template:
 
   ```handlebars
-  {{#simple-list items=(arr 1 2 3) as |item|}}
-    {{#item as |value|}}
+  <SimpleList @items={{array 1 2 3}} as |item|>
+    <item as |value|>
       {{value}}
-    {{/item}}
-  {{/simple-list}}
+    </item>
+  </SimpleList>
   ```
 
   @class SimpleList

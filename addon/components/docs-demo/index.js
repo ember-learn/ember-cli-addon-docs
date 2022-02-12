@@ -11,9 +11,9 @@ import { tracked } from '@glimmer/tracking';
   <DocsDemo as |demo|>
     <demo.example @name="docs-demo-basic.hbs">
       <p>I am a <strong>handlebars</strong> template!</p>
-      <p>The value is: {{val}}</p>
+      <p>The value is: {{this.val}}</p>
       <div>
-        {{input value=val}}
+        <Input @value={{this.val}}/>
       </div>
     </demo.example>
 

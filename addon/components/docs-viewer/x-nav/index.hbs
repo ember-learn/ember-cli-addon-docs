@@ -7,10 +7,10 @@
   </div>
 {{/if}}
 
-<div class="AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink">
-  <nav onclick={{set this "isShowingMenu" false}}
+<div class="AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink" ...attributes>
+  <nav {{on "click" (set this "isShowingMenu" false)}}
     class="
-      docs-absolute docs-right-0 md:docs-relative docs-shadow-lg md:docs-shadow-none docs-mr-2 md:docs-mr-0 md:docs-pl-2
+      docs-absolute docs-right-0 docs-shadow-lg md:docs-shadow-none docs-mr-2 md:docs-mr-0 md:docs-pl-2
       docs-max-w-xs docs-w-90% md:docs-w-72 docs-z-10 docs-transition md:docs-sticky md:docs-top-0
       {{if this.media.isMobile
         (if this.isShowingMenu "docs-opacity-100 docs-bg-white" "docs-opacity-0 docs-pointer-events-none")
@@ -19,7 +19,7 @@
     <div class="docs-pt-px docs-mb-8 docs-px-3 md:docs-px-4 md:docs-max-h-screen md:docs-overflow-y-scroll">
       {{#if this.media.isMobile}}
         <div class="absolute top-0 docs-text-right right-4">
-          <button onclick={{set this "isShowingMenu" false}}
+          <button {{on "click" (set this "isShowingMenu" false)}}>
             class="docs-text-grey-darkest docs-opacity-50 hover:docs-opacity-100 docs-text-large-5 docs-py-2 docs-no-underline">
             &times;
           </button>

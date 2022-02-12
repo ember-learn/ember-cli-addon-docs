@@ -1,13 +1,13 @@
-{{#docs-viewer as |viewer|}}
-  {{#viewer.nav project=this.model root="sandbox" as |nav|}}
-    {{nav.section "The Sandbox"}}
-    {{nav.item "Welcome" "sandbox.index"}}
-    {{nav.item "One" "sandbox.docs.one"}}
-    {{nav.item "Two" "sandbox.docs.two"}}
-  {{/viewer.nav}}
+<DocsViewer as |viewer|>
+  <viewer.nav @project={{this.model}} @root="sandbox" as |nav|>
+    <nav.section @label="The Sandbox" />
+    <nav.item @label="Welcome" @route="sandbox.index" />
+    <nav.item @label="One" @route="sandbox.docs.one" />
+    <nav.item @label="Two" @route="sandbox.docs.two" />
+  </viewer.nav>
 
-  {{#viewer.main}}
+  <viewer.main>
     {{outlet}}
-  {{/viewer.main}}
+  </viewer.main>
 
-{{/docs-viewer}}
+</DocsViewer>

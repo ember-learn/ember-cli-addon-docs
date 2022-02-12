@@ -13,7 +13,7 @@
         docs-border-grey-darkest
       ">
         {{#each this.snippets as |snippet|}}
-          <button {{action "selectSnippet" snippet}}
+          <button {{on "click" (fn this.selectSnippet snippet)}}
             class="
               docs-mr-4 docs-text-xs docs-no-underline outline-none
               hover:docs-text-grey-lighter

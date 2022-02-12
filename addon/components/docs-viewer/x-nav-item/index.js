@@ -1,24 +1,25 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { next } from '@ember/runloop';
 
-export default Component.extend({
-  tagName: '',
+export default class XNavItem extends Component {
+  @service docsRoutes;
 
-  docsRoutes: service(),
-
-  didInsertElement() {
-    this._super(...arguments);
-    let model = this.model;
+  constructor() {
+    super(...arguments);
+    let model = this.args.model;
 
     if (typeof model === 'string' && model.includes('#')) {
       return;
     }
 
     next(() => {
-      this.get('docsRoutes.items').addObject(this);
+      this.docsRoutes.items.addObject(this);
     });
-  },
-}).reopenClass({
-  positionalParams: ['label', 'route', 'model'],
-});
+  }
+
+  willDestroy() {
+    super.willDestroy(...arguments);
+    this.docsRoutes.items.removeObject(this);
+  }
+}

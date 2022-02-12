@@ -44,9 +44,9 @@ Example:
     {{#docs-demo as |demo|}}
       {{#demo.example name="docs-demo-basic.hbs"}}
         <p>I am a <strong>handlebars</strong> template!</p>
-        <p>The value is: {{val}}</p>
+        <p>The value is: {{this.val}}</p>
         <div>
-          {{input value=val class="docs-border"}}
+          <Input @value={{this.val}} class="docs-border"/>
         </div>
       {{/demo.example}}
 
@@ -59,9 +59,9 @@ Example:
     <DocsDemo as |demo|>
       <demo.example @name="docs-demo-basic.hbs">
         <p>I am a <strong>handlebars</strong> template!</p>
-        <p>The value is: {{val}}</p>
+        <p>The value is: {{this.val}}</p>
         <div>
-          {{input value=val class="docs-border"}}
+          <Input @value={{this.val}} class="docs-border"/>
         </div>
       </demo.example>
 
@@ -123,7 +123,7 @@ Example:
 
 #### Actions:
 1. Use angle bracket invocation syntax
-2. Replace the `{{docs-link}}` positional argument with named `@route` and/or `@model` argument
+2. Replace the `{{docs-link}}` positional arguments with named `@route` and/or `@model` arguments
 3. blockless usage is *not* supported
 
 Example:
@@ -138,4 +138,51 @@ Example:
     <DocsLink @route="post" @model={{post.id}}>
       go to post
     </DocsLink>
+</DocsSnippet>
+
+### Viewer
+
+`<DocsViewer/>` is now a glimmer component.
+
+#### Actions:
+1. Use angle bracket invocation syntax on the component and all its yielded components
+2. Replace the `{{nav.item}}` positional arguments with named `@label`, `@route` and/or `@model` arguments
+3. Replace the `{{nav.section}}` positional argument with named `@label` argument
+
+Example:
+
+<DocsSnippet @name="upgrade-to-v5-viewer-before.hbs" @title="Before">
+
+    {{#docs-viewer as |viewer|}}
+      {{#viewer.nav as |nav|}}
+        {{nav.item "Introduction" "docs.index"}}
+        {{nav.item "Usage" "docs.usage"}}
+
+        {{#nav.subnav as |nav|}}
+          {{nav.item "Subitem" "docs.items.subitem"}}
+        {{/nav.subnav}}
+      {{/viewer.nav}}
+
+      {{#viewer.main}}
+        {{outlet}}
+      {{/viewer.main}}
+    {{/docs-viewer}}
+</DocsSnippet>
+
+<DocsSnippet @name="upgrade-to-v5-viewer-after.hbs" @title="After">
+
+    <DocsViewer as |viewer|>
+      <viewer.nav as |nav|>
+        <nav.item @label="Introduction" @route="docs.index" />
+        <nav.item @label="Usage" @route="docs.usage" />
+
+        <nav.subnav as |nav|>
+          <nav.item @label="Subitem" @route="docs.items.subitem" />
+        </nav.subnav>
+      </viewer.nav>
+
+      <viewer.main>
+        {{outlet}}
+      </viewer.main>
+    </DocsViewer>
 </DocsSnippet>

@@ -8,7 +8,7 @@ import Component from '@glimmer/component';
   To use it, you could enter the following in your template:
 
   ```handlebars
-    {{simple-list/item value=1}}
+    <SimpleList::Item @value={{1}}/>
   ```
 
   @class SimpleListItem

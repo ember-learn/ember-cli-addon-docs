@@ -1,7 +1,6 @@
-import { classNames, tagName } from '@ember-decorators/component';
-import { computed } from '@ember/object';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { bind } from '@ember/runloop';
 import appFiles from 'ember-cli-addon-docs/app-files';
 import addonFiles from 'ember-cli-addon-docs/addon-files';
@@ -13,29 +12,14 @@ const tagToIndent = { H2: '0', H3: '4' };
 const tagToMarginTop = { H2: '2', H3: '2' };
 const tagToMarginBottom = { H2: '0', H3: '0' };
 
-@tagName('main')
-@classNames(
-  'docs-px-4',
-  'md:docs-px-8',
-  'lg:docs-px-20',
-  'docs-mx-auto',
-  'md:docs-mx-0',
-  'docs-mt-6',
-  'md:docs-mt-12',
-  'md:docs-min-w-0',
-  'md:docs-flex-1'
-)
 export default class XMain extends Component {
-  @service
-  router;
+  @service router;
 
-  @service
-  docsRoutes;
+  @service docsRoutes;
 
-  didInsertElement() {
-    super.didInsertElement(...arguments);
-
-    let target = this.element.querySelector('[data-current-page-index-target]');
+  @action
+  setupElement(element) {
+    let target = element.querySelector('[data-current-page-index-target]');
 
     this._mutationObserver = new MutationObserver(
       bind(this, this.reindex, target)
@@ -46,9 +30,8 @@ export default class XMain extends Component {
     this.reindex(target);
   }
 
-  willDestroyElement() {
-    super.willDestroyElement(...arguments);
-
+  @action
+  teardownElement() {
     this._mutationObserver.disconnect();
   }
 
@@ -57,7 +40,7 @@ export default class XMain extends Component {
       target.querySelectorAll('.docs-h2, .docs-h3, .docs-md__h2, .docs-md__h3')
     );
 
-    this.onReindex(
+    this.args.onReindex(
       headers.map((header) => {
         return {
           id: header.id,
@@ -71,9 +54,8 @@ export default class XMain extends Component {
     );
   }
 
-  @computed('router.currentRouteName')
   get editCurrentPageUrl() {
-    let path = this.get('router.currentRouteName');
+    let path = this.router.currentRouteName;
     if (!path) {
       // `router` doesn't exist for old ember versions via ember-try
       return null;
@@ -103,9 +85,7 @@ export default class XMain extends Component {
       let model = getOwner(this)
         .lookup('route:application')
         .modelFor('docs.api.item');
-      let filename = model
-        .get('file')
-        .replace(new RegExp(`^${projectName}/`), '');
+      let filename = model.file.replace(new RegExp(`^${projectName}/`), '');
       let file = addonFiles.find((f) => f.match(filename));
       if (file) {
         return { file, inTree: 'addon' };

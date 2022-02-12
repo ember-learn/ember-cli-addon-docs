@@ -1,8 +1,7 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { localCopy } from 'tracked-toolbox';
 
-export default Component.extend({
-  tagName: '',
-  style: 'regular',
-}).reopenClass({
-  positionalParams: ['label'],
-});
+export default class XSection extends Component {
+  @localCopy('args.style', 'regular')
+  style;
+}

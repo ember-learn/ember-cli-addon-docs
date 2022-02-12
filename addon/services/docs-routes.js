@@ -2,39 +2,38 @@ import { A } from '@ember/array';
 import Service, { inject as service } from '@ember/service';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
+import { cached } from 'tracked-toolbox';
 
 export default class DocsRoutesService extends Service {
   @service('-routing') router;
 
-  @tracked items;
-
-  constructor() {
-    super(...arguments);
-    this.resetState();
-  }
+  @tracked items = A();
 
   resetState() {
     this.items = A();
   }
 
   // Each routeParam is [ routeName, model ] where model is optional
+  @cached
   get routes() {
     return this.items.map((item) => {
-      let routeParams = [item.route];
-      if (item.model) {
-        routeParams.push(item.model);
+      let routeParams = [item.args.route];
+      if (item.args.model) {
+        routeParams.push(item.args.model);
       }
 
       return routeParams;
     });
   }
 
+  @cached
   get routeUrls() {
     return this.routes.map(([routeName, model]) => {
       return this.router.generateURL(routeName, model ? [model] : []);
     });
   }
 
+  @cached
   get currentRouteIndex() {
     if (this.routeUrls.length) {
       let router = this.router.router;
@@ -60,6 +59,7 @@ export default class DocsRoutesService extends Service {
     return null;
   }
 
+  @cached
   get next() {
     let currentIndex = this.currentRouteIndex;
 
@@ -68,15 +68,16 @@ export default class DocsRoutesService extends Service {
       let route = this.items.objectAt(nextRouteIndex);
 
       return {
-        route: route.route,
-        models: route.model ? [route.model] : [],
-        label: route.label,
+        route: route.args.route,
+        models: route.args.model ? [route.args.model] : [],
+        label: route.args.label,
       };
     }
 
     return null;
   }
 
+  @cached
   get previous() {
     let currentIndex = this.currentRouteIndex;
 
@@ -85,9 +86,9 @@ export default class DocsRoutesService extends Service {
       let route = this.items.objectAt(previousRouteIndex);
 
       return {
-        route: route.route,
-        models: route.model ? [route.model] : [],
-        label: route.label,
+        route: route.args.route,
+        models: route.args.model ? [route.args.model] : [],
+        label: route.args.label,
       };
     }
 
