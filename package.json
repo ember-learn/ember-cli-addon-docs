@@ -47,7 +47,7 @@
     "broccoli-source": "^3.0.0",
     "broccoli-stew": "^3.0.0",
     "chalk": "4.1.2",
-    "ember-auto-import": "^2.2.4",
+    "ember-auto-import": "^2.4.0",
     "ember-cli-autoprefixer": "^2.0.0",
     "ember-cli-babel": "^7.26.11",
     "ember-cli-clipboard": "^0.16.0",
@@ -59,7 +59,6 @@
     "ember-code-snippet": "^3.0.0",
     "ember-composable-helpers": "^5.0.0",
     "ember-concurrency": "^2.0.0",
-    "ember-decorators": "^6.1.1",
     "ember-fetch": "^8.1.1",
     "ember-get-config": "^1.0.0",
     "ember-keyboard": "^7.0.1",
@@ -104,7 +103,7 @@
     "@babel/preset-env": "^7.16.4",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.6.0",
-    "@embroider/test-setup": "^1.1.0",
+    "@embroider/test-setup": "^1.2.0",
     "@fullhuman/postcss-purgecss": "^4.0.3",
     "broccoli-asset-rev": "^3.0.0",
     "chai": "^4.2.0",
@@ -149,7 +148,7 @@
     "qunit-dom": "^2.0.0",
     "release-it": "^14.12.1",
     "release-it-lerna-changelog": "^4.0.1",
-    "webpack": "^5.66.0"
+    "webpack": "^5.68.0"
   },
   "peerDependencies": {
     "ember-data": ">= 3.0.0",
