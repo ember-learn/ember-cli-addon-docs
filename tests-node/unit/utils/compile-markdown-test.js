@@ -14,7 +14,11 @@ describe('Unit | compile-markdown', function (hooks) {
 
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
-      <div class="docs-md"><p>{{#foo-bar}} {{/foo-bar}}</p></div>
+      <div class="docs-md">
+      <p>{{#foo-bar}}
+
+      {{/foo-bar}}</p>
+      </div>
     `;
 
     assert.equal(result, expected);
@@ -29,8 +33,11 @@ describe('Unit | compile-markdown', function (hooks) {
 
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
-      <div class="docs-md"><p>{{#foo-bar}}<Foo></Foo>{{/foo-bar}}</p>
-      <p>{{#foo-bar}}<Foo></Foo>{{/foo-bar}}</p></div>
+      <div class="docs-md">
+      <p>{{#foo-bar}}<Foo></Foo>{{/foo-bar}}</p>
+
+      <p>{{#foo-bar}}<Foo></Foo>{{/foo-bar}}</p>
+      </div>
     `;
 
     assert.equal(result, expected);
@@ -45,8 +52,11 @@ describe('Unit | compile-markdown', function (hooks) {
 
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
-      <div class="docs-md"><p>{{#foo-bar}}<Foo/>{{/foo-bar}}</p>
-      <p>{{#foo-bar}}<Foo></Foo>{{/foo-bar}}</p></div>
+      <div class="docs-md">
+      <p>{{#foo-bar}}<Foo/>{{/foo-bar}}</p>
+
+      <p>{{#foo-bar}}<Foo></Foo>{{/foo-bar}}</p>
+      </div>
     `;
 
     assert.equal(result, expected);
@@ -59,12 +69,13 @@ describe('Unit | compile-markdown', function (hooks) {
       </FooBar>
     `;
 
-    // TODO: there is a space left before the closing tag but build is not broken :)
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
-      <div class="docs-md"><FooBar>
+      <div class="docs-md">
+      <p><FooBar>
 
-       </FooBar></div>
+      </FooBar></p>
+      </div>
     `;
 
     assert.equal(result, expected);
@@ -79,8 +90,11 @@ describe('Unit | compile-markdown', function (hooks) {
 
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
-      <div class="docs-md"><p><Baz><Foo></Foo></Baz></p>
-      <p><Baz><Foo></Foo></Baz></p></div>
+      <div class="docs-md">
+      <p><Baz><Foo></Foo></Baz></p>
+
+      <p><Baz><Foo></Foo></Baz></p>
+      </div>
     `;
 
     assert.equal(result, expected);
@@ -95,8 +109,11 @@ describe('Unit | compile-markdown', function (hooks) {
 
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
-      <div class="docs-md"><p><Baz><Foo/></Baz></p>
-      <p><Baz><Foo></Foo></Baz></p></div>
+      <div class="docs-md">
+      <p><Baz><Foo/></Baz></p>
+
+      <p><Baz><Foo></Foo></Baz></p>
+      </div>
     `;
 
     assert.equal(result, expected);
@@ -114,7 +131,13 @@ describe('Unit | compile-markdown', function (hooks) {
 
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
-      <div class="docs-md"><p>{{#foo-bar}} hello {{/foo-bar}}</p></div>
+      <div class="docs-md">
+      <p>{{#foo-bar}}
+
+          hello
+
+      {{/foo-bar}}</p>
+      </div>
     `;
 
     assert.equal(result, expected);
@@ -129,7 +152,11 @@ describe('Unit | compile-markdown', function (hooks) {
 
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
-      <div class="docs-md"><p>{{#foo-bar prop="value" otherProp='value'}} {{/foo-bar}}</p></div>
+      <div class="docs-md">
+      <p>{{#foo-bar prop="value" otherProp='value'}}
+
+      {{/foo-bar}}</p>
+      </div>
     `;
 
     assert.equal(result, expected);
@@ -142,7 +169,9 @@ describe('Unit | compile-markdown', function (hooks) {
 
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
-      <div class="docs-md"><p><foo.bar @prop={{value}}></foo.bar></p></div>
+      <div class="docs-md">
+      <p><foo.bar @prop={{value}}></foo.bar></p>
+      </div>
     `;
 
     assert.equal(result, expected);
@@ -158,7 +187,8 @@ describe('Unit | compile-markdown', function (hooks) {
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
       <div class="docs-md"><p>Foo bar is <code>&#123;&#123;#my-component&#125;&#125;</code>.</p>
-      <p>Another paragraph.</p></div>
+      <p>Another paragraph.</p>
+      </div>
     `;
 
     assert.equal(result, expected);
@@ -174,7 +204,8 @@ describe('Unit | compile-markdown', function (hooks) {
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
       <div class="docs-md"><p>Foo bar is <code>&lt;My component&gt;</code>.</p>
-      <p>Another paragraph.</p></div>
+      <p>Another paragraph.</p>
+      </div>
     `;
 
     assert.equal(result, expected);
@@ -191,8 +222,10 @@ describe('Unit | compile-markdown', function (hooks) {
 
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
-      <div class="docs-md"><pre class="docs-md__code"><code class="undefinedhbs"><span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">FooBar</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-name">FooBar</span>&gt;</span></span></code></pre>
-      <p>This is after code block</p></div>
+      <div class="docs-md"><pre class="docs-md__code"><code class="language-hbs"><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">FooBar</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-name">FooBar</span>&gt;</span></span>
+      </code></pre>
+      <p>This is after code block</p>
+      </div>
     `;
 
     assert.equal(result, expected);
@@ -212,11 +245,13 @@ describe('Unit | compile-markdown', function (hooks) {
 
     let result = compileMarkdown(input, { targetHandlebars: true });
     let expected = stripIndent`
-      <div class="docs-md"><pre class="docs-md__code"><code class="undefinedhbs"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form.Text</span>
+      <div class="docs-md"><pre class="docs-md__code"><code class="language-hbs"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">form.Text</span>
         @<span class="hljs-attr">fieldName</span>=<span class="hljs-string">&quot;name.first&quot;</span>
         @<span class="hljs-attr">label</span>=<span class="hljs-string">&quot;First Name&quot;</span>
-      /&gt;</span></span></code></pre>
-      <p>This is after code block</p></div>
+      /&gt;</span></span>
+      </code></pre>
+      <p>This is after code block</p>
+      </div>
     `;
 
     assert.equal(result, expected);

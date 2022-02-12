@@ -87,7 +87,7 @@ export default class DocsDemo extends Component {
       case 'hbs':
       case 'md':
         label = 'template.hbs';
-        language = 'htmlbars';
+        language = 'handlebars';
         break;
       default:
         label = 'script.js';
