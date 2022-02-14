@@ -13,11 +13,8 @@ Compatibility
 * Ember CLI v3.24 or above
 * Node.js v12 or above
 
-**2/28/20 Update: AddonDocs is in Maintenance Mode.**
-
-AddonDocs is still actively being used by many addons, but is effectively in maintenance mode as the original authors are no longer working on this project.
-
-So, there's lots of good stuff in here, but use it at your own risk!
+The original maintainers of AddonDocs have moved on, but this addon is still very much actively maintained and is still being used by many addons.
+We are currently working on embroider and fastboot support, and would love help, if anyone would like to help out!
 
 If you run into parts of the guides that are confusing or out-of-date, check the issues/PRs, or hop into the #ec-addon-docs channel in Discord.
 
