@@ -35,8 +35,8 @@
           >
             {{#if
               (or
-                (eq version.key this.latestVersionName)
-                (eq version.key this.primaryBranch)
+                (eq version.key this.config.latestVersionName)
+                (eq version.key this.config.primaryBranch)
               )
             }}
               {{svg-jar
@@ -51,8 +51,8 @@
             <span class="docs-text-xxs docs-font-mono docs-pl-1">
               {{#if
                 (or
-                  (eq version.key this.latestVersionName)
-                  (eq version.key this.primaryBranch)
+                  (eq version.key this.config.latestVersionName)
+                  (eq version.key this.config.primaryBranch)
                 )
               }}
                 {{#if version.tag}}

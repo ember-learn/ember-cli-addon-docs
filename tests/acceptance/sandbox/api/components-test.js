@@ -2,7 +2,6 @@ import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { currentURL, visit } from '@ember/test-helpers';
-import config from 'ember-get-config';
 
 import modulePage from '../../../pages/api/module';
 
@@ -44,12 +43,15 @@ module('Acceptance | Sandbox | API | components', function (hooks) {
 
   module('in a nested directory within a repo', function (hooks) {
     hooks.beforeEach(function () {
-      config['ember-cli-addon-docs'].docsAppPathInRepo =
-        'packages/foo-bar/tests/dummy/app';
+      this.owner.resolveRegistration('config:environment')[
+        'ember-cli-addon-docs'
+      ].docsAppPathInRepo = 'packages/foo-bar/tests/dummy/app';
     });
 
     hooks.afterEach(function () {
-      config['ember-cli-addon-docs'].docsAppPathInRepo = '';
+      this.owner.resolveRegistration('config:environment')[
+        'ember-cli-addon-docs'
+      ].docsAppPathInRepo = '';
     });
 
     test("welcome page 'Edit this page' link is correct", async function (assert) {

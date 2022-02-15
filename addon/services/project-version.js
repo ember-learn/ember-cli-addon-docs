@@ -1,14 +1,16 @@
 import Service from '@ember/service';
-import { getOwner } from '@ember/application';
 import { task } from 'ember-concurrency';
-import config from 'ember-get-config';
 import fetch from 'fetch';
 import { tracked } from '@glimmer/tracking';
-
-const { latestVersionName } = config['ember-cli-addon-docs'];
+import {
+  addonDocsConfig,
+  getRootURL,
+} from 'ember-cli-addon-docs/-private/config';
 
 export default class ProjectVersionService extends Service {
   @tracked versions;
+
+  @addonDocsConfig config;
 
   @task
   *_loadAvailableVersions() {
@@ -17,7 +19,9 @@ export default class ProjectVersionService extends Service {
     if (response.ok) {
       json = yield response.json();
     } else {
-      json = { [latestVersionName]: Object.assign({}, this.currentVersion) };
+      json = {
+        [this.config.latestVersionName]: Object.assign({}, this.currentVersion),
+      };
     }
 
     this.versions = Object.keys(json).map((key) => {
@@ -38,9 +42,7 @@ export default class ProjectVersionService extends Service {
   }
 
   get root() {
-    let rootURL =
-      getOwner(this).resolveRegistration('config:environment').rootURL;
-    return rootURL.replace(`/${this.currentVersion.path}/`, '/');
+    return getRootURL(this).replace(`/${this.currentVersion.path}/`, '/');
   }
 
   get currentVersion() {
@@ -48,18 +50,14 @@ export default class ProjectVersionService extends Service {
       return this._currentVersion;
     }
 
-    let config =
-      getOwner(this).resolveRegistration('config:environment')[
-        'ember-cli-addon-docs'
-      ];
-    let currentVersion = config.deployVersion;
+    let currentVersion = this.config.deployVersion;
 
     // In development, this token won't have been replaced replaced
     if (currentVersion === 'ADDON_DOCS_DEPLOY_VERSION') {
       currentVersion = {
-        key: latestVersionName,
-        name: latestVersionName,
-        tag: config?.projectTag,
+        key: this.config.latestVersionName,
+        name: this.config.latestVersionName,
+        tag: this.config.projectTag,
         path: '',
         sha: 'abcde',
       };

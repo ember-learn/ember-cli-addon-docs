@@ -1,15 +1,11 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import config from 'ember-get-config';
 import { classify } from '@ember/string';
 import { addonPrefix } from 'ember-cli-addon-docs/utils/computed';
 import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
 import { action } from '@ember/object';
-import { localCopy } from 'tracked-toolbox';
-
-const { projectName, projectHref, latestVersionName } =
-  config['ember-cli-addon-docs'];
+import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 /**
   Render a header showing a link to your documentation, your project logo, a
@@ -34,8 +30,7 @@ const { projectName, projectHref, latestVersionName } =
 export default class DocsHeader extends Component {
   @service projectVersion;
 
-  projectHref = projectHref;
-  latestVersionName = latestVersionName;
+  @addonDocsConfig config;
 
   @tracked query;
 
@@ -57,8 +52,9 @@ export default class DocsHeader extends Component {
     @argument prefix
     @type String?
   */
-  @localCopy('args.prefix', addonPrefix(projectName))
-  prefix;
+  get prefix() {
+    return this.args.prefix ?? addonPrefix(this.config.projectName);
+  }
 
   /**
     The name of your project (without the "ember", "ember-cli" or "ember-data" prefix).
@@ -76,7 +72,7 @@ export default class DocsHeader extends Component {
     if (this.args.name) {
       return this.args.name;
     } else {
-      let name = projectName;
+      let name = this.config.projectName;
       name = name.replace('ember-data-', '');
       name = name.replace('ember-cli-', '');
       name = name.replace('ember-', '');

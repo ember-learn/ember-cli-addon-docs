@@ -26,7 +26,7 @@
       <DocsHeader::Link @onClick={{toggle "isShowingVersionSelector" this}}>
         <span data-test-id="current-version" data-version-selector class="docs-flex docs-items-center">
 
-          {{#if (eq this.currentVersion.key this.latestVersionName)}}
+          {{#if (eq this.currentVersion.key this.config.latestVersionName)}}
             {{#if this.currentVersion.tag}}
               {{this.currentVersion.tag}}
             {{else}}
@@ -40,8 +40,8 @@
         </span>
       </DocsHeader::Link>
 
-      {{#if this.projectHref}}
-        <DocsHeader::Link @href={{this.projectHref}}>
+      {{#if this.config.projectHref}}
+        <DocsHeader::Link @href={{this.config.projectHref}}>
           <span class="docs-flex">
             {{svg-jar "github" width=24 height=24}}
           </span>

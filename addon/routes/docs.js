@@ -1,13 +1,14 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import config from 'ember-get-config';
-
-const projectName = config['ember-cli-addon-docs'].projectName;
+import { getAddonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 export default class DocsRoute extends Route {
   @service store;
 
   model() {
-    return this.store.findRecord('project', projectName);
+    return this.store.findRecord(
+      'project',
+      getAddonDocsConfig(this).projectName
+    );
   }
 }

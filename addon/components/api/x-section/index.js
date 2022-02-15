@@ -1,14 +1,12 @@
 import Component from '@glimmer/component';
-import config from 'ember-get-config';
-
-const { showImportPaths } = config['ember-cli-addon-docs'];
+import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 /**
   @class Api/XSection
   @hide
 */
 export default class XSection extends Component {
-  showImportPaths = showImportPaths;
+  @addonDocsConfig config;
 
   /**
    * Params shouldn't be displayed when there are no descriptions and no subparams,

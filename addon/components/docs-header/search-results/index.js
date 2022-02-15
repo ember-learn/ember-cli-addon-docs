@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { keyResponder, onKey } from 'ember-keyboard';
 import { restartableTask } from 'ember-concurrency';
-import { getOwner } from '@ember/application';
+import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 @keyResponder
 export default class DocsHeaderSearchResults extends Component {
@@ -15,23 +15,17 @@ export default class DocsHeaderSearchResults extends Component {
   @tracked selectedIndex = null;
   @tracked rawSearchResults = [];
 
+  @addonDocsConfig config;
+
   constructor() {
     super(...arguments);
-
-    const config =
-      getOwner(this).resolveRegistration('config:environment')[
-        'ember-cli-addon-docs'
-      ];
-    const { projectName } = config;
-
-    this.projectName = projectName;
 
     // Start downloading the search index immediately
     this.docsSearch.loadSearchIndex();
   }
 
   get project() {
-    return this.store.peekRecord('project', this.projectName);
+    return this.store.peekRecord('project', this.config.projectName);
   }
 
   get trimmedQuery() {

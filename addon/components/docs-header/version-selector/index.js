@@ -3,31 +3,20 @@ import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
 import { action } from '@ember/object';
 import { A } from '@ember/array';
-import { getOwner } from '@ember/application';
+import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 export default class VersionSelector extends Component {
   @service projectVersion;
 
-  constructor() {
-    super(...arguments);
-
-    const config =
-      getOwner(this).resolveRegistration('config:environment')[
-        'ember-cli-addon-docs'
-      ];
-    this.latestVersionName = config.latestVersionName;
-    this.primaryBranch = config.primaryBranch;
-  }
+  @addonDocsConfig config;
 
   @reads('projectVersion.currentVersion')
   currentVersion;
 
   get sortedVersions() {
-    let latestVersionName = this.latestVersionName;
-    let primaryBranch = this.primaryBranch;
     let versions = A(this.projectVersion.versions);
-    let latest = versions.findBy('key', latestVersionName);
-    let primary = versions.findBy('key', primaryBranch);
+    let latest = versions.findBy('key', this.config.latestVersionName);
+    let primary = versions.findBy('key', this.config.primaryBranch);
     let otherTags = versions
       .reject((v) => [latest, primary].includes(v))
       .sort((tagA, tagB) => {

@@ -6818,7 +6818,7 @@ ember-fetch@^8.1.1:
     node-fetch "^2.6.1"
     whatwg-fetch "^3.6.2"
 
-"ember-get-config@0.2.4 - 0.5.0 || ^1.0.0", ember-get-config@^1.0.0:
+"ember-get-config@0.2.4 - 0.5.0 || ^1.0.0":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/ember-get-config/-/ember-get-config-1.0.2.tgz#f8349a132763008bad37d46d53c8250a0e18d464"
   integrity sha512-G8sPknLvHEk0o8yrfs0+1WSeIPy1zOLxMJSm+ESYXy8MTnvxOFX127JSA7CcYmBq21GrDEIe0TL1Y+4cN9tEng==
