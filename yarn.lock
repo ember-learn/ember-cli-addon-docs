@@ -990,14 +990,13 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@csstools/postcss-sass@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-sass/-/postcss-sass-4.0.0.tgz#6617c5096a6b71751ee0b87d2326418b9d97effb"
-  integrity sha512-yvm2aaODNJ8PBn43HjYiRvVJcYLEpz5BEKXxQ/7HryqcL+TnAceXZO+khadTEkjw90r8afR5wykTzvVpFeo4vw==
+"@csstools/postcss-sass@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-sass/-/postcss-sass-5.0.0.tgz#9363debdc84268d10d3d1b8772f0a2ddee131770"
+  integrity sha512-jlIF3pcuZtHq41+dKfV51bqJ/VcXNdAST5S8HYxXu1wAfce0Pcf4g87GijhEqjNSIvHqajmbyx49UHLt9cT/cA==
   dependencies:
     "@csstools/sass-import-resolve" "^1.0.0"
-    postcss "^7.0.14"
-    sass "^1.16.1"
+    sass "^1.49.7"
     source-map "~0.7.3"
 
 "@csstools/sass-import-resolve@^1.0.0":
@@ -12327,7 +12326,7 @@ postcss@^6.0.9:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-postcss@^7.0.11, postcss@^7.0.14, postcss@^7.0.18, postcss@^7.0.32:
+postcss@^7.0.11, postcss@^7.0.18, postcss@^7.0.32:
   version "7.0.39"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.39.tgz#9624375d965630e2e1f2c02a935c82a59cb48309"
   integrity sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==
@@ -13355,7 +13354,7 @@ sane@^5.0.1:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sass@^1.16.1:
+sass@^1.49.7:
   version "1.49.7"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.7.tgz#22a86a50552b9b11f71404dfad1b9ff44c6b0c49"
   integrity sha512-13dml55EMIR2rS4d/RDHHP0sXMY3+30e1TKsyXaSz3iLWVoDWEoboY8WzJd5JMnxrRHffKO3wq2mpJ0jxRJiEQ==
