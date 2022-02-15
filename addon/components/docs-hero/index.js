@@ -1,11 +1,10 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import {
   addonPrefix,
   unprefixedAddonName,
 } from 'ember-cli-addon-docs/utils/computed';
-import { getOwner } from '@ember/application';
 import { classify } from '@ember/string';
+import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 /**
   A component that renders a hero banner. Useful for your docs site's homepage.
@@ -22,20 +21,7 @@ import { classify } from '@ember/string';
   @public
 */
 export default class DocsHeroComponent extends Component {
-  @tracked projectDescription;
-  @tracked projectName;
-
-  constructor() {
-    super(...arguments);
-
-    const config =
-      getOwner(this).resolveRegistration('config:environment')[
-        'ember-cli-addon-docs'
-      ];
-    const { projectDescription, projectName } = config;
-    this.projectDescription = projectDescription;
-    this.projectName = projectName;
-  }
+  @addonDocsConfig config;
 
   /**
     The prefix to show, typically of: 'Ember', 'EmberCLI', or 'EmberData'
@@ -44,7 +30,7 @@ export default class DocsHeroComponent extends Component {
     @type String
   */
   get prefix() {
-    return this.args.prefix ?? addonPrefix(this.projectName);
+    return this.args.prefix ?? addonPrefix(this.config.projectName);
   }
 
   /**
@@ -54,7 +40,10 @@ export default class DocsHeroComponent extends Component {
     @type String
   */
   get heading() {
-    return this.args.heading ?? classify(unprefixedAddonName(this.projectName));
+    return (
+      this.args.heading ??
+      classify(unprefixedAddonName(this.config.projectName))
+    );
   }
 
   /**
@@ -64,6 +53,6 @@ export default class DocsHeroComponent extends Component {
     @type String
   */
   get byline() {
-    return this.args.byline ?? this.projectDescription;
+    return this.args.byline ?? this.config.projectDescription;
   }
 }

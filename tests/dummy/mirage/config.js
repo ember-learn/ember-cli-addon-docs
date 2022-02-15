@@ -1,4 +1,4 @@
-import config from 'ember-get-config';
+import config from '../config/environment';
 const projectTag = config['ember-cli-addon-docs']?.projectTag;
 import { createServer } from 'miragejs';
 

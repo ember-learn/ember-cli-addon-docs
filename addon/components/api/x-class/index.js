@@ -3,12 +3,10 @@ import { tracked } from '@glimmer/tracking';
 import { or } from '@ember/object/computed';
 import { capitalize } from '@ember/string';
 import { memberFilter } from '../../../utils/computed';
-import config from 'ember-get-config';
-
-const { showImportPaths } = config['ember-cli-addon-docs'];
+import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 export default class XClass extends Component {
-  showImportPaths = showImportPaths;
+  @addonDocsConfig config;
 
   @tracked showInherited = false;
   @tracked showProtected = false;

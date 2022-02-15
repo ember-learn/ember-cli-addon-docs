@@ -1,9 +1,9 @@
 import Component from '@glimmer/component';
 import { task } from 'ember-concurrency';
-import { getOwner } from '@ember/application';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { formElementHasFocus } from 'ember-cli-addon-docs/keyboard-config';
+import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 export default class DocsHeaderSearchBox extends Component {
   @service store;
@@ -11,15 +11,10 @@ export default class DocsHeaderSearchBox extends Component {
   constructor() {
     super(...arguments);
 
-    const config =
-      getOwner(this).resolveRegistration('config:environment')[
-        'ember-cli-addon-docs'
-      ];
-    const { projectName } = config;
-
-    this.projectName = projectName;
     this.fetchProject.perform();
   }
+
+  @addonDocsConfig config;
 
   // TODO: The searchbox doesn't work without the project being fetched.
   // We should move this logic (and everywhere else in the code that's fetching
@@ -28,7 +23,7 @@ export default class DocsHeaderSearchBox extends Component {
   // project.
   @task
   *fetchProject() {
-    yield this.store.findRecord('project', this.projectName);
+    yield this.store.findRecord('project', this.config.projectName);
   }
 
   @action

@@ -26,7 +26,7 @@
     {{{@item.description}}}
   </p>
 
-  {{#if (or (and @item.exportType this.showImportPaths) this.shouldDisplayParams)}}
+  {{#if (or (and @item.exportType this.config.showImportPaths) this.shouldDisplayParams)}}
     <Api::XMetaPanel as |panel|>
       {{#if @item.exportType}}
         <panel.header>

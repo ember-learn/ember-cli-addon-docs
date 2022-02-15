@@ -1,18 +1,19 @@
 import Service from '@ember/service';
-import { getOwner } from '@ember/application';
 import lunr from 'lunr';
-import config from 'ember-get-config';
 import fetch from 'fetch';
 import { enqueueTask } from 'ember-concurrency';
+import {
+  getAddonDocsConfig,
+  getRootURL,
+} from 'ember-cli-addon-docs/-private/config';
 
 const { Index, Query } = lunr;
 
 export default class DocsSearch extends Service {
   async search(phrase) {
+    const { searchTokenSeparator } = getAddonDocsConfig(this);
     let { index, documents } = await this.loadSearchIndex();
-    let words = phrase
-      .toLowerCase()
-      .split(new RegExp(config['ember-cli-addon-docs'].searchTokenSeparator));
+    let words = phrase.toLowerCase().split(new RegExp(searchTokenSeparator));
     let results = index.query((query) => {
       // In the future we could boost results based on the field they come from
       for (let word of words) {
@@ -105,8 +106,7 @@ export default class DocsSearch extends Service {
   }
 
   get _indexURL() {
-    let config = getOwner(this).resolveRegistration('config:environment');
-    return `${config.rootURL}ember-cli-addon-docs/search-index.json`;
+    return `${getRootURL(this)}ember-cli-addon-docs/search-index.json`;
   }
 }
 

@@ -2,13 +2,13 @@ import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { localCopy } from 'tracked-toolbox';
-import config from 'ember-get-config';
 import { classify } from '@ember/string';
 import { addonLogo } from 'ember-cli-addon-docs/utils/computed';
-
-const projectName = config['ember-cli-addon-docs'].projectName;
+import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 export default class XNav extends Component {
+  @addonDocsConfig config;
+
   @localCopy('args.root', 'docs')
   root;
 
@@ -17,12 +17,14 @@ export default class XNav extends Component {
 
   @tracked isShowingMenu;
 
-  addonLogo = addonLogo(projectName);
+  get addonLogo() {
+    return addonLogo(this.config.projectName);
+  }
 
   get addonTitle() {
     let logo = this.addonLogo;
 
-    return classify(projectName.replace(`${logo}-`, ''));
+    return classify(this.config.projectName.replace(`${logo}-`, ''));
   }
 
   get project() {
@@ -30,6 +32,6 @@ export default class XNav extends Component {
       return this.args.project;
     }
 
-    return this.store.peekRecord('project', projectName);
+    return this.store.peekRecord('project', this.config.projectName);
   }
 }

@@ -4,8 +4,8 @@ import Component from '@glimmer/component';
 import { bind } from '@ember/runloop';
 import appFiles from 'ember-cli-addon-docs/app-files';
 import addonFiles from 'ember-cli-addon-docs/addon-files';
-import config from 'ember-get-config';
 import { getOwner } from '@ember/application';
+import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 const tagToSize = { H2: 'xxs', H3: 'xxs' };
 const tagToIndent = { H2: '0', H3: '4' };
@@ -16,6 +16,8 @@ export default class XMain extends Component {
   @service router;
 
   @service docsRoutes;
+
+  @addonDocsConfig config;
 
   @action
   setupElement(element) {
@@ -64,7 +66,7 @@ export default class XMain extends Component {
     let match = this._locateFile(path);
     if (match) {
       let { projectHref, addonPathInRepo, docsAppPathInRepo, primaryBranch } =
-        config['ember-cli-addon-docs'];
+        this.config;
       let parts = [projectHref, 'edit', primaryBranch];
       if (match.inTree === 'addon') {
         parts.push(addonPathInRepo);
@@ -81,7 +83,7 @@ export default class XMain extends Component {
   _locateFile(path) {
     path = path.replace(/\./g, '/');
     if (path === 'docs/api/item') {
-      let { projectName } = config['ember-cli-addon-docs'];
+      let { projectName } = this.config;
       let model = getOwner(this)
         .lookup('route:application')
         .modelFor('docs.api.item');
