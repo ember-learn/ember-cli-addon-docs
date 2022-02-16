@@ -34,7 +34,7 @@
     "@ember/render-modifiers": "^2.0.0",
     "@ember/test-waiters": "^3.0.0",
     "@glimmer/component": "^1.0.4",
-    "@glimmer/syntax": "^0.83.1",
+    "@glimmer/syntax": "^0.84.0",
     "@glimmer/tracking": "^1.0.4",
     "@handlebars/parser": "^2.1.0",
     "broccoli-bridge": "^1.0.0",
