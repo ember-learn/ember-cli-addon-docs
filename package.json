@@ -46,7 +46,7 @@
     "broccoli-plugin": "1.5.1 - 5",
     "broccoli-source": "^3.0.0",
     "broccoli-stew": "^3.0.0",
-    "chalk": "4.1.2",
+    "chalk": "5.0.1",
     "ember-auto-import": "^2.4.0",
     "ember-cli-autoprefixer": "^2.0.0",
     "ember-cli-babel": "^7.26.11",
