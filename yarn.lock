@@ -991,9 +991,9 @@
     minimist "^1.2.0"
 
 "@csstools/postcss-sass@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@csstools/postcss-sass/-/postcss-sass-5.0.0.tgz#9363debdc84268d10d3d1b8772f0a2ddee131770"
-  integrity sha512-jlIF3pcuZtHq41+dKfV51bqJ/VcXNdAST5S8HYxXu1wAfce0Pcf4g87GijhEqjNSIvHqajmbyx49UHLt9cT/cA==
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@csstools/postcss-sass/-/postcss-sass-5.0.1.tgz#d5e67b4c81f1b634d722148fbe0e871b71b762a5"
+  integrity sha512-GgQAOe6KfABEIHGh9KFqn/7sX2Dmx554PElvyhRFNADo2QV2N/CzlS+QHrrJmVJzaBn829f4JFcOd67mmYb5Eg==
   dependencies:
     "@csstools/sass-import-resolve" "^1.0.0"
     sass "^1.49.7"
