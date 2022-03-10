@@ -72,11 +72,11 @@ module.exports = {
     let addonPathInRepo = this._documentingAddonAt()
       ? path.relative(
           this._getRepoRoot(),
-          path.join(this._documentingAddonAt(), 'addon')
+          path.join(this._documentingAddonAt(), this._addonSrcFolder())
         )
       : path.relative(
           this._getRepoRoot(),
-          path.join(this.project.root, 'addon')
+          path.join(this.project.root, this._addonSrcFolder())
         );
 
     let config = {
@@ -232,7 +232,7 @@ module.exports = {
     let dummyAppFiles = new FindDummyAppFiles([this.app.trees.app]);
     let addonToDocument = this._documentingAddon();
     let addonFiles = new FindAddonFiles(
-      [path.join(addonToDocument.root, 'addon')].filter((dir) =>
+      [path.join(addonToDocument.root, this._addonSrcFolder())].filter((dir) =>
         fs.existsSync(dir)
       )
     );
@@ -265,7 +265,7 @@ module.exports = {
     let docsTrees = [];
     this.addonOptions.projects.main =
       this.addonOptions.projects.main ||
-      generateDefaultProject(addonToDocument);
+      generateDefaultProject(addonToDocument, this._addonSrcFolder());
 
     for (let projectName in this.addonOptions.projects) {
       let addonSourceTree = this.addonOptions.projects[projectName];
@@ -346,6 +346,28 @@ module.exports = {
     return this._cachedDocumentingAddonAt;
   },
 
+  // returns path of the addon source code relative to the addon root folder.
+  _addonSrcFolder() {
+    if (this._cachedAddonSrcFolder === undefined) {
+      if (
+        this.app &&
+        this.app.options['ember-cli-addon-docs'] &&
+        this.app.options['ember-cli-addon-docs'].addonSrcFolder
+      ) {
+        this._cachedAddonSrcFolder =
+          this.app.options['ember-cli-addon-docs'].addonSrcFolder;
+      } else {
+        let pkg = this.parent.pkg;
+        if (this._documentingAddonAt()) {
+          pkg = require(path.join(this._documentingAddonAt(), 'package.json'));
+        }
+        this._cachedAddonSrcFolder =
+          pkg['ember-addon'].version === 2 ? 'src' : 'addon';
+      }
+    }
+    return this._cachedAddonSrcFolder;
+  },
+
   _documentingAddon() {
     let addon;
     if (this._documentingAddonAt()) {
@@ -379,7 +401,7 @@ function findImporter(addon) {
   }
 }
 
-function generateDefaultProject(parentAddon) {
+function generateDefaultProject(parentAddon, addonSrcFolder) {
   let includeFunnels = [
     // We need to be very careful to avoid triggering a watch on the addon root here
     // because of https://github.com/nodejs/node/issues/15683
@@ -388,10 +410,7 @@ function generateDefaultProject(parentAddon) {
     }),
   ];
 
-  let addonTreePath = path.join(
-    parentAddon.root,
-    parentAddon.treePaths['addon']
-  );
+  let addonTreePath = path.join(parentAddon.root, addonSrcFolder);
   let testSupportPath = path.join(
     parentAddon.root,
     parentAddon.treePaths['addon-test-support']
