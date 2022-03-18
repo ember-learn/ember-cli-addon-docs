@@ -60,7 +60,7 @@
     "ember-composable-helpers": "^5.0.0",
     "ember-concurrency": "^2.0.0",
     "ember-fetch": "^8.1.1",
-    "ember-keyboard": "^7.0.1",
+    "ember-keyboard": "^8.0.0",
     "ember-modal-dialog": "^4.0.0",
     "ember-responsive": "^4.0.2",
     "ember-router-generator": "^2.0.0",
