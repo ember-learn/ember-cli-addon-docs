@@ -33,6 +33,18 @@ let app = new EmberApp(defaults, {
 });
 ```
 
+If the addon is authored in v2 Addon Format `ember-cli-addon-docs` will look for the addon source code in `src` folder.
+You may need to set `addonSrcFolder` config option if addon uses another folder:
+
+```js
+let app = new EmberApp(defaults, {
+  'ember-cli-addon-docs': {
+    documentingAddonAt: '../addon',
+    addonSrcFolder: 'source',
+  }
+});
+```
+
 At this point you should be able to run the docs app and it should look the same as if you had just added ember-cli-addon-docs for the first time to your addon.
 
 ## 6. Move all the things
