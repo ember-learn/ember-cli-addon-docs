@@ -6899,11 +6899,12 @@ ember-fetch@^8.1.1:
     ember-cli-babel "^7.26.5"
 
 ember-keyboard@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-8.0.0.tgz#dd4a7253d277be9ed9d6878f073ea32406e29435"
-  integrity sha512-/9poW0DS8akMLvYsvn1scAMMCsyOPt22L4W7c4CLruFkUY7wdVrfFxb/qHwDmtWxyZDka0yc8aIZHqL6sSa9wQ==
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-8.1.0.tgz#053fa137f2633a7f892e323bb56ff975ae2ec1bb"
+  integrity sha512-AkmWGoGmXUBOqEKkAr1aat+zo92xvErREYeGgnArLWca8b3irNSU3Pg+PUil3/CutZ+r6r0NLaBpcEccNP+5LA==
   dependencies:
     "@embroider/addon-shim" "^1.5.0"
+    ember-destroyable-polyfill "^2.0.3"
     ember-modifier "^2.1.2 || ^3.1.0"
     ember-modifier-manager-polyfill "^1.2.0"
 
