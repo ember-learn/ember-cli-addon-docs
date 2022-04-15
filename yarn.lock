@@ -6404,9 +6404,9 @@ ember-cli-lodash-subset@^2.0.1:
   integrity sha1-IMtop5D+D94kiN39jvu332/nZvI=
 
 ember-cli-mirage@^3.0.0-alpha.2:
-  version "3.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/ember-cli-mirage/-/ember-cli-mirage-3.0.0-alpha.2.tgz#912f9361aa7e9b899a3251cd17b20ca740249cea"
-  integrity sha512-JRAdZSpI45pvAhfKyG+oM3kRgRkoGbjhDIa+1ovGaTlwwr4t79LA3LaajfY+iHICAMqoV3zTFWLminQAihHwXA==
+  version "3.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/ember-cli-mirage/-/ember-cli-mirage-3.0.0-alpha.3.tgz#57fc4a9b55770d20c13db11a278aa8f723a38307"
+  integrity sha512-u40mt6ZsprSATZm+RXpxhlh829cU/ONwdqg2A4p6JcmG5iF5m00YzxOX7RtPCpj3sTAtRokc6+NlbXHXF5RbjA==
   dependencies:
     "@embroider/macros" "^1.0.0"
     broccoli-file-creator "^2.1.1"
