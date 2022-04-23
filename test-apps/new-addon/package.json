@@ -56,15 +56,12 @@
     "webpack": "*"
   },
   "engines": {
-    "node": "12.* || >= 14.*"
+    "node": "14.* || 16.* || >= 18"
   },
   "ember": {
     "edition": "octane"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  },
-  "ember": {
-    "edition": "octane"
   }
 }
