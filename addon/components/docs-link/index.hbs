@@ -13,7 +13,7 @@
     )
   )
   as |DocsLinkTo|
-}}
+~}}
   <DocsLinkTo
     class="docs-md__a"
     @query={{or @query (hash)}}
@@ -22,6 +22,6 @@
     @current-when={{@current-when}}
     ...attributes
   >
-    {{yield}}
+    {{~yield~}}
   </DocsLinkTo>
-{{/let}}
+{{~/let}}
