@@ -11,7 +11,7 @@ Compatibility
 
 * Ember.js v3.24 or above
 * Ember CLI v3.24 or above
-* Node.js v12 or above
+* Node.js v14 or above
 
 The original maintainers of AddonDocs have moved on, but this addon is still very much actively maintained and is still being used by many addons.
 We are currently working on embroider and fastboot support, and would love help, if anyone would like to help out!
