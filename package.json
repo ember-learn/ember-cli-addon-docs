@@ -76,7 +76,7 @@
     "highlight.js": "^11.4.0",
     "hosted-git-info": "^5.0.0",
     "html-entities": "^2.3.2",
-    "jsdom": "^19.0.0",
+    "jsdom": "^20.0.0",
     "json-api-serializer": "^2.6.6",
     "line-column": "^1.0.2",
     "lodash": "^4.17.15",
