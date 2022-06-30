@@ -6,6 +6,47 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+
+## v5.0.0 (2022-06-30)
+
+#### :boom: Breaking Change
+* [#1219](https://github.com/ember-learn/ember-cli-addon-docs/pull/1219) Drop Node.js 12 support ([@SergeAstapov](https://github.com/SergeAstapov))
+* [#1134](https://github.com/ember-learn/ember-cli-addon-docs/pull/1134) update docs viewer ([@miguelcobain](https://github.com/miguelcobain))
+* [#1133](https://github.com/ember-learn/ember-cli-addon-docs/pull/1133) update markdown rendering approach ([@miguelcobain](https://github.com/miguelcobain))
+* [#1128](https://github.com/ember-learn/ember-cli-addon-docs/pull/1128) update docs header ([@miguelcobain](https://github.com/miguelcobain))
+* [#1130](https://github.com/ember-learn/ember-cli-addon-docs/pull/1130) update docs-link ([@miguelcobain](https://github.com/miguelcobain))
+* [#1126](https://github.com/ember-learn/ember-cli-addon-docs/pull/1126) delete docs-svg-icon component ([@miguelcobain](https://github.com/miguelcobain))
+* [#1120](https://github.com/ember-learn/ember-cli-addon-docs/pull/1120) Update to glimmer components ([@miguelcobain](https://github.com/miguelcobain))
+
+#### :rocket: Enhancement
+* [#1218](https://github.com/ember-learn/ember-cli-addon-docs/pull/1218) Remove extra whitespace in `<DocsLink />` component ([@SergeAstapov](https://github.com/SergeAstapov))
+* [#1164](https://github.com/ember-learn/ember-cli-addon-docs/pull/1164) Support v2 addon format ([@SergeAstapov](https://github.com/SergeAstapov))
+* [#1125](https://github.com/ember-learn/ember-cli-addon-docs/pull/1125) update docs-logo component ([@miguelcobain](https://github.com/miguelcobain))
+* [#1124](https://github.com/ember-learn/ember-cli-addon-docs/pull/1124) update docs-keyboard-shortcuts ([@miguelcobain](https://github.com/miguelcobain))
+
+#### :bug: Bug Fix
+* [#1137](https://github.com/ember-learn/ember-cli-addon-docs/pull/1137) fix(config): use runtime config instead of embroider generated one ([@jkeen](https://github.com/jkeen))
+
+#### :memo: Documentation
+* [#1123](https://github.com/ember-learn/ember-cli-addon-docs/pull/1123) update docs hero docs ([@miguelcobain](https://github.com/miguelcobain))
+
+#### :house: Internal
+* [#1143](https://github.com/ember-learn/ember-cli-addon-docs/pull/1143) chore(config): remove all usage of ember-get-config ([@anehx](https://github.com/anehx))
+* [#1135](https://github.com/ember-learn/ember-cli-addon-docs/pull/1135) Remove ember-decorators and ember-component-css ([@rwwagner90](https://github.com/rwwagner90))
+* [#955](https://github.com/ember-learn/ember-cli-addon-docs/pull/955) Ember and dep updates ([@rwwagner90](https://github.com/rwwagner90))
+* [#1129](https://github.com/ember-learn/ember-cli-addon-docs/pull/1129) update modal dialog ([@miguelcobain](https://github.com/miguelcobain))
+* [#1127](https://github.com/ember-learn/ember-cli-addon-docs/pull/1127) update api components ([@miguelcobain](https://github.com/miguelcobain))
+* [#1117](https://github.com/ember-learn/ember-cli-addon-docs/pull/1117) update controllers syntax ([@miguelcobain](https://github.com/miguelcobain))
+* [#1118](https://github.com/ember-learn/ember-cli-addon-docs/pull/1118) update services ([@miguelcobain](https://github.com/miguelcobain))
+* [#1116](https://github.com/ember-learn/ember-cli-addon-docs/pull/1116) update ember-data related syntax ([@miguelcobain](https://github.com/miguelcobain))
+
+#### Committers: 5
+- Jeff Keen ([@jkeen](https://github.com/jkeen))
+- Jonas Metzener ([@anehx](https://github.com/anehx))
+- Miguel Andrade ([@miguelcobain](https://github.com/miguelcobain))
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## v4.2.2 (2022-02-08)
 
 #### :bug: Bug Fix
