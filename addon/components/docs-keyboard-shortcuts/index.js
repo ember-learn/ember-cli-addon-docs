@@ -22,9 +22,9 @@ export default class DocsKeyboardShortcutsComponent extends Component {
   @onKey('KeyG', { event: 'keyup' })
   goto() {
     if (!formElementHasFocus()) {
-      this.set('isGoingTo', true);
+      this.isGoingTo = true;
       later(() => {
-        this.set('isGoingTo', false);
+        this.isGoingTo = false;
       }, 500);
     }
   }
