@@ -7441,9 +7441,9 @@ ember-tether@^2.0.1:
     tether "^1.4.0"
 
 ember-truth-helpers@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/ember-truth-helpers/-/ember-truth-helpers-3.0.0.tgz#86766bdca4ac9b86bce3d262dff2aabc4a0ea384"
-  integrity sha512-hPKG9QqruAELh0li5xaiLZtr88ioWYxWCXisAWHWE0qCP4a2hgtuMzKUPpiTCkltvKjuqpzTZCU4VhQ+IlRmew==
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/ember-truth-helpers/-/ember-truth-helpers-3.1.0.tgz#a953a17a736328ab7acc9c08bbd452128fdc0799"
+  integrity sha512-UbwqYeh/xixZKqd2n5m7tSmTAEFA8U99+8KfWlaHjkbWlnalfsftVRpW+V29FvNKbX+djC78Z0wTdXwOJC+L5A==
   dependencies:
     ember-cli-babel "^7.22.1"
 
