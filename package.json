@@ -92,7 +92,7 @@
     "quick-temp": "^0.1.8",
     "semver": "^7.3.2",
     "striptags": "^3.1.1",
-    "tailwindcss": "1.9.6",
+    "tailwindcss": "3.2.3",
     "tracked-toolbox": "^2.0.0",
     "walk-sync": "^3.0.0",
     "yuidocjs": "^0.10.2"
