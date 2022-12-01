@@ -26,7 +26,6 @@
   "devDependencies": {
     "@ember/optional-features": "*",
     "@ember/test-helpers": "*",
-    "@ember/optional-features": "*",
     "ember-cli-addon-docs": "*",
     "ember-cli-addon-docs-yuidoc": "*",
     "broccoli-asset-rev": "*",
@@ -40,9 +39,7 @@
     "ember-cli-sri": "*",
     "ember-cli-terser": "*",
     "ember-disable-prototype-extensions": "*",
-    "ember-export-application-global": "*",
     "ember-load-initializers": "*",
-    "ember-maybe-import-regenerator-for-testing": "*",
     "ember-resolver": "*",
     "ember-source": "*",
     "ember-source-channel-url": "*",
