@@ -9,8 +9,8 @@ ember-cli-addon-docs
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v3.24 or above
-* Ember CLI v3.24 or above
+* Ember.js v3.28 or above
+* Ember CLI v3.28 or above
 * Node.js v14 or above
 
 The original maintainers of AddonDocs have moved on, but this addon is still very much actively maintained and is still being used by many addons.
