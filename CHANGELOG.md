@@ -7,6 +7,19 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+
+## v5.1.0 (2022-12-01)
+
+#### :boom: Breaking Change
+* [#1363](https://github.com/ember-learn/ember-cli-addon-docs/pull/1363) Ember 4.8, require Ember 3.28+ ([@rwwagner90](https://github.com/rwwagner90))
+
+#### :bug: Bug Fix
+* [#1276](https://github.com/ember-learn/ember-cli-addon-docs/pull/1276) avoid using `this.set` (Closes [#1275](https://github.com/ember-learn/ember-cli-addon-docs/issues/1275)) ([@geneukum](https://github.com/geneukum))
+
+#### Committers: 2
+- Geordan Neukum ([@geneukum](https://github.com/geneukum))
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+
 ## v5.0.0 (2022-06-30)
 
 #### :boom: Breaking Change
