@@ -82,7 +82,7 @@
     "lodash": "^4.17.15",
     "lunr": "^2.3.7",
     "marked": "^4.0.12",
-    "node-html-parser": "^5.2.0",
+    "node-html-parser": "^6.1.4",
     "pad-start": "^1.0.2",
     "parse-git-config": "^3.0.0",
     "postcss": "^8.3.6",
