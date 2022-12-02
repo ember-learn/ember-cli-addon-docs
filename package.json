@@ -87,7 +87,7 @@
     "parse-git-config": "^3.0.0",
     "postcss": "^8.3.6",
     "postcss-import": "^14.0.0",
-    "postcss-nested": "^5.0.6",
+    "postcss-nested": "^6.0.0",
     "postcss-scss": "^4.0.0",
     "quick-temp": "^0.1.8",
     "semver": "^7.3.8",
