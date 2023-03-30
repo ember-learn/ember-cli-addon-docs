@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
 import { action } from '@ember/object';
 import { A } from '@ember/array';
+import { cached } from 'tracked-toolbox';
 import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 export default class VersionSelector extends Component {
@@ -13,6 +14,7 @@ export default class VersionSelector extends Component {
   @reads('projectVersion.currentVersion')
   currentVersion;
 
+  @cached
   get sortedVersions() {
     let versions = A(this.projectVersion.versions);
     let latest = versions.findBy('key', this.config.latestVersionName);
@@ -35,6 +37,10 @@ export default class VersionSelector extends Component {
       });
 
     return [latest, primary, ...otherTags].filter(Boolean);
+  }
+
+  get lastVersion () {
+    return this.sortedVersions[this.sortedVersions.length - 1];
   }
 
   @action
