@@ -39,7 +39,7 @@ export default class VersionSelector extends Component {
     return [latest, primary, ...otherTags].filter(Boolean);
   }
 
-  get lastVersion () {
+  get lastVersion() {
     return this.sortedVersions[this.sortedVersions.length - 1];
   }
 
