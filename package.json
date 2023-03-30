@@ -101,6 +101,7 @@
     "@babel/eslint-parser": "^7.16.3",
     "@babel/preset-env": "^7.16.4",
     "@ember/optional-features": "^2.0.0",
+    "@ember/string": "^3.0.1",
     "@ember/test-helpers": "^2.8.1",
     "@embroider/test-setup": "^2.0.2",
     "@fullhuman/postcss-purgecss": "^4.0.3",
