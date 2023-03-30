@@ -9,7 +9,7 @@
   <ul
     class="docs-mt-2 docs-bg-white docs-shadow-md docs-text-xs docs-rounded docs-z-10"
   >
-    {{#each this.sortedVersions as |version|}}
+    {{#each this.sortedVersions as |version index|}}
       <li data-test-id="version">
         <a
           {{on "click" (fn this.changeVersion version)}}
@@ -17,8 +17,8 @@
           class={{concat
             "docs-text-black docs-no-underline docs-flex docs-items-center
             docs-px-4 docs-py-3 hover:docs-bg-brand hover:docs-text-white group "
-            (if (eq version this.sortedVersions.firstObject) "docs-rounded-t")
-            (if (eq version this.sortedVersions.lastObject) "docs-rounded-b")
+            (if (eq index 0) "docs-rounded-t")
+            (if (eq version this.lastVersion) "docs-rounded-b")
           }}
         >
           <span class="flex docs-w-6">
