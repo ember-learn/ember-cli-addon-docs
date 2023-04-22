@@ -39,7 +39,7 @@ let textSizesMap = {
   'large-7': '42px',
   'jumbo-1': '60px',
   'jumbo-2': '74px',
-  'jumbo-3': '86px'
+  'jumbo-3': '86px',
 };
 
 // Convert pixel sizes to REMs
@@ -88,7 +88,7 @@ module.exports = {
       'code-base': '#282c34',
 
       // See the note in tailwind/compnents/docs-brand-colors.css
-      'brand-var': 'var(--brand-primary, #E04E39)'
+      'brand-var': 'var(--brand-primary, #E04E39)',
     },
 
     /*
@@ -114,7 +114,7 @@ module.exports = {
       sm: '576px',
       md: '768px',
       lg: '992px',
-      xl: '1200px'
+      xl: '1200px',
     },
 
     /*
@@ -137,7 +137,16 @@ module.exports = {
     */
 
     fontFamily: {
-      title: ['"Crimson Text"', 'serif'],
+      /*
+       * https://github.com/system-fonts/modern-font-stacks#old-style
+       */
+      title: [
+        '"Iowan Old Style"',
+        '"Palentino Linotype"',
+        '"URW Palladio L"',
+        '"P052"',
+        'serif',
+      ],
       sans: [
         'system-ui',
         'BlinkMacSystemFont',
@@ -150,7 +159,7 @@ module.exports = {
         'Fira Sans',
         'Droid Sans',
         'Helvetica Neue',
-        'sans-serif'
+        'sans-serif',
       ],
       serif: [
         'Constantia',
@@ -162,7 +171,7 @@ module.exports = {
         'Bitstream Vera Serif',
         'Liberation Serif',
         'Georgia',
-        'serif'
+        'serif',
       ],
       mono: [
         'Menlo',
@@ -170,8 +179,8 @@ module.exports = {
         'Consolas',
         'Liberation Mono',
         'Courier New',
-        'monospace'
-      ]
+        'monospace',
+      ],
     },
 
     /*
@@ -219,7 +228,7 @@ module.exports = {
       semibold: 600,
       bold: 700,
       extrabold: 800,
-      black: 900
+      black: 900,
     },
 
     /*
@@ -240,7 +249,7 @@ module.exports = {
       tight: 1.25,
       small: 1.45,
       normal: 1.625,
-      loose: 2
+      loose: 2,
     },
 
     /*
@@ -259,7 +268,7 @@ module.exports = {
     letterSpacing: {
       tight: '-0.2px',
       normal: '0',
-      wide: '0.05em'
+      wide: '0.05em',
     },
 
     /*
@@ -276,7 +285,7 @@ module.exports = {
     |
     */
 
-    textColor: theme => theme('colors'),
+    textColor: (theme) => theme('colors'),
 
     /*
     |-----------------------------------------------------------------------------
@@ -292,7 +301,7 @@ module.exports = {
     |
     */
 
-    backgroundColor: theme => theme('colors'),
+    backgroundColor: (theme) => theme('colors'),
 
     /*
     |-----------------------------------------------------------------------------
@@ -311,7 +320,7 @@ module.exports = {
     backgroundSize: {
       auto: 'auto',
       cover: 'cover',
-      contain: 'contain'
+      contain: 'contain',
     },
 
     /*
@@ -330,10 +339,10 @@ module.exports = {
 
     borderWidth: {
       default: '1px',
-      '0': '0',
-      '2': '2px',
-      '4': '4px',
-      '8': '8px'
+      0: '0',
+      2: '2px',
+      4: '4px',
+      8: '8px',
     },
 
     /*
@@ -354,7 +363,7 @@ module.exports = {
     |
     */
 
-    borderColor: theme => ({
+    borderColor: (theme) => ({
       default: theme('colors.grey-light'),
       ...theme('colors'),
     }),
@@ -381,7 +390,7 @@ module.exports = {
       sm: '.125rem',
       default: '.25rem',
       lg: '.5rem',
-      full: '9999px'
+      full: '9999px',
     },
 
     /*
@@ -410,22 +419,22 @@ module.exports = {
 
       auto: 'auto',
       px: '1px',
-      '1': '0.25rem',
-      '2': '0.5rem',
-      '3': '0.75rem',
-      '4': '1rem',
-      '6': '1.5rem',
-      '8': '2rem',
-      '10': '2.5rem',
-      '12': '3rem',
-      '16': '4rem',
-      '24': '6rem',
-      '32': '8rem',
-      '48': '12rem',
-      '56': '14rem',
-      '64': '16rem',
-      '72': '18rem',
-      '76': '19rem',
+      1: '0.25rem',
+      2: '0.5rem',
+      3: '0.75rem',
+      4: '1rem',
+      6: '1.5rem',
+      8: '2rem',
+      10: '2.5rem',
+      12: '3rem',
+      16: '4rem',
+      24: '6rem',
+      32: '8rem',
+      48: '12rem',
+      56: '14rem',
+      64: '16rem',
+      72: '18rem',
+      76: '19rem',
       '1/2': '50%',
       '1/3': '33.33333%',
       '2/3': '66.66667%',
@@ -439,7 +448,7 @@ module.exports = {
       '5/6': '83.33333%',
       '90%': '90%',
       full: '100%',
-      screen: '100vw'
+      screen: '100vw',
     },
 
     /*
@@ -461,21 +470,21 @@ module.exports = {
     height: {
       auto: 'auto',
       px: '1px',
-      '1': '0.25rem',
-      '2': '0.5rem',
-      '3': '0.75rem',
-      '4': '1rem',
-      '6': '1.5rem',
-      '8': '2rem',
-      '10': '2.5rem',
-      '12': '3rem',
-      '16': '4rem',
-      '24': '6rem',
-      '32': '8rem',
-      '48': '12rem',
-      '64': '16rem',
+      1: '0.25rem',
+      2: '0.5rem',
+      3: '0.75rem',
+      4: '1rem',
+      6: '1.5rem',
+      8: '2rem',
+      10: '2.5rem',
+      12: '3rem',
+      16: '4rem',
+      24: '6rem',
+      32: '8rem',
+      48: '12rem',
+      64: '16rem',
       full: '100%',
-      screen: '100vh'
+      screen: '100vh',
     },
 
     /*
@@ -494,8 +503,8 @@ module.exports = {
     */
 
     minWidth: {
-      '0': '0',
-      full: '100%'
+      0: '0',
+      full: '100%',
     },
 
     /*
@@ -514,9 +523,9 @@ module.exports = {
     */
 
     minHeight: {
-      '0': '0',
+      0: '0',
       full: '100%',
-      screen: '100vh'
+      screen: '100vh',
     },
 
     /*
@@ -552,7 +561,7 @@ module.exports = {
       '5xl': '100rem',
       full: '100%',
 
-      '2/3': '66.67%'
+      '2/3': '66.67%',
     },
 
     /*
@@ -572,7 +581,7 @@ module.exports = {
 
     maxHeight: {
       full: '100%',
-      screen: '100vh'
+      screen: '100vh',
     },
 
     /*
@@ -593,16 +602,16 @@ module.exports = {
 
     padding: {
       px: '1px',
-      '0': '0',
-      '1': '0.25rem',
-      '2': '0.5rem',
-      '3': '0.75rem',
-      '4': '1rem',
-      '5': '1.25rem',
-      '6': '1.5rem',
-      '8': '2rem',
-      '16': '4rem',
-      '20': '5rem'
+      0: '0',
+      1: '0.25rem',
+      2: '0.5rem',
+      3: '0.75rem',
+      4: '1rem',
+      5: '1.25rem',
+      6: '1.5rem',
+      8: '2rem',
+      16: '4rem',
+      20: '5rem',
     },
 
     /*
@@ -624,16 +633,16 @@ module.exports = {
     margin: {
       auto: 'auto',
       px: '1px',
-      '0': '0',
-      '1': '0.25rem',
-      '2': '0.5rem',
-      '3': '0.75rem',
-      '4': '1rem',
-      '6': '1.5rem',
-      '8': '2rem',
-      '12': '3rem',
-      '16': '4rem',
-      '20': '5rem',
+      0: '0',
+      1: '0.25rem',
+      2: '0.5rem',
+      3: '0.75rem',
+      4: '1rem',
+      6: '1.5rem',
+      8: '2rem',
+      12: '3rem',
+      16: '4rem',
+      20: '5rem',
       '-px': '-1px',
       '-2px': '-2px',
       '-0': '-0',
@@ -644,7 +653,7 @@ module.exports = {
       '-6': '-1.5rem',
       '-8': '-2rem',
       '-16': '-4rem',
-      '-20': '-5rem'
+      '-20': '-5rem',
     },
 
     /*
@@ -670,7 +679,7 @@ module.exports = {
       md: '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
       lg: '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
       inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
-      none: 'none'
+      none: 'none',
     },
 
     /*
@@ -689,12 +698,12 @@ module.exports = {
 
     zIndex: {
       auto: 'auto',
-      '0': 0,
-      '10': 10,
-      '20': 20,
-      '30': 30,
-      '40': 40,
-      '50': 50
+      0: 0,
+      10: 10,
+      20: 20,
+      30: 30,
+      40: 40,
+      50: 50,
     },
 
     /*
@@ -713,7 +722,7 @@ module.exports = {
     */
 
     fill: {
-      current: 'currentColor'
+      current: 'currentColor',
     },
 
     /*
@@ -732,7 +741,7 @@ module.exports = {
     */
 
     stroke: {
-      current: 'currentColor'
+      current: 'currentColor',
     },
   },
 
@@ -815,7 +824,7 @@ module.exports = {
     whitespace: ['responsive'],
     wordBreak: ['responsive'],
     width: ['responsive'],
-    zIndex: ['responsive']
+    zIndex: ['responsive'],
   },
 
   /*
@@ -835,7 +844,6 @@ module.exports = {
   plugins: [],
 
   corePlugins: {
-    container: false
+    container: false,
   },
-
 };
