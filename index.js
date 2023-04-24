@@ -222,10 +222,6 @@ module.exports = {
         'utf-8'
       );
     }
-
-    if (type === 'head-footer') {
-      return `<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,600" rel="stylesheet">`;
-    }
   },
 
   treeForAddon(tree) {
