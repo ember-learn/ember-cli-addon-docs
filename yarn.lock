@@ -7250,9 +7250,9 @@ ember-load-initializers@^2.1.2:
     ember-cli-typescript "^2.0.2"
 
 ember-modal-dialog@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/ember-modal-dialog/-/ember-modal-dialog-4.0.1.tgz#093e0b5a32e2824b573bec9f0c935b4f990dbaff"
-  integrity sha512-6RQjQClvufYB7Y/sOS90HF3tfmLe7LLDM3fgl8BsAEu9xSJTHZTz+xpBY467hxIkl2vAXH6rNLFCf7W/Rm9Jcw==
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/ember-modal-dialog/-/ember-modal-dialog-4.1.0.tgz#675b37dc022315135a01fa0ba32a88e5f2ec1dfc"
+  integrity sha512-iD8TEvGG1K5ytJkrPoaPWS2F+ok0ixe1gK+SPd9dzeqEEx0rKmeydjBlBhk0nkg1RbrZBH4pE3CO7tbAD6oOPg==
   dependencies:
     "@embroider/macros" "^1.0.0"
     "@embroider/util" "^1.0.0"
