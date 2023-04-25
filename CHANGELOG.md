@@ -8,6 +8,17 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+
+## v5.2.0 (2023-04-25)
+
+#### :rocket: Enhancement
+* [#1421](https://github.com/ember-learn/ember-cli-addon-docs/pull/1421) Swap out 3rd party font for system fonts ([@mixonic](https://github.com/mixonic))
+
+#### Committers: 3
+- Jordan Hawker ([@elwayman02](https://github.com/elwayman02))
+- Matthew Beale ([@mixonic](https://github.com/mixonic))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## v5.1.0 (2022-12-01)
 
 #### :boom: Breaking Change
