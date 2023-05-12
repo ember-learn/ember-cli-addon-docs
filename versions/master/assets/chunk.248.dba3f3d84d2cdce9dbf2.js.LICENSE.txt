@@ -95,8 +95,6 @@
 
 /*! https://mths.be/he v1.2.0 by @mathias | MIT license */
 
-/*! tether 1.4.7 */
-
 /**
  * @license
  * Lodash <https://lodash.com/>
