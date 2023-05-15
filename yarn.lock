@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@ampproject/remapping@^2.1.0", "@ampproject/remapping@^2.2.0":
+"@ampproject/remapping@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"
   integrity sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==
@@ -29,28 +29,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.21.4.tgz#457ffe647c480dff59c2be092fc3acf71195c87f"
   integrity sha512-/DYyDpeCfaVinT40FPGdkkb+lYSKvsVuMjDAG7jPOWWiM1ibOaB9CXJAlc4d1QpP/U2q2P9jbrSlClKSErd55g==
 
-"@babel/core@^7.0.0", "@babel/core@^7.12.0", "@babel/core@^7.13.10", "@babel/core@^7.16.10", "@babel/core@^7.16.7", "@babel/core@^7.18.13", "@babel/core@^7.3.4":
-  version "7.20.5"
-  resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.20.5.tgz#45e2114dc6cd4ab167f81daf7820e8fa1250d113"
-  integrity sha512-UdOWmk4pNWTm/4DlPUl/Pt4Gz4rcEMb7CY0Y3eJl5Yz1vI8ZJGmHWaVE55LoxRjdpx0z259GE9U5STA9atUinQ==
-  dependencies:
-    "@ampproject/remapping" "^2.1.0"
-    "@babel/code-frame" "^7.18.6"
-    "@babel/generator" "^7.20.5"
-    "@babel/helper-compilation-targets" "^7.20.0"
-    "@babel/helper-module-transforms" "^7.20.2"
-    "@babel/helpers" "^7.20.5"
-    "@babel/parser" "^7.20.5"
-    "@babel/template" "^7.18.10"
-    "@babel/traverse" "^7.20.5"
-    "@babel/types" "^7.20.5"
-    convert-source-map "^1.7.0"
-    debug "^4.1.0"
-    gensync "^1.0.0-beta.2"
-    json5 "^2.2.1"
-    semver "^6.3.0"
-
-"@babel/core@^7.20.2":
+"@babel/core@^7.0.0", "@babel/core@^7.12.0", "@babel/core@^7.13.10", "@babel/core@^7.16.10", "@babel/core@^7.16.7", "@babel/core@^7.18.13", "@babel/core@^7.20.2", "@babel/core@^7.3.4":
   version "7.21.3"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.21.3.tgz#cf1c877284a469da5d1ce1d1e53665253fae712e"
   integrity sha512-qIJONzoa/qiHghnm0l1n4i/6IIziDpzqc36FBs4pzMhDUraHqponwJLiAKm1hGLP3OSB/TVNz6rMwVGpwxxySw==
@@ -124,7 +103,7 @@
     "@babel/helper-explode-assignable-expression" "^7.18.6"
     "@babel/types" "^7.18.9"
 
-"@babel/helper-compilation-targets@^7.12.0", "@babel/helper-compilation-targets@^7.17.7", "@babel/helper-compilation-targets@^7.18.9", "@babel/helper-compilation-targets@^7.20.0", "@babel/helper-compilation-targets@^7.20.7", "@babel/helper-compilation-targets@^7.21.4":
+"@babel/helper-compilation-targets@^7.12.0", "@babel/helper-compilation-targets@^7.17.7", "@babel/helper-compilation-targets@^7.18.9", "@babel/helper-compilation-targets@^7.20.7", "@babel/helper-compilation-targets@^7.21.4":
   version "7.21.4"
   resolved "https://registry.yarnpkg.com/@babel/helper-compilation-targets/-/helper-compilation-targets-7.21.4.tgz#770cd1ce0889097ceacb99418ee6934ef0572656"
   integrity sha512-Fa0tTuOXZ1iL8IeDFUWCzjZcn+sJGd9RZdH9esYVjEejGmzf+FFYQpMi/kZUk2kPy/q1H3/GPw7np8qar/stfg==
@@ -238,7 +217,7 @@
   dependencies:
     "@babel/types" "^7.18.6"
 
-"@babel/helper-module-transforms@^7.18.6", "@babel/helper-module-transforms@^7.20.2":
+"@babel/helper-module-transforms@^7.18.6":
   version "7.20.2"
   resolved "https://registry.yarnpkg.com/@babel/helper-module-transforms/-/helper-module-transforms-7.20.2.tgz#ac53da669501edd37e658602a21ba14c08748712"
   integrity sha512-zvBKyJXRbmK07XhMuujYoJ48B5yvvmM6+wcpv6Ivj4Yg6qO7NOZOSnvZN9CRl1zz1Z4cKf8YejmCMh8clOoOeA==
@@ -353,15 +332,6 @@
   integrity sha512-bYMxIWK5mh+TgXGVqAtnu5Yn1un+v8DDZtqyzKRLUzrh70Eal2O3aZ7aPYiMADO4uKlkzOiRiZ6GX5q3qxvW9Q==
   dependencies:
     "@babel/helper-function-name" "^7.19.0"
-    "@babel/template" "^7.18.10"
-    "@babel/traverse" "^7.20.5"
-    "@babel/types" "^7.20.5"
-
-"@babel/helpers@^7.20.5":
-  version "7.20.6"
-  resolved "https://registry.yarnpkg.com/@babel/helpers/-/helpers-7.20.6.tgz#e64778046b70e04779dfbdf924e7ebb45992c763"
-  integrity sha512-Pf/OjgfgFRW5bApskEz5pvidpim7tEDPlFtKcNRXWmfHGn9IEI2W2flqRQXTFb7gIPTyK++N6rVHuwKut4XK6w==
-  dependencies:
     "@babel/template" "^7.18.10"
     "@babel/traverse" "^7.20.5"
     "@babel/types" "^7.20.5"
@@ -3231,10 +3201,10 @@ babel-plugin-ember-modules-api-polyfill@^3.5.0:
   dependencies:
     ember-rfc176-data "^0.3.17"
 
-babel-plugin-ember-template-compilation@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-ember-template-compilation/-/babel-plugin-ember-template-compilation-2.0.0.tgz#41d895874ba6119dd461f61993c16d1154bf8a57"
-  integrity sha512-d+4jaB2ik0rt9TH0K9kOlKJeRBHEb373FgFMcU9ZaJL2zYuVXe19bqy+cWlLpLf1tpOBcBG9QTlFBCoImlOt1g==
+babel-plugin-ember-template-compilation@^2.0.0, babel-plugin-ember-template-compilation@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-ember-template-compilation/-/babel-plugin-ember-template-compilation-2.0.2.tgz#632a082feac60fea1432fd6c9448e65bb7884fd5"
+  integrity sha512-/sQJbmOqfNfaEYrIayy8qpfi6GhsoMeBVR3IiihOTHaKFN9+EdTzED8fhUqfshBPu5Qz6zhPkY1aMJ3k/mAuxw==
   dependencies:
     babel-import-util "^1.3.0"
 
@@ -5949,9 +5919,9 @@ ember-arg-types@^1.0.0:
     prop-types "^15.7.2"
 
 ember-auto-import@^2.3.0, ember-auto-import@^2.4.0, ember-auto-import@^2.4.2, ember-auto-import@^2.4.3, ember-auto-import@^2.5.0:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-2.6.1.tgz#bd8d434143bd411b99f4a8f32d8b58414d7da4f3"
-  integrity sha512-3bCRi/pXp4QslmuCXGlSz9xwR7DF5oDx3zZO5OXKzNZihtkqAM1xvGuRIdQSl46pvbAXOkp8Odl5fOen1i0dRw==
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-2.6.3.tgz#f18d1b93dd10b08ba5496518436f9d56dd4e000a"
+  integrity sha512-uLhrRDJYWCRvQ4JQ1e64XlSrqAKSd6PXaJ9ZsZI6Tlms9T4DtQFxNXasqji2ZRJBVrxEoLCRYX3RTldsQ0vNGQ==
   dependencies:
     "@babel/core" "^7.16.7"
     "@babel/plugin-proposal-class-properties" "^7.16.7"
@@ -5961,6 +5931,7 @@ ember-auto-import@^2.3.0, ember-auto-import@^2.4.0, ember-auto-import@^2.4.2, em
     "@embroider/shared-internals" "^2.0.0"
     babel-loader "^8.0.6"
     babel-plugin-ember-modules-api-polyfill "^3.5.0"
+    babel-plugin-ember-template-compilation "^2.0.1"
     babel-plugin-htmlbars-inline-precompile "^5.2.1"
     babel-plugin-syntax-dynamic-import "^6.18.0"
     broccoli-debug "^0.6.4"
@@ -9821,7 +9792,7 @@ json5@^0.5.1:
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
   integrity sha512-4xrs1aW+6N5DalkqSVA8fxh458CXvR99WU8WLKmq4v8eWAL86Xo3BVqyd3SkA9wEVjCMqyvvRRkshAdOnBp5rw==
 
-json5@^2.1.2, json5@^2.2.1:
+json5@^2.1.2:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.1.tgz#655d50ed1e6f95ad1a3caababd2b0efda10b395c"
   integrity sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA==
