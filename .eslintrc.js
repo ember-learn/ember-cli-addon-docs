@@ -1,5 +1,7 @@
 'use strict';
 
+const { buildEmberPlugins } = require('ember-cli-babel');
+
 module.exports = {
   globals: {
     server: true,
@@ -9,6 +11,13 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
+    requireConfigFile: false,
+    babelOptions: {
+      babelrc: false,
+      configFile: false,
+      // your babel options
+      plugins: buildEmberPlugins(),
+    },
     ecmaFeatures: {
       legacyDecorators: true,
     },
