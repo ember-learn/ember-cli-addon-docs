@@ -104,7 +104,7 @@ jobs:
           - 'ember-canary'
           - 'ember-default-with-jquery'
           - 'ember-classic'
-          # - 'embroider-safe'
+          - 'embroider-safe'
           # - 'embroider-optimized'
     timeout-minutes: 7
     steps:

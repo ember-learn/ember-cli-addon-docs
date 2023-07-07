@@ -206,15 +206,6 @@ module.exports = {
     return new AddonDocsDeployPlugin(this._readUserConfig());
   },
 
-  setupPreprocessorRegistry(type, registry) {
-    if (type === 'parent') {
-      let TemplateCompiler = require('./lib/preprocessors/markdown-template-compiler');
-      let ContentExtractor = require('./lib/preprocessors/hbs-content-extractor');
-      registry.add('template', new TemplateCompiler());
-      registry.add('template', new ContentExtractor(this.getBroccoliBridge()));
-    }
-  },
-
   contentFor(type) {
     if (type === 'body') {
       return fs.readFileSync(
@@ -247,11 +238,35 @@ module.exports = {
     return this._broccoliBridge;
   },
 
-  postprocessTree(type, tree) {
+  treeForApp(tree) {
+    if (!this._appTree) {
+      let { app, templates } = this.app.trees;
+      let appTree = new MergeTrees([new Funnel(app), new Funnel(templates)], {
+        overwrite: true,
+        annotation: 'app md & templates',
+      });
+      let TemplateCompiler = require('./lib/preprocessors/markdown-template-compiler');
+      const templateCompiler = new TemplateCompiler();
+      appTree = templateCompiler.toTree(appTree);
+      appTree = new Funnel(appTree, {
+        include: [/.*\.hbs/],
+        annotation: 'app templates',
+      });
+      this._appTree = this._super(new MergeTrees([tree, appTree]));
+    }
+    return this._appTree;
+  },
+
+  treeForPublic(tree) {
     let addonToDocument = this._documentingAddon();
-    if (!addonToDocument || type !== 'all') {
+    if (!addonToDocument) {
       return tree;
     }
+
+    let ContentExtractor = require('./lib/preprocessors/hbs-content-extractor');
+    let appTree = this._treeFor('app');
+    const contentExtractor = new ContentExtractor(this.getBroccoliBridge());
+    contentExtractor.toTree(appTree);
 
     let PluginRegistry = require('./lib/models/plugin-registry');
     let DocsCompiler = require('./lib/broccoli/docs-compiler');
@@ -285,19 +300,22 @@ module.exports = {
       );
     }
 
-    let docsTree = new MergeTrees(docsTrees);
+    let docsTree = new MergeTrees(docsTrees, { annotation: 'docsTrees' });
 
     let templateContentsTree =
       this.getBroccoliBridge().placeholderFor('template-contents');
     let searchIndexTree = new SearchIndexer(
-      new MergeTrees([docsTree, templateContentsTree]),
+      new MergeTrees([docsTree, templateContentsTree], {
+        annotation: 'SearchIndexer',
+      }),
       {
         outputFile: 'ember-cli-addon-docs/search-index.json',
         config: this.project.config(EmberApp.env()),
       }
     );
-
-    return new MergeTrees([tree, docsTree, searchIndexTree]);
+    return new MergeTrees([this._super(tree), searchIndexTree, docsTree], {
+      annotation: 'this._super(tree), docsTree',
+    });
   },
 
   _lunrTree() {

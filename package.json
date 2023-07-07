@@ -102,7 +102,7 @@
     "@ember/optional-features": "^2.0.0",
     "@ember/string": "^3.0.1",
     "@ember/test-helpers": "^2.8.1",
-    "@embroider/test-setup": "^2.0.2",
+    "@embroider/test-setup": "^3.0.1",
     "@fullhuman/postcss-purgecss": "^4.0.3",
     "broccoli-asset-rev": "^3.0.0",
     "chai": "^4.2.0",
