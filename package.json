@@ -80,7 +80,7 @@
     "line-column": "^1.0.2",
     "lodash": "^4.17.15",
     "lunr": "^2.3.7",
-    "marked": "^4.0.12",
+    "marked": "^7.0.4",
     "node-html-parser": "^6.1.4",
     "pad-start": "^1.0.2",
     "parse-git-config": "^3.0.0",
