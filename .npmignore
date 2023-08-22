@@ -36,7 +36,3 @@
 /package-lock.json.ember-try
 /yarn.lock.ember-try
 /test-apps
-
-# TODO: should be removed (so that it is included!) once
-# https://github.com/ember-modifier/ember-modifier/issues/102 is resolved
-/babel.config.js
