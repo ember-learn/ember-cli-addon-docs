@@ -38,7 +38,6 @@
     "ember-qunit": "*",
     "ember-cli-sri": "*",
     "ember-cli-terser": "*",
-    "ember-disable-prototype-extensions": "*",
     "ember-load-initializers": "*",
     "ember-resolver": "*",
     "ember-source": "*",
