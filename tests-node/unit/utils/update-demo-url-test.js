@@ -10,7 +10,7 @@ describe('`updateDemoUrl` | fixture test', function () {
     __dirname,
     '../..',
     'fixtures',
-    'update-demo-url'
+    'update-demo-url',
   );
 
   let inputCopyPath, outputPath, setupFixtureDirectory;
@@ -38,7 +38,7 @@ describe('`updateDemoUrl` | fixture test', function () {
     assert.ok(result);
     assert.equal(
       fs.readFileSync(inputCopyPath, 'utf-8'),
-      fs.readFileSync(outputPath, 'utf-8')
+      fs.readFileSync(outputPath, 'utf-8'),
     );
   });
 
@@ -53,7 +53,7 @@ describe('`updateDemoUrl` | fixture test', function () {
     assert.ok(result);
     assert.equal(
       fs.readFileSync(inputCopyPath, 'utf-8'),
-      fs.readFileSync(outputPath, 'utf-8')
+      fs.readFileSync(outputPath, 'utf-8'),
     );
   });
 
@@ -65,7 +65,7 @@ describe('`updateDemoUrl` | fixture test', function () {
     assert.ok(result);
     assert.equal(
       fs.readFileSync(inputCopyPath, 'utf-8'),
-      fs.readFileSync(outputPath, 'utf-8')
+      fs.readFileSync(outputPath, 'utf-8'),
     );
   });
 
@@ -77,7 +77,7 @@ describe('`updateDemoUrl` | fixture test', function () {
     assert.ok(result);
     assert.equal(
       fs.readFileSync(inputCopyPath, 'utf-8'),
-      fs.readFileSync(outputPath, 'utf-8')
+      fs.readFileSync(outputPath, 'utf-8'),
     );
   });
 

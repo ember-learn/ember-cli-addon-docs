@@ -18,13 +18,13 @@ module('Acceptance | Sandbox | API | Guides', function (hooks) {
     assert.strictEqual(
       indexItems.length,
       3,
-      'correct number of items rendered'
+      'correct number of items rendered',
     );
     assert.ok(
       // eslint-disable-next-line qunit/no-assert-logical-expression
       indexItems.includes('Subsection') &&
         indexItems.includes('Sub-subsection'),
-      'correct sections rendered'
+      'correct sections rendered',
     );
   });
 });

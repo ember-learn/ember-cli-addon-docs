@@ -51,7 +51,7 @@ export default class DocsRoutesService extends Service {
       });
       assert(
         `DocsRoutes wasn't able to correctly detect the current route. The current url is ${currentURL}`,
-        longestIndex != null
+        longestIndex != null,
       );
       return longestIndex;
     }

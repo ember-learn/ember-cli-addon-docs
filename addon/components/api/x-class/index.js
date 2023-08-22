@@ -26,7 +26,7 @@ export default class XClass extends Component {
     'component.hasInherited',
     'component.hasProtected',
     'component.hasPrivate',
-    'component.hasDeprecated'
+    'component.hasDeprecated',
   )
   hasToggles;
 

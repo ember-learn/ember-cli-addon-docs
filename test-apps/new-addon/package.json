@@ -46,14 +46,14 @@
     "ember-try": "*",
     "eslint": "*",
     "eslint-plugin-ember": "*",
-    "eslint-plugin-node": "*",
+    "eslint-plugin-n": "*",
     "loader.js": "*",
     "qunit": "*",
     "qunit-dom": "*",
     "webpack": "*"
   },
   "engines": {
-    "node": "14.* || 16.* || >= 18"
+    "node": "16.* || >= 18"
   },
   "ember": {
     "edition": "octane"

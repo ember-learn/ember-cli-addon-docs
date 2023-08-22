@@ -22,7 +22,7 @@ module('Acceptance | Sandbox | API | helpers', function (hooks) {
         assert.strictEqual(
           currentURL(),
           `/sandbox/api/helpers/${kebabName}`,
-          'correct url'
+          'correct url',
         );
 
         let functionsSection = modulePage.sections.findOne({
@@ -32,7 +32,7 @@ module('Acceptance | Sandbox | API | helpers', function (hooks) {
         assert.ok(functionsSection.isPresent, 'Renders the functions section');
 
         let helperItem = functionsSection.items.findOne((i) =>
-          i.header.includes(helperName)
+          i.header.includes(helperName),
         );
 
         assert.ok(helperItem.isPresent, 'Renders the helper item');
@@ -40,19 +40,19 @@ module('Acceptance | Sandbox | API | helpers', function (hooks) {
         assert.strictEqual(
           helperItem.header,
           `${helperName}(number: number): number`,
-          'renders the type signature of the helper correctly'
+          'renders the type signature of the helper correctly',
         );
 
         assert.strictEqual(
           helperItem.importPath,
           `import { ${helperName} } from 'sandbox/helpers/${kebabName}';`,
-          'renders the import path correctly'
+          'renders the import path correctly',
         );
 
         assert.strictEqual(
           helperItem.params.length,
           1,
-          'renders the item parameter'
+          'renders the item parameter',
         );
       });
     }
@@ -70,13 +70,13 @@ module('Acceptance | Sandbox | API | helpers', function (hooks) {
         assert.strictEqual(
           currentURL(),
           `/sandbox/api/helpers/${kebabName}`,
-          'correct url'
+          'correct url',
         );
 
         assert.strictEqual(
           classPage.title,
           helperName,
-          'Renders the class title correctly'
+          'Renders the class title correctly',
         );
 
         let methodsSection = modulePage.sections.findOne({ header: 'Methods' });
@@ -84,7 +84,7 @@ module('Acceptance | Sandbox | API | helpers', function (hooks) {
         assert.ok(methodsSection.isPresent, 'Renders the methods section');
 
         let computeItem = methodsSection.items.findOne((i) =>
-          i.header.includes('compute')
+          i.header.includes('compute'),
         );
 
         assert.ok(computeItem.isPresent, 'Renders the helper item');
@@ -92,13 +92,13 @@ module('Acceptance | Sandbox | API | helpers', function (hooks) {
         assert.strictEqual(
           computeItem.header,
           'compute(number: number): number',
-          'renders the type signature of the helper correctly'
+          'renders the type signature of the helper correctly',
         );
 
         assert.strictEqual(
           computeItem.params.length,
           1,
-          'renders the item parameter'
+          'renders the item parameter',
         );
       });
     }

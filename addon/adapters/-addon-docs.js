@@ -20,7 +20,7 @@ export default class AddonDocsAdapter extends Adapter {
   findRecord(store, modelClass, id, snapshot) {
     if (modelClass.modelName === 'project') {
       return fetch(`${this.namespace}/${id}.json`).then((response) =>
-        response.json()
+        response.json(),
       );
     } else {
       return store.peekRecord(modelClass.modelName, id);

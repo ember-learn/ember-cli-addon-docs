@@ -30,7 +30,7 @@ function functionSignature(fn) {
       let returnType = returns ? returns.type : 'any';
 
       return `<strong>${fn.name}</strong>${typeParamSignature}(${paramSignature}): <em>${returnType}</em>`;
-    }
+    },
   );
 
   return signatures.join('<br>');
@@ -43,7 +43,7 @@ function accessorSignature({ name, type, hasGetter, hasSetter }) {
 
   assert(
     `accessors must have either a getter or setter, but '${name}' had neither`,
-    accessorPrefixes
+    accessorPrefixes,
   );
 
   return `${accessorPrefixes} ${variableSignature({ name, type })}`;

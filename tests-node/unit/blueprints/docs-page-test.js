@@ -22,7 +22,7 @@ describe('Blueprints | non-pods docs page test', function () {
           .to.contain('Foo bar content');
 
         expect(file('tests/dummy/app/router.js')).to.contain(
-          "this.route('foo-bar');"
+          "this.route('foo-bar');",
         );
 
         expect(file('tests/dummy/app/templates/docs.hbs')).to.not.exist;
@@ -35,8 +35,8 @@ describe('Blueprints | non-pods docs page test', function () {
       .then(() =>
         copyFixtureFile(
           getFixturePath('docs.hbs'),
-          'tests/dummy/app/templates/docs.hbs'
-        )
+          'tests/dummy/app/templates/docs.hbs',
+        ),
       )
       .then(() => {
         return emberGenerateDestroy(['docs-page', 'foo-bar'], (_file) => {
@@ -45,13 +45,13 @@ describe('Blueprints | non-pods docs page test', function () {
             .to.contain('Foo bar content');
 
           expect(file('tests/dummy/app/router.js')).to.contain(
-            "this.route('foo-bar');"
+            "this.route('foo-bar');",
           );
 
           expect(
-            file('tests/dummy/app/templates/docs.hbs')
+            file('tests/dummy/app/templates/docs.hbs'),
           ).to.exist.to.contain(
-            '<nav.item @label="Foo bar" @route="docs.foo-bar" />'
+            '<nav.item @label="Foo bar" @route="docs.foo-bar" />',
           );
         });
       });
@@ -62,8 +62,8 @@ describe('Blueprints | non-pods docs page test', function () {
       .then(() =>
         copyFixtureFile(
           getFixturePath('docs-subnav.hbs'),
-          'tests/dummy/app/templates/docs.hbs'
-        )
+          'tests/dummy/app/templates/docs.hbs',
+        ),
       )
       .then(() => {
         return emberGenerateDestroy(['docs-page', 'foo-bar'], (_file) => {
@@ -72,13 +72,13 @@ describe('Blueprints | non-pods docs page test', function () {
             .to.contain('Foo bar content');
 
           expect(file('tests/dummy/app/router.js')).to.contain(
-            "this.route('foo-bar');"
+            "this.route('foo-bar');",
           );
 
           expect(
-            file('tests/dummy/app/templates/docs.hbs')
+            file('tests/dummy/app/templates/docs.hbs'),
           ).to.exist.to.contain(
-            '<nav.item @label="Foo bar" @route="docs.foo-bar" />'
+            '<nav.item @label="Foo bar" @route="docs.foo-bar" />',
           );
         });
       });

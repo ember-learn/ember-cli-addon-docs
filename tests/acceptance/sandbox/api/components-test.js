@@ -16,7 +16,7 @@ module('Acceptance | Sandbox | API | components', function (hooks) {
     assert.strictEqual(
       currentURL(),
       '/sandbox/api/components/simple-list',
-      'correct url'
+      'correct url',
     );
 
     await modulePage.navItems
@@ -26,7 +26,7 @@ module('Acceptance | Sandbox | API | components', function (hooks) {
     assert.strictEqual(
       currentURL(),
       '/sandbox/api/components/simple-list/item',
-      'correct url'
+      'correct url',
     );
   });
 
@@ -37,7 +37,7 @@ module('Acceptance | Sandbox | API | components', function (hooks) {
 
     assert.strictEqual(
       editThisPageLinkHref,
-      'https://github.com/ember-learn/ember-cli-addon-docs/edit/master/tests/dummy/app/pods/sandbox/index/template.md'
+      'https://github.com/ember-learn/ember-cli-addon-docs/edit/master/tests/dummy/app/pods/sandbox/index/template.md',
     );
   });
 
@@ -61,7 +61,7 @@ module('Acceptance | Sandbox | API | components', function (hooks) {
 
       assert.strictEqual(
         editThisPageLinkHref,
-        'https://github.com/ember-learn/ember-cli-addon-docs/edit/master/packages/foo-bar/tests/dummy/app/pods/sandbox/index/template.md'
+        'https://github.com/ember-learn/ember-cli-addon-docs/edit/master/packages/foo-bar/tests/dummy/app/pods/sandbox/index/template.md',
       );
     });
   });

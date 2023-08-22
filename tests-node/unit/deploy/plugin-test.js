@@ -28,13 +28,13 @@ describe('`deploy` | plugin test', function () {
         sha: 'eef3',
         tag: null,
         key: 'master',
-      })
+      }),
     );
     const addonDocsRootURL = '/my-addon/versions/master/';
     const actual = this.pluginInstance._macroReplaceIndexContent(
       contents,
       addonDocsRootURL,
-      encodedVersion
+      encodedVersion,
     );
     const expected = `
       <!DOCTYPE html>

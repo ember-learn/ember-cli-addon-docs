@@ -32,7 +32,7 @@ export default class XComponent extends Component {
     'args.component.hasInternal',
     'args.component.hasProtected',
     'args.component.hasPrivate',
-    'args.component.hasDeprecated'
+    'args.component.hasDeprecated',
   )
   hasToggles;
 

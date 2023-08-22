@@ -43,7 +43,7 @@ module.exports = {
         browser: false,
         node: true
       },
-      plugins: ['node']
+      plugins: ['n']
     },
   ]
 };

@@ -43,7 +43,7 @@ module.exports = {
         node: true
       },
       plugins: ['node'],
-      rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
+      rules: Object.assign({}, require('eslint-plugin-n').configs.recommended.rules, {
         // add your custom rules and overrides for node files here
       })
     }

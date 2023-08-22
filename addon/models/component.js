@@ -43,7 +43,7 @@ export default class Component extends Class {
     'parentClass.allArguments.length',
     'parentClass.allAccessors.length',
     'parentClass.allMethods.length',
-    'parentClass.allFields.length'
+    'parentClass.allFields.length',
   )
   hasInherited;
 
@@ -54,7 +54,7 @@ export default class Component extends Class {
     'allPrivateAccessors.length',
     'allPrivateArguments.length',
     'allPrivateMethods.length',
-    'allPrivateFields.length'
+    'allPrivateFields.length',
   )
   hasPrivate;
 
@@ -62,7 +62,7 @@ export default class Component extends Class {
     'allProtectedAccessors.length',
     'allProtectedArguments.length',
     'allProtectedMethods.length',
-    'allProtectedFields.length'
+    'allProtectedFields.length',
   )
   hasProtected;
 
@@ -74,7 +74,7 @@ export default class Component extends Class {
 
     function (member) {
       return member.tags && member.tags.find((t) => t.name === 'deprecated');
-    }
+    },
   )
   hasDeprecated;
 

@@ -86,7 +86,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
 
     assert.strictEqual(
       this.element.innerText,
-      'foo(a: number, b?: string, ...c: any[]): any'
+      'foo(a: number, b?: string, ...c: any[]): any',
     );
   });
 
@@ -102,7 +102,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
 
     assert.strictEqual(
       this.element.innerText,
-      'foo<T, U extends PromiseLike<T>>(value: U): T'
+      'foo<T, U extends PromiseLike<T>>(value: U): T',
     );
   });
 
@@ -126,7 +126,7 @@ module('Integration | Helpers | type-signature', function (hooks) {
 
     assert.strictEqual(
       this.element.innerText,
-      'foo(): Promise<void>\nfoo<T>(value: T): Promise<T>'
+      'foo(): Promise<void>\nfoo<T>(value: T): Promise<T>',
     );
   });
 });
