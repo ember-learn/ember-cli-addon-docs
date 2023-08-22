@@ -1318,7 +1318,7 @@
     broccoli-funnel "^3.0.8"
     semver "^7.3.8"
 
-"@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0", "@embroider/macros@^1.10.0", "@embroider/macros@^1.13.0", "@embroider/macros@^1.8.1", "@embroider/macros@^1.8.3":
+"@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0", "@embroider/macros@^1.10.0", "@embroider/macros@^1.12.2", "@embroider/macros@^1.13.0", "@embroider/macros@^1.8.1", "@embroider/macros@^1.8.3":
   version "1.13.1"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.13.1.tgz#aee17e5af0e0086bd36873bdb4e49ea346bab3fa"
   integrity sha512-4htraP/rNIht8uCxXoc59Bw2EsBFfc4YUQD9XSpzJ4xUr1V0GQf9wL/noeSuYSxIhwRfZOErnJhsdyf1hH+I/A==
@@ -7142,11 +7142,12 @@ ember-source@~5.2.0:
     semver "^7.3.8"
     silent-error "^1.1.1"
 
-ember-svg-jar@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/ember-svg-jar/-/ember-svg-jar-2.4.0.tgz#dba73114b0f60835e76e6a6a96b4d6764503667e"
-  integrity sha512-bkQc1jweoS4sqpx+jaqsZWmY/tFbjq5C5gX93IsZ9lE/sDA5qypvGbXmze9VIQuhIT4viT3T39q1mFoevaW2xw==
+ember-svg-jar@^2.4.4:
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/ember-svg-jar/-/ember-svg-jar-2.4.4.tgz#eaa6b11d678659dd39d0b1fe194664de0cc2d2ed"
+  integrity sha512-hzSMuyc6A4FbPBaT9JFYicInq+hVJCgS+1EeoK1zQSMEITiEEzjOGCrAd31GZh8L3g8GOLxpdNBpv982D4loyA==
   dependencies:
+    "@embroider/macros" "^1.12.2"
     broccoli-caching-writer "^3.0.3"
     broccoli-concat "^4.2.5"
     broccoli-funnel "^3.0.8"
