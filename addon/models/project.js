@@ -13,6 +13,6 @@ export default class Project extends Model {
   @attr
   navigationIndex;
 
-  @hasMany('module', { async: false })
+  @hasMany('module', { async: false, inverse: null })
   modules;
 }
