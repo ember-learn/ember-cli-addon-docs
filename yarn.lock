@@ -1379,6 +1379,15 @@
     broccoli-funnel "^3.0.8"
     semver "^7.3.8"
 
+"@embroider/addon-shim@^1.8.4":
+  version "1.8.6"
+  resolved "https://registry.yarnpkg.com/@embroider/addon-shim/-/addon-shim-1.8.6.tgz#b676991b4fa32c3a98dc7db7dc6cd655029c3f09"
+  integrity sha512-siC9kP78uucEbpDcVyxjkwa76pcs5rVzDVpWO4PDc9EAXRX+pzmUuSTLAK3GztUwx7/PWhz1BenAivqdSvSgfg==
+  dependencies:
+    "@embroider/shared-internals" "^2.2.3"
+    broccoli-funnel "^3.0.8"
+    semver "^7.3.8"
+
 "@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0", "@embroider/macros@^1.10.0", "@embroider/macros@^1.6.0", "@embroider/macros@^1.8.1", "@embroider/macros@^1.8.3", "@embroider/macros@^1.9.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.10.0.tgz#af3844d5db48f001b85cfb096c76727c72ad6c1e"
@@ -1399,6 +1408,21 @@
   integrity sha512-qZ2/xky9mWm5YC6noOa6AiAwgISEQ78YTZNv4SNu2PFgEK/H+Ha/3ddngzGSsnXkVnIHZyxIBzhxETonQYHY9g==
   dependencies:
     babel-import-util "^1.1.0"
+    ember-rfc176-data "^0.3.17"
+    fs-extra "^9.1.0"
+    js-string-escape "^1.0.1"
+    lodash "^4.17.21"
+    resolve-package-path "^4.0.1"
+    semver "^7.3.5"
+    typescript-memoize "^1.0.1"
+
+"@embroider/shared-internals@^2.2.3":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@embroider/shared-internals/-/shared-internals-2.4.0.tgz#0e9fdb0b2df9bad45fab8c54cbb70d8a2cbf01fc"
+  integrity sha512-pFE05ebenWMC9XAPRjadYCXXb6VmqjkhYN5uqkhPo+VUmMHnx7sZYYxqGjxfVuhC/ghS/BNlOffOCXDOoE7k7g==
+  dependencies:
+    babel-import-util "^2.0.0"
+    debug "^4.3.2"
     ember-rfc176-data "^0.3.17"
     fs-extra "^9.1.0"
     js-string-escape "^1.0.1"
@@ -3147,6 +3171,11 @@ babel-import-util@^1.1.0, babel-import-util@^1.2.2, babel-import-util@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/babel-import-util/-/babel-import-util-1.3.0.tgz#dc9251ea39a7747bd586c1c13b8d785a42797f8e"
   integrity sha512-PPzUT17eAI18zn6ek1R3sB4Krc/MbnmT1MkZQFmyhjoaEGBVwNABhfVU9+EKcDSKrrOm9OIpGhjxukx1GCiy1g==
+
+babel-import-util@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-import-util/-/babel-import-util-2.0.0.tgz#99a2e7424bcde01898bc61bb19700ff4c74379a3"
+  integrity sha512-pkWynbLwru0RZmA9iKeQL63+CkkW0RCP3kL5njCtudd6YPUKb5Pa0kL4fb3bmuKn2QDBFwY5mvvhEK/+jv2Ynw==
 
 babel-loader@^8.0.6:
   version "8.3.0"
@@ -6089,16 +6118,17 @@ ember-cli-blueprint-test-helpers@^0.19.2:
     tmp-sync "^1.0.0"
 
 ember-cli-clipboard@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-clipboard/-/ember-cli-clipboard-1.0.0.tgz#8d599610250348186b1cde40d2094e98a4e8a87b"
-  integrity sha512-PdsSnWK6OkPQJMxkw/J+5TU2uaVm5KCb9gk8fad/bhwkMjkl6TMvPNyFkqtfxVhh7tGfs0Ka4Xjsi6oQzyigeg==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-clipboard/-/ember-cli-clipboard-1.1.0.tgz#0c79dd51c236a9346825d285a533a864ad27d21c"
+  integrity sha512-gqFMeLCMe7OKP8rtZluV3BsP03bnjqD/f1QQLdOB9gAbdiHzMIAbwIA/RhccGtGQgy5AlnxkkQ+7j/h6UDluPQ==
   dependencies:
+    "@embroider/macros" "^1.10.0"
     clipboard "^2.0.11"
     ember-arg-types "^1.0.0"
     ember-auto-import "^2.4.2"
     ember-cli-babel "^7.26.11"
     ember-cli-htmlbars "^6.1.0"
-    ember-modifier "^3.2.7"
+    ember-modifier "^3.2.7 || ^4.1.0"
     prop-types "^15.8.1"
 
 ember-cli-dependency-checker@^3.3.1:
@@ -6415,7 +6445,7 @@ ember-cli-typescript@^4.1.0, ember-cli-typescript@^4.2.1:
     stagehand "^1.0.0"
     walk-sync "^2.2.0"
 
-ember-cli-typescript@^5.0.0, ember-cli-typescript@^5.1.1:
+ember-cli-typescript@^5.1.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/ember-cli-typescript/-/ember-cli-typescript-5.2.1.tgz#553030f1ce3e8958b8e4fc34909acd1218cb35f2"
   integrity sha512-qqp5TAIuPHxHiGXJKL+78Euyhy0zSKQMovPh8sJpN/ZBYx0H90pONufHR3anaMcp1snVfx4B+mb9+7ijOik8ZA==
@@ -6738,16 +6768,14 @@ ember-modifier-manager-polyfill@^1.2.0:
     ember-cli-version-checker "^2.1.2"
     ember-compatibility-helpers "^1.2.0"
 
-"ember-modifier@^2.1.2 || ^3.1.0 || ^4.0.0", ember-modifier@^3.2.7:
-  version "3.2.7"
-  resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-3.2.7.tgz#f2d35b7c867cbfc549e1acd8d8903c5ecd02ea4b"
-  integrity sha512-ezcPQhH8jUfcJQbbHji4/ZG/h0yyj1jRDknfYue/ypQS8fM8LrGcCMo0rjDZLzL1Vd11InjNs3BD7BdxFlzGoA==
+"ember-modifier@^2.1.2 || ^3.1.0 || ^4.0.0", "ember-modifier@^3.2.7 || ^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/ember-modifier/-/ember-modifier-4.1.0.tgz#cb91efbf8ca4ff4a1a859767afa42dddba5a2bbd"
+  integrity sha512-YFCNpEYj6jdyy3EjslRb2ehNiDvaOrXTilR9+ngq+iUqSHYto2zKV0rleiA1XJQ27ELM1q8RihT29U6Lq5EyqQ==
   dependencies:
-    ember-cli-babel "^7.26.6"
+    "@embroider/addon-shim" "^1.8.4"
     ember-cli-normalize-entity-name "^1.0.0"
     ember-cli-string-utils "^1.1.0"
-    ember-cli-typescript "^5.0.0"
-    ember-compatibility-helpers "^1.2.5"
 
 ember-qunit@^6.0.0:
   version "6.1.1"
