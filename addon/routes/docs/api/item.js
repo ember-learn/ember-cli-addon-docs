@@ -16,8 +16,8 @@ export default class DocsApiRoute extends Route {
       let module = this.store.peekRecord('module', moduleId);
 
       item =
-        module.get('components').findBy('id', itemId) ||
-        module.get('classes').findBy('id', itemId) ||
+        module.get('components').find((component) => component.id === itemId) ||
+        module.get('classes').find((_class) => _class.id === itemId) ||
         module;
     } else {
       // Create a regex that will match modules by either the path, or the
@@ -34,12 +34,16 @@ export default class DocsApiRoute extends Route {
         `multiple modules match the path '${path}', ids: ${matches
           .mapBy('id')
           .join(', ')}`,
-        matches.length <= 1
+        matches.length <= 1,
       );
 
       item =
-        module.get('components').findBy('exportType', 'default') ||
-        module.get('classes').findBy('exportType', 'default') ||
+        module
+          .get('components')
+          .find((component) => component.exportType === 'default') ||
+        module
+          .get('classes')
+          .find((_class) => _class.exportType === 'default') ||
         module;
     }
 

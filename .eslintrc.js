@@ -1,7 +1,5 @@
 'use strict';
 
-const { buildEmberPlugins } = require('ember-cli-babel');
-
 module.exports = {
   globals: {
     server: true,
@@ -9,17 +7,13 @@ module.exports = {
   root: true,
   parser: '@babel/eslint-parser',
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     sourceType: 'module',
     requireConfigFile: false,
     babelOptions: {
-      babelrc: false,
-      configFile: false,
-      // your babel options
-      plugins: buildEmberPlugins(),
-    },
-    ecmaFeatures: {
-      legacyDecorators: true,
+      plugins: [
+        ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
+      ],
     },
   },
   plugins: ['ember'],
@@ -56,6 +50,7 @@ module.exports = {
       files: [
         './.eslintrc.js',
         './.prettierrc.js',
+        './.stylelintrc.js',
         './.template-lintrc.js',
         './ember-cli-build.js',
         './index.js',
@@ -75,8 +70,7 @@ module.exports = {
         browser: false,
         node: true,
       },
-      plugins: ['node'],
-      extends: ['plugin:node/recommended'],
+      extends: ['plugin:n/recommended'],
     },
     // node test files
     {
@@ -88,7 +82,7 @@ module.exports = {
       },
       files: ['tests-node/**/*.js'],
       rules: {
-        'node/no-unpublished-require': 'off',
+        'n/no-unpublished-require': 'off',
       },
     },
     {

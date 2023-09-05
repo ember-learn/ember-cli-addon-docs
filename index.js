@@ -5,7 +5,7 @@ const path = require('path');
 const UnwatchedDir = require('broccoli-source').UnwatchedDir;
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
-const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-line node/no-unpublished-require
+const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-line n/no-unpublished-require
 const Plugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 
@@ -31,7 +31,7 @@ module.exports = {
             },
           },
           require('tailwindcss')(
-            path.join(__dirname, 'addon', 'styles', 'tailwind.config.js')
+            path.join(__dirname, 'addon', 'styles', 'tailwind.config.js'),
           ),
         ],
       },
@@ -65,18 +65,18 @@ module.exports = {
       this._getRepoRoot(),
       path.join(
         path.resolve(path.dirname(this.project.configPath()), '..'),
-        'app'
-      )
+        'app',
+      ),
     );
 
     let addonPathInRepo = this._documentingAddonAt()
       ? path.relative(
           this._getRepoRoot(),
-          path.join(this._documentingAddonAt(), this._addonSrcFolder())
+          path.join(this._documentingAddonAt(), this._addonSrcFolder()),
         )
       : path.relative(
           this._getRepoRoot(),
-          path.join(this.project.root, this._addonSrcFolder())
+          path.join(this.project.root, this._addonSrcFolder()),
         );
 
     let config = {
@@ -111,7 +111,7 @@ module.exports = {
   included(includer) {
     if (includer.parent) {
       throw new Error(
-        `ember-cli-addon-docs should be in your package.json's devDependencies`
+        `ember-cli-addon-docs should be in your package.json's devDependencies`,
       );
     } else if (includer.name === this.project.name()) {
       if (this._documentingAddonAt()) {
@@ -119,7 +119,7 @@ module.exports = {
         // addon but is not that addon's dummy app.
       } else {
         throw new Error(
-          `to use ember-cli-addon-docs in an application (as opposed to an addon) you must set documentingAddonAt`
+          `to use ember-cli-addon-docs in an application (as opposed to an addon) you must set documentingAddonAt`,
         );
       }
     }
@@ -184,13 +184,13 @@ module.exports = {
 
     if (!hasPlugins) {
       this.ui.writeWarnLine(
-        'ember-cli-addon-docs needs plugins to generate API documentation. You can install the default with `ember install ember-cli-addon-docs-yuidoc`'
+        'ember-cli-addon-docs needs plugins to generate API documentation. You can install the default with `ember install ember-cli-addon-docs-yuidoc`',
       );
     }
 
     this.addonOptions = Object.assign(
       {},
-      includer.options['ember-cli-addon-docs']
+      includer.options['ember-cli-addon-docs'],
     );
     this.addonOptions.projects = Object.assign({}, this.addonOptions.projects);
 
@@ -210,7 +210,7 @@ module.exports = {
     if (type === 'body') {
       return fs.readFileSync(
         `${__dirname}/vendor/ember-cli-addon-docs/github-spa.html`,
-        'utf-8'
+        'utf-8',
       );
     }
   },
@@ -220,8 +220,8 @@ module.exports = {
     let addonToDocument = this._documentingAddon();
     let addonFiles = new FindAddonFiles(
       [path.join(addonToDocument.root, this._addonSrcFolder())].filter((dir) =>
-        fs.existsSync(dir)
-      )
+        fs.existsSync(dir),
+      ),
     );
     return this._super(new MergeTrees([tree, dummyAppFiles, addonFiles]));
   },
@@ -289,14 +289,14 @@ module.exports = {
           destDir: 'docs',
           project,
           parentAddon: addonToDocument,
-        }
+        },
       );
 
       docsTrees.push(
         new DocsCompiler(docsGenerators, {
           name: projectName === 'main' ? addonToDocument.name : projectName,
           project,
-        })
+        }),
       );
     }
 
@@ -311,7 +311,7 @@ module.exports = {
       {
         outputFile: 'ember-cli-addon-docs/search-index.json',
         config: this.project.config(EmberApp.env()),
-      }
+      },
     );
     return new MergeTrees([this._super(tree), searchIndexTree, docsTree], {
       annotation: 'this._super(tree), docsTree',
@@ -351,7 +351,7 @@ module.exports = {
       ) {
         this._cachedDocumentingAddonAt = path.resolve(
           this.project.root,
-          this.app.options['ember-cli-addon-docs'].documentingAddonAt
+          this.app.options['ember-cli-addon-docs'].documentingAddonAt,
         );
       } else {
         this._cachedDocumentingAddonAt = null;
@@ -386,11 +386,11 @@ module.exports = {
     let addon;
     if (this._documentingAddonAt()) {
       addon = this.project.addons.find(
-        (a) => a.root === this._documentingAddonAt()
+        (a) => a.root === this._documentingAddonAt(),
       );
       if (!addon) {
         throw new Error(
-          `You set documentingAddonAt to point at ${this._documentingAddonAt()} but that addon does not appear to be present in this app.`
+          `You set documentingAddonAt to point at ${this._documentingAddonAt()} but that addon does not appear to be present in this app.`,
         );
       }
     } else {
@@ -427,14 +427,14 @@ function generateDefaultProject(parentAddon, addonSrcFolder) {
   let addonTreePath = path.join(parentAddon.root, addonSrcFolder);
   let testSupportPath = path.join(
     parentAddon.root,
-    parentAddon.treePaths['addon-test-support']
+    parentAddon.treePaths['addon-test-support'],
   );
 
   if (fs.existsSync(addonTreePath)) {
     includeFunnels.push(
       new Funnel(addonTreePath, {
         destDir: parentAddon.name,
-      })
+      }),
     );
   }
 
@@ -442,7 +442,7 @@ function generateDefaultProject(parentAddon, addonSrcFolder) {
     includeFunnels.push(
       new Funnel(testSupportPath, {
         destDir: `${parentAddon.name}/test-support`,
-      })
+      }),
     );
   }
 
@@ -457,7 +457,7 @@ class FindDummyAppFiles extends Plugin {
 
     fs.writeFileSync(
       path.join(this.outputPath, 'app-files.js'),
-      `export default ${pathsString};`
+      `export default ${pathsString};`,
     );
   }
 }
@@ -470,7 +470,7 @@ class FindAddonFiles extends Plugin {
 
     fs.writeFileSync(
       path.join(this.outputPath, 'addon-files.js'),
-      `export default ${pathsString};`
+      `export default ${pathsString};`,
     );
   }
 }

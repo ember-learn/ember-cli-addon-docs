@@ -39,10 +39,10 @@ export default class DocsSearch extends Service {
         if (doc.type === 'class') {
           console.groupCollapsed(
             `Class: %c${doc.title}`,
-            'font-family: monospace'
+            'font-family: monospace',
           );
           for (let [term, match] of Object.entries(
-            result.resultInfo.matchData.metadata
+            result.resultInfo.matchData.metadata,
           )) {
             for (let [key, data] of Object.entries(match)) {
               if (key === 'keywords') {
@@ -52,7 +52,7 @@ export default class DocsSearch extends Service {
                     console.log(
                       `%c${keyword} %c(field)`,
                       'font-family: monospace; font-weight: bold',
-                      'font-family: inherit; font-weight: normal'
+                      'font-family: inherit; font-weight: normal',
                     );
                   }
                 }
@@ -67,10 +67,10 @@ export default class DocsSearch extends Service {
         } else if (doc.type === 'template') {
           console.groupCollapsed(
             `Route: %c${doc.route}`,
-            'font-family: monospace'
+            'font-family: monospace',
           );
           for (let match of Object.values(
-            result.resultInfo.matchData.metadata
+            result.resultInfo.matchData.metadata,
           )) {
             for (let [key, data] of Object.entries(match)) {
               for (let position of data.position) {
@@ -127,7 +127,7 @@ function logSnippet(doc, key, position) {
   console.log(
     `${pre}%c${snippet}%c${post} (${key})`,
     'font-weight: bold',
-    'font-weight: regular'
+    'font-weight: regular',
   );
   /* eslint-enable no-console */
 }

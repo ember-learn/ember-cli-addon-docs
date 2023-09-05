@@ -20,6 +20,7 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
+    "@ember/string": "*",
     "ember-cli-babel": "*",
     "ember-auto-import": "*"
   },
@@ -38,7 +39,6 @@
     "ember-qunit": "*",
     "ember-cli-sri": "*",
     "ember-cli-terser": "*",
-    "ember-disable-prototype-extensions": "*",
     "ember-load-initializers": "*",
     "ember-resolver": "*",
     "ember-source": "*",
@@ -46,14 +46,14 @@
     "ember-try": "*",
     "eslint": "*",
     "eslint-plugin-ember": "*",
-    "eslint-plugin-node": "*",
+    "eslint-plugin-n": "*",
     "loader.js": "*",
     "qunit": "*",
     "qunit-dom": "*",
     "webpack": "*"
   },
   "engines": {
-    "node": "14.* || 16.* || >= 18"
+    "node": "16.* || >= 18"
   },
   "ember": {
     "edition": "octane"

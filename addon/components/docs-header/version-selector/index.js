@@ -17,8 +17,12 @@ export default class VersionSelector extends Component {
   @cached
   get sortedVersions() {
     let versions = A(this.projectVersion.versions);
-    let latest = versions.findBy('key', this.config.latestVersionName);
-    let primary = versions.findBy('key', this.config.primaryBranch);
+    let latest = versions.find(
+      (version) => version.key === this.config.latestVersionName,
+    );
+    let primary = versions.find(
+      (version) => version.key === this.config.primaryBranch,
+    );
     let otherTags = versions
       .reject((v) => [latest, primary].includes(v))
       .sort((tagA, tagB) => {

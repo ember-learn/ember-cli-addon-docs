@@ -95,7 +95,7 @@ function updateDocsTemplate(options) {
 
     let closingViewerNavTag = templateLines.find(
       (line) =>
-        line.includes('{{/viewer.nav}}') || line.includes('</viewer.nav>')
+        line.includes('{{/viewer.nav}}') || line.includes('</viewer.nav>'),
     );
 
     templateLines.splice(
@@ -104,10 +104,10 @@ function updateDocsTemplate(options) {
       `${padStart(
         '',
         closingViewerNavTag.search(/\S/) * 2,
-        ' '
+        ' ',
       )}<nav.item @label="${dedasherize(
-        routeName
-      )}" @route="docs.${routeName}" />`
+        routeName,
+      )}" @route="docs.${routeName}" />`,
     );
 
     fs.writeFileSync(docsTemplatePath, templateLines.join('\n'));

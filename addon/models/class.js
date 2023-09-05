@@ -104,21 +104,21 @@ export default class Class extends Model {
   @or(
     'parentClass.allAccessors.length',
     'parentClass.allMethods.length',
-    'parentClass.allFields.length'
+    'parentClass.allFields.length',
   )
   hasInherited;
 
   @or(
     'allPrivateAccessors.length',
     'allPrivateMethods.length',
-    'allPrivateFields.length'
+    'allPrivateFields.length',
   )
   hasPrivate;
 
   @or(
     'allProtectedAccessors.length',
     'allProtectedMethods.length',
-    'allProtectedFields.length'
+    'allProtectedFields.length',
   )
   hasProtected;
 
@@ -129,7 +129,7 @@ export default class Class extends Model {
 
     function (member) {
       return member.tags && member.tags.find((t) => t.name === 'deprecated');
-    }
+    },
   )
   hasDeprecated;
 }

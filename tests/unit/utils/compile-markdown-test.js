@@ -9,7 +9,7 @@ module('Unit | Utility | compile-markdown', function (hooks) {
     let result = highlightCode(`let foo = 'bar';`, 'javascript');
     assert.strictEqual(
       result,
-      `<span class="hljs-keyword">let</span> foo = <span class="hljs-string">&#x27;bar&#x27;</span>;`
+      `<span class="hljs-keyword">let</span> foo = <span class="hljs-string">&#x27;bar&#x27;</span>;`,
     );
   });
 
@@ -19,7 +19,7 @@ module('Unit | Utility | compile-markdown', function (hooks) {
 | Dependency Name | Engine A | Host |
 |-----------------|----------|------|
 | Foo             | v2       | v1   |
-    `.trim()
+    `.trim(),
     );
     assert.strictEqual(
       result,
@@ -37,7 +37,7 @@ module('Unit | Utility | compile-markdown', function (hooks) {
 <td class="docs-border docs-px-4 docs-py-2">v1</td>
 </tr>
 </tbody></table>
-</div>`
+</div>`,
     );
   });
 });

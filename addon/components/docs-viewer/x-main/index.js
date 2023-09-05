@@ -24,7 +24,7 @@ export default class XMain extends Component {
     let target = element.querySelector('[data-current-page-index-target]');
 
     this._mutationObserver = new MutationObserver(
-      bind(this, this.reindex, target)
+      bind(this, this.reindex, target),
     );
 
     this._mutationObserver.observe(target, { subtree: true, childList: true });
@@ -39,7 +39,7 @@ export default class XMain extends Component {
 
   reindex(target) {
     let headers = Array.from(
-      target.querySelectorAll('.docs-h2, .docs-h3, .docs-md__h2, .docs-md__h3')
+      target.querySelectorAll('.docs-h2, .docs-h3, .docs-md__h2, .docs-md__h3'),
     );
 
     this.args.onReindex(
@@ -52,7 +52,7 @@ export default class XMain extends Component {
           marginTop: tagToMarginTop[header.tagName],
           marginBottom: tagToMarginBottom[header.tagName],
         };
-      })
+      }),
     );
   }
 

@@ -28,7 +28,7 @@ export function memberUnion(parentMembersKey, childMembersKey) {
       }
 
       return Object.values(union);
-    }
+    },
   );
 }
 
@@ -109,7 +109,7 @@ export function memberFilter(classKey, memberType) {
       }
 
       return members.sort(memberSort);
-    }
+    },
   );
 }
 

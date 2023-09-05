@@ -54,12 +54,12 @@ export default class DocsHeaderSearchResult extends Component {
                 : spaceIndices.length;
             let matchingText = text.slice(
               spaceIndices[indexOfStartingSpace],
-              spaceIndices[indexOfEndingSpace]
+              spaceIndices[indexOfEndingSpace],
             );
             matchingText = this._highlight(
               matchingText,
               matchingText.indexOf(query),
-              query.length
+              query.length,
             );
 
             matches.push(matchingText);
@@ -71,7 +71,7 @@ export default class DocsHeaderSearchResult extends Component {
             if (keyword.toLowerCase().indexOf(normalizedTerm) !== -1) {
               let index = normalizedKeyword.indexOf(normalizedQuery);
               matches.push(
-                this._highlight(keyword, index, normalizedQuery.length)
+                this._highlight(keyword, index, normalizedQuery.length),
               );
             }
           });
@@ -97,10 +97,10 @@ export default class DocsHeaderSearchResult extends Component {
 
       return `${title.slice(
         0,
-        start
+        start,
       )}<span class='docs-border-b-2 docs-border-brand'>${title.slice(
         start,
-        start + length
+        start + length,
       )}</span>${title.slice(start + length)}`;
     }
 
@@ -113,10 +113,10 @@ export default class DocsHeaderSearchResult extends Component {
   _highlight(text, start, length) {
     return `${text.slice(
       0,
-      start
+      start,
     )}<span class='docs-border-b-2 docs-border-brand'>${text.slice(
       start,
-      start + length
+      start + length,
     )}</span>${text.slice(start + length)}`;
   }
 }

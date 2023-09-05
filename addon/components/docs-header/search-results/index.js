@@ -80,7 +80,7 @@ export default class DocsHeaderSearchResults extends Component {
           .filter(({ document }) => {
             if (document.type === 'module') {
               let navigableModules = this.project.navigationIndex.find(
-                (section) => section.type === 'modules'
+                (section) => section.type === 'modules',
               );
               let navigableModuleIds = navigableModules
                 ? navigableModules.items.map((item) => item.id)
@@ -99,7 +99,7 @@ export default class DocsHeaderSearchResults extends Component {
               let store = this.store;
               searchResult.model = store.peekRecord(
                 document.type,
-                document.item.id
+                document.item.id,
               );
             }
 
@@ -120,7 +120,7 @@ export default class DocsHeaderSearchResults extends Component {
       } else {
         this.router.transitionTo(
           'docs.api.item',
-          selectedResult.model.routingId
+          selectedResult.model.routingId,
         );
       }
     }

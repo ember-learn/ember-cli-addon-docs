@@ -8,7 +8,7 @@ export default class DocsRoute extends Route {
   model() {
     return this.store.findRecord(
       'project',
-      getAddonDocsConfig(this).projectName
+      getAddonDocsConfig(this).projectName,
     );
   }
 }
