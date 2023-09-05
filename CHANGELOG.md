@@ -9,6 +9,25 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+
+## v6.0.1 (2023-09-05)
+
+#### :boom: Breaking Change
+* [#1478](https://github.com/ember-learn/ember-cli-addon-docs/pull/1478) Require ember >= 4.4, node >= 16 ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### :rocket: Enhancement
+* [#1454](https://github.com/ember-learn/ember-cli-addon-docs/pull/1454) embroider ready ([@patricklx](https://github.com/patricklx))
+
+#### :bug: Bug Fix
+* [#1477](https://github.com/ember-learn/ember-cli-addon-docs/pull/1477) Add `inverse: null` to `hasMany` relationships ([@Shishouille](https://github.com/Shishouille))
+* [#1460](https://github.com/ember-learn/ember-cli-addon-docs/pull/1460) pin ember-svg-jar to fix Embroider build ([@patricklx](https://github.com/patricklx))
+
+#### Committers: 4
+- Jordan Hawker ([@elwayman02](https://github.com/elwayman02))
+- Patrick Pircher ([@patricklx](https://github.com/patricklx))
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+- Shirin ([@Shishouille](https://github.com/Shishouille))
+
 ## v5.2.0 (2023-04-25)
 
 #### :rocket: Enhancement
