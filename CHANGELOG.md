@@ -10,6 +10,17 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+
+## v6.0.2 (2023-09-12)
+
+#### :bug: Bug Fix
+* [#1485](https://github.com/ember-learn/ember-cli-addon-docs/pull/1485) Add ember-tether to dependencies ([@barryofguilder](https://github.com/barryofguilder))
+* [#1488](https://github.com/ember-learn/ember-cli-addon-docs/pull/1488) Forward @class argument in `docs-viewer/x-nav-list` component ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 2
+- Jason Barry ([@barryofguilder](https://github.com/barryofguilder))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## v6.0.1 (2023-09-05)
 
 #### :boom: Breaking Change
