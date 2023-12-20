@@ -3,7 +3,7 @@ import { filterBy, or, union } from '@ember/object/computed';
 import { memberUnion, hasMemberType } from '../utils/computed';
 
 export default class Class extends Model {
-  @belongsTo('class', { async: false, inverse: null })
+  @belongsTo('class', { async: false, inverse: null, polymorphic: false })
   parentClass;
 
   isClass = true;
