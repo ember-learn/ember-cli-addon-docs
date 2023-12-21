@@ -143,7 +143,7 @@
     "loader.js": "^4.7.0",
     "miragejs": "^0.1.46",
     "mocha": "^10.1.0",
-    "prettier": "^3.0.2",
+    "prettier": "^3.1.1",
     "qunit": "^2.19.4",
     "qunit-dom": "^2.0.0",
     "release-it": "^15.5.0",
