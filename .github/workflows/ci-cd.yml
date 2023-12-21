@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  NODE_VERSION: 16
+  NODE_VERSION: 18
 
 jobs:
   lint:
@@ -96,14 +96,14 @@ jobs:
       fail-fast: false
       matrix:
         try-scenario:
-          - 'ember-lts-4.4'
-          - 'ember-lts-4.8'
-          - 'ember-lts-5.4'
-          - 'ember-release'
-          - 'ember-beta'
-          - 'ember-canary'
-          - 'embroider-safe'
-          # - 'embroider-optimized'
+          - ember-lts-4.4
+          - ember-lts-4.8
+          - ember-lts-4.12
+          - ember-release
+          - ember-beta
+          - ember-canary
+          - embroider-safe
+          - embroider-optimized
     timeout-minutes: 7
     steps:
       - name: Check out a copy of the repo
