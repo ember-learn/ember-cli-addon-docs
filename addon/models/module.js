@@ -10,10 +10,10 @@ export default class Module extends Model {
   @attr
   functions;
 
-  @hasMany('class', { async: false, inverse: null })
+  @hasMany('class', { async: false, inverse: null, polymorphic: true })
   classes;
 
-  @hasMany('class', { async: false, inverse: null })
+  @hasMany('class', { async: false, inverse: null, polymorphic: true })
   components;
 
   /*
