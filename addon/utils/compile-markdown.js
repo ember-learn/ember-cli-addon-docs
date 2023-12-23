@@ -114,10 +114,12 @@ const hbsComponent = {
 
 marked.use({ extensions: [htmlComponent, hbsComponent] });
 
-marked.use(markedHighlight({
-  langPrefix: 'hljs language-',
-  highlight: highlightCode
-}));
+marked.use(
+  markedHighlight({
+    langPrefix: 'hljs language-',
+    highlight: highlightCode,
+  }),
+);
 
 /**
   This function is used when `compileMarkdown` encounters code blocks while
