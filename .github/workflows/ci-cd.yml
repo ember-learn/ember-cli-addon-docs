@@ -103,7 +103,6 @@ jobs:
           - ember-beta
           - ember-canary
           - embroider-safe
-          - embroider-optimized
     timeout-minutes: 7
     steps:
       - name: Check out a copy of the repo

@@ -1,4 +1,5 @@
 import { marked } from 'marked';
+import { markedHighlight } from 'marked-highlight';
 import { parse as htmlParse } from 'node-html-parser';
 import { parse as hbsParse } from '@handlebars/parser';
 import lineColumn from 'line-column';
@@ -113,6 +114,13 @@ const hbsComponent = {
 
 marked.use({ extensions: [htmlComponent, hbsComponent] });
 
+marked.use(
+  markedHighlight({
+    langPrefix: 'hljs language-',
+    highlight: highlightCode,
+  }),
+);
+
 /**
   This function is used when `compileMarkdown` encounters code blocks while
   rendering Markdown source.
@@ -185,7 +193,6 @@ export function highlightCode(code, language) {
 */
 export default function compileMarkdown(source, config) {
   let markedOptions = {
-    highlight: highlightCode,
     renderer: new HBSRenderer(config),
   };
 
