@@ -83,7 +83,7 @@
     "line-column": "^1.0.2",
     "lodash": "^4.17.21",
     "lunr": "^2.3.9",
-    "marked": "^9.1.6",
+    "marked": "^11.1.0",
     "marked-highlight": "^1.0.2",
     "node-html-parser": "^6.1.4",
     "pad-start": "^1.0.2",
