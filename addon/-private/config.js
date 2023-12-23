@@ -7,7 +7,7 @@ import { cached } from 'tracked-toolbox';
  * @function getRootURL
  * @private
  * @param {*} target Instance of an ember class that has an owner
- * @returns {String} The currently configured rootURL
+ * @return {String} The currently configured rootURL
  */
 export function getRootURL(target) {
   return getOwner(target).resolveRegistration('config:environment').rootURL;
@@ -20,7 +20,7 @@ export function getRootURL(target) {
  * @function getAddonDocsConfig
  * @private
  * @param {*} target Instance of an ember class that has an owner
- * @returns {Object} The `ember-cli-addon-docs` configuration object
+ * @return {Object} The `ember-cli-addon-docs` configuration object
  */
 export function getAddonDocsConfig(target) {
   return getOwner(target).resolveRegistration('config:environment')[
