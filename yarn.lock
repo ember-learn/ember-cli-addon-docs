@@ -10828,10 +10828,15 @@ markdown-it@^4.3.0:
     mdurl "~1.0.0"
     uc.micro "^1.0.0"
 
-marked@^4.0.12:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-4.3.0.tgz#796362821b019f734054582038b116481b456cf3"
-  integrity sha512-PRsaiG84bK+AMvxziE/lCFss8juXjNaWzVbN5tXAm4XjeaS9NAHhop+PjQxz2A9h8Q4M/xGmzP8vqNwy6JeK0A==
+marked-highlight@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/marked-highlight/-/marked-highlight-1.0.2.tgz#1b6844df56bb0aa7ca19a08123b46d84f51008c6"
+  integrity sha512-Jh+4nqS3KxsOJfh7k8wgtvVAXPydrVgkgggmQgdrtmK5I+0b27cIYfW8YYYzxGgMy1JCZTRygr58CMhvZqFULA==
+
+marked@^7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-7.0.5.tgz#8a9e4e3afb93b58fe9ee7608e67cc154eb15d508"
+  integrity sha512-lwNAFTfXgqpt/XvK17a/8wY9/q6fcSPZT1aP6QW0u74VwaJF/Z9KbRcX23sWE4tODM+AolJNcUtErTkgOeFP/Q==
 
 matcher-collection@^1.0.0, matcher-collection@^1.1.1:
   version "1.1.2"
