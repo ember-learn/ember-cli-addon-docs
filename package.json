@@ -76,7 +76,7 @@
     "fs-extra": "^11.1.0",
     "git-repo-info": "^2.1.1",
     "highlight.js": "^11.9.0",
-    "hosted-git-info": "^6.1.1",
+    "hosted-git-info": "^7.0.1",
     "html-entities": "^2.3.2",
     "jsdom": "^20.0.0",
     "json-api-serializer": "^2.6.6",
