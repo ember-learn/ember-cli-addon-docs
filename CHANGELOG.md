@@ -11,6 +11,23 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+
+## v7.0.0 (2023-12-24)
+
+#### :boom: Breaking Change
+* [#1520](https://github.com/ember-learn/ember-cli-addon-docs/pull/1520) ember-cli update to 5.5.0, require node 18+ ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### :bug: Bug Fix
+* [#1517](https://github.com/ember-learn/ember-cli-addon-docs/pull/1517) fix compatibility with ember-data 5 ([@AmauryD](https://github.com/AmauryD))
+
+#### :house: Internal
+* [#1526](https://github.com/ember-learn/ember-cli-addon-docs/pull/1526) Update release-it ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+* [#1518](https://github.com/ember-learn/ember-cli-addon-docs/pull/1518) Update prettier and fix lint ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 2
+- Amaury ([@AmauryD](https://github.com/AmauryD))
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v6.0.2 (2023-09-12)
 
 #### :bug: Bug Fix
