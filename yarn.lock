@@ -11662,9 +11662,9 @@ node-fetch@^2.6.0, node-fetch@^2.6.1, node-fetch@^2.6.7:
     whatwg-url "^5.0.0"
 
 node-html-parser@^6.1.4:
-  version "6.1.11"
-  resolved "https://registry.yarnpkg.com/node-html-parser/-/node-html-parser-6.1.11.tgz#387378111348c001a5c5fbebb7f478fdf65610aa"
-  integrity sha512-FAgwwZ6h0DSDWxfD0Iq1tsDcBCxdJB1nXpLPPxX8YyVWzbfCjKWEzaynF4gZZ/8hziUmp7ZSaKylcn0iKhufUQ==
+  version "6.1.12"
+  resolved "https://registry.yarnpkg.com/node-html-parser/-/node-html-parser-6.1.12.tgz#6138f805d0ad7a6b5ef415bcd91bca07374bf575"
+  integrity sha512-/bT/Ncmv+fbMGX96XG9g05vFt43m/+SYKIs9oAemQVYyVcZmDAI2Xq/SbNcpOA35eF0Zk2av3Ksf+Xk8Vt8abA==
   dependencies:
     css-select "^5.1.0"
     he "1.2.0"
