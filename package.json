@@ -111,7 +111,7 @@
     "@fullhuman/postcss-purgecss": "^4.0.3",
     "@release-it-plugins/lerna-changelog": "^6.0.0",
     "broccoli-asset-rev": "^3.0.0",
-    "chai": "^4.2.0",
+    "chai": "^5.1.0",
     "common-tags": "^1.8.2",
     "concurrently": "^8.2.2",
     "ember-classy-page-object": "0.8.0-beta.2",
