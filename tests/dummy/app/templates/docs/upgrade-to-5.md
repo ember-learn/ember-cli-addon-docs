@@ -130,12 +130,12 @@ Example:
 
 <DocsSnippet @name="upgrade-to-v5-link-before.hbs" @title="Before">
 
-    {{docs-link 'go to post' 'post' post.id}}
+    {{docs-link 'go to post' 'post' this.post.id}}
 </DocsSnippet>
 
 <DocsSnippet @name="upgrade-to-v5-link-after.hbs" @title="After">
 
-    <DocsLink @route="post" @model={{post.id}}>
+    <DocsLink @route="post" @model={{this.post.id}}>
       go to post
     </DocsLink>
 </DocsSnippet>
