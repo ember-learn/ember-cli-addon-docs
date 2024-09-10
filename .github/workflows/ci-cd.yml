@@ -55,7 +55,7 @@ jobs:
           version: 9
 
       - name: Install dependencies
-        run: pnpm i --no-lockfile --non-interactive
+        run: pnpm i --no-lockfile
 
       - name: Test
         run: pnpm test:${{ matrix.script-name }}
