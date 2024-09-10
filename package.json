@@ -101,9 +101,18 @@
     "yuidocjs": "^0.10.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.25.1",
+    "@babel/helper-environment-visitor": "^7.24.7",
+    "@babel/helper-function-name": "^7.24.7",
+    "@babel/helper-hoist-variables": "^7.24.7",
+    "@babel/helper-split-export-declaration": "^7.24.7",
     "@babel/plugin-proposal-decorators": "^7.24.7",
     "@babel/preset-env": "^7.25.4",
+    "@ember-data/adapter": "^5.3.8",
+    "@ember-data/model": "^5.3.8",
+    "@ember-data/serializer": "^5.3.8",
+    "@ember-data/store": "^5.3.8",
     "@ember/optional-features": "^2.1.0",
     "@ember/string": "^3.1.1",
     "@ember/test-helpers": "^3.3.1",
@@ -127,7 +136,7 @@
     "ember-cli-mirage": "^3.0.2",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
-    "ember-data": "~5.3.0",
+    "ember-data": "~5.3.8",
     "ember-load-initializers": "^2.1.2",
     "ember-qunit": "^8.1.0",
     "ember-resolver": "^11.0.1",
@@ -155,10 +164,28 @@
     "webpack": "^5.94.0"
   },
   "peerDependencies": {
+    "@ember-data/adapter": ">= 3.0.0",
+    "@ember-data/model": ">= 3.0.0",
+    "@ember-data/serializer": ">= 3.0.0",
+    "@ember-data/store": ">= 3.0.0",
     "@ember/string": "^3.1.1 || ^4.0.0",
     "ember-data": ">= 3.0.0",
     "ember-fetch": "^8.1.1",
     "ember-source": ">= 4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@ember-data/adapter": {
+      "optional": true
+    },
+    "@ember-data/model": {
+      "optional": true
+    },
+    "@ember-data/serializer": {
+      "optional": true
+    },
+    "@ember-data/store": {
+      "optional": true
+    }
   },
   "engines": {
     "node": ">= 18"

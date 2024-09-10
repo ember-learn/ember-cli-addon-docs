@@ -32,7 +32,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.25.4.tgz#7d2a80ce229890edcf4cc259d4d696cb4dae2fcb"
   integrity sha512-+LGRog6RAsCJrrrg/IO6LGmpphNe5DiK30dGjCoxxeGv49B10/3XYGxPsAwrDlMFcFEvdAUavDT8r9k/hSyQqQ==
 
-"@babel/core@^7.0.0", "@babel/core@^7.12.0", "@babel/core@^7.13.10", "@babel/core@^7.16.10", "@babel/core@^7.16.7", "@babel/core@^7.22.20", "@babel/core@^7.23.2", "@babel/core@^7.24.4", "@babel/core@^7.3.4":
+"@babel/core@^7.0.0", "@babel/core@^7.12.0", "@babel/core@^7.13.10", "@babel/core@^7.16.10", "@babel/core@^7.16.7", "@babel/core@^7.22.20", "@babel/core@^7.23.2", "@babel/core@^7.24.4", "@babel/core@^7.25.2", "@babel/core@^7.3.4":
   version "7.25.2"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.25.2.tgz#ed8eec275118d7613e77a352894cd12ded8eba77"
   integrity sha512-BBt3opiCOxUr9euZ5/ro/Xv8/V7yJ5bjYMqG/C1YAo8MIKAnumZalCN+msbci3Pigy4lIQfPUpfMM27HMGaYEA==
@@ -131,6 +131,28 @@
     lodash.debounce "^4.0.8"
     resolve "^1.14.2"
 
+"@babel/helper-environment-visitor@^7.24.7":
+  version "7.24.7"
+  resolved "https://registry.yarnpkg.com/@babel/helper-environment-visitor/-/helper-environment-visitor-7.24.7.tgz#4b31ba9551d1f90781ba83491dd59cf9b269f7d9"
+  integrity sha512-DoiN84+4Gnd0ncbBOM9AZENV4a5ZiL39HYMyZJGZ/AZEykHYdJw0wW3kdcsh9/Kn+BRXHLkkklZ51ecPKmI1CQ==
+  dependencies:
+    "@babel/types" "^7.24.7"
+
+"@babel/helper-function-name@^7.24.7":
+  version "7.24.7"
+  resolved "https://registry.yarnpkg.com/@babel/helper-function-name/-/helper-function-name-7.24.7.tgz#75f1e1725742f39ac6584ee0b16d94513da38dd2"
+  integrity sha512-FyoJTsj/PEUWu1/TYRiXTIHc8lbw+TDYkZuoE43opPS5TrI7MyONBE1oNvfguEXAD9yhQRrVBnXdXzSLQl9XnA==
+  dependencies:
+    "@babel/template" "^7.24.7"
+    "@babel/types" "^7.24.7"
+
+"@babel/helper-hoist-variables@^7.24.7":
+  version "7.24.7"
+  resolved "https://registry.yarnpkg.com/@babel/helper-hoist-variables/-/helper-hoist-variables-7.24.7.tgz#b4ede1cde2fd89436397f30dc9376ee06b0f25ee"
+  integrity sha512-MJJwhkoGy5c4ehfoRyrJ/owKeMl19U54h27YYftT0o2teQ3FJ3nQUf/I3LlJsX4l3qlw7WRXUmiyajvHXoTubQ==
+  dependencies:
+    "@babel/types" "^7.24.7"
+
 "@babel/helper-member-expression-to-functions@^7.24.8":
   version "7.24.8"
   resolved "https://registry.yarnpkg.com/@babel/helper-member-expression-to-functions/-/helper-member-expression-to-functions-7.24.8.tgz#6155e079c913357d24a4c20480db7c712a5c3fb6"
@@ -201,6 +223,13 @@
   integrity sha512-IO+DLT3LQUElMbpzlatRASEyQtfhSE0+m465v++3jyyXeBTBUjtVZg28/gHeV5mrTJqvEKhKroBGAvhW+qPHiQ==
   dependencies:
     "@babel/traverse" "^7.24.7"
+    "@babel/types" "^7.24.7"
+
+"@babel/helper-split-export-declaration@^7.24.7":
+  version "7.24.7"
+  resolved "https://registry.yarnpkg.com/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.24.7.tgz#83949436890e07fa3d6873c61a96e3bbf692d856"
+  integrity sha512-oy5V7pD+UvfkEATUKvIjvIAH/xCzfsFVw7ygW2SI6NClZzquT+mwdTfgfdbUiceh6iQO0CHtCPsyze/MZ2YbAA==
+  dependencies:
     "@babel/types" "^7.24.7"
 
 "@babel/helper-string-parser@^7.24.8":
@@ -1108,7 +1137,7 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-3.1.1.tgz#63085d2995ca0f0e55aa8b8a07d69bfd48b844fe"
   integrity sha512-a7cxGcJ2wIlMFLlh8z2ONm+715QkPHiyJcxwQlKOz/03GPw1COpfhcmC9wm4xlZfp//jWHNNMwzjtqHXVWU9KA==
 
-"@ember-data/adapter@5.3.8":
+"@ember-data/adapter@5.3.8", "@ember-data/adapter@^5.3.8":
   version "5.3.8"
   resolved "https://registry.yarnpkg.com/@ember-data/adapter/-/adapter-5.3.8.tgz#31714a01fa08b149d96549d98853a827f46498ad"
   integrity sha512-mlyGQyiNv3C5SN0jRqVboixnSW/h0r1g7wsCus35p51zKYtq7HGyp3EaEQZOt+4dRS0wNfDx4Z95PPbH/rmH0Q==
@@ -1153,7 +1182,7 @@
     "@embroider/macros" "^1.16.1"
     "@warp-drive/build-config" "0.0.0-beta.6"
 
-"@ember-data/model@5.3.8":
+"@ember-data/model@5.3.8", "@ember-data/model@^5.3.8":
   version "5.3.8"
   resolved "https://registry.yarnpkg.com/@ember-data/model/-/model-5.3.8.tgz#af198156e826003a3faac88fa44242d29f38477a"
   integrity sha512-vg7hIzQmDXCDapUZc6kawKE2IAD9A4RowQBmBD7gR7TWtzinmoSygHYHjZpVdAEV4JE3EI1gjbyQesRLoAub1A==
@@ -1187,7 +1216,7 @@
   resolved "https://registry.yarnpkg.com/@ember-data/rfc395-data/-/rfc395-data-0.0.4.tgz#ecb86efdf5d7733a76ff14ea651a1b0ed1f8a843"
   integrity sha512-tGRdvgC9/QMQSuSuJV45xoyhI0Pzjm7A9o/MVVA3HakXIImJbbzx/k/6dO9CUEQXIyS2y0fW6C1XaYOG7rY0FQ==
 
-"@ember-data/serializer@5.3.8":
+"@ember-data/serializer@5.3.8", "@ember-data/serializer@^5.3.8":
   version "5.3.8"
   resolved "https://registry.yarnpkg.com/@ember-data/serializer/-/serializer-5.3.8.tgz#274849ac944182792b0c97e7f05c147d5531c3fc"
   integrity sha512-EjESckhiZTDtdetihMeup/PXU/pbOTAK8o2SsYGGICwVNpcguH3su9NhoCJQ97/5XL+X5I4KCMm7V8/Lode8vw==
@@ -1199,7 +1228,7 @@
     ember-cli-string-utils "^1.1.0"
     ember-cli-test-info "^1.0.0"
 
-"@ember-data/store@5.3.8":
+"@ember-data/store@5.3.8", "@ember-data/store@^5.3.8":
   version "5.3.8"
   resolved "https://registry.yarnpkg.com/@ember-data/store/-/store-5.3.8.tgz#78d65c6cd7da78b5805162d6afca3c1a2c64e894"
   integrity sha512-ZxqHgiKZrqXdetlriv4VOPjqrEre2rqaLFWOHkjjKqzsp2AkmGkcrh/DS6i9Y4/5F9hYxb9lxyyJqOW7sr57yQ==
@@ -6934,7 +6963,7 @@ ember-concurrency@^3.0.0:
     ember-cli-htmlbars "^6.2.0"
     ember-compatibility-helpers "^1.2.0"
 
-ember-data@~5.3.0:
+ember-data@~5.3.8:
   version "5.3.8"
   resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-5.3.8.tgz#2419440c81f91f39863a5dba18652cda0b68fb92"
   integrity sha512-ZFd0dxTCkX5OHe/Xdfpglg+3OELsd0xNFziogoKV0JPLzyXmasn/8vAeHeUta9rAJDYH8lix3/1t6iIeY+DzYQ==
