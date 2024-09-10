@@ -16,20 +16,20 @@
   "scripts": {
     "build": "ember build --environment=production",
     "deploy": "ember deploy production",
-    "lint": "concurrently \"yarn:lint:*(!fix)\" --names \"lint:\"",
+    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
     "lint:css": "stylelint \"**/*.css\"",
-    "lint:css:fix": "concurrently \"yarn:lint:css -- --fix\"",
-    "lint:fix": "concurrently \"yarn:lint:*:fix\" --names \"fix:\"",
+    "lint:css:fix": "concurrently \"npm:lint:css -- --fix\"",
+    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "prepare": "./scripts/link-them.sh",
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
-    "test": "concurrently \"yarn:lint\" \"yarn:test:*\" --names \"lint,test:\"",
+    "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
     "test:ember": "ember test --test-port=0",
     "test:node": "mocha tests-node --recursive",
-    "test:test-apps": "cd test-apps/new-addon && yarn test"
+    "test:test-apps": "cd test-apps/new-addon && pnpm test"
   },
   "dependencies": {
     "@csstools/postcss-sass": "^5.0.1",
