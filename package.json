@@ -72,7 +72,7 @@
     "ember-tether": "^3.0.0",
     "ember-truth-helpers": "^4.0.3",
     "esm": "^3.2.25",
-    "execa": "5.1.1",
+    "execa": "9.4.1",
     "fs-extra": "^11.1.0",
     "git-repo-info": "^2.1.1",
     "highlight.js": "^11.9.0",
