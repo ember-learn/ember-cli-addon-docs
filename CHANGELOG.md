@@ -12,6 +12,23 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+
+## v7.2.0 (2024-11-19)
+
+#### :rocket: Enhancement
+* [#1582](https://github.com/ember-learn/ember-cli-addon-docs/pull/1582) Fix @ember/string dependency ([@anehx](https://github.com/anehx))
+
+#### :bug: Bug Fix
+* [#1556](https://github.com/ember-learn/ember-cli-addon-docs/pull/1556) Fixed typo in <DocsViewer::XNav> ([@ijlee2](https://github.com/ijlee2))
+
+#### :house: Internal
+* [#1595](https://github.com/ember-learn/ember-cli-addon-docs/pull/1595) Update babel, deps, ember, switch to pnpm ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 3
+- Isaac Lee ([@ijlee2](https://github.com/ijlee2))
+- Jonas Metzener ([@anehx](https://github.com/anehx))
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v7.0.1 (2024-02-06)
 
 ## v7.0.0 (2023-12-24)
