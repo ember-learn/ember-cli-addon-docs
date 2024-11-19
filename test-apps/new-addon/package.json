@@ -27,10 +27,10 @@
   "devDependencies": {
     "@ember/optional-features": "^2.2.0",
     "@ember/test-helpers": "*",
-    "ember-cli-addon-docs": "*",
-    "ember-cli-addon-docs-yuidoc": "*",
     "broccoli-asset-rev": "^3.0.0",
     "ember-cli": "~5.11.0",
+    "ember-cli-addon-docs": "workspace:*",
+    "ember-cli-addon-docs-yuidoc": "*",
     "ember-cli-dependency-checker": "*",
     "ember-cli-htmlbars": "*",
     "ember-cli-inject-live-reload": "*",

@@ -394,6 +394,94 @@ importers:
         specifier: ^5.96.1
         version: 5.96.1
 
+  test-apps/new-addon:
+    dependencies:
+      '@ember/string':
+        specifier: ^3.1.1
+        version: 3.1.1
+      ember-auto-import:
+        specifier: '*'
+        version: 2.10.0(webpack@5.96.1)
+      ember-cli-babel:
+        specifier: '*'
+        version: 8.2.0(@babel/core@7.26.0)
+    devDependencies:
+      '@ember/optional-features':
+        specifier: ^2.2.0
+        version: 2.2.0
+      '@ember/test-helpers':
+        specifier: '*'
+        version: 3.3.1(@babel/core@7.26.0)(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.96.1))(webpack@5.96.1)
+      broccoli-asset-rev:
+        specifier: ^3.0.0
+        version: 3.0.0
+      ember-cli:
+        specifier: ~5.11.0
+        version: 5.11.0(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)
+      ember-cli-addon-docs:
+        specifier: workspace:*
+        version: link:../..
+      ember-cli-addon-docs-yuidoc:
+        specifier: '*'
+        version: 1.1.0
+      ember-cli-dependency-checker:
+        specifier: '*'
+        version: 3.3.3(ember-cli@5.11.0(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7))
+      ember-cli-htmlbars:
+        specifier: '*'
+        version: 6.3.0
+      ember-cli-inject-live-reload:
+        specifier: '*'
+        version: 2.1.0
+      ember-cli-sri:
+        specifier: '*'
+        version: 2.1.1
+      ember-cli-terser:
+        specifier: '*'
+        version: 4.0.2
+      ember-data:
+        specifier: '*'
+        version: 5.3.9(@ember/string@3.1.1)(@ember/test-helpers@3.3.1(@babel/core@7.26.0)(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.96.1))(webpack@5.96.1))(@ember/test-waiters@3.1.0)(ember-inflector@5.0.2(@babel/core@7.26.0))(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.96.1))(qunit@2.22.0)
+      ember-load-initializers:
+        specifier: '*'
+        version: 2.1.2(@babel/core@7.26.0)
+      ember-qunit:
+        specifier: '*'
+        version: 8.1.1(@ember/test-helpers@3.3.1(@babel/core@7.26.0)(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.96.1))(webpack@5.96.1))(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.96.1))(qunit@2.22.0)
+      ember-resolver:
+        specifier: '*'
+        version: 11.0.1(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.96.1))
+      ember-source:
+        specifier: '*'
+        version: 5.11.1(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.96.1)
+      ember-source-channel-url:
+        specifier: '*'
+        version: 3.0.0(encoding@0.1.13)
+      ember-try:
+        specifier: '*'
+        version: 3.0.0(encoding@0.1.13)
+      eslint:
+        specifier: '*'
+        version: 8.57.1
+      eslint-plugin-ember:
+        specifier: ^11.12.0
+        version: 11.12.0(eslint@8.57.1)
+      eslint-plugin-n:
+        specifier: '*'
+        version: 16.6.2(eslint@8.57.1)
+      loader.js:
+        specifier: '*'
+        version: 4.7.0
+      qunit:
+        specifier: ^2.22.0
+        version: 2.22.0
+      qunit-dom:
+        specifier: ^3.3.0
+        version: 3.3.0
+      webpack:
+        specifier: ^5.96.1
+        version: 5.96.1
+
 packages:
 
   '@ampproject/remapping@2.3.0':
