@@ -1,5 +1,4 @@
 import Adapter from '@ember-data/adapter';
-import fetch from 'fetch';
 import { getRootURL } from 'ember-cli-addon-docs/-private/config';
 
 export default class AddonDocsAdapter extends Adapter {
