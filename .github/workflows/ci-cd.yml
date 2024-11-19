@@ -102,6 +102,7 @@ jobs:
           - ember-beta
           - ember-canary
           - embroider-safe
+          - embroider-optimized
     timeout-minutes: 7
     steps:
       - uses: actions/checkout@v4
