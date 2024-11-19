@@ -1,6 +1,5 @@
 import Service from '@ember/service';
 import lunr from 'lunr';
-import fetch from 'fetch';
 import { enqueueTask } from 'ember-concurrency';
 import {
   getAddonDocsConfig,

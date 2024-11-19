@@ -1,6 +1,5 @@
 import Service from '@ember/service';
 import { task } from 'ember-concurrency';
-import fetch from 'fetch';
 import { tracked } from '@glimmer/tracking';
 import {
   addonDocsConfig,
