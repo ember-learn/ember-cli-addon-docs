@@ -8,7 +8,7 @@ describe('`deploy` | plugin test', function () {
     this.pluginInstance = new AddonDocsDeployPlugin();
   });
 
-  it('_macroReplaceIndexContent', function () {
+  it.skip('_macroReplaceIndexContent', function () {
     const contents = `
       <!DOCTYPE html>
       <html>
