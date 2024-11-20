@@ -25,6 +25,7 @@
 # broccoli-debug
 /DEBUG/
 
-# intellij
+# other
 /.idea/
 ember-cli-addon-docs.iml
+tmp/
