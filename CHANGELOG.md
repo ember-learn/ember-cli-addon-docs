@@ -14,6 +14,8 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+## v7.2.2 (2024-11-20)
+
 ## v7.2.1 (2024-11-20)
 
 #### :bug: Bug Fix
