@@ -13,6 +13,15 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+
+## v7.2.1 (2024-11-20)
+
+#### :bug: Bug Fix
+* [#1615](https://github.com/ember-learn/ember-cli-addon-docs/pull/1615) Recursively replace ADDON_DOCS_ROOT_URL ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 1
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v7.2.0 (2024-11-19)
 
 #### :rocket: Enhancement
