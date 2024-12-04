@@ -62,7 +62,7 @@ AddonDocs provides versioned guides out of the box. You can see the version sele
 
 If you look at the [`gh-pages`](https://github.com/ember-learn/ember-cli-addon-docs/tree/gh-pages) branch you'll see that this is where versioned builds of your docs app are stored. Versions are created at deploy time and AddonDocs manages this branch of your repository for you.
 
-New versions are created when a new tag is released. There is also a `master` version updated on every deployed commit, and a `Latest` alias that points to the most recent tag, unless it is force-updated to point to `master`.
+New versions are created when a new tag is released. There is also a `main` version updated on every deployed commit, and a `Latest` alias that points to the most recent tag, unless it is force-updated to point to `main`.
 
 See the next section on <DocsLink @route="docs.deploying">deploy guides</DocsLink> for more information about deploys.
 
