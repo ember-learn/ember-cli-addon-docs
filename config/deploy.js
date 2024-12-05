@@ -4,7 +4,7 @@ module.exports = function (deployTarget) {
   let ENV = {
     build: {},
     git: {
-      repo: 'https://github.com/ember-learn/ember-cli-addon-docs.git',
+      repo: 'git@github.com:ember-learn/ember-cli-addon-docs.git',
     },
   };
 

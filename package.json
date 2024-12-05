@@ -15,7 +15,6 @@
   },
   "scripts": {
     "build": "ember build --environment=production",
-    "deploy": "ember deploy production",
     "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
     "lint:css": "stylelint \"**/*.css\"",
     "lint:css:fix": "concurrently \"npm:lint:css -- --fix\"",
