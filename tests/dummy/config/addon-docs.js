@@ -3,8 +3,4 @@
 
 const AddonDocsConfig = require('../../../lib/config');
 
-module.exports = class extends AddonDocsConfig {
-  getPrimaryBranch() {
-    return 'master';
-  }
-};
+module.exports = class extends AddonDocsConfig {};

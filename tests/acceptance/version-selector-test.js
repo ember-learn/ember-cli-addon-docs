@@ -49,11 +49,11 @@ module('Acceptance | Version selector test', function (hooks) {
         path: '',
         name: 'Latest',
       },
-      master: {
+      main: {
         sha: '53b73465d31925f26fd1f77881aefcaccce2915a',
         tag: null,
-        path: 'master',
-        name: 'master',
+        path: 'main',
+        name: 'main',
       },
       'v0.2.x': {
         sha: 'aca26720d930843dd084b508fce75b158ff0386e',
@@ -90,7 +90,7 @@ module('Acceptance | Version selector test', function (hooks) {
 
     assert
       .dom('[data-test-id="version"]:nth-child(2)')
-      .includesText('master', 'master is rendered secon');
+      .includesText('main', 'main is rendered second');
     assert.dom('[data-test-id="version"]:nth-child(2)').includesText('53b73');
 
     assert
@@ -113,11 +113,11 @@ module('Acceptance | Version selector test', function (hooks) {
         path: '',
         name: 'Latest',
       },
-      master: {
+      main: {
         sha: '53b73465d31925f26fd1f77881aefcaccce2915a',
         tag: null,
-        path: 'master',
-        name: 'master',
+        path: 'main',
+        name: 'main',
       },
       'v0.1.0': {
         sha: 'd752437850bc9833ea3e354095b501473b0420ae',
@@ -145,7 +145,7 @@ module('Acceptance | Version selector test', function (hooks) {
       .includesText('Latest', 'latest is rendered on second open');
     assert
       .dom('[data-test-id="version"]:nth-child(2)')
-      .includesText('master', 'master is rendered on second open');
+      .includesText('main', 'main is rendered on second open');
   });
 
   module('with a custom primary branch configured', function (hooks) {
@@ -167,11 +167,11 @@ module('Acceptance | Version selector test', function (hooks) {
           path: '',
           name: 'Latest',
         },
-        master: {
+        main: {
           sha: '53b73465d31925f26fd1f77881aefcaccce2915a',
           tag: null,
-          path: 'master',
-          name: 'master',
+          path: 'main',
+          name: 'main',
         },
         develop: {
           sha: '53b73465d31925f26fd1f77881aefcaccce2915a',
@@ -201,7 +201,7 @@ module('Acceptance | Version selector test', function (hooks) {
 
       assert
         .dom('[data-test-id="version"]:nth-child(3)')
-        .includesText('master', 'other branches are rendered last');
+        .includesText('main', 'other branches are rendered last');
       assert.dom('[data-test-id="version"]:nth-child(3)').includesText('53b73');
     });
   });
