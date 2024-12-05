@@ -14,11 +14,11 @@ export default function (config) {
             path: '',
             name: '-latest',
           },
-          master: {
+          main: {
             sha: '12345',
             tag: null,
-            path: 'master',
-            name: 'master',
+            path: 'main',
+            name: 'main',
           },
         };
       });

@@ -52,11 +52,11 @@ Note that this only applies to non-prerelease tags, so `v1.2.3` would update the
 
 When you deploy from a commit at the head of a branch that _doesn't_ have a tag associated with it, the compiled app will land in a folder named after that branch, as in our "getting started" example above. Unlike tag deploys, branch deploys will never automatically update the root app.
 
-The main use case for branch deploys is tracking development work since your last stable release. If you run `ember deploy` after successful builds on `master`, you'll always have documentation available for the bleeding edge of your addon's features. Since branch deploys don't update the root, though, developers looking at your docs will still hit your most recent stable tag by default, so there won't be any confusion about things that have drifted since the last release.
+The main use case for branch deploys is tracking development work since your last stable release. If you run `ember deploy` after successful builds on `main`, you'll always have documentation available for the bleeding edge of your addon's features. Since branch deploys don't update the root, though, developers looking at your docs will still hit your most recent stable tag by default, so there won't be any confusion about things that have drifted since the last release.
 
 ## Automating deploys
 
-While you _can_ just run `ember deploy production` yourself after every commit to `master` and each new release of your addon, you can simplify life a bit by automating the process as part of your CI setup. The process described here details the configuration for [Travis CI](https://travis-ci.org/), which Ember addons are configured to work with out of the box, but the setup should be very similar for other CI providers.
+While you _can_ just run `ember deploy production` yourself after every commit to `main` and each new release of your addon, you can simplify life a bit by automating the process as part of your CI setup. The process described here details the configuration for GitHub Actions, which Ember addons are configured to work with out of the box, but the setup should be very similar for other CI providers.
 
 ### Generate a deploy key
 
@@ -76,41 +76,64 @@ On GitHub, open the page for your repo and navigate to _Settings_ -> _Deploy key
 
 Enter a name for your key and then paste the contents of your public key (`deploy_key.pub`) into the big textarea. Make sure you check the **Allow write access** box, then click "Add key" and you're all set.
 
-### Configure the private key with Travis
+### Configure the private key with GitHub Actions
 
-Now that GitHub knows that this public key is allowed to push commits to your repo, we need to set up Travis to use the corresponding private key. Because the keyfile contains newlines, the easiest way to do this is using the [Travis CLI](https://github.com/travis-ci/travis.rb#installation) tool.
+Now that GitHub knows that this public key is allowed to push commits to your repo, we need to set up GitHub Actions to use the corresponding private key.
+
+You can copy your private key by running the following:
 
 ```sh
-travis env set -- DEPLOY_KEY "$(cat deploy_key)"
+cat deploy_key | pbcopy
 ```
+
+Then you will need to go to the page for your repo and navigate to _Settings_ -> _Secrets and variables_ -> _Actions_ (or just directly visit <u>https://github.com/**[user]**/**[repo]**/settings/secrets/actions)</u> and click "New repository secret". The name should be `DEPLOY_KEY` and the value should be the private key you just copied.
 
 ### Deploy after successful builds
 
-All that's left now is to set up Travis to run your deploys for you. The simplest way to do this is to add this `after_success` script to the end of your `.travis.yml`:
+All that's left now is to set up GitHub Actions to run your deploys for you. The simplest way to do this is to create a new file under `.github/workflows/addon-docs.yml` with the following contents:
 
 ```yml
-after_success:
-  - if [[ ($TRAVIS_BRANCH == master || -n $TRAVIS_TAG) && $EMBER_TRY_SCENARIO == ember-default ]]; then
-    node_modules/.bin/ember deploy production;
-    fi
+name: Publish Addon Docs
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - "**"
+jobs:
+  build:
+    env:
+      DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install --no-lockfile
+      - name: Deploy Docs
+        run: |
+          cd test-app
+          pnpm ember deploy production
 ```
 
-Alternatively, if you're using Travis's [build stages system](https://docs.travis-ci.com/user/build-stages/), you can set up the deploy as a conditional stage at the end of your build:
-
-```yml
-stages:
-  # ...your other build stages...
-  - name: deploy
-    if: (branch = master or tag is present) and type = push
-    script: node_modules/.bin/ember deploy production
-```
+This assumes you have a v2 addon and your addon docs are in the `test-app` folder, but if your addon docs are in a different location, you can change `test-app` to whatever that folder is and `cd` into it.
 
 ## Customizing deploys
 
 When you install AddonDocs, a `config/addon-docs.js` file will automatically be created for you that looks something like this:
 
 ```js
-const AddonDocsConfig = require('ember-cli-addon-docs/lib/config');
+const AddonDocsConfig = require("ember-cli-addon-docs/lib/config");
 
 module.exports = class extends AddonDocsConfig {
   // ...
@@ -145,7 +168,7 @@ If instead, however, you want to [set up a CNAME for your project](https://help.
 
 ### `getPrimaryBranch()`
 
-This method determines what AddonDocs considers to be your primary branch, which is where links such as "edit this page" will point. By default, this branch is `master`, but you can override this method to choose a different branch instead, e.g. `develop`.
+This method determines what AddonDocs considers to be your primary branch, which is where links such as "edit this page" will point. By default, this branch is `main`, but you can override this method to choose a different branch instead, e.g. `develop`.
 
 ## Removing a deployed version
 
@@ -178,8 +201,8 @@ If you wish to disable ember-cli-addon-docs' built-in deployment plugins altoget
 // ...
 ENV.pipeline = {
   disabled: {
-    'ember-cli-addon-docs': true
-  }
+    "ember-cli-addon-docs": true,
+  },
 };
 // ...
 ```
