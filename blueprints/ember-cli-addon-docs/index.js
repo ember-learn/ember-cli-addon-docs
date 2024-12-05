@@ -18,6 +18,7 @@ module.exports = {
         'ember-cli-deploy',
         'ember-cli-deploy-build',
         'ember-cli-deploy-git',
+        'ember-cli-deploy-git-ci',
       ],
     });
   },
