@@ -153,14 +153,14 @@
     "loader.js": "^4.7.0",
     "miragejs": "^0.1.48",
     "mocha": "^11.0.1",
-    "prettier": "^3.3.3",
-    "qunit": "^2.22.0",
-    "qunit-dom": "^3.3.0",
-    "release-it": "^16.3.0",
+    "prettier": "^3.4.2",
+    "qunit": "^2.23.0",
+    "qunit-dom": "^3.4.0",
+    "release-it": "^17.10.0",
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.1.0",
-    "webpack": "^5.96.1"
+    "webpack": "^5.97.1"
   },
   "peerDependencies": {
     "@ember-data/adapter": ">= 3.0.0",
