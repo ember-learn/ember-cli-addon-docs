@@ -14,6 +14,15 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+
+## v8.0.0 (2024-12-05)
+
+#### :boom: Breaking Change
+* [#1617](https://github.com/ember-learn/ember-cli-addon-docs/pull/1617) Switch default primary branch to `main`, update docs from Travis to GitHub Actions ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 1
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v7.2.2 (2024-11-20)
 
 ## v7.2.1 (2024-11-20)
