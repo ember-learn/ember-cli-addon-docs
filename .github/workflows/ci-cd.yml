@@ -111,29 +111,3 @@ jobs:
         run: pnpm i --frozen-lockfile
       - name: Test
         run: pnpm ember try:one ${{ matrix.try-scenario }}
-
-  deploy-app:
-    name: Deploy app
-    needs: [lint, test-addon-floating, test-addon-locked, test-compatibility]
-    env:
-      DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 7
-    # Only run on pushes to the default branch
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    steps:
-      - name: Check out a copy of the repo
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Install Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.x
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 9
-      - name: Install dependencies
-        run: pnpm install --no-lockfile
-      - name: Deploy
-        run: pnpm ember deploy production
