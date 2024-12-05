@@ -15,6 +15,8 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+## v8.0.2 (2024-12-05)
+
 ## v8.0.0 (2024-12-05)
 
 #### :boom: Breaking Change
