@@ -138,7 +138,7 @@
     "ember-inflector": "^5.0.2",
     "ember-load-initializers": "^2.1.2",
     "ember-qunit": "^8.1.1",
-    "ember-resolver": "^11.0.1",
+    "ember-resolver": "^13.1.0",
     "ember-source": "~5.11.1",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^5.13.0",
