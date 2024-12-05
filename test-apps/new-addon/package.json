@@ -20,7 +20,7 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
-    "@ember/string": "^3.1.1",
+    "@ember/string": "^4.0.0",
     "ember-cli-babel": "*",
     "ember-auto-import": "*"
   },
