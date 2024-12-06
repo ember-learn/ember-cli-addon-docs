@@ -110,7 +110,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check for tags and conditionally exit
+        run: |
+          # Fetch tags pointing to the current commit
+          TAGS=$(git tag --points-at $GITHUB_SHA)
+          echo "Tags found: $TAGS"
+
+          # Check if a tag exists and if the ref is 'refs/heads/main' or 'refs/heads/master'
+          if [ -n "$TAGS" ] && ([[ "${GITHUB_REF}" == "refs/heads/main" ]] || [[ "${GITHUB_REF}" == "refs/heads/master" ]]); then
+            echo "Commit has a tag and is pushed to the main or master branch. Exiting."
+            exit 0
+          fi
       - uses: pnpm/action-setup@v4
         with:
           version: 9
@@ -121,12 +133,10 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --no-lockfile
       - name: Deploy Docs
-        run: |
-          cd test-app
-          pnpm ember deploy production
+        run: pnpm ember deploy production
 ```
 
-This assumes you have a v2 addon and your addon docs are in the `test-app` folder, but if your addon docs are in a different location, you can change `test-app` to whatever that folder is and `cd` into it.
+If you are using something other than `main` or `master` for your primary branch, you will need to update the script accordingly. Also, if you have a v2 addon or a setup where your AddonDocs are in a different folder, you may need to add a `cd` into that directory in the `Deploy Docs` step.
 
 ## Customizing deploys
 
