@@ -2,8 +2,14 @@
 
 ## 1. Install AddonDocs
 
-```
+```sh
 ember install ember-cli-addon-docs
+```
+
+[Ember Data](https://github.com/emberjs/data) is a required peer dependency, so if you're not already using it in your addon, you'll need to install it.
+
+```sh
+ember install ember-data
 ```
 
 ## 2. Install ember-cli-addon-docs-yuidoc
