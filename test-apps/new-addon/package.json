@@ -44,7 +44,7 @@
     "ember-source-channel-url": "*",
     "ember-try": "*",
     "eslint": "*",
-    "eslint-plugin-ember": "^11.12.0",
+    "eslint-plugin-ember": "^12.3.3",
     "eslint-plugin-n": "*",
     "loader.js": "*",
     "qunit": "^2.22.0",
