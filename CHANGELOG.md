@@ -15,6 +15,8 @@ https://github.com/highlightjs/highlight.js/issues/2277
 
 
 
+## v8.0.6 (2024-12-06)
+
 ## v8.0.5 (2024-12-06)
 
 ## v8.0.4 (2024-12-06)
