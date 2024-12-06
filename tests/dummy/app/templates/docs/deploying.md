@@ -112,27 +112,32 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Check for tags and conditionally exit
+      - name: Check for tags and set short-circuit condition
+        id: check-tags
         run: |
           # Fetch tags pointing to the current commit
           TAGS=$(git tag --points-at $GITHUB_SHA)
           echo "Tags found: $TAGS"
-
+          
           # Check if a tag exists and if the ref is 'refs/heads/main' or 'refs/heads/master'
           if [ -n "$TAGS" ] && ([[ "${GITHUB_REF}" == "refs/heads/main" ]] || [[ "${GITHUB_REF}" == "refs/heads/master" ]]); then
-            echo "Commit has a tag and is pushed to the main or master branch. Exiting."
-            exit 0
-          fi
+            echo "SHORT_CIRCUIT=true" >> $GITHUB_ENV
+          else
+            echo "SHORT_CIRCUIT=false" >> $GITHUB_ENV
       - uses: pnpm/action-setup@v4
+        if: env.SHORT_CIRCUIT == 'false'
         with:
           version: 9
       - uses: actions/setup-node@v4
+        if: env.SHORT_CIRCUIT == 'false'
         with:
           node-version: 18
           cache: pnpm
       - name: Install Dependencies
+        if: env.SHORT_CIRCUIT == 'false'
         run: pnpm install --no-lockfile
       - name: Deploy Docs
+        if: env.SHORT_CIRCUIT == 'false'
         run: pnpm ember deploy production
 ```
 
