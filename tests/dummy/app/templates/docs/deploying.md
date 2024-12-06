@@ -124,6 +124,7 @@ jobs:
             echo "SHORT_CIRCUIT=true" >> $GITHUB_ENV
           else
             echo "SHORT_CIRCUIT=false" >> $GITHUB_ENV
+          fi  
       - uses: pnpm/action-setup@v4
         if: env.SHORT_CIRCUIT == 'false'
         with:
