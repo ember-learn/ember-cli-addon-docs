@@ -159,11 +159,11 @@ importers:
         specifier: ^2.3.9
         version: 2.3.9
       marked:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^15.0.3
+        version: 15.0.3
       marked-highlight:
         specifier: ^2.2.1
-        version: 2.2.1(marked@11.2.0)
+        version: 2.2.1(marked@15.0.3)
       node-html-parser:
         specifier: ^6.1.13
         version: 6.1.13
@@ -6027,8 +6027,8 @@ packages:
     peerDependencies:
       marked: '>=4 <16'
 
-  marked@11.2.0:
-    resolution: {integrity: sha512-HR0m3bvu0jAPYiIvLUUQtdg1g6D247//lvcekpHO1WMvbwDlwSkZAX9Lw4F4YHE1T0HaaNve0tuAWuV1UJ6vtw==}
+  marked@15.0.3:
+    resolution: {integrity: sha512-Ai0cepvl2NHnTcO9jYDtcOEtVBNVYR31XnEA3BndO7f5As1wzpcOceSUM8FDkNLJNIODcLpDTWay/qQhqbuMvg==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -16535,11 +16535,11 @@ snapshots:
       mdurl: 1.0.1
       uc.micro: 1.0.6
 
-  marked-highlight@2.2.1(marked@11.2.0):
+  marked-highlight@2.2.1(marked@15.0.3):
     dependencies:
-      marked: 11.2.0
+      marked: 15.0.3
 
-  marked@11.2.0: {}
+  marked@15.0.3: {}
 
   matcher-collection@1.1.2:
     dependencies:
