@@ -80,7 +80,7 @@
     "line-column": "^1.0.2",
     "lodash": "^4.17.21",
     "lunr": "^2.3.9",
-    "marked": "^11.2.0",
+    "marked": "^15.0.4",
     "marked-highlight": "^2.2.1",
     "node-html-parser": "^6.1.13",
     "pad-start": "^1.0.2",
