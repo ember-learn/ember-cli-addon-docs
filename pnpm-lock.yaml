@@ -159,11 +159,11 @@ importers:
         specifier: ^2.3.9
         version: 2.3.9
       marked:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^15.0.7
+        version: 15.0.7
       marked-highlight:
         specifier: ^2.2.1
-        version: 2.2.1(marked@11.2.0)
+        version: 2.2.1(marked@15.0.7)
       node-html-parser:
         specifier: ^6.1.13
         version: 6.1.13
@@ -5905,6 +5905,7 @@ packages:
 
   lodash.omit@4.5.0:
     resolution: {integrity: sha512-XeqSp49hNGmlkj2EJlfrQFIzQ6lXdNro9sddtQzcJY8QaoC2GO0DT7xaIokHeyM+mIT0mPMlPvkYzg2xCuHdZg==}
+    deprecated: This package is deprecated. Use destructuring assignment syntax instead.
 
   lodash.truncate@4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
@@ -6027,8 +6028,8 @@ packages:
     peerDependencies:
       marked: '>=4 <16'
 
-  marked@11.2.0:
-    resolution: {integrity: sha512-HR0m3bvu0jAPYiIvLUUQtdg1g6D247//lvcekpHO1WMvbwDlwSkZAX9Lw4F4YHE1T0HaaNve0tuAWuV1UJ6vtw==}
+  marked@15.0.7:
+    resolution: {integrity: sha512-dgLIeKGLx5FwziAnsk4ONoGwHwGPJzselimvlVskE9XLN4Orv9u2VA3GWw/lYUqjfA0rUT/6fqKwfZJapP9BEg==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -16535,11 +16536,11 @@ snapshots:
       mdurl: 1.0.1
       uc.micro: 1.0.6
 
-  marked-highlight@2.2.1(marked@11.2.0):
+  marked-highlight@2.2.1(marked@15.0.7):
     dependencies:
-      marked: 11.2.0
+      marked: 15.0.7
 
-  marked@11.2.0: {}
+  marked@15.0.7: {}
 
   matcher-collection@1.1.2:
     dependencies:
