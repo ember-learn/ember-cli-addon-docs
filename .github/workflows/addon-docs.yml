@@ -23,7 +23,7 @@ jobs:
           # Fetch tags pointing to the current commit
           TAGS=$(git tag --points-at $GITHUB_SHA)
           echo "Tags found: $TAGS"
-          
+
           # Check if a tag exists and if the ref is 'refs/heads/main' or 'refs/heads/master'
           if [ -n "$TAGS" ] && ([[ "${GITHUB_REF}" == "refs/heads/main" ]] || [[ "${GITHUB_REF}" == "refs/heads/master" ]]); then
             echo "SHORT_CIRCUIT=true" >> $GITHUB_ENV
@@ -41,7 +41,7 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         if: env.SHORT_CIRCUIT == 'false'
-        run: pnpm install --no-lockfile
+        run: pnpm install
       - name: Deploy Docs
         if: env.SHORT_CIRCUIT == 'false'
         run: pnpm ember deploy production
