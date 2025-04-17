@@ -190,7 +190,7 @@
     }
   },
   "engines": {
-    "node": ">= 18"
+    "node": ">= 20.19"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
