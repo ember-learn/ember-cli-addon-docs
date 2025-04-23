@@ -1,23 +1,24 @@
+@use "sass:meta";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import './tailwind/components/docs-brand-colors';
-@import './tailwind/components/docs-btn';
-@import './tailwind/components/docs-container';
-@import './tailwind/components/docs-md';
+@include meta.load-css('tailwind/components/docs-brand-colors');
+@include meta.load-css('tailwind/components/docs-btn');
+@include meta.load-css('tailwind/components/docs-container');
+@include meta.load-css('tailwind/components/docs-md');
 
-@import './utilities/masks';
-@import './utilities/nudge';
+@include meta.load-css('utilities/masks');
+@include meta.load-css('utilities/nudge');
 
-@import './components/docs-header-search-box';
-@import './components/docs-hero';
-@import './components/docs-keyboard-shortcuts';
-@import './components/docs-viewer-x-current-page-index';
-@import './components/docs-viewer-x-nav';
-@import './components/modal-dialog';
+@include meta.load-css('components/docs-header-search-box');
+@include meta.load-css('components/docs-hero');
+@include meta.load-css('components/docs-keyboard-shortcuts');
+@include meta.load-css('components/docs-viewer-x-current-page-index');
+@include meta.load-css('components/docs-viewer-x-nav');
+@include meta.load-css('components/modal-dialog');
 
-@import 'syntax';
+@include meta.load-css('syntax');
 
 // Figure out how to do this in tailwind
 .docs-fill-current {
