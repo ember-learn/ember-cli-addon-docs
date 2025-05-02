@@ -35,14 +35,14 @@ let app = new EmberApp(defaults, {
 });
 ```
 
-If the addon is authored in v2 Addon Format `ember-cli-addon-docs` will look for the addon source code in `src` folder.
+If the addon is authored in [v2 Addon Format](https://rfcs.emberjs.com/id/0507-embroider-v2-package-format/) `ember-cli-addon-docs` will look for the addon source code in `src` folder.
 You may need to set `addonSrcFolder` config option if addon uses another folder:
 
 ```js
 let app = new EmberApp(defaults, {
   'ember-cli-addon-docs': {
-    documentingAddonAt: '../addon',
-    addonSrcFolder: 'source',
+    documentingAddonAt: '../my-awesome-addon',
+    addonSrcFolder: 'src',
   }
 });
 ```
