@@ -1,5 +1,7 @@
+@use '../variables' as vars;
+
 .AddonDocs-DocsViewer-CurrentPageIndex {
-  width: calc(((100% - #{$site-container}) / 2) + 14rem);
-  padding-right: calc((100% - #{$site-container}) / 2);
+  width: calc(((100% - #{vars.$site-container}) / 2) + 14rem);
+  padding-right: calc((100% - #{vars.$site-container}) / 2);
   min-width: 14rem;
 }

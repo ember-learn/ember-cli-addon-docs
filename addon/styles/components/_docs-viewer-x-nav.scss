@@ -1,6 +1,8 @@
+@use '../variables' as vars;
+
 .AddonDocs-DocsViewer-Nav {
-  @media (min-width: $site-container) {
-    width: calc(((100% - #{$site-container}) / 2) + 288px);
-    padding-left: calc((100% - #{$site-container}) / 2);
+  @media (min-width: vars.$site-container) {
+    width: calc(((100% - #{vars.$site-container}) / 2) + 288px);
+    padding-left: calc((100% - #{vars.$site-container}) / 2);
   }
 }
