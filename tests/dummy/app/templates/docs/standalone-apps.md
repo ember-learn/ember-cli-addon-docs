@@ -21,7 +21,7 @@ In my case, I did it as an [in repo addon](https://github.com/ember-animation/em
 
 ## 4. Add `ember-cli-addon-docs` to your docs app.
 
-You can follow the <DocsLink @route="quickstart">quickstart guide.</DocsLink>
+You can follow the <DocsLink @route="docs.quickstart">quickstart guide.</DocsLink>
 
 ## 5. Set `documentingAddonAt`
 
