@@ -136,7 +136,7 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         if: env.SHORT_CIRCUIT == 'false'
-        run: pnpm install --no-lockfile
+        run: pnpm install
       - name: Deploy Docs
         if: env.SHORT_CIRCUIT == 'false'
         run: pnpm ember deploy production
