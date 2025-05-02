@@ -1,6 +1,10 @@
-<div {{did-insert (perform this.search)}} {{did-update (perform this.search) @query}} ...attributes>
+<div
+  {{did-insert (perform this.search)}}
+  {{did-update (perform this.search) @query}}
+  ...attributes
+>
   {{#if (and this.trimmedQuery this.search.isIdle)}}
-    <ModalDialog
+    <DocsModalDialog
       @tetherTarget="[data-search-box]"
       @attachment="top left"
       @clickOutsideToClose={{true}}
@@ -30,6 +34,6 @@
           </li>
         {{/each}}
       </ul>
-    </ModalDialog>
+    </DocsModalDialog>
   {{/if}}
 </div>
