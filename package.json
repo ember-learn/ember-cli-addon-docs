@@ -59,7 +59,7 @@
     "ember-composable-helpers": "^5.0.0",
     "ember-concurrency": "^3.1.1",
     "ember-keyboard": "^9.0.1",
-    "ember-modal-dialog": "^4.1.4",
+    "ember-modal-dialog": "^4.1.5",
     "ember-router-generator": "^2.0.0",
     "ember-router-scroll": "^4.1.2",
     "ember-set-helper": "^2.0.1",

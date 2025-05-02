@@ -1,2 +1,5 @@
 packages:
-  - 'test-apps/*'
+  - test-apps/*
+
+onlyBuiltDependencies:
+  - ember-modal-dialog
