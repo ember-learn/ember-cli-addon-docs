@@ -13,7 +13,6 @@ export default class XNav extends Component {
   root;
 
   @service store;
-  @service media;
 
   @tracked isShowingMenu;
 

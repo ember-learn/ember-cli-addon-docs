@@ -1,32 +1,26 @@
-{{#if this.media.isMobile}}
-  <div class="docs-text-right docs-px-4 md:docs-px-6 docs-mt-4">
-    <button {{on "click" (toggle "isShowingMenu" this)}}
-      class="docs-text-grey-darkest docs-py-2 docs-text-xs docs-rounded docs-uppercase docs-font-medium">
-      ☰ Menu
-    </button>
-  </div>
-{{/if}}
+<div class="docs-block md:docs-hidden docs-text-right docs-px-4 md:docs-px-6 docs-mt-4">
+  <button {{on "click" (toggle "isShowingMenu" this)}}
+    class="docs-text-grey-darkest docs-py-2 docs-text-xs docs-rounded docs-uppercase docs-font-medium">
+    ☰ Menu
+  </button>
+</div>
 
 <div class="AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink" ...attributes>
   <nav {{on "click" (set this "isShowingMenu" false)}}
     class="
       docs-absolute docs-right-0 docs-shadow-lg md:docs-shadow-none docs-mr-2 md:docs-mr-0 md:docs-pl-2
       docs-max-w-xs docs-w-90% md:docs-w-72 docs-z-10 docs-transition md:docs-sticky md:docs-top-0
-      {{if this.media.isMobile
-        (if this.isShowingMenu "docs-opacity-100 docs-bg-white" "docs-opacity-0 docs-pointer-events-none")
-      }}
+      {{if this.isShowingMenu "docs-opacity-100 docs-bg-white md:docs-opacity-0" "docs-opacity-0 md:docs-opacity-100 docs-pointer-events-none md:docs-pointer-events-auto"}}
     ">
     <div class="docs-pt-px docs-mb-8 docs-px-3 md:docs-px-4 md:docs-max-h-screen md:docs-overflow-y-scroll">
-      {{#if this.media.isMobile}}
-        <div class="absolute top-0 docs-text-right right-4">
-          <button
-            class="docs-text-grey-darkest docs-opacity-50 hover:docs-opacity-100 docs-text-large-5 docs-py-2 docs-no-underline"
-            {{on "click" (set this "isShowingMenu" false)}}
-          >
-            &times;
-          </button>
-        </div>
-      {{/if}}
+      <div class="docs-block md:docs-hidden absolute top-0 docs-text-right right-4">
+        <button
+          class="docs-text-grey-darkest docs-opacity-50 hover:docs-opacity-100 docs-text-large-5 docs-py-2 docs-no-underline"
+          {{on "click" (set this "isShowingMenu" false)}}
+        >
+          &times;
+        </button>
+      </div>
 
       <DocsViewer::XNavList>
         {{yield (hash
