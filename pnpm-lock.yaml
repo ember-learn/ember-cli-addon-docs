@@ -77,9 +77,6 @@ importers:
       ember-cli-postcss:
         specifier: ^8.2.0
         version: 8.2.0
-      ember-cli-string-helpers:
-        specifier: ^6.1.0
-        version: 6.1.0
       ember-cli-string-utils:
         specifier: ^1.1.0
         version: 1.1.0
@@ -3953,10 +3950,6 @@ packages:
   ember-cli-sri@2.1.1:
     resolution: {integrity: sha512-YG/lojDxkur9Bnskt7xB6gUOtJ6aPl/+JyGYm9HNDk3GECVHB3SMN3rlGhDKHa1ndS5NK2W2TSLb9bzRbGlMdg==}
     engines: {node: '>= 0.10.0'}
-
-  ember-cli-string-helpers@6.1.0:
-    resolution: {integrity: sha512-Lw8B6MJx2n8CNF2TSIKs+hWLw0FqSYjr2/NRPyquyYA05qsl137WJSYW3ZqTsLgoinHat0DGF2qaCXocLhLmyA==}
-    engines: {node: 10.* || >=12.*}
 
   ember-cli-string-utils@1.1.0:
     resolution: {integrity: sha512-PlJt4fUDyBrC/0X+4cOpaGCiMawaaB//qD85AXmDRikxhxVzfVdpuoec02HSiTGTTB85qCIzWBIh8lDOiMyyFg==}
@@ -13474,15 +13467,6 @@ snapshots:
   ember-cli-sri@2.1.1:
     dependencies:
       broccoli-sri-hash: 2.1.2
-    transitivePeerDependencies:
-      - supports-color
-
-  ember-cli-string-helpers@6.1.0:
-    dependencies:
-      '@babel/core': 7.26.0
-      broccoli-funnel: 3.0.8
-      ember-cli-babel: 7.26.11
-      resolve: 1.22.8
     transitivePeerDependencies:
       - supports-color
 
