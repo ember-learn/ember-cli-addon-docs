@@ -14,5 +14,7 @@ module.exports = {
     'no-yield-only': false,
     'require-button-type': false,
     'require-input-label': false,
+    'no-at-ember-render-modifiers': false,
+    'no-builtin-form-components': false
   },
 };
