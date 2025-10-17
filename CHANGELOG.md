@@ -1,3 +1,29 @@
+
+## v9.0.0 (2025-10-17)
+
+#### :boom: Breaking Change
+* [#1671](https://github.com/ember-learn/ember-cli-addon-docs/pull/1671) breaking: require Node.js version  >= 20.19 ([@MichalBryxi](https://github.com/MichalBryxi))
+
+#### :bug: Bug Fix
+* [#1672](https://github.com/ember-learn/ember-cli-addon-docs/pull/1672) fix: Remove ember-cli-string-helpers ([@MichalBryxi](https://github.com/MichalBryxi))
+* [#1676](https://github.com/ember-learn/ember-cli-addon-docs/pull/1676) fix: Remove ember-responsive ([@MichalBryxi](https://github.com/MichalBryxi))
+* [#1679](https://github.com/ember-learn/ember-cli-addon-docs/pull/1679) fix: Do not override ember-modal-dialog components ([@MichalBryxi](https://github.com/MichalBryxi))
+* [#1674](https://github.com/ember-learn/ember-cli-addon-docs/pull/1674) Silence sass errors ([@MichalBryxi](https://github.com/MichalBryxi))
+
+#### :memo: Documentation
+* [#1681](https://github.com/ember-learn/ember-cli-addon-docs/pull/1681) fix: Broken link to quickstart ([@MichalBryxi](https://github.com/MichalBryxi))
+* [#1667](https://github.com/ember-learn/ember-cli-addon-docs/pull/1667) docs: Wording for v2 addon format ([@MichalBryxi](https://github.com/MichalBryxi))
+* [#1668](https://github.com/ember-learn/ember-cli-addon-docs/pull/1668) docs: How do I "add ecad"? ([@MichalBryxi](https://github.com/MichalBryxi))
+* [#1616](https://github.com/ember-learn/ember-cli-addon-docs/pull/1616) Add `ember data` dependency to the quickstart ([@barryofguilder](https://github.com/barryofguilder))
+
+#### :house: Internal
+* [#1677](https://github.com/ember-learn/ember-cli-addon-docs/pull/1677) Use Node.js v20.19 in "Publish Addon Docs" ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 3
+- Jason Barry ([@barryofguilder](https://github.com/barryofguilder))
+- Michal Bryxí ([@MichalBryxi](https://github.com/MichalBryxi))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
 ## v8.0.8 (2024-12-06)
 
 ## v8.0.7 (2024-12-06)
