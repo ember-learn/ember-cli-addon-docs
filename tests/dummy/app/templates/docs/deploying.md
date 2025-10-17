@@ -128,11 +128,11 @@ jobs:
       - uses: pnpm/action-setup@v4
         if: env.SHORT_CIRCUIT == 'false'
         with:
-          version: 9
+          version: 10
       - uses: actions/setup-node@v4
         if: env.SHORT_CIRCUIT == 'false'
         with:
-          node-version: 18
+          node-version: 20
           cache: pnpm
       - name: Install Dependencies
         if: env.SHORT_CIRCUIT == 'false'
