@@ -1,4 +1,13 @@
 
+
+## v10.0.0 (2025-11-05)
+
+#### :boom: Breaking Change
+* [#1684](https://github.com/ember-learn/ember-cli-addon-docs/pull/1684) Require node 22.21.1+ ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 1
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v9.0.0 (2025-10-17)
 
 #### :boom: Breaking Change
