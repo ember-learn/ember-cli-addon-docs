@@ -21,7 +21,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.19.x
+          node-version: 22
       - uses: pnpm/action-setup@v4
         with:
           version: 10
@@ -46,7 +46,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.19.x
+          node-version: 22
       - uses: pnpm/action-setup@v4
         with:
           version: 10
@@ -71,7 +71,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.19.x
+          node-version: 22
       - uses: pnpm/action-setup@v4
         with:
           version: 10
@@ -103,7 +103,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.19.x
+          node-version: 22
       - uses: pnpm/action-setup@v4
         with:
           version: 10
