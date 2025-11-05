@@ -116,9 +116,6 @@ importers:
       ember-truth-helpers:
         specifier: ^4.0.3
         version: 4.0.3(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.26.0))(rsvp@4.8.5)(webpack@5.97.1))
-      esm:
-        specifier: ^3.2.25
-        version: 3.2.25
       execa:
         specifier: 5.1.1
         version: 5.1.1

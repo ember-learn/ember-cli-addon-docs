@@ -132,7 +132,7 @@ jobs:
       - uses: actions/setup-node@v4
         if: env.SHORT_CIRCUIT == 'false'
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
       - name: Install Dependencies
         if: env.SHORT_CIRCUIT == 'false'
