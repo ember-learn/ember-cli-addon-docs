@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { keyResponder, onKey } from 'ember-keyboard';
-import { restartableTask } from 'ember-concurrency';
+import { task } from 'ember-concurrency';
 import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 @keyResponder
@@ -32,17 +32,16 @@ export default class DocsHeaderSearchResults extends Component {
     return this.args.query.trim();
   }
 
-  @restartableTask
-  *search() {
+  search = task({ restartable: true }, async () => {
     let results;
 
     if (this.trimmedQuery) {
-      results = yield this.docsSearch.search(this.trimmedQuery);
+      results = await this.docsSearch.search(this.trimmedQuery);
     }
 
     this.selectedIndex = results.length ? 0 : null;
     this.rawSearchResults = results;
-  }
+  });
 
   get searchResults() {
     let rawSearchResults = this.rawSearchResults;

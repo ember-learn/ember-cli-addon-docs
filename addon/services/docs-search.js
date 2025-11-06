@@ -1,6 +1,6 @@
 import Service from '@ember/service';
 import lunr from 'lunr';
-import { enqueueTask } from 'ember-concurrency';
+import { task } from 'ember-concurrency';
 import {
   getAddonDocsConfig,
   getRootURL,
@@ -89,11 +89,10 @@ export default class DocsSearch extends Service {
     return this._loadSearchIndex.perform();
   }
 
-  @enqueueTask
-  *_loadSearchIndex() {
+  _loadSearchIndex = task({ enqueue: true }, async () => {
     if (!this._searchIndex) {
-      let response = yield fetch(this._indexURL);
-      let json = yield response.json();
+      let response = await fetch(this._indexURL);
+      let json = await response.json();
 
       this._searchIndex = {
         index: Index.load(json.index),
@@ -102,7 +101,7 @@ export default class DocsSearch extends Service {
     }
 
     return this._searchIndex;
-  }
+  });
 
   get _indexURL() {
     return `${getRootURL(this)}ember-cli-addon-docs/search-index.json`;

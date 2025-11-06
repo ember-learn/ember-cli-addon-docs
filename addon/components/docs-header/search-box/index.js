@@ -21,10 +21,9 @@ export default class DocsHeaderSearchBox extends Component {
   // the project) within a new addonDocs service that wires all that up together.
   // I think it's fine if our Docs-* components assume there is a single global
   // project.
-  @task
-  *fetchProject() {
-    yield this.store.findRecord('project', this.config.projectName);
-  }
+  fetchProject = task(async () => {
+    await this.store.findRecord('project', this.config.projectName);
+  });
 
   @action
   focusSearch() {
