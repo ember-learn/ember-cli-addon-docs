@@ -18,6 +18,12 @@ module.exports = {
   LATEST_VERSION_NAME,
 
   options: {
+    babel: {
+      plugins: [
+        require.resolve('ember-concurrency/async-arrow-task-transform'),
+      ],
+    },
+
     postcssOptions: {
       compile: {
         extension: 'scss',

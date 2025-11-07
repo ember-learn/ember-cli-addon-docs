@@ -11,12 +11,11 @@ export default class ProjectVersionService extends Service {
 
   @addonDocsConfig config;
 
-  @task
-  *_loadAvailableVersions() {
-    let response = yield fetch(`${this.root}versions.json`);
+  _loadAvailableVersions = task(async () => {
+    let response = await fetch(`${this.root}versions.json`);
     let json;
     if (response.ok) {
-      json = yield response.json();
+      json = await response.json();
     } else {
       json = {
         [this.config.latestVersionName]: Object.assign({}, this.currentVersion),
@@ -30,7 +29,7 @@ export default class ProjectVersionService extends Service {
 
       return version;
     });
-  }
+  });
 
   redirectTo(version) {
     window.location.href = `${this.root}${version.path}`;
