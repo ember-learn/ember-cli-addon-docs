@@ -385,9 +385,10 @@ module.exports = {
   _documentingAddon() {
     let addon;
     if (this._documentingAddonAt()) {
-      addon = this.project.addons.find(
-        (a) => a.root === this._documentingAddonAt(),
+      const pkg = require(
+        path.join(this._documentingAddonAt(), 'package.json'),
       );
+      addon = this.project.addons.find((a) => a.name === pkg.name);
       if (!addon) {
         throw new Error(
           `You set documentingAddonAt to point at ${this._documentingAddonAt()} but that addon does not appear to be present in this app.`,
