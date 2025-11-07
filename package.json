@@ -165,6 +165,7 @@
     "@ember-data/serializer": ">= 3.0.0",
     "@ember-data/store": ">= 3.0.0",
     "@ember/string": "^3.1.1 || ^4.0.0",
+    "@ember/test-waiters": "^3.1.0 || ^4.0.0",
     "ember-data": ">= 3.0.0",
     "ember-inflector": ">= 4.0.0",
     "ember-source": ">= 4.0.0"
