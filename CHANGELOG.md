@@ -1,5 +1,18 @@
 
 
+
+## v10.0.1 (2025-11-07)
+
+#### :bug: Bug Fix
+* [#1686](https://github.com/ember-learn/ember-cli-addon-docs/pull/1686) Handle when addons are installed elsewhere ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### :house: Internal
+* [#1685](https://github.com/ember-learn/ember-cli-addon-docs/pull/1685) Update ember-concurrency to v5 ([@anehx](https://github.com/anehx))
+
+#### Committers: 2
+- Jonas Metzener ([@anehx](https://github.com/anehx))
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v10.0.0 (2025-11-05)
 
 #### :boom: Breaking Change
