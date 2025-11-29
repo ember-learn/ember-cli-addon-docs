@@ -25,8 +25,13 @@
     "ember-auto-import": "*"
   },
   "devDependencies": {
+    "@ember-data/adapter": "*",
+    "@ember-data/model": "*",
+    "@ember-data/serializer": "*",
+    "@ember-data/store": "*",
     "@ember/optional-features": "^2.2.0",
     "@ember/test-helpers": "*",
+    "@ember/test-waiters": "*",
     "broccoli-asset-rev": "^3.0.0",
     "ember-cli": "~5.11.0",
     "ember-cli-addon-docs": "workspace:*",
