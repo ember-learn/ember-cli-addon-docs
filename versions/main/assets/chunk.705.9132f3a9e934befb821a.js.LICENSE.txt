@@ -1,12 +1,4 @@
 /*!
- * @overview RSVP - a tiny implementation of Promises/A+.
- * @copyright Copyright (c) 2016 Yehuda Katz, Tom Dale, Stefan Penner and contributors
- * @license   Licensed under MIT license
- *            See https://raw.githubusercontent.com/tildeio/rsvp.js/master/LICENSE
- * @version   3.6.2
- */
-
-/*!
  * clipboard.js v2.0.11
  * https://clipboardjs.com/
  *
