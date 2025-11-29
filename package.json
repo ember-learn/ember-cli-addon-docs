@@ -187,6 +187,35 @@
       "optional": true
     }
   },
+  "pnpm": {
+    "overrides": {
+      "@ember-data/adapter": "$@ember-data/adapter",
+      "@ember-data/model": "$@ember-data/model",
+      "@ember-data/serializer": "$@ember-data/serializer",
+      "@ember-data/store": "$@ember-data/store",
+      "@ember/test-helpers": "$@ember/test-helpers",
+      "@ember/test-waiters": "$@ember/test-waiters",
+      "ember-cli-babel": "$ember-cli-babel",
+      "ember-auto-import": "$ember-auto-import",
+      "ember-cli-addon-docs-yuidoc": "$ember-cli-addon-docs-yuidoc",
+      "ember-cli-dependency-checker": "$ember-cli-dependency-checker",
+      "ember-cli-htmlbars": "$ember-cli-htmlbars",
+      "ember-cli-inject-live-reload": "$ember-cli-inject-live-reload",
+      "ember-data": "$ember-data",
+      "ember-qunit": "$ember-qunit",
+      "ember-cli-sri": "$ember-cli-sri",
+      "ember-cli-terser": "$ember-cli-terser",
+      "ember-load-initializers": "$ember-load-initializers",
+      "ember-resolver": "$ember-resolver",
+      "ember-source": "$ember-source",
+      "ember-source-channel-url": "$ember-source-channel-url",
+      "ember-try": "$ember-try",
+      "eslint": "$eslint",
+      "eslint-plugin-n": "$eslint-plugin-n",
+      "loader.js": "$loader.js",
+      "webpack": "$webpack"
+    }
+  },
   "engines": {
     "node": ">= 22.21.1"
   },
