@@ -1,6 +1,15 @@
 
 
 
+
+## v10.0.2 (2025-11-29)
+
+#### :house: Internal
+* [#1687](https://github.com/ember-learn/ember-cli-addon-docs/pull/1687) Bump some deps ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 1
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v10.0.1 (2025-11-07)
 
 #### :bug: Bug Fix
