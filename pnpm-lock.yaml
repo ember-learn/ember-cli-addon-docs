@@ -261,9 +261,6 @@ importers:
       '@ember/optional-features':
         specifier: ^2.3.0
         version: 2.3.0
-      '@ember/string':
-        specifier: ^3.1.1
-        version: 3.1.1(@babel/core@7.28.5)
       '@ember/test-helpers':
         specifier: ^3.3.1
         version: 3.3.1(@babel/core@7.28.5)(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(webpack@5.103.0)
@@ -417,9 +414,6 @@ importers:
 
   test-apps/new-addon:
     dependencies:
-      '@ember/string':
-        specifier: ^3.1.1
-        version: 3.1.1(@babel/core@7.28.5)
       ember-auto-import:
         specifier: ^2.12.0
         version: 2.12.0(webpack@5.103.0)

@@ -3,7 +3,7 @@ import {
   addonPrefix,
   unprefixedAddonName,
 } from 'ember-cli-addon-docs/utils/computed';
-import { classify } from '@ember/string';
+import { classify } from '../../utils/string';
 import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 /**

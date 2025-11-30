@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'dummy/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import { capitalize } from '@ember/string';
+import { capitalize } from 'ember-cli-addon-docs/utils/string';
 
 module('Integration | Helper | capitalize', function (hooks) {
   setupRenderingTest(hooks);
