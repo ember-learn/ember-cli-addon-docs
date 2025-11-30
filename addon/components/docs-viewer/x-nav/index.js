@@ -2,7 +2,7 @@ import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { localCopy } from 'tracked-toolbox';
-import { classify } from '@ember/string';
+import { classify } from '../../../utils/string';
 import { addonLogo } from 'ember-cli-addon-docs/utils/computed';
 import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
