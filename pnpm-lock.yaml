@@ -123,8 +123,8 @@ importers:
         specifier: ^9.0.4
         version: 9.0.4(@babel/core@7.28.5)(@ember/test-helpers@3.3.1(@babel/core@7.28.5)(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(webpack@5.103.0))
       ember-modal-dialog:
-        specifier: ^4.1.5
-        version: 4.1.5(@ember/string@3.1.1(@babel/core@7.28.5))(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(ember-tether@3.1.0(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(webpack@5.103.0))
+        specifier: ^5.0.0
+        version: 5.0.0(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(ember-tether@3.1.0(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(webpack@5.103.0))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2)
       ember-router-generator:
         specifier: ^2.0.0
         version: 2.0.0
@@ -1261,10 +1261,6 @@ packages:
       '@glint/template':
         optional: true
 
-  '@ember/string@3.1.1':
-    resolution: {integrity: sha512-UbXJ+k3QOrYN4SRPHgXCqYIJ+yWWUg1+vr0H4DhdQPTy8LJfyqwZ2tc5uqpSSnEXE+/1KopHBE5J8GDagAg5cg==}
-    engines: {node: 12.* || 14.* || >= 16}
-
   '@ember/test-helpers@3.3.1':
     resolution: {integrity: sha512-h4uFBy4pquBtHsHI+tx9S0wtMmn1L+8dkXiDiyoqG1+3e0Awk6GBujiFM9s4ANq6wC8uIhC3wEFyts10h2OAoQ==}
     engines: {node: 16.* || >= 18}
@@ -1315,8 +1311,8 @@ packages:
       '@embroider/webpack':
         optional: true
 
-  '@embroider/util@1.13.4':
-    resolution: {integrity: sha512-TqA0SNQarSJUdYGv+39MBCHkiuxhr2u0iKJP/JnDmQkCiVhvuFWy3P3n5sI26fVrVwG3DJLfxE2XVnB37udFOA==}
+  '@embroider/util@1.13.5':
+    resolution: {integrity: sha512-rHhGUzAQ5iOr5Swvk7yaarVe5SJtcjK2t/C8ts9agWfhTq4DVfy8+axF0KOf1jALRiJao3l9ALRGd6letKw2ZQ==}
     engines: {node: 12.* || 14.* || >= 16}
     peerDependencies:
       '@glint/environment-ember-loose': ^1.0.0
@@ -3938,14 +3934,15 @@ packages:
     resolution: {integrity: sha512-CYR+U/wRxLbrfYN3dh+0Tb6mFaxJKfdyz+wNql6cqTrA0BBi9k6J3AaKXj273TqvEpyyXegQFFkZEiuZdYtgJw==}
     engines: {node: 6.* || 8.* || >= 10.*}
 
-  ember-modal-dialog@4.1.5:
-    resolution: {integrity: sha512-VioV8l0B5N7kvqmV/dupwWQBdAHMDNjmONzo/mW1kHkF4RXyGzgbUqzNHc5cTF9yuEeXKOLf0CBwWEMMM8A9AA==}
+  ember-modal-dialog@5.0.0:
+    resolution: {integrity: sha512-+POBUIIeRjgsJBO9VC11Qv9OQt6AnW7BPX/wHB/wmICMIvMTOWPPfjSs49YOuHjMCS/ovCBHCixmPuiIlwUrFQ==}
     engines: {node: 18.* || >= 20}
     peerDependencies:
-      '@ember/string': ^3.0.0 || ^4.0.0
       ember-tether: ^3.0.0
-      liquid-tether: ^2.0.7
-      liquid-wormhole: ^3.0.1
+      liquid-fire: ^0.37.1
+      liquid-tether: ^3.0.0
+      liquid-wormhole: ^6.0.0
+      velocity-animate: ^1.5.2
     peerDependenciesMeta:
       ember-tether:
         optional: true
@@ -5636,6 +5633,11 @@ packages:
 
   linkify-it@4.0.1:
     resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==}
+
+  liquid-fire@0.37.1:
+    resolution: {integrity: sha512-ULu4OlcqSB1iJp+/NPPqJCi8XgiMDHuhjKLsazsQTb4xB15FI2HFV/DCfzvFxfUtoaeKlnmxsrUATBmPww0Kgg==}
+    peerDependencies:
+      velocity-animate: ^1.5.2
 
   livereload-js@3.4.1:
     resolution: {integrity: sha512-5MP0uUeVCec89ZbNOT/i97Mc+q3SxXmiUGhRFOTmhrGPn//uWVQdCvcLJDy64MSBR5MidFdOR7B9viumoavy6g==}
@@ -8250,6 +8252,9 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
+  velocity-animate@1.5.2:
+    resolution: {integrity: sha512-m6EXlCAMetKztO1ppBhGU1/1MR3IiEevO6ESq6rcrSQ3Q77xYSW13jkfXW88o4xMrkXJhy/U7j4wFR/twMB0Eg==}
+
   w3c-xmlserializer@5.0.0:
     resolution: {integrity: sha512-o8qghlI8NZHU1lLPrpi2+Uq7abh4GGPpYANlalzWxyWteJOCsr/P+oPBA49TOLu5FTZO4d3F9MnWJfiMo4BkmA==}
     engines: {node: '>=18'}
@@ -9526,13 +9531,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@ember/string@3.1.1(@babel/core@7.28.5)':
-    dependencies:
-      ember-cli-babel: 8.2.0(@babel/core@7.28.5)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - supports-color
-
   '@ember/test-helpers@3.3.1(@babel/core@7.28.5)(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(webpack@5.103.0)':
     dependencies:
       '@ember/test-waiters': 3.1.0(@babel/core@7.28.5)
@@ -9629,7 +9627,7 @@ snapshots:
       lodash: 4.17.21
       resolve: 1.22.11
 
-  '@embroider/util@1.13.4(@babel/core@7.28.5)(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))':
+  '@embroider/util@1.13.5(@babel/core@7.28.5)(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))':
     dependencies:
       '@embroider/macros': 1.19.5(@babel/core@7.28.5)
       broccoli-funnel: 3.0.8
@@ -13252,16 +13250,17 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-modal-dialog@4.1.5(@ember/string@3.1.1(@babel/core@7.28.5))(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(ember-tether@3.1.0(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(webpack@5.103.0)):
+  ember-modal-dialog@5.0.0(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(ember-tether@3.1.0(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(webpack@5.103.0))(liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2))(velocity-animate@1.5.2):
     dependencies:
       '@babel/core': 7.28.5
-      '@ember/string': 3.1.1(@babel/core@7.28.5)
       '@embroider/macros': 1.19.5(@babel/core@7.28.5)
-      '@embroider/util': 1.13.4(@babel/core@7.28.5)(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))
+      '@embroider/util': 1.13.5(@babel/core@7.28.5)(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))
       ember-cli-babel: 8.2.0(@babel/core@7.28.5)
       ember-cli-htmlbars: 6.3.0
       ember-cli-version-checker: 5.1.2
       ember-wormhole: 0.6.1(@babel/core@7.28.5)
+      liquid-fire: 0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2)
+      velocity-animate: 1.5.2
     optionalDependencies:
       ember-tether: 3.1.0(ember-source@5.11.1(@glimmer/component@1.1.2(@babel/core@7.28.5))(rsvp@4.8.5)(webpack@5.103.0))(webpack@5.103.0)
     transitivePeerDependencies:
@@ -15476,6 +15475,17 @@ snapshots:
   linkify-it@4.0.1:
     dependencies:
       uc.micro: 1.0.6
+
+  liquid-fire@0.37.1(@babel/core@7.28.5)(velocity-animate@1.5.2):
+    dependencies:
+      '@embroider/addon-shim': 1.10.2
+      '@embroider/macros': 1.19.5(@babel/core@7.28.5)
+      ember-modifier: 4.2.2(@babel/core@7.28.5)
+      velocity-animate: 1.5.2
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@glint/template'
+      - supports-color
 
   livereload-js@3.4.1: {}
 
@@ -18491,6 +18501,8 @@ snapshots:
       semver: 7.7.3
 
   vary@1.1.2: {}
+
+  velocity-animate@1.5.2: {}
 
   w3c-xmlserializer@5.0.0:
     dependencies:
