@@ -1,5 +1,5 @@
 import { computed, get } from '@ember/object';
-import { capitalize } from '@ember/string';
+import { capitalize } from './string';
 
 /**
   @function initialize

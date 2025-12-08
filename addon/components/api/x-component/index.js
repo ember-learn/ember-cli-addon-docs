@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { alias, or } from '@ember/object/computed';
-import { capitalize } from '@ember/string';
+import { capitalize } from '../../../utils/string';
 import { memberFilter } from '../../../utils/computed';
 
 export default class XComponent extends Component {

@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { or } from '@ember/object/computed';
-import { capitalize } from '@ember/string';
+import { capitalize } from '../../../utils/string';
 import { memberFilter } from '../../../utils/computed';
 import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 

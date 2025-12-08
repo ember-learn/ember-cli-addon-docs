@@ -1,6 +1,6 @@
 import { attr } from '@ember-data/model';
 import { filterBy, or } from '@ember/object/computed';
-import { dasherize } from '@ember/string';
+import { dasherize } from '../utils/string';
 
 import Class from './class';
 import { memberUnion, hasMemberType } from '../utils/computed';
