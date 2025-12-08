@@ -2,6 +2,15 @@
 
 
 
+
+## v10.1.0 (2025-12-08)
+
+#### :rocket: Enhancement
+* [#1688](https://github.com/ember-learn/ember-cli-addon-docs/pull/1688) Remove @ember/string dependency ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 1
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v10.0.2 (2025-11-29)
 
 #### :house: Internal
