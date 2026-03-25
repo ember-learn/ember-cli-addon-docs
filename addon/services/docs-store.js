@@ -58,54 +58,13 @@ export default class DocsStoreService extends Service {
 
     let fastboot = getOwner(this).lookup('service:fastboot');
     if (fastboot?.isFastBoot) {
-      // In FastBoot, use Node's http module to fetch from the local server
-      // that prember/fastboot is running
-      let http = FastBoot.require('http');
-      let request = fastboot.request;
-      // Derive host and protocol from the FastBoot/Node request in a standards-based way
-      let host =
-        (request &&
-          request.headers &&
-          (request.headers.host || request.headers.Host)) ||
-        request.host;
-      let protocol =
-        (request && request.protocol) ||
-        (request &&
-          request.headers &&
-          (request.headers['x-forwarded-proto'] ||
-            request.headers['X-Forwarded-Proto'])) ||
-        'http';
-      let url = `${protocol}://${host}/docs/${id}.json`;
-
-      let data = await new Promise((resolve, reject) => {
-        let req = http.get(url, (res) => {
-          res.setEncoding('utf8');
-          let body = '';
-          res.on('data', (chunk) => {
-            body += chunk;
-          });
-          res.on('end', () => {
-            let statusCode = res.statusCode || 0;
-            if (statusCode >= 200 && statusCode < 300) {
-              resolve(body);
-            } else {
-              reject(
-                new Error(`Request to ${url} failed with status ${statusCode}`),
-              );
-            }
-          });
-          res.on('error', reject);
-        });
-
-        req.on('error', reject);
-        // Basic timeout so prember/fastboot failures don't hang indefinitely
-        req.setTimeout(10000, () => {
-          req.abort();
-          reject(new Error(`Request to ${url} timed out`));
-        });
-      });
-
-      payload = JSON.parse(data);
+      // In FastBoot, read the docs JSON directly from the dist directory
+      // using FastBoot.distPath. This works during both prember builds and
+      // ember serve with fastboot, without needing an HTTP request.
+      let fs = FastBoot.require('fs');
+      let path = FastBoot.require('path');
+      let filePath = path.join(FastBoot.distPath, 'docs', `${id}.json`);
+      payload = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     } else {
       let namespace = `${getRootURL(this).replace(/\/$/, '')}/docs`;
       let url = `${namespace}/${id}.json`;

@@ -51,11 +51,5 @@ module.exports = function (environment) {
     // plugin rewrites it to the versioned path at deploy time.
   }
 
-  ENV.fastboot = {
-    // Restrict FastBoot host allowlist to known hosts instead of allowing all.
-    // Add any additional production hostnames here, e.g. 'docs.example.com'.
-    hostWhitelist: ['localhost', /^localhost:\d+$/, '127.0.0.1', '::1'],
-  };
-
   return ENV;
 };
