@@ -3,6 +3,16 @@
 
 
 
+
+## v11.0.0 (2026-03-25)
+
+#### :boom: Breaking Change
+* [#1691](https://github.com/ember-learn/ember-cli-addon-docs/pull/1691) Add fastboot/prember ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+* [#1690](https://github.com/ember-learn/ember-cli-addon-docs/pull/1690) Remove ember-data and mirage ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 1
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v10.1.0 (2025-12-08)
 
 #### :rocket: Enhancement
