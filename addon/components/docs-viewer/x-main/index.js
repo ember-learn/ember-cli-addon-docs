@@ -21,6 +21,8 @@ export default class XMain extends Component {
 
   @action
   setupElement(element) {
+    if (typeof MutationObserver === 'undefined') return;
+
     let target = element.querySelector('[data-current-page-index-target]');
 
     this._mutationObserver = new MutationObserver(

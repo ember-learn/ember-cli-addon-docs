@@ -9,6 +9,8 @@ const TAGNAMES_THAT_WHEN_FOCUSED_PREVENT_KEYBOARD_SHORTCUTS = [
   @hide
 */
 export function formElementHasFocus() {
+  if (typeof document === 'undefined') return false;
+
   return TAGNAMES_THAT_WHEN_FOCUSED_PREVENT_KEYBOARD_SHORTCUTS.includes(
     document.activeElement.tagName,
   );

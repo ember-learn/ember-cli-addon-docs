@@ -87,7 +87,9 @@ export default class DocsHeader extends Component {
   @action
   didVisitPage() {
     this.query = null;
-    let search = document.querySelector('[data-search-box-input]');
-    search.blur();
+    if (typeof document !== 'undefined') {
+      let search = document.querySelector('[data-search-box-input]');
+      search?.blur();
+    }
   }
 }

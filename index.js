@@ -130,6 +130,13 @@ module.exports = {
       }
     }
 
+    // Set up prember for static site generation if not already configured
+    if (!includer.options.prember) {
+      includer.options.prember = {
+        urls: require('./lib/prember-urls'),
+      };
+    }
+
     includer.options.includeFileExtensionInSnippetNames =
       includer.options.includeFileExtensionInSnippetNames || false;
     if (!includer.options.snippetSearchPaths) {

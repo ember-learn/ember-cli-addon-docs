@@ -1,4 +1,6 @@
+/* global FastBoot */
 import Service from '@ember/service';
+import { getOwner } from '@ember/application';
 import { tracked } from '@glimmer/tracking';
 import { getRootURL } from 'ember-cli-addon-docs/-private/config';
 
@@ -52,11 +54,33 @@ export default class DocsStoreService extends Service {
   }
 
   async _fetchProject(id) {
-    let namespace = `${getRootURL(this).replace(/\/$/, '')}/docs`;
-    let url = `${namespace}/${id}.json`;
+    let payload;
 
-    let response = await fetch(url);
-    let payload = await response.json();
+    let fastboot = getOwner(this).lookup('service:fastboot');
+    if (fastboot?.isFastBoot) {
+      // In FastBoot, use Node's http module to fetch from the local server
+      // that prember/fastboot is running
+      let http = FastBoot.require('http');
+      let { host } = fastboot.request;
+      let url = `http://${host}/docs/${id}.json`;
+
+      let data = await new Promise((resolve, reject) => {
+        http
+          .get(url, (res) => {
+            let body = '';
+            res.on('data', (chunk) => (body += chunk));
+            res.on('end', () => resolve(body));
+          })
+          .on('error', reject);
+      });
+
+      payload = JSON.parse(data);
+    } else {
+      let namespace = `${getRootURL(this).replace(/\/$/, '')}/docs`;
+      let url = `${namespace}/${id}.json`;
+      let response = await fetch(url);
+      payload = await response.json();
+    }
 
     this._loadPayload(payload);
 
