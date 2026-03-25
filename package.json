@@ -186,7 +186,8 @@
       "webpack": "$webpack"
     },
     "onlyBuiltDependencies": [
-      "core-js"
+      "@parcel/watcher",
+      "ember-modal-dialog"
     ]
   },
   "engines": {
