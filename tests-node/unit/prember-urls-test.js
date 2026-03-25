@@ -222,8 +222,9 @@ describe('Unit | prember-urls', function () {
 
     let urls = premberUrls({ distDir: tmpDir });
     let docsCount = urls.filter((u) => u === '/docs').length;
-    // '/docs' from the docs JSON and '/docs/index' from search index are different,
-    // but '/docs' itself should only appear once
+    // Both the docs JSON and the search index contribute '/docs', but the URL
+    // itself should only appear once after deduplication.
     assert.equal(docsCount, 1);
+    assert.notInclude(urls, '/docs/index');
   });
 });
