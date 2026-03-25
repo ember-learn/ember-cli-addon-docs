@@ -91,7 +91,41 @@ describe('Unit | prember-urls', function () {
     let urls = premberUrls({ distDir: tmpDir });
     assert.include(urls, '/docs/quickstart');
     assert.include(urls, '/docs/usage');
-    assert.include(urls, '/docs/components/index');
+    // docs.components.index should become /docs/components (strip trailing /index)
+    assert.include(urls, '/docs/components');
+    assert.notInclude(urls, '/docs/components/index');
+  });
+
+  it('strips trailing /index from routes', function () {
+    fs.ensureDirSync(path.join(tmpDir, 'ember-cli-addon-docs'));
+    fs.writeJsonSync(
+      path.join(tmpDir, 'ember-cli-addon-docs', 'search-index.json'),
+      {
+        index: {},
+        documents: {
+          'template:docs.index': {
+            type: 'template',
+            route: 'docs.index',
+          },
+          'template:sandbox.docs.index': {
+            type: 'template',
+            route: 'sandbox.docs.index',
+          },
+          'template:index': {
+            type: 'template',
+            route: 'index',
+          },
+        },
+      },
+    );
+
+    let urls = premberUrls({ distDir: tmpDir });
+    assert.include(urls, '/docs');
+    assert.include(urls, '/sandbox/docs');
+    assert.include(urls, '/');
+    assert.notInclude(urls, '/docs/index');
+    assert.notInclude(urls, '/sandbox/docs/index');
+    assert.notInclude(urls, '/index');
   });
 
   it('filters out internal routes from search index', function () {
