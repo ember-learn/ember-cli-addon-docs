@@ -96,7 +96,11 @@ describe('`deploy` | plugin test', function () {
     `;
     const encodedVersion = encodeURIComponent(JSON.stringify({ path: '' }));
     const addonDocsRootURL = '/';
-    const actual = replaceDeployTokens(contents, addonDocsRootURL, encodedVersion);
+    const actual = replaceDeployTokens(
+      contents,
+      addonDocsRootURL,
+      encodedVersion,
+    );
 
     // rootURL should stay as / (no change for root deploy)
     assert.include(actual, '%22rootURL%22%3A%22%2F%22');
@@ -108,7 +112,11 @@ describe('`deploy` | plugin test', function () {
     const contents = '<link href="/assets/vendor.css" rel="stylesheet">';
     const encodedVersion = encodeURIComponent(JSON.stringify({ path: '' }));
     const addonDocsRootURL = '/my-addon/';
-    const actual = replaceDeployTokens(contents, addonDocsRootURL, encodedVersion);
+    const actual = replaceDeployTokens(
+      contents,
+      addonDocsRootURL,
+      encodedVersion,
+    );
 
     assert.include(actual, 'href="/my-addon/assets/vendor.css"');
   });

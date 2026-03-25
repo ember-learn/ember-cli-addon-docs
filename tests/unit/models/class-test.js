@@ -40,17 +40,13 @@ module('Unit | Model | class', function () {
 
   test('child members override parent members with same name', function (assert) {
     let parent = new Class();
-    parent.accessors = [
-      { name: 'shared', access: 'public', from: 'parent' },
-    ];
+    parent.accessors = [{ name: 'shared', access: 'public', from: 'parent' }];
     parent.methods = [];
     parent.fields = [];
 
     let child = new Class();
     child.parentClass = parent;
-    child.accessors = [
-      { name: 'shared', access: 'public', from: 'child' },
-    ];
+    child.accessors = [{ name: 'shared', access: 'public', from: 'child' }];
     child.methods = [];
     child.fields = [];
 
