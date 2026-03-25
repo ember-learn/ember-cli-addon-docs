@@ -78,20 +78,52 @@ export default class DocsStoreService extends Service {
       let url = `${protocol}://${host}/docs/${id}.json`;
 
       let data = await new Promise((resolve, reject) => {
-        http
-          .get(url, (res) => {
-            let body = '';
-            res.on('data', (chunk) => (body += chunk));
-            res.on('end', () => resolve(body));
-          })
-          .on('error', reject);
+        let req = http.get(url, (res) => {
+          res.setEncoding('utf8');
+          let body = '';
+          res.on('data', (chunk) => {
+            body += chunk;
+          });
+          res.on('end', () => {
+            let statusCode = res.statusCode || 0;
+            if (statusCode >= 200 && statusCode < 300) {
+              resolve(body);
+            } else {
+              reject(
+                new Error(
+                  `Request to ${url} failed with status ${statusCode}`
+                )
+              );
+            }
+          });
+          res.on('error', reject);
+        });
+
+        req.on('error', reject);
+        // Basic timeout so prember/fastboot failures don't hang indefinitely
+        req.setTimeout(10000, () => {
+          req.abort();
+          reject(new Error(`Request to ${url} timed out`));
+        });
       });
 
       payload = JSON.parse(data);
     } else {
       let namespace = `${getRootURL(this).replace(/\/$/, '')}/docs`;
       let url = `${namespace}/${id}.json`;
-      let response = await fetch(url);
+      let response;
+      try {
+        response = await fetch(url);
+      } catch (e) {
+        throw new Error(
+          `Network error while fetching ${url}: ${e && e.message}`
+        );
+      }
+      if (!response.ok) {
+        throw new Error(
+          `Request to ${url} failed with status ${response.status}`
+        );
+      }
       payload = await response.json();
     }
 
