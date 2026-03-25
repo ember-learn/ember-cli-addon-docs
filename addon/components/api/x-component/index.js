@@ -1,9 +1,8 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { alias, or } from '@ember/object/computed';
 import { capitalize } from '../../../utils/string';
-import { memberFilter } from '../../../utils/computed';
+import { filterMembers } from '../../../utils/computed';
 
 export default class XComponent extends Component {
   @tracked showInherited = false;
@@ -12,29 +11,36 @@ export default class XComponent extends Component {
   @tracked showPrivate = false;
   @tracked showDeprecated = false;
 
-  @alias('args.component.overloadedYields')
-  yields;
+  get yields() {
+    return this.args.component.overloadedYields;
+  }
 
-  @memberFilter('args.component', 'arguments')
-  arguments;
+  get arguments() {
+    return filterMembers(this.args.component, 'arguments', this);
+  }
 
-  @memberFilter('args.component', 'accessors')
-  accessors;
+  get accessors() {
+    return filterMembers(this.args.component, 'accessors', this);
+  }
 
-  @memberFilter('args.component', 'methods')
-  methods;
+  get methods() {
+    return filterMembers(this.args.component, 'methods', this);
+  }
 
-  @memberFilter('args.component', 'fields')
-  fields;
+  get fields() {
+    return filterMembers(this.args.component, 'fields', this);
+  }
 
-  @or(
-    'args.component.hasInherited',
-    'args.component.hasInternal',
-    'args.component.hasProtected',
-    'args.component.hasPrivate',
-    'args.component.hasDeprecated',
-  )
-  hasToggles;
+  get hasToggles() {
+    let c = this.args.component;
+    return !!(
+      c.hasInherited ||
+      c.hasInternal ||
+      c.hasProtected ||
+      c.hasPrivate ||
+      c.hasDeprecated
+    );
+  }
 
   get hasContents() {
     let component = this.args.component;

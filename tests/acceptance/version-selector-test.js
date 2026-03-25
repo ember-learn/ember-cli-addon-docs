@@ -1,13 +1,16 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
-import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
+import {
+  setupMockVersions,
+  mockVersionsEndpoint,
+} from '../helpers/mock-versions';
 import { visit, click } from '@ember/test-helpers';
 
 let config;
 
 module('Acceptance | Version selector test', function (hooks) {
   setupApplicationTest(hooks);
-  setupMirage(hooks);
+  setupMockVersions(hooks);
 
   hooks.beforeEach(async function () {
     config = this.owner.resolveRegistration('config:environment');
@@ -42,7 +45,7 @@ module('Acceptance | Version selector test', function (hooks) {
   });
 
   test(`the version selector renders correctly`, async function (assert) {
-    server.get('/versions.json', {
+    mockVersionsEndpoint(this.server, {
       '-latest': {
         sha: '53b73465d31925f26fd1f77881aefcaccce2915a',
         tag: null,
@@ -106,7 +109,7 @@ module('Acceptance | Version selector test', function (hooks) {
   });
 
   test(`the version selector renders a tag for latest if present`, async function (assert) {
-    server.get('/versions.json', {
+    mockVersionsEndpoint(this.server, {
       '-latest': {
         sha: '53b73465d31925f26fd1f77881aefcaccce2915a',
         tag: 'v0.1.0',
@@ -160,7 +163,7 @@ module('Acceptance | Version selector test', function (hooks) {
     });
 
     test(`the version selector honors the primary branch`, async function (assert) {
-      server.get('/versions.json', {
+      mockVersionsEndpoint(this.server, {
         '-latest': {
           sha: '53b73465d31925f26fd1f77881aefcaccce2915a',
           tag: null,

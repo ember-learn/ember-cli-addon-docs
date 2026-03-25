@@ -1,36 +1,4 @@
-import { computed, get } from '@ember/object';
 import { capitalize } from './string';
-
-/**
-  @function initialize
-  @hide
-*/
-export function memberUnion(parentMembersKey, childMembersKey) {
-  return computed(
-    `${parentMembersKey}.[]`,
-    `${childMembersKey}.[]`,
-    function () {
-      let parentMembers = get(this, parentMembersKey);
-      let childMembers = get(this, childMembersKey);
-
-      if (!parentMembers) {
-        return childMembers;
-      }
-
-      let union = {};
-
-      for (let member of parentMembers) {
-        union[member.name] = member;
-      }
-
-      for (let member of childMembers) {
-        union[member.name] = member;
-      }
-
-      return Object.values(union);
-    },
-  );
-}
 
 function memberSort(a, b) {
   if (a.isStatic && !b.isStatic) {
@@ -55,78 +23,55 @@ function memberSort(a, b) {
 }
 
 /**
-  @function initialize
-  @hide
-*/
-export function memberFilter(classKey, memberType) {
-  return computed(
-    classKey,
-    'showInherited',
-    'showInternal',
-    'showProtected',
-    'showPrivate',
-    'showDeprecated',
-    function () {
-      let klass = get(this, classKey);
-      let showInternal = this.showInternal;
-      let showInherited = this.showInherited;
-      let showProtected = this.showProtected;
-      let showPrivate = this.showPrivate;
-      let showDeprecated = this.showDeprecated;
+ * Filters members of a class/component based on the current toggle state.
+ *
+ * @param {Object} klass - The class or component model
+ * @param {string} memberType - The type of member ('accessors', 'methods', 'fields', 'arguments')
+ * @param {Object} context - The component context with showInherited, showPrivate, etc.
+ * @returns {Array} Filtered and sorted members
+ */
+export function filterMembers(klass, memberType, context) {
+  let showInternal = context.showInternal;
+  let showInherited = context.showInherited;
+  let showProtected = context.showProtected;
+  let showPrivate = context.showPrivate;
+  let showDeprecated = context.showDeprecated;
 
-      let members = [];
+  let members = [];
 
-      if (showInternal === false && memberType !== 'arguments') {
-        return members;
-      }
+  if (showInternal === false && memberType !== 'arguments') {
+    return members;
+  }
 
-      let capitalKey = capitalize(memberType);
+  let capitalKey = capitalize(memberType);
 
-      let publicMembers = showInherited
-        ? klass.get(`allPublic${capitalKey}`)
-        : klass.get(`public${capitalKey}`);
-      let privateMembers = showInherited
-        ? klass.get(`allPrivate${capitalKey}`)
-        : klass.get(`private${capitalKey}`);
-      let protectedMembers = showInherited
-        ? klass.get(`allProtected${capitalKey}`)
-        : klass.get(`protected${capitalKey}`);
+  let publicMembers = showInherited
+    ? klass[`allPublic${capitalKey}`]
+    : klass[`public${capitalKey}`];
+  let privateMembers = showInherited
+    ? klass[`allPrivate${capitalKey}`]
+    : klass[`private${capitalKey}`];
+  let protectedMembers = showInherited
+    ? klass[`allProtected${capitalKey}`]
+    : klass[`protected${capitalKey}`];
 
-      members.push(...publicMembers);
+  members.push(...(publicMembers || []));
 
-      if (showPrivate) {
-        members.push(...privateMembers);
-      }
+  if (showPrivate) {
+    members.push(...(privateMembers || []));
+  }
 
-      if (showProtected) {
-        members.push(...protectedMembers);
-      }
+  if (showProtected) {
+    members.push(...(protectedMembers || []));
+  }
 
-      if (!showDeprecated) {
-        members = members.filter((m) => {
-          return !m.tags || !m.tags.find((t) => t.name === 'deprecated');
-        });
-      }
+  if (!showDeprecated) {
+    members = members.filter((m) => {
+      return !m.tags || !m.tags.find((t) => t.name === 'deprecated');
+    });
+  }
 
-      return members.sort(memberSort);
-    },
-  );
-}
-
-/**
-  @function initialize
-  @hide
-*/
-export function hasMemberType(...memberKeys) {
-  let filter = memberKeys.pop();
-
-  return computed(...memberKeys.map((k) => `${k}.[]`), {
-    get() {
-      return memberKeys.some((memberKey) => {
-        return get(this, memberKey).some((member) => filter(member, memberKey));
-      });
-    },
-  });
+  return members.sort(memberSort);
 }
 
 /**

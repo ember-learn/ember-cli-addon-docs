@@ -12,7 +12,7 @@ export default class XNav extends Component {
   @localCopy('args.root', 'docs')
   root;
 
-  @service store;
+  @service docsStore;
 
   @tracked isShowingMenu;
 
@@ -31,6 +31,6 @@ export default class XNav extends Component {
       return this.args.project;
     }
 
-    return this.store.peekRecord('project', this.config.projectName);
+    return this.docsStore.peekRecord('project', this.config.projectName);
   }
 }

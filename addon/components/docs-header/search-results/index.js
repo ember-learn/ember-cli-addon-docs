@@ -10,7 +10,7 @@ import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 export default class DocsHeaderSearchResults extends Component {
   @service docsSearch;
   @service router;
-  @service store;
+  @service docsStore;
 
   @tracked selectedIndex = null;
   @tracked rawSearchResults = [];
@@ -25,7 +25,7 @@ export default class DocsHeaderSearchResults extends Component {
   }
 
   get project() {
-    return this.store.peekRecord('project', this.config.projectName);
+    return this.docsStore.peekRecord('project', this.config.projectName);
   }
 
   get trimmedQuery() {
@@ -91,12 +91,11 @@ export default class DocsHeaderSearchResults extends Component {
             }
           })
 
-          // Add a reference to the Ember Data model to each API item search result
+          // Add a reference to the model to each API item search result
           .map((searchResult) => {
             let { document } = searchResult;
             if (document.type !== 'template') {
-              let store = this.store;
-              searchResult.model = store.peekRecord(
+              searchResult.model = this.docsStore.peekRecord(
                 document.type,
                 document.item.id,
               );

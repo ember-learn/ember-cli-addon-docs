@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
-import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
+import { setupMockVersions } from '../../../helpers/mock-versions';
 import { currentURL, visit } from '@ember/test-helpers';
 
 import modulePage from '../../../pages/api/module';
@@ -8,7 +8,7 @@ import classPage from '../../../pages/api/class';
 
 module('Acceptance | Sandbox | API | helpers', function (hooks) {
   setupApplicationTest(hooks);
-  setupMirage(hooks);
+  setupMockVersions(hooks);
 
   module('standard helpers', function () {
     for (let documenter of ['yuidoc']) {

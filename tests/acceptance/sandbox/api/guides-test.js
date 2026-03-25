@@ -1,13 +1,13 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
-import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
+import { setupMockVersions } from '../../../helpers/mock-versions';
 import { currentURL, visit } from '@ember/test-helpers';
 
 import modulePage from '../../../pages/api/module';
 
 module('Acceptance | Sandbox | API | Guides', function (hooks) {
   setupApplicationTest(hooks);
-  setupMirage(hooks);
+  setupMockVersions(hooks);
 
   test('page index works', async function (assert) {
     await visit('/sandbox');

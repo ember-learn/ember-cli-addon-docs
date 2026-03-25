@@ -24,10 +24,6 @@
     "ember-auto-import": "*"
   },
   "devDependencies": {
-    "@ember-data/adapter": "*",
-    "@ember-data/model": "*",
-    "@ember-data/serializer": "*",
-    "@ember-data/store": "*",
     "@ember/optional-features": "^2.2.0",
     "@ember/test-helpers": "*",
     "@ember/test-waiters": "*",
@@ -38,7 +34,6 @@
     "ember-cli-dependency-checker": "*",
     "ember-cli-htmlbars": "*",
     "ember-cli-inject-live-reload": "*",
-    "ember-data": "*",
     "ember-qunit": "*",
     "ember-cli-sri": "*",
     "ember-cli-terser": "*",

@@ -1,18 +1,8 @@
-import Model, { attr, hasMany } from '@ember-data/model';
-
-export default class Project extends Model {
-  @attr
-  name;
-
-  @attr
-  githubUrl;
-
-  @attr
-  version;
-
-  @attr
-  navigationIndex;
-
-  @hasMany('module', { async: false, inverse: null, polymorphic: false })
-  modules;
+export default class Project {
+  id = null;
+  name = null;
+  githubUrl = null;
+  version = null;
+  navigationIndex = null;
+  modules = null;
 }
