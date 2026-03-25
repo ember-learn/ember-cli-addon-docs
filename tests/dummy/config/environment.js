@@ -52,7 +52,14 @@ module.exports = function (environment) {
   }
 
   ENV.fastboot = {
-    hostWhitelist: [/.*/],
+    // Restrict FastBoot host allowlist to known hosts instead of allowing all.
+    // Add any additional production hostnames here, e.g. 'docs.example.com'.
+    hostWhitelist: [
+      'localhost',
+      /^localhost:\d+$/,
+      '127.0.0.1',
+      '::1',
+    ],
   };
 
   return ENV;
