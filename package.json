@@ -144,9 +144,9 @@
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-qunit": "^8.2.5",
     "loader.js": "^4.7.0",
+    "mocha": "^11.7.5",
     "prember": "^2.0.0",
     "pretender": "^3.4.7",
-    "mocha": "^11.7.5",
     "prettier": "^3.7.2",
     "qunit": "^2.24.2",
     "qunit-dom": "^3.5.0",
@@ -186,7 +186,8 @@
       "webpack": "$webpack"
     },
     "onlyBuiltDependencies": [
-      "core-js"
+      "@parcel/watcher",
+      "ember-modal-dialog"
     ]
   },
   "engines": {
