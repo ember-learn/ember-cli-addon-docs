@@ -90,9 +90,7 @@ export default class DocsStoreService extends Service {
               resolve(body);
             } else {
               reject(
-                new Error(
-                  `Request to ${url} failed with status ${statusCode}`
-                )
+                new Error(`Request to ${url} failed with status ${statusCode}`),
               );
             }
           });
@@ -116,12 +114,12 @@ export default class DocsStoreService extends Service {
         response = await fetch(url);
       } catch (e) {
         throw new Error(
-          `Network error while fetching ${url}: ${e && e.message}`
+          `Network error while fetching ${url}: ${e && e.message}`,
         );
       }
       if (!response.ok) {
         throw new Error(
-          `Request to ${url} failed with status ${response.status}`
+          `Request to ${url} failed with status ${response.status}`,
         );
       }
       payload = await response.json();
