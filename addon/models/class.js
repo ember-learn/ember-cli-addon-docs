@@ -1,135 +1,175 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
-import { filterBy, or, union } from '@ember/object/computed';
-import { memberUnion, hasMemberType } from '../utils/computed';
+function filterBy(array, key, value) {
+  return (array || []).filter((item) => item[key] === value);
+}
 
-export default class Class extends Model {
-  @belongsTo('class', { async: false, inverse: null, polymorphic: false })
-  parentClass;
+function memberUnionFn(parentMembers, childMembers) {
+  if (!parentMembers) return childMembers || [];
+
+  let union = {};
+  for (let member of parentMembers) {
+    union[member.name] = member;
+  }
+  for (let member of childMembers || []) {
+    union[member.name] = member;
+  }
+  return Object.values(union);
+}
+
+export default class Class {
+  id = null;
+  parentClass = null;
 
   isClass = true;
 
-  @attr
-  name;
+  name = null;
+  file = null;
+  exportType = null;
+  description = null;
+  lineNumber = null;
+  access = null;
+  accessors = null;
+  methods = null;
+  fields = null;
+  tags = null;
 
-  @attr
-  file;
+  get publicAccessors() {
+    return filterBy(this.accessors, 'access', 'public');
+  }
+  get publicMethods() {
+    return filterBy(this.methods, 'access', 'public');
+  }
+  get publicFields() {
+    return filterBy(this.fields, 'access', 'public');
+  }
 
-  @attr
-  exportType;
+  get privateAccessors() {
+    return filterBy(this.accessors, 'access', 'private');
+  }
+  get privateMethods() {
+    return filterBy(this.methods, 'access', 'private');
+  }
+  get privateFields() {
+    return filterBy(this.fields, 'access', 'private');
+  }
 
-  @attr
-  description;
+  get protectedAccessors() {
+    return filterBy(this.accessors, 'access', 'protected');
+  }
+  get protectedMethods() {
+    return filterBy(this.methods, 'access', 'protected');
+  }
+  get protectedFields() {
+    return filterBy(this.fields, 'access', 'protected');
+  }
 
-  @attr
-  lineNumber;
+  get allPublicAccessors() {
+    return memberUnionFn(
+      this.parentClass?.allPublicAccessors,
+      this.publicAccessors,
+    );
+  }
+  get allPublicMethods() {
+    return memberUnionFn(
+      this.parentClass?.allPublicMethods,
+      this.publicMethods,
+    );
+  }
+  get allPublicFields() {
+    return memberUnionFn(this.parentClass?.allPublicFields, this.publicFields);
+  }
 
-  @attr
-  access;
+  get allPrivateAccessors() {
+    return memberUnionFn(
+      this.parentClass?.allPrivateAccessors,
+      this.privateAccessors,
+    );
+  }
+  get allPrivateMethods() {
+    return memberUnionFn(
+      this.parentClass?.allPrivateMethods,
+      this.privateMethods,
+    );
+  }
+  get allPrivateFields() {
+    return memberUnionFn(
+      this.parentClass?.allPrivateFields,
+      this.privateFields,
+    );
+  }
 
-  @attr
-  accessors;
+  get allProtectedAccessors() {
+    return memberUnionFn(
+      this.parentClass?.allProtectedAccessors,
+      this.protectedAccessors,
+    );
+  }
+  get allProtectedMethods() {
+    return memberUnionFn(
+      this.parentClass?.allProtectedMethods,
+      this.protectedMethods,
+    );
+  }
+  get allProtectedFields() {
+    return memberUnionFn(
+      this.parentClass?.allProtectedFields,
+      this.protectedFields,
+    );
+  }
 
-  @attr
-  methods;
+  get allAccessors() {
+    return [
+      ...this.allPublicAccessors,
+      ...this.allPrivateAccessors,
+      ...this.allProtectedAccessors,
+    ];
+  }
+  get allMethods() {
+    return [
+      ...this.allPublicMethods,
+      ...this.allPrivateMethods,
+      ...this.allProtectedMethods,
+    ];
+  }
+  get allFields() {
+    return [
+      ...this.allPublicFields,
+      ...this.allPrivateFields,
+      ...this.allProtectedFields,
+    ];
+  }
 
-  @attr
-  fields;
+  get hasInherited() {
+    return !!(
+      this.parentClass?.allAccessors?.length ||
+      this.parentClass?.allMethods?.length ||
+      this.parentClass?.allFields?.length
+    );
+  }
 
-  @attr
-  tags;
+  get hasPrivate() {
+    return !!(
+      this.allPrivateAccessors.length ||
+      this.allPrivateMethods.length ||
+      this.allPrivateFields.length
+    );
+  }
 
-  @filterBy('accessors', 'access', 'public')
-  publicAccessors;
+  get hasProtected() {
+    return !!(
+      this.allProtectedAccessors.length ||
+      this.allProtectedMethods.length ||
+      this.allProtectedFields.length
+    );
+  }
 
-  @filterBy('methods', 'access', 'public')
-  publicMethods;
+  get hasDeprecated() {
+    let isDeprecated = (member) =>
+      member.tags && member.tags.find((t) => t.name === 'deprecated');
 
-  @filterBy('fields', 'access', 'public')
-  publicFields;
-
-  @filterBy('accessors', 'access', 'private')
-  privateAccessors;
-
-  @filterBy('methods', 'access', 'private')
-  privateMethods;
-
-  @filterBy('fields', 'access', 'private')
-  privateFields;
-
-  @filterBy('accessors', 'access', 'protected')
-  protectedAccessors;
-
-  @filterBy('methods', 'access', 'protected')
-  protectedMethods;
-
-  @filterBy('fields', 'access', 'protected')
-  protectedFields;
-
-  @memberUnion('parentClass.allPublicAccessors', 'publicAccessors')
-  allPublicAccessors;
-
-  @memberUnion('parentClass.allPublicMethods', 'publicMethods')
-  allPublicMethods;
-
-  @memberUnion('parentClass.allPublicFields', 'publicFields')
-  allPublicFields;
-
-  @memberUnion('parentClass.allPrivateAccessors', 'privateAccessors')
-  allPrivateAccessors;
-
-  @memberUnion('parentClass.allPrivateMethods', 'privateMethods')
-  allPrivateMethods;
-
-  @memberUnion('parentClass.allPrivateFields', 'privateFields')
-  allPrivateFields;
-
-  @memberUnion('parentClass.allProtectedAccessors', 'protectedAccessors')
-  allProtectedAccessors;
-
-  @memberUnion('parentClass.allProtectedMethods', 'protectedMethods')
-  allProtectedMethods;
-
-  @memberUnion('parentClass.allProtectedFields', 'protectedFields')
-  allProtectedFields;
-
-  @union('allPublicAccessors', 'allPrivateAccessors', 'allProtectedAccessors')
-  allAccessors;
-
-  @union('allPublicMethods', 'allPrivateMethods', 'allProtectedMethods')
-  allMethods;
-
-  @union('allPublicFields', 'allPrivateFields', 'allProtectedFields')
-  allFields;
-
-  @or(
-    'parentClass.allAccessors.length',
-    'parentClass.allMethods.length',
-    'parentClass.allFields.length',
-  )
-  hasInherited;
-
-  @or(
-    'allPrivateAccessors.length',
-    'allPrivateMethods.length',
-    'allPrivateFields.length',
-  )
-  hasPrivate;
-
-  @or(
-    'allProtectedAccessors.length',
-    'allProtectedMethods.length',
-    'allProtectedFields.length',
-  )
-  hasProtected;
-
-  @hasMemberType(
-    'allFields',
-    'allAccessors',
-    'allMethods',
-
-    function (member) {
-      return member.tags && member.tags.find((t) => t.name === 'deprecated');
-    },
-  )
-  hasDeprecated;
+    return (
+      this.allFields.some(isDeprecated) ||
+      this.allAccessors.some(isDeprecated) ||
+      this.allMethods.some(isDeprecated)
+    );
+  }
 }

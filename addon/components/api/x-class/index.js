@@ -1,8 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { or } from '@ember/object/computed';
 import { capitalize } from '../../../utils/string';
-import { memberFilter } from '../../../utils/computed';
+import { filterMembers } from '../../../utils/computed';
 import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 export default class XClass extends Component {
@@ -13,22 +12,27 @@ export default class XClass extends Component {
   @tracked showPrivate = false;
   @tracked showDeprecated = false;
 
-  @memberFilter('args.class', 'accessors')
-  accessors;
+  get accessors() {
+    return filterMembers(this.args.class, 'accessors', this);
+  }
 
-  @memberFilter('args.class', 'methods')
-  methods;
+  get methods() {
+    return filterMembers(this.args.class, 'methods', this);
+  }
 
-  @memberFilter('args.class', 'fields')
-  fields;
+  get fields() {
+    return filterMembers(this.args.class, 'fields', this);
+  }
 
-  @or(
-    'component.hasInherited',
-    'component.hasProtected',
-    'component.hasPrivate',
-    'component.hasDeprecated',
-  )
-  hasToggles;
+  get hasToggles() {
+    let klass = this.args.class;
+    return !!(
+      klass.hasInherited ||
+      klass.hasProtected ||
+      klass.hasPrivate ||
+      klass.hasDeprecated
+    );
+  }
 
   get hasContents() {
     let klass = this.args.class;
