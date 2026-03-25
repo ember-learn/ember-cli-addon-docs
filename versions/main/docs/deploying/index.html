@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ember CLI AddonDocs</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="dummy/config/environment" content="%7B%22modulePrefix%22%3A%22dummy%22%2C%22podModulePrefix%22%3A%22dummy%2Fpods%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22%2Fember-cli-addon-docs%2Fversions%2Fmain%2F%22%2C%22locationType%22%3A%22history%22%2C%22EmberENV%22%3A%7B%22EXTEND_PROTOTYPES%22%3Afalse%2C%22FEATURES%22%3A%7B%7D%2C%22_APPLICATION_TEMPLATE_WRAPPER%22%3Afalse%2C%22_DEFAULT_ASYNC_OBSERVERS%22%3Atrue%2C%22_JQUERY_INTEGRATION%22%3Afalse%2C%22_TEMPLATE_ONLY_GLIMMER_COMPONENTS%22%3Atrue%7D%2C%22APP%22%3A%7B%7D%2C%22ember-modal-dialog%22%3A%7B%22hasEmberTether%22%3A%223.1.0%22%7D%2C%22ember-cli-addon-docs%22%3A%7B%22projectName%22%3A%22ember-cli-addon-docs%22%2C%22projectDescription%22%3A%22Easy%2C%20beautiful%20docs%20for%20your%20OSS%20Ember%20addons%22%2C%22projectTag%22%3A%2210.1.0%22%2C%22projectHref%22%3A%22https%3A%2F%2Fgithub.com%2Fember-learn%2Fember-cli-addon-docs%22%2C%22docsAppPathInRepo%22%3A%22tests%2Fdummy%2Fapp%22%2C%22addonPathInRepo%22%3A%22addon%22%2C%22primaryBranch%22%3A%22main%22%2C%22latestVersionName%22%3A%22-latest%22%2C%22deployVersion%22%3A%7B%22path%22%3A%22versions%2Fmain%22%2C%22name%22%3A%22main%22%2C%22sha%22%3A%2231584ad6d94141e7df74db57fe1b30c8c00510f5%22%2C%22tag%22%3Anull%2C%22key%22%3A%22main%22%7D%2C%22searchTokenSeparator%22%3A%22%5C%5Cs%2B%22%2C%22showImportPaths%22%3Atrue%7D%7D" />
+<!-- EMBER_CLI_FASTBOOT_TITLE -->
+
+    <link rel="shortcut icon" href="/ember-cli-addon-docs/versions/main/assets/images/favicon-4b77b3967e2f84e2d6fde259ea319030.png" />
+    <link integrity="" rel="stylesheet" href="/ember-cli-addon-docs/versions/main/assets/vendor-2398523977d74f925a1b4f303ba84935.css">
+    <link integrity="" rel="stylesheet" href="/ember-cli-addon-docs/versions/main/assets/dummy-5d2348c9a59d67d43b91d827bed1d070.css">
+
+    
+  </head>
+  <body>
+    <!-- Start Single Page Apps for GitHub Pages -->
+<script type="text/javascript">
+  // Single Page Apps for GitHub Pages
+  // https://github.com/rafrex/spa-github-pages
+  // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+  // ----------------------------------------------------------------------
+  // This script checks to see if a redirect is present in the query string
+  // and converts it back into the correct url and adds it to the
+  // browser's history using window.history.replaceState(...),
+  // which won't cause the browser to attempt to load the new url.
+  // When the single page app is loaded further down in this file,
+  // the correct url will be waiting in the browser's history for
+  // the single page app to route accordingly.
+  (function(l) {
+    if (l.search) {
+      var q = {};
+      l.search.slice(1).split('&').forEach(function(v) {
+        var a = v.split('=');
+        q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+      });
+      if (q.p !== undefined) {
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + (q.p || '') +
+          (q.q ? ('?' + q.q) : '') +
+          l.hash
+        );
+      }
+    }
+  }(window.location))
+</script>
+<!-- End Single Page Apps for GitHub Pages -->
+
+<script type="x/boundary" id="fastboot-body-start"></script><header class="docs-shadow docs-relative docs-z-40 docs-bg-white">
+  <div class="docs-flex docs-items-center docs-max-w-site-container docs-mx-auto md:docs-px-2">
+
+    
+  <a id="ember310" class="ember-view docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xxs
+      docs-font-bold docs-no-underline docs-text-grey-darkest" href="/">
+    
+      <span class="docs-leading-none docs-font-title docs-text-large-2 docs-font-normal docs-normal-case docs-block docs-mr-6">
+          <div class="docs-text-xxs">
+            EmberCLI
+          </div>
+        AddonDocs
+      </span>
+    
+  </a>
+
+
+
+    <div class="docs-flex-1 docs-flex docs-items-center docs-overflow-auto docs-scrolling-touch docs-mask-image md:docs-no-mask-image">
+      
+  <a id="ember311" class="ember-view active docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xxs
+      docs-font-bold docs-no-underline docs-text-brand" href="/docs">
+    
+        Documentation
+      
+  </a>
+
+
+
+      
+  
+  <a id="ember312" class="ember-view docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xxs
+      docs-font-bold docs-no-underline docs-text-grey-darkest hover:docs-text-brand" href="/sandbox">
+    
+    Sandbox
+  
+  </a>
+
+
+
+
+      <div class="docs-ml-auto">
+  <div class="docs-relative docs-text-grey-darkest" data-search-box>
+    <svg width="12" height="12" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="docs-absolute docs-top-0 docs-h-full docs-ml-1"><title>search</title><path d="M23.997 40.742c-9.249 0-16.746-7.497-16.746-16.745 0-9.248 7.497-16.745 16.746-16.745 9.248 0 16.746 7.497 16.746 16.745a16.674 16.674 0 01-16.746 16.745zm38.885 16.93L43.534 38.32a23.59 23.59 0 004.65-14.328 24.092 24.092 0 10-39.67 18.475 24.092 24.092 0 0029.807 1.065l19.353 19.35a3.6 3.6 0 005.212 0 3.6 3.6 0 00-.004-5.211z" fill-rule="nonzero"/></svg>
+
+    <input placeholder="SEARCH" class="outline-none docs-w-24 docs-text-xxs docs-p-2 docs-pl-6 docs-rounded focus:docs-bg-grey-lighter" data-search-box-input data-test-search-box-input aria-label="search" type="text">
+  </div>
+</div>
+
+
+
+
+      
+  <a href="#" class="docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xxs docs-font-bold docs-text-grey-darkest docs-no-underline hover:docs-text-brand
+      ">
+    
+        <span data-test-id="current-version" data-version-selector class="docs-flex docs-items-center">
+
+              10.1.0
+
+          <svg width="12" height="12" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><title>caret</title><path d="M32 41L15 24h35z" fill-rule="evenodd"/></svg>
+        </span>
+      
+  </a>
+
+
+
+        
+  <a href="https://github.com/ember-learn/ember-cli-addon-docs" class="docs-px-4 docs-py-5 docs-transition docs-uppercase docs-text-xxs docs-font-bold docs-text-grey-darkest docs-no-underline hover:docs-text-brand
+      
+      ">
+    
+          <span class="docs-flex">
+            <svg class="fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="24" height="24"><title>GitHub</title><path d="M10 0a10 10 0 00-3.16 19.49c.5.1.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 01.1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 015 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .26.18.58.69.48A10 10 0 0010 0"/></svg>
+          </span>
+        
+  </a>
+
+
+
+      <div class="docs-h-px docs-px-3 sm:docs-hidden"></div>
+    </div>
+  </div>
+</header>
+
+<!---->
+<!---->
+
+<div class="docs-viewer docs-flex docs-flex-1">
+  <div class="md:docs-flex docs-w-full">
+    
+  <div class="docs-block md:docs-hidden docs-text-right docs-px-4 md:docs-px-6 docs-mt-4">
+  <button class="docs-text-grey-darkest docs-py-2 docs-text-xs docs-rounded docs-uppercase docs-font-medium">
+    ☰ Menu
+  </button>
+</div>
+
+<div class="AddonDocs-DocsViewer-Nav docs-bg-grey-lightest docs-border-r docs-flex-no-shrink">
+  <nav class="
+      docs-absolute docs-right-0 docs-shadow-lg md:docs-shadow-none docs-mr-2 md:docs-mr-0 md:docs-pl-2
+      docs-max-w-xs docs-w-90% md:docs-w-72 docs-z-10 docs-transition md:docs-sticky md:docs-top-0
+      docs-opacity-0 md:docs-opacity-100 docs-pointer-events-none md:docs-pointer-events-auto
+    ">
+    <div class="docs-pt-px docs-mb-8 docs-px-3 md:docs-px-4 md:docs-max-h-screen md:docs-overflow-y-scroll">
+      <div class="docs-block md:docs-hidden absolute top-0 docs-text-right right-4">
+        <button class="docs-text-grey-darkest docs-opacity-50 hover:docs-opacity-100 docs-text-large-5 docs-py-2 docs-no-underline">
+          ×
+        </button>
+      </div>
+
+      <ul>
+  
+        
+    <li class="
+  docs-mt-8 docs-capitalize
+  
+  ">
+    Introduction
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember313" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="What is AddonDocs?" href="/docs">
+      What is AddonDocs?
+    </a>
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember314" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Usage" href="/docs/usage">
+      Usage
+    </a>
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember315" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Quickstart" href="/docs/quickstart">
+      Quickstart
+    </a>
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember316" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Patterns" href="/docs/patterns">
+      Patterns
+    </a>
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember317" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Build options" href="/docs/build-options">
+      Build options
+    </a>
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember318" class="ember-view docs-text-brand docs-font-medium docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Deploying" href="/docs/deploying">
+      Deploying
+    </a>
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember319" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Standalone Apps" href="/docs/standalone-apps">
+      Standalone Apps
+    </a>
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember320" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Upgrade to v5" href="/docs/upgrade-to-5">
+      Upgrade to v5
+    </a>
+</li>
+
+
+    <li class="
+  docs-mt-8 docs-capitalize
+  
+  ">
+    Components
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember321" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Header" href="/docs/components/docs-header">
+      Header
+    </a>
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember322" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Hero" href="/docs/components/docs-hero">
+      Hero
+    </a>
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember323" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Viewer" href="/docs/components/docs-viewer">
+      Viewer
+    </a>
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember324" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Snippet" href="/docs/components/docs-snippet">
+      Snippet
+    </a>
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember325" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Demo" href="/docs/components/docs-demo">
+      Demo
+    </a>
+</li>
+
+    <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember326" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="Logo" href="/docs/components/docs-logo">
+      Logo
+    </a>
+</li>
+
+  
+
+          <li class="
+  
+  docs-mt-8 docs--mb-4 docs-text-xs docs-uppercase
+  ">
+    API Reference
+</li>
+
+
+    <li class="
+  docs-mt-8 docs-capitalize
+  
+  ">
+    components
+</li>
+
+
+      <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember327" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="<DocsDemo/​>" href="/docs/api/components/docs-demo">
+      &lt;DocsDemo/​&gt;
+    </a>
+</li>
+
+      <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember328" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="<DocsHeader/​>" href="/docs/api/components/docs-header">
+      &lt;DocsHeader/​&gt;
+    </a>
+</li>
+
+      <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember329" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="<DocsHero/​>" href="/docs/api/components/docs-hero">
+      &lt;DocsHero/​&gt;
+    </a>
+</li>
+
+      <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember330" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="<DocsKeyboardShortcuts/​>" href="/docs/api/components/docs-keyboard-shortcuts">
+      &lt;DocsKeyboardShortcuts/​&gt;
+    </a>
+</li>
+
+      <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember331" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="<DocsLink/​>" href="/docs/api/components/docs-link">
+      &lt;DocsLink/​&gt;
+    </a>
+</li>
+
+      <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember332" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="<DocsLogo/​>" href="/docs/api/components/docs-logo">
+      &lt;DocsLogo/​&gt;
+    </a>
+</li>
+
+      <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember333" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="<DocsSnippet/​>" href="/docs/api/components/docs-snippet">
+      &lt;DocsSnippet/​&gt;
+    </a>
+</li>
+
+      <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember334" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="<DocsViewer/​>" href="/docs/api/components/docs-viewer">
+      &lt;DocsViewer/​&gt;
+    </a>
+</li>
+
+
+    <li class="
+  docs-mt-8 docs-capitalize
+  
+  ">
+    Modules
+</li>
+
+
+    <ul class="docs-ml-4">
+  
+  <li class="
+  
+  
+  docs-mt-2 docs-text-sm">
+    
+    ember-cli-addon-docs
+  
+</li>
+
+
+      <ul class="docs-ml-4">
+  
+  <li class="
+  
+  
+  docs-mt-2 docs-text-sm">
+    
+    -private
+  
+</li>
+
+
+      <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember335" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="config" href="/docs/api/modules/ember-cli-addon-docs/-private/config">
+      config
+    </a>
+</li>
+
+
+</ul>
+      <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember336" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="router" href="/docs/api/modules/ember-cli-addon-docs/router">
+      router
+    </a>
+</li>
+
+      <ul class="docs-ml-4">
+  
+  <li class="
+  
+  
+  docs-mt-2 docs-text-sm">
+    
+    utils
+  
+</li>
+
+
+      <li class="docs-mt-2 docs-ml-4 docs-mb-1 docs-flex docs-items-center docs-text-sm">
+    <a id="ember337" class="ember-view docs-text-grey-darker docs-no-underline hover:docs-underline" data-test-id="nav-item" data-test-label="compile-markdown" href="/docs/api/modules/ember-cli-addon-docs/utils/compile-markdown">
+      compile-markdown
+    </a>
+</li>
+
+
+</ul>
+
+</ul>
+
+
+      
+</ul>
+
+      <div class="docs-mt-16 lg:docs-mb-16 docs-mr-2 docs-text-xxs docs-rounded">
+        <a href="https://github.com/ember-learn/ember-cli-addon-docs" class="docs-opacity-50 hover:docs-opacity-100 docs-transition docs-no-underline docs-text-inherit docs-flex docs-items-center docs-text-grey-darkest">
+          <svg width="22" height="16" viewBox="0 0 207 112" xmlns="http://www.w3.org/2000/svg" class="docs-mr-2"><title>Group 2 Copy 2</title><g fill-rule="evenodd"><path d="M206.897 58c-.484 3.423-2.667 6-6.397 6-2.547 0-4.373-1.202-5.429-3.054C157 67.738 122.832 85.927 96.164 111.89 69.004 94.1 37.063 83.1 2.71 81.27A162.4 162.4 0 01.897 57c0-9.006.735-17.813 2.14-26.346C36.881 28.616 68.344 17.673 95.152.118c26.814 26.491 61.364 45.057 99.92 51.936C196.126 50.202 197.952 49 200.5 49c3.73 0 5.913 2.577 6.397 6H95v3h111.897z"/><g transform="translate(19.116 29.756)"><circle cx="26.12" cy="26.12" r="26.12"/><path d="M39.387 28.863s-7.943 5.63-13.164 5.705c-5.22.075-4.69-3.284-4.69-3.284s19.141-6.5 13.92-19.336c-2.346-3.302-5.07-4.342-8.926-4.266-3.86.075-8.645 2.41-11.749 9.316-1.483 3.294-2.022 6.419-2.325 8.785 0 0-3.348.679-5.165-.823-1.817-1.5-2.75 0-2.75 0s-3.12 3.942-.016 5.144c3.104 1.2 7.943 1.762 7.943 1.762.44 2.102 1.736 5.671 5.516 8.518 5.673 4.278 16.567-.393 16.567-.393s2.374-.894 4.463-2.487c3.041-2.649 2.614-10.707.376-8.64zm-18.633-3.62c.224-8.815 6.048-12.667 8.066-10.741 2.017 1.926 1.27 6.074-2.541 8.667-3.807 2.592-5.525 2.074-5.525 2.074z" fill-rule="nonzero"/></g></g></svg>
+          <div>
+            Powered by
+            <span class="docs-font-bold">AddonDocs</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+  <main class="docs-px-4 md:docs-px-8 lg:docs-px-20 docs-mx-auto md:docs-mx-0 docs-mt-6 md:docs-mt-12 md:docs-min-w-0 md:docs-flex-1">
+  <div data-current-page-index-target>
+    
+    <div class="docs-md">
+      <h1 id="deploying" class="docs-md__h1">Deploying</h1>
+    <p>Deploying your documentation site can involve a lot of moving parts, but Ember CLI AddonDocs aims to streamline as much of the process as possible by providing a set of out-of-the-box conventions for deploying to GitHub Pages.</p>
+<p>Once everything is set up, you'll be able to visit <u>https://<strong>[user]</strong>.github.io/<strong>[repo]</strong></u> to see the docs for the latest release of your addon, and your CI builds will automatically keep it up to date.</p>
+
+      <h2 id="deploying-your-docs-site" class="docs-md__h2"><a href="#deploying-your-docs-site" class="heading-anchor">Deploying your docs site</a></h2>
+    <p>To deploy your docs site to GitHub pages, you'll need to go through a few steps of first-time setup:</p>
+
+        <ol class="docs-list-decimal"><li>Run <code>ember g ember-cli-addon-docs</code> to set up the relevant deploy plugins (this is done automatically if you used <code>ember install</code> to install AddonDocs)</li>
+<li>Set <a href="https://docs.npmjs.com/files/package.json#repository" class="docs-md__a">the <code>repository</code> field</a> of your <code>package.json</code>.</li>
+<li>Commit any outstanding changes you've got on your current branch and push them to GitHub.</li>
+<li>Run <code>ember deploy production</code> and answer "yes" if prompted to create a <code>gh-pages</code> branch. <strong>Note</strong>: if your repo already has a <code>gh-pages</code> branch, you may want to manually archive the existing content there before deploying.</li>
+</ol>
+      <p>Once the deploy completes and GitHub has a moment to publish your pages site, if all went well you should see your addon's dummy app live at</p>
+
+<p><u>https://**[user]**.github.io/**[repo]**/versions/**[current-branch]**</u></p>
+<p>.</p>
+<p>Now take a look at the <code>gh-pages</code> branch either locally or on GitHub. You should see a layout something like this:</p>
+<pre class="docs-md__code"><code class="language-sh">├── 404.html
+├── versions
+│   └── [current-branch]
+│       ├── assets
+│       ├── index.html
+│       └── ...
+└── versions.json
+</code></pre>
+<p>Let's break down what each of those items is doing.</p>
+
+        <ul class="docs-list-disc"><li><code>404.html</code> contains <a href="https://github.com/rafrex/spa-github-pages" class="docs-md__a">some smart redirect logic</a> to keep you from having to use <code>locationType: 'hash'</code> in your dummy app</li>
+<li><code>versions.json</code> contains a manifest of the available versions of your documentation</li>
+<li><code>versions/[current-branch]</code> contains all the files from your built docs app</li>
+</ul>
+      <p>If you were to make a change to your dummy app and run <code>ember deploy production</code> again right now, the entry for <code>[current-branch]</code> in <code>versions.json</code> and the entire contents of the <code>versions/[current-branch]</code> directory would be replaced with the updated version of your site. Next we'll talk about how to manage keeping published documentation around for multiple versions of your addon.</p>
+
+      <h2 id="versioning-your-content" class="docs-md__h2"><a href="#versioning-your-content" class="heading-anchor">Versioning your content</a></h2>
+    <p>Whenever you deploy your documentation site with AddonDocs, it places the compiled application in a subdirectory based on the current state of your git repository. All of this behavior <a href="#customizing-deploys" class="docs-md__a">is customizable</a>, but we expect the out-of-the-box configuration should be a good place to get started.</p>
+
+      <h3 id="tag-deploys" class="docs-md__h3"><a href="#tag-deploys" class="heading-anchor">Tag deploys</a></h3>
+    <p>When you run <code>ember deploy</code> at a commit that has a git tag associated with it, the app will wind up in a directory named after that tag. For example, if you've just published version 1.2.3 of your addon (creating tag <code>v1.2.3</code> in your git repository), your deployed site will be available at <u>https://<strong>[user]</strong>.github.io/<strong>[repo]</strong>/versions/v1.2.3</u>.</p>
+<p>By default, deploying from a tagged commit also places a copy of your app at the root of your <code>gh-pages</code> branch, so <u>https://<strong>[user]</strong>.github.io/<strong>[repo]</strong></u> will always bring developers to the documentation for the most recent stable release of your addon. If you deploy without a tagged release, <u>https://<strong>[user]</strong>.github.io/<strong>[repo]</strong></u> will return a 404.</p>
+<p>Note that this only applies to non-prerelease tags, so <code>v1.2.3</code> would update the root app, but <code>v2.0.0-beta.1</code> would not. Check out the documentation for <a href="https://github.com/npm/node-semver" class="docs-md__a">node-semver</a> for the exact details on what constitutes a prerelease version.</p>
+
+      <h3 id="branch-deploys" class="docs-md__h3"><a href="#branch-deploys" class="heading-anchor">Branch deploys</a></h3>
+    <p>When you deploy from a commit at the head of a branch that <em>doesn't</em> have a tag associated with it, the compiled app will land in a folder named after that branch, as in our "getting started" example above. Unlike tag deploys, branch deploys will never automatically update the root app.</p>
+<p>The main use case for branch deploys is tracking development work since your last stable release. If you run <code>ember deploy</code> after successful builds on <code>main</code>, you'll always have documentation available for the bleeding edge of your addon's features. Since branch deploys don't update the root, though, developers looking at your docs will still hit your most recent stable tag by default, so there won't be any confusion about things that have drifted since the last release.</p>
+
+      <h2 id="automating-deploys" class="docs-md__h2"><a href="#automating-deploys" class="heading-anchor">Automating deploys</a></h2>
+    <p>While you <em>can</em> just run <code>ember deploy production</code> yourself after every commit to <code>main</code> and each new release of your addon, you can simplify life a bit by automating the process as part of your CI setup. The process described here details the configuration for GitHub Actions, which Ember addons are configured to work with out of the box, but the setup should be very similar for other CI providers.</p>
+
+      <h3 id="generate-a-deploy-key" class="docs-md__h3"><a href="#generate-a-deploy-key" class="heading-anchor">Generate a deploy key</a></h3>
+    <p>The first step you'll need to take is to generate a <em>deploy key</em>. This is a special SSH key that will only have write access to a single git repository: the one for your addon.</p>
+<p>To generate the public/private key pair on macOS or Linux, you'll use the <a href="https://www.freebsd.org/cgi/man.cgi?query=ssh-keygen&amp;sektion=1&amp;manpath=OpenBSD+3.9" class="docs-md__a"><code>ssh-keygen</code></a> command line tool. On Windows, you can use <a href="https://www.ssh.com/ssh/putty/windows/puttygen" class="docs-md__a">PuTTYGen</a> instead.</p>
+<pre class="docs-md__code"><code class="language-sh">ssh-keygen -t rsa -m PEM -b 4096 -N '' -f deploy_key
+</code></pre>
+<p>This will produce two files in your current directory: <code>deploy_key</code> (the private key) and <code>deploy_key.pub</code> (the public key). <strong>Do not commit these files to your repository.</strong></p>
+
+      <h3 id="configure-the-public-key-with-github" class="docs-md__h3"><a href="#configure-the-public-key-with-github" class="heading-anchor">Configure the public key with GitHub</a></h3>
+    <p>On GitHub, open the page for your repo and navigate to <em>Settings</em> -&gt; <em>Deploy keys</em> (or just directly visit <u><a href="https://github.com/**[user]**/**[repo]**/settings/keys" class="docs-md__a">https://github.com/**[user]**/**[repo]**/settings/keys</a>)</u> and click "Add deploy key".</p>
+<p>Enter a name for your key and then paste the contents of your public key (<code>deploy_key.pub</code>) into the big textarea. Make sure you check the <strong>Allow write access</strong> box, then click "Add key" and you're all set.</p>
+
+      <h3 id="configure-the-private-key-with-github-actions" class="docs-md__h3"><a href="#configure-the-private-key-with-github-actions" class="heading-anchor">Configure the private key with GitHub Actions</a></h3>
+    <p>Now that GitHub knows that this public key is allowed to push commits to your repo, we need to set up GitHub Actions to use the corresponding private key.</p>
+<p>You can copy your private key by running the following:</p>
+<pre class="docs-md__code"><code class="language-sh">cat deploy_key | pbcopy
+</code></pre>
+<p>Then you will need to go to the page for your repo and navigate to <em>Settings</em> -&gt; <em>Secrets and variables</em> -&gt; <em>Actions</em> (or just directly visit <u><a href="https://github.com/**[user]**/**[repo]**/settings/secrets/actions" class="docs-md__a">https://github.com/**[user]**/**[repo]**/settings/secrets/actions</a>)</u> and click "New repository secret". The name should be <code>DEPLOY_KEY</code> and the value should be the private key you just copied.</p>
+
+      <h3 id="deploy-after-successful-builds" class="docs-md__h3"><a href="#deploy-after-successful-builds" class="heading-anchor">Deploy after successful builds</a></h3>
+    <p>All that's left now is to set up GitHub Actions to run your deploys for you. The simplest way to do this is to create a new file under <code>.github/workflows/addon-docs.yml</code> with the following contents:</p>
+<pre class="docs-md__code"><code class="language-yml">name: Publish Addon Docs
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - "**"
+jobs:
+  build:
+    env:
+      DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check for tags and set short-circuit condition
+        id: check-tags
+        run: |
+          # Fetch tags pointing to the current commit
+          TAGS=$(git tag --points-at $GITHUB_SHA)
+          echo "Tags found: $TAGS"
+          
+          # Check if a tag exists and if the ref is 'refs/heads/main' or 'refs/heads/master'
+          if [ -n "$TAGS" ] &amp;&amp; ([[ "${GITHUB_REF}" == "refs/heads/main" ]] || [[ "${GITHUB_REF}" == "refs/heads/master" ]]); then
+            echo "SHORT_CIRCUIT=true" &gt;&gt; $GITHUB_ENV
+          else
+            echo "SHORT_CIRCUIT=false" &gt;&gt; $GITHUB_ENV
+          fi  
+      - uses: pnpm/action-setup@v4
+        if: env.SHORT_CIRCUIT == 'false'
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        if: env.SHORT_CIRCUIT == 'false'
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install Dependencies
+        if: env.SHORT_CIRCUIT == 'false'
+        run: pnpm install
+      - name: Deploy Docs
+        if: env.SHORT_CIRCUIT == 'false'
+        run: pnpm ember deploy production
+</code></pre>
+<p>If you are using something other than <code>main</code> or <code>master</code> for your primary branch, you will need to update the script accordingly. Also, if you have a v2 addon or a setup where your AddonDocs are in a different folder, you may need to add a <code>cd</code> into that directory in the <code>Deploy Docs</code> step.</p>
+
+      <h2 id="customizing-deploys" class="docs-md__h2"><a href="#customizing-deploys" class="heading-anchor">Customizing deploys</a></h2>
+    <p>When you install AddonDocs, a <code>config/addon-docs.js</code> file will automatically be created for you that looks something like this:</p>
+<pre class="docs-md__code"><code class="language-js"><span class="hljs-keyword">const</span> <span class="hljs-title class_">AddonDocsConfig</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">"ember-cli-addon-docs/lib/config"</span>);
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-keyword">class</span> <span class="hljs-title class_">extends</span> <span class="hljs-title class_">AddonDocsConfig</span> {
+  <span class="hljs-comment">// ...</span>
+};
+</code></pre>
+<p>You can override methods on this class to customize deploy behavior.</p>
+
+      <h3 id="getversionpath-" class="docs-md__h3"><a href="#getversionpath-" class="heading-anchor"><code>getVersionPath()</code></a></h3>
+    <p>This method determines the location that a given version of your documentation will be written to within the <code>versions</code> directory on your deploy branch.</p>
+<p>By default, this method will use the current tag name (if any), or fall back to the current branch name as described above. Note that you can override this behavior by setting an <code>ADDON_DOCS_VERSION_PATH</code> environment variable.</p>
+<p>If this method returns a falsey value, the deploy will be aborted.</p>
+
+      <h3 id="getversionname-" class="docs-md__h3"><a href="#getversionname-" class="heading-anchor"><code>getVersionName()</code></a></h3>
+    <p>This method returns a name for a given version of your documentation. By default it returns the current tag if any, or the current branch name otherwise. If, for instance, you wanted to set up named releases, you might override this method. You can also explicitly specify the version name by setting an <code>ADDON_DOCS_VERSION_NAME</code> environment variable.</p>
+
+      <h3 id="shouldupdatelatest-" class="docs-md__h3"><a href="#shouldupdatelatest-" class="heading-anchor"><code>shouldUpdateLatest()</code></a></h3>
+    <p>This method determines whether the root copy of your docs app will also be updated with the current deploy. By default, this will return true for builds from a tagged commit where the tag is a <a href="https://github.com/npm/node-semver" class="docs-md__a">semver non-prerelease version</a>, and false otherwise. You can explicitly set the <code>ADDON_DOCS_UPDATE_LATEST</code> environment variable to <code>true</code> or <code>false</code> to override this behavior.</p>
+
+      <h3 id="getrooturl-" class="docs-md__h3"><a href="#getrooturl-" class="heading-anchor"><code>getRootURL()</code></a></h3>
+    <p>This method determines the static path under which all deploys of your docs app expect to live. It defaults to the name of your project, which matches the typical GitHub Pages setup where your site lives at <u>https://<strong>[user]</strong>.github.io/<strong>[project]</strong>/...</u>.</p>
+<p>If instead, however, you want to <a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/" class="docs-md__a">set up a CNAME for your project</a> and host it at e.g. <u><a href="https://my-great-project.com" class="docs-md__a">https://my-great-project.com</a></u>, you would override this method to return <code>''</code>, since there would be no static path at the beginning of the URL.</p>
+<p><strong>Note</strong>: if you change this configuration after you've already deployed copies of your docs site, you'll need to check out your <code>gh-pages</code> branch and find/replace your previous root URL in those copies in order for them to continue to function in their new location.</p>
+
+      <h3 id="getprimarybranch-" class="docs-md__h3"><a href="#getprimarybranch-" class="heading-anchor"><code>getPrimaryBranch()</code></a></h3>
+    <p>This method determines what AddonDocs considers to be your primary branch, which is where links such as "edit this page" will point. By default, this branch is <code>main</code>, but you can override this method to choose a different branch instead, e.g. <code>develop</code>.</p>
+
+      <h2 id="removing-a-deployed-version" class="docs-md__h2"><a href="#removing-a-deployed-version" class="heading-anchor">Removing a deployed version</a></h2>
+    <p>Deploying a version of your documentation does two things: it copies the <code>dist</code> directory of your built docs app into a particular place on your <code>gh-pages</code> branch, and it adds or updates an entry in the <code>versions.json</code> manifest in the root of that branch. To remove a version, then, you just need to undo those two things.</p>
+<p>First, you can run <code>git checkout gh-pages</code> to switch to your deploy branch. You may see a message indicating that that branch has already been checked out somewhere else by <code>git worktree</code>—if that's the case, you can just <code>cd</code> to that directory instead.</p>
+<p>Next, remove the item from <code>versions.json</code> for the version you want to get rid of, and delete the corresponding directory. For example, if you ran a deploy on a branch called <code>deploy-test</code> and wanted to remove the results of that after you finished testing it out, you could <code>git rm -r versions/deploy-test</code> to remove the deployed app, and then find the <code>deploy-test</code> key in <code>versions.json</code> and remove it:</p>
+<pre class="docs-md__code"><code class="language-js">{
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-string">"deploy-test"</span>: {
+    <span class="hljs-string">"sha"</span>: <span class="hljs-string">"caad536c48dd3562629a4f7a467c976f0ec6bb2b"</span>,
+    <span class="hljs-string">"tag"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-string">"path"</span>: <span class="hljs-string">"versions/deploy-test"</span>,
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"deploy-test"</span>
+  },
+  <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>Keep in mind, your deployed site is still a git branch like everything else in your repo, so you have all the same tools at your disposal for making changes to it. In many case, rather than going through the manual steps outlined above, you may be able to just find the commit that added the version you want to remove and <code>git revert</code> it.</p>
+
+      <h2 id="disabling-the-default-deployment-plugins" class="docs-md__h2"><a href="#disabling-the-default-deployment-plugins" class="heading-anchor">Disabling the default deployment plugins</a></h2>
+    <p>If you wish to disable ember-cli-addon-docs' built-in deployment plugins altogether and instead define your own pipeline, you can do so by <a href="http://ember-cli-deploy.com/docs/v1.0.x/configuration/#disabling-plugins" class="docs-md__a">editing your pipeline configuration</a>. In your <code>config/deploy.js</code> file:</p>
+<pre class="docs-md__code"><code class="language-js"><span class="hljs-comment">// ...</span>
+<span class="hljs-variable constant_">ENV</span>.<span class="hljs-property">pipeline</span> = {
+  <span class="hljs-attr">disabled</span>: {
+    <span class="hljs-string">"ember-cli-addon-docs"</span>: <span class="hljs-literal">true</span>,
+  },
+};
+<span class="hljs-comment">// ...</span>
+</code></pre>
+</div>
+  
+
+      <div class="docs-mt-16 docs-mb-8" data-test-edit-page-link>
+        <a href="https://github.com/ember-learn/ember-cli-addon-docs/edit/main/tests/dummy/app/templates/docs/deploying.md" class="docs-transition docs-text-grey-darkest docs-opacity-50 docs-text-xs hover:docs-opacity-75 docs-no-underline docs-border-b docs-border-grey hover:docs-border-grey-darkest">
+          Edit this page
+        </a>
+      </div>
+  </div>
+
+  <div class="docs-mt-16 docs-pb-16 docs-border-t docs-border-grey-lighter docs-pt-4 docs-flex">
+    <div class="docs-w-1/2">
+<!---->    </div>
+
+    <div class="docs-w-1/2 docs-text-right" data-test-next-link>
+<!---->    </div>
+  </div>
+</main>
+
+
+
+    <nav class="AddonDocs-DocsViewer-CurrentPageIndex docs-hidden xl:docs-block docs-flex-no-shrink docs-mr-auto" data-test-current-page-index>
+  <div class="docs-sticky docs-top-0 docs-pt-4 docs-pb-8 docs-pr-8 docs-max-h-screen docs-overflow-y-scroll">
+    <ul class="docs-border-l docs-border-grey-lighter docs-pl-6 docs-leading-normal">
+<!---->
+<!---->    </ul>
+  </div>
+</nav>
+
+  </div>
+</div>
+
+
+<!---->
+<script type="x/boundary" id="fastboot-body-end"></script>
+
+    <script src="/ember-cli-addon-docs/versions/main/assets/vendor-14c2fb5d23be636d9e58e170d70b1539.js"></script>
+<script src="/ember-cli-addon-docs/versions/main/assets/chunk.698.ca323bc956b820f7a99a.js"></script>
+<script src="/ember-cli-addon-docs/versions/main/assets/chunk.524.f3f49faceb29caf4e287.js"></script>
+    <script src="/ember-cli-addon-docs/versions/main/assets/dummy-11bb61e57bf032295374f06e3da24717.js"></script>
+
+    
+  </body>
+</html>
