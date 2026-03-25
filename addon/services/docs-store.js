@@ -61,8 +61,18 @@ export default class DocsStoreService extends Service {
       // In FastBoot, use Node's http module to fetch from the local server
       // that prember/fastboot is running
       let http = FastBoot.require('http');
-      let { host } = fastboot.request;
-      let url = `http://${host}/docs/${id}.json`;
+      let request = fastboot.request;
+      // Derive host and protocol from the FastBoot/Node request in a standards-based way
+      let host =
+        (request && request.headers && (request.headers.host || request.headers.Host)) ||
+        request.host;
+      let protocol =
+        (request && request.protocol) ||
+        (request &&
+          request.headers &&
+          (request.headers['x-forwarded-proto'] || request.headers['X-Forwarded-Proto'])) ||
+        'http';
+      let url = `${protocol}://${host}/docs/${id}.json`;
 
       let data = await new Promise((resolve, reject) => {
         http
