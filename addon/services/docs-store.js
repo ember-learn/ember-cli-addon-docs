@@ -64,13 +64,16 @@ export default class DocsStoreService extends Service {
       let request = fastboot.request;
       // Derive host and protocol from the FastBoot/Node request in a standards-based way
       let host =
-        (request && request.headers && (request.headers.host || request.headers.Host)) ||
+        (request &&
+          request.headers &&
+          (request.headers.host || request.headers.Host)) ||
         request.host;
       let protocol =
         (request && request.protocol) ||
         (request &&
           request.headers &&
-          (request.headers['x-forwarded-proto'] || request.headers['X-Forwarded-Proto'])) ||
+          (request.headers['x-forwarded-proto'] ||
+            request.headers['X-Forwarded-Proto'])) ||
         'http';
       let url = `${protocol}://${host}/docs/${id}.json`;
 
