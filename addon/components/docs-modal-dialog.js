@@ -7,6 +7,10 @@ export default class DocsModalDialog extends ModalDialog {
     super.init(...arguments);
 
     const config = getOwner(this).resolveRegistration('config:environment');
-    this.set('renderInPlace', config.environment === 'test');
+    let fastboot = getOwner(this).lookup('service:fastboot');
+    this.set(
+      'renderInPlace',
+      config.environment === 'test' || fastboot?.isFastBoot,
+    );
   }
 }

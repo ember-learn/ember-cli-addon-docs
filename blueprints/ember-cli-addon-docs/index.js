@@ -19,34 +19,13 @@ module.exports = {
         'ember-cli-deploy-build',
         'ember-cli-deploy-git',
         'ember-cli-deploy-git-ci',
+        'ember-cli-fastboot',
+        'prember',
       ],
     });
   },
 
-  afterInstall(options) {
-    let configPath = require.resolve(this.project.configPath());
-    let configContents = fs.readFileSync(configPath, 'utf-8');
-
-    if (configContents.indexOf('ADDON_DOCS_ROOT_URL') === -1) {
-      configContents = configContents.replace(
-        /([ \t]+)if \(environment === 'production'\) {/,
-        [
-          '$&',
-          '$1  // Allow ember-cli-addon-docs to update the rootURL in compiled assets',
-          "$1  ENV.rootURL = '/ADDON_DOCS_ROOT_URL/';",
-        ].join('\n'),
-      );
-
-      if (configContents.indexOf('ADDON_DOCS_ROOT_URL') === -1) {
-        this.ui.writeWarnLine(
-          `Unable to update rootURL configuration. You should update ${configPath} so that your rootURL is ` +
-            `the string '/ADDON_DOCS_ROOT_URL/' in production.`,
-        );
-      }
-    }
-
-    fs.writeFileSync(configPath, configContents, 'utf-8');
-
+  afterInstall() {
     if (fs.existsSync('.npmignore')) {
       this.insertIntoFile('.npmignore', '/config/addon-docs.js');
     }

@@ -1,4 +1,6 @@
+/* global FastBoot */
 import Service from '@ember/service';
+import { getOwner } from '@ember/application';
 import { tracked } from '@glimmer/tracking';
 import { getRootURL } from 'ember-cli-addon-docs/-private/config';
 
@@ -52,11 +54,35 @@ export default class DocsStoreService extends Service {
   }
 
   async _fetchProject(id) {
-    let namespace = `${getRootURL(this).replace(/\/$/, '')}/docs`;
-    let url = `${namespace}/${id}.json`;
+    let payload;
 
-    let response = await fetch(url);
-    let payload = await response.json();
+    let fastboot = getOwner(this).lookup('service:fastboot');
+    if (fastboot?.isFastBoot) {
+      // In FastBoot, read the docs JSON directly from the dist directory
+      // using FastBoot.distPath. This works during both prember builds and
+      // ember serve with fastboot, without needing an HTTP request.
+      let fs = FastBoot.require('fs');
+      let path = FastBoot.require('path');
+      let filePath = path.join(FastBoot.distPath, 'docs', `${id}.json`);
+      payload = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    } else {
+      let namespace = `${getRootURL(this).replace(/\/$/, '')}/docs`;
+      let url = `${namespace}/${id}.json`;
+      let response;
+      try {
+        response = await fetch(url);
+      } catch (e) {
+        throw new Error(
+          `Network error while fetching ${url}: ${e && e.message}`,
+        );
+      }
+      if (!response.ok) {
+        throw new Error(
+          `Request to ${url} failed with status ${response.status}`,
+        );
+      }
+      payload = await response.json();
+    }
 
     this._loadPayload(payload);
 
@@ -67,7 +93,11 @@ export default class DocsStoreService extends Service {
     let allRecords = [];
 
     // Collect data (can be single or array)
-    let dataItems = Array.isArray(payload.data) ? payload.data : [payload.data];
+    let dataItems = Array.isArray(payload.data)
+      ? payload.data
+      : payload.data
+        ? [payload.data]
+        : [];
     allRecords.push(...dataItems);
 
     // Collect included

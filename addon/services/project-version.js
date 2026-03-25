@@ -1,4 +1,5 @@
 import Service from '@ember/service';
+import { getOwner } from '@ember/application';
 import { task } from 'ember-concurrency';
 import { tracked } from '@glimmer/tracking';
 import {
@@ -12,6 +13,18 @@ export default class ProjectVersionService extends Service {
   @addonDocsConfig config;
 
   _loadAvailableVersions = task(async () => {
+    let fastboot = getOwner(this).lookup('service:fastboot');
+    if (fastboot?.isFastBoot) {
+      this.versions = [
+        {
+          ...this.currentVersion,
+          truncatedSha: this.currentVersion.sha?.substr(0, 5) || '',
+          key: this.config.latestVersionName,
+        },
+      ];
+      return;
+    }
+
     let response = await fetch(`${this.root}versions.json`);
     let json;
     if (response.ok) {
@@ -32,6 +45,7 @@ export default class ProjectVersionService extends Service {
   });
 
   redirectTo(version) {
+    if (typeof window === 'undefined') return;
     window.location.href = `${this.root}${version.path}`;
   }
 

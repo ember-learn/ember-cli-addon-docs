@@ -46,8 +46,9 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    // Allow ember-cli-addon-docs to update the rootURL in compiled assets
-    ENV.rootURL = 'ADDON_DOCS_ROOT_URL';
+    // rootURL stays as '/' during the build so prember/FastBoot can
+    // serve static files correctly. The ember-cli-addon-docs deploy
+    // plugin rewrites it to the versioned path at deploy time.
   }
 
   return ENV;

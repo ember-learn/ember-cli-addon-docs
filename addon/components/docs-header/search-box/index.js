@@ -22,6 +22,8 @@ export default class DocsHeaderSearchBox extends Component {
 
   @action
   focusSearch() {
+    if (typeof document === 'undefined') return;
+
     if (!formElementHasFocus()) {
       this.element.querySelector('input').focus();
     }

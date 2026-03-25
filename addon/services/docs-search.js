@@ -1,4 +1,5 @@
 import Service from '@ember/service';
+import { getOwner } from '@ember/application';
 import lunr from 'lunr';
 import { task } from 'ember-concurrency';
 import {
@@ -12,6 +13,7 @@ export default class DocsSearch extends Service {
   async search(phrase) {
     const { searchTokenSeparator } = getAddonDocsConfig(this);
     let { index, documents } = await this.loadSearchIndex();
+    if (!index) return [];
     let words = phrase.toLowerCase().split(new RegExp(searchTokenSeparator));
     let results = index.query((query) => {
       // In the future we could boost results based on the field they come from
@@ -91,6 +93,12 @@ export default class DocsSearch extends Service {
 
   _loadSearchIndex = task({ enqueue: true }, async () => {
     if (!this._searchIndex) {
+      let fastboot = getOwner(this).lookup('service:fastboot');
+      if (fastboot?.isFastBoot) {
+        this._searchIndex = { index: null, documents: {} };
+        return this._searchIndex;
+      }
+
       let response = await fetch(this._indexURL);
       let json = await response.json();
 
