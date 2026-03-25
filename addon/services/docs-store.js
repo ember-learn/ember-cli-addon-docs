@@ -134,7 +134,11 @@ export default class DocsStoreService extends Service {
     let allRecords = [];
 
     // Collect data (can be single or array)
-    let dataItems = Array.isArray(payload.data) ? payload.data : [payload.data];
+    let dataItems = Array.isArray(payload.data)
+      ? payload.data
+      : payload.data
+        ? [payload.data]
+        : [];
     allRecords.push(...dataItems);
 
     // Collect included
