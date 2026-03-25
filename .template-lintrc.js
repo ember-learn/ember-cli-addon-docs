@@ -5,6 +5,8 @@ module.exports = {
   rules: {
     // TODO: fix these and enable octane
     'no-action': false,
+    'no-at-ember-render-modifiers': false,
+    'no-builtin-form-components': false,
     'no-curly-component-invocation': false,
     'no-implicit-this': false,
     'no-inline-styles': false,

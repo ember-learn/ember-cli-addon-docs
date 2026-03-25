@@ -1,4 +1,3 @@
-/* eslint-env node */
 const path = require('path');
 const fs = require('fs');
 const chalk = require('chalk');
@@ -11,6 +10,7 @@ const DUMMY_APP_PATH = path.join('tests', 'dummy', 'app');
 function dedasherize(str) {
   let dedasherized = str.replace(/-/g, ' ');
 
+  // eslint-disable-next-line ember/no-string-prototype-extensions
   return stringUtil.capitalize(dedasherized);
 }
 

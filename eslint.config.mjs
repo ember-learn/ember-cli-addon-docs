@@ -43,7 +43,14 @@ export default [
    * https://eslint.org/docs/latest/use/configure/ignore
    */
   {
-    ignores: ['dist/', 'node_modules/', 'coverage/', 'test-apps/', '!**/.*'],
+    ignores: [
+      'dist/',
+      'node_modules/',
+      'coverage/',
+      'test-apps/',
+      'tmp/',
+      '!**/.*',
+    ],
   },
   /**
    * https://eslint.org/docs/latest/use/configure/configuration-files#configuring-linter-options
@@ -65,7 +72,24 @@ export default [
       parserOptions: esmParserOptions,
       globals: {
         ...globals.browser,
+        server: true,
       },
+    },
+    rules: {
+      'no-unused-vars': ['error', { args: 'none' }],
+      'no-console': ['error', { allow: ['warn', 'error'] }],
+      'ember/no-incorrect-calls-with-inline-anonymous-functions': 'off',
+      'ember/require-return-from-computed': 'off',
+      'ember/no-jquery': 'error',
+
+      // TODO: enable these rules
+      'ember/classic-decorator-no-classic-methods': 'off',
+      'ember/no-classic-classes': 'off',
+      'ember/no-classic-components': 'off',
+      'ember/no-component-lifecycle-hooks': 'off',
+      'ember/no-computed-properties-in-native-classes': 'off',
+      'ember/no-private-routing-service': 'off',
+      'ember/no-runloop': 'off',
     },
   },
   {
@@ -80,13 +104,19 @@ export default [
   {
     files: [
       '**/*.cjs',
+      'blueprints/*/index.js',
       'config/**/*.js',
+      'lib/**/*.js',
+      'sandbox/index.js',
+      'tests/dummy/config/**/*.js',
       'testem.js',
       'testem*.js',
       '.prettierrc.js',
       '.stylelintrc.js',
       '.template-lintrc.js',
+      '**/addon-docs.js',
       'ember-cli-build.js',
+      'index.js',
     ],
     plugins: {
       n,
@@ -97,6 +127,24 @@ export default [
       ecmaVersion: 'latest',
       globals: {
         ...globals.node,
+      },
+    },
+  },
+  /**
+   * Node test files (mocha)
+   */
+  {
+    files: ['tests-node/**/*.js'],
+    plugins: {
+      n,
+    },
+
+    languageOptions: {
+      sourceType: 'script',
+      ecmaVersion: 'latest',
+      globals: {
+        ...globals.node,
+        ...globals.mocha,
       },
     },
   },

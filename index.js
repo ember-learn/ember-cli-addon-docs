@@ -5,8 +5,8 @@ const path = require('path');
 const UnwatchedDir = require('broccoli-source').UnwatchedDir;
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
-const EmberApp = require('ember-cli/lib/broccoli/ember-app'); // eslint-disable-line n/no-unpublished-require
-const Plugin = require('broccoli-plugin');
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const BroccoliPlugin = require('broccoli-plugin');
 const walkSync = require('walk-sync');
 
 const LATEST_VERSION_NAME = '-latest';
@@ -463,7 +463,7 @@ function generateDefaultProject(parentAddon, addonSrcFolder) {
   return new MergeTrees(includeFunnels);
 }
 
-class FindDummyAppFiles extends Plugin {
+class FindDummyAppFiles extends BroccoliPlugin {
   build() {
     let addonPath = this.inputPaths[0];
     let paths = walkSync(addonPath, { directories: false });
@@ -476,7 +476,7 @@ class FindDummyAppFiles extends Plugin {
   }
 }
 
-class FindAddonFiles extends Plugin {
+class FindAddonFiles extends BroccoliPlugin {
   build() {
     let addonPath = this.inputPaths[0];
     let paths = addonPath ? walkSync(addonPath, { directories: false }) : [];
