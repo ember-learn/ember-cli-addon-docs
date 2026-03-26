@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
 import { action } from '@ember/object';
 import { A } from '@ember/array';
-import { cached } from '@glimmer/tracking';
+import { cached } from 'tracked-toolbox';
 import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
 export default class VersionSelector extends Component {
