@@ -1,5 +1,5 @@
 import { getOwner } from '@ember/application';
-import { cached } from 'tracked-toolbox';
+import { cached } from '@glimmer/tracking';
 
 /**
  * Function to get the currently configured rootURL from the containers.

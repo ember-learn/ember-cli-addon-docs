@@ -1,8 +1,7 @@
 import { A } from '@ember/array';
 import Service, { inject as service } from '@ember/service';
 import { assert } from '@ember/debug';
-import { tracked } from '@glimmer/tracking';
-import { cached } from 'tracked-toolbox';
+import { cached, tracked } from '@glimmer/tracking';
 
 export default class DocsRoutesService extends Service {
   @service('-routing') router;

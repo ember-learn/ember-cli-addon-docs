@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { cached } from 'tracked-toolbox';
+import { cached } from '@glimmer/tracking';
 import { bool } from '@ember/object/computed';
 
 export default class DocsHeaderSearchResult extends Component {
