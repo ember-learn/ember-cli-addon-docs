@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { assert } from '@ember/debug';
 
 export default class DocsApiRoute extends Route {

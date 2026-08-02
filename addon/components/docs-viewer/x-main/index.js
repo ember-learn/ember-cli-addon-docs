@@ -1,5 +1,5 @@
 import { action } from '@ember/object';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { bind } from '@ember/runloop';
 import appFiles from 'ember-cli-addon-docs/app-files';

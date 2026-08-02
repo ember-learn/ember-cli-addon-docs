@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { task } from 'ember-concurrency';
 import { action } from '@ember/object';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { formElementHasFocus } from 'ember-cli-addon-docs/keyboard-config';
 import { addonDocsConfig } from 'ember-cli-addon-docs/-private/config';
 
