@@ -1,23 +1,26 @@
 {{#if this.isShowingKeyboardShortcuts}}
-  <DocsModalDialog
-    @animatable={{true}}
-    @overlay={{true}}
-    @wrapperClass="docs-fullscreen-modal docs-keyboard-shortcuts-modal modal-fade"
-    @clickOutsideToClose={{true}}
-    @onClose={{this.toggleKeyboardShortcuts}}
+  <dialog
+    class="docs-fullscreen-modal docs-keyboard-shortcuts-modal"
+    aria-labelledby="docs-keyboard-shortcuts-title"
+    closedby="any"
+    tabindex="-1"
+    data-test-docs-keyboard-shortcuts-dialog
+    {{docs-dialog onClose=this.hideKeyboardShortcuts}}
     ...attributes
   >
     <div class="docs-fullscreen-modal__header">
-      <h2 class="docs-fullscreen-modal__title">
+      <h2 class="docs-fullscreen-modal__title" id="docs-keyboard-shortcuts-title">
         Keyboard shortcuts
       </h2>
-      <a
-        href="#"
+      <button
+        type="button"
         class="docs-fullscreen-modal__close-button"
-        {{on "click" this.toggleKeyboardShortcuts}}
+        aria-label="Close"
+        data-test-docs-keyboard-shortcuts-close
+        {{on "click" this.hideKeyboardShortcuts}}
       >
         &times;
-      </a>
+      </button>
     </div>
 
     <div class="docs-fullscreen-modal__body">
@@ -184,5 +187,5 @@
         </tbody>
       </table>
     </div>
-  </DocsModalDialog>
+  </dialog>
 {{/if}}

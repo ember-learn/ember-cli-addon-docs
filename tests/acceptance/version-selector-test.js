@@ -4,7 +4,10 @@ import {
   setupMockVersions,
   mockVersionsEndpoint,
 } from '../helpers/mock-versions';
-import { visit, click } from '@ember/test-helpers';
+import { visit, click, triggerEvent } from '@ember/test-helpers';
+
+const TRIGGER = '[data-test-id="current-version"]';
+const LIST = '[data-test-docs-version-selector]';
 
 let config;
 
@@ -149,6 +152,88 @@ module('Acceptance | Version selector test', function (hooks) {
     assert
       .dom('[data-test-id="version"]:nth-child(2)')
       .includesText('main', 'main is rendered on second open');
+  });
+
+  module('popover behaviour', function (hooks) {
+    hooks.beforeEach(async function () {
+      await visit('/');
+      await click(TRIGGER);
+    });
+
+    test('it opens in the top layer, right-aligned below the trigger', async function (assert) {
+      let list = document.querySelector(LIST);
+      assert.ok(list.matches(':popover-open'), 'the list is an open popover');
+
+      let listRect = list.getBoundingClientRect();
+      let triggerRect = document.querySelector(TRIGGER).getBoundingClientRect();
+
+      assert.closeTo(
+        listRect.right,
+        triggerRect.right,
+        1,
+        'right edges line up',
+      );
+      assert.closeTo(
+        listRect.top,
+        triggerRect.bottom + 8,
+        1,
+        'the list sits 0.5rem below the trigger',
+      );
+    });
+
+    test('clicking the trigger again closes it', async function (assert) {
+      await click(TRIGGER);
+      assert.dom(LIST).doesNotExist();
+    });
+
+    test('clicking outside closes it', async function (assert) {
+      await triggerEvent(document.body, 'pointerdown');
+      assert.dom(LIST).doesNotExist();
+    });
+
+    test('clicking inside keeps it open', async function (assert) {
+      await triggerEvent(`${LIST} li:nth-child(2) a`, 'pointerdown');
+      assert.dom(LIST).exists();
+    });
+
+    test('Escape closes it', async function (assert) {
+      await triggerEvent(document.body, 'keydown', {
+        key: 'Escape',
+        code: 'Escape',
+      });
+      assert.dom(LIST).doesNotExist();
+    });
+  });
+
+  test('a long list of versions scrolls instead of running off the viewport', async function (assert) {
+    let versions = {};
+    for (let i = 0; i < 60; i++) {
+      let name = `v0.${String(99 - i).padStart(2, '0')}.0`;
+      versions[name] = {
+        sha: String(i).padStart(40, '0'),
+        tag: name,
+        path: name,
+        name,
+      };
+    }
+    mockVersionsEndpoint(this.server, versions);
+
+    await visit('/');
+    await click(TRIGGER);
+
+    let list = document.querySelector(LIST);
+    let rect = list.getBoundingClientRect();
+
+    assert.dom('[data-test-id="version"]').exists({ count: 60 });
+    assert.ok(
+      rect.bottom <= window.innerHeight,
+      `the list ends inside the viewport (${rect.bottom} <= ${window.innerHeight})`,
+    );
+    let scroller = list.querySelector('ul');
+    assert.ok(
+      scroller.scrollHeight > scroller.clientHeight,
+      'the list scrolls internally',
+    );
   });
 
   module('with a custom primary branch configured', function (hooks) {

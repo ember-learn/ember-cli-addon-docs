@@ -23,7 +23,7 @@
 
       <DocsHeader::SearchBox @query={{this.query}} @onInput={{set this "query"}} />
 
-      <DocsHeader::Link @onClick={{toggle "isShowingVersionSelector" this}}>
+      <DocsHeader::Link @onClick={{toggle "isShowingVersionSelector" this}} data-docs-version-selector-trigger>
         <span data-test-id="current-version" data-version-selector class="docs-flex docs-items-center">
 
           {{#if (eq this.currentVersion.key this.config.latestVersionName)}}

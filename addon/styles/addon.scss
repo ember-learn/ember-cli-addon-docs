@@ -14,9 +14,9 @@
 @include meta.load-css('components/docs-header-search-box');
 @include meta.load-css('components/docs-hero');
 @include meta.load-css('components/docs-keyboard-shortcuts');
+@include meta.load-css('components/docs-popover');
 @include meta.load-css('components/docs-viewer-x-current-page-index');
 @include meta.load-css('components/docs-viewer-x-nav');
-@include meta.load-css('components/modal-dialog');
 
 @include meta.load-css('syntax');
 

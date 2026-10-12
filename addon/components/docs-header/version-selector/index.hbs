@@ -1,14 +1,16 @@
-<DocsModalDialog
-  @tetherTarget="[data-version-selector]"
-  @attachment="top right"
-  @clickOutsideToClose={{true}}
-  @onClose={{@onClose}}
-  @targetAttachment="bottom right"
+<div
+  popover="manual"
+  class="docs-popover docs-version-selector"
+  data-test-docs-version-selector
+  {{docs-popover
+    anchor="[data-version-selector]"
+    trigger="[data-docs-version-selector-trigger]"
+    placement="bottom-end"
+    onClose=@onClose
+  }}
   ...attributes
 >
-  <ul
-    class="docs-mt-2 docs-bg-white docs-shadow-md docs-text-xs docs-rounded docs-z-10"
-  >
+  <ul class="docs-bg-white docs-shadow-md docs-text-xs docs-rounded">
     {{#each this.sortedVersions as |version index|}}
       <li data-test-id="version">
         <a
@@ -69,4 +71,4 @@
       </li>
     {{/each}}
   </ul>
-</DocsModalDialog>
+</div>

@@ -1,0 +1,62 @@
+// Anchored, non-modal popovers (search results, version selector).
+//
+// The popover element is a plain wrapper: it uses the Popover API to render in
+// the top layer (so it is never clipped by the header's overflow) and CSS
+// anchor positioning to sit next to its anchor. Its single child carries the
+// visual styling (background, shadow, rounding) and scrolls when the popover
+// is taller than the space below the anchor. See `addon/-private/popover.js`
+// for the JS side, including the fallback for browsers without anchor
+// positioning.
+.docs-popover {
+  // Undo the UA stylesheet for [popover] so the wrapper is invisible and can
+  // be aligned to its anchor. Overflow stays visible so the child's shadow is
+  // not clipped; the child scrolls instead (see below).
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+
+  > * {
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  // Never extend past the bottom of the viewport; scroll instead. The
+  // containing block of an anchored popover is the position-area box, so
+  // 100% here is the space between the anchor and the viewport edge.
+  max-height: calc(100% - 0.5rem);
+
+  // Align the popover's start/end edge with the anchor's. When that would
+  // overflow the viewport, first slide it so it hugs the viewport edge (what
+  // ember-tether's "pin" constraint used to do), then flip to the other side.
+  &[data-docs-placement="bottom-start"] {
+    position-area: bottom span-right;
+    position-try-fallbacks: --docs-popover-pin-end, flip-inline;
+  }
+
+  &[data-docs-placement="bottom-end"] {
+    position-area: bottom span-left;
+    position-try-fallbacks: --docs-popover-pin-start, flip-inline;
+  }
+}
+
+@position-try --docs-popover-pin-end {
+  position-area: bottom span-all;
+  inset-inline: auto 0;
+}
+
+@position-try --docs-popover-pin-start {
+  position-area: bottom span-all;
+  inset-inline: 0 auto;
+}
+
+.docs-version-selector {
+  margin-top: 0.5rem;
+  max-height: calc(100% - 1rem);
+}

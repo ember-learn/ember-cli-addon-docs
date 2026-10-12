@@ -3,4 +3,3 @@ packages:
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
-  - ember-modal-dialog

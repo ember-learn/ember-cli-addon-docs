@@ -54,9 +54,14 @@ export default class DocsKeyboardShortcutsComponent extends Component {
     }
   }
 
+  // The native <dialog> already closes itself on Escape (and fires `close`,
+  // which the {{docs-dialog}} modifier routes here). Keeping the key binding
+  // makes the behaviour explicit and lets it be exercised with synthetic key
+  // events in tests.
   @onKey('Escape', { event: 'keyup' })
+  @action
   hideKeyboardShortcuts() {
-    if (!formElementHasFocus() && this.isShowingKeyboardShortcuts) {
+    if (this.isShowingKeyboardShortcuts) {
       this.isShowingKeyboardShortcuts = false;
     }
   }
