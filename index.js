@@ -169,6 +169,8 @@ module.exports = {
       snippetExtensions = [
         'ts',
         'js',
+        'gts',
+        'gjs',
         'css',
         'scss',
         'hbs',
@@ -277,7 +279,17 @@ module.exports = {
     }
 
     let ContentExtractor = require('./lib/preprocessors/hbs-content-extractor');
-    let appTree = this._treeFor('app');
+    // gjs/gts templates are not part of the addon's app tree (they are built by
+    // the host app), so they are fed to the extractor separately for indexing.
+    // The search indexer expects them below the module prefix, like hbs files.
+    let templateTagTree = new Funnel(this.app.trees.app, {
+      destDir: this.project.config(EmberApp.env()).modulePrefix,
+      include: ['**/*.gjs', '**/*.gts'],
+      annotation: 'app gjs/gts templates',
+    });
+    let appTree = new MergeTrees([this._treeFor('app'), templateTagTree], {
+      annotation: 'app templates for content extraction',
+    });
     const contentExtractor = new ContentExtractor(this.getBroccoliBridge());
     contentExtractor.toTree(appTree);
 

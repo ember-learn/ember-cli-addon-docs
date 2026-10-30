@@ -96,7 +96,7 @@ export default class XMain extends Component {
       }
     } else {
       let file = appFiles
-        .filter((file) => file.match(/\.(hbs|md)$/))
+        .filter((file) => file.match(/\.(hbs|md|gjs|gts)$/))
         .find((file) => file.match(path));
       if (file) {
         return { file, inTree: 'app' };

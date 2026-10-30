@@ -33,7 +33,7 @@ Override the default file extensions where [ember-code-snippet](https://github.c
 
 ### Default:
 
-`['js','ts','coffee','html','hbs','md','css','sass','scss','less','emblem','yaml']`
+`['ts','js','gts','gjs','css','scss','hbs','md','text','json','handlebars','htmlbars','html','diff']`
 
 ### How to use it
 
@@ -45,7 +45,7 @@ Override the default file extensions where [ember-code-snippet](https://github.c
     let app = new EmberAddon(defaults, {
       // More config options of your app here
 
-      snippetExtensions: ['js','ts','coffee','html','hbs','md','css','sass','scss','less','emblem','yaml'],
+      snippetExtensions: ['ts','js','gts','gjs','css','scss','hbs','md','text','json','handlebars','htmlbars','html','diff'],
 
       // More config options of your app here
     });

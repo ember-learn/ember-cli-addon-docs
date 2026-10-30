@@ -28,6 +28,10 @@ module.exports = function (defaults) {
       },
     },
 
+    'ember-cli-babel': {
+      enableTypeScriptTransform: true,
+    },
+
     'ember-cli-addon-docs': {
       projects: {
         sandbox: new MergeTrees([

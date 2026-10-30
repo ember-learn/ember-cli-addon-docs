@@ -13,6 +13,33 @@ module('Unit | Utility | compile-markdown', function (hooks) {
     );
   });
 
+  test('should be able to highlight typescript', function (assert) {
+    let result = highlightCode(`let foo: string = 'bar';`, 'ts');
+    assert.true(result.includes('<span class="hljs-built_in">string</span>'));
+  });
+
+  test('should be able to highlight gjs and gts templates', function (assert) {
+    for (let language of ['gjs', 'gts']) {
+      let result = highlightCode(
+        `class Foo {\n  <template>\n    <b>{{@name}}</b>\n  </template>\n}`,
+        language,
+      );
+
+      assert.true(
+        result.includes('<span class="hljs-tag">&lt;template&gt;</span>'),
+        `${language}: highlights the template tag`,
+      );
+      assert.true(
+        result.includes('<span class="language-handlebars">'),
+        `${language}: highlights the template contents as handlebars`,
+      );
+      assert.true(
+        result.includes('<span class="hljs-template-variable">'),
+        `${language}: highlights handlebars expressions`,
+      );
+    }
+  });
+
   test('should render a table', function (assert) {
     let result = compileMarkdown(
       `

@@ -76,6 +76,18 @@ export default class DocsDemo extends Component {
         label = 'controller.js';
         language = 'javascript';
         break;
+      case 'ts':
+        label = 'controller.ts';
+        language = 'typescript';
+        break;
+      case 'gjs':
+        label = 'component.gjs';
+        language = 'gjs';
+        break;
+      case 'gts':
+        label = 'component.gts';
+        language = 'gts';
+        break;
       case 'css':
         label = 'styles.css';
         language = 'css';

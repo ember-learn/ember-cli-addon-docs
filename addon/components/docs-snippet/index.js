@@ -1,6 +1,16 @@
 import Component from '@glimmer/component';
 import { localCopy } from 'tracked-toolbox';
 
+const LANGUAGES_BY_EXTENSION = {
+  js: 'javascript',
+  ts: 'typescript',
+  gjs: 'gjs',
+  gts: 'gts',
+  hbs: 'handlebars',
+  css: 'css',
+  json: 'json',
+};
+
 /**
   A snippet component for demonstrating some code
 
@@ -21,11 +31,20 @@ export default class DocsSnippet extends Component {
   */
 
   /**
-    The language of the snippet
+    The language of the snippet. Inferred from the extension of the snippet
+    name (e.g. `.ts`, `.gjs`, `.gts`) when not provided.
 
     @argument language
     @type String?
   */
+  get language() {
+    if (this.args.language) {
+      return this.args.language;
+    }
+
+    let extension = this.args.name?.split('.').pop();
+    return LANGUAGES_BY_EXTENSION[extension];
+  }
 
   /**
     The title of the snippet

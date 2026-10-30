@@ -70,6 +70,24 @@ Use a file extension to help `<DocsSnippet/>` identify and properly syntax highl
   <demo.snippet @name="docs-demo-multiple.js" @label="component.js"/>
 </DocsDemo>
 
+## TypeScript and Glimmer templates
+
+Snippets are not limited to `.hbs` and `.js` files. Snippets can be extracted from `.ts`, `.gjs` and `.gts` files too, and are syntax highlighted accordingly (including the `<template>` tags in `.gjs` and `.gts` files). The default label and language of a snippet is derived from its extension.
+
+Mark up the source you want to show in your `.gts` file, then render the live component next to its source:
+
+<DocsDemo as |demo|>
+  <demo.example @name="docs-demo-gts.hbs">
+    <DemoCounter @initial={{5}} />
+    <DemoGreeting @name="gjs" />
+  </demo.example>
+
+  <demo.snippet @name="docs-demo-counter.gts"/>
+  <demo.snippet @name="docs-demo-greeting.gjs"/>
+</DocsDemo>
+
+You can also write the whole demo inside a `.gjs` or `.gts` file. Import the components you need from `ember-cli-addon-docs/components/*`, and use `<demo.example>` and `<demo.snippet>` as usual.
+
 ## Custom Snippet Handling
 
 If you wish to override the inferred label or syntax highlighting for a snippet, you can specify `label` and `language` properties.

@@ -1,6 +1,5 @@
 'use strict';
 
-const getChannelURL = require('ember-source-channel-url');
 const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
 
 module.exports = async function () {
@@ -46,29 +45,16 @@ module.exports = async function () {
         },
       },
       {
-        name: 'ember-release',
+        name: 'ember-lts-6.12',
         npm: {
           devDependencies: {
-            'ember-source': await getChannelURL('release'),
+            'ember-source': '~6.12.0',
           },
         },
       },
-      {
-        name: 'ember-beta',
-        npm: {
-          devDependencies: {
-            'ember-source': await getChannelURL('beta'),
-          },
-        },
-      },
-      {
-        name: 'ember-canary',
-        npm: {
-          devDependencies: {
-            'ember-source': await getChannelURL('canary'),
-          },
-        },
-      },
+      // The release, beta and canary channels are ember-source 7+, which is a v2
+      // addon that can only be built with Vite/Embroider. The classic ember-cli
+      // build used by this addon can't run them, so they are not tested here.
       embroiderSafe(),
       embroiderOptimized(),
     ],
